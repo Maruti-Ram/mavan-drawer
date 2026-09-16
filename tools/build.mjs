@@ -22,6 +22,8 @@ function buildMaster(canvas) {
     const paths = els.filter((m) => !/\bfill="currentColor"/.test(m[1])).map((m) => m[2]);
     const mark = /<!--\s*keyline:\s*mark\s*-->/.test(src);
     // Search words kept beside the name: <!-- tags: long sweep --> on check-2.
+    // Declared optical shift (C14): how far the ink sits off the box centre on purpose.
+    const shift = (src.match(/<!--\s*optical:\s*([-\d.]+)\s+([-\d.]+)\s*-->/)?.slice(1) ?? [0, 0]).map(Number);
     const tags = src.match(/<!--\s*tags:\s*([^>]*?)\s*-->/)?.[1].split(',').map((t) => t.trim()).filter(Boolean) ?? [];
     // The body as drawn, for the Library page to render without re-deriving attributes.
     const body = clean.replace(/^[\s\S]*?<svg\b[^>]*>/, '').replace(/<\/svg>\s*$/, '').replace(/\s+/g, ' ').trim();
@@ -46,7 +48,7 @@ function buildMaster(canvas) {
     // Optical bearings model strokes only; shape-filled drawings get geometric ones for now.
     const optical = paths.length && !areas.length ? opticalBearings(paths, sw, canvas)
       : Object.fromEntries(Object.entries(bearing).map(([k, v]) => [k, { geometric: v, recession: 0, optical: v }]));
-    return [n, { paths, areas, body, mark, tags, stroke: sw, ink, bearing, optical }];
+    return [n, { paths, areas, body, mark, tags, shift, stroke: sw, ink, bearing, optical }];
   }));
   return { names, icons };
 }
@@ -75,6 +77,7 @@ writeFileSync('dist/icons.json', JSON.stringify(Object.fromEntries(Object.entrie
 const metrics = Object.fromEntries(Object.entries(built).map(([m, { names, icons }]) => [m,
   Object.fromEntries(names.map((n) => [n, {
     ink: icons[n].ink,
+    shift: icons[n].shift,                   // declared optical offset from the box centre (C14)
     bearing: icons[n].bearing,               // geometric — where ink stops
     optical: icons[n].optical,               // tuned — where ink *reads* as stopping
   }]))]));

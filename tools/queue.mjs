@@ -126,10 +126,12 @@ function start(name) {
 
 // ─── approve ───────────────────────────────────────────────────────────────
 // tags: search words kept beside the name (check-2 → "long sweep"); build.mjs reads them.
-const svg = (m, weight, keyline, note, fill, stroke, tags = []) => [
+// optical: [dx, dy] the ink is deliberately moved off the box centre (C14); lint and build read it.
+const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
+  ...(optical ? [`  <!-- optical: ${optical.join(' ')} -->`] : []),
   ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
   ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
   ...stroke.map((d) => `  <path d="${d}"/>`),
@@ -155,11 +157,11 @@ async function approve(args) {
       const f = c.filled?.[m];
       if (c.filled === 'outline' || !f) die(`${c.id} has no filled drawing at ${m} (filled: 'outline' is retired — give it a weight or fill).`);
       const note = [c.label, c.note].filter(Boolean).join(': ');
-      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o, tags));
+      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o, tags, c.optical?.[m]));
       const fw = f.weight ?? STROKE;
       writeFileSync(`src/icons/${m}/${file}-filled.svg`, svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? ': shapes filled, lines stay 1.5' : `: weight ${fw}, ends pulled in ${(fw - STROKE) / 2} so the ink box matches the outline`),
-        f.fill ?? [], f.stroke ?? [], tags));
+        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m]));
       written.push(`src/icons/${m}/${file}.svg`, `src/icons/${m}/${file}-filled.svg`);
     }
   }

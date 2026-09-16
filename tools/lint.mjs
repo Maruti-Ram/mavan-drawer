@@ -102,7 +102,10 @@ function lint(canvas, file) {
 
     const w = r2(o.x1 - o.x0), h = r2(o.y1 - o.y0);
     size = Math.max(w, h);
-    const cx = r2((o.x0 + o.x1) / 2), cy = r2((o.y0 + o.y1) / 2);
+    // An optical shift (C14) is a declared, intended offset from the box centre: check against it.
+    const [sx, sy] = (src.match(/<!--\s*optical:\s*([-\d.]+)\s+([-\d.]+)\s*-->/)?.slice(1) ?? [0, 0]).map(Number);
+    const cx = r2((o.x0 + o.x1) / 2 - sx), cy = r2((o.y0 + o.y1) / 2 - sy);
+    if (sx || sy) notes.push(`optical shift ${sx}, ${sy}`);
     const declared = src.match(/<!--\s*keyline:\s*(\w+)\s*-->/)?.[1];
     if (declared === 'mark') {
       notes.push(`${w}×${h}  declared mark  centre ${cx},${cy}`);
