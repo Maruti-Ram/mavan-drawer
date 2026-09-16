@@ -1,0 +1,204 @@
+#!/usr/bin/env node
+// The drawing queue as a command, so any session can pick up where the last
+// one stopped. research/queue.md is the sheet; lab/drafts/current.js is the
+// icon on the board. Nothing else holds state.
+//
+//   node tools/queue.mjs status               what is approved, what is on the board, what is next
+//   node tools/queue.mjs next                 the next icon to draw (first not approved)
+//   node tools/queue.mjs show <name>          one queue row, and which files exist for it
+//   node tools/queue.mjs start <name>         mark it in review and load its references; a name
+//                                             not on the sheet is added (a size under its default,
+//                                             anything else at the end, in "E · Added on request")
+//   node tools/queue.mjs approve <id>=<file> [<id>=<file>…]
+//                                             write the board's candidates to src/icons,
+//                                             lint, tick the sheet. `approve B` alone
+//                                             writes candidate B as the concept name.
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { pathToFileURL } from 'node:url';
+import { MASTERS, STROKE, sizeBase, sizeOf } from './masters.mjs';
+
+const QUEUE = 'research/queue.md';
+const ADDED = 'E · Added on request';
+const DRAFT = 'lab/drafts/current.js';
+const ROW = /^- \[([ x~])\] (\d+)\. `([^`]+)`(?: · ([^·—]+?))?(?: · variant of `([^`]+)`)?(?: — (.+))?\s*$/;
+const MARK = { todo: ' ', review: '~', done: 'x' };
+const STATUS = { ' ': 'todo', '~': 'review', x: 'done' };
+const today = () => new Date().toLocaleDateString('en-CA');   // YYYY-MM-DD, local
+const masters = Object.keys(MASTERS).map(Number).sort((a, b) => b - a);
+
+function readQueue() {
+  const lines = readFileSync(QUEUE, 'utf8').split('\n');
+  const rows = [];
+  let section = '';
+  lines.forEach((line, i) => {
+    const h = line.match(/^## (.+)/);
+    if (h) { section = h[1].trim(); return; }
+    const m = line.match(ROW);
+    if (m) rows.push({ i, status: STATUS[m[1]], n: +m[2], name: m[3], category: m[4]?.trim() ?? null, base: m[5] ?? null, note: m[6] ?? null, section });
+  });
+  return { lines, rows };
+}
+const format = (r) => `- [${MARK[r.status]}] ${r.n}. \`${r.name}\``
+  + (r.category ? ` · ${r.category}` : '') + (r.base ? ` · variant of \`${r.base}\`` : '') + (r.note ? ` — ${r.note}` : '');
+const save = (q) => writeFileSync(QUEUE, q.lines.join('\n'));
+const find = (q, name) => q.rows.find((r) => r.name === name);
+
+async function draft() {
+  if (!existsSync(DRAFT)) return null;
+  // Cache-bust: the file changes between calls in one process only in tests, but be safe.
+  return (await import(`${pathToFileURL(DRAFT).href}?t=${Date.now()}`)).default;
+}
+const files = (name) => masters.flatMap((m) => [name, `${name}-filled`].map((f) => `src/icons/${m}/${f}.svg`)).filter(existsSync);
+const next = (q) => q.rows.find((r) => r.status !== 'done' && !r.base) ?? null;
+const label = (r) => `#${r.n} ${r.name}`;
+const die = (msg) => { console.error(msg); process.exit(1); };
+
+// ─── status ────────────────────────────────────────────────────────────────
+async function status() {
+  const q = readQueue();
+  const done = q.rows.filter((r) => r.status === 'done');
+  const d = await draft();
+  const board = d && find(q, d.concept);
+  const after = q.rows.find((r) => r.status !== 'done' && !r.base && r.name !== d?.concept);
+  const dirty = spawnSync('git', ['status', '--porcelain', '--', 'src/icons', QUEUE], { encoding: 'utf8' }).stdout.trim();
+
+  const out = [
+    'Mavan Drawer · icon queue (research/queue.md is the sheet; Library → Sheet shows it)',
+    `Approved ${done.length} of ${q.rows.length}` + (done.length ? ` · latest: ${done.slice(-3).map((r) => r.name).join(', ')}` : ''),
+  ];
+  if (d) {
+    out.push(`On the board (lab/drafts/current.js): ${board ? label(board) : d.concept} · ${board?.status ?? 'not in queue'}`
+      + ` · candidates ${d.candidates.map((c) => c.id).join(', ')}`);
+    if (d.question) out.push(`  Open question: ${d.question}`);
+    if (board?.status === 'done') out.push('  (already approved: the board is stale, start the next icon)');
+  } else out.push('On the board: nothing');
+  out.push(after ? `Next after that: ${label(after)} (${after.section})` : 'Queue complete after the board.');
+  if (dirty) out.push(`Uncommitted sheet/icon changes:\n${dirty.split('\n').map((l) => `  ${l}`).join('\n')}`);
+  out.push('Workflow: the `icon` skill (.claude/skills/icon). "next icon" or "let\'s do <name>" starts one; an approval is written, ticked and committed without being asked.');
+  console.log(out.join('\n'));
+}
+
+// ─── show / next / start ───────────────────────────────────────────────────
+function show(name) {
+  const q = readQueue();
+  const r = find(q, name);
+  if (!r) {
+    const near = q.rows.filter((x) => x.name.includes(name) || name.includes(x.name)).slice(0, 8).map((x) => x.name);
+    die(`${name} is not in the queue.${near.length ? ` Close: ${near.join(', ')}` : ''}`);
+  }
+  const variants = q.rows.filter((x) => x.base === name && sizeBase(x.name) === name).map((x) => x.name);
+  console.log(JSON.stringify({ ...r, i: undefined, files: files(name), variants }, null, 2));
+}
+
+// A name the sheet does not have yet. A size of an existing icon goes under
+// its default; anything else goes at the end, numbered after the last row.
+function add(q, name) {
+  const base = sizeOf(name) && find(q, sizeBase(name));
+  const row = { status: 'todo', name, note: `added ${today()}` };
+  if (base) {
+    const last = Math.max(base.i, ...q.rows.filter((r) => r.base === base.name && sizeBase(r.name) === base.name).map((r) => r.i));
+    const category = base.category ?? base.section.split(' · ').slice(1).join(' · ');
+    q.lines.splice(last + 1, 0, format({ ...row, n: base.n, category, base: base.name }));
+  } else {
+    const n = Math.max(...q.rows.map((r) => r.n)) + 1;
+    while (q.lines.length && q.lines.at(-1).trim() === '') q.lines.pop();
+    if (!q.lines.some((l) => l.trim() === `## ${ADDED}`))
+      q.lines.push('', `## ${ADDED}`, '', 'Icons asked for while drawing, in the order they were asked. Not in the audit ranking.', '');
+    q.lines.push(format({ ...row, n }), '');
+  }
+  save(q);
+  console.log(`${name} was not on the sheet — added ${base ? `under ${base.name}` : `at the end (${ADDED})`}.`);
+  return readQueue();
+}
+
+function start(name) {
+  let q = readQueue();
+  if (!find(q, name)) q = add(q, name);
+  const r = find(q, name);
+  if (r.status === 'done') console.log(`${label(r)} is already approved; re-opening it for review leaves the files until a new approval.`);
+  if (r.status === 'todo') { r.status = 'review'; q.lines[r.i] = format(r); save(q); }
+  const refs = spawnSync('node', ['tools/refs.mjs', sizeBase(name)], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  console.log(`${label(r)} · ${r.section}${r.category ? ` · ${r.category}` : ''}${r.base ? ` · variant of ${r.base}` : ''} → in review`);
+  console.log((refs.stdout || refs.stderr).trim());
+  console.log(`Now write ${DRAFT} (concept: '${name}') with the candidates, then open lab/icon.html.`);
+}
+
+// ─── approve ───────────────────────────────────────────────────────────────
+const svg = (m, weight, keyline, note, fill, stroke) => [
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
+  ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
+  ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
+  ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
+  ...stroke.map((d) => `  <path d="${d}"/>`),
+  '</svg>', '',
+].join('\n');
+
+async function approve(args) {
+  const d = await draft() ?? die(`No draft in ${DRAFT}.`);
+  if (!args.length) die('Say which candidate: approve <id> or approve <id>=<file-name> …');
+  const plan = args.map((a) => {
+    const [id, file = d.concept] = a.split('=');
+    const c = d.candidates.find((x) => x.id === id) ?? die(`No candidate "${id}" on the board (have: ${d.candidates.map((x) => x.id).join(', ')}).`);
+    if (sizeBase(file) !== sizeBase(d.concept) && !file.startsWith(`${d.concept}-`)) die(`${file} is not a variant of ${d.concept}.`);
+    return { c, file };
+  });
+
+  const written = [];
+  for (const { c, file } of plan) {
+    const keyline = c.keyline ?? d.keyline ?? null;
+    for (const m of masters) {
+      const o = c.masters?.[m] ?? die(`${c.id} has no ${m} master.`);
+      const f = c.filled?.[m];
+      if (c.filled === 'outline' || !f) die(`${c.id} has no filled drawing at ${m} (filled: 'outline' is retired — give it a weight or fill).`);
+      const note = [c.label, c.note].filter(Boolean).join(': ');
+      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o));
+      const fw = f.weight ?? STROKE;
+      writeFileSync(`src/icons/${m}/${file}-filled.svg`, svg(m, fw, keyline,
+        `${c.label}, filled` + (f.fill?.length ? ': shapes filled, lines stay 1.5' : `: weight ${fw}, ends pulled in ${(fw - STROKE) / 2} so the ink box matches the outline`),
+        f.fill ?? [], f.stroke ?? []));
+      written.push(`src/icons/${m}/${file}.svg`, `src/icons/${m}/${file}-filled.svg`);
+    }
+  }
+
+  const check = spawnSync('npm', ['run', 'check', '--silent'], { encoding: 'utf8' });
+  const report = check.stdout.split('\n').filter((l) => plan.some(({ file }) => l.includes(` ${file}`)) || /warn|error|drawings/.test(l));
+  console.log(report.join('\n'));
+  if (check.status !== 0) die('Lint failed: the files are written but the sheet is NOT ticked. Fix the draft and approve again.');
+
+  // Tick the sheet: update rows that exist, then add a row for each new
+  // size/variant file directly under the concept and its earlier variants.
+  const stamp = `approved ${today()}`;
+  const stamped = (note) => [note?.replace(/\s*·?\s*approved \d{4}-\d{2}-\d{2}/, '').trim(), stamp].filter(Boolean).join(' · ');
+  const q = readQueue();
+  if (!find(q, d.concept)) die(`${d.concept} is not in the queue.`);
+  const added = [];
+  for (const { c, file } of plan) {
+    const r = find(q, file);
+    if (r) { r.status = 'done'; r.note = stamped(r.note); q.lines[r.i] = format(r); }
+    else added.push({ status: 'done', name: file, base: d.concept, note: stamped(c.label) });
+  }
+  if (added.length) {
+    const base = find(q, d.concept);
+    // Only size rows sit under the concept; other variants (minus-square) keep their own place.
+    const last = Math.max(base.i, ...q.rows.filter((r) => r.base === d.concept && sizeBase(r.name) === d.concept).map((r) => r.i));
+    const category = base.category ?? base.section.split(' · ').slice(1).join(' · ');
+    q.lines.splice(last + 1, 0, ...added.map((r) => format({ ...r, n: base.n, category })));
+  }
+  save(q);
+  spawnSync('npm', ['run', 'build', '--silent'], { stdio: 'ignore' });
+
+  console.log(`\nTicked in ${QUEUE}: ${plan.map(({ file }) => file).join(', ')} (${stamp}).`);
+  console.log(`Commit: ${[...written, QUEUE, 'lab/manifest.json'].join(' ')}`);
+  const nx = next(readQueue());
+  console.log(nx ? `Next: ${label(nx)} (${nx.section}) — run: node tools/queue.mjs start ${nx.name}` : 'Queue complete.');
+}
+
+// ─── dispatch ──────────────────────────────────────────────────────────────
+const [cmd, ...rest] = process.argv.slice(2);
+if (cmd === 'status' || !cmd) await status();
+else if (cmd === 'next') { const r = next(readQueue()); console.log(r ? `${r.name}\t#${r.n}\t${r.section}` : ''); }
+else if (cmd === 'show') show(rest[0] ?? die('show <name>'));
+else if (cmd === 'start') start(rest[0] ?? die('start <name>'));
+else if (cmd === 'approve') await approve(rest);
+else die(`Unknown command ${cmd}. Use status | next | show | start | approve.`);

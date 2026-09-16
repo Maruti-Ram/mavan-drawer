@@ -3,14 +3,19 @@
 One icon at a time. Each is crossed off only when all three masters (24, 20, 16) are approved.
 Order: shared marks first, then circles, then core containers, then the audit ranking (`research/ranked.md`).
 
-Status: `[ ]` not started · `[~]` in review · `[x]` approved (24/20/16)
+Status: `[ ]` not started · `[~]` in review · `[x]` approved (24/20/16, outline + filled)
+
+This file is the sheet. `node tools/queue.mjs` reads and writes it (status · next · start · approve);
+the Library's **Sheet** view shows it. Size variants (C8) share their default's number and sit right under it.
 
 ## A · Marks
 
 Shared strokes every other icon reuses: terminal lengths, mark keyline, the modifier glyphs.
 
-- [ ] 1. `plus`
-- [ ] 2. `minus`
+- [x] 1. `plus` — Default · arms 15 · 13.5 · 12 · approved 2026-09-17
+- [x] 1. `plus-large` · Marks · variant of `plus` — Large · arms 18 · 16 · 14 · approved 2026-09-17
+- [x] 1. `plus-small` · Marks · variant of `plus` — Small · arms 12 · 11 · 10 · approved 2026-09-17
+- [~] 2. `minus`
 - [ ] 3. `x`
 - [ ] 4. `check`
 - [ ] 5. `chevron-down`

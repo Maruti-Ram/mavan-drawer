@@ -5,11 +5,12 @@ decisions that are **settled** and the reasoning that is expensive to rediscover
 
 ## Picking up
 
-**Resume here (2026-09-17):** the board, the filled rule and the Library are ready; **no icon is locked yet**
-(`src/icons/` is empty). Next session: construct icons, starting with `plus` (queue #1), which is on
-the board with arm lengths A / B / C (recommended B), each already carrying its filled drawing at the
-locked weights. After `plus`, `minus` should offer "same as plus arm" vs "optically longer"
-(16 · 14 · 12 wide). Follow the drawing workflow below. File pair per master:
+**Resume point = the sheet + the board, never a note.** `research/queue.md` is the sheet (status per icon;
+Library → **Sheet** view shows it) and `lab/drafts/current.js` is the board. A SessionStart hook prints
+`node tools/queue.mjs status`; the **`icon` skill** (`.claude/skills/icon`) runs the loop: "next icon" /
+"let's do <name>" → `queue.mjs start` (adds unlisted names) → draft → show; an approval → `queue.mjs
+approve` (writes, lints, ticks) → commit, **without asking** → next icon. **Size rule (C8):** `-large` /
+`-small` step 3 · 2.5 · 2 units from the default; `-large` may reach the margin edge; lint checks families. File pair per master:
 `<name>.svg` (stroke 1.5) + `<name>-filled.svg`; lint enforces the filled weight.
 **Library (built 2026-09-17):** `lab/library.html` (`/lab/` redirects there). The grid shows **one
 representative icon** (24 master) per concept; clicking opens a right panel with all three masters
@@ -33,17 +34,17 @@ circles → core containers → audit rank). There is **one drawing board**, `la
 two tabs: **Construction** (grid + keyline build-up, actual sizes, in context) and **Compare**
 (references and our iterations in rows at 96 · 48 · 24 · 20 · 16, like the trash explorer). It
 always shows the icon in `lab/drafts/current.js`; `node tools/refs.mjs <name>` writes that icon's
-references to `lab/refs/current.js` (gitignored). When the user approves an option: write it to
-`src/icons/{24,20,16}/<name>.svg`, run `npm run check`, tick the queue, overwrite `current.js`
-with the next icon. **No per-icon lab files.** Central references are captured from the
+references to `lab/refs/current.js` (gitignored). When the user approves an option: `node tools/queue.mjs approve <id>[=<file>]…`
+(writes `src/icons/{24,20,16}/`, runs `npm run check`, ticks the sheet), commit, then
+`queue.mjs start` the next icon and overwrite `current.js`. **No per-icon lab files.** Central references are captured from the
 centralicons.com browser tab (site controls: Stroke / Corner menus) into
 `research/references/central/<name>.json`.
 
 Serve the lab with the `lab-4175` launch config if another session holds 4174.
 
-**Visual language (O1)** — decisions C1–C7 in `docs/07-character.md`: no sharp icons; refined
+**Visual language (O1)** — decisions C1–C8 in `docs/07-character.md`: no sharp icons; refined
 and professional, not comical; three masters 24/20/16; stroke 1.5 everywhere; trash family
-(`trash`…`trash-4`, tab handle); numbered variants allowed. Still open there: container radius,
+(`trash`…`trash-4`, tab handle); numbered variants allowed; -large/-small size variants on a fixed step. Still open there: container radius,
 angle exceptions, the user icon. Specimens live in `lab/character.html` (`node tools/refs.mjs`
 with no argument builds its reference rows).
 
@@ -85,6 +86,7 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 masters    24 · 20 · 16, each drawn by hand      (numbers: tools/masters.mjs)
 keylines   24: circle ⌀20 · square 18 · portrait 16×20 · landscape 20×16 · mark ≤18
            20: circle ⌀16 · square 14 · mark ≤14 · 16: circle ⌀14 · square 12 · mark ≤12
+sizes      -small / default / -large marks step 3 · 2.5 · 2 (12.5%); -large may reach the margin edge
 stroke     1.5 at every master (6.3% · 7.5% · 9.4%)  ← smaller masters are heavier for free
 filled     line-heavy icons: 2.5 · 2 · 2 (10.4% · 10% · 12.5%) — shapes-icons fill, strokes stay 1.5
 grid       quarter units · container edges on .25/.75 · 2 dp max · angles 0/45/90
@@ -126,6 +128,7 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity |
 | `tools/optical.mjs` | optical side bearings computed from the outline |
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
+| `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `approve` |
 | `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
 
 `dist/metrics.json` is the differentiator: per-icon ink box, **geometric**

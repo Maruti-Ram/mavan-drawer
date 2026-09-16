@@ -97,7 +97,7 @@ body.nav-collapsed .sec{display:flex;justify-content:center;padding:8px 0}
 .bar{height:4px;border-radius:2px;background:var(--hover);overflow:hidden;display:flex}
 .bar i{display:block;height:100%}
 .bar .d{background:var(--done)} .bar .r{background:var(--review)}
-.prog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.prog{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0}
 .prog>div{padding:16px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .prog>div+div{border-left:1px solid var(--line)}
 .prog .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -127,6 +127,31 @@ body.nav-collapsed .sec{display:flex;justify-content:center;padding:8px 0}
 .empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
 .empty a{font-weight:500}
 .group{grid-column:1/-1;padding:14px 16px 6px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);box-shadow:0 1px 0 var(--line)}
+
+/* sheet — the queue as a table (research/queue.md) */
+.sheet{overflow-x:auto}
+.sheet table{width:100%;border-collapse:collapse;font-size:12px}
+.sheet th{position:sticky;top:0;background:var(--panel);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.sheet td{padding:7px 12px;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:middle}
+.sheet tr.row{cursor:default}
+.sheet tr.drawn{cursor:pointer}
+.sheet tr.drawn:hover td{background:var(--hover)}
+.sheet tr.on td{background:color-mix(in srgb,var(--sel) 7%,var(--panel))}
+.sheet tr.sub td.nm{padding-left:28px}
+.sheet td.no{color:var(--faint);width:1%}
+.sheet td.ic{width:1%}
+.sheet td.nm{font-weight:500}
+.sheet tr.todo td.nm{color:var(--muted);font-weight:400}
+.sheet td.nt{color:var(--muted);white-space:normal;min-width:200px}
+.sheet .grp td{background:var(--inset);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:8px 12px}
+.stat{display:inline-flex;align-items:center;gap:6px}
+.stat i{width:6px;height:6px;border-radius:50%;background:var(--line)}
+.stat.done i{background:var(--done)} .stat.review i{background:var(--review)} .stat.board i{background:var(--sel)}
+.stat.todo{color:var(--faint)}
+.mz{display:inline-flex;gap:3px}
+.mz span{font-size:10px;line-height:16px;min-width:22px;text-align:center;border-radius:4px;background:var(--hover);color:var(--faint)}
+.mz span.ok{background:color-mix(in srgb,var(--done) 16%,transparent);color:var(--done)}
+.mz span.half{background:color-mix(in srgb,var(--review) 16%,transparent);color:var(--review)}
 
 /* detail sidebar */
 .side{position:fixed;top:0;right:0;bottom:0;width:360px;background:var(--panel);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .2s ease;display:flex;flex-direction:column;z-index:20}
@@ -210,10 +235,11 @@ body.detail-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
 
   <section class="panel">
     <div class="ph">
-      <div class="pt"><h2 id="gridTitle">Icons</h2><span class="pill num" id="gridCount"></span><p>The 24 master stands for each icon. Click one for every size and property.</p></div>
-      <div class="pa"><span class="mute" id="gridStyle"></span></div>
+      <div class="pt"><h2 id="gridTitle">Icons</h2><span class="pill num" id="gridCount"></span><p id="gridHint">The 24 master stands for each icon. Click one for every size and property.</p></div>
+      <div class="pa"><span class="mute" id="gridStyle"></span><span class="seg" id="view"></span></div>
     </div>
     <div class="grid" id="grid"></div>
+    <div class="sheet" id="sheet" hidden></div>
     <div class="pf"><span class="keys"><kbd>F</kbd> filled</span><span class="keys"><kbd>←</kbd><kbd>→</kbd> step</span><span class="keys"><kbd>Esc</kbd> close metrics</span><span style="margin-left:auto">Click an icon for its metrics</span></div>
   </section>
 </main>
@@ -238,12 +264,15 @@ const state = {
   theme: store.get('icon-theme', 'auto'),                 // shared with the drawing board
   filled: store.get('lib-filled', false),
   show: store.get('lib-show', 'drawn'),                   // 'drawn' | 'queue'
+  view: store.get('lib-view', 'grid'),                    // 'grid' | 'sheet'
   sec: store.get('lib-sec', 'all'),
   q: '',
   sel: null,
   menu: false,
 };
 
+// The icon on the drawing board, so the sheet can say so. Absent is fine.
+const board = await import('./drafts/current.js').then((m) => m.default?.concept ?? null).catch(() => null);
 const file = (n, m, filled) => man.masters[m]?.icons[filled ? `${n}-filled` : n] ?? null;
 const svg = (m, px, rec) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${rec.stroke}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${rec.body}</svg>`;
 const blank = (px, dashed) => `<span class="gap${dashed ? ' ph-box' : ''}" style="width:${px}px;height:${px}px"></span>`;
@@ -358,10 +387,19 @@ function cell(e) {
 
 function renderGrid() {
   const list = visible();
+  const sheet = state.view === 'sheet';
+  document.getElementById('grid').hidden = sheet;
+  document.getElementById('sheet').hidden = !sheet;
+  document.getElementById('view').innerHTML = ['grid', 'sheet'].map((v) =>
+    `<button data-view="${v}" class="${state.view === v ? 'on' : ''}">${v === 'grid' ? 'Grid' : 'Sheet'}</button>`).join('');
+  document.getElementById('gridHint').textContent = sheet
+    ? 'research/queue.md as a table — ticked by node tools/queue.mjs approve. Click a drawn row for its metrics.'
+    : 'The 24 master stands for each icon. Click one for every size and property.';
   const title = state.sec === 'all' ? (state.show === 'queue' ? 'Queue' : 'Icons') : label(state.sec);
   document.getElementById('gridTitle').textContent = title;
   document.getElementById('gridCount').textContent = state.show === 'queue' ? `${counts(list).done} / ${list.length}` : list.length;
   document.getElementById('gridStyle').textContent = state.filled ? 'Filled' : 'Outline';
+  if (sheet) return renderSheet(list);
   const el = document.getElementById('grid');
   if (!list.length) {
     const next = entries.find((e) => e.n != null && e.status !== 'done');
@@ -378,6 +416,44 @@ function renderGrid() {
   }
   el.innerHTML = html;
 }
+const STAT = { done: 'Approved', review: 'In review', board: 'On the board', todo: 'Not started' };
+// Masters present per size: both styles (ok), one style (half), none.
+const mz = (n) => MASTERS.map((m) => {
+  const k = !!file(n, m, false) + !!file(n, m, true);
+  return `<span class="${k === 2 ? 'ok' : k ? 'half' : ''}" title="${m}: ${k === 2 ? 'outline + filled' : k ? 'one style only' : 'not drawn'}">${m}</span>`;
+}).join('');
+function renderSheet(list) {
+  const el = document.getElementById('sheet');
+  if (!list.length) { el.innerHTML = `<div class="empty"><b>${state.q ? `No icons match “${esc(state.q)}”` : 'Nothing to show'}</b>Show <em>Whole queue</em> to see every row.</div>`; return; }
+  let last = null;
+  const rows = list.map((e) => {
+    const st = e.name === board && e.status !== 'done' ? 'board' : e.status;
+    const drawn = e.status === 'done' && drawnNames.includes(e.name);
+    const grp = state.sec === 'all' && e.section !== last ? `<tr class="grp"><td colspan="8">${esc(e.section)}</td></tr>` : '';
+    last = e.section;
+    const note = (e.note ?? '').replace(/`([^`]+)`/g, '<code>$1</code>');
+    return `${grp}<tr class="row ${e.status}${drawn ? ' drawn' : ''}${e.base && e.name.startsWith(`${e.base}-`) && e.n === byName.get(e.base)?.n ? ' sub' : ''}${state.sel === e.name ? ' on' : ''}" ${drawn ? `data-name="${esc(e.name)}"` : ''}>
+      <td class="no num">${e.n ?? '—'}</td>
+      <td class="ic">${drawn ? icon(e.name, 24, 20) : blank(20, true)}</td>
+      <td class="nm">${esc(e.name)}</td>
+      <td>${esc(e.category ?? label(e.section))}</td>
+      <td>${e.base ? esc(e.base) : ''}</td>
+      <td><span class="stat ${st}"><i></i>${STAT[st]}</span></td>
+      <td><span class="mz">${drawn || e.status !== 'todo' ? mz(e.name) : ''}</span></td>
+      <td class="nt">${note}</td></tr>`;
+  }).join('');
+  el.innerHTML = `<table><thead><tr><th>#</th><th></th><th>Name</th><th>Category</th><th>Variant of</th><th>Status</th><th>Masters</th><th>Notes</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+document.getElementById('sheet').addEventListener('click', (e) => {
+  const t = e.target.closest('tr[data-name]'); if (!t) return;
+  open(t.dataset.name);
+  for (const r of document.querySelectorAll('.sheet tr.on')) r.classList.remove('on');
+  t.classList.add('on');
+});
+document.getElementById('view').addEventListener('click', (e) => {
+  const t = e.target.closest('button[data-view]'); if (!t) return;
+  state.view = t.dataset.view; store.set('lib-view', state.view); renderGrid();
+});
 document.getElementById('grid').addEventListener('click', (e) => {
   const t = e.target.closest('.cell[data-name]'); if (t) open(t.dataset.name);
 });

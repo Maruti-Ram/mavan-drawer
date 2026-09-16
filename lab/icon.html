@@ -819,7 +819,7 @@ document.getElementById('tabs').addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest('input,textarea,select')) return;
+  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.('input,textarea,select')) return;
   if (e.key === '[') setNav(!document.body.classList.contains('nav-collapsed'));
   else if ((e.key === 'f' || e.key === 'F') && tab === 'construction') toggleCtxFilled();
   else if (e.key === 'r' || e.key === 'R') setRefs(!document.body.classList.contains('refs-open'));
