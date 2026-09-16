@@ -30,6 +30,17 @@ export const MASTERS = {
   },
 };
 
+// Size variants (C8): `<name>-large` and `<name>-small` beside the default.
+// Each size is 12.5% of the canvas longer than the next one down, at every
+// master, so the family reads as three sizes at 24, 20 and 16 alike. A -large
+// mark may run to the margin edge; every other mark stays under `mark`.
+export const SIZE_STEP = { 24: 3, 20: 2.5, 16: 2 };
+export const SIZES = ['small', null, 'large'];
+export const sizeOf = (name) => name.match(/-(large|small)(?=-filled$|$)/)?.[1] ?? null;
+export const sizeBase = (name) => name.replace(/-(large|small)(?=-filled$|$)/, '');
+export const markMax = (name, master) =>
+  sizeOf(name) === 'large' ? MASTERS[master].bound[1] - MASTERS[master].bound[0] : MASTERS[master].mark;
+
 // Minimum gap between any two stroke edges: one outline stroke width, at every
 // master and in both styles.
 export const MIN_GAP = STROKE;
