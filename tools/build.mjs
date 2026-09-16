@@ -21,6 +21,8 @@ function buildMaster(canvas) {
     const areas = els.filter((m) => /\bfill="currentColor"/.test(m[1])).map((m) => m[2]);
     const paths = els.filter((m) => !/\bfill="currentColor"/.test(m[1])).map((m) => m[2]);
     const mark = /<!--\s*keyline:\s*mark\s*-->/.test(src);
+    // Search words kept beside the name: <!-- tags: long sweep --> on check-2.
+    const tags = src.match(/<!--\s*tags:\s*([^>]*?)\s*-->/)?.[1].split(',').map((t) => t.trim()).filter(Boolean) ?? [];
     // The body as drawn, for the Library page to render without re-deriving attributes.
     const body = clean.replace(/^[\s\S]*?<svg\b[^>]*>/, '').replace(/<\/svg>\s*$/, '').replace(/\s+/g, ' ').trim();
 
@@ -44,7 +46,7 @@ function buildMaster(canvas) {
     // Optical bearings model strokes only; shape-filled drawings get geometric ones for now.
     const optical = paths.length && !areas.length ? opticalBearings(paths, sw, canvas)
       : Object.fromEntries(Object.entries(bearing).map(([k, v]) => [k, { geometric: v, recession: 0, optical: v }]));
-    return [n, { paths, areas, body, mark, stroke: sw, ink, bearing, optical }];
+    return [n, { paths, areas, body, mark, tags, stroke: sw, ink, bearing, optical }];
   }));
   return { names, icons };
 }

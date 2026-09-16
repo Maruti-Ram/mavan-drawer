@@ -79,6 +79,9 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Canvas | 24 |
 | Masters | **24 · 20 · 16** — three drawn masters (user direction, 2026-09-16; supersedes "drop 20") |
 | Business model | sold to many customers → we do not control render size |
+| Naming (C9) | `<object>[-<modifier>][-<n>][-<size>][-filled]`; shape variants are numbered (`check-2`), their style word is a **tag** (`<!-- tags: long sweep -->`, candidate `tags: [...]` on the board) that the build and Library search read. Numbers never change. |
+| Mark bends (C10) | a bent mark's corner is an arc of radius **half the weight** (0.75 outline · 1.25/1/1 filled) — the tightest even-width bend; lint warns below it |
+| Sizes (C8) | ship only the sizes with a use case (`check`: default + small) |
 
 ## The geometry
 
@@ -90,7 +93,7 @@ sizes      -small / default / -large marks step 3 · 2.5 · 2 (12.5%); -large ma
 stroke     1.5 at every master (6.3% · 7.5% · 9.4%)  ← smaller masters are heavier for free
 filled     line-heavy icons: 2.5 · 2 · 2 (10.4% · 10% · 12.5%) — shapes-icons fill, strokes stay 1.5
 grid       quarter units · container edges on .25/.75 · 2 dp max · angles 0/45/90
-radius     container 2.5 · bend/detail 1.5 (at 24; proposed)
+radius     container 2.5 · bend/detail 1.5 (at 24; proposed) · mark corners = weight / 2 (C10)
 min gap    one stroke-width (1.5) between any two stroke edges
 ```
 

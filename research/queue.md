@@ -24,7 +24,14 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 3. `x` · UI & Layout — approved 2026-09-17
 - [x] 3. `x-large` · UI & Layout · variant of `x` — Large · approved 2026-09-17
 - [x] 3. `x-small` · UI & Layout · variant of `x` — Small · approved 2026-09-17
-- [ ] 4. `check` · UI & Layout
+- [x] 4. `check` · UI & Layout — approved 2026-09-17
+- [x] 4. `check-small` · UI & Layout · variant of `check` — check-small · classic · approved 2026-09-17
+- [x] 4. `check-2` · UI & Layout · variant of `check` — check-2 · long sweep · approved 2026-09-17
+- [x] 4. `check-2-small` · UI & Layout · variant of `check` — check-2-small · long sweep · approved 2026-09-17
+- [x] 4. `check-3` · UI & Layout · variant of `check` — check-3 · steep · approved 2026-09-17
+- [x] 4. `check-3-small` · UI & Layout · variant of `check` — check-3-small · steep · approved 2026-09-17
+- [x] 4. `check-4` · UI & Layout · variant of `check` — check-4 · lean · approved 2026-09-17
+- [x] 4. `check-4-small` · UI & Layout · variant of `check` — check-4-small · lean · approved 2026-09-17
 - [ ] 5. `chevron-down` · Arrows & Direction
 - [ ] 6. `chevron-up` · Arrows & Direction
 - [ ] 7. `chevron-left` · Arrows & Direction

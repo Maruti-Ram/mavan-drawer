@@ -2,7 +2,7 @@
 // Mechanically enforces docs/01-foundations.md. Exit 1 on any error.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { numbersIn, samplePath, bbox } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath } from './geometry.mjs';
 import { MASTERS, MIN_GAP, STROKE as BASE_STROKE, SIZE_STEP, SIZES, markMax, sizeBase, sizeOf, weightOf } from './masters.mjs';
 
 const MAX_DP = 2;
@@ -113,6 +113,15 @@ function lint(canvas, file) {
       if (!key) warnings.push(`${w}×${h} matches no keyline (§2) — if this is a directional mark, declare <!-- keyline: mark -->`);
     }
     if (Math.abs(cx - mid) > 0.5 || Math.abs(cy - mid) > 0.5) warnings.push(`off-centre at ${cx},${cy}`);
+  }
+
+  // --- 4b. advisory: bends tighter than half the stroke (C10) --------------
+  // Below R = weight / 2 the inner corner stays a notch and the corner reads heavier.
+  for (const d of ds) for (const { cmd, args } of parsePath(d)) {
+    if (cmd.toUpperCase() !== 'A') continue;
+    for (let k = 0; k + 7 <= args.length; k += 7)
+      if (Math.min(args[k], args[k + 1]) < STROKE / 2 - 0.005)
+        warnings.push(`bend radius ${args[k]} is under half the stroke (${STROKE / 2}) — the corner reads uneven (C10)`);
   }
 
   // --- 5. advisory: near-collisions between separate paths ---------------

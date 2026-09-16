@@ -125,9 +125,11 @@ function start(name) {
 }
 
 // ─── approve ───────────────────────────────────────────────────────────────
-const svg = (m, weight, keyline, note, fill, stroke) => [
+// tags: search words kept beside the name (check-2 → "long sweep"); build.mjs reads them.
+const svg = (m, weight, keyline, note, fill, stroke, tags = []) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
+  ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
   ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
   ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
   ...stroke.map((d) => `  <path d="${d}"/>`),
@@ -147,16 +149,17 @@ async function approve(args) {
   const written = [];
   for (const { c, file } of plan) {
     const keyline = c.keyline ?? d.keyline ?? null;
+    const tags = c.tags ?? d.tags ?? [];
     for (const m of masters) {
       const o = c.masters?.[m] ?? die(`${c.id} has no ${m} master.`);
       const f = c.filled?.[m];
       if (c.filled === 'outline' || !f) die(`${c.id} has no filled drawing at ${m} (filled: 'outline' is retired — give it a weight or fill).`);
       const note = [c.label, c.note].filter(Boolean).join(': ');
-      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o));
+      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o, tags));
       const fw = f.weight ?? STROKE;
       writeFileSync(`src/icons/${m}/${file}-filled.svg`, svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? ': shapes filled, lines stay 1.5' : `: weight ${fw}, ends pulled in ${(fw - STROKE) / 2} so the ink box matches the outline`),
-        f.fill ?? [], f.stroke ?? []));
+        f.fill ?? [], f.stroke ?? [], tags));
       written.push(`src/icons/${m}/${file}.svg`, `src/icons/${m}/${file}-filled.svg`);
     }
   }

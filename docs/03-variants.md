@@ -171,13 +171,15 @@ Rules:
 - describe the **drawing**, not the use. `magnifying-glass` outlives `search`;
   `three-dots-horizontal` outlives `more-menu`. Ship semantic aliases in the
   export layer, keep the filename literal.
-- no numbers unless the object has one (`layers-3` fine, `icon-2` never)
+- numbers only for a real count (`layers-3`) or a numbered shape variant (`trash-2`, `check-2` — C5, C9);
+  the style word goes in the file's tags, not the name (`icon-2` as a filler name, never)
+- full order: `<object>[-<modifier>][-<n>][-<size>][-filled]` (docs/07-character.md, C9)
 
 File layout:
 
 ```
 src/icons/24/arrow-right.svg           outline, regular  ← the master
-src/icons/24/arrow-right.solid.svg     solid
+src/icons/24/arrow-right-filled.svg    filled
 src/icons/16/arrow-right.svg           16 optical master (later)
 ```
 

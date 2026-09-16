@@ -370,10 +370,13 @@ function renderSpec() {
 }
 
 function visible() {
-  const q = state.q.trim().toLowerCase();
+  // Every word must match the name, its tags (check-2 → "long sweep"), category or base.
+  const words = state.q.trim().toLowerCase().split(/[\s-]+/).filter(Boolean);
+  const hay = (e) => [e.name, e.category, e.base, ...(man.masters[24]?.icons[e.name]?.tags ?? [])]
+    .filter(Boolean).join(' ').toLowerCase();
   return entries.filter((e) => (state.show === 'queue' || e.status === 'done')
     && (state.sec === 'all' || e.section === state.sec)
-    && (!q || e.name.includes(q) || e.category?.toLowerCase().includes(q) || e.base?.includes(q)));
+    && (!words.length || words.every((w) => hay(e).includes(w))));
 }
 
 function cell(e) {
