@@ -1,0 +1,156 @@
+# Mavan Drawer — working context
+
+A commercial icon library. Read this before touching anything; it records
+decisions that are **settled** and the reasoning that is expensive to rediscover.
+
+## Picking up
+
+**Resume here (2026-09-17):** the board, the filled rule and the Library are ready; **no icon is locked yet**
+(`src/icons/` is empty). Next session: construct icons, starting with `plus` (queue #1), which is on
+the board with arm lengths A / B / C (recommended B), each already carrying its filled drawing at the
+locked weights. After `plus`, `minus` should offer "same as plus arm" vs "optically longer"
+(16 · 14 · 12 wide). Follow the drawing workflow below. File pair per master:
+`<name>.svg` (stroke 1.5) + `<name>-filled.svg`; lint enforces the filled weight.
+**Library (built 2026-09-17):** `lab/library.html` (`/lab/` redirects there). The grid shows **one
+representative icon** (24 master) per concept; clicking opens a right panel with all three masters
+and their metrics (ink, centring, geometric/optical bearings, copy SVG). Outline/Filled switch (F),
+search (/), Show Approved | Whole queue, sections rail with progress, and an "At 16" strip. It reads
+`lab/manifest.json`, which `npm run build` now fills with each file's `body` and the parsed `queue`.
+Board layout, for reference: iterations sit in a full-height left sidebar that collapses
+to a strip (**[**, ↑ ↓ to step). It lists every candidate in `current.js`; the one you click goes on
+the board, and "more iterations" means adding candidates there. A sticky header holds the glyph,
+Stroke, Overlay and theme controls. The Construction panel is a grid: **sizes run down (24/20/16), styles across (Outline | Filled)**,
+so each outline sits beside its filled twin. Draft format: `masters: {24: [stroke d…]}` is the outline;
+`filled: {24: {fill: [d…], stroke: [d…]}}` (each fill entry is one evenodd shape with its holes) or
+`filled: 'outline'` for line-only icons. In context has a **Filled switch (F)** that swaps the style in place on the same rows; Compare has a Style dropdown (Outline / Filled / Both). The boards have a
+Layers menu (each guide and keyline switched separately), True size / Fit, and **Inspect**
+(rulers, Figma-style distances, click to pin, ink box, mass centre). Nothing may shift when
+Inspect toggles: the stats block has a fixed 2×2 + one-line shape. Then come the In context
+panel and references in a collapsible right sidebar (**R**).
+
+**Drawing workflow.** `research/queue.md` is the order and checklist (487 icons; marks →
+circles → core containers → audit rank). There is **one drawing board**, `lab/icon.html`, with
+two tabs: **Construction** (grid + keyline build-up, actual sizes, in context) and **Compare**
+(references and our iterations in rows at 96 · 48 · 24 · 20 · 16, like the trash explorer). It
+always shows the icon in `lab/drafts/current.js`; `node tools/refs.mjs <name>` writes that icon's
+references to `lab/refs/current.js` (gitignored). When the user approves an option: write it to
+`src/icons/{24,20,16}/<name>.svg`, run `npm run check`, tick the queue, overwrite `current.js`
+with the next icon. **No per-icon lab files.** Central references are captured from the
+centralicons.com browser tab (site controls: Stroke / Corner menus) into
+`research/references/central/<name>.json`.
+
+Serve the lab with the `lab-4175` launch config if another session holds 4174.
+
+**Visual language (O1)** — decisions C1–C7 in `docs/07-character.md`: no sharp icons; refined
+and professional, not comical; three masters 24/20/16; stroke 1.5 everywhere; trash family
+(`trash`…`trash-4`, tab handle); numbered variants allowed. Still open there: container radius,
+angle exceptions, the user icon. Specimens live in `lab/character.html` (`node tools/refs.mjs`
+with no argument builds its reference rows).
+
+**Audit** — done: `docs/06-audit.md`, `research/ranked.md`. The user has **not** yet ruled on
+the D23 revisions it proposes (add `home`, `checkbox`, `save`, `chevrons-up-down`…; cut
+`caret-left/right`; merge `close`=`x`, `copy`=`duplicate`; 13 open slots) — do not edit doc 04
+until they do. The audit used the Polaris *archive*; the user's Figma Polaris frame
+(file `XewrhAKrNGVZtikkpI5am9`, node `15643:27748`) is newer (~490 icons) and should be
+re-audited. To change the ranking edit `research/synonyms.mjs` and `npm run audit`. To refresh
+Polaris use the **git trees API** — the contents API silently stops at 1,000 entries.
+
+**Moved aside:** `src/_legacy-stroke-2/` holds the 10 pre-decision stroke-2 icons.
+
+## Run
+
+```bash
+npm run check    # build metrics + lint all icons (exits 1 on failure)
+npm run lab      # dev server on 4174 → /lab/
+npm run audit    # re-rank the ~500 from research/sources snapshots
+```
+
+## Settled — do not relitigate without being asked
+
+| Decision | Value |
+|---|---|
+| Source of truth | hand-authored SVG in `src/icons/24/`, **not** Figma |
+| Authoring format | **strokes** (typable, lintable, 10× smaller) |
+| Shipped format | **outlined fills only** — the stroked source stays private |
+| Styles | outline + filled, **drawn together per icon** and approved as a pair (user decision 2026-09-17). Separate drawings; filled outer edge = outline outer edge. **Filled rule (locked 2026-09-17):** *line-heavy* icons (plus, check, arrows, chevrons — nothing to fill) show weight by a **heavier stroke — 2.5 at 24, 2 at 20 and 16** (`FILLED_WEIGHT`), never a background; ink box stays identical, so ends pull in by half the added weight. *Every other* icon fills its shapes (plus-circle fills the circle) and its **strokes stay 1.5**. Duotone deferred. |
+| Weight axis | **none.** Opinionated defaults; customers do not adjust stroke. |
+| Stroke | **1.5 at every master** (user decision 2026-09-16; supersedes 2 at 24) |
+| Canvas | 24 |
+| Masters | **24 · 20 · 16** — three drawn masters (user direction, 2026-09-16; supersedes "drop 20") |
+| Business model | sold to many customers → we do not control render size |
+
+## The geometry
+
+```
+masters    24 · 20 · 16, each drawn by hand      (numbers: tools/masters.mjs)
+keylines   24: circle ⌀20 · square 18 · portrait 16×20 · landscape 20×16 · mark ≤18
+           20: circle ⌀16 · square 14 · mark ≤14 · 16: circle ⌀14 · square 12 · mark ≤12
+stroke     1.5 at every master (6.3% · 7.5% · 9.4%)  ← smaller masters are heavier for free
+filled     line-heavy icons: 2.5 · 2 · 2 (10.4% · 10% · 12.5%) — shapes-icons fill, strokes stay 1.5
+grid       quarter units · container edges on .25/.75 · 2 dp max · angles 0/45/90
+radius     container 2.5 · bend/detail 1.5 (at 24; proposed)
+min gap    one stroke-width (1.5) between any two stroke edges
+```
+
+**There is no "live area."** The circle keyline IS the outer drawing bound. The
+2 units between it and the canvas are margin shipped inside the asset — a
+spacing decision, not a drawing rule. Do not reintroduce a third layer.
+
+### Two rules that are easy to get wrong
+
+1. **Round caps extend half a stroke past the path endpoint.** To span the
+   18-unit square keyline (3→21) the path is `M3.75 12h16.5`. Off-by-one here is the
+   commonest defect in icon sets.
+2. **Min gap = one stroke-width.** This is what survives 16px and what lets the
+   filled style exist without shapes welding shut. When a detail cannot hold the
+   gap, **remove the detail** — that is the rule working, not failing.
+
+## Open — in dependency order
+
+1. **Visual language.** Four candidates + a lever rig in `lab/language.html`.
+   **Blocks everything downstream.** Do not start drawing the set before this.
+2. **Master size** (24 vs 16 primary) — downstream of (1).
+3. Tune optical `alpha` (currently 0.75 in `tools/optical.mjs`).
+4. Possibly relax the `<path>`-only lint rule so `<rect>`/`<circle>` can be
+   hand-written — Nucleo uses basic shapes throughout and they are far more
+   editable.
+5. Primitive-drift linter — flag shapes that are *nearly* a shared primitive
+   (r8.5 where every other circle is r9). Highest-leverage tool for family
+   consistency. Not built.
+
+## Tools
+
+| File | Does |
+|---|---|
+| `tools/lint.mjs` | enforces `docs/01-foundations.md`; exits 1 |
+| `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity |
+| `tools/optical.mjs` | optical side bearings computed from the outline |
+| `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
+| `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
+
+`dist/metrics.json` is the differentiator: per-icon ink box, **geometric**
+bearings (where ink stops) and **optical** bearings (where it reads as stopping).
+Consumers subtract them as negative margins so `padding` and `gap` become
+literally true. Without it the same CSS renders 13.7–16.2px of visual padding
+depending on the icon.
+
+## Conventions
+
+- Naming: `<object>-<modifier>`, object first — `calendar-plus`, never `add-calendar`
+- Every decimal in a path carries a comment saying what it corrects
+- `<!-- keyline: mark -->` opts an icon out of silhouette keylines
+- One icon per commit
+- **An icon is never reviewed alone** — only in a grid at 16px next to twenty others
+
+## Facts verified from source (do not re-derive)
+
+- Polaris (archive): 463 outline bases + 72 filled = 535 SVGs, all 20×20, **zero strokes**; 118 concepts are Shopify-only
+- Geist: 16×16, zero strokes
+- Fluent: 7 sizes × 2 styles; filled shares base geometry **verbatim**; a modifier
+  **cuts the base back** (calendar 8 subpaths → calendar-add 4)
+- SF Symbols: typographic grid (baseline + cap height), **3 drawn masters → 9
+  weights**, 2,664 outline/fill pairs
+- Font Awesome: **variable-width viewBoxes** (448 vs 512) — glyphs, not squares
+- Nucleo: 7 grids × 2 styles, 64k icons, per-icon `stroke_max` metadata
+- Nucleo "UI Essential" (set 10) is **221 names**; its 1,024 rows are names × grids × styles
+- Only **24 and 48** are pixel-crisp from a 24 master; 16/20/32 are not

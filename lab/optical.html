@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Optical alignment</title>
+<style>
+:root{--bg:#fbfbfa;--panel:#fff;--ink:#16171a;--muted:#73757b;--line:#e4e4e2;--guide:#e0457b;--accent:#2f6feb;--btn:#f1f1ef}
+:root[data-theme="dark"]{--bg:#0f1012;--panel:#17181b;--ink:#eceef2;--muted:#8b8e96;--line:#26282d;--guide:#ff5c8a;--accent:#5b8cff;--btn:#232529}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:980px;margin:0 auto;padding:30px 20px 90px}
+h1{font-size:19px;margin:0 0 6px}
+h2{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:34px 0 10px}
+p.l{color:var(--muted);font-size:13.5px;max-width:76ch;margin:0 0 16px}
+.bar{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);
+  border-radius:11px;padding:13px 16px;margin-bottom:18px;flex-wrap:wrap}
+.tog{font:inherit;font-size:13px;padding:6px 13px;border-radius:8px;border:1px solid var(--line);
+  background:var(--bg);color:var(--ink);cursor:pointer}
+.tog[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.bar label{font-size:12px;color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;background:var(--btn);border:1px solid var(--line);
+  border-radius:8px;position:relative;overflow:hidden}
+.btn .lbl{white-space:nowrap}
+.chip{border-radius:999px}
+.gz{position:absolute;top:0;bottom:0;background:color-mix(in srgb,var(--guide) 30%,transparent)}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:8px}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase}
+.note{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.6}
+.note b{color:var(--ink)}
+</style></head><body><main>
+<h1>Optical alignment in buttons, chips and nav</h1>
+<p class="l">Every button below is built with the <em>same</em> CSS: 12px padding, 8px gap. Only the
+icon differs. Toggle compensation and watch the padding and gaps stop lying.</p>
+
+<div class="bar">
+  <button class="tog" id="comp" aria-pressed="false">Compensation: off</button>
+  <button class="tog" id="guides" aria-pressed="false">Show bearing zones</button>
+  <label>padding 12px · gap 8px · icon 20px</label>
+</div>
+
+<h2>Buttons</h2>
+<div class="card"><div class="row" id="btns"></div></div>
+
+<h2>Chips</h2>
+<div class="card"><div class="row" id="chips"></div></div>
+
+<h2>What the compensation is</h2>
+<div class="card"><table id="tbl"></table>
+<p class="note"><b>This is a typeface's side bearings, applied to icons.</b> Every glyph in a font
+carries a tuned left and right bearing so that when you set text, the gaps look even without anyone
+adjusting anything. Icons in a uniform centred box have no bearings — they have <em>accidental</em>
+ones, set by whichever keyline the shape happened to need.<br><br>
+The build now emits <code>dist/metrics.json</code> with the ink box and bearings of every icon. A
+consumer's <code>&lt;Icon&gt;</code> subtracts them as negative margins, once, and every padding and
+gap value in the product becomes literally true.</p></div>
+</main>
+<script type="module">
+const { names, icons } = await (await fetch('manifest.json')).json();
+const PICK = ['chevron-down', 'check-circle', 'user', 'plus', 'trash'];
+const SIZE = 20, PAD = 12, GAP = 8;
+const u = (n) => n * SIZE / 24;           // units → px at render size
+let comp = false, guides = false;
+
+const svg = (n) => `<svg width="${SIZE}" height="${SIZE}" viewBox="0 0 24 24" fill="none"
+  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+  style="display:block;flex:none">${icons[n].paths.map((d) => `<path d="${d}"/>`).join('')}</svg>`;
+
+function btn(n, chip) {
+  const b = icons[n].bearing;
+  const ml = comp ? -u(b.left) : 0, mr = comp ? -u(b.right) : 0;
+  const zones = guides
+    ? `<span class="gz" style="left:${PAD}px;width:${u(b.left) + (comp ? ml : 0)}px"></span>` : '';
+  return `<span class="btn ${chip ? 'chip' : ''}" style="padding:${chip ? 6 : 9}px ${PAD}px">
+    ${guides ? `<span class="gz" style="left:${PAD + (comp ? 0 : 0)}px;width:${u(b.left)}px;
+       ${comp ? 'display:none' : ''}"></span>` : ''}
+    <span style="margin-left:${ml}px;margin-right:${GAP + mr}px">${svg(n)}</span>
+    <span class="lbl">${n.split('-')[0].replace(/^./, (c) => c.toUpperCase())}</span>
+  </span>`;
+}
+
+const paint = () => {
+  document.getElementById('btns').innerHTML = PICK.map((n) => btn(n, false)).join('');
+  document.getElementById('chips').innerHTML = PICK.map((n) => btn(n, true)).join('');
+  document.getElementById('tbl').innerHTML = `
+    <tr><th>Icon</th><th>ink w</th><th>left bearing</th><th>right bearing</th>
+      <th>visual left pad</th><th>visual gap</th></tr>
+    ${PICK.map((n) => {
+      const b = icons[n].bearing, i = icons[n].ink;
+      const vl = comp ? PAD : PAD + u(b.left), vg = comp ? GAP : GAP + u(b.right);
+      return `<tr><td>${n}</td><td>${i.w}</td><td>${b.left}</td><td>${b.right}</td>
+        <td>${vl.toFixed(1)}px</td><td>${vg.toFixed(1)}px</td></tr>`;
+    }).join('')}`;
+};
+document.getElementById('comp').addEventListener('click', (e) => {
+  comp = !comp; e.target.setAttribute('aria-pressed', String(comp));
+  e.target.textContent = 'Compensation: ' + (comp ? 'on' : 'off'); paint();
+});
+document.getElementById('guides').addEventListener('click', (e) => {
+  guides = !guides; e.target.setAttribute('aria-pressed', String(guides)); paint();
+});
+paint();
+if (!matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme='light';
+</script></body></html>

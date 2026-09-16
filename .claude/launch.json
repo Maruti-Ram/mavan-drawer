@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lab",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4174"
+      ],
+      "port": 4174
+    },
+    {
+      "name": "lab-4175",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4175"
+      ],
+      "port": 4175,
+      "autoPort": false
+    }
+  ]
+}

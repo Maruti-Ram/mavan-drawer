@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Icon review</title>
+<style>
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--key:#e0457b;--grid:rgba(0,0,0,.07);--grid2:rgba(0,0,0,.035);--guide:#8b8e96;--measure:#f24822;--sel:#0d99ff;--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--key:#ff6ea3;--grid:rgba(255,255,255,.08);--grid2:rgba(255,255,255,.04);--guide:#6d7078;--measure:#ff5a36;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--key:#ff6ea3;--grid:rgba(255,255,255,.08);--grid2:rgba(255,255,255,.04);--guide:#6d7078;--measure:#ff5a36;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:padding .2s ease}
+[hidden]{display:none!important}
+svg{display:block;overflow:visible}
+button{font:inherit;color:inherit}
+kbd{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-block;min-width:18px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 4px;background:var(--panel);color:var(--muted)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ── app header ── */
+.app{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.app .top{display:flex;align-items:center;gap:16px;padding-top:16px;padding-bottom:12px}
+.ident{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.glyph{width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow)}
+.ident h1{font-size:18px;line-height:1.2;margin:0;font-weight:600;letter-spacing:-.01em}
+.ident p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.actions{display:flex;align-items:center;gap:8px}
+.pill{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--hover);color:var(--muted);font-size:11px;font-weight:500;white-space:nowrap}
+.divider{width:1px;height:20px;background:var(--line);margin:0 4px}
+.tabs{display:flex;gap:20px}
+.tabs button{font-size:13px;font-weight:500;padding:8px 0 10px;border:0;border-bottom:2px solid transparent;background:none;color:var(--muted);cursor:pointer;margin-bottom:-1px}
+.tabs button:hover{color:var(--ink)}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--ink)}
+
+/* ── controls ── */
+.iconbtn{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.iconbtn:hover{color:var(--ink)}
+.iconbtn.on{color:var(--ink);background:var(--hover)}
+.tbtn{height:28px;display:inline-flex;align-items:center;gap:6px;padding:0 8px 0 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:12px;cursor:pointer}
+.tbtn:hover,.tbtn.on{border-color:color-mix(in srgb,var(--ink) 25%,var(--line))}
+.tbtn .count{color:var(--muted)}
+.tbtn svg{color:var(--muted)}
+.seg{display:inline-flex;height:28px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.seg button{font-size:12px;padding:0 9px;border:0;border-radius:5px;background:none;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--hover);color:var(--ink)}
+.switch{display:inline-flex;align-items:center;gap:8px;height:28px;font-size:12px;background:none;border:0;cursor:pointer;padding:0 0 0 4px}
+.switch span{width:28px;height:16px;border-radius:8px;background:var(--line);position:relative;transition:background .15s}
+.switch span::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+.switch.on span{background:var(--sel)}
+.switch.on span::after{transform:translateX(12px)}
+.switch.sm{padding:0;height:auto}
+.pop{position:relative}
+.lmenu{position:absolute;right:0;top:calc(100% + 6px);width:224px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.16);padding:4px;z-index:15}
+.mhead{display:flex;align-items:center;justify-content:space-between;padding:6px 8px 8px;margin-bottom:2px;border-bottom:1px solid var(--line);font-size:13px;font-weight:500}
+.msec{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 8px 2px}
+.mrow{display:flex;align-items:center;gap:10px;width:100%;padding:4px 8px;border:0;border-radius:6px;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-align:left}
+.mrow:hover{background:var(--hover)}
+.mrow.on{color:var(--ink)}
+.mrow .ck{margin-left:auto;opacity:0}
+.mrow.on .ck{opacity:1}
+.lmenu.off .mrow{opacity:.35;pointer-events:none}
+.sw{width:14px;height:0;border-top:1.5px solid currentColor;opacity:.5}
+.sw.dash{border-top-style:dashed}
+.sw.k{color:var(--key)} .sw.g{color:var(--guide)} .sw.a{color:var(--accent)}
+.mrow.on .sw{opacity:1}
+
+/* ── panels ── */
+main.wrap{padding-top:24px;padding-bottom:80px;display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);min-height:57px}
+.pt{display:flex;align-items:baseline;gap:10px;min-width:0;flex-wrap:wrap}
+.pt h2{font-size:14px;font-weight:600;margin:0}
+.pt p{margin:0;font-size:12px;color:var(--muted)}
+.pa{display:flex;align-items:center;gap:8px}
+.pb{padding:20px}
+.pf{display:flex;align-items:center;gap:16px;height:41px;white-space:nowrap;overflow:hidden;padding:0 20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.keys{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+
+/* iterations sidebar — full height on the left, collapses to a strip */
+body{--nav:280px;padding-left:var(--nav)}
+body.nav-collapsed{--nav:60px}
+.snav{position:fixed;left:0;top:0;bottom:0;width:var(--nav);background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:12;transition:width .2s ease;overflow:hidden}
+.sn-top{flex:none;height:var(--head,110px);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px 0 20px;border-bottom:1px solid var(--line)}
+.sn-title{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.sn-title b{font-size:14px;font-weight:600}
+.iconbtn.ghost{border-color:transparent;background:none}
+.iconbtn.ghost:hover{background:var(--hover)}
+.sn-q{flex:none;margin:0;padding:14px 20px 4px;font-size:12px;line-height:1.45;color:var(--muted);width:280px}
+.snav .iters{flex:1;min-height:0;overflow-y:auto;padding:10px 12px 12px;width:280px}
+.sn-foot{flex:none;display:flex;gap:14px;height:41px;align-items:center;padding:0 20px;border-top:1px solid var(--line);white-space:nowrap}
+.iter .mini{display:none}
+body.nav-collapsed .sn-top{justify-content:center;padding:0}
+body.nav-collapsed .sn-title,body.nav-collapsed .sn-q,body.nav-collapsed .sn-foot{display:none}
+body.nav-collapsed .snav .iters{width:60px;padding:10px 8px}
+body.nav-collapsed .iter{padding:8px 0 6px;display:flex;flex-direction:column;align-items:center}
+body.nav-collapsed .iter>:not(.mini){display:none}
+body.nav-collapsed .iter .mini{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--muted)}
+body.nav-collapsed .iter.on .mini{color:var(--ink)}
+@media (max-width:900px){body,body.nav-collapsed{padding-left:60px}body:not(.nav-collapsed) .snav{box-shadow:8px 0 24px rgba(0,0,0,.12)}}
+
+/* iterations */
+.iters{display:grid;grid-template-columns:1fr;gap:8px;align-content:start}
+.iter{text-align:left;background:var(--inset);border:1px solid transparent;border-radius:12px;padding:14px;cursor:pointer;display:grid;grid-template-rows:auto auto 1fr;gap:12px;transition:border-color .12s,background .12s}
+.iter:hover{border-color:var(--line)}
+.iter.on{background:var(--panel);border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.iter .t{display:flex;align-items:center;gap:8px}
+.iter .id{min-width:22px;padding:0 5px;height:22px;border-radius:6px;display:grid;place-items:center;background:var(--hover);font-size:12px;font-weight:600}
+.iter.on .id{background:var(--ink);color:var(--panel)}
+.iter .t span:last-child{font-size:13px;font-weight:500}
+.iter .row{display:flex;align-items:flex-end;gap:18px}
+.iter .rows{display:flex;flex-direction:column;gap:10px}
+.iter .none{height:48px;display:flex;align-items:center;font-size:11px;color:var(--faint)}
+.iter .row .hero{margin-right:6px}
+.iter .sz{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--faint)}
+.iter small{font-size:11px;color:var(--muted);line-height:1.45}
+
+/* construction */
+/* sizes run down, styles run across, so each outline sits beside its filled twin */
+.stage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+.shead{display:flex;align-items:baseline;gap:8px;padding:10px 24px 10px 44px;background:var(--inset);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.shead b{font-weight:600;color:var(--muted)}
+.shead + .shead,.board.filled{border-left:1px solid var(--line)}
+.board{margin:0;padding:20px 24px 18px;display:flex;flex-direction:column;gap:14px;min-width:0;border-top:1px solid var(--line)}
+.board>*{width:100%;max-width:var(--w,none)}
+@media (max-width:900px){.stage{grid-template-columns:1fr}.shead{display:none}.board.filled{border-left:0}}
+.bh{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-left:20px}
+.bh b{font-size:13px;font-weight:600}
+.bh b span{color:var(--muted);font-weight:400}
+.bh .pill{margin-left:8px;vertical-align:1px}
+.actual{display:flex;align-items:center;gap:10px;padding:4px 8px;border-radius:8px;background:var(--inset)}
+.board svg.cv{width:100%;height:auto;user-select:none}
+.cv .canvas{fill:var(--inset);stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke}
+.cv .hair{fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
+.cv .g1{stroke:var(--grid)} .cv .gq{stroke:var(--grid2)}
+.cv .kl{stroke:var(--key);opacity:.6}
+.cv .gd{stroke:var(--guide);opacity:.7}
+.cv .dash{stroke-dasharray:4 3}
+.cv .skel{stroke:var(--accent)}
+.cv .vtx{fill:var(--panel);stroke:var(--accent);stroke-width:1;vector-effect:non-scaling-stroke}
+.cv .ink path{pointer-events:none}
+.cv.inspect .ink path{pointer-events:stroke;cursor:crosshair}
+.cv.inspect .ink path.area{pointer-events:fill}
+.cv.inspect .canvas{cursor:crosshair}
+.cv .overlay{pointer-events:none}
+.cv .ruler path{stroke:var(--faint)}
+.cv .ruler text{fill:var(--faint);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.cv .band{fill:var(--sel);opacity:.2}
+.cv .mbox{fill:none;stroke:var(--sel);stroke-width:1;vector-effect:non-scaling-stroke}
+.cv .mbox.pin{stroke-width:2}
+.cv .mbox.ink{stroke:var(--measure);stroke-dasharray:4 3}
+.cv .dim{fill:none;stroke:var(--measure);stroke-width:1;vector-effect:non-scaling-stroke}
+.cv .tag rect{fill:var(--measure)}
+.cv .tag.s rect{fill:var(--sel)}
+.cv .tag text{fill:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}
+.cv .ctr{fill:none;stroke:var(--measure);stroke-width:1;vector-effect:non-scaling-stroke}
+.cv .mass{fill:var(--measure)}
+.stats{margin:0 0 0 20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto 18px;gap:10px 16px}
+.stats div{min-width:0}
+.stats dt{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+.stats dd{margin:0;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stats dd.ok{color:var(--muted)}
+.stats .line{grid-column:1/-1;display:flex;gap:12px;font:11px/18px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);white-space:nowrap;overflow:hidden}
+.stats .line span:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.stats .line.hint{font-family:inherit;color:var(--faint)}
+
+/* in context */
+.ctx{overflow-x:auto}
+.cx-row{display:grid;grid-template-columns:150px repeat(5,minmax(max-content,1fr));align-items:center;gap:0 20px;padding:18px 20px;min-width:860px}
+.cx-row + .cx-row{border-top:1px solid var(--line)}
+.cx-row>span{display:flex;align-items:center;gap:6px}
+.cx-head{padding-block:10px;background:var(--inset);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.cx-lab{flex-direction:column;align-items:flex-start!important;gap:0!important;font-size:11px;color:var(--muted)}
+.cx-lab b{font-size:13px;color:var(--ink);font-weight:600}
+.cx-lab b span{color:var(--muted);font-weight:400}
+.ui{--pad:calc(var(--h) * .3);display:inline-flex;align-items:center;gap:calc(var(--h) * .18);height:var(--h);padding:0 calc(var(--pad) + 2px) 0 var(--pad);border-radius:calc(var(--h) * .22);border:1px solid var(--line);font-size:var(--t);font-weight:500;white-space:nowrap;color:var(--ink);background:var(--panel)}
+.ui.primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.ui.sq{width:var(--h);padding:0;justify-content:center}
+.ui.ghost{border-color:transparent;background:var(--hover)}
+.ui.menu{border-color:transparent;background:var(--hover);min-width:calc(var(--h) * 5.2);font-weight:400}
+.ui.menu kbd{margin-left:auto;border:0;background:none;min-width:0;padding:0;font-size:calc(var(--t) - 2px)}
+.inline{font-size:var(--t);white-space:nowrap}
+.inline svg{display:inline-block;vertical-align:-.15em}
+
+/* compare */
+.cmp{border-collapse:collapse;width:100%}
+.cmp th{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;color:var(--faint);padding:10px 20px;background:var(--inset);white-space:nowrap}
+.cmp td{padding:14px 20px;border-top:1px solid var(--line);vertical-align:middle;text-align:center}
+.cmp td svg{margin:0 auto}
+.cmp .name{text-align:left;white-space:nowrap}
+.cmp .name b{font-size:13px;margin-right:6px}
+.cmp .name small{display:block;color:var(--muted);font-size:11px;max-width:240px;white-space:normal}
+.cmp tr.group td{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:left;padding:14px 20px 6px;border-top:1px solid var(--line)}
+.cmp tr.group:first-child td{border-top:0}
+
+/* references sidebar */
+.side{position:fixed;top:0;right:0;bottom:0;width:340px;background:var(--panel);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .2s ease;display:flex;flex-direction:column;z-index:20}
+body.refs-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
+@media (min-width:1100px){body.refs-open{padding-right:340px}}
+.side header{display:flex;align-items:center;gap:8px;padding:0 14px 0 20px;height:57px;border-bottom:1px solid var(--line)}
+.side header b{font-size:14px;font-weight:600}
+.side header .pill{margin-right:auto}
+.side .list{overflow-y:auto;padding:6px 12px 30px}
+.side h3{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:500;margin:16px 8px 6px}
+.ref{display:flex;align-items:center;gap:14px;padding:10px;border-radius:10px}
+.ref:hover{background:var(--hover)}
+.ref .txt{display:flex;flex-direction:column;min-width:0;margin-left:auto;text-align:right;font-size:13px}
+.ref .txt span{font-size:11px;color:var(--muted)}
+.mute{color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<nav class="snav" id="snav" aria-label="Iterations">
+  <div class="sn-top">
+    <span class="sn-title"><b>Iterations</b><span class="pill" id="iterCount"></span></span>
+    <button class="iconbtn ghost" id="navBtn" title="Collapse sidebar ([)" aria-label="Collapse sidebar" aria-expanded="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2"/><path d="M6 2.75v10.5"/></svg>
+    </button>
+  </div>
+  <p class="sn-q" id="question"></p>
+  <div class="iters" id="iters"></div>
+  <div class="sn-foot"><span class="keys"><kbd>↑</kbd><kbd>↓</kbd> step</span><span class="keys"><kbd>[</kbd> collapse</span></div>
+</nav>
+<header class="app">
+  <div class="wrap top">
+    <div class="ident">
+      <div class="glyph" id="glyph"></div>
+      <div><h1 id="title">…</h1><p id="subtitle"></p></div>
+    </div>
+    <div class="actions" id="bar"></div>
+    <button class="iconbtn" id="refsBtn" title="References (R)" aria-label="Show references" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2"/><path d="M10 2.75v10.5"/></svg>
+    </button>
+  </div>
+  <div class="wrap"><nav class="tabs" id="tabs"><button data-tab="construction">Construction</button><button data-tab="compare">Compare</button></nav></div>
+</header>
+
+<main class="wrap">
+<div id="construction" style="display:contents">
+  <section class="panel">
+    <div class="ph">
+      <div class="pt"><h2>Construction</h2><span class="pill" id="consName"></span></div>
+      <div class="pa" id="tools"></div>
+    </div>
+    <div class="stage" id="stage"></div>
+    <div class="pf" id="consFoot"></div>
+  </section>
+
+  <section class="panel">
+    <div class="ph">
+      <div class="pt"><h2>In context</h2><span class="pill" id="ctxName"></span></div>
+      <div class="pa"><span class="mute">Each master with the text size it pairs with</span><span class="divider"></span><span id="ctxStyle"></span></div>
+    </div>
+    <div class="ctx" id="ctx"></div>
+  </section>
+</div>
+
+<div id="compare" style="display:contents" hidden>
+  <section class="panel">
+    <div class="ph">
+      <div class="pt"><h2>References and iterations</h2><p>Every row at the same five sizes. At 24 · 20 · 16 ours use the matching master; at 96 and 48 the 24 master.</p></div>
+      <div class="pa" id="cmpStyle"></div>
+    </div>
+    <div style="overflow-x:auto"><table class="cmp" id="cmp"></table></div>
+  </section>
+</div>
+</main>
+
+<aside class="side" id="side" aria-label="References">
+  <header><b>References</b><span class="pill" id="refCount"></span>
+    <button class="iconbtn" id="refsClose" aria-label="Close references"><svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"/></svg></button>
+  </header>
+  <div class="list" id="refs"></div>
+</aside>
+
+<script type="module">
+import { MASTERS as M, STROKE, FILLED_WEIGHT as FW } from '../tools/masters.mjs';
+import { parsePath, bbox } from '../tools/geometry.mjs';
+// One drawing board: whatever icon is on it lives in drafts/current.js, and its
+// references in refs/current.js (node tools/refs.mjs <name>).
+const draft = (await import('./drafts/current.js')).default;
+const name = draft.concept;
+let refs = null;
+try { refs = (await import('./refs/current.js')).default; } catch { /* licensed refs are local-only */ }
+if (refs && refs.concept !== name) refs = null;          // stale refs from the previous icon
+
+const MASTERS = Object.keys(M).map(Number).sort((a, b) => b - a);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage may be unavailable */ } },
+};
+
+// Overlay layers, individually switchable. k = keyline colour, g = guide, a = accent.
+const LAYERS = [
+  { id: 'grid', label: 'Unit grid', on: true, sw: 'g' },
+  { id: 'quarter', label: 'Quarter grid', on: false, sw: 'g' },
+  { id: 'centre', label: 'Centre', on: true, sw: 'g' },
+  { id: 'bound', label: 'Margin', on: true, sw: 'g', dash: true },
+  { id: 'skeleton', label: 'Skeleton', on: false, sw: 'a' },
+  { id: 'circle', label: 'Circle', on: true, sw: 'k' },
+  { id: 'square', label: 'Square', on: true, sw: 'k' },
+  { id: 'portrait', label: 'Portrait', on: false, sw: 'k', dash: true },
+  { id: 'landscape', label: 'Landscape', on: false, sw: 'k', dash: true },
+  { id: 'diagonal', label: 'Diagonal', on: false, sw: 'k' },
+  { id: 'mark', label: 'Mark', on: false, sw: 'k', dash: true },
+];
+const state = {
+  sw: STROKE,
+  theme: store.get('icon-theme', 'auto'),
+  key: store.get('icon-overlay', true),
+  layers: { ...Object.fromEntries(LAYERS.map((l) => [l.id, l.on])), ...store.get('icon-layers', {}) },
+  inspect: store.get('icon-inspect', false),
+  scale: store.get('icon-scale', 'true'),
+  sel: store.get(`icon-sel:${name}`, null),
+  pin: null,                                              // { k, i } — the element measurements start from
+  menu: null,                                             // open popover: 'layers' | 'ctx' | 'cmp'
+  view: store.get('icon-view', 'both'),                   // style shown in compare
+  ctxFilled: store.get('icon-ctx-filled', false),         // in context: one row per master, style swapped in place
+};
+const current = () => draft.candidates.find((c) => c.id === state.sel) ?? draft.candidates[0];
+
+const f = (n) => String(+n.toFixed(2));
+const strokes = (paths, sw) => `<g fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${paths.map((d) => `<path d="${d}"/>`).join('')}</g>`;
+const svg = (vb, px, body) => `<svg width="${px}" height="${px}" viewBox="0 0 ${vb} ${vb}">${body}</svg>`;
+const centred = (m, [w, h]) => [(m - w) / 2, (m + w) / 2, (m - h) / 2, (m + h) / 2];
+// Each absolute subpath is its own inspectable element.
+const split = (d) => (/^\s*M/.test(d) ? d.match(/M[^M]*/g).map((s) => s.trim()) : [d]);
+// Outline and filled are separate drawings of one candidate, approved as a pair.
+// A drawing is stroked centrelines plus filled areas; each fill entry is one
+// shape with its holes (evenodd), so it is never split.
+//   masters: { 24: [stroke d…] }                                      the outline, stroke 1.5
+//   filled:  { 24: { fill: [d…], stroke: [d…], weight } } | 'outline'  'outline' = same drawing
+// Line-only icons have nothing to fill, so their filled drawing is the same
+// idea at a heavier weight — never a background.
+const STYLES = ['outline', 'filled'];
+const STYLE_LABEL = { outline: 'Outline', filled: 'Filled', both: 'Both' };
+function drawing(c, style, m) {
+  const o = c.masters?.[m];
+  if (style === 'outline') return o ? { stroke: o, fill: [], sw: state.sw } : null;
+  if (c.filled === 'outline') return o ? { stroke: o, fill: [], sw: state.sw, same: true } : null;
+  const d = c.filled?.[m];
+  return d ? { stroke: d.stroke ?? [], fill: d.fill ?? [], sw: d.weight ?? state.sw } : null;
+}
+const paint = (dr) => dr.fill.map((d) => `<path fill="currentColor" fill-rule="evenodd" d="${d}"/>`).join('') + (dr.stroke.length ? strokes(dr.stroke, dr.sw) : '');
+const blank = (px) => `<span style="width:${px}px;height:${px}px"></span>`;
+const icon = (c, m, px = m, style = 'outline') => { const dr = drawing(c, style, m); return dr ? svg(m, px, paint(dr)) : blank(px); };
+const shown = () => (state.view === 'both' ? STYLES : [state.view]);
+
+// Compare: Outline / Filled / Both dropdown. In context: a Filled switch (F),
+// so the same items change weight in place.
+const chevron = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4l2.5 2.5L7.5 4"/></svg>';
+const check = '<svg class="ck" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.25l2.25 2.25 4.75-5"/></svg>';
+function styleMenu(id) {
+  const open = state.menu === id;
+  return `<div class="pop">
+    <button class="tbtn${open ? ' on' : ''}" data-menu="${id}" aria-expanded="${open}">Style <span class="count">${STYLE_LABEL[state.view]}</span>${chevron}</button>
+    <div class="lmenu" style="width:160px"${open ? '' : ' hidden'}>${['outline', 'filled', 'both'].map((v) =>
+      `<button class="mrow${state.view === v ? ' on' : ''}" data-view="${v}">${STYLE_LABEL[v]}${check}</button>`).join('')}</div>
+  </div>`;
+}
+function renderStyleMenus() {
+  document.getElementById('ctxStyle').innerHTML =
+    `<button class="switch${state.ctxFilled ? ' on' : ''}" data-ctx-filled title="Filled (F)"><span></span>Filled</button>`;
+  document.getElementById('cmpStyle').innerHTML = styleMenu('cmp');
+}
+function toggleCtxFilled() {
+  state.ctxFilled = !state.ctxFilled; store.set('icon-ctx-filled', state.ctxFilled);
+  renderStyleMenus(); renderContext();
+}
+for (const id of ['ctxStyle', 'cmpStyle']) document.getElementById(id).addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.hasAttribute('data-ctx-filled')) return toggleCtxFilled();
+  if (t.dataset.menu) return setMenu(state.menu === t.dataset.menu ? null : t.dataset.menu);
+  if (t.dataset.view) { state.view = t.dataset.view; store.set('icon-view', state.view); state.menu = null; renderStyleMenus(); renderContext(); renderCompare(); }
+});
+
+/* ───────── header ───────── */
+
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+function renderBar() {
+  const opt = (v, label) => `<button data-theme="${v}" class="${state.theme === v ? 'on' : ''}">${label}</button>`;
+  document.getElementById('bar').innerHTML =
+    `<span class="pill" title="Outline stroke · filled line weight at 24 / 20 / 16">Stroke ${STROKE} · filled ${FW[24]} / ${FW[20]} / ${FW[16]}</span>
+     <button class="switch${state.key ? ' on' : ''}" data-overlay title="Overlay"><span></span>Overlay</button>
+     <span class="divider"></span>
+     <span class="seg">${opt('auto', 'Auto')}${opt('light', 'Light')}${opt('dark', 'Dark')}</span>`;
+  document.getElementById('glyph').innerHTML = icon(current(), 24);
+}
+document.getElementById('bar').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.theme) { state.theme = t.dataset.theme; store.set('icon-theme', state.theme); applyTheme(); renderBar(); return; }
+  if (t.hasAttribute('data-overlay')) toggleOverlay();
+});
+function toggleOverlay() {
+  state.key = !state.key; store.set('icon-overlay', state.key);
+  renderBar(); renderTools(); renderStage();
+}
+
+/* ───────── references sidebar ───────── */
+
+function refTiles() {
+  const tiles = [];
+  if (!refs) return tiles;
+  for (const p of refs.polaris) tiles.push({ label: 'Polaris', name: p.name, sub: '20 grid · filled', vb: 20, body: `<g fill="currentColor">${p.svg}</g>` });
+  for (const n of refs.nucleo) tiles.push({ label: 'Nucleo UI', name: n.name, sub: `${n.grid} grid`, vb: n.grid, body: n.svg });
+  for (const l of refs.lucide) tiles.push({ label: 'Lucide', name: l.name, sub: 'stroke 2', vb: 24, body: `<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${l.svg}</g>` });
+  for (const [sw, icons] of Object.entries(refs.central)) for (const [n, s] of Object.entries(icons))
+    tiles.push({ label: 'Central', name: n, sub: `stroke ${sw}`, vb: 24, body: `<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${s}</g>` });
+  return tiles;
+}
+
+function renderRefs() {
+  const el = document.getElementById('refs');
+  if (!refs) { el.innerHTML = `<p class="mute" style="padding:12px 8px">Not built on this machine — run <code>node tools/refs.mjs ${name}</code>.</p>`; return; }
+  const tiles = refTiles();
+  document.getElementById('refCount').textContent = tiles.length;
+  let html = '', last = null;
+  for (const t of tiles) {
+    if (t.label !== last) { html += `<h3>${t.label}</h3>`; last = t.label; }
+    html += `<div class="ref">${svg(t.vb, 48, t.body)}${svg(t.vb, t.vb, t.body)}<div class="txt"><b>${t.name}</b><span>${t.sub}</span></div></div>`;
+  }
+  el.innerHTML = html;
+}
+
+function setNav(collapsed) {
+  document.body.classList.toggle('nav-collapsed', collapsed);
+  const b = document.getElementById('navBtn');
+  b.title = collapsed ? 'Expand sidebar ([)' : 'Collapse sidebar ([)';
+  b.setAttribute('aria-expanded', !collapsed);
+  store.set('icon-nav-collapsed', collapsed);
+}
+document.getElementById('navBtn').addEventListener('click', () => setNav(!document.body.classList.contains('nav-collapsed')));
+setNav(store.get('icon-nav-collapsed', false));
+
+function setRefs(open) {
+  document.body.classList.toggle('refs-open', open);
+  const b = document.getElementById('refsBtn');
+  b.classList.toggle('on', open);
+  b.setAttribute('aria-expanded', open);
+}
+document.getElementById('refsBtn').addEventListener('click', () => setRefs(!document.body.classList.contains('refs-open')));
+document.getElementById('refsClose').addEventListener('click', () => setRefs(false));
+
+/* ───────── iterations ───────── */
+
+function renderIters() {
+  const cur = current();
+  document.getElementById('iterCount').textContent = draft.candidates.length;
+  document.getElementById('iters').innerHTML = draft.candidates.map((c) => `<button class="iter${c === cur ? ' on' : ''}" data-id="${c.id}" title="${c.id} · ${c.label}">
+      <span class="mini">${icon(c, 24)}${c.id}</span>
+      <span class="t"><span class="id">${c.id}</span><span>${c.label}</span></span>
+      <span class="rows">${STYLES.map((s) => (MASTERS.some((m) => drawing(c, s, m))
+        ? `<span class="row" title="${STYLE_LABEL[s]}"><span class="hero">${icon(c, 24, 48, s)}</span>${MASTERS.map((m) => `<span class="sz">${icon(c, m, m, s)}${m}</span>`).join('')}</span>`
+        : `<span class="none">${STYLE_LABEL[s]} not drawn yet</span>`)).join('')}</span>
+      <small>${c.note ?? ''}</small></button>`).join('');
+}
+function select(id) {
+  state.sel = id; state.pin = null;
+  store.set(`icon-sel:${name}`, id);
+  renderBar(); renderIters(); renderTools(); renderStage(); renderContext();
+}
+document.getElementById('iters').addEventListener('click', (e) => {
+  const t = e.target.closest('.iter'); if (t) select(t.dataset.id);
+});
+
+/* ───────── construction tools ───────── */
+
+function renderTools() {
+  const c = current();
+  document.getElementById('consName').textContent = `${c.id} · ${c.label}`;
+  const on = LAYERS.filter((l) => state.layers[l.id]).length;
+  const menu = state.menu === 'layers';
+  const row = (l) => `<button class="mrow${state.layers[l.id] ? ' on' : ''}" data-layer="${l.id}"><i class="sw ${l.sw}${l.dash ? ' dash' : ''}"></i>${l.label}${check}</button>`;
+  document.getElementById('tools').innerHTML =
+    `<div class="pop">
+       <button class="tbtn${menu ? ' on' : ''}" id="layersBtn" aria-expanded="${menu}" title="Layers (L)">Layers
+         <span class="count num">${state.key ? on : 'off'}</span>${chevron}</button>
+       <div class="lmenu${state.key ? '' : ' off'}"${menu ? '' : ' hidden'}>
+         <div class="mhead">Overlay<button class="switch sm${state.key ? ' on' : ''}" data-overlay aria-label="Overlay"><span></span></button></div>
+         <div class="msec">Guides</div>${LAYERS.filter((l) => l.sw !== 'k').map(row).join('')}
+         <div class="msec">Keylines</div>${LAYERS.filter((l) => l.sw === 'k').map(row).join('')}
+       </div>
+     </div>
+     <span class="seg">
+       <button data-scale="true" class="${state.scale === 'true' ? 'on' : ''}" title="Same px per unit on every master">True size</button>
+       <button data-scale="fit" class="${state.scale === 'fit' ? 'on' : ''}" title="Every master at the same size">Fit</button></span>
+     <span class="divider"></span>
+     <button class="switch${state.inspect ? ' on' : ''}" id="inspect" title="Inspect (I)"><span></span>Inspect</button>`;
+  document.getElementById('consFoot').innerHTML = state.inspect
+    ? '<span>Hover a stroke to measure it</span><span>Click to pin, then hover another</span><span><kbd>Esc</kbd> clears</span><span style="margin-left:auto"><span style="color:var(--measure)">●</span> mass centre &nbsp; <span style="color:var(--measure)">+</span> canvas centre</span>'
+    : '<span class="keys"><kbd>I</kbd> inspect</span><span class="keys"><kbd>F</kbd> filled in context</span><span class="keys"><kbd>L</kbd> layers</span><span class="keys"><kbd>R</kbd> references</span>';
+}
+function setMenu(id) { state.menu = id; renderTools(); renderStyleMenus(); }
+document.getElementById('tools').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.id === 'layersBtn') return setMenu(state.menu === 'layers' ? null : 'layers');
+  if (t.id === 'inspect') return toggleInspect();
+  if (t.hasAttribute('data-overlay')) return toggleOverlay();
+  if (t.dataset.layer) { state.layers[t.dataset.layer] = !state.layers[t.dataset.layer]; store.set('icon-layers', state.layers); }
+  else if (t.dataset.scale) { state.scale = t.dataset.scale; store.set('icon-scale', state.scale); }
+  renderTools(); renderStage();
+});
+document.addEventListener('click', (e) => { if (state.menu && !e.target.closest('.pop')) setMenu(null); });
+function toggleInspect() {
+  state.inspect = !state.inspect; state.pin = null;
+  store.set('icon-inspect', state.inspect);
+  renderTools(); renderStage();
+}
+
+/* ───────── construction boards ───────── */
+
+const RULER = 20;                                         // px
+const pxPerUnit = (m) => (state.scale === 'fit' ? 384 / m : 16);
+const boards = {};                                        // 'style:m' → { m, parts, boxes, ink, px, mass }
+
+// End point of every command — the nodes a designer would see.
+function vertices(d) {
+  const pts = [];
+  let x = 0, y = 0, sx = 0, sy = 0;
+  for (const { cmd, args } of parsePath(d)) {
+    const rel = cmd === cmd.toLowerCase(), C = cmd.toUpperCase();
+    const n = { M: 2, L: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, T: 2, A: 7, Z: 0 }[C];
+    if (C === 'Z') { x = sx; y = sy; continue; }
+    for (let j = 0; j + n <= args.length; j += n) {
+      const a = args.slice(j, j + n);
+      if (C === 'H') x = rel ? x + a[0] : a[0];
+      else if (C === 'V') y = rel ? y + a[0] : a[0];
+      else { x = rel ? x + a[n - 2] : a[n - 2]; y = rel ? y + a[n - 1] : a[n - 1]; }
+      if (C === 'M' && j === 0) { sx = x; sy = y; }
+      pts.push([x, y]);
+    }
+  }
+  return pts;
+}
+
+// Ink box of an element. A stroke grows its centreline box by half a stroke
+// (exact for round caps and joins); a filled area is its own box.
+function inkBox({ d, area, sw }) {
+  const b = bbox([d]), h = area ? 0 : sw / 2;
+  return { x0: b.x0 - h, y0: b.y0 - h, x1: b.x1 + h, y1: b.y1 + h };
+}
+const union = (bs) => bs.reduce((u, b) => ({ x0: Math.min(u.x0, b.x0), y0: Math.min(u.y0, b.y0), x1: Math.max(u.x1, b.x1), y1: Math.max(u.y1, b.y1) }),
+  { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity });
+
+function layers(m) {
+  if (!state.key) return '';
+  const L = state.layers, k = M[m].keylines, c = m / 2;
+  const rect = ([x0, x1, y0, y1], cls) => `<rect class="hair ${cls}" x="${x0}" y="${y0}" width="${x1 - x0}" height="${y1 - y0}"/>`;
+  let g = '';
+  if (L.quarter) { let d = ''; for (let i = 0.25; i < m; i += 0.25) if (i % 1) d += `M${i} 0V${m}M0 ${i}H${m}`; g += `<path class="hair gq" d="${d}"/>`; }
+  if (L.grid) { let d = ''; for (let i = 1; i < m; i++) d += `M${i} 0V${m}M0 ${i}H${m}`; g += `<path class="hair g1" d="${d}"/>`; }
+  if (L.bound) { const [a, b] = M[m].bound; g += rect([a, b, a, b], 'gd dash'); }
+  if (L.centre) g += `<path class="hair gd" d="M${c} 0V${m}M0 ${c}H${m}"/>`;
+  if (L.circle) g += `<circle class="hair kl" cx="${c}" cy="${c}" r="${k.circle[0] / 2}"/>`;
+  if (L.square) g += rect(centred(m, k.square), 'kl');
+  if (L.portrait) g += rect(centred(m, k.portrait), 'kl dash');
+  if (L.landscape) g += rect(centred(m, k.landscape), 'kl dash');
+  if (L.diagonal) { const [x0, x1, y0, y1] = centred(m, k.diagonal); g += `<path class="hair kl" d="M${x0} ${y0}L${x1} ${y1}M${x1} ${y0}L${x0} ${y1}"/>`; }
+  if (L.mark) g += rect(centred(m, [M[m].mark, M[m].mark]), 'kl dash');
+  return g;
+}
+
+function skeleton(parts, px) {
+  if (!state.key || !state.layers.skeleton) return '';
+  const r = 3 / px;
+  const ds = parts.map((p) => p.d);
+  return `<g class="overlay"><path class="hair skel" d="${ds.join(' ')}"/>${
+    ds.flatMap(vertices).map(([x, y]) => `<circle class="vtx" cx="${x}" cy="${y}" r="${r}"/>`).join('')}</g>`;
+}
+
+function rulers(m, px) {
+  if (!state.inspect) return '';
+  const r = RULER / px, fs = 9 / px;
+  let d = '', t = '';
+  for (let i = 0; i <= m; i++) {
+    const long = i % 4 === 0, len = (long ? 6 : 3) / px;
+    d += `M${i} ${-len}V0M${-len} ${i}H0`;
+    if (long) t += `<text x="${i}" y="${-9 / px}" font-size="${fs}" text-anchor="middle">${i}</text>` +
+      (i ? `<text x="${-9 / px}" y="${i}" font-size="${fs}" text-anchor="end" dy=".35em">${i}</text>` : '');
+  }
+  return `<g class="ruler overlay"><path class="hair" d="${d}"/>${t}</g>`;
+}
+
+function board(style, m, c) {
+  const k = `${style}:${m}`, px = pxPerUnit(m), r = RULER / px, size = m * px + RULER;
+  const dr = drawing(c, style, m);
+  const head = `<div class="bh"><b>${m} <span>master</span>${dr?.same ? '<span class="pill">Same as outline</span>' : ''}${dr && !dr.same && dr.stroke.length && dr.sw !== STROKE ? `<span class="pill">Stroke ${dr.sw}</span>` : ''}</b>${
+    dr ? `<span class="actual" title="Actual size · 1× and 2×">${icon(c, m, m, style)}${icon(c, m, m * 2, style)}</span>` : ''}</div>`;
+  if (!dr) return `<figure class="board ${style}">${head}<p class="mute" style="padding-left:20px">Not drawn yet</p></figure>`;
+  const parts = [...dr.fill.map((d) => ({ d, area: true })), ...dr.stroke.flatMap(split).map((d) => ({ d, sw: dr.sw }))];
+  const boxes = parts.map(inkBox);
+  boards[k] = { m, parts, boxes, ink: union(boxes), px, mass: null };
+  massCentre(dr, m).then((p) => { if (boards[k]?.parts === parts) { boards[k].mass = p; idle(k); } });
+  return `<figure class="board ${style}" data-k="${k}" style="--w:${size}px">
+    ${head}
+    <svg class="cv${state.inspect ? ' inspect' : ''}" width="${size}" height="${size}" viewBox="${-r} ${-r} ${m + r} ${m + r}">
+      <rect class="canvas" width="${m}" height="${m}"/>
+      <g class="overlay">${layers(m)}</g>
+      <g class="ink" stroke-width="${dr.sw}" stroke-linecap="round" stroke-linejoin="round">${
+        parts.map((p, i) => (p.area
+          ? `<path class="area" data-i="${i}" fill="currentColor" fill-rule="evenodd" d="${p.d}"/>`
+          : `<path data-i="${i}" fill="none" stroke="currentColor" d="${p.d}"/>`)).join('')}</g>
+      ${skeleton(parts, px)}
+      ${rulers(m, px)}
+      <g class="overlay measure"></g>
+    </svg>
+    <dl class="stats"></dl>
+  </figure>`;
+}
+
+function renderStage() {
+  for (const k of Object.keys(boards)) delete boards[k];
+  const c = current();
+  const note = { outline: 'stroke 1.5', filled: c.filled === 'outline' ? 'same drawing as outline' : 'solid · holes ≥ 3 · lines heavier' };
+  document.getElementById('stage').innerHTML =
+    STYLES.map((s) => `<div class="shead"><b>${STYLE_LABEL[s]}</b>${note[s]}</div>`).join('') +
+    MASTERS.map((m) => STYLES.map((s) => board(s, m, c)).join('')).join('');
+  for (const k of Object.keys(boards)) idle(k);
+}
+
+// Mass centre of the rendered ink — where the icon's visual weight sits.
+async function massCentre(dr, m) {
+  const S = 16, n = m * S;
+  const src = `<svg xmlns="http://www.w3.org/2000/svg" width="${n}" height="${n}" viewBox="0 0 ${m} ${m}">${paint(dr).replaceAll('currentColor', '#000')}</svg>`;
+  const img = new Image();
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`;
+  try { await img.decode(); } catch { return null; }
+  const cv = document.createElement('canvas'); cv.width = cv.height = n;
+  const ctx = cv.getContext('2d'); ctx.drawImage(img, 0, 0);
+  const a = ctx.getImageData(0, 0, n, n).data;
+  let sa = 0, sx = 0, sy = 0;
+  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+    const w = a[(y * n + x) * 4 + 3]; if (!w) continue;
+    sa += w; sx += w * (x + 0.5); sy += w * (y + 0.5);
+  }
+  return sa ? [sx / sa / S, sy / sa / S] : null;
+}
+
+/* ───────── inspect: measurements ───────── */
+
+function tag(x, y, text, cls, px) {
+  const w = (text.length * 6.2 + 8) / px, h = 14 / px;
+  return `<g class="tag ${cls}"><rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" rx="${3 / px}"/>` +
+    `<text x="${x}" y="${y}" font-size="${10 / px}" dy=".36em" text-anchor="middle">${text}</text></g>`;
+}
+// Axis-aligned dimension line with end ticks and its length.
+function dim(x1, y1, x2, y2, px) {
+  const len = Math.abs(x2 - x1) + Math.abs(y2 - y1);
+  if (len < 0.005) return '';
+  const t = 3 / px, hz = y1 === y2;
+  const ends = hz ? `M${x1} ${y1 - t}v${2 * t}M${x2} ${y2 - t}v${2 * t}` : `M${x1 - t} ${y1}h${2 * t}M${x2 - t} ${y2}h${2 * t}`;
+  return `<path class="dim" d="M${x1} ${y1}L${x2} ${y2}${ends}"/>` + tag((x1 + x2) / 2, (y1 + y2) / 2, f(len), 'd', px);
+}
+const boxRect = (b, cls) => `<rect class="mbox ${cls}" x="${b.x0}" y="${b.y0}" width="${b.x1 - b.x0}" height="${b.y1 - b.y0}"/>`;
+const mid = (a, b) => (a + b) / 2;
+
+function toEdges(b, m, px) {
+  const cx = mid(b.x0, b.x1), cy = mid(b.y0, b.y1);
+  return dim(0, cy, b.x0, cy, px) + dim(b.x1, cy, m, cy, px) + dim(cx, 0, cx, b.y0, px) + dim(cx, b.y1, cx, m, px);
+}
+function sizeTag(b, m, px) {
+  const below = b.y1 + 12 / px < m;
+  return tag(mid(b.x0, b.x1), below ? b.y1 + 11 / px : b.y0 - 11 / px, `${f(b.x1 - b.x0)} × ${f(b.y1 - b.y0)}`, 's', px);
+}
+// Figma-style distances between two boxes: the gap when they are apart on an
+// axis, otherwise the offsets between matching edges.
+function between(a, b, px) {
+  let g = '';
+  const oy0 = Math.max(a.y0, b.y0), oy1 = Math.min(a.y1, b.y1);
+  const y = oy0 < oy1 ? mid(oy0, oy1) : mid(b.y0, b.y1);
+  if (b.x0 >= a.x1) g += dim(a.x1, y, b.x0, y, px);
+  else if (a.x0 >= b.x1) g += dim(b.x1, y, a.x0, y, px);
+  else g += dim(Math.min(a.x0, b.x0), y, Math.max(a.x0, b.x0), y, px) + dim(Math.min(a.x1, b.x1), y, Math.max(a.x1, b.x1), y, px);
+  const ox0 = Math.max(a.x0, b.x0), ox1 = Math.min(a.x1, b.x1);
+  const x = ox0 < ox1 ? mid(ox0, ox1) : mid(b.x0, b.x1);
+  if (b.y0 >= a.y1) g += dim(x, a.y1, x, b.y0, px);
+  else if (a.y0 >= b.y1) g += dim(x, b.y1, x, a.y0, px);
+  else g += dim(x, Math.min(a.y0, b.y0), x, Math.max(a.y0, b.y0), px) + dim(x, Math.min(a.y1, b.y1), x, Math.max(a.y1, b.y1), px);
+  return g;
+}
+function bands(b, px) {
+  const r = RULER / px;
+  return `<rect class="band" x="${b.x0}" y="${-r}" width="${b.x1 - b.x0}" height="${r}"/><rect class="band" x="${-r}" y="${b.y0}" width="${r}" height="${b.y1 - b.y0}"/>`;
+}
+const els = (k) => document.querySelector(`.board[data-k="${k}"]`);
+const size = (b) => `${f(b.x1 - b.x0)} × ${f(b.y1 - b.y0)}`;
+const range = (a, b) => `${f(a)} – ${f(b)}`;
+const pair = (x, y) => `${f(x)}, ${f(y)}`;
+const stat = (label, value, cls = '', title = '') => `<div${title ? ` title="${title}"` : ''}><dt>${label}</dt><dd class="${cls}">${value}</dd></div>`;
+// The second row always exists, so the board never changes height between modes.
+const line = (left, pt) => state.inspect
+  ? `<div class="line"><span>${left}</span><span>${pt ? `x ${f(pt[0])}  y ${f(pt[1])}` : ''}</span></div>`
+  : '<div class="line hint"><span>Inspect to measure strokes</span></div>';
+
+// Resting state: whole-icon ink box, its margins, and where the weight sits.
+function idle(k, pt = null) {
+  const B = boards[k], el = els(k); if (!B || !el) return;
+  const { m, ink: I, px, mass } = B, c = m / 2;
+  const off = (x, y) => (Math.abs(x) < 0.005 && Math.abs(y) < 0.005 ? ['Centred', 'ok'] : [pair(x, y), '']);
+  const [boxOff, boxCls] = off(mid(I.x0, I.x1) - c, mid(I.y0, I.y1) - c);
+  const [massOff, massCls] = mass ? off(mass[0] - c, mass[1] - c) : ['…', 'ok'];
+  el.querySelector('.stats').innerHTML =
+    stat('Ink', size(I)) +
+    stat('Margins', `${f(I.x0)} · ${f(m - I.x1)} · ${f(I.y0)} · ${f(m - I.y1)}`, '', 'left · right · top · bottom') +
+    stat('Centre', boxOff, boxCls, 'ink box centre relative to canvas centre') +
+    stat('Mass', massOff, massCls, 'visual weight relative to canvas centre') +
+    line('Hover a stroke', pt);
+  let g = '';
+  if (state.inspect) {
+    const t = 4 / px;
+    g = boxRect(I, 'ink') + bands(I, px) +
+      `<path class="ctr" d="M${c - t} ${c}h${2 * t}M${c} ${c - t}v${2 * t}"/>` +
+      (mass ? `<circle class="mass" cx="${mass[0]}" cy="${mass[1]}" r="${2.5 / px}"/>` : '');
+  }
+  el.querySelector('.measure').innerHTML = g;
+}
+
+function focus(k, hi) {
+  const B = boards[k], { m, px } = B;
+  const pi = state.pin?.k === k ? state.pin.i : null;
+  const a = pi != null ? B.boxes[pi] : null, b = hi != null ? B.boxes[hi] : null;
+  if (a && b && hi !== pi) return boxRect(a, 'pin') + boxRect(b, '') + between(a, b, px) + bands(b, px);
+  const x = b ?? a;
+  return boxRect(x, a ? 'pin' : '') + toEdges(x, m, px) + sizeTag(x, m, px) + bands(x, px);
+}
+
+function hover(k, hi, pt) {
+  const B = boards[k], el = els(k); if (!B || !el) return;
+  const pi = state.pin?.k === k ? state.pin.i : null;
+  if (hi == null && pi == null) return idle(k, pt);
+  el.querySelector('.measure').innerHTML = focus(k, hi);
+  const i = hi ?? pi, b = B.boxes[i];
+  const both = pi != null && hi != null && hi !== pi;
+  el.querySelector('.stats').innerHTML =
+    (both ? stat('Pinned', size(B.boxes[pi])) + stat('Hover', size(b)) : stat('Size', size(b)) + stat('State', pi != null ? 'Pinned' : 'Hover', 'ok')) +
+    stat('X', range(b.x0, b.x1)) + stat('Y', range(b.y0, b.y1)) +
+    line(B.parts[i].d, pt);
+}
+
+function eventPoint(svgEl, e) {
+  const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(svgEl.getScreenCTM().inverse());
+  const q = (v) => Math.round(v * 4) / 4;                // snap to the quarter grid
+  return [q(p.x), q(p.y)];
+}
+const stage = document.getElementById('stage');
+let over = null;                                         // board under the pointer
+const rest = () => { if (over != null) { const k = over; over = null; state.pin?.k === k ? hover(k, null, null) : idle(k); } };
+stage.addEventListener('pointermove', (e) => {
+  if (!state.inspect) return;
+  const svgEl = e.target.closest('svg.cv'); if (!svgEl) return rest();
+  const k = svgEl.closest('.board').dataset.k, { m } = boards[k];
+  if (over !== k) rest();
+  over = k;
+  const i = e.target.dataset?.i;
+  const pt = eventPoint(svgEl, e);
+  hover(k, i != null ? Number(i) : null, pt[0] >= 0 && pt[1] >= 0 && pt[0] <= m && pt[1] <= m ? pt : null);
+});
+stage.addEventListener('pointerleave', rest);
+stage.addEventListener('click', (e) => {
+  if (!state.inspect) return;
+  const svgEl = e.target.closest('svg.cv'); if (!svgEl) return;
+  const k = svgEl.closest('.board').dataset.k;
+  const i = e.target.dataset?.i;
+  const prev = state.pin;
+  state.pin = i != null ? { k, i: Number(i) } : null;
+  if (prev && prev.k !== k) idle(prev.k);
+  hover(k, i != null ? Number(i) : null, eventPoint(svgEl, e));
+});
+
+/* ───────── in context, compare ───────── */
+
+// Each master in the UI it is drawn for, paired with the text size that goes with it.
+const CONTEXT = { 24: { text: 16, h: 40, label: 'Large' }, 20: { text: 14, h: 32, label: 'Default' }, 16: { text: 13, h: 28, label: 'Compact' } };
+const VERB = draft.context ?? 'Add item';
+function renderContext() {
+  const c = current();
+  document.getElementById('ctxName').textContent = `${c.id} · ${c.label}`;
+  const cols = ['Primary', 'Secondary', 'Icon only', 'Menu', 'Inline'];
+  document.getElementById('ctx').innerHTML =
+    `<div class="cx-row cx-head"><span>Master</span>${cols.map((h) => `<span>${h}</span>`).join('')}</div>` +
+    MASTERS.flatMap((m) => [state.ctxFilled ? 'filled' : 'outline'].map((s) => {
+      const k = CONTEXT[m], i = drawing(c, s, m) ? icon(c, m, m, s) : '';
+      return `<div class="cx-row" style="--t:${k.text}px;--h:${k.h}px">
+        <span class="cx-lab"><b>${m} <span>${STYLE_LABEL[s]}</span></b>${k.label} · ${k.text}px text</span>
+        <span><span class="ui primary">${i}${VERB}</span></span>
+        <span><span class="ui">${i}${VERB}</span></span>
+        <span><span class="ui sq" title="${VERB}">${i}</span><span class="ui sq ghost">${i}</span></span>
+        <span><span class="ui menu">${i}<span>${VERB}</span><kbd>⌘N</kbd></span></span>
+        <span class="inline">Press ${i} to ${VERB.toLowerCase()}</span>
+      </div>`;
+    })).join('');
+}
+
+const SIZES = [96, 48, 24, 20, 16];
+function renderCompare() {
+  const refRows = refTiles().map((t) => `<tr><td class="name">${t.label}<small>${t.name} · ${t.sub}</small></td>${
+    SIZES.map((p) => `<td>${svg(t.vb, p, t.body)}</td>`).join('')}</tr>`).join('');
+  const ours = draft.candidates.flatMap((c) => shown().map((s) => `<tr><td class="name"><b>${c.id}</b>${c.label} · ${STYLE_LABEL[s]}<small>${c.note ?? ''}</small></td>${
+    SIZES.map((p) => { const m = M[p] ? p : 24;
+      return `<td>${drawing(c, s, m) ? icon(c, m, p, s) : '<span class="mute">—</span>'}</td>`; }).join('')}</tr>`)).join('');
+  document.getElementById('cmp').innerHTML =
+    `<tr><th style="text-align:left">Source</th>${SIZES.map((p) => `<th>${p}${M[p] ? ' · master' : ''}</th>`).join('')}</tr>` +
+    (refRows ? `<tr class="group"><td colspan="${SIZES.length + 1}">References</td></tr>${refRows}` : '') +
+    `<tr class="group"><td colspan="${SIZES.length + 1}">Mavan iterations</td></tr>${ours}`;
+}
+
+/* ───────── shell ───────── */
+
+let tab = 'construction';
+function showTab(t) {
+  tab = t;
+  for (const b of document.querySelectorAll('#tabs button')) b.classList.toggle('on', b.dataset.tab === t);
+  for (const id of ['construction', 'compare']) document.getElementById(id).hidden = id !== t;
+  store.set('icon-tab', t);
+}
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (t) { history.replaceState(null, '', `#${t.dataset.tab}`); showTab(t.dataset.tab); }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest('input,textarea,select')) return;
+  if (e.key === '[') setNav(!document.body.classList.contains('nav-collapsed'));
+  else if ((e.key === 'f' || e.key === 'F') && tab === 'construction') toggleCtxFilled();
+  else if (e.key === 'r' || e.key === 'R') setRefs(!document.body.classList.contains('refs-open'));
+  else if (e.key === 'Escape') { if (state.menu) setMenu(null); else if (state.pin) { const { k } = state.pin; state.pin = null; idle(k); } else setRefs(false); }
+  else if (tab !== 'construction') return;
+  else if (e.key === 'i' || e.key === 'I') toggleInspect();
+  else if (e.key === 'l' || e.key === 'L') setMenu(state.menu === 'layers' ? null : 'layers');
+  else if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+    const cs = draft.candidates, i = cs.indexOf(current());
+    const next = cs[(i + (e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : cs.length - 1)) % cs.length];
+    select(next.id);
+    document.querySelector(`.iter[data-id="${next.id}"]`)?.scrollIntoView({ block: 'nearest' });
+    e.preventDefault();
+  }
+});
+
+document.title = `${name} · review`;
+document.getElementById('title').textContent = name;
+document.getElementById('subtitle').textContent = [refs?.rank && `Audit rank ${refs.rank}`, `${draft.candidates.length} iterations`, 'outline + filled', 'masters 24 · 20 · 16'].filter(Boolean).join(' · ');
+document.getElementById('question').textContent = draft.question;
+// The iterations rail sticks just under the header, whatever height it wraps to.
+const app = document.querySelector('.app');
+new ResizeObserver(() => document.documentElement.style.setProperty('--head', `${app.offsetHeight}px`)).observe(app);
+applyTheme();
+renderRefs();
+renderBar(); renderIters(); renderTools(); renderStyleMenus(); renderStage(); renderContext(); renderCompare();
+const saved = store.get('icon-tab', null);
+showTab(location.hash.slice(1) === 'compare' || (!location.hash && saved === 'compare') ? 'compare' : 'construction');
+</script>
+</body></html>

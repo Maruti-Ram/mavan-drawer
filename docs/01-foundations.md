@@ -1,0 +1,298 @@
+# Foundations
+
+The geometric constitution of the library. Every icon obeys this or it does not ship.
+
+---
+
+## 1. The canvas
+
+**Three drawn masters: 24, 20 and 16.** Each is drawn by hand on its own canvas,
+not scaled from another. 24 is drawn first; 20 and 16 are redrawn from it with
+less detail.
+
+```
+src/icons/24/  viewBox="0 0 24 24"
+src/icons/20/  viewBox="0 0 20 20"
+src/icons/16/  viewBox="0 0 16 16"
+```
+
+The numbers for every master live in one place, `tools/masters.mjs`; the linter,
+the build and the lab all read it.
+
+24 is the right master because it divides cleanly (2, 3, 4, 6, 8, 12), it is the
+most common UI icon size on the web, and it leaves enough room for detail without
+tempting you into detail that dies at 16px.
+
+**Units are not pixels.** A unit is a unit. At render size 24 one unit is one
+CSS pixel; at 16 it is 0.667. The grid rules below are written so the icon is
+crisp at the *master* size, which is where crispness matters most.
+
+### The canvas is a layout box, not a drawing bound
+
+```
+┌────────────────────────────┐  24 × 24   canvas — the box a consumer reserves
+│  ┌──────────────────────┐  │
+│  │                      │  │  20 × 20   the circle keyline (see §2)
+│  │                      │  │            = the outer bound for normal shapes
+│  │                      │  │
+│  └──────────────────────┘  │  2 units   margin, shipped inside the asset
+└────────────────────────────┘
+```
+
+**There is no separate "live area".** The outer drawing bound *is* the largest
+keyline — the circle at ⌀20. Naming it twice invents a layer that does not exist.
+Two numbers is the whole structure: the **canvas**, and the **keylines**.
+
+The 2 units between them are not a drawing rule. They are **margin, shipped inside
+the asset**, and they exist because the canvas is what gets aligned and spaced —
+not what gets drawn in. Ship icons that fill their box and every consumer has to
+add the same padding by hand; some will forget, some will use 4, and the set will
+look different in every product. Margin has to be part of the asset or it is not
+part of the system.
+
+Everyone lands in the same place, because it is calibrated against text rather
+than chosen:
+
+| Library | Canvas | Largest keyline | Ratio |
+|---------|--------|-----------------|-------|
+| Font Awesome 7 | 20 | ⌀16 | 80% |
+| Shopify Polaris | 20 | 16 | 80% |
+| Material · Fluent | 24 | ⌀20 | 83% |
+| This library | 24 | ⌀20 | 83% |
+
+An icon whose ink filled a 24px box reads much heavier than the 16px text beside
+it. At 20/24 it matches.
+
+### The one thing allowed past the keylines
+
+Modifier badges. Fluent's runs to 23 of 24 — outside every keyline, inside the
+canvas. That is deliberate, it is the only exception, and it is specified in
+`05-modifiers.md`. Nothing else crosses 22.
+
+## 2. Keylines
+
+Different shapes need different dimensions to look the *same* size. A circle that
+measures 20 across looks smaller than a square that measures 20 across, because
+the square has more mass in the corners. Keylines are the pre-corrected sizes.
+
+| Keyline    | Outer dimensions | Use for                                  |
+|------------|------------------|------------------------------------------|
+| Square     | 18 × 18          | squares, rounded rects, boxy silhouettes |
+| Circle     | ⌀ 20             | circles, discs, round silhouettes        |
+| Portrait   | 16 × 20          | tall shapes — documents, phones, bookmarks |
+| Landscape  | 20 × 16          | wide shapes — cards, calendars, images   |
+| Diagonal   | 20 × 20 bounding | 45° shapes — arrows, slashes             |
+| **Mark**   | ≤ 18 × 18        | directional marks — chevrons, carets, minus |
+
+All keylines are centred on the canvas midpoint.
+
+### Keylines at 20 and 16
+
+| Keyline   | 24 master | 20 master | 16 master |
+|-----------|-----------|-----------|-----------|
+| Square    | 18 × 18   | 14 × 14   | 12 × 12   |
+| Circle    | ⌀ 20      | ⌀ 16      | ⌀ 14      |
+| Portrait  | 16 × 20   | 12 × 16   | 10 × 14   |
+| Landscape | 20 × 16   | 16 × 12   | 14 × 10   |
+| Mark      | ≤ 18      | ≤ 14      | ≤ 12      |
+| Margin    | 2         | 2         | 1         |
+
+20 matches Font Awesome's 20 grid (circle 16, square 14). 16 keeps only one unit
+of margin, because small icons have to fill more of their box to read at all —
+Nucleo's 12 grid does the same. The 20 and 16 rows are proposals until the first
+icons have been approved at those sizes.
+
+**Mark** is the escape hatch, and it is deliberately awkward to use. A chevron is
+not a silhouette of an object; it is a direction, and forcing it to fill 18 × 18
+would make it shout. Marks have no minimum size — only a ceiling and a centring
+requirement. A file opts in explicitly:
+
+```svg
+<!-- keyline: mark -->
+```
+
+If you find yourself reaching for `mark` on something that depicts an object,
+you have the wrong keyline, not the wrong rule.
+
+**These are outer dimensions — they include the stroke.** A stroked circle that
+should hit the ⌀20 keyline has a *centreline* radius of 9.25, because the
+1.5-unit stroke adds 0.75 on each side. See §4.
+
+Use a keyline as the ceiling, not a quota. A minus sign does not need to fill
+18 × 18. But nothing should exceed its keyline, and the dominant mass of most
+icons should reach it.
+
+---
+
+## 3. The coordinate grid
+
+**All coordinates land on the quarter grid** — integers, `.25`, `.5` or `.75`.
+
+The reason is the stroke (§4). A 1.5 stroke centred on `x.25` or `x.75` has
+both edges on integers — `3.75` spans 3 → 4.5, and `20.25` spans 19.5 → 21 — so
+the *outer* edge of a container lands exactly on a pixel boundary. Container
+edges therefore sit on `.25` / `.75`.
+
+**Symmetric marks may sit on the canvas midline** (`12`, `10`, `8`). A plus
+centred on x=12 has its edges on 11.25 and 12.75, which is soft by a quarter
+pixel on each side — but symmetric. For a mark, symmetry beats crispness.
+
+Permitted exceptions, in order of preference:
+
+1. **Arc-derived decimals** — the endpoint of a circular arc rarely lands on the
+   quarter grid. Round to **2 decimal places**, never more.
+2. **Optical corrections** — anything else off the quarter grid. Requires a
+   comment in the source file saying what it corrects.
+
+**Maximum precision anywhere in the library: 2 decimal places.** The linter
+enforces this. Beyond that you are storing float error, not design intent.
+
+Angles default to **0°, 45°, 90°**. 30° and 60° are allowed when the subject
+demands it (a hexagon, a chart line) and must be justified in the source file.
+
+---
+
+## 4. The stroke system
+
+### Weight: 1.5 units at every master
+
+Everything in the library is drawn as a **stroke**, not a fill, at the master.
+Fills are a derived style (see `03-variants.md`), not a drawing technique.
+
+```
+stroke-width="1.5"
+stroke-linecap="round"
+stroke-linejoin="round"
+fill="none"
+stroke="currentColor"
+```
+
+| Master | Stroke | Share of the canvas | Filled line weight | Share |
+|--------|--------|---------------------|--------------------|-------|
+| 24     | 1.5    | 6.3%                | **2.5**            | 10.4% |
+| 20     | 1.5    | 7.5%                | **2**              | 10%   |
+| 16     | 1.5    | 9.4%                | **2**              | 12.5% |
+
+**Filled line weight (locked 2026-09-17).** A *line-heavy* icon (`plus`,
+`check`, arrows, chevrons — nothing encloses an area) has nothing to fill, so
+its filled style is the same lines at the weight above. Never a background. The
+ink box stays identical to the outline's, so each end pulls in by half the
+added weight (`M5.25 12h13.5` at 1.5 → `M5.75 12h12.5` at 2.5). Every other icon
+fills its shapes and keeps 1.5 for any leftover line. Numbers live in
+`tools/masters.mjs` (`FILLED_WEIGHT`); lint enforces them on `*-filled.svg`.
+
+The same physical weight at every size means smaller masters are proportionally
+heavier, which is exactly what they need. This is what Polaris (20), Central
+(24) and Font Awesome regular (20) do.
+
+### Why 1.5 and not 2
+
+Decided 2026-09-16 after a side-by-side in `lab/character.html`. 2 is the
+pixel-perfect answer — an integer stroke has integer edges — but it reads heavy
+and friendly. The library's character is refined and professional
+(`docs/07-character.md`), and 1.5 is the weight of that character.
+
+The cost is crispness at 1×: a 1.5 stroke can never have both edges on
+integers. The quarter grid (§3) puts the edge that matters — the outside of a
+container — on a pixel boundary. On 2× and denser screens 1.5 is exact.
+
+### Caps and joins: round
+
+Round caps and joins, everywhere, no exceptions (`07-character.md` C1). A
+terminal's visual end is predictable: exactly `stroke-width / 2` past the path
+endpoint.
+
+**The round-cap rule:** a path endpoint sits `0.75` *inside* the extent you
+actually want.
+
+> To draw a horizontal line that visually spans the 18-unit square keyline
+> (3 → 21), the path is `M3.75 12h16.5` — endpoints at 3.75 and 20.25, caps
+> extending to 3 and 21.
+
+Getting this wrong by a stroke is the most common error in icon sets.
+
+---
+
+## 5. Corners and radii
+
+| Element                        | Centreline radius at 24 |
+|--------------------------------|-------------------------|
+| Primary container (card, box)  | 2.5                     |
+| Bend or secondary detail       | 1.5                     |
+| Hard corner (deliberate)       | 0                       |
+
+Proposed from the Refined specimens in `lab/character.html`; confirmed as the
+first containers are approved. Radii at 20 and 16 are set per icon while drawing
+and recorded here once they settle.
+
+Do not use radius values between these. Three options is a system; seven is a
+mood.
+
+---
+
+## 6. Negative space — the rule that decides whether the set survives at 16px
+
+**Minimum gap between any two stroke edges: 1.5 units — one stroke width.**
+
+The same at every master, and at the 16 master that is 1.5px — the smallest gap
+that still reads as a gap rather than a smudge. Anything
+tighter fills in, and an icon that fills in at 16px is a broken icon no matter
+how good it looks at 96.
+
+Corollaries:
+- **No enclosed shape smaller than 1.5 units across** (inner dimension).
+- **No more than 3 parallel strokes** in one run. Four is a texture, not an icon.
+- When a detail cannot fit at a 2-unit gap, **remove the detail**. Do not shrink
+  the stroke locally — varying stroke weight within a set is the fastest way to
+  make it look amateur.
+
+This rule will feel punishing. It is the rule that separates icon sets that hold
+up from ones that only photograph well.
+
+---
+
+## 7. Optical corrections
+
+The grid is a starting point, not a verdict. Your eye overrules it — but only
+after the grid has been tried.
+
+- **Circles overshoot.** A circle sits on the ⌀20 keyline, not the 18 square, for
+  exactly this reason. Already handled by §2.
+- **Diagonals look thin.** A 45° stroke presents less width to the eye than an
+  orthogonal one. Round caps and joins mostly compensate. Do not thicken it.
+- **Horizontals look heavier than verticals.** Real, but below the threshold that
+  matters at 1.5 units. Ignore.
+- **Visual centre is above geometric centre.** For icons with a clear top and
+  bottom (a pin, a flag, a droplet), shifting mass up by 0.5 units often reads
+  as better centred. Use sparingly and comment it.
+
+Any optical correction that breaks the integer grid must carry a comment in the
+source file explaining what it is correcting. An uncommented decimal is a bug.
+
+---
+
+## 8. What a compliant source file looks like
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+     fill="none" stroke="currentColor" stroke-width="1.5"
+     stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 5.25v13.5"/>
+  <path d="M5.25 12h13.5"/>
+</svg>
+```
+
+Fixed for every icon in the library:
+
+- `viewBox` equal to the master's canvas — `0 0 24 24`, `0 0 20 20` or `0 0 16 16`
+- `fill="none"` and `stroke="currentColor"` — colour is the consumer's problem
+- stroke attributes on the **root**, never on individual paths
+- **no** `width` / `height` on the root — the consumer sizes it
+- **no** `<g>`, no `transform`, no `id`, no `class`, no inline `style`
+- one `<path>` per discrete stroke run, in drawing order (container first,
+  details after)
+- **no** `<circle>` / `<rect>` / `<line>` elements — normalise everything to
+  `<path>` so the linter has one thing to parse and the build has one thing to
+  transform
+
+The linter (`node tools/lint.mjs`) checks all of this mechanically.

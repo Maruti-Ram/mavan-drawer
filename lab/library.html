@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Icon library</title>
+<style>
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--done:#1f9d55;--review:#d18a00;--sel:#0d99ff;--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:padding .2s ease}
+[hidden]{display:none!important}
+svg{display:block;overflow:visible}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+kbd{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-block;min-width:18px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 4px;background:var(--panel);color:var(--muted)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+.mute{color:var(--muted);font-size:12px}
+
+/* ── app header ── */
+.app{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.app .top{display:flex;align-items:center;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.ident{display:flex;align-items:center;gap:12px;flex:1;min-width:220px}
+.glyph{width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);color:var(--ink)}
+.ident h1{font-size:18px;line-height:1.2;margin:0;font-weight:600;letter-spacing:-.01em}
+.ident p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--hover);color:var(--muted);font-size:11px;font-weight:500;white-space:nowrap}
+.divider{width:1px;height:20px;background:var(--line);margin:0 4px}
+
+/* ── controls ── */
+.iconbtn{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.iconbtn:hover{color:var(--ink)}
+.iconbtn.ghost{border-color:transparent;background:none}
+.iconbtn.ghost:hover{background:var(--hover)}
+.tbtn{height:28px;display:inline-flex;align-items:center;gap:6px;padding:0 8px 0 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:12px;cursor:pointer;white-space:nowrap}
+.tbtn:hover,.tbtn.on{border-color:color-mix(in srgb,var(--ink) 25%,var(--line))}
+.tbtn .count{color:var(--muted)}
+.tbtn svg{color:var(--muted)}
+.seg{display:inline-flex;height:28px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.seg button{font-size:12px;padding:0 9px;border:0;border-radius:5px;background:none;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--hover);color:var(--ink)}
+.search{position:relative;display:flex;align-items:center}
+.search svg{position:absolute;left:9px;color:var(--faint);pointer-events:none}
+.search input{width:220px;height:28px;padding:0 30px 0 28px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:12px;outline:none}
+.search input:focus{border-color:color-mix(in srgb,var(--sel) 60%,var(--line));box-shadow:0 0 0 3px color-mix(in srgb,var(--sel) 15%,transparent)}
+.search kbd{position:absolute;right:6px;pointer-events:none}
+.search input:focus + kbd,.search input:not(:placeholder-shown) + kbd{display:none}
+.pop{position:relative}
+.lmenu{position:absolute;right:0;top:calc(100% + 6px);width:200px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.16);padding:4px;z-index:15}
+.msec{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 8px 2px}
+.mrow{display:flex;align-items:center;gap:10px;width:100%;padding:4px 8px;border:0;border-radius:6px;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-align:left}
+.mrow:hover{background:var(--hover)}
+.mrow.on{color:var(--ink)}
+.mrow .ck{margin-left:auto;opacity:0}
+.mrow.on .ck{opacity:1}
+
+/* ── panels ── */
+main.wrap{padding-top:24px;padding-bottom:80px;display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);min-height:57px}
+.pt{display:flex;align-items:baseline;gap:10px;min-width:0;flex-wrap:wrap}
+.pt h2{font-size:14px;font-weight:600;margin:0}
+.pt p{margin:0;font-size:12px;color:var(--muted)}
+.pa{display:flex;align-items:center;gap:8px}
+.pf{display:flex;align-items:center;gap:16px;height:41px;white-space:nowrap;overflow:hidden;padding:0 20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.keys{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+
+/* ── sections sidebar: full height on the left, collapses to a strip ── */
+body{--nav:260px;padding-left:var(--nav)}
+body.nav-collapsed{--nav:60px}
+.snav{position:fixed;left:0;top:0;bottom:0;width:var(--nav);background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:12;transition:width .2s ease;overflow:hidden}
+.sn-top{flex:none;height:var(--head,73px);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px 0 20px;border-bottom:1px solid var(--line)}
+.sn-title{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.sn-title b{font-size:14px;font-weight:600}
+.secs{flex:1;min-height:0;overflow-y:auto;padding:10px 12px;width:260px;display:flex;flex-direction:column;gap:2px}
+.sec{display:grid;grid-template-columns:24px 1fr auto;grid-template-rows:auto 4px;align-items:center;gap:6px 10px;padding:9px 10px 11px;border:0;border-radius:10px;background:none;text-align:left;cursor:pointer}
+.sec:hover{background:var(--hover)}
+.sec.on{background:var(--inset);box-shadow:inset 0 0 0 1px var(--line)}
+.sec .ab{grid-row:1/3;width:24px;height:24px;border-radius:6px;display:grid;place-items:center;background:var(--hover);font-size:11px;font-weight:600;color:var(--muted)}
+.sec.on .ab{background:var(--ink);color:var(--panel)}
+.sec .nm{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sec .ct{font-size:11px;color:var(--muted)}
+.sec .bar{grid-column:2/4}
+.sn-next{flex:none;margin:0 12px 12px;padding:12px;border-radius:12px;background:var(--inset);width:236px;font-size:12px;color:var(--muted);text-decoration:none;display:block}
+.sn-next:hover{box-shadow:inset 0 0 0 1px var(--line)}
+.sn-next b{display:block;color:var(--ink);font-size:13px;font-weight:600;margin-top:2px}
+.sn-foot{flex:none;display:flex;gap:14px;height:41px;align-items:center;padding:0 20px;border-top:1px solid var(--line);white-space:nowrap}
+body.nav-collapsed .sn-top{justify-content:center;padding:0}
+body.nav-collapsed .sn-title,body.nav-collapsed .sn-foot,body.nav-collapsed .sn-next,body.nav-collapsed .sec :not(.ab){display:none}
+body.nav-collapsed .secs{width:60px;padding:10px 8px}
+body.nav-collapsed .sec{display:flex;justify-content:center;padding:8px 0}
+@media (max-width:900px){.actions .divider{display:none}body,body.nav-collapsed{padding-left:60px}body:not(.nav-collapsed) .snav{box-shadow:8px 0 24px rgba(0,0,0,.12)}}
+
+/* progress bars */
+.bar{height:4px;border-radius:2px;background:var(--hover);overflow:hidden;display:flex}
+.bar i{display:block;height:100%}
+.bar .d{background:var(--done)} .bar .r{background:var(--review)}
+.prog{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.prog>div{padding:16px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.prog>div+div{border-left:1px solid var(--line)}
+.prog .k{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog .v{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1}
+.prog .v span{font-size:12px;font-weight:400;color:var(--muted);margin-left:4px}
+@media (max-width:900px){.prog{grid-template-columns:repeat(2,minmax(0,1fr))}.prog>div:nth-child(3){border-left:0}.prog>div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* specimen: every approved icon at 16, as it is reviewed */
+.spec{display:flex;flex-wrap:wrap;gap:12px 16px;padding:20px;min-height:57px;align-items:center}
+
+/* grid — dividers drawn per cell, so a part-filled last row stays clean */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr))}
+.cell{position:relative;box-shadow:1px 0 0 var(--line),0 1px 0 var(--line);padding:22px 10px 12px;display:flex;flex-direction:column;align-items:center;gap:14px;border:0;background:none;cursor:pointer;min-width:0}
+.cell:hover{background:var(--hover)}
+.cell.on{background:color-mix(in srgb,var(--sel) 7%,var(--panel));box-shadow:1px 0 0 var(--line),0 1px 0 var(--line),inset 0 0 0 2px var(--sel)}
+.cell .ms{display:grid;place-items:center;height:24px}
+.cell .nm{font-size:12px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cell .no{position:absolute;top:6px;left:8px;font-size:10px;color:var(--faint)}
+.cell .st{position:absolute;top:9px;right:9px;width:6px;height:6px;border-radius:50%}
+.st.done{background:var(--done)} .st.review{background:var(--review)}
+.cell.todo{cursor:default}
+.cell.todo:hover{background:none}
+.cell.todo .nm{color:var(--faint)}
+.ph-box{border:1px dashed var(--line);border-radius:3px}
+.cell .gap{display:block}
+.empty{padding:48px 20px;text-align:center;color:var(--muted);font-size:13px}
+.empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+.empty a{font-weight:500}
+.group{grid-column:1/-1;padding:14px 16px 6px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);box-shadow:0 1px 0 var(--line)}
+
+/* detail sidebar */
+.side{position:fixed;top:0;right:0;bottom:0;width:360px;background:var(--panel);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .2s ease;display:flex;flex-direction:column;z-index:20}
+body.detail-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
+@media (min-width:1200px){body.detail-open{padding-right:360px}}
+.side header{display:flex;align-items:center;gap:8px;padding:0 14px 0 20px;height:57px;border-bottom:1px solid var(--line);flex:none}
+.side header b{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.side header .pill{margin-right:auto}
+.side .body{overflow-y:auto;flex:1}
+.hero{display:grid;place-items:center;height:168px;background:var(--inset);border-bottom:1px solid var(--line);
+  background-image:linear-gradient(var(--hover) 1px,transparent 1px),linear-gradient(90deg,var(--hover) 1px,transparent 1px);background-size:8px 8px;background-position:-4px -4px}
+.sizes{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.sizes>div{display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 8px 12px}
+.sizes>div+div{border-left:1px solid var(--line)}
+.sizes .pr{display:flex;align-items:center;gap:10px;height:48px}
+.sizes small{font-size:10px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
+.dsec{padding:14px 20px;border-bottom:1px solid var(--line)}
+.dsec h3{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:500;margin:0 0 8px}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:12px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0}
+.mt{width:100%;border-collapse:collapse;font-size:12px}
+.mt th{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:right;padding:4px 0 6px}
+.mt th:first-child{text-align:left}
+.mt td{padding:5px 0;border-top:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mt td:first-child{text-align:left;color:var(--muted)}
+.mt td.warn{color:var(--review)}
+.mt .sub{color:var(--faint)}
+.copy{display:flex;gap:8px;flex-wrap:wrap}
+.hint{font-size:11px;color:var(--faint);margin:8px 0 0;line-height:1.45}
+</style>
+</head>
+<body>
+<nav class="snav" aria-label="Sections">
+  <div class="sn-top">
+    <span class="sn-title"><b>Sections</b><span class="pill num" id="secCount"></span></span>
+    <button class="iconbtn ghost" id="navBtn" title="Collapse sidebar ([)" aria-label="Collapse sidebar" aria-expanded="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2"/><path d="M6 2.75v10.5"/></svg>
+    </button>
+  </div>
+  <div class="secs" id="secs"></div>
+  <a class="sn-next" id="next" href="icon.html"></a>
+  <div class="sn-foot"><span class="keys"><kbd>[</kbd> collapse</span><span class="keys"><kbd>/</kbd> search</span></div>
+</nav>
+
+<header class="app">
+  <div class="wrap top">
+    <div class="ident">
+      <div class="glyph"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.75 2.75h2.5a2 2 0 0 1 2 2v2.5a2 2 0 0 1-2 2h-2.5a2 2 0 0 1-2-2v-2.5a2 2 0 0 1 2-2Z"/><path d="M12.75 2.75h2.5a2 2 0 0 1 2 2v2.5a2 2 0 0 1-2 2h-2.5a2 2 0 0 1-2-2v-2.5a2 2 0 0 1 2-2Z"/><path d="M4.75 10.75h2.5a2 2 0 0 1 2 2v2.5a2 2 0 0 1-2 2h-2.5a2 2 0 0 1-2-2v-2.5a2 2 0 0 1 2-2Z"/><path d="M12.75 10.75h2.5a2 2 0 0 1 2 2v2.5a2 2 0 0 1-2 2h-2.5a2 2 0 0 1-2-2v-2.5a2 2 0 0 1 2-2Z"/></svg></div>
+      <div><h1>Library</h1><p id="subtitle"></p></div>
+    </div>
+    <div class="actions" id="bar">
+      <label class="search"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="6" cy="6" r="4.25"/><path d="M9.25 9.25l3 3"/></svg>
+        <input id="q" type="search" placeholder="Search icons" autocomplete="off" spellcheck="false" aria-label="Search icons"><kbd>/</kbd></label>
+      <span class="divider"></span>
+      <span class="seg" id="style"></span>
+      <div class="pop" id="showPop"></div>
+      <span class="divider"></span>
+      <span class="seg" id="theme"></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="panel">
+    <div class="ph">
+      <div class="pt"><h2>Progress</h2><p>Against <code>research/queue.md</code> — an icon counts when all three masters are approved, outline and filled.</p></div>
+      <div class="pa"><span class="keys"><i class="st done" style="display:inline-block;width:6px;height:6px;border-radius:50%"></i>approved</span><span class="keys"><i class="st review" style="display:inline-block;width:6px;height:6px;border-radius:50%"></i>in review</span></div>
+    </div>
+    <div style="padding:16px 20px 0"><div class="bar" id="bigbar" style="height:6px;border-radius:3px"></div></div>
+    <div class="prog" id="prog"></div>
+  </section>
+
+  <section class="panel">
+    <div class="ph">
+      <div class="pt"><h2>At 16</h2><p>Every approved icon at the 16 master, side by side — how the set is judged.</p></div>
+      <div class="pa"><span class="pill num" id="specCount"></span></div>
+    </div>
+    <div class="spec" id="spec"></div>
+  </section>
+
+  <section class="panel">
+    <div class="ph">
+      <div class="pt"><h2 id="gridTitle">Icons</h2><span class="pill num" id="gridCount"></span><p>The 24 master stands for each icon. Click one for every size and property.</p></div>
+      <div class="pa"><span class="mute" id="gridStyle"></span></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="pf"><span class="keys"><kbd>F</kbd> filled</span><span class="keys"><kbd>←</kbd><kbd>→</kbd> step</span><span class="keys"><kbd>Esc</kbd> close metrics</span><span style="margin-left:auto">Click an icon for its metrics</span></div>
+  </section>
+</main>
+
+<aside class="side" id="side" aria-label="Metrics">
+  <header><b id="dName"></b><span class="pill" id="dNo"></span>
+    <button class="iconbtn" id="dClose" aria-label="Close metrics"><svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"/></svg></button>
+  </header>
+  <div class="body" id="detail"></div>
+</aside>
+
+<script type="module">
+// Every approved icon, read from lab/manifest.json (npm run build). The masters
+// shown are the files in src/icons/{24,20,16}; `<name>-filled` is the filled twin.
+const man = await (await fetch('manifest.json', { cache: 'no-store' })).json();
+const MASTERS = [24, 20, 16];
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage may be unavailable */ } },
+};
+const state = {
+  theme: store.get('icon-theme', 'auto'),                 // shared with the drawing board
+  filled: store.get('lib-filled', false),
+  show: store.get('lib-show', 'drawn'),                   // 'drawn' | 'queue'
+  sec: store.get('lib-sec', 'all'),
+  q: '',
+  sel: null,
+  menu: false,
+};
+
+const file = (n, m, filled) => man.masters[m]?.icons[filled ? `${n}-filled` : n] ?? null;
+const svg = (m, px, rec) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${rec.stroke}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${rec.body}</svg>`;
+const blank = (px, dashed) => `<span class="gap${dashed ? ' ph-box' : ''}" style="width:${px}px;height:${px}px"></span>`;
+const icon = (n, m, px = m, filled = state.filled) => { const r = file(n, m, filled); return r ? svg(m, px, r) : blank(px, true); };  // dashed: this master/style is not drawn
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const f = (n) => String(+(+n).toFixed(2));
+
+// An icon exists once any outline master is on disk. The queue gives it order and a section.
+const drawnNames = [...new Set(MASTERS.flatMap((m) => man.masters[m]?.names ?? []))]
+  .filter((n) => !n.endsWith('-filled')).sort();
+const byName = new Map(man.queue.map((q) => [q.name, q]));
+const SECTIONS = [...new Set(man.queue.map((q) => q.section))];
+const abbr = (s) => s.split(' · ')[0];
+const label = (s) => s.split(' · ').slice(1).join(' · ') || s;
+const status = (n) => (drawnNames.includes(n) ? 'done' : byName.get(n)?.status ?? 'todo');
+const entries = [
+  ...man.queue.map((q) => ({ ...q, status: status(q.name) })),
+  ...drawnNames.filter((n) => !byName.has(n)).map((n) => ({ n: null, name: n, section: 'Unqueued', status: 'done' })),
+];
+
+/* ───────── header ───────── */
+
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+const chevron = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4l2.5 2.5L7.5 4"/></svg>';
+const check = '<svg class="ck" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.25l2.25 2.25 4.75-5"/></svg>';
+const SHOW = { drawn: 'Approved', queue: 'Whole queue' };
+function renderBar() {
+  const opt = (k, v, text, title = '') => `<button data-${k}="${v}" class="${String(state[k === 'style' ? 'filled' : k]) === String(v) ? 'on' : ''}"${title ? ` title="${title}"` : ''}>${text}</button>`;
+  document.getElementById('style').innerHTML = opt('style', false, 'Outline') + opt('style', true, 'Filled', 'Filled (F)');
+  document.getElementById('theme').innerHTML = opt('theme', 'auto', 'Auto') + opt('theme', 'light', 'Light') + opt('theme', 'dark', 'Dark');
+  document.getElementById('showPop').innerHTML =
+    `<button class="tbtn${state.menu ? ' on' : ''}" data-menu aria-expanded="${state.menu}">Show <span class="count">${SHOW[state.show]}</span>${chevron}</button>
+     <div class="lmenu"${state.menu ? '' : ' hidden'}>${Object.entries(SHOW).map(([v, t]) =>
+       `<button class="mrow${state.show === v ? ' on' : ''}" data-show="${v}">${t}${check}</button>`).join('')}</div>`;
+}
+document.getElementById('bar').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.theme) { state.theme = t.dataset.theme; store.set('icon-theme', state.theme); applyTheme(); }
+  else if (t.dataset.style) return setFilled(t.dataset.style === 'true');
+  else if (t.hasAttribute('data-menu')) state.menu = !state.menu;
+  else if (t.dataset.show) { state.show = t.dataset.show; state.menu = false; store.set('lib-show', state.show); renderGrid(); }
+  renderBar();
+});
+document.addEventListener('click', (e) => { if (state.menu && !e.target.closest('.pop')) { state.menu = false; renderBar(); } });
+function setFilled(v) {
+  state.filled = v; store.set('lib-filled', v);
+  renderBar(); renderSpec(); renderGrid(); renderDetail();
+}
+
+/* ───────── sections + progress ───────── */
+
+const counts = (list) => ({ all: list.length, done: list.filter((e) => e.status === 'done').length, review: list.filter((e) => e.status === 'review').length });
+const bar = ({ all, done, review }) => `<i class="d" style="width:${(done / all) * 100}%"></i><i class="r" style="width:${(review / all) * 100}%"></i>`;
+function renderSections() {
+  const q = entries.filter((e) => e.n != null);
+  const rows = [['all', 'All', 'All sections', q], ...SECTIONS.map((s) => [s, abbr(s), label(s), q.filter((e) => e.section === s)])];
+  document.getElementById('secCount').textContent = SECTIONS.length;
+  document.getElementById('secs').innerHTML = rows.map(([id, ab, nm, list]) => {
+    const c = counts(list);
+    return `<button class="sec${state.sec === id ? ' on' : ''}" data-sec="${esc(id)}" title="${esc(nm)}">
+      <span class="ab">${id === 'all' ? '∗' : ab}</span><span class="nm">${esc(nm)}</span><span class="ct num">${c.done}/${c.all}</span>
+      <span class="bar">${bar(c)}</span></button>`;
+  }).join('');
+
+  const all = counts(q);
+  document.getElementById('bigbar').innerHTML = bar(all);
+  document.getElementById('prog').innerHTML = SECTIONS.map((s) => {
+    const c = counts(q.filter((e) => e.section === s));
+    return `<div title="${esc(s)}"><span class="k">${esc(s)}</span><span class="v num">${c.done}<span>of ${c.all}${c.review ? ` · ${c.review} in review` : ''}</span></span><span class="bar">${bar(c)}</span></div>`;
+  }).join('');
+  document.getElementById('subtitle').textContent =
+    `${all.done} of ${all.all} approved · outline + filled · masters 24 · 20 · 16 · stroke ${man.stroke}`;
+
+  const next = q.find((e) => e.status !== 'done');
+  document.getElementById('next').innerHTML = next
+    ? `Next on the board<b>#${next.n} ${esc(next.name)}</b>${esc(label(next.section))}` : 'Queue complete';
+}
+document.getElementById('secs').addEventListener('click', (e) => {
+  const t = e.target.closest('.sec'); if (!t) return;
+  state.sec = t.dataset.sec; store.set('lib-sec', state.sec);
+  renderSections(); renderGrid();
+});
+
+/* ───────── specimen + grid ───────── */
+
+function renderSpec() {
+  const names = drawnNames;
+  document.getElementById('specCount').textContent = names.length;
+  document.getElementById('spec').innerHTML = names.length
+    ? names.map((n) => `<span title="${esc(n)}">${icon(n, 16)}</span>`).join('')
+    : '<span class="mute">Nothing approved yet.</span>';
+}
+
+function visible() {
+  const q = state.q.trim().toLowerCase();
+  return entries.filter((e) => (state.show === 'queue' || e.status === 'done')
+    && (state.sec === 'all' || e.section === state.sec)
+    && (!q || e.name.includes(q) || e.category?.toLowerCase().includes(q) || e.base?.includes(q)));
+}
+
+function cell(e) {
+  const drawn = e.status === 'done';
+  const ms = drawn ? icon(e.name, 24) : blank(24, true);    // one representative; the rest live in the metrics panel
+  const tag = drawn ? 'button' : 'div';
+  return `<${tag} class="cell${drawn ? '' : ' todo'}${state.sel === e.name ? ' on' : ''}" ${drawn ? `data-name="${esc(e.name)}"` : ''} title="${esc(e.name)}${e.category ? ` · ${esc(e.category)}` : ''}">
+    ${e.n != null ? `<span class="no num">${e.n}</span>` : ''}${e.status !== 'todo' ? `<i class="st ${e.status}"></i>` : ''}
+    <span class="ms">${ms}</span><span class="nm">${esc(e.name)}</span></${tag}>`;
+}
+
+function renderGrid() {
+  const list = visible();
+  const title = state.sec === 'all' ? (state.show === 'queue' ? 'Queue' : 'Icons') : label(state.sec);
+  document.getElementById('gridTitle').textContent = title;
+  document.getElementById('gridCount').textContent = state.show === 'queue' ? `${counts(list).done} / ${list.length}` : list.length;
+  document.getElementById('gridStyle').textContent = state.filled ? 'Filled' : 'Outline';
+  const el = document.getElementById('grid');
+  if (!list.length) {
+    const next = entries.find((e) => e.n != null && e.status !== 'done');
+    el.innerHTML = `<div class="empty" style="grid-column:1/-1">${state.q
+      ? `<b>No icons match “${esc(state.q)}”</b>Try another name, or show the whole queue.`
+      : `<b>Nothing approved${state.sec === 'all' ? '' : ' in this section'} yet</b>${next ? `Next up: <a href="icon.html">#${next.n} ${esc(next.name)}</a> on the drawing board. ` : ''}Show <em>Whole queue</em> to see what is coming.`}</div>`;
+    return;
+  }
+  // In the whole queue, group headings keep sections readable.
+  let html = '', last = null;
+  for (const e of list) {
+    if (state.sec === 'all' && state.show === 'queue' && e.section !== last) { html += `<div class="group">${esc(e.section)}</div>`; last = e.section; }
+    html += cell(e);
+  }
+  el.innerHTML = html;
+}
+document.getElementById('grid').addEventListener('click', (e) => {
+  const t = e.target.closest('.cell[data-name]'); if (t) open(t.dataset.name);
+});
+document.getElementById('q').addEventListener('input', (e) => { state.q = e.target.value; renderGrid(); });
+
+/* ───────── metrics sidebar ───────── */
+
+function open(name) {
+  state.sel = name;
+  document.body.classList.add('detail-open');
+  for (const c of document.querySelectorAll('.cell.on')) c.classList.remove('on');
+  document.querySelector(`.cell[data-name="${CSS.escape(name)}"]`)?.classList.add('on');
+  renderDetail();
+}
+function close() {
+  state.sel = null;
+  document.body.classList.remove('detail-open');
+  for (const c of document.querySelectorAll('.cell.on')) c.classList.remove('on');
+}
+document.getElementById('dClose').addEventListener('click', close);
+
+// Optical entries are { geometric, recession, optical } per side.
+const side = (v) => f(typeof v === 'object' ? v.optical : v);
+const sides = (b) => ['left', 'right', 'top', 'bottom'].map((k) => side(b[k])).join(' · ');
+function metricsTable(n, filled) {
+  const rows = MASTERS.map((m) => {
+    const r = file(n, m, filled);
+    if (!r) return `<tr><td>${m}</td><td colspan="3" class="sub">not drawn</td></tr>`;
+    const c = { x: r.ink.x + r.ink.w / 2 - m / 2, y: r.ink.y + r.ink.h / 2 - m / 2 };
+    const off = Math.abs(c.x) > 0.005 || Math.abs(c.y) > 0.005;
+    return `<tr><td>${m}</td><td>${f(r.stroke)}</td><td>${f(r.ink.w)} × ${f(r.ink.h)}</td><td class="${off ? 'warn' : ''}" title="ink centre relative to canvas centre">${off ? `${f(c.x)}, ${f(c.y)}` : 'centred'}</td></tr>
+      <tr><td class="sub">geometric</td><td colspan="3">${sides(r.bearing)}</td></tr>
+      <tr><td class="sub">optical</td><td colspan="3">${sides(r.optical)}</td></tr>`;
+  }).join('');
+  return `<table class="mt"><thead><tr><th>Master</th><th>Stroke</th><th>Ink</th><th>Centre</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function renderDetail() {
+  const n = state.sel; if (!n) return;
+  const q = byName.get(n);
+  document.getElementById('dName').textContent = n;
+  document.getElementById('dNo').textContent = q ? `#${q.n}` : 'unqueued';
+  const hasFilled = MASTERS.some((m) => file(n, m, true));
+  document.getElementById('detail').innerHTML = `
+    <div class="hero">${icon(n, 24, 96)}</div>
+    <div class="sizes">${MASTERS.map((m) => `<div><span class="pr">${icon(n, m)}${icon(n, m, m * 2)}</span><small>${m} · 1× 2×</small></div>`).join('')}</div>
+    <div class="dsec"><dl class="facts">
+      <dt>Section</dt><dd>${esc(q?.section ?? '—')}</dd>
+      ${q?.category ? `<dt>Category</dt><dd>${esc(q.category)}</dd>` : ''}
+      ${q?.base ? `<dt>Variant of</dt><dd>${esc(q.base)}</dd>` : ''}
+      <dt>Styles</dt><dd>Outline${hasFilled ? ' + filled' : ' · <span style="color:var(--review)">filled missing</span>'}</dd>
+      <dt>Files</dt><dd><code>src/icons/{24,20,16}/${esc(n)}${state.filled ? '-filled' : ''}.svg</code></dd>
+    </dl></div>
+    <div class="dsec"><h3>Outline metrics</h3>${metricsTable(n, false)}</div>
+    <div class="dsec"><h3>Filled metrics</h3>${metricsTable(n, true)}
+      <p class="hint">Bearings read left · right · top · bottom, in units of each master. Geometric is where ink stops; optical is where it reads as stopping — consumers subtract it as negative margin (<code>dist/metrics.json</code>).</p></div>
+    <div class="dsec"><h3>Copy SVG · ${state.filled ? 'filled' : 'outline'}</h3><div class="copy">${MASTERS.map((m) =>
+      `<button class="tbtn" data-copy="${m}"${file(n, m, state.filled) ? '' : ' disabled'}>${m}</button>`).join('')}</div>
+      <p class="hint">Copies the stroked source. The shipped asset is outlined fills.</p></div>`;
+}
+document.getElementById('detail').addEventListener('click', async (e) => {
+  const t = e.target.closest('[data-copy]'); if (!t || !state.sel) return;
+  const m = +t.dataset.copy, r = file(state.sel, m, state.filled);
+  const text = `<svg xmlns="http://www.w3.org/2000/svg" width="${m}" height="${m}" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${r.stroke}" stroke-linecap="round" stroke-linejoin="round">${r.body}</svg>`;
+  try { await navigator.clipboard.writeText(text); t.textContent = 'Copied'; } catch { t.textContent = 'Blocked'; }
+  setTimeout(() => { t.textContent = m; }, 1200);
+});
+
+/* ───────── sidebar + keys ───────── */
+
+function setNav(collapsed) {
+  document.body.classList.toggle('nav-collapsed', collapsed);
+  const b = document.getElementById('navBtn');
+  b.title = collapsed ? 'Expand sidebar ([)' : 'Collapse sidebar ([)';
+  b.setAttribute('aria-expanded', !collapsed);
+  store.set('lib-nav-collapsed', collapsed);
+}
+document.getElementById('navBtn').addEventListener('click', () => setNav(!document.body.classList.contains('nav-collapsed')));
+
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const typing = e.target.closest?.('input,textarea,select');
+  if (e.key === 'Escape') {
+    if (typing) { e.target.blur(); return; }
+    if (state.menu) { state.menu = false; renderBar(); } else close();
+    return;
+  }
+  if (typing) return;
+  if (e.key === '/') { document.getElementById('q').focus(); e.preventDefault(); }
+  else if (e.key === '[') setNav(!document.body.classList.contains('nav-collapsed'));
+  else if (e.key === 'f' || e.key === 'F') setFilled(!state.filled);
+  else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && state.sel) {
+    const names = visible().filter((x) => x.status === 'done').map((x) => x.name);
+    const i = names.indexOf(state.sel); if (i < 0 || !names.length) return;
+    const next = names[(i + (e.key === 'ArrowRight' ? 1 : names.length - 1)) % names.length];
+    open(next);
+    document.querySelector(`.cell[data-name="${CSS.escape(next)}"]`)?.scrollIntoView({ block: 'nearest' });
+    e.preventDefault();
+  }
+});
+
+// The sections rail's top strip matches the header, whatever height it wraps to.
+const app = document.querySelector('.app');
+new ResizeObserver(() => document.documentElement.style.setProperty('--head', `${app.offsetHeight}px`)).observe(app);
+applyTheme();
+setNav(store.get('lib-nav-collapsed', false));
+renderBar(); renderSections(); renderSpec(); renderGrid();
+</script>
+</body>
+</html>

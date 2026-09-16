@@ -1,0 +1,513 @@
+# Drawing queue
+
+One icon at a time. Each is crossed off only when all three masters (24, 20, 16) are approved.
+Order: shared marks first, then circles, then core containers, then the audit ranking (`research/ranked.md`).
+
+Status: `[ ]` not started · `[~]` in review · `[x]` approved (24/20/16)
+
+## A · Marks
+
+Shared strokes every other icon reuses: terminal lengths, mark keyline, the modifier glyphs.
+
+- [ ] 1. `plus`
+- [ ] 2. `minus`
+- [ ] 3. `x`
+- [ ] 4. `check`
+- [ ] 5. `chevron-down`
+- [ ] 6. `chevron-up`
+- [ ] 7. `chevron-left`
+- [ ] 8. `chevron-right`
+- [ ] 9. `arrow-up`
+- [ ] 10. `arrow-down`
+- [ ] 11. `arrow-left`
+- [ ] 12. `arrow-right`
+- [ ] 13. `more-horizontal`
+- [ ] 14. `more-vertical`
+- [ ] 15. `menu`
+
+## B · Circles
+
+The ⌀20 keyline and what sits inside it.
+
+- [ ] 16. `check-circle`
+- [ ] 17. `x-circle`
+- [ ] 18. `plus-circle`
+- [ ] 19. `minus-circle`
+- [ ] 20. `info`
+- [ ] 21. `help`
+- [ ] 22. `alert-circle`
+- [ ] 23. `clock`
+- [ ] 24. `search`
+- [ ] 25. `globe`
+- [ ] 26. `ban`
+
+## C · Core containers and figures
+
+Square, portrait and landscape keylines; the icons every screen has.
+
+- [ ] 27. `trash` — trash family C4: trash, trash-2, trash-3, trash-4
+- [ ] 28. `file`
+- [ ] 29. `file-text`
+- [ ] 30. `folder`
+- [ ] 31. `calendar`
+- [ ] 32. `credit-card`
+- [ ] 33. `image`
+- [ ] 34. `lock`
+- [ ] 35. `clipboard`
+- [ ] 36. `archive`
+- [ ] 37. `mail`
+- [ ] 38. `message`
+- [ ] 39. `bell`
+- [ ] 40. `home`
+- [ ] 41. `user`
+- [ ] 42. `users`
+- [ ] 43. `gear`
+- [ ] 44. `sliders`
+- [ ] 45. `filter`
+
+## D · The rest, by audit rank
+
+Bases before their variants; within that, highest evidence first.
+
+- [ ] 46. `alert-triangle` · Status & Feedback
+- [ ] 47. `at-sign` · Communication
+- [ ] 48. `attachment` · Files & Folders
+- [ ] 49. `book-open` · Files & Folders
+- [ ] 50. `chart-bar` · Charts & Data
+- [ ] 51. `checkbox` · UI & Layout
+- [ ] 52. `cursor` · UI & Layout
+- [ ] 53. `database` · Charts & Data
+- [ ] 54. `external-link` · Arrows & Direction
+- [ ] 55. `eye` · Users & Access
+- [ ] 56. `face-smile` · Communication
+- [ ] 57. `flag` · Status & Feedback
+- [ ] 58. `grid` · UI & Layout
+- [ ] 59. `heart` · Status & Feedback
+- [ ] 60. `key` · Users & Access
+- [ ] 61. `link` · Files & Folders
+- [ ] 62. `list-bullet` · Editing & Text
+- [ ] 63. `login` · Users & Access
+- [ ] 64. `logout` · Users & Access
+- [ ] 65. `maximize` · UI & Layout
+- [ ] 66. `microphone` · Communication
+- [ ] 67. `pencil` · Editing & Text
+- [ ] 68. `phone` · Communication
+- [ ] 69. `refresh` · Arrows & Direction
+- [ ] 70. `save` · Files & Folders
+- [ ] 71. `send` · Communication
+- [ ] 72. `star` · Status & Feedback
+- [ ] 73. `target` · Status & Feedback
+- [ ] 74. `text` · Editing & Text
+- [ ] 75. `thumbs-up` · Communication
+- [ ] 76. `toggle-on` · UI & Layout
+- [ ] 77. `upload` · Files & Folders
+- [ ] 78. `briefcase` · Commerce & Payments
+- [ ] 79. `camera` · Media & Playback
+- [ ] 80. `cart` · Commerce & Payments
+- [ ] 81. `desktop` · Devices & Hardware
+- [ ] 82. `map-pin` · Maps & Location
+- [ ] 83. `package` · Commerce & Payments
+- [ ] 84. `printer` · Devices & Hardware
+- [ ] 85. `volume` · Media & Playback
+- [ ] 86. `watch` · Devices & Hardware
+- [ ] 87. `chevrons-up-down` · Arrows & Direction
+- [ ] 88. `compose` · Communication
+- [ ] 89. `files` · Files & Folders
+- [ ] 90. `gauge` · Charts & Data
+- [ ] 91. `images` · Files & Folders
+- [ ] 92. `language` · Communication
+- [ ] 93. `layout-footer` · UI & Layout
+- [ ] 94. `lightbulb` · Status & Feedback
+- [ ] 95. `list-ordered` · Editing & Text
+- [ ] 96. `megaphone` · Communication
+- [ ] 97. `pin` · UI & Layout
+- [ ] 98. `presentation` · Charts & Data
+- [ ] 99. `sparkle` · Status & Feedback
+- [ ] 100. `wand` · Editing & Text
+- [ ] 101. `bug` · Development & Infra
+- [ ] 102. `building` · Commerce & Payments
+- [ ] 103. `cash` · Commerce & Payments
+- [ ] 104. `keyboard` · Devices & Hardware
+- [ ] 105. `paintbrush` · Design Tools
+- [ ] 106. `plug` · Devices & Hardware
+- [ ] 107. `puzzle` · Development & Infra
+- [ ] 108. `store` · Commerce & Payments
+- [ ] 109. `wallet` · Commerce & Payments
+- [ ] 110. `book` · Files & Folders
+- [ ] 111. `hash` · Communication
+- [ ] 112. `compass` · Maps & Location
+- [ ] 113. `rotate-ccw` · Arrows & Direction
+- [ ] 114. `sidebar` · UI & Layout
+- [ ] 115. `play` · Media & Playback
+- [ ] 116. `wrench` · Development & Infra
+- [ ] 117. `sort` · UI & Layout
+- [ ] 118. `shield` · Users & Access
+- [ ] 119. `export` · Files & Folders
+- [ ] 120. `arrow-up-right` · Arrows & Direction
+- [ ] 121. `bold` · Editing & Text
+- [ ] 122. `chart-pie` · Charts & Data
+- [ ] 123. `code` · Editing & Text
+- [ ] 124. `copy` · Files & Folders
+- [ ] 125. `face-neutral` · Communication
+- [ ] 126. `face-sad` · Communication
+- [ ] 127. `italic` · Editing & Text
+- [ ] 128. `moon` · UI & Layout
+- [ ] 129. `sun` · UI & Layout
+- [ ] 130. `table` · Charts & Data
+- [ ] 131. `thumbs-down` · Communication
+- [ ] 132. `underline` · Editing & Text
+- [ ] 133. `crop` · Design Tools
+- [ ] 134. `mobile` · Devices & Hardware
+- [ ] 135. `percent` · Commerce & Payments
+- [ ] 136. `stop-circle` · Media & Playback
+- [ ] 137. `tablet` · Devices & Hardware
+- [ ] 138. `truck` · Commerce & Payments
+- [ ] 139. `wifi` · Devices & Hardware
+- [ ] 140. `alert-octagon` · Status & Feedback
+- [ ] 141. `backspace` · Editing & Text
+- [ ] 142. `columns` · UI & Layout
+- [ ] 143. `corner-down-left` · Arrows & Direction
+- [ ] 144. `minimize` · UI & Layout
+- [ ] 145. `rotate-cw` · Arrows & Direction
+- [ ] 146. `share` · Communication
+- [ ] 147. `toggle-off` · UI & Layout
+- [ ] 148. `cast` · Media & Playback
+- [ ] 149. `calculator` · Charts & Data
+- [ ] 150. `chart-line` · Charts & Data
+- [ ] 151. `form` · UI & Layout
+- [ ] 152. `import` · Files & Folders
+- [ ] 153. `layout-header` · UI & Layout
+- [ ] 154. `merge` · Arrows & Direction
+- [ ] 155. `note` · Files & Folders
+- [ ] 156. `quote` · Editing & Text
+- [ ] 157. `redo` · Arrows & Direction
+- [ ] 158. `spell-check` · Editing & Text
+- [ ] 159. `undo` · Arrows & Direction
+- [ ] 160. `barcode` · Devices & Hardware
+- [ ] 161. `card-reader` · Commerce & Payments
+- [ ] 162. `coins` · Commerce & Payments
+- [ ] 163. `corner-radius` · Design Tools
+- [ ] 164. `eyedropper` · Design Tools
+- [ ] 165. `flip-horizontal` · Design Tools
+- [ ] 166. `flip-vertical` · Design Tools
+- [ ] 167. `palette` · Design Tools
+- [ ] 168. `plane` · Maps & Location
+- [ ] 169. `receipt` · Commerce & Payments
+- [ ] 170. `ruler` · Design Tools
+- [ ] 171. `slideshow` · Media & Playback
+- [ ] 172. `workflow` · Development & Infra
+- [ ] 173. `arrows-swap` · Arrows & Direction
+- [ ] 174. `chevron-first` · Arrows & Direction
+- [ ] 175. `chevron-last` · Arrows & Direction
+- [ ] 176. `confetti` · Status & Feedback
+- [ ] 177. `drag-handle` · UI & Layout
+- [ ] 178. `face-laugh` · Communication
+- [ ] 179. `id-card` · Users & Access
+- [ ] 180. `indent` · Editing & Text
+- [ ] 181. `outdent` · Editing & Text
+- [ ] 182. `popup` · UI & Layout
+- [ ] 183. `replace` · Editing & Text
+- [ ] 184. `rows` · UI & Layout
+- [ ] 185. `transfer` · Arrows & Direction
+- [ ] 186. `bank` · Commerce & Payments
+- [ ] 187. `warehouse` · Commerce & Payments
+- [ ] 188. `award` · Status & Feedback
+- [ ] 189. `bookmark` · Status & Feedback
+- [ ] 190. `crosshair` · Status & Feedback
+- [ ] 191. `download` · Files & Folders
+- [ ] 192. `gift` · Status & Feedback
+- [ ] 193. `headphones` · Communication
+- [ ] 194. `inbox` · Communication
+- [ ] 195. `life-buoy` · Status & Feedback
+- [ ] 196. `loader` · Status & Feedback
+- [ ] 197. `repeat` · Time & Calendar
+- [ ] 198. `scissors` · Editing & Text
+- [ ] 199. `unlock` · Users & Access
+- [ ] 200. `video` · Files & Folders
+- [ ] 201. `zap` · Status & Feedback
+- [ ] 202. `zoom-in` · UI & Layout
+- [ ] 203. `zoom-out` · UI & Layout
+- [ ] 204. `anchor` · Maps & Location
+- [ ] 205. `battery` · Devices & Hardware
+- [ ] 206. `cloud` · Development & Infra
+- [ ] 207. `droplet` · Design Tools
+- [ ] 208. `film` · Media & Playback
+- [ ] 209. `layers` · Design Tools
+- [ ] 210. `map` · Maps & Location
+- [ ] 211. `pen-tool` · Design Tools
+- [ ] 212. `shopping-bag` · Commerce & Payments
+- [ ] 213. `tag` · Commerce & Payments
+- [ ] 214. `accessibility` · Users & Access
+- [ ] 215. `alarm-clock` · Time & Calendar
+- [ ] 216. `contrast` · UI & Layout
+- [ ] 217. `fingerprint` · Users & Access
+- [ ] 218. `hand` · UI & Layout
+- [ ] 219. `headset` · Communication
+- [ ] 220. `highlighter` · Editing & Text
+- [ ] 221. `hourglass` · Time & Calendar
+- [ ] 222. `layout-list` · UI & Layout
+- [ ] 223. `messages` · Communication
+- [ ] 224. `password` · UI & Layout
+- [ ] 225. `pen-sparkle` · Editing & Text
+- [ ] 226. `sticker` · Communication
+- [ ] 227. `timer` · Time & Calendar
+- [ ] 228. `vault` · Users & Access
+- [ ] 229. `align-object-bottom` · Design Tools
+- [ ] 230. `align-object-center-h` · Design Tools
+- [ ] 231. `align-object-center-v` · Design Tools
+- [ ] 232. `align-object-left` · Design Tools
+- [ ] 233. `align-object-right` · Design Tools
+- [ ] 234. `align-object-top` · Design Tools
+- [ ] 235. `aspect-ratio` · Design Tools
+- [ ] 236. `devices` · Devices & Hardware
+- [ ] 237. `gem` · Design Tools
+- [ ] 238. `handshake` · Commerce & Payments
+- [ ] 239. `laptop` · Devices & Hardware
+- [ ] 240. `microscope` · Development & Infra
+- [ ] 241. `network` · Development & Infra
+- [ ] 242. `pencil-ruler` · Design Tools
+- [ ] 243. `qr-code` · Devices & Hardware
+- [ ] 244. `rocket` · Development & Infra
+- [ ] 245. `rotation` · Design Tools
+- [ ] 246. `satellite` · Devices & Hardware
+- [ ] 247. `scale` · Commerce & Payments
+- [ ] 248. `shapes` · Design Tools
+- [ ] 249. `shopping-basket` · Commerce & Payments
+- [ ] 250. `signal` · Devices & Hardware
+- [ ] 251. `tags` · Commerce & Payments
+- [ ] 252. `ticket` · Commerce & Payments
+- [ ] 253. `vector` · Design Tools
+- [ ] 254. `activity` · Charts & Data
+- [ ] 255. `pause` · Media & Playback
+- [ ] 256. `expand` · Arrows & Direction
+- [ ] 257. `window` · UI & Layout
+- [ ] 258. `scan` · Devices & Hardware
+- [ ] 259. `collapse` · Arrows & Direction
+- [ ] 260. `currency` · Commerce & Payments
+- [ ] 261. `blog` · Editing & Text
+- [ ] 262. `button` · UI & Layout
+- [ ] 263. `caret-down` · Arrows & Direction
+- [ ] 264. `caret-up` · Arrows & Direction
+- [ ] 265. `live` · Media & Playback
+- [ ] 266. `categories` · Files & Folders
+- [ ] 267. `chart-funnel` · Charts & Data
+- [ ] 268. `drag-drop` · UI & Layout
+- [ ] 269. `newsletter` · Communication
+- [ ] 270. `passkey` · Users & Access
+- [ ] 271. `status` · Status & Feedback
+- [ ] 272. `translate` · Communication
+- [ ] 273. `viewport-narrow` · UI & Layout
+- [ ] 274. `viewport-short` · UI & Layout
+- [ ] 275. `viewport-tall` · UI & Layout
+- [ ] 276. `viewport-wide` · UI & Layout
+- [ ] 277. `atm` · Commerce & Payments
+- [ ] 278. `channels` · Development & Infra
+- [ ] 279. `contactless` · Commerce & Payments
+- [ ] 280. `replay` · Media & Playback
+- [ ] 281. `reset` · Media & Playback
+- [ ] 282. `reward` · Commerce & Payments
+- [ ] 283. `sandbox` · Development & Infra
+- [ ] 284. `alert-square` · Status & Feedback
+- [ ] 285. `bookmarks` · Files & Folders
+- [ ] 286. `progress-bar` · Status & Feedback
+- [ ] 287. `saved-items` · Status & Feedback
+- [ ] 288. `scribble` · Editing & Text
+- [ ] 289. `stopwatch` · Time & Calendar
+- [ ] 290. `toggles` · UI & Layout
+- [ ] 291. `blueprint` · Development & Infra
+- [ ] 292. `decision-process` · Development & Infra
+- [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
+- [ ] 294. `filters` · Design Tools
+- [ ] 295. `label` · Commerce & Payments
+- [ ] 296. `roadmap` · Maps & Location
+- [ ] 297. `squares-connected` · Development & Infra
+- [ ] 298. `stack-perspective` · Design Tools
+- [ ] 299. `subscription` · Commerce & Payments
+- [ ] 300. `airplay` · Arrows & Direction
+- [ ] 301. `arrow-down-left` · Arrows & Direction
+- [ ] 302. `arrow-down-right` · Arrows & Direction
+- [ ] 303. `arrow-up-left` · Arrows & Direction
+- [ ] 304. `command` · UI & Layout
+- [ ] 305. `shuffle` · Arrows & Direction
+- [ ] 306. `aperture` · Media & Playback
+- [ ] 307. `hard-drive` · Devices & Hardware
+- [ ] 308. `music` · Media & Playback
+- [ ] 309. `navigation` · Maps & Location
+- [ ] 310. `radio` · Media & Playback
+- [ ] 311. `server` · Development & Infra
+- [ ] 312. `speaker` · Media & Playback
+- [ ] 313. `terminal` · Development & Infra
+- [ ] 314. `tv` · Devices & Hardware
+- [ ] 315. `voicemail` · Devices & Hardware
+- [ ] 316. `chevrons-down` · Arrows & Direction
+- [ ] 317. `chevrons-left` · Arrows & Direction
+- [ ] 318. `chevrons-right` · Arrows & Direction
+- [ ] 319. `chevrons-up` · Arrows & Direction
+- [ ] 320. `corner-down-right` · Arrows & Direction
+- [ ] 321. `corner-left-down` · Arrows & Direction
+- [ ] 322. `corner-left-up` · Arrows & Direction
+- [ ] 323. `corner-right-down` · Arrows & Direction
+- [ ] 324. `corner-right-up` · Arrows & Direction
+- [ ] 325. `corner-up-left` · Arrows & Direction
+- [ ] 326. `corner-up-right` · Arrows & Direction
+- [ ] 327. `move` · Arrows & Direction
+- [ ] 328. `rewind` · Arrows & Direction
+- [ ] 329. `rss` · Communication
+- [ ] 330. `trending-down` · Charts & Data
+- [ ] 331. `trending-up` · Charts & Data
+- [ ] 332. `bluetooth` · Devices & Hardware
+- [ ] 333. `circle` · Design Tools
+- [ ] 334. `cpu` · Development & Infra
+- [ ] 335. `disc` · Devices & Hardware
+- [ ] 336. `dollar-sign` · Commerce & Payments
+- [ ] 337. `fast-forward` · Media & Playback
+- [ ] 338. `git-branch` · Development & Infra
+- [ ] 339. `git-merge` · Development & Infra
+- [ ] 340. `git-pull-request` · Development & Infra
+- [ ] 341. `hexagon` · Design Tools
+- [ ] 342. `octagon` · Design Tools
+- [ ] 343. `power` · Devices & Hardware
+- [ ] 344. `skip-back` · Media & Playback
+- [ ] 345. `skip-forward` · Media & Playback
+- [ ] 346. `square` · Design Tools
+- [ ] 347. `triangle` · Design Tools
+- [ ] 348. `arrow-down-circle` · Arrows & Direction · variant of `arrow-down`
+- [ ] 349. `arrow-left-circle` · Arrows & Direction · variant of `arrow-left`
+- [ ] 350. `arrow-right-circle` · Arrows & Direction · variant of `arrow-right`
+- [ ] 351. `arrow-up-circle` · Arrows & Direction · variant of `arrow-up`
+- [ ] 352. `eye-off` · Users & Access · variant of `eye`
+- [ ] 353. `file-minus` · Files & Folders · variant of `file`
+- [ ] 354. `file-plus` · Files & Folders · variant of `file`
+- [ ] 355. `clipboard-check` · Files & Folders · variant of `clipboard`
+- [ ] 356. `shield-check` · Users & Access · variant of `shield`
+- [ ] 357. `sidebar-right` · UI & Layout · variant of `sidebar`
+- [ ] 358. `sort-descending` · UI & Layout · variant of `sort`
+- [ ] 359. `image-sparkle` · Files & Folders · variant of `image`
+- [ ] 360. `folder-minus` · Files & Folders · variant of `folder`
+- [ ] 361. `folder-plus` · Files & Folders · variant of `folder`
+- [ ] 362. `shield-off` · Users & Access · variant of `shield`
+- [ ] 363. `text-align-center` · Editing & Text · variant of `text`
+- [ ] 364. `text-align-left` · Editing & Text · variant of `text`
+- [ ] 365. `text-align-right` · Editing & Text · variant of `text`
+- [ ] 366. `user-minus` · Users & Access · variant of `user`
+- [ ] 367. `user-plus` · Users & Access · variant of `user`
+- [ ] 368. `pause-circle` · Media & Playback · variant of `pause`
+- [ ] 369. `play-circle` · Media & Playback · variant of `play`
+- [ ] 370. `phone-incoming` · Communication · variant of `phone`
+- [ ] 371. `phone-outgoing` · Communication · variant of `phone`
+- [ ] 372. `calendar-check` · Time & Calendar · variant of `calendar`
+- [ ] 373. `calendar-clock` · Time & Calendar · variant of `calendar`
+- [ ] 374. `chevron-down-circle` · Arrows & Direction · variant of `chevron-down`
+- [ ] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left`
+- [ ] 376. `chevron-right-circle` · Arrows & Direction · variant of `chevron-right`
+- [ ] 377. `chevron-up-circle` · Arrows & Direction · variant of `chevron-up`
+- [ ] 378. `clipboard-list` · Files & Folders · variant of `clipboard`
+- [ ] 379. `database-plus` · Charts & Data · variant of `database`
+- [ ] 380. `file-clock` · Files & Folders · variant of `file`
+- [ ] 381. `file-heart` · Files & Folders · variant of `file`
+- [ ] 382. `image-plus` · Files & Folders · variant of `image`
+- [ ] 383. `text-color` · Editing & Text · variant of `text`
+- [ ] 384. `text-title` · Editing & Text · variant of `text`
+- [ ] 385. `user-circle` · Users & Access · variant of `user`
+- [ ] 386. `user-lock` · Users & Access · variant of `user`
+- [ ] 387. `user-shield` · Users & Access · variant of `user`
+- [ ] 388. `cart-minus` · Commerce & Payments · variant of `cart`
+- [ ] 389. `cart-plus` · Commerce & Payments · variant of `cart`
+- [ ] 390. `chart-bar-horizontal` · Charts & Data · variant of `chart-bar`
+- [ ] 391. `chart-bar-stacked` · Charts & Data · variant of `chart-bar`
+- [ ] 392. `collapse-horizontal` · Arrows & Direction · variant of `collapse`
+- [ ] 393. `cursor-click` · UI & Layout · variant of `cursor`
+- [ ] 394. `expand-horizontal` · Arrows & Direction · variant of `expand`
+- [ ] 395. `file-down` · Files & Folders · variant of `file`
+- [ ] 396. `file-signature` · Files & Folders · variant of `file`
+- [ ] 397. `file-up` · Files & Folders · variant of `file`
+- [ ] 398. `folder-down` · Files & Folders · variant of `folder`
+- [ ] 399. `folder-up` · Files & Folders · variant of `folder`
+- [ ] 400. `message-alert` · Communication · variant of `message`
+- [ ] 401. `note-plus` · Files & Folders · variant of `note`
+- [ ] 402. `sort-ascending` · UI & Layout · variant of `sort`
+- [ ] 403. `camera-flip` · Media & Playback · variant of `camera`
+- [ ] 404. `credit-card-x` · Commerce & Payments · variant of `credit-card`
+- [ ] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard`
+- [ ] 406. `map-pin-off` · Maps & Location · variant of `map-pin`
+- [ ] 407. `package-check` · Commerce & Payments · variant of `package`
+- [ ] 408. `bell-off` · Communication · variant of `bell`
+- [ ] 409. `microphone-off` · Communication · variant of `microphone`
+- [ ] 410. `minus-square` · UI & Layout · variant of `minus`
+- [ ] 411. `phone-call` · Communication · variant of `phone`
+- [ ] 412. `plus-square` · UI & Layout · variant of `plus`
+- [ ] 413. `x-square` · UI & Layout · variant of `x`
+- [ ] 414. `zap-off` · Status & Feedback · variant of `zap`
+- [ ] 415. `battery-charging` · Devices & Hardware · variant of `battery`
+- [ ] 416. `volume-high` · Media & Playback · variant of `volume`
+- [ ] 417. `activity-square` · Charts & Data · variant of `activity`
+- [ ] 418. `bell-plus` · Communication · variant of `bell`
+- [ ] 419. `book-bookmark` · Files & Folders · variant of `book`
+- [ ] 420. `bookmark-off` · Status & Feedback · variant of `bookmark`
+- [ ] 421. `calendar-days` · Time & Calendar · variant of `calendar`
+- [ ] 422. `chart-bar-trend` · Charts & Data · variant of `chart-bar`
+- [ ] 423. `check-circle-dashed` · Status & Feedback · variant of `check-circle`
+- [ ] 424. `check-double` · UI & Layout · variant of `check`
+- [ ] 425. `eye-closed` · Users & Access · variant of `eye`
+- [ ] 426. `face-smile-plus` · Communication · variant of `face-smile`
+- [ ] 427. `file-check` · Files & Folders · variant of `file`
+- [ ] 428. `folder-open` · Files & Folders · variant of `folder`
+- [ ] 429. `heart-hand` · Status & Feedback · variant of `heart`
+- [ ] 430. `link-off` · Editing & Text · variant of `link`
+- [ ] 431. `mail-open` · Communication · variant of `mail`
+- [ ] 432. `scan-face` · Users & Access · variant of `scan`
+- [ ] 433. `sort-alpha-descending` · UI & Layout · variant of `sort`
+- [ ] 434. `user-search` · Users & Access · variant of `user`
+- [ ] 435. `battery-full` · Devices & Hardware · variant of `battery`
+- [ ] 436. `battery-low` · Devices & Hardware · variant of `battery`
+- [ ] 437. `bug-off` · Development & Infra · variant of `bug`
+- [ ] 438. `compass-drafting` · Design Tools · variant of `compass`
+- [ ] 439. `desktop-download` · Devices & Hardware · variant of `desktop`
+- [ ] 440. `credit-card-lock` · Commerce & Payments · variant of `credit-card`
+- [ ] 441. `code-plus` · Editing & Text · variant of `code`
+- [ ] 442. `eye-check` · Users & Access · variant of `eye`
+- [ ] 443. `file-attachment` · Files & Folders · variant of `file`
+- [ ] 444. `mail-follow-up` · Communication · variant of `mail`
+- [ ] 445. `shield-pending` · Users & Access · variant of `shield`
+- [ ] 446. `user-exit` · Users & Access · variant of `user`
+- [ ] 447. `user-segment` · Users & Access · variant of `user`
+- [ ] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card`
+- [ ] 449. `currency-convert` · Commerce & Payments · variant of `currency`
+- [ ] 450. `receipt-refund` · Commerce & Payments · variant of `receipt`
+- [ ] 451. `award-certificate` · Status & Feedback · variant of `award`
+- [ ] 452. `clipboard-off` · Files & Folders · variant of `clipboard`
+- [ ] 453. `crosshair-off` · Status & Feedback · variant of `crosshair`
+- [ ] 454. `hash-circle` · Communication · variant of `hash`
+- [ ] 455. `help-square` · Status & Feedback · variant of `help`
+- [ ] 456. `info-square` · Status & Feedback · variant of `info`
+- [ ] 457. `message-pen` · Communication · variant of `message`
+- [ ] 458. `message-smile` · Communication · variant of `message`
+- [ ] 459. `message-user` · Communication · variant of `message`
+- [ ] 460. `rotate-ccw-dotted` · Arrows & Direction · variant of `rotate-ccw`
+- [ ] 461. `search-empty` · UI & Layout · variant of `search`
+- [ ] 462. `star-sparkle` · Status & Feedback · variant of `star`
+- [ ] 463. `user-focus` · Users & Access · variant of `user`
+- [ ] 464. `user-laptop` · Users & Access · variant of `user`
+- [ ] 465. `window-chart` · Charts & Data · variant of `window`
+- [ ] 466. `gear-nodes` · Development & Infra · variant of `gear`
+- [ ] 467. `globe-pointer` · Maps & Location · variant of `globe`
+- [ ] 468. `grid-circle-plus` · Design Tools · variant of `grid`
+- [ ] 469. `image-binary` · Design Tools · variant of `image`
+- [ ] 470. `image-depth` · Design Tools · variant of `image`
+- [ ] 471. `play-circle-dotted` · Media & Playback · variant of `play-circle`
+- [ ] 472. `window-expand-bottom-right` · Design Tools · variant of `window`
+- [ ] 473. `window-key` · Design Tools · variant of `window`
+- [ ] 474. `window-pointer` · Design Tools · variant of `window`
+- [ ] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench`
+- [ ] 476. `phone-off` · Communication · variant of `phone`
+- [ ] 477. `text-align-justify` · Editing & Text · variant of `text`
+- [ ] 478. `user-check` · Users & Access · variant of `user`
+- [ ] 479. `user-x` · Users & Access · variant of `user`
+- [ ] 480. `video-off` · Files & Folders · variant of `video`
+- [ ] 481. `camera-off` · Media & Playback · variant of `camera`
+- [ ] 482. `cloud-off` · Development & Infra · variant of `cloud`
+- [ ] 483. `volume-off` · Media & Playback · variant of `volume`
+- [ ] 484. `wifi-off` · Devices & Hardware · variant of `wifi`
+- [ ] 485. `phone-forwarded` · Communication · variant of `phone`
+- [ ] 486. `phone-missed` · Communication · variant of `phone`
+- [ ] 487. `refresh-ccw` · Arrows & Direction · variant of `refresh`

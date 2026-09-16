@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live stroke vs outlined fill</title>
+<style>
+:root{--bg:#fbfbfa;--panel:#fff;--ink:#16171a;--muted:#73757b;--line:#e4e4e2;--accent:#2f6feb;--warn:#a2600a;--ok:#1a7f4b}
+:root[data-theme="dark"]{--bg:#111214;--panel:#191a1d;--ink:#eceef2;--muted:#8b8e96;--line:#2a2c31;--accent:#5b8cff;--warn:#e8b060;--ok:#4ec98a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:1000px;margin:0 auto;padding:32px 20px 80px}
+h1{font-size:19px;margin:0 0 6px}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 26px;max-width:66ch}
+.bar{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--panel);
+  border:1px solid var(--line);border-radius:11px;margin-bottom:18px;flex-wrap:wrap}
+.bar label{font-size:12.5px;color:var(--muted)}
+input[type=range]{width:210px;accent-color:var(--accent)}
+b.val{font-variant-numeric:tabular-nums;min-width:30px}
+.tgl{font:inherit;font-size:12.5px;padding:5px 11px;border-radius:7px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.tgl[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.card h2{margin:0;font-size:14px}
+.tag{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+.stage{display:grid;place-items:center;padding:14px;background:var(--bg);border-radius:9px;border:1px solid var(--line)}
+.stage svg{width:190px;height:190px;display:block;overflow:visible}
+pre{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:11px 13px;
+  overflow-x:auto;font:11.5px/1.65 ui-monospace,"SF Mono",Menlo,monospace;color:var(--ink)}
+.says{font-size:12.5px;color:var(--muted);margin:0}
+.says b{color:var(--ink);font-weight:600}
+.verdict{font-size:12.5px;padding:9px 12px;border-radius:8px;line-height:1.5}
+.good{background:color-mix(in srgb,var(--ok) 12%,transparent);color:var(--ok)}
+.bad{background:color-mix(in srgb,var(--warn) 14%,transparent);color:var(--warn)}
+footer{margin-top:22px;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:11px;font-size:13px;color:var(--muted)}
+footer b{color:var(--ink)}
+</style>
+</head>
+<body><main>
+<h1>Live stroke vs outlined fill</h1>
+<p class="sub">Both panels are the Nucleo <code>plus</code>, taken straight off your disk. They look
+identical. Move the slider.</p>
+<p class="sub" style="color:var(--warn)"><b>Read this first:</b> this page is about <em>encoding</em> —
+two ways to write the same picture in SVG. It is <b>not</b> about outline-style vs solid-style icons,
+which are different drawings. <code>plus</code> is one of the few icons where those two styles happen
+to coincide, which is exactly why it works as an encoding demo. A <code>calendar</code> would not.</p>
+
+<div class="bar">
+  <label>stroke-width</label>
+  <input id="w" type="range" min="0.75" max="3" step="0.25" value="1.5">
+  <b class="val" id="wv">1.5</b>
+  <span style="flex:1"></span>
+  <button class="tgl" id="skel" aria-pressed="false">Show what you actually wrote</button>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <div><span class="tag" style="color:var(--ok)">Live stroke</span>
+      <h2>A line, plus a thickness instruction</h2></div>
+    <div class="stage"><svg viewBox="0 0 12 12" id="svgA"></svg></div>
+    <p class="says">You wrote a <b>1-dimensional path</b> — go from here to there — and told the renderer
+      how thick to make it. The renderer does the thickening.</p>
+    <pre id="codeA"></pre>
+    <div class="verdict good" id="vA">Responds to the slider. Weight is a parameter.</div>
+  </div>
+
+  <div class="card">
+    <div><span class="tag" style="color:var(--warn)">Outlined fill</span>
+      <h2>A closed region, already thick</h2></div>
+    <div class="stage"><svg viewBox="0 0 12 12" id="svgB"></svg></div>
+    <p class="says">You computed the <b>perimeter of that thick line yourself</b> and handed over a
+      2-dimensional shape to flood-fill. There is no line any more — only a blob shaped like one.</p>
+    <pre id="codeB"></pre>
+    <div class="verdict bad">Ignores the slider. Weight is baked into the coordinates.</div>
+  </div>
+</div>
+
+<footer><b>The tell:</b> look at the outlined version's path data. Those
+<code>.414</code> and <code>.336</code> numbers are hand-computed Bézier curves tracing the
+<em>rounded end caps</em> — because <code>stroke-linecap="round"</code> no longer exists to draw them
+for you. To change the weight you would have to recompute all eight coordinates and all four curves.
+In practice nobody does: you go back to the stroked original and re-export.</footer>
+</main>
+
+<script>
+// Verbatim from ~/Library/Application Support/Nucleo — grid 12, "plus".
+const STROKE = [
+  {x1:10.75, y1:6, x2:1.25, y2:6},
+  {x1:6, y1:10.75, x2:6, y2:1.25},
+];
+const FILL = [
+  "m10.75,6.75H1.25c-.414,0-.75-.336-.75-.75s.336-.75.75-.75h9.5c.414,0,.75.336.75.75s-.336.75-.75.75Z",
+  "m6,11.5c-.414,0-.75-.336-.75-.75V1.25c0-.414.336-.75.75-.75s.75.336.75.75v9.5c0,.414-.336.75-.75.75Z",
+];
+const $ = (s) => document.querySelector(s);
+let w = 1.5, skel = false;
+
+function render() {
+  const hair = 0.08;
+  // --- live stroke: thickness is an attribute
+  $('#svgA').innerHTML = STROKE.map((l) =>
+    `<line x1="${l.x1}" y1="${l.y1}" x2="${l.x2}" y2="${l.y2}" stroke="currentColor"
+       stroke-width="${w}" stroke-linecap="round" ${skel ? 'opacity=".18"' : ''}/>`).join('')
+    + (skel ? STROKE.map((l) =>
+    `<line x1="${l.x1}" y1="${l.y1}" x2="${l.x2}" y2="${l.y2}" stroke="var(--accent)"
+       stroke-width="${hair}"/>
+     <circle cx="${l.x1}" cy="${l.y1}" r=".16" fill="var(--accent)"/>
+     <circle cx="${l.x2}" cy="${l.y2}" r=".16" fill="var(--accent)"/>`).join('') : '');
+
+  // --- outlined fill: geometry is frozen, slider cannot reach it
+  $('#svgB').innerHTML = FILL.map((d) =>
+    `<path d="${d}" fill="currentColor" ${skel ? 'opacity=".18"' : ''}/>`).join('')
+    + (skel ? FILL.map((d) =>
+    `<path d="${d}" fill="none" stroke="var(--warn)" stroke-width="${hair}"/>`).join('') : '');
+
+  $('#codeA').textContent =
+    `<line x1="10.75" y1="6" x2="1.25" y2="6"\n      stroke-width="${w}"\n      stroke-linecap="round"/>`;
+  $('#codeB').textContent = `<path d="m10.75,6.75H1.25c-.414,0-.75\n      -.336-.75-.75s.336-.75.75-.75h9.5\n      c.414,0,.75.336.75.75s-.336.75\n      -.75.75Z" fill="#000"/>`;
+  $('#vA').textContent = w === 1.5
+    ? 'Responds to the slider. Weight is a parameter.'
+    : `Responds to the slider — now ${w}. Weight is a parameter.`;
+}
+
+$('#w').addEventListener('input', (e) => { w = +e.target.value; $('#wv').textContent = w; render(); });
+$('#skel').addEventListener('click', (e) => {
+  skel = !skel;
+  e.target.setAttribute('aria-pressed', String(skel));
+  e.target.textContent = skel ? 'Show the icons' : 'Show what you actually wrote';
+  render();
+});
+if (!matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'light';
+render();
+</script>
+</body></html>

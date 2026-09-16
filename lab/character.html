@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Character</title>
+<style>
+:root{--bg:#fbfbfa;--panel:#fff;--ink:#16171a;--muted:#73757b;--line:#e4e4e2;--accent:#2f6feb}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#111214;--panel:#191a1d;--ink:#eceef2;--muted:#8b8e96;--line:#2a2c31;--accent:#5b8cff}}
+:root[data-theme="dark"]{--bg:#111214;--panel:#191a1d;--ink:#eceef2;--muted:#8b8e96;--line:#2a2c31;--accent:#5b8cff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:1180px;margin:0 auto;padding:30px 16px 100px}
+h1{font-size:20px;margin:0 0 4px}
+h2{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:40px 0 6px}
+.lede{color:var(--muted);font-size:13.5px;max-width:74ch;margin:0 0 10px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.bar button{font:inherit;font-size:12px;padding:4px 10px;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+.bar button.on{border-color:var(--accent);color:var(--accent)}
+.scroll{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table.grid{border-collapse:collapse;width:100%}
+.grid th{font-size:11px;font-weight:600;color:var(--muted);text-align:left;padding:10px 12px;white-space:nowrap}
+.grid td{padding:10px 6px;border-top:1px solid var(--line);text-align:center}
+.grid td:first-child{text-align:left;padding-left:12px;white-space:nowrap;font-size:12.5px}
+.grid td:first-child small{display:block;color:var(--muted);font-size:10.5px}
+.grid tr.mavan td{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.grid svg{display:inline-block;vertical-align:middle;overflow:visible}
+.spec{border-collapse:collapse;width:100%;font-size:12.5px}
+.spec th,.spec td{padding:8px 12px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.spec th{color:var(--muted);font-weight:600;font-size:11px;border-top:0}
+.spec td:last-child{font-weight:600}
+.spec td:first-child{color:var(--muted)}
+.mute{color:var(--muted);font-size:12px}
+.miss{color:var(--muted);font-size:10px}
+</style>
+</head>
+<body><main>
+<h1>Character</h1>
+<p class="lede">The same fourteen subjects in each reference set, then the proposed Mavan drawing.
+Size mode <b>equal box</b> draws every canvas at the same pixel size. <b>Native</b> draws each set at the
+size it is designed for relative to 24 (Polaris 20, Nucleo 18), which shows how much each one fills its box.
+The reference icons are licensed and only render on this machine (<code>node tools/refs.mjs</code>).</p>
+
+<div class="bar" id="bar"></div>
+<div class="scroll"><table class="grid" id="grid"></table></div>
+
+<h2>Trash explorer — interiors and handles, 1.5 vs 2</h2>
+<p class="lede">One wide body (Central proportions), different treatments. Left block stroke 1.5, right block stroke 2,
+each at 96 · 48 · 24 · 16. Judge the 16 and 24 columns hardest — that is where busy interiors fail.</p>
+<div class="scroll"><table class="grid" id="trash"></table></div>
+
+<h2>Measured, normalised to a 24 canvas</h2>
+<div class="scroll"><table class="spec" id="spec"></table></div>
+</main>
+
+<script type="module">
+import { MAVAN, REFINED, TRASH, MEASURED } from './character.js';
+const OURS = { mavan: MAVAN, refined: REFINED };
+let REFS = {};
+try { ({ REFS } = await import('./refs.js')); } catch { /* refs are local-only */ }
+
+const SUBJECTS = Object.keys(MAVAN);
+const ROWS = [
+  { id: 'polaris', name: 'Polaris', note: '20 · fills', vb: 20, kind: 'raw-fill' },
+  { id: 'nucleo', name: 'Nucleo UI', note: '18 · 1.5 stroke', vb: 18, kind: 'raw' },
+  { id: 'centralS15', name: 'Central — default', note: '24 · 1.5 · r2', vb: 24, kind: 'paths', sw: 1.5 },
+  { id: 'centralR2', name: 'Central — medium', note: '24 · 2 · r2', vb: 24, kind: 'paths' },
+  { id: 'centralR3', name: 'Central — large', note: '24 · 2 · r3', vb: 24, kind: 'paths' },
+  { id: 'refined', name: 'Mavan — Refined', note: 'r2–2.5 · proposed', vb: 24, kind: 'paths', ours: true },
+  { id: 'mavan', name: 'Mavan — Soft', note: 'r3 · first draft', vb: 24, kind: 'paths', ours: true },
+];
+const state = { px: 32, mode: 'box', sw: 1.5 };
+
+function icon(row, s, px) {
+  const src = row.ours ? OURS[row.id][s] : REFS[row.id]?.[s];
+  if (!src) return '<span class="miss">—</span>';
+  const size = state.mode === 'native' ? Math.round(px * row.vb / 24) : px;
+  // Native mode: shrink the canvas but keep a 24-sized cell so rows align.
+  const pad = (px - size) / 2;
+  const body = row.kind === 'paths'
+    ? `<g fill="none" stroke="currentColor" stroke-width="${row.ours ? state.sw : row.sw ?? 2}" stroke-linecap="round" stroke-linejoin="round">${src.map((d) => `<path d="${d}"/>`).join('')}</g>`
+    : row.kind === 'raw-fill' ? `<g fill="currentColor">${src}</g>` : src;
+  return `<svg width="${px}" height="${px}"><svg x="${pad}" y="${pad}" width="${size}" height="${size}" viewBox="0 0 ${row.vb} ${row.vb}">${body}</svg></svg>`;
+}
+
+function render() {
+  const rows = ROWS.filter((r) => r.ours || REFS[r.id]);
+  document.getElementById('grid').innerHTML =
+    `<tr><th></th>${SUBJECTS.map((s) => `<th>${s}</th>`).join('')}</tr>` +
+    rows.map((r) => `<tr class="${r.id === 'refined' ? 'mavan' : ''}"><td>${r.name}<small>${r.ours ? `24 · ${state.sw} · ` : ''}${r.note}</small></td>${
+      SUBJECTS.map((s) => `<td>${icon(r, s, state.px)}</td>`).join('')}</tr>`).join('') +
+    (Object.keys(REFS).length ? '' : `<tr><td colspan="${SUBJECTS.length + 1}" class="mute">Reference sets not built on this machine.</td></tr>`);
+  const b = (k, v, label) => `<button data-k="${k}" data-v="${v}" class="${state[k] == v ? 'on' : ''}">${label}</button>`;
+  document.getElementById('bar').innerHTML =
+    [96, 48, 32, 24, 16].map((p) => b('px', p, `${p}px`)).join('') + '<span class="mute">·</span>' +
+    b('mode', 'box', 'equal box') + b('mode', 'native', 'native') + '<span class="mute">· our stroke</span>' +
+    b('sw', 1.5, '1.5') + b('sw', 2, '2') + '<span class="mute">·</span>' +
+    b('theme', 'light', 'light') + b('theme', 'dark', 'dark');
+}
+const SIZES = [96, 48, 24, 16];
+const drawOurs = (paths, px, sw) => `<svg width="${px}" height="${px}" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${paths.map((d) => `<path d="${d}"/>`).join('')}</svg>`;
+function renderTrash() {
+  const ref = REFS.centralS15?.trash;
+  const rows = [...(ref ? [{ name: 'Central — reference', note: 'their 1.5 / their 2', paths: ref, alt: REFS.centralR2.trash }] : []), ...TRASH];
+  document.getElementById('trash').innerHTML =
+    `<tr><th></th>${[1.5, 2].map((sw) => SIZES.map((p) => `<th>${sw} · ${p}</th>`).join('')).join('')}</tr>` +
+    rows.map((r) => `<tr><td>${r.name}<small>${r.note}</small></td>${
+      [1.5, 2].map((sw) => SIZES.map((p) => `<td>${drawOurs(r.alt && sw === 2 ? r.alt : r.paths, p, sw)}</td>`).join('')).join('')}</tr>`).join('');
+}
+renderTrash();
+document.getElementById('bar').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.k === 'theme') { document.documentElement.dataset.theme = t.dataset.v; state.theme = t.dataset.v; }
+  else state[t.dataset.k] = t.dataset.k === 'px' || t.dataset.k === 'sw' ? +t.dataset.v : t.dataset.v;
+  render();
+});
+
+document.getElementById('spec').innerHTML =
+  '<tr><th></th><th>Polaris</th><th>Nucleo UI</th><th>Central</th><th>Mavan — proposed</th></tr>' +
+  MEASURED.map((m) => `<tr><td>${m.k}</td><td>${m.polaris}</td><td>${m.nucleo}</td><td>${m.central}</td><td>${m.mavan}</td></tr>`).join('');
+render();
+</script>
+</body></html>

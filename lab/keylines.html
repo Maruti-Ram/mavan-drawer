@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Keylines</title>
+<style>
+:root{--bg:#fbfbfa;--panel:#fff;--ink:#16171a;--muted:#73757b;--line:#e4e4e2;--key:#e0457b;--accent:#2f6feb}
+:root[data-theme="dark"]{--bg:#111214;--panel:#191a1d;--ink:#eceef2;--muted:#8b8e96;--line:#2a2c31;--key:#ff6ea3;--accent:#5b8cff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:980px;margin:0 auto;padding:30px 20px 90px}
+h1{font-size:20px;margin:0 0 6px}
+h2{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:38px 0 6px}
+p.l{color:var(--muted);font-size:13.5px;max-width:72ch;margin:0 0 14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:12px}
+.strip{display:flex;gap:12px;flex-wrap:wrap}
+.cell{flex:1;min-width:120px;display:flex;flex-direction:column;align-items:center;gap:8px;
+  background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 6px 10px}
+.cell b{font-size:11.5px;font-variant-numeric:tabular-nums}
+.cell span{font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+svg{display:block}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:6px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase}
+.bar{display:inline-block;height:7px;border-radius:3px;background:var(--accent);vertical-align:middle}
+.tog{font:inherit;font-size:12.5px;padding:5px 11px;border-radius:7px;border:1px solid var(--line);
+  background:var(--panel);color:var(--ink);cursor:pointer;margin-left:8px}
+.tog[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+</style></head>
+<body><main>
+<h1>Keylines — why every shape gets a different size</h1>
+<p class="l">Canvas 24. Live area 20 (2-unit trim). The question is what size each
+<em>shape</em> is allowed to be inside it — and the answer is not "the same".</p>
+
+<h2>1 · Every shape at the same 20 × 20 box <button class="tog" id="t1" aria-pressed="false">show boxes</button></h2>
+<p class="l">Geometrically identical bounding boxes. Optically they are nowhere near it — the circle
+and the diamond read noticeably smaller than the square, because a square packs mass into its corners
+and they don't.</p>
+<div class="card"><div class="strip" id="rowA"></div></div>
+
+<h2>2 · The same shapes at their keylines</h2>
+<p class="l">Now sized so they carry roughly equal <strong>area</strong> rather than equal bounds.
+The circle is wider than the square by 2 units and they finally read as the same size.</p>
+<div class="card"><div class="strip" id="rowB"></div></div>
+
+<h2>3 · The arithmetic</h2>
+<div class="card"><table id="tbl"></table></div>
+
+<h2>4 · The keyline set, stacked</h2>
+<p class="l">All five overlaid, the way Font Awesome draws it. Each icon picks the one matching its
+silhouette and fills it. Different icons therefore have deliberately different bounding boxes —
+that <em>is</em> the system, not a failure of it.</p>
+<div class="card" style="display:grid;place-items:center"><div id="stack"></div></div>
+</main>
+
+<script>
+const KEY = [
+  { n: 'Square',    w: 18, h: 18, kind: 'rect', area: 18 * 18 },
+  { n: 'Circle',    w: 20, h: 20, kind: 'circle', area: Math.PI * 100 },
+  { n: 'Portrait',  w: 16, h: 20, kind: 'rect', area: 16 * 20 },
+  { n: 'Landscape', w: 20, h: 16, kind: 'rect', area: 20 * 16 },
+  { n: 'Diamond',   w: 22, h: 22, kind: 'diamond', area: 22 * 22 / 2 },
+];
+const shape = (k, w, h) => {
+  const x = 12 - w / 2, y = 12 - h / 2;
+  if (k === 'circle') return `<circle cx="12" cy="12" r="${w / 2}"/>`;
+  if (k === 'diamond') return `<path d="M12 ${y}L${x + w} 12 12 ${y + h} ${x} 12Z"/>`;
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="1"/>`;
+};
+const box = (w, h) => `<rect x="${12 - w / 2}" y="${12 - h / 2}" width="${w}" height="${h}"
+  fill="none" stroke="var(--key)" stroke-width=".25" opacity=".85"/>`;
+
+const cell = (K, w, h, showBox) => `<div class="cell">
+  <svg width="104" height="104" viewBox="0 0 24 24" fill="currentColor">
+    <rect x="2" y="2" width="20" height="20" fill="none" stroke="var(--line)" stroke-width=".2"/>
+    ${shape(K.kind, w, h)}${showBox ? box(w, h) : ''}
+  </svg>
+  <b>${K.n}</b><span>${w} × ${h}</span></div>`;
+
+let showBox = false;
+const paint = () => {
+  document.getElementById('rowA').innerHTML = KEY.map((K) => cell(K, 20, 20, showBox)).join('');
+  document.getElementById('rowB').innerHTML = KEY.map((K) => cell(K, K.w, K.h, showBox)).join('');
+};
+document.getElementById('t1').addEventListener('click', (e) => {
+  showBox = !showBox; e.target.setAttribute('aria-pressed', String(showBox));
+  e.target.textContent = showBox ? 'hide boxes' : 'show boxes'; paint();
+});
+paint();
+
+/* area table — equal-bounds vs keylined */
+const sqArea = 324;
+const areaAt20 = (k) => k === 'circle' ? Math.PI * 100 : k === 'diamond' ? 200 : 400;
+document.getElementById('tbl').innerHTML = `
+  <tr><th>Keyline</th><th>Size</th><th>Area</th><th>vs square</th><th>at equal 20×20 bounds</th></tr>
+  ${KEY.map((K) => {
+    const pc = 100 * K.area / sqArea, pc20 = 100 * areaAt20(K.kind) / 400;
+    return `<tr><td>${K.n}</td><td>${K.w} × ${K.h}</td><td>${K.area.toFixed(0)}</td>
+      <td><span class="bar" style="width:${pc * 0.7}px"></span> ${pc.toFixed(0)}%</td>
+      <td style="color:var(--muted)">${pc20.toFixed(0)}% of the square's area</td></tr>`;
+  }).join('')}`;
+
+/* stacked keylines */
+document.getElementById('stack').innerHTML = `<svg width="260" height="260" viewBox="0 0 24 24">
+  <rect x="2" y="2" width="20" height="20" fill="none" stroke="var(--line)" stroke-width=".15"/>
+  ${KEY.map((K) => K.kind === 'circle'
+    ? `<circle cx="12" cy="12" r="10" fill="none" stroke="var(--key)" stroke-width=".12" opacity=".8"/>`
+    : K.kind === 'diamond'
+    ? `<path d="M12 1L23 12 12 23 1 12Z" fill="none" stroke="var(--key)" stroke-width=".12" opacity=".35"/>`
+    : `<rect x="${12 - K.w / 2}" y="${12 - K.h / 2}" width="${K.w}" height="${K.h}"
+         fill="none" stroke="var(--key)" stroke-width=".12" opacity=".8"/>`).join('')}
+  <line x1="12" y1="0" x2="12" y2="24" stroke="var(--key)" stroke-width=".08" opacity=".4"/>
+  <line x1="0" y1="12" x2="24" y2="12" stroke="var(--key)" stroke-width=".08" opacity=".4"/>
+</svg>`;
+if (!matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'light';
+</script></body></html>

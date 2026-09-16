@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Alignment</title>
+<style>
+:root{--bg:#fbfbfa;--panel:#fff;--ink:#16171a;--muted:#73757b;--line:#e4e4e2;--guide:#e0457b;--accent:#2f6feb}
+:root[data-theme="dark"]{--bg:#0f1012;--panel:#17181b;--ink:#eceef2;--muted:#8b8e96;--line:#26282d;--guide:#ff5c8a;--accent:#5b8cff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.6 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:940px;margin:0 auto;padding:30px 20px 90px}
+h1{font-size:19px;margin:0 0 6px}
+p.l{color:var(--muted);font-size:13.5px;max-width:74ch;margin:0 0 18px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:800px){.pair{grid-template-columns:1fr}}
+.col{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+.col h2{margin:0 0 2px;font-size:14px}
+.col .sub{font-size:11.5px;color:var(--muted);margin:0 0 16px;font-variant-numeric:tabular-nums}
+.nav{position:relative;padding:4px 0}
+.item{display:flex;align-items:center;height:34px;border-radius:6px;padding-left:0}
+.item:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.item .lbl{font-size:13.5px;margin-left:10px}
+.item svg{display:block;flex:none}
+.g{position:absolute;top:0;bottom:0;width:1px;background:var(--guide);opacity:.55}
+.g.box{background:var(--accent);opacity:.5}
+.legend{display:flex;gap:16px;font-size:11px;color:var(--muted);margin-top:14px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:2px;vertical-align:middle;margin-right:5px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:22px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th{color:var(--muted);font-weight:600;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase}
+.big{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:22px;
+  font-size:13.5px;line-height:1.6}
+.big b{color:var(--ink)}
+</style></head><body><main>
+<h1>Does removing the outer shell make alignment easier?</h1>
+<p class="l">Both columns render <b>the same 20px of ink</b>. Left keeps the 24-unit canvas
+(2 units of shell). Right drops it — canvas equals the largest keyline. Pink guides mark where each
+icon's <em>ink</em> actually begins.</p>
+
+<div class="pair" id="pair"></div>
+
+<table id="tbl"></table>
+
+<div class="big" id="verdict"></div>
+</main>
+<script>
+const SHAPES = [
+  { n: 'Inbox',    k: 'landscape', w: 20, h: 16 },
+  { n: 'Issues',   k: 'circle',    w: 20, h: 20 },
+  { n: 'Roadmaps', k: 'square',    w: 18, h: 18 },
+  { n: 'Mobile',   k: 'portrait',  w: 16, h: 20 },
+  { n: 'Expand',   k: 'mark',      w: 14, h: 8  },
+];
+const INK = 20;
+
+function icon(s, canvas) {
+  const k = INK / 20, box = canvas * k;
+  const x = (canvas - s.w) / 2, y = (canvas - s.h) / 2;
+  const body = s.k === 'circle'
+    ? `<circle cx="${canvas / 2}" cy="${canvas / 2}" r="${s.w / 2 - 1}"/>`
+    : s.k === 'mark'
+    ? `<path d="M${x + 1} ${y + 1}l${s.w / 2 - 1} ${s.h - 2} ${s.w / 2 - 1} ${-(s.h - 2)}"/>`
+    : `<rect x="${x + 1}" y="${y + 1}" width="${s.w - 2}" height="${s.h - 2}" rx="2"/>`;
+  return `<svg width="${box}" height="${box}" viewBox="0 0 ${canvas} ${canvas}" fill="none"
+    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
+}
+
+const offs = (canvas) => SHAPES.map((s) => (canvas * (INK / 20) - s.w * (INK / 20)) / 2);
+
+function col(canvas, title) {
+  const o = offs(canvas), box = canvas * (INK / 20);
+  const guides = [...new Set(o.map((v) => v.toFixed(1)))]
+    .map((v) => `<div class="g" style="left:${v}px"></div>`).join('');
+  return `<div class="col">
+    <h2>${title}</h2>
+    <p class="sub">canvas ${canvas} · box ${box}px · ink ${INK}px · shell ${(box - INK) / 2}px</p>
+    <div class="nav">
+      <div class="g box" style="left:0"></div>${guides}
+      ${SHAPES.map((s) => `<div class="item">${icon(s, canvas)}<span class="lbl">${s.n}</span></div>`).join('')}
+    </div>
+    <div class="legend"><span><i class="" style="background:var(--accent)"></i>box edge</span>
+      <span><i style="background:var(--guide)"></i>ink edge</span></div>
+  </div>`;
+}
+
+document.getElementById('pair').innerHTML = col(24, 'With outer shell') + col(20, 'Without outer shell');
+
+const a = offs(24), b = offs(20);
+const sp = (x) => (Math.max(...x) - Math.min(...x)).toFixed(1);
+document.getElementById('tbl').innerHTML = `
+  <tr><th>Icon</th><th>Keyline</th><th>Ink starts (with shell)</th><th>Ink starts (without)</th></tr>
+  ${SHAPES.map((s, i) => `<tr><td>${s.n}</td><td>${s.k} ${s.w}×${s.h}</td>
+    <td>${a[i].toFixed(1)}px</td><td>${b[i].toFixed(1)}px</td></tr>`).join('')}
+  <tr><td colspan="2"><b>Spread across icons</b></td>
+    <td><b>${sp(a)}px</b></td><td><b>${sp(b)}px</b></td></tr>`;
+
+document.getElementById('verdict').innerHTML = `
+  <b>The spread is identical — ${sp(a)}px either way.</b><br><br>
+  Distance from box edge to ink edge is <b>a constant plus a variable</b>. The shell is the constant
+  (${((24 - 20) / 2 * (INK / 20)).toFixed(0)}px, the same for every icon). The keylines are the variable
+  (0–${sp(a)}px, different per icon because a circle is allowed to be wider than a square).<br><br>
+  Removing the shell deletes the constant and leaves the variable untouched. A constant you fix once —
+  set the gap 2px tighter, globally, forever. A variable you cannot fix at all with one number, because
+  every icon needs a different correction. <b>The shell is the cheap half of the problem.</b>`;
+if (!matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme='light';
+</script></body></html>
