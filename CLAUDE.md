@@ -81,7 +81,8 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Business model | sold to many customers → we do not control render size |
 | Naming (C9) | `<object>[-<modifier>][-<n>][-<size>][-filled]`; shape variants are numbered (`check-2`), their style word is a **tag** (`<!-- tags: long sweep -->`, candidate `tags: [...]` on the board) that the build and Library search read. Numbers never change. |
 | Mark bends (C10) | a bent mark's corner is an arc of radius **half the weight** (0.75 outline · 1.25/1/1 filled) — the tightest even-width bend; lint warns below it |
-| Sizes (C8) | ship only the sizes with a use case (`check`: default + small) |
+| Sizes (C8, C13) | ship only the sizes with a use case (`check`: default + small); every shipped style then gets all of them — styles × sizes is a full grid |
+| Filled marks (C12) | angled-leg marks keep the outline's width and angle and are centred on the outline's ink (no jump between styles) |
 
 ## The geometry
 

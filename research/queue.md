@@ -32,7 +32,15 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 4. `check-3-small` · UI & Layout · variant of `check` — check-3-small · steep · approved 2026-09-17
 - [x] 4. `check-4` · UI & Layout · variant of `check` — check-4 · lean · approved 2026-09-17
 - [x] 4. `check-4-small` · UI & Layout · variant of `check` — check-4-small · lean · approved 2026-09-17
-- [ ] 5. `chevron-down` · Arrows & Direction
+- [x] 5. `chevron-down` · Arrows & Direction — approved 2026-09-17
+- [x] 5. `chevron-down-small` · Arrows & Direction · variant of `chevron-down` — chevron-down-small · classic · approved 2026-09-17
+- [x] 5. `chevron-down-large` · Arrows & Direction · variant of `chevron-down` — chevron-down-large · classic · approved 2026-09-17
+- [x] 5. `chevron-down-2` · Arrows & Direction · variant of `chevron-down` — chevron-down-2 · flat · approved 2026-09-17
+- [x] 5. `chevron-down-2-small` · Arrows & Direction · variant of `chevron-down` — chevron-down-2-small · flat · approved 2026-09-17
+- [x] 5. `chevron-down-2-large` · Arrows & Direction · variant of `chevron-down` — chevron-down-2-large · flat · approved 2026-09-17
+- [x] 5. `chevron-down-3` · Arrows & Direction · variant of `chevron-down` — chevron-down-3 · steep · approved 2026-09-17
+- [x] 5. `chevron-down-3-small` · Arrows & Direction · variant of `chevron-down` — chevron-down-3-small · steep · approved 2026-09-17
+- [x] 5. `chevron-down-3-large` · Arrows & Direction · variant of `chevron-down` — chevron-down-3-large · steep · approved 2026-09-17
 - [ ] 6. `chevron-up` · Arrows & Direction
 - [ ] 7. `chevron-left` · Arrows & Direction
 - [ ] 8. `chevron-right` · Arrows & Direction
