@@ -18,7 +18,9 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 1. `plus` · UI & Layout — Default · arms 15 · 13.5 · 12 · approved 2026-09-17
 - [x] 1. `plus-large` · UI & Layout · variant of `plus` — Large · arms 18 · 16 · 14 · approved 2026-09-17
 - [x] 1. `plus-small` · UI & Layout · variant of `plus` — Small · arms 12 · 11 · 10 · approved 2026-09-17
-- [~] 2. `minus` · UI & Layout
+- [x] 2. `minus` · UI & Layout — approved 2026-09-17
+- [x] 2. `minus-large` · UI & Layout · variant of `minus` — Large · approved 2026-09-17
+- [x] 2. `minus-small` · UI & Layout · variant of `minus` — Small · approved 2026-09-17
 - [ ] 3. `x` · UI & Layout
 - [ ] 4. `check` · UI & Layout
 - [ ] 5. `chevron-down` · Arrows & Direction
