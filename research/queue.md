@@ -21,7 +21,9 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 2. `minus` · UI & Layout — approved 2026-09-17
 - [x] 2. `minus-large` · UI & Layout · variant of `minus` — Large · approved 2026-09-17
 - [x] 2. `minus-small` · UI & Layout · variant of `minus` — Small · approved 2026-09-17
-- [ ] 3. `x` · UI & Layout
+- [x] 3. `x` · UI & Layout — approved 2026-09-17
+- [x] 3. `x-large` · UI & Layout · variant of `x` — Large · approved 2026-09-17
+- [x] 3. `x-small` · UI & Layout · variant of `x` — Small · approved 2026-09-17
 - [ ] 4. `check` · UI & Layout
 - [ ] 5. `chevron-down` · Arrows & Direction
 - [ ] 6. `chevron-up` · Arrows & Direction

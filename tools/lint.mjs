@@ -30,6 +30,16 @@ const BANNED_ATTR = /\s(transform|id|class|style|fill-rule|clip-path|opacity)=/;
 const dp = (n) => { const s = String(n); const i = s.indexOf('.'); return i < 0 ? 0 : s.length - i - 1; };
 const r2 = (n) => Math.round(n * 100) / 100;
 
+// true when two sampled polylines properly intersect (sampling can miss the exact crossing point)
+const side = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]));
+const crosses = (a, b) => {
+  for (let i = 1; i < a.length; i++) for (let j = 1; j < b.length; j++) {
+    const [p, q, r, s] = [a[i - 1], a[i], b[j - 1], b[j]];
+    if (side(p, q, r) * side(p, q, s) < 0 && side(r, s, p) * side(r, s, q) < 0) return true;
+  }
+  return false;
+};
+
 function lint(canvas, file) {
   const { bound: BOUND, keylines } = MASTERS[canvas];
   const MARK_MAX = markMax(file.replace('.svg', ''), canvas);
@@ -109,6 +119,7 @@ function lint(canvas, file) {
   const sampled = ds.map(samplePath);
   const need = MIN_GAP + STROKE; // centreline distance for a one-stroke edge gap
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
+    if (crosses(sampled[i], sampled[j])) continue; // paths that cross (x, plus) join by design
     let min = Infinity;
     for (const [ax, ay] of sampled[i]) for (const [bx, by] of sampled[j])
       min = Math.min(min, Math.hypot(ax - bx, ay - by));
