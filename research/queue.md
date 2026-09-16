@@ -8,67 +8,70 @@ Status: `[ ]` not started · `[~]` in review · `[x]` approved (24/20/16, outlin
 This file is the sheet. `node tools/queue.mjs` reads and writes it (status · next · start · approve);
 the Library's **Sheet** view shows it. Size variants (C8) share their default's number and sit right under it.
 
+Sections (A–E) are **drawing order**, not categories: each builds the parts the next reuses. The category
+after each name (`· UI & Layout`) is the product category from the audit (`research/synonyms.mjs`).
+
 ## A · Marks
 
 Shared strokes every other icon reuses: terminal lengths, mark keyline, the modifier glyphs.
 
-- [x] 1. `plus` — Default · arms 15 · 13.5 · 12 · approved 2026-09-17
-- [x] 1. `plus-large` · Marks · variant of `plus` — Large · arms 18 · 16 · 14 · approved 2026-09-17
-- [x] 1. `plus-small` · Marks · variant of `plus` — Small · arms 12 · 11 · 10 · approved 2026-09-17
-- [~] 2. `minus`
-- [ ] 3. `x`
-- [ ] 4. `check`
-- [ ] 5. `chevron-down`
-- [ ] 6. `chevron-up`
-- [ ] 7. `chevron-left`
-- [ ] 8. `chevron-right`
-- [ ] 9. `arrow-up`
-- [ ] 10. `arrow-down`
-- [ ] 11. `arrow-left`
-- [ ] 12. `arrow-right`
-- [ ] 13. `more-horizontal`
-- [ ] 14. `more-vertical`
-- [ ] 15. `menu`
+- [x] 1. `plus` · UI & Layout — Default · arms 15 · 13.5 · 12 · approved 2026-09-17
+- [x] 1. `plus-large` · UI & Layout · variant of `plus` — Large · arms 18 · 16 · 14 · approved 2026-09-17
+- [x] 1. `plus-small` · UI & Layout · variant of `plus` — Small · arms 12 · 11 · 10 · approved 2026-09-17
+- [~] 2. `minus` · UI & Layout
+- [ ] 3. `x` · UI & Layout
+- [ ] 4. `check` · UI & Layout
+- [ ] 5. `chevron-down` · Arrows & Direction
+- [ ] 6. `chevron-up` · Arrows & Direction
+- [ ] 7. `chevron-left` · Arrows & Direction
+- [ ] 8. `chevron-right` · Arrows & Direction
+- [ ] 9. `arrow-up` · Arrows & Direction
+- [ ] 10. `arrow-down` · Arrows & Direction
+- [ ] 11. `arrow-left` · Arrows & Direction
+- [ ] 12. `arrow-right` · Arrows & Direction
+- [ ] 13. `more-horizontal` · UI & Layout
+- [ ] 14. `more-vertical` · UI & Layout
+- [ ] 15. `menu` · UI & Layout
 
 ## B · Circles
 
 The ⌀20 keyline and what sits inside it.
 
-- [ ] 16. `check-circle`
-- [ ] 17. `x-circle`
-- [ ] 18. `plus-circle`
-- [ ] 19. `minus-circle`
-- [ ] 20. `info`
-- [ ] 21. `help`
-- [ ] 22. `alert-circle`
-- [ ] 23. `clock`
-- [ ] 24. `search`
-- [ ] 25. `globe`
-- [ ] 26. `ban`
+- [ ] 16. `check-circle` · Status & Feedback
+- [ ] 17. `x-circle` · Status & Feedback
+- [ ] 18. `plus-circle` · UI & Layout
+- [ ] 19. `minus-circle` · UI & Layout
+- [ ] 20. `info` · Status & Feedback
+- [ ] 21. `help` · Status & Feedback
+- [ ] 22. `alert-circle` · Status & Feedback
+- [ ] 23. `clock` · Time & Calendar
+- [ ] 24. `search` · UI & Layout
+- [ ] 25. `globe` · Maps & Location
+- [ ] 26. `ban` · Status & Feedback
 
 ## C · Core containers and figures
 
 Square, portrait and landscape keylines; the icons every screen has.
 
-- [ ] 27. `trash` — trash family C4: trash, trash-2, trash-3, trash-4
-- [ ] 28. `file`
-- [ ] 29. `file-text`
-- [ ] 30. `folder`
-- [ ] 31. `calendar`
-- [ ] 32. `credit-card`
-- [ ] 33. `image`
-- [ ] 34. `lock`
-- [ ] 35. `clipboard`
-- [ ] 36. `archive`
-- [ ] 37. `mail`
-- [ ] 38. `message`
-- [ ] 39. `bell`
-- [ ] 40. `home`
-- [ ] 41. `user`
-- [ ] 42. `users`
-- [ ] 43. `gear`
-- [ ] 44. `sliders`
-- [ ] 45. `filter`
+- [ ] 27. `trash` · Files & Folders — trash family C4: trash, trash-2, trash-3, trash-4
+- [ ] 28. `file` · Files & Folders
+- [ ] 29. `file-text` · Files & Folders
+- [ ] 30. `folder` · Files & Folders
+- [ ] 31. `calendar` · Time & Calendar
+- [ ] 32. `credit-card` · Commerce & Payments
+- [ ] 33. `image` · Files & Folders
+- [ ] 34. `lock` · Users & Access
+- [ ] 35. `clipboard` · Files & Folders
+- [ ] 36. `archive` · Files & Folders
+- [ ] 37. `mail` · Communication
+- [ ] 38. `message` · Communication
+- [ ] 39. `bell` · Communication
+- [ ] 40. `home` · UI & Layout
+- [ ] 41. `user` · Users & Access
+- [ ] 42. `users` · Users & Access
+- [ ] 43. `gear` · UI & Layout
+- [ ] 44. `sliders` · UI & Layout
+- [ ] 45. `filter` · UI & Layout
 
 ## D · The rest, by audit rank
 

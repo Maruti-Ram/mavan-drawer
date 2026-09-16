@@ -436,7 +436,7 @@ function renderSheet(list) {
       <td class="no num">${e.n ?? '—'}</td>
       <td class="ic">${drawn ? icon(e.name, 24, 20) : blank(20, true)}</td>
       <td class="nm">${esc(e.name)}</td>
-      <td>${esc(e.category ?? label(e.section))}</td>
+      <td>${e.category ? esc(e.category) : '<span class="mute">—</span>'}</td>
       <td>${e.base ? esc(e.base) : ''}</td>
       <td><span class="stat ${st}"><i></i>${STAT[st]}</span></td>
       <td><span class="mz">${drawn || e.status !== 'todo' ? mz(e.name) : ''}</span></td>

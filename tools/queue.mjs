@@ -98,7 +98,7 @@ function add(q, name) {
   const row = { status: 'todo', name, note: `added ${today()}` };
   if (base) {
     const last = Math.max(base.i, ...q.rows.filter((r) => r.base === base.name && sizeBase(r.name) === base.name).map((r) => r.i));
-    const category = base.category ?? base.section.split(' · ').slice(1).join(' · ');
+    const category = base.category;
     q.lines.splice(last + 1, 0, format({ ...row, n: base.n, category, base: base.name }));
   } else {
     const n = Math.max(...q.rows.map((r) => r.n)) + 1;
@@ -182,7 +182,7 @@ async function approve(args) {
     const base = find(q, d.concept);
     // Only size rows sit under the concept; other variants (minus-square) keep their own place.
     const last = Math.max(base.i, ...q.rows.filter((r) => r.base === d.concept && sizeBase(r.name) === d.concept).map((r) => r.i));
-    const category = base.category ?? base.section.split(' · ').slice(1).join(' · ');
+    const category = base.category;
     q.lines.splice(last + 1, 0, ...added.map((r) => format({ ...r, n: base.n, category })));
   }
   save(q);
