@@ -12,6 +12,11 @@
 //
 //   e.g. node tools/optical-sheet.mjs check check-2 check-3 check-4 --dir up
 //
+// Size variants (check-small) may be listed too: a row's value is always in units of the
+// family default at 24, so check-small at row 0.2 moves 0.2 × (its ink height ÷ check's), and
+// its recommendation is its default's. Candidates keep each file's own description as their
+// label, so `queue.mjs approve` rewrites the files without losing it.
+//
 // The measured recommendation (single-bend marks): the eye reads a bent mark's centre as the
 // centre of the triangle through its two ends and its bend, so the mark moves against that
 // triangle's offset from the box centre, by K of it. K = 0.5 is calibrated on the chevron picks
@@ -23,6 +28,7 @@
 // height), so 20 and 16 and other sizes scale like C14 does. The row equal to the shipped shift is
 // marked "shipped". Candidates carry `optical`, so `queue.mjs approve` can write a picked row.
 import { readFileSync, writeFileSync } from 'node:fs';
+import { sizeBase } from './masters.mjs';
 
 const MASTERS = [24, 20, 16];
 const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -87,26 +93,34 @@ const candidates = [];
 shapes.forEach((name, k) => {
   const at = (m, n) => man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
   const base = at(24, name);
+  const fam = sizeBase(name);
+  const ref = at(24, fam);                                   // the family default sets the units
   const tag = base.tags?.[0] ?? name;
+  // The file's own description: its last comment that isn't keyline / tags / optical.
+  const said = [...readFileSync(`src/icons/24/${name}.svg`, 'utf8').matchAll(/<!--\s*(.*?)\s*-->/g)]
+    .map((x) => x[1]).filter((x) => !/^(keyline|tags|optical):/.test(x)).pop() ?? `${name} · ${tag}`;
+  const [own, detail] = [said.split(': ')[0], said.split(': ').slice(1).join(': ')];
   let id = ids[k] ?? [...tag.toUpperCase()].find((ch) => /[A-Z]/.test(ch) && !used.has(ch)) ?? String(k + 1);
   used.add(id);
-  const shipped = r2(base.shift[0] * dir[0] + base.shift[1] * dir[1]);   // along the chosen direction
-  const tri = triangleOffset(base);
+  const scale = base.ink.h / ref.ink.h;
+  const shipped = r2((base.shift[0] * dir[0] + base.shift[1] * dir[1]) / scale);   // along --dir, family units
+  const tri = triangleOffset(ref);
   const measured = tri && r05(-K * (tri[0] * dir[0] + tri[1] * dir[1]));
-  if (!(name in rec) && measured != null) rec[name] = measured;
+  if (!(name in rec)) rec[name] = rec[fam] ?? measured ?? undefined;
+  if (rec[name] === undefined) delete rec[name];
   const around = rec[name] ?? shipped;
   const rows = fixed ?? [-2, -1, 0, 1, 2].map((k) => r2(around + k * spread));
   const list = [...new Set([0, shipped, around, ...rows])].sort((a, b) => a - b);
   console.log(`${name.padEnd(16)} ${tri ? `triangle ${r2(tri[0])}, ${r2(tri[1])} → measured ${measured}` : 'no measure (not a single-bend mark)'}` +
     ` · recommended ${rec[name] ?? '—'} · shipped ${shipped} · rows ${list.join(' ')}`);
   for (const s of list) {
-    const c = { id: `${id}${Math.round(s * 100)}`, label: `${name} · ${tag} · ${dirName} ${s}`, tags: base.tags ?? [],
+    const c = { id: `${id}${Math.round(s * 100)}`, label: own, tags: base.tags ?? [],
       group: `${name} · ${tag}`, shift: s, shipped: s === shipped, recommended: rec[name] === s,
       optical: {}, masters: {}, filled: {} };
     const by = [];
     for (const m of MASTERS) {
       const o = at(m, name), f = at(m, `${name}-filled`);
-      const amt = r2(s * o.ink.h / base.ink.h);   // signed: negative moves against --dir
+      const amt = r2(s * o.ink.h / ref.ink.h);    // signed: negative moves against --dir
       const [dx, dy] = [r2(dir[0] * amt), r2(dir[1] * amt)];
       by.push(amt);
       c.optical[m] = [dx, dy];
@@ -117,7 +131,7 @@ shapes.forEach((name, k) => {
         : { weight: f.stroke, stroke: f.paths.map(back) };
     }
     c.by = by;
-    c.note = `${by.join(' · ')} at 24 · 20 · 16` + (c.shipped ? ' · shipped' : '') + (c.recommended ? ' · recommended' : '');
+    c.note = [detail, `optical ${dirName} ${by.join(' · ')} at 24 · 20 · 16 (C14)`].filter(Boolean).join(' · ');
     candidates.push(c);
   }
 });
