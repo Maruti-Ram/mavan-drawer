@@ -1,68 +1,139 @@
-// minus — queue #2. Ships in the three C8 sizes, like plus: minus-large,
-// minus, minus-small. The default draws each size at its plus arm length, so
-// plus and minus swap without the width jumping (steppers, zoom, expand).
-// The open question: a lone bar can read shorter than a plus arm. M+ tests
-// "optically longer" on the default size: 16 · 14 · 12 (plus is 15 · 13.5 · 12).
-// Sizes follow the C8 step rule (3 · 2.5 · 2); if M+ wins, large and small move with it.
-//
-// Filled follows the line-heavy rule: 2.5 at 24, 2 at 20 and 16, ends pulled
-// in by half the added weight so the ink box matches the outline.
+// x-circle — queue #17. Ring on the circle keyline, our x inside (45° 1.5 strokes, centred: symmetric).
+// Decision: the X's size in the ring, on the same scale as check-circle / check-circle-small.
+// Filled: a solid disc with the X's stroke outline cut out.
 export default {
-  concept: 'minus',
-  keyline: 'mark',        // written into every approved file: marks sit under the mark ceiling, not a keyline
-  question: 'Same length as the plus arm, or optically longer? Compare M against M+ in context next to plus.',
-  candidates: [
+  "concept": "x-circle",
+  "context": "Dismiss",
+  "question": "How big is the X in the ring? A (1.5 clear), B (matches check-circle) or C (small, matches check-circle-small). B + C can ship as x-circle + x-circle-small (C18). Judge at 16, outline and filled.",
+  "candidates": [
     {
-      id: 'L', label: 'Large', note: 'minus-large · matches plus-large: 18 · 16 · 14 (C8 step rule)',
-      masters: {
-        24: ['M3.75 12h16.5'],
-        20: ['M2.75 10h14.5'],
-        16: ['M1.75 8h12.5'],
+      "id": "A",
+      "label": "Large X",
+      "tags": [],
+      "note": "X 10 · 7.5 · 6 ink-box wide, 1.74 · 1.51 · 1.57 clear of the ring; as big as the min gap allows on the quarter grid; loud",
+      "masters": {
+        "16": [
+          "M1.75 8A6.25 6.25 0 1 0 14.25 8A6.25 6.25 0 1 0 1.75 8Z",
+          "M5.75 5.75L10.25 10.25",
+          "M10.25 5.75L5.75 10.25"
+        ],
+        "20": [
+          "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+          "M7 7L13 13",
+          "M13 7L7 13"
+        ],
+        "24": [
+          "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+          "M7.75 7.75L16.25 16.25",
+          "M16.25 7.75L7.75 16.25"
+        ]
       },
-      filled: {
-        24: { weight: 2.5, stroke: ['M4.25 12h15.5'] },
-        20: { weight: 2, stroke: ['M3 10h14'] },
-        16: { weight: 2, stroke: ['M2 8h12'] },
-      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM9.06 8L10.78 9.72A0.75 0.75 0 0 1 9.72 10.78L8 9.06L6.28 10.78A0.75 0.75 0 0 1 5.22 9.72L6.94 8L5.22 6.28A0.75 0.75 0 0 1 6.28 5.22L8 6.94L9.72 5.22A0.75 0.75 0 0 1 10.78 6.28Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM11.06 10L13.53 12.47A0.75 0.75 0 0 1 12.47 13.53L10 11.06L7.53 13.53A0.75 0.75 0 0 1 6.47 12.47L8.94 10L6.47 7.53A0.75 0.75 0 0 1 7.53 6.47L10 8.94L12.47 6.47A0.75 0.75 0 0 1 13.53 7.53Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM13.06 12L16.78 15.72A0.75 0.75 0 0 1 15.72 16.78L12 13.06L8.28 16.78A0.75 0.75 0 0 1 7.22 15.72L10.94 12L7.22 8.28A0.75 0.75 0 0 1 8.28 7.22L12 10.94L15.72 7.22A0.75 0.75 0 0 1 16.78 8.28Z"
+          ],
+          "stroke": []
+        }
+      }
     },
     {
-      id: 'M', label: 'Medium', note: 'minus · matches plus: 15 · 13.5 · 12 (recommended)',
-      masters: {
-        24: ['M5.25 12h13.5'],
-        20: ['M4 10h12'],
-        16: ['M2.75 8h10.5'],
+      "id": "B",
+      "label": "Medium X",
+      "tags": [],
+      "note": "X 9 · 6.5 · 5.5 ink-box wide, 2.45 · 2.21 · 1.92 clear of the ring; same breathing room as check-circle (2.5 · 2 · 1.75) (recommended)",
+      "masters": {
+        "16": [
+          "M1.75 8A6.25 6.25 0 1 0 14.25 8A6.25 6.25 0 1 0 1.75 8Z",
+          "M6 6L10 10",
+          "M10 6L6 10"
+        ],
+        "20": [
+          "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+          "M7.5 7.5L12.5 12.5",
+          "M12.5 7.5L7.5 12.5"
+        ],
+        "24": [
+          "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+          "M8.25 8.25L15.75 15.75",
+          "M15.75 8.25L8.25 15.75"
+        ]
       },
-      filled: {
-        24: { weight: 2.5, stroke: ['M5.75 12h12.5'] },
-        20: { weight: 2, stroke: ['M4.25 10h11.5'] },
-        16: { weight: 2, stroke: ['M3 8h10'] },
-      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM9.06 8L10.53 9.47A0.75 0.75 0 0 1 9.47 10.53L8 9.06L6.53 10.53A0.75 0.75 0 0 1 5.47 9.47L6.94 8L5.47 6.53A0.75 0.75 0 0 1 6.53 5.47L8 6.94L9.47 5.47A0.75 0.75 0 0 1 10.53 6.53Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM11.06 10L13.03 11.97A0.75 0.75 0 0 1 11.97 13.03L10 11.06L8.03 13.03A0.75 0.75 0 0 1 6.97 11.97L8.94 10L6.97 8.03A0.75 0.75 0 0 1 8.03 6.97L10 8.94L11.97 6.97A0.75 0.75 0 0 1 13.03 8.03Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM13.06 12L16.28 15.22A0.75 0.75 0 0 1 15.22 16.28L12 13.06L8.78 16.28A0.75 0.75 0 0 1 7.72 15.22L10.94 12L7.72 8.78A0.75 0.75 0 0 1 8.78 7.72L12 10.94L15.22 7.72A0.75 0.75 0 0 1 16.28 8.78Z"
+          ],
+          "stroke": []
+        }
+      }
     },
     {
-      id: 'M+', label: 'Medium, optically longer', note: 'minus alternative: 16 · 14 · 12 — one unit past plus at 24, half at 20',
-      masters: {
-        24: ['M4.75 12h14.5'],
-        20: ['M3.75 10h12.5'],
-        16: ['M2.75 8h10.5'],
+      "id": "C",
+      "label": "Small X",
+      "tags": [],
+      "note": "X 8 · 6 · 5 ink-box wide, 3.15 · 2.57 · 2.28 clear of the ring; same room as check-circle-small; ships as x-circle-small if taken with B",
+      "masters": {
+        "16": [
+          "M1.75 8A6.25 6.25 0 1 0 14.25 8A6.25 6.25 0 1 0 1.75 8Z",
+          "M6.25 6.25L9.75 9.75",
+          "M9.75 6.25L6.25 9.75"
+        ],
+        "20": [
+          "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+          "M7.75 7.75L12.25 12.25",
+          "M12.25 7.75L7.75 12.25"
+        ],
+        "24": [
+          "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+          "M8.75 8.75L15.25 15.25",
+          "M15.25 8.75L8.75 15.25"
+        ]
       },
-      filled: {
-        24: { weight: 2.5, stroke: ['M5.25 12h13.5'] },
-        20: { weight: 2, stroke: ['M4 10h12'] },
-        16: { weight: 2, stroke: ['M3 8h10'] },
-      },
-    },
-    {
-      id: 'S', label: 'Small', note: 'minus-small · matches plus-small: 12 · 11 · 10',
-      masters: {
-        24: ['M6.75 12h10.5'],
-        20: ['M5.25 10h9.5'],
-        16: ['M3.75 8h8.5'],
-      },
-      filled: {
-        24: { weight: 2.5, stroke: ['M7.25 12h9.5'] },
-        20: { weight: 2, stroke: ['M5.5 10h9'] },
-        16: { weight: 2, stroke: ['M4 8h8'] },
-      },
-    },
-  ],
+      "filled": {
+        "16": {
+          "fill": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM9.06 8L10.28 9.22A0.75 0.75 0 0 1 9.22 10.28L8 9.06L6.78 10.28A0.75 0.75 0 0 1 5.72 9.22L6.94 8L5.72 6.78A0.75 0.75 0 0 1 6.78 5.72L8 6.94L9.22 5.72A0.75 0.75 0 0 1 10.28 6.78Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM11.06 10L12.78 11.72A0.75 0.75 0 0 1 11.72 12.78L10 11.06L8.28 12.78A0.75 0.75 0 0 1 7.22 11.72L8.94 10L7.22 8.28A0.75 0.75 0 0 1 8.28 7.22L10 8.94L11.72 7.22A0.75 0.75 0 0 1 12.78 8.28Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM13.06 12L15.78 14.72A0.75 0.75 0 0 1 14.72 15.78L12 13.06L9.28 15.78A0.75 0.75 0 0 1 8.22 14.72L10.94 12L8.22 9.28A0.75 0.75 0 0 1 9.28 8.22L12 10.94L14.72 8.22A0.75 0.75 0 0 1 15.78 9.28Z"
+          ],
+          "stroke": []
+        }
+      }
+    }
+  ]
 };

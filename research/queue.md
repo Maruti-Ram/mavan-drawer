@@ -103,7 +103,8 @@ The ⌀20 keyline and what sits inside it.
 - [x] 16. `check-circle-3-small` · Status & Feedback · variant of `check-circle` — steep, small check · approved 2026-09-17
 - [x] 16. `check-circle-4` · Status & Feedback · variant of `check-circle` — lean (check-4) · approved 2026-09-17
 - [x] 16. `check-circle-4-small` · Status & Feedback · variant of `check-circle` — lean, small check · approved 2026-09-17
-- [~] 17. `x-circle` · Status & Feedback
+- [x] 17. `x-circle` · Status & Feedback — approved 2026-09-17
+- [x] 17. `x-circle-small` · Status & Feedback · variant of `x-circle` — Small X · approved 2026-09-17
 - [ ] 18. `plus-circle` · UI & Layout
 - [ ] 19. `minus-circle` · UI & Layout
 - [ ] 20. `info` · Status & Feedback
