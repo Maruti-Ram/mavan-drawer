@@ -588,3 +588,10 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 485. `phone-forwarded` · Communication · variant of `phone`
 - [ ] 486. `phone-missed` · Communication · variant of `phone`
 - [ ] 487. `refresh-ccw` · Arrows & Direction · variant of `refresh`
+
+## E · Added on request
+
+Icons asked for while drawing, in the order they were asked. Not in the audit ranking.
+
+- [x] 488. `info-2` — added 2026-09-17 · approved 2026-09-17
+- [x] 488. `info-2-small` · variant of `info-2` — Flag · small · approved 2026-09-17
