@@ -120,7 +120,9 @@ function lint(canvas, file) {
 
   // --- 4b. advisory: bends tighter than half the stroke (C10) --------------
   // Below R = weight / 2 the inner corner stays a notch and the corner reads heavier.
-  for (const d of ds) for (const { cmd, args } of parsePath(d)) {
+  // A dot (one closed circle drawn as two arcs) is not a bend: under half the stroke it is a solid disc.
+  const isDot = (d) => /^M[^A-Za-z]+A[^A-Za-z]+A[^A-Za-z]+Z?$/.test(d.trim());
+  for (const d of ds) if (!isDot(d)) for (const { cmd, args } of parsePath(d)) {
     if (cmd.toUpperCase() !== 'A') continue;
     for (let k = 0; k + 7 <= args.length; k += 7)
       if (Math.min(args[k], args[k + 1]) < STROKE / 2 - 0.005)

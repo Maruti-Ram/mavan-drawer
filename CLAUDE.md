@@ -73,7 +73,7 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Source of truth | hand-authored SVG in `src/icons/24/`, **not** Figma |
 | Authoring format | **strokes** (typable, lintable, 10× smaller) |
 | Shipped format | **outlined fills only** — the stroked source stays private |
-| Styles | outline + filled, **drawn together per icon** and approved as a pair (user decision 2026-09-17). Separate drawings; filled outer edge = outline outer edge. **Filled rule (locked 2026-09-17):** *line-heavy* icons (plus, check, arrows, chevrons — nothing to fill) show weight by a **heavier stroke — 2.5 at 24, 2 at 20 and 16** (`FILLED_WEIGHT`), never a background; ink box stays identical, so ends pull in by half the added weight. *Every other* icon fills its shapes (plus-circle fills the circle) and its **strokes stay 1.5**. Duotone deferred. |
+| Styles | outline + filled, **drawn together per icon** and approved as a pair (user decision 2026-09-17). Separate drawings; filled outer edge = outline outer edge. **Filled rule (locked 2026-09-17):** *line-heavy* icons (plus, check, arrows, chevrons — nothing to fill) show weight by a **heavier stroke — 2.5 at 24, 2 at 20 and 16** (`FILLED_WEIGHT`), never a background; ink box stays identical, so ends pull in by half the added weight. *Dots* (C17) take the heavier weight too but grow from their own centres, so a filled dot row is slightly larger than its outline. *Every other* icon fills its shapes (plus-circle fills the circle) and its **strokes stay 1.5**. Duotone deferred. |
 | Weight axis | **none.** Opinionated defaults; customers do not adjust stroke. |
 | Stroke | **1.5 at every master** (user decision 2026-09-16; supersedes 2 at 24) |
 | Canvas | 24 |

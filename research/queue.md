@@ -84,7 +84,7 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 12. `arrow-right-2` · Arrows & Direction · variant of `arrow-right` — arrow-right-2 · wide · approved 2026-09-17
 - [x] 12. `arrow-right-3` · Arrows & Direction · variant of `arrow-right` — arrow-right-3 · flat · approved 2026-09-17
 - [x] 12. `arrow-right-4` · Arrows & Direction · variant of `arrow-right` — arrow-right-4 · closed · approved 2026-09-17
-- [ ] 13. `more-horizontal` · UI & Layout
+- [x] 13. `more-horizontal` · UI & Layout — approved 2026-09-17
 - [ ] 14. `more-vertical` · UI & Layout
 - [ ] 15. `menu` · UI & Layout
 
