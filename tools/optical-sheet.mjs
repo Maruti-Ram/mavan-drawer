@@ -103,11 +103,13 @@ shapes.forEach((name, k) => {
   let id = ids[k] ?? [...tag.toUpperCase()].find((ch) => /[A-Z]/.test(ch) && !used.has(ch)) ?? String(k + 1);
   used.add(id);
   const scale = base.ink.h / ref.ink.h;
-  const shipped = r2((base.shift[0] * dir[0] + base.shift[1] * dir[1]) / scale);   // along --dir, family units
+  let shipped = r2((base.shift[0] * dir[0] + base.shift[1] * dir[1]) / scale);   // along --dir, family units
   const tri = triangleOffset(ref);
   const measured = tri && r05(-K * (tri[0] * dir[0] + tri[1] * dir[1]));
   if (!(name in rec)) rec[name] = rec[fam] ?? measured ?? undefined;
   if (rec[name] === undefined) delete rec[name];
+  // Size variants store 2 dp at their own scale, so their shipped value reads back ±0.01 off.
+  if (rec[name] != null && Math.abs(shipped - rec[name]) < 0.015) shipped = rec[name];
   const around = rec[name] ?? shipped;
   const rows = fixed ?? [-2, -1, 0, 1, 2].map((k) => r2(around + k * spread));
   const list = [...new Set([0, shipped, around, ...rows])].sort((a, b) => a - b);
