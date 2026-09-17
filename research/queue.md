@@ -41,9 +41,33 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 5. `chevron-down-3` · Arrows & Direction · variant of `chevron-down` — chevron-down-3 · steep · approved 2026-09-17
 - [x] 5. `chevron-down-3-small` · Arrows & Direction · variant of `chevron-down` — chevron-down-3-small · steep · approved 2026-09-17
 - [x] 5. `chevron-down-3-large` · Arrows & Direction · variant of `chevron-down` — chevron-down-3-large · steep · approved 2026-09-17
-- [ ] 6. `chevron-up` · Arrows & Direction
-- [ ] 7. `chevron-left` · Arrows & Direction
-- [ ] 8. `chevron-right` · Arrows & Direction
+- [x] 6. `chevron-up` · Arrows & Direction — approved 2026-09-17
+- [x] 6. `chevron-up-small` · Arrows & Direction · variant of `chevron-up` — chevron-up-small · classic · approved 2026-09-17
+- [x] 6. `chevron-up-large` · Arrows & Direction · variant of `chevron-up` — chevron-up-large · classic · approved 2026-09-17
+- [x] 6. `chevron-up-2` · Arrows & Direction · variant of `chevron-up` — chevron-up-2 · flat · approved 2026-09-17
+- [x] 6. `chevron-up-2-small` · Arrows & Direction · variant of `chevron-up` — chevron-up-2-small · flat · approved 2026-09-17
+- [x] 6. `chevron-up-2-large` · Arrows & Direction · variant of `chevron-up` — chevron-up-2-large · flat · approved 2026-09-17
+- [x] 6. `chevron-up-3` · Arrows & Direction · variant of `chevron-up` — chevron-up-3 · steep · approved 2026-09-17
+- [x] 6. `chevron-up-3-small` · Arrows & Direction · variant of `chevron-up` — chevron-up-3-small · steep · approved 2026-09-17
+- [x] 6. `chevron-up-3-large` · Arrows & Direction · variant of `chevron-up` — chevron-up-3-large · steep · approved 2026-09-17
+- [x] 7. `chevron-left` · Arrows & Direction — approved 2026-09-17
+- [x] 7. `chevron-left-small` · Arrows & Direction · variant of `chevron-left` — chevron-left-small · classic · approved 2026-09-17
+- [x] 7. `chevron-left-large` · Arrows & Direction · variant of `chevron-left` — chevron-left-large · classic · approved 2026-09-17
+- [x] 7. `chevron-left-2` · Arrows & Direction · variant of `chevron-left` — chevron-left-2 · flat · approved 2026-09-17
+- [x] 7. `chevron-left-2-small` · Arrows & Direction · variant of `chevron-left` — chevron-left-2-small · flat · approved 2026-09-17
+- [x] 7. `chevron-left-2-large` · Arrows & Direction · variant of `chevron-left` — chevron-left-2-large · flat · approved 2026-09-17
+- [x] 7. `chevron-left-3` · Arrows & Direction · variant of `chevron-left` — chevron-left-3 · steep · approved 2026-09-17
+- [x] 7. `chevron-left-3-small` · Arrows & Direction · variant of `chevron-left` — chevron-left-3-small · steep · approved 2026-09-17
+- [x] 7. `chevron-left-3-large` · Arrows & Direction · variant of `chevron-left` — chevron-left-3-large · steep · approved 2026-09-17
+- [x] 8. `chevron-right` · Arrows & Direction — approved 2026-09-17
+- [x] 8. `chevron-right-small` · Arrows & Direction · variant of `chevron-right` — chevron-right-small · classic · approved 2026-09-17
+- [x] 8. `chevron-right-large` · Arrows & Direction · variant of `chevron-right` — chevron-right-large · classic · approved 2026-09-17
+- [x] 8. `chevron-right-2` · Arrows & Direction · variant of `chevron-right` — chevron-right-2 · flat · approved 2026-09-17
+- [x] 8. `chevron-right-2-small` · Arrows & Direction · variant of `chevron-right` — chevron-right-2-small · flat · approved 2026-09-17
+- [x] 8. `chevron-right-2-large` · Arrows & Direction · variant of `chevron-right` — chevron-right-2-large · flat · approved 2026-09-17
+- [x] 8. `chevron-right-3` · Arrows & Direction · variant of `chevron-right` — chevron-right-3 · steep · approved 2026-09-17
+- [x] 8. `chevron-right-3-small` · Arrows & Direction · variant of `chevron-right` — chevron-right-3-small · steep · approved 2026-09-17
+- [x] 8. `chevron-right-3-large` · Arrows & Direction · variant of `chevron-right` — chevron-right-3-large · steep · approved 2026-09-17
 - [ ] 9. `arrow-up` · Arrows & Direction
 - [ ] 10. `arrow-down` · Arrows & Direction
 - [ ] 11. `arrow-left` · Arrows & Direction
