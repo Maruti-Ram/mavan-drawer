@@ -16,6 +16,10 @@ body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-s
 .bar button{font:inherit;border:1px solid var(--ui);background:none;color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
 .bar button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 #sheet{display:grid;grid-template-columns:170px auto auto auto auto auto;gap:9px 22px;align-content:start;align-items:center;justify-content:start;padding:12px 0 40px calc(40px / 1.2);zoom:1.2}   /* 40px left edge after the zoom */
+.tabs{display:flex;gap:18px;padding:10px 40px 0;border-bottom:1px solid var(--line)}
+.tabs:empty{display:none}
+.tabs button{font:12px system-ui,sans-serif;background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:6px 0 8px;margin-bottom:-1px;cursor:pointer}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
 .group{color:var(--ink);grid-column:1/-1;margin-top:10px}
 .row{display:flex;gap:6px;align-items:center}
 .menu{display:inline-flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:8px;background:var(--ui);color:var(--ink);font:16px Inter,system-ui}
@@ -34,13 +38,17 @@ body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-s
 svg{display:block;flex:none}
 </style></head><body>
 <div class="bar"><b id="title"></b>
-  <span class="legend"><span class="tag ship">shipped</span><span class="tag rec">recommended</span></span>
+  <span class="legend"><span class="tag ship" id="shipword">shipped</span><span class="tag rec">recommended</span></span>
   <button data-s="outline" class="on">Outline</button><button data-s="filled">Filled</button>
   <button id="theme">Dark</button></div>
+<nav class="tabs" id="tabs"></nav>
 <div id="sheet"></div>
 <script type="module">
 const { default: draft } = await import(`./drafts/current.js?${Date.now()}`);
 const VERB = draft.context ?? 'Add item';
+// A sheet of drawn-but-unshipped shapes tags its starting position "drafted", not "shipped".
+const SHIP = draft.drafted ? 'drafted' : 'shipped';
+document.getElementById('shipword').textContent = SHIP;
 let style = 'outline';
 
 // One master of one candidate, drawn from the board's (already shifted) paths.
@@ -54,19 +62,33 @@ function ic(c, m, px = m) {
 }
 const btn = (c, m, box, circle) => `<span class="btn${circle ? ' circle' : ''}" style="width:${box}px;height:${box}px">${ic(c, m)}</span>`;
 
-const groups = new Map();
-for (const c of draft.candidates) {
-  const key = `${c.group}${c.axes ? ` <span style="font-weight:400;color:var(--muted)">· judged ${c.axes}</span>` : ''}`;
-  groups.set(key, [...(groups.get(key) ?? []), c]);
+// A sheet spanning several icons (chevron-up · left · right) shows one icon per tab (#chevron-left).
+const CONCEPTS = draft.concepts ?? [draft.concept];
+const conceptOf = (c) => CONCEPTS.filter((k) => c.group === k || c.group.startsWith(`${k}-`) || c.group.startsWith(`${k} `))
+  .sort((a, b) => b.length - a.length)[0] ?? CONCEPTS[0];
+let tab = CONCEPTS.includes(decodeURIComponent(location.hash.slice(1))) ? decodeURIComponent(location.hash.slice(1)) : CONCEPTS[0];
+const tabs = document.getElementById('tabs');
+if (CONCEPTS.length > 1) {
+  tabs.innerHTML = CONCEPTS.map((k) => `<button data-tab="${k}">${k}</button>`).join('');
+  tabs.addEventListener('click', (e) => {
+    const b = e.target.closest?.('button'); if (!b) return;
+    tab = b.dataset.tab; history.replaceState(null, '', `#${tab}`); render(); scrollTo(0, 0);
+  });
 }
 
 function render() {
-  document.getElementById('title').textContent = `${draft.concept} · optical placement in the canvas (24 units; 20 and 16 scale by ink width and height)`;
+  for (const b of tabs.children) b.classList.toggle('on', b.dataset.tab === tab);
+  const groups = new Map();
+  for (const c of draft.candidates.filter((c) => conceptOf(c) === tab)) {
+    const key = `${c.group}${c.axes ? ` <span style="font-weight:400;color:var(--muted)">· judged ${c.axes}</span>` : ''}`;
+    groups.set(key, [...(groups.get(key) ?? []), c]);
+  }
+  document.getElementById('title').textContent = `${tab} · optical placement in the canvas (24 units; 20 and 16 scale by ink width and height)`;
   document.getElementById('sheet').innerHTML = [...groups].map(([name, cs]) =>
     `<b class="group">${name}</b>` + cs.map((c) => `
       <div class="lab${c.shipped ? ' shipped' : ''}">${c.name ? `<span style="color:var(--ink)">${c.name}</span>` : ''}<span>${c.id} · ${c.at}</span>
         <small>${(c.by ?? []).map((b, i) => `${[24, 20, 16][i]}: ${b}`).join('<br>')}</small>
-        ${c.shipped ? '<span class="tag ship">shipped</span>' : ''}${c.recommended ? '<span class="tag rec">recommended</span>' : ''}</div>
+        ${c.shipped ? `<span class="tag ship">${SHIP}</span>` : ''}${c.recommended ? '<span class="tag rec">recommended</span>' : ''}</div>
       <div class="canvas">${[24, 20, 16].map((m) => ic(c, m, m * 3)).join('')}</div>
       <div><span class="menu">${ic(c, 24)}<span>${VERB}</span></span></div>
       <div><span class="inl">Press ${ic(c, 24)} to ${VERB.toLowerCase()}</span></div>

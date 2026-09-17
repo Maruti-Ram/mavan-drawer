@@ -16,6 +16,9 @@
 //                                          e.g. --rows "check=line weight:0:-0.94|triangle:0:-0.22"
 //        [--ids <id>,…]                    one id per shape (default: its tag's initial)
 //        [--context "Mark as done"]        the verb in the menu row and inline text
+//        [--draft <file>]                  read shapes not yet shipped from a board-format file
+//                                          (candidate label "<name> · <tag>", optical = the drafted
+//                                          position); their recommendation is always measured
 //
 //   e.g. node tools/optical-sheet.mjs check check-small check-2 check-2-small --ids C,Cs,W,Ws
 //
@@ -36,8 +39,10 @@
 // already been placed on keeps its shipped value as the recommendation. The shipped position,
 // the box centre and every grid position are rows; the eye makes the pick.
 import { readFileSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { sizeBase } from './masters.mjs';
-import { samplePath } from './geometry.mjs';
+import { samplePath, bbox } from './geometry.mjs';
 
 const MASTERS = [24, 20, 16];
 const K = 0.5;
@@ -63,7 +68,30 @@ const shapes = args;
 if (!shapes.length) die('Name at least one shape, e.g. check check-2');
 
 const man = JSON.parse(readFileSync('lab/manifest.json', 'utf8')).masters;
-const at = (m, n) => man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
+
+// --draft: shapes that are drawn but not shipped (a family turned or mirrored from a shipped one).
+// Each is measured the way build.mjs measures a file, so the sheet treats it like a shipped icon.
+const draftFile = opt('draft', null);
+const drafted = {}, draftSaid = {};
+if (draftFile) {
+  const measure = (paths, areas, stroke, shift, tags) => {
+    const boxes = [];
+    if (paths.length) { const b = bbox(paths); boxes.push([b.x0 - stroke / 2, b.y0 - stroke / 2, b.x1 + stroke / 2, b.y1 + stroke / 2]); }
+    if (areas.length) { const b = bbox(areas); boxes.push([b.x0, b.y0, b.x1, b.y1]); }
+    const [x0, y0, x1, y1] = [0, 1, 2, 3].map((i) => (i < 2 ? Math.min : Math.max)(...boxes.map((b) => b[i])));
+    return { paths, areas, stroke, shift, tags, ink: { x: r2(x0), y: r2(y0), w: r2(x1 - x0), h: r2(y1 - y0) } };
+  };
+  for (const c of (await import(pathToFileURL(resolve(draftFile)).href)).default.candidates) {
+    const name = c.label.split(' · ')[0];
+    draftSaid[name] = [c.label, c.note].filter(Boolean).join(': ');
+    for (const m of MASTERS) {
+      const shift = c.optical?.[m] ?? [0, 0], f = c.filled[m];
+      (drafted[m] ??= {})[name] = measure(c.masters[m], [], 1.5, shift, c.tags ?? []);
+      drafted[m][`${name}-filled`] = measure(f.stroke ?? [], f.fill ?? [], f.weight ?? 1.5, shift, c.tags ?? []);
+    }
+  }
+}
+const at = (m, n) => drafted[m]?.[n] ?? man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
 
 // Move an SVG path by (dx, dy). Absolute commands move every coordinate; relative ones only
 // need their opening `m` moved.
@@ -120,7 +148,7 @@ shapes.forEach((name, k) => {
   const base = at(24, name);
   const ref = at(24, sizeBase(name));                          // the family default sets the units
   const tag = base.tags?.[0] ?? name;
-  const said = [...readFileSync(`src/icons/24/${name}.svg`, 'utf8').matchAll(/<!--\s*(.*?)\s*-->/g)]
+  const said = draftSaid[name] ?? [...readFileSync(`src/icons/24/${name}.svg`, 'utf8').matchAll(/<!--\s*(.*?)\s*-->/g)]
     .map((x) => x[1]).filter((x) => !/^(keyline|tags|optical):/.test(x)).pop() ?? `${name} · ${tag}`;
   const own = said.split(': ')[0];
   const detail = said.split(': ').slice(1).join(': ').replace(/ · optical .*\(C1[45]\)/, '');
@@ -141,7 +169,7 @@ shapes.forEach((name, k) => {
   const tri = triangleOffset(ref);
   const measured = tri && tri.map((v) => r05(-K * v));
   const fam = rec[sizeBase(name)];
-  const refShift = ref.shift;                                  // the default's placed axes
+  const refShift = drafted[24]?.[sizeBase(name)] ? [0, 0] : ref.shift;   // the default's placed axes (a draft's are only drafted)
   const want = (rec[name] ?? fam ?? [0, 1].map((a) => (refShift[a] ? r2(refShift[a]) : measured?.[a] ?? 0)))
     .map((v, a) => (judged[a] ? v : r2(shipped[a])));                 // an unjudged axis stays as shipped
   // Size variants store 2 dp at their own scale, so their shipped value reads back ±0.01 off.
@@ -185,12 +213,14 @@ shapes.forEach((name, k) => {
   }
 });
 
-const concept = sizeBase(shapes[0]);
+const family = (n) => sizeBase(n).replace(/-\d+$/, '');
+const concept = family(shapes[0]);
+const concepts = [...new Set(shapes.map(family))];
 writeFileSync('lab/drafts/current.js',
   `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each row is an (x, y)\n` +
   `// position in family-default units at 24; judge the balance in the canvas against all four edges.\n` +
   `export default ${JSON.stringify({
-    concept, keyline: 'mark', ...(context ? { context } : {}),
+    concept, ...(concepts.length > 1 ? { concepts } : {}), ...(draftFile ? { drafted: true } : {}), keyline: 'mark', ...(context ? { context } : {}),
     question: 'Optical placement (C15): which position reads balanced in the canvas — top, bottom, left and right — for each shape? Open /lab/optical-shift.html.',
     candidates,
   }, null, 2)};\n`);

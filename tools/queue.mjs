@@ -141,11 +141,14 @@ const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null) 
 async function approve(args) {
   const d = await draft() ?? die(`No draft in ${DRAFT}.`);
   if (!args.length) die('Say which candidate: approve <id> or approve <id>=<file-name> …');
+  // A sheet can span concepts (chevron-up, -left, -right): each file belongs to the one it extends.
+  const concepts = d.concepts ?? [d.concept];
+  const conceptOf = (file) => concepts.find((k) => sizeBase(file) === sizeBase(k) || file.startsWith(`${k}-`));
   const plan = args.map((a) => {
     const [id, file = d.concept] = a.split('=');
     const c = d.candidates.find((x) => x.id === id) ?? die(`No candidate "${id}" on the board (have: ${d.candidates.map((x) => x.id).join(', ')}).`);
-    if (sizeBase(file) !== sizeBase(d.concept) && !file.startsWith(`${d.concept}-`)) die(`${file} is not a variant of ${d.concept}.`);
-    return { c, file };
+    const concept = conceptOf(file) ?? die(`${file} is not a variant of ${concepts.join(' / ')}.`);
+    return { c, file, concept };
   });
 
   const written = [];
@@ -176,19 +179,19 @@ async function approve(args) {
   const stamp = `approved ${today()}`;
   const stamped = (note) => [note?.replace(/\s*·?\s*approved \d{4}-\d{2}-\d{2}/, '').trim(), stamp].filter(Boolean).join(' · ');
   const q = readQueue();
-  if (!find(q, d.concept)) die(`${d.concept} is not in the queue.`);
-  const added = [];
-  for (const { c, file } of plan) {
+  for (const k of new Set(plan.map((p) => p.concept))) if (!find(q, k)) die(`${k} is not in the queue.`);
+  for (const { file } of plan) {
     const r = find(q, file);
     if (r) { r.status = 'done'; r.note = stamped(r.note); q.lines[r.i] = format(r); }
-    else added.push({ status: 'done', name: file, base: d.concept, note: stamped(c.label) });
   }
-  if (added.length) {
-    const base = find(q, d.concept);
+  // New size/variant rows go under their concept and its earlier variants; later concepts first,
+  // so inserting lines never moves a concept still to be handled.
+  const byConcept = Map.groupBy(plan.filter(({ file }) => !find(q, file)), (p) => p.concept);
+  for (const [k, ps] of [...byConcept].sort((a, b) => find(q, b[0]).i - find(q, a[0]).i)) {
+    const base = find(q, k);
     // Only size rows sit under the concept; other variants (minus-square) keep their own place.
-    const last = Math.max(base.i, ...q.rows.filter((r) => r.base === d.concept && sizeBase(r.name) === d.concept).map((r) => r.i));
-    const category = base.category;
-    q.lines.splice(last + 1, 0, ...added.map((r) => format({ ...r, n: base.n, category })));
+    const last = Math.max(base.i, ...q.rows.filter((r) => r.base === k && sizeBase(r.name).replace(/-\d+$/, '') === k).map((r) => r.i));
+    q.lines.splice(last + 1, 0, ...ps.map(({ c, file }) => format({ status: 'done', name: file, base: k, note: stamped(c.label), n: base.n, category: base.category })));
   }
   save(q);
   spawnSync('npm', ['run', 'build', '--silent'], { stdio: 'ignore' });
