@@ -276,10 +276,10 @@ import { MASTERS as M, STROKE, FILLED_WEIGHT as FW } from '../tools/masters.mjs'
 import { parsePath, bbox } from '../tools/geometry.mjs';
 // One drawing board: whatever icon is on it lives in drafts/current.js, and its
 // references in refs/current.js (node tools/refs.mjs <name>).
-const draft = (await import('./drafts/current.js')).default;
+const draft = (await import(`./drafts/current.js?${Date.now()}`)).default;
 const name = draft.concept;
 let refs = null;
-try { refs = (await import('./refs/current.js')).default; } catch { /* licensed refs are local-only */ }
+try { refs = (await import(`./refs/current.js?${Date.now()}`)).default; } catch { /* licensed refs are local-only */ }
 if (refs && refs.concept !== name) refs = null;          // stale refs from the previous icon
 
 const MASTERS = Object.keys(M).map(Number).sort((a, b) => b - a);

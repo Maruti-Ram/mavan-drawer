@@ -16,6 +16,9 @@
 //                                          e.g. --rows "check=line weight:0:-0.94|triangle:0:-0.22"
 //        [--ids <id>,…]                    one id per shape (default: its tag's initial)
 //        [--context "Mark as done"]        the verb in the menu row and inline text
+//        [--hold <n>]                      container icons (C18): the first n outline paths and the
+//                                          first n subpaths of the fill stay put; only the mark moves,
+//                                          and positions scale by the mark's ink, not the container's
 //        [--draft <file>]                  read shapes not yet shipped from a board-format file
 //                                          (candidate label "<name> · <tag>", optical = the drafted
 //                                          position); their recommendation is always measured
@@ -64,6 +67,7 @@ const named = Object.fromEntries((opt('rows', '') || '').split(';').filter(Boole
 }));
 const ids = opt('ids', '').split(',').filter(Boolean);
 const context = opt('context', null);
+const hold = Number(opt('hold', 0));
 const shapes = args;
 if (!shapes.length) die('Name at least one shape, e.g. check check-2');
 
@@ -91,6 +95,12 @@ if (draftFile) {
     }
   }
 }
+// The mark's own ink (the container held still is left out), stroked at 1.5.
+const markInk = (i) => {
+  if (!hold) return i.ink;
+  const b = bbox(i.paths.slice(hold));
+  return { x: b.x0 - 0.75, y: b.y0 - 0.75, w: b.x1 - b.x0 + 1.5, h: b.y1 - b.y0 + 1.5 };
+};
 const at = (m, n) => drafted[m]?.[n] ?? man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
 
 // Move an SVG path by (dx, dy). Absolute commands move every coordinate; relative ones only
@@ -156,7 +166,8 @@ shapes.forEach((name, k) => {
   used.add(id);
 
   // Everything in family-default units: x by width, y by height.
-  const unit = [base.ink.w / ref.ink.w, base.ink.h / ref.ink.h];
+  const [bInk, rInk] = [markInk(base), markInk(ref)];
+  const unit = [bInk.w / rInk.w, bInk.h / rInk.h];
   const shipped = base.shift.map((v, a) => r2(v / unit[a]));
   const sym = mirrors(ref);
   const judged = forced ? ['x', 'y'].map((a) => forced.includes(a)) : sym.map((m) => !m);
@@ -196,13 +207,16 @@ shapes.forEach((name, k) => {
     const by = [];
     for (const m of MASTERS) {
       const o = at(m, name), f = at(m, `${name}-filled`);
-      const [dx, dy] = [r2(pos[0] * o.ink.w / ref.ink.w), r2(pos[1] * o.ink.h / ref.ink.h)];
+      const oInk = markInk(o);
+      const [dx, dy] = [r2(pos[0] * oInk.w / rInk.w), r2(pos[1] * oInk.h / rInk.h)];
       by.push(arrow([dx, dy]));
       c.optical[m] = [dx, dy];
-      c.masters[m] = o.paths.map((d) => move(d, dx - o.shift[0], dy - o.shift[1]));
+      c.masters[m] = o.paths.map((d, j) => (j < hold ? d : move(d, dx - o.shift[0], dy - o.shift[1])));
       const back = (d) => move(d, dx - f.shift[0], dy - f.shift[1]);
+      const backArea = (d, j) => (j || !hold ? back(d)                   // the container's subpaths stay, its holes move
+        : d.match(/M[^M]*/g).map((sub, k) => (k < hold ? sub : back(sub))).join(''));
       c.filled[m] = f.areas.length
-        ? { fill: f.areas.map(back), stroke: f.paths.map(back) }
+        ? { fill: f.areas.map(backArea), stroke: f.paths.map(back) }
         : { weight: f.stroke, stroke: f.paths.map(back) };
     }
     if (!c.optical[24][0] && !c.optical[24][1]) delete c.optical;   // centred: no optical comment
