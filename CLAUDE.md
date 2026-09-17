@@ -83,7 +83,7 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Mark bends (C10) | a bent mark's corner is an arc of radius **half the weight** (0.75 outline · 1.25/1/1 filled) — the tightest even-width bend; lint warns below it |
 | Sizes (C8, C13) | ship only the sizes with a use case (`check`: default + small); every shipped style then gets all of them — styles × sizes is a full grid |
 | Optical placement (C14) | open pointing marks move toward their point by a per-shape anchor picked by eye at default 24 (chevron down: classic 0.5 · steep 0.61 · flat 0.55; check up: classic 0.2 · long sweep 0.35 · steep 0.05 · lean 0.3), scaled by ink height for other sizes/masters; declared as `<!-- optical: dx dy -->`, checked by lint, written to metrics as `shift`. Symmetric marks stay on the box centre. |
-| Deciding a shift (C15) | **measure, don't copy**: each shape's recommendation = end-triangle offset × 0.5 (not ink mass); rows spread ±0.1/±0.2 around it, plus 0 and shipped (never one grid for all shapes); always shown on `/lab/optical-shift.html` via `tools/optical-sheet.mjs`, with shipped + recommended tagged; the eye makes the final pick; **both axes, always** — an up/down sheet and a left/right sheet per mark (left/right scales by ink width; the other axis's shift is kept) |
+| Deciding a shift (C15) | **measure, don't copy**: each shape's recommendation = end-triangle offset × 0.5 (not ink mass); positions around each shape's own recommendation, plus box centre and shipped (never one grid for all shapes); always shown on `/lab/optical-shift.html` via `tools/optical-sheet.mjs`, with shipped + recommended tagged; the eye makes the final pick; **balanced in the canvas against all four edges at once** — x and y judged together, each position shown inside its canvas outline (optically balanced, not geometrically even) |
 | Exact placement (C10, C12) | bent marks: outline ink centred to 2 dp; filled ink box == outline's to 2 dp, no tolerance. Chevron filled bends grow (≤ 2× minimum) to keep the leg angle |
 
 ## The geometry
@@ -136,7 +136,7 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
 | `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `approve` |
 | `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
-| `tools/optical-sheet.mjs` | **optical placement (C14) template**: `node tools/optical-sheet.mjs <shape>… --dir up\|down\|left\|right [--rec <shape>=<n>,…] [--spread 0.1]` measures each shape's recommendation (end-triangle offset × 0.5) and writes rows spread around it to the board; view on **`/lab/optical-shift.html`** (plain sheet: menu row, inline, 40 square/circle, 32 · 28 buttons; shipped and recommended rows tagged) |
+| `tools/optical-sheet.mjs` | **optical placement (C14) template**: `node tools/optical-sheet.mjs <shape>… [--rec <shape>=<x>:<y>] [--xs …] [--ys …]` measures each shape's (x, y) recommendation (end-triangle offset × 0.5) and writes a grid of positions around it to the board; view on **`/lab/optical-shift.html`** (plain sheet: the mark in its canvas outline at 24 · 20 · 16, menu row, inline, 40 square/circle, 32 · 28 buttons; shipped and recommended rows tagged) |
 
 `dist/metrics.json` is the differentiator: per-icon ink box, **geometric**
 bearings (where ink stops) and **optical** bearings (where it reads as stopping).

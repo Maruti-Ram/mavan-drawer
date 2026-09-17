@@ -2,19 +2,20 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Optical shift sheet</title>
 <style>
-/* A plain sheet for picking an optical shift (C14), laid out like the chevron comparison:
-   one group per shape, one row per shift — menu row, inline text, buttons at 24 · 20 · 16.
+/* A plain sheet for picking optical placement (C14, C15): the mark must read balanced in its
+   canvas against all four edges. One group per shape, one row per (x, y) position: the mark in
+   its canvas outline at 24 · 20 · 16 (drawn 3×), then a menu row, inline text and buttons.
    It draws the board's candidates (lab/drafts/current.js) as written by tools/optical-sheet.mjs:
-   each carries group, shift, shipped and recommended. */
-:root{--bg:#fff;--ink:#16171a;--muted:#8a8c92;--ui:#f1f1ef;--pick:#2f6feb;--rec:#15803d;--rec-bg:#dcfce7}
-:root[data-theme="dark"]{--bg:#18181b;--ink:#f4f4f5;--muted:#a1a1aa;--ui:#26272b;--pick:#60a5fa;--rec:#4ade80;--rec-bg:#14532d}
+   each carries group, pos, at, by, shipped and recommended. */
+:root{--bg:#fff;--line:#d7d7d4;--ink:#16171a;--muted:#8a8c92;--ui:#f1f1ef;--pick:#2f6feb;--rec:#15803d;--rec-bg:#dcfce7}
+:root[data-theme="dark"]{--bg:#18181b;--line:#3a3b40;--ink:#f4f4f5;--muted:#a1a1aa;--ui:#26272b;--pick:#60a5fa;--rec:#4ade80;--rec-bg:#14532d}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .bar{display:flex;gap:8px;align-items:center;padding:12px 40px 0}
 .bar b{color:var(--ink);font-size:12px;margin-right:auto}
 .bar button{font:inherit;border:1px solid var(--ui);background:none;color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
 .bar button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-#sheet{display:grid;grid-template-columns:110px auto auto auto auto;gap:9px 22px;align-content:start;align-items:center;justify-content:start;padding:12px 0 40px calc(40px / 1.2);zoom:1.2}   /* 40px left edge after the zoom */
+#sheet{display:grid;grid-template-columns:170px auto auto auto auto auto;gap:9px 22px;align-content:start;align-items:center;justify-content:start;padding:12px 0 40px calc(40px / 1.2);zoom:1.2}   /* 40px left edge after the zoom */
 .group{color:var(--ink);grid-column:1/-1;margin-top:10px}
 .row{display:flex;gap:6px;align-items:center}
 .menu{display:inline-flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:8px;background:var(--ui);color:var(--ink);font:16px Inter,system-ui}
@@ -28,6 +29,8 @@ body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-s
 .tag.rec{background:var(--rec-bg);color:var(--rec)}
 .tag.ship{border:1px solid var(--pick);color:var(--pick)}
 .legend{display:flex;gap:10px;align-items:center;margin-right:12px}
+.canvas{display:flex;gap:10px;align-items:center;color:var(--ink)}
+.canvas svg{outline:1px solid var(--line);background:var(--bg)}
 svg{display:block;flex:none}
 </style></head><body>
 <div class="bar"><b id="title"></b>
@@ -41,11 +44,11 @@ const VERB = draft.context ?? 'Add item';
 let style = 'outline';
 
 // One master of one candidate, drawn from the board's (already shifted) paths.
-function ic(c, m) {
+function ic(c, m, px = m) {
   const f = c.filled?.[m];
   const [w, strokes, fills] = style === 'filled' && f && f !== 'outline'
     ? [f.weight ?? 1.5, f.stroke ?? [], f.fill ?? []] : [1.5, c.masters[m] ?? [], []];
-  return `<svg width="${m}" height="${m}" viewBox="0 0 ${m} ${m}">${
+  return `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}">${
     fills.map((d) => `<path d="${d}" fill="currentColor" fill-rule="evenodd"/>`).join('')}${
     strokes.map((d) => `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}</svg>`;
 }
@@ -55,12 +58,13 @@ const groups = new Map();
 for (const c of draft.candidates) groups.set(c.group, [...(groups.get(c.group) ?? []), c]);
 
 function render() {
-  document.getElementById('title').textContent = `${draft.concept} · moved ${draft.direction ?? ''} (24 units; 20 and 16 scale by ink ${/left|right/.test(draft.direction) ? 'width' : 'height'}; the other axis stays as shipped)`;
+  document.getElementById('title').textContent = `${draft.concept} · optical placement in the canvas (24 units; 20 and 16 scale by ink width and height)`;
   document.getElementById('sheet').innerHTML = [...groups].map(([name, cs]) =>
-    `<b class="group">${name}</b>` + cs.sort((a, b) => a.shift - b.shift).map((c) => `
-      <div class="lab${c.shipped ? ' shipped' : ''}"><span>${c.id} · ${c.shift}</span>
-        <small>${(c.by ?? []).join(' · ')}</small>
+    `<b class="group">${name}</b>` + cs.map((c) => `
+      <div class="lab${c.shipped ? ' shipped' : ''}"><span>${c.id}</span><span>${c.at}</span>
+        <small>${(c.by ?? []).map((b, i) => `${[24, 20, 16][i]}: ${b}`).join('<br>')}</small>
         ${c.shipped ? '<span class="tag ship">shipped</span>' : ''}${c.recommended ? '<span class="tag rec">recommended</span>' : ''}</div>
+      <div class="canvas">${[24, 20, 16].map((m) => ic(c, m, m * 3)).join('')}</div>
       <div><span class="menu">${ic(c, 24)}<span>${VERB}</span></span></div>
       <div><span class="inl">Press ${ic(c, 24)} to ${VERB.toLowerCase()}</span></div>
       <div class="row">${btn(c, 24, 40)}${btn(c, 24, 40, true)}</div>

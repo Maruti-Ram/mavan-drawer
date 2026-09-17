@@ -1,54 +1,55 @@
 #!/usr/bin/env node
-// Optical placement (C14) as a comparison sheet. Writes the board with every shape of a family
-// at a range of shifts, then lab/optical-shift.html lays them out: one group per shape, one row
-// per shift, in a menu row, inline text and icon buttons at 24 · 20 · 16.
+// Optical placement (C14, C15) as a comparison sheet. A mark must read optically balanced in its
+// square canvas (24 · 20 · 16) against all four edges at once — top, bottom, left and right — so
+// both axes are judged together. This writes the board with every shape at a grid of (x, y)
+// positions around its recommendation; lab/optical-shift.html lays them out: one group per shape,
+// one row per position, the mark in its canvas outline at each master, then in a menu row, inline
+// text and icon buttons.
 //
-//   node tools/optical-sheet.mjs <shape>… --dir up|down|left|right
-//        [--rec <shape>=<n>,…]             the row to mark "recommended" (default: measured, below)
-//        [--spread 0.1]                    rows sit at rec ± 1 and 2 × spread, plus 0 and shipped
-//        [--shifts 0,0.25,…]               fixed rows for every shape instead of the spread
-//        [--ids <id>,…]                    one id letter per shape (default: its tag's initial)
+//   node tools/optical-sheet.mjs <shape>…
+//        [--rec <shape>=<x>:<y>,…]         recommended position (default: measured, below)
+//        [--xs -0.1,0,0.1] [--ys -0.1,0,0.1]
+//                                          offsets around the recommendation on each axis
+//        [--ids <id>,…]                    one id per shape (default: its tag's initial)
 //        [--context "Mark as done"]        the verb in the menu row and inline text
 //
-//   e.g. node tools/optical-sheet.mjs check check-2 check-3 check-4 --dir up
+//   e.g. node tools/optical-sheet.mjs check check-small check-2 check-2-small --ids C,Cs,W,Ws
 //
-// Size variants (check-small) may be listed too: a row's value is always in units of the
-// family default at 24, so check-small at row 0.2 moves 0.2 × (its ink height ÷ check's), and
-// its recommendation is its default's. Candidates keep each file's own description as their
-// label, so `queue.mjs approve` rewrites the files without losing it.
+// Units: a position (x, y) is in units of the family default at 24, SVG signs (x + right,
+// y + down). Each master and size variant moves by x × (its ink width ÷ the default's) and
+// y × (its ink height ÷ the default's). Row ids read <id><x><y> in hundredths with r/l and d/u,
+// e.g. C r45 u20 → "Cr45u20"; a centred axis is left out ("C0" is box-centred).
 //
-// The measured recommendation (single-bend marks): the eye reads a bent mark's centre as the
-// centre of the triangle through its two ends and its bend, so the mark moves against that
-// triangle's offset from the box centre, by K of it. K = 0.5 is calibrated on the chevron picks
-// (classic 0.50 · steep 0.47 · flat 0.70 of their offsets). Rows are spread around each shape's
-// own value, so shapes that need different amounts are judged on their own ranges.
-//
-// Shapes are read from the built manifest (run `npm run build` first). Each is taken back to its
-// box centre on the judged axis (its shift on the other axis is kept), then moved by n × (ink height ÷ its default-24 ink
-// height, or width for left/right), so 20 and 16 and other sizes scale like C14 does. The row equal to the shipped shift is
-// marked "shipped". Candidates carry `optical`, so `queue.mjs approve` can write a picked row.
+// Measured recommendation (single-bend marks): the eye reads a bent mark's centre as the centre
+// of the triangle through its two ends and its bend, so the mark moves against that triangle's
+// offset from the box centre, by K of it, on each axis. K = 0.5 is calibrated on the chevron
+// picks (classic 0.50 · steep 0.47 · flat 0.70 of their vertical offsets). An axis the file has
+// already been placed on keeps its shipped value as the recommendation. The shipped position,
+// the box centre and every grid position are rows; the eye makes the pick.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { sizeBase } from './masters.mjs';
 
 const MASTERS = [24, 20, 16];
-const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
+const K = 0.5;
 const r2 = (v) => Math.round(v * 100) / 100 || 0;
+const r05 = (v) => Math.round(v * 20) / 20 || 0;
 const die = (msg) => { console.error(msg); process.exit(1); };
 
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(`--${k}`); return i < 0 ? d : args.splice(i, 2)[1]; };
-const dirName = opt('dir', '');
-const dir = DIRS[dirName] ?? die('--dir up|down|left|right is required');
-const K = 0.5;
-const fixed = opt('shifts', null)?.split(',').map(Number);
-const spread = Number(opt('spread', '0.1'));
-const rec = Object.fromEntries(opt('rec', '').split(',').filter(Boolean).map((p) => p.split('=')).map(([k, v]) => [k, Number(v)]));
+if (args.includes('--dir')) die('--dir is retired: placement is judged on both axes at once (C15). Use --rec x:y, --xs, --ys.');
+const list = (s) => s.split(',').map(Number);
+const xs = list(opt('xs', '-0.1,0,0.1'));
+const ys = list(opt('ys', '-0.1,0,0.1'));
+const rec = Object.fromEntries(opt('rec', '').split(',').filter(Boolean)
+  .map((p) => p.split('=')).map(([k, v]) => [k, v.split(':').map(Number)]));
 const ids = opt('ids', '').split(',').filter(Boolean);
 const context = opt('context', null);
 const shapes = args;
 if (!shapes.length) die('Name at least one shape, e.g. check check-2');
 
 const man = JSON.parse(readFileSync('lab/manifest.json', 'utf8')).masters;
+const at = (m, n) => man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
 
 // Move an SVG path by (dx, dy). Absolute commands move every coordinate; relative ones only
 // need their opening `m` moved.
@@ -83,54 +84,56 @@ function triangleOffset(i) {
   const inward = [(S[0] + E[0]) / 2 - M[0], (S[1] + E[1]) / 2 - M[1]];
   const len = Math.hypot(...inward) || 1;
   const A = [M[0] - sag * inward[0] / len, M[1] - sag * inward[1] / len];
-  const box = [i.ink.x + i.ink.w / 2 - i.shift[0], i.ink.y + i.ink.h / 2 - i.shift[1]];
-  return [(S[0] + A[0] + E[0]) / 3 - i.shift[0] - box[0], (S[1] + A[1] + E[1]) / 3 - i.shift[1] - box[1]];
+  const box = [i.ink.x + i.ink.w / 2, i.ink.y + i.ink.h / 2];          // both move with the shift
+  return [(S[0] + A[0] + E[0]) / 3 - box[0], (S[1] + A[1] + E[1]) / 3 - box[1]];
 }
-const r05 = (v) => Math.round(v * 20) / 20 || 0;
+
+const code = (v, pos, neg) => (v ? `${v > 0 ? pos : neg}${Math.round(Math.abs(v) * 100)}` : '');
+const arrow = ([x, y]) => [x ? `${x > 0 ? '→' : '←'} ${Math.abs(x)}` : '', y ? `${y > 0 ? '↓' : '↑'} ${Math.abs(y)}` : '']
+  .filter(Boolean).join('  ') || 'centred';
 
 const used = new Set();
 const candidates = [];
 shapes.forEach((name, k) => {
-  const at = (m, n) => man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
   const base = at(24, name);
-  const fam = sizeBase(name);
-  const ref = at(24, fam);                                   // the family default sets the units
+  const ref = at(24, sizeBase(name));                          // the family default sets the units
   const tag = base.tags?.[0] ?? name;
-  // The file's own description: its last comment that isn't keyline / tags / optical.
   const said = [...readFileSync(`src/icons/24/${name}.svg`, 'utf8').matchAll(/<!--\s*(.*?)\s*-->/g)]
     .map((x) => x[1]).filter((x) => !/^(keyline|tags|optical):/.test(x)).pop() ?? `${name} · ${tag}`;
-  const axis = dir[0] ? 'left|right' : 'up|down';                // drop an older note on this axis only
-  const [own, detail] = [said.split(': ')[0], said.split(': ').slice(1).join(': ')
-    .replace(new RegExp(` · optical (${axis}) [^(]*\\(C14\\)`), '')];
-  let id = ids[k] ?? [...tag.toUpperCase()].find((ch) => /[A-Z]/.test(ch) && !used.has(ch)) ?? String(k + 1);
+  const own = said.split(': ')[0];
+  const detail = said.split(': ').slice(1).join(': ').replace(/ · optical .*\(C1[45]\)/, '');
+  const id = ids[k] ?? [...tag.toUpperCase()].find((ch) => /[A-Z]/.test(ch) && !used.has(ch)) ?? String(k + 1);
   used.add(id);
-  const span = (i) => (dir[0] ? i.ink.w : i.ink.h);           // scale along the judged axis (C14)
-  const scale = span(base) / span(ref);
-  let shipped = r2((base.shift[0] * dir[0] + base.shift[1] * dir[1]) / scale);   // along --dir, family units
+
+  // Everything in family-default units: x by width, y by height.
+  const unit = [base.ink.w / ref.ink.w, base.ink.h / ref.ink.h];
+  const shipped = base.shift.map((v, a) => r2(v / unit[a]));
   const tri = triangleOffset(ref);
-  const measured = tri && r05(-K * (tri[0] * dir[0] + tri[1] * dir[1]));
-  if (!(name in rec)) rec[name] = rec[fam] ?? measured ?? undefined;
-  if (rec[name] === undefined) delete rec[name];
+  const measured = tri && tri.map((v) => r05(-K * v));
+  const fam = rec[sizeBase(name)];
+  const refShift = ref.shift;                                  // the default's placed axes
+  const want = rec[name] ?? fam ?? [0, 1].map((a) => (refShift[a] ? r2(refShift[a]) : measured?.[a] ?? 0));
   // Size variants store 2 dp at their own scale, so their shipped value reads back ±0.01 off.
-  if (rec[name] != null && Math.abs(shipped - rec[name]) < 0.015) shipped = rec[name];
-  const around = rec[name] ?? shipped;
-  const rows = fixed ?? [-2, -1, 0, 1, 2].map((k) => r2(around + k * spread));
-  const list = [...new Set([0, shipped, around, ...rows])].sort((a, b) => a - b);
-  console.log(`${name.padEnd(16)} ${tri ? `triangle ${r2(tri[0])}, ${r2(tri[1])} → measured ${measured}` : 'no measure (not a single-bend mark)'}` +
-    ` · recommended ${rec[name] ?? '—'} · shipped ${shipped} · rows ${list.join(' ')}`);
-  for (const s of list) {
-    const c = { id: `${id}${Math.round(s * 100)}`, label: own, tags: base.tags ?? [],
-      group: `${name} · ${tag}`, shift: s, shipped: s === shipped, recommended: rec[name] === s,
+  const same = (p, q) => p.every((v, a) => Math.abs(v - q[a]) < 0.015);
+  const ship = same(shipped, want) ? want : shipped;
+
+  const seen = new Set();
+  const positions = [[0, 0], ship, ...xs.flatMap((dx) => ys.map((dy) => [r2(want[0] + dx), r2(want[1] + dy)]))]
+    .filter((p) => { const key = p.join(); return !seen.has(key) && seen.add(key); })
+    .sort((p, q) => p[1] - q[1] || p[0] - q[0]);
+  console.log(`${name.padEnd(16)} ${tri ? `triangle ${tri.map(r2).join(', ')} → measured ${measured.join(', ')}` : 'no measure'}` +
+    ` · recommended ${want.join(', ')} · shipped ${ship.join(', ')} · ${positions.length} rows`);
+
+  for (const pos of positions) {
+    const c = { id: `${id}${code(pos[0], 'r', 'l')}${code(pos[1], 'd', 'u')}` || id, label: own, tags: base.tags ?? [],
+      group: `${name} · ${tag}`, pos, shipped: same(pos, ship), recommended: same(pos, want),
       optical: {}, masters: {}, filled: {} };
+    if (c.id === id) c.id = `${id}0`;
     const by = [];
     for (const m of MASTERS) {
       const o = at(m, name), f = at(m, `${name}-filled`);
-      const amt = r2(s * span(o) / span(ref));    // signed: negative moves against --dir
-      // Keep whatever shift the file already has on the other axis (a check's up shift stays
-      // while its left-right one is judged), and replace only the axis being judged.
-      const keep = [o.shift[0] * (1 - Math.abs(dir[0])), o.shift[1] * (1 - Math.abs(dir[1]))];
-      const [dx, dy] = [r2(dir[0] * amt + keep[0]), r2(dir[1] * amt + keep[1])];
-      by.push(amt);
+      const [dx, dy] = [r2(pos[0] * o.ink.w / ref.ink.w), r2(pos[1] * o.ink.h / ref.ink.h)];
+      by.push(arrow([dx, dy]));
       c.optical[m] = [dx, dy];
       c.masters[m] = o.paths.map((d) => move(d, dx - o.shift[0], dy - o.shift[1]));
       const back = (d) => move(d, dx - f.shift[0], dy - f.shift[1]);
@@ -138,20 +141,20 @@ shapes.forEach((name, k) => {
         ? { fill: f.areas.map(back), stroke: f.paths.map(back) }
         : { weight: f.stroke, stroke: f.paths.map(back) };
     }
+    c.at = arrow(pos);
     c.by = by;
-    c.note = [detail, s ? `optical ${dirName} ${by.join(' · ')} at 24 · 20 · 16 (C14)` : ''].filter(Boolean).join(' · ');
+    c.note = [detail, pos[0] || pos[1] ? `optical ${by.join(' / ')} at 24 / 20 / 16 (C14, C15)` : ''].filter(Boolean).join(' · ');
     candidates.push(c);
   }
 });
 
-const concept = shapes[0];
-const draft = {
-  concept, keyline: 'mark', direction: dirName, ...(context ? { context } : {}),
-  question: `Optical placement (C14): which row looks centred for each shape? Open /lab/optical-shift.html.`,
-  candidates,
-};
+const concept = sizeBase(shapes[0]);
 writeFileSync('lab/drafts/current.js',
-  `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each shape moves by the\n` +
-  `// row's amount at its default 24; other masters scale by ink height. View: /lab/optical-shift.html\n` +
-  `export default ${JSON.stringify(draft, null, 2)};\n`);
+  `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each row is an (x, y)\n` +
+  `// position in family-default units at 24; judge the balance in the canvas against all four edges.\n` +
+  `export default ${JSON.stringify({
+    concept, keyline: 'mark', ...(context ? { context } : {}),
+    question: 'Optical placement (C15): which position reads balanced in the canvas — top, bottom, left and right — for each shape? Open /lab/optical-shift.html.',
+    candidates,
+  }, null, 2)};\n`);
 console.log(`${candidates.length} rows · ${shapes.length} shapes → lab/drafts/current.js · open /lab/optical-shift.html`);

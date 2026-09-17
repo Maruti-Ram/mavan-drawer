@@ -70,15 +70,15 @@ export default {
 
 **Refined, not comical.** Never review an icon alone: judge it at 16 next to the approved set (the Library's At 16 strip).
 
-## Optical placement (C14)
+## Optical placement (C14, C15)
 
-To judge where a mark should sit (an open or asymmetric mark reading high, low or off to one side), always use the template, never a chat widget or the Construction board:
+"Optical balance" always means: the mark reads **optically balanced in its canvas against all four edges at once** (top, bottom, left, right) at 24, 20 and 16. It does not mean geometrically even gaps, and it is never judged one direction at a time. Always use the template, never a chat widget or the Construction board:
 
 ```bash
-node tools/optical-sheet.mjs check check-2 --dir up   # one arg per shape
+node tools/optical-sheet.mjs check check-small check-2 check-2-small --ids C,Cs,W,Ws   # size variants follow their default
 ```
 
-Then open `/lab/optical-shift.html` (reload it). Each shape gets **its own rows**, spread ±0.1 and ±0.2 around its recommendation, plus 0 and the shipped value. The recommendation is measured for single-bend marks: the offset of the triangle through the ends and the bend, times 0.5 (calibrated on the chevrons). Other shapes need `--rec <shape>=<n>`. Tell the user which measure each recommendation comes from, and never copy a value from another icon. **Judge both axes**: after the up/down pick is approved, run the same shapes with `--dir left` or `--dir right` (the tool keeps the approved vertical shift), then approve again. Skip an axis only when the mark is symmetric across it. When the user picks, write the chosen shift into each file of the family and commit.
+Then open `/lab/optical-shift.html` (reload it). Each shape gets its own grid of (x, y) positions around its recommendation (`--xs` / `--ys`, default ±0.1), plus the box centre and the shipped position. Every row shows the mark inside its canvas outline at each master, then the UI contexts. The shipped and recommended rows are tagged. The recommendation is measured for single-bend marks (end-triangle offset × 0.5 on each axis; an axis the default already ships keeps its value). Other shapes need `--rec <shape>=<x>:<y>`. Tell the user which measure each number comes from, and never copy a value from another icon. When the user picks, approve the row ids with `queue.mjs approve <id>=<file> …` (ids read like `Cr45u20`), then commit.
 
 ## 5. Iterate
 
