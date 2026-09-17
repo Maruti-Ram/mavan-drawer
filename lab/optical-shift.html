@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Optical shift sheet</title>
+<style>
+/* A plain sheet for picking an optical shift (C14), laid out like the chevron comparison:
+   one group per shape, one row per shift — menu row, inline text, buttons at 24 · 20 · 16.
+   It draws the board's candidates (lab/drafts/current.js) as written by tools/optical-sheet.mjs:
+   each carries group, shift, shipped and recommended. */
+:root{--bg:#fff;--ink:#16171a;--muted:#8a8c92;--ui:#f1f1ef;--pick:#2f6feb;--rec:#15803d;--rec-bg:#dcfce7}
+:root[data-theme="dark"]{--bg:#18181b;--ink:#f4f4f5;--muted:#a1a1aa;--ui:#26272b;--pick:#60a5fa;--rec:#4ade80;--rec-bg:#14532d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.bar{display:flex;gap:8px;align-items:center;padding:12px 16px 0}
+.bar b{color:var(--ink);font-size:12px;margin-right:auto}
+.bar button{font:inherit;border:1px solid var(--ui);background:none;color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
+.bar button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#sheet{display:grid;grid-template-columns:110px auto auto auto auto;gap:9px 22px;align-content:start;align-items:center;justify-content:start;padding:12px 16px 40px;zoom:1.2}
+.group{color:var(--ink);grid-column:1/-1;margin-top:10px}
+.row{display:flex;gap:6px;align-items:center}
+.menu{display:inline-flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:8px;background:var(--ui);color:var(--ink);font:16px Inter,system-ui}
+.inl{display:inline-flex;align-items:center;gap:6px;color:var(--ink);font:16px Inter,system-ui}
+.btn{display:inline-grid;place-items:center;border-radius:8px;background:var(--ui);color:var(--ink)}
+.btn.circle{border-radius:50%}
+.lab{display:flex;flex-direction:column;gap:3px;align-items:flex-start;color:var(--muted);font-weight:600}
+.lab small{font-weight:400;font-size:10px}
+.lab.shipped{color:var(--pick)}
+.tag{font-size:9.5px;font-weight:600;padding:1px 6px;border-radius:99px;letter-spacing:.02em}
+.tag.rec{background:var(--rec-bg);color:var(--rec)}
+.tag.ship{border:1px solid var(--pick);color:var(--pick)}
+.legend{display:flex;gap:10px;align-items:center;margin-right:12px}
+svg{display:block;flex:none}
+</style></head><body>
+<div class="bar"><b id="title"></b>
+  <span class="legend"><span class="tag ship">shipped</span><span class="tag rec">recommended</span></span>
+  <button data-s="outline" class="on">Outline</button><button data-s="filled">Filled</button>
+  <button id="theme">Dark</button></div>
+<div id="sheet"></div>
+<script type="module">
+const { default: draft } = await import(`./drafts/current.js?${Date.now()}`);
+const VERB = draft.context ?? 'Add item';
+let style = 'outline';
+
+// One master of one candidate, drawn from the board's (already shifted) paths.
+function ic(c, m) {
+  const f = c.filled?.[m];
+  const [w, strokes, fills] = style === 'filled' && f && f !== 'outline'
+    ? [f.weight ?? 1.5, f.stroke ?? [], f.fill ?? []] : [1.5, c.masters[m] ?? [], []];
+  return `<svg width="${m}" height="${m}" viewBox="0 0 ${m} ${m}">${
+    fills.map((d) => `<path d="${d}" fill="currentColor" fill-rule="evenodd"/>`).join('')}${
+    strokes.map((d) => `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}</svg>`;
+}
+const btn = (c, m, box, circle) => `<span class="btn${circle ? ' circle' : ''}" style="width:${box}px;height:${box}px">${ic(c, m)}</span>`;
+const by = (c, m) => Math.hypot(...(c.optical?.[m] ?? [0, 0]));   // amount at one master
+
+const groups = new Map();
+for (const c of draft.candidates) groups.set(c.group, [...(groups.get(c.group) ?? []), c]);
+
+function render() {
+  document.getElementById('title').textContent = `${draft.concept} · moved ${draft.direction ?? ''} (24 units; 20 and 16 scale by ink height)`;
+  document.getElementById('sheet').innerHTML = [...groups].map(([name, cs]) =>
+    `<b class="group">${name}</b>` + cs.sort((a, b) => a.shift - b.shift).map((c) => `
+      <div class="lab${c.shipped ? ' shipped' : ''}"><span>${c.id} · ${c.shift}</span>
+        <small>${[24, 20, 16].map((m) => +by(c, m).toFixed(2)).join(' · ')}</small>
+        ${c.shipped ? '<span class="tag ship">shipped</span>' : ''}${c.recommended ? '<span class="tag rec">recommended</span>' : ''}</div>
+      <div><span class="menu">${ic(c, 24)}<span>${VERB}</span></span></div>
+      <div><span class="inl">Press ${ic(c, 24)} to ${VERB.toLowerCase()}</span></div>
+      <div class="row">${btn(c, 24, 40)}${btn(c, 24, 40, true)}</div>
+      <div class="row">${btn(c, 20, 32)}${btn(c, 16, 28)}${btn(c, 16, 28, true)}</div>`).join('')).join('');
+}
+
+document.querySelector('.bar').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.id === 'theme') {
+    const dark = document.documentElement.dataset.theme !== 'dark';
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    b.classList.toggle('on', dark);
+    return;
+  }
+  style = b.dataset.s;
+  for (const x of document.querySelectorAll('[data-s]')) x.classList.toggle('on', x === b);
+  render();
+});
+render();
+</script>
+</body></html>

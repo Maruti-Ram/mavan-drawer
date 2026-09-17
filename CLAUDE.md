@@ -135,6 +135,7 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
 | `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `approve` |
 | `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
+| `tools/optical-sheet.mjs` | **optical placement (C14) template**: `node tools/optical-sheet.mjs <shape>… --dir up\|down\|left\|right [--shifts …] [--rec <shape>=<n>,…]` writes each shape × shift to the board; view on **`/lab/optical-shift.html`** (plain sheet: menu row, inline, 40 square/circle, 32 · 28 buttons; shipped and recommended rows tagged) |
 
 `dist/metrics.json` is the differentiator: per-icon ink box, **geometric**
 bearings (where ink stops) and **optical** bearings (where it reads as stopping).

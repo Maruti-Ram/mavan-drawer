@@ -70,6 +70,16 @@ export default {
 
 **Refined, not comical.** Never review an icon alone: judge it at 16 next to the approved set (the Library's At 16 strip).
 
+## Optical placement (C14)
+
+To judge where a mark should sit (an open or asymmetric mark reading high, low or off to one side), always use the template, never a chat widget or the Construction board:
+
+```bash
+node tools/optical-sheet.mjs check check-2 --dir up --rec check=0.5,check-2=0.5   # one arg per shape
+```
+
+Then open `/lab/optical-shift.html` (reload it). Each shape gets rows at 0 · 0.25 · 0.5 · 0.75 · 1 (`--shifts` to change them); the shipped row and your `--rec` row are tagged. Give a recommendation for every shape. When the user picks, write the chosen shift into each file of the family and commit.
+
 ## 5. Iterate
 
 Feedback like "shorter", "try a rounder one" or "more options" means editing the candidates in `current.js`, then reloading and showing the board again. Keep the rejected options on the board only while they help the comparison.
