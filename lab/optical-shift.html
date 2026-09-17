@@ -55,7 +55,10 @@ function ic(c, m, px = m) {
 const btn = (c, m, box, circle) => `<span class="btn${circle ? ' circle' : ''}" style="width:${box}px;height:${box}px">${ic(c, m)}</span>`;
 
 const groups = new Map();
-for (const c of draft.candidates) groups.set(c.group, [...(groups.get(c.group) ?? []), c]);
+for (const c of draft.candidates) {
+  const key = `${c.group}${c.axes ? ` <span style="font-weight:400;color:var(--muted)">· judged ${c.axes}</span>` : ''}`;
+  groups.set(key, [...(groups.get(key) ?? []), c]);
+}
 
 function render() {
   document.getElementById('title').textContent = `${draft.concept} · optical placement in the canvas (24 units; 20 and 16 scale by ink width and height)`;

@@ -72,13 +72,13 @@ export default {
 
 ## Optical placement (C14, C15)
 
-"Optical balance" always means: the mark reads **optically balanced in its canvas against all four edges at once** (top, bottom, left, right) at 24, 20 and 16. It does not mean geometrically even gaps, and it is never judged one direction at a time. Always use the template, never a chat widget or the Construction board:
+"Optical balance" always means: the mark reads **optically balanced in its canvas against all four edges at once** (top, bottom, left, right) at 24, 20 and 16. It does not mean geometrically even gaps. **Choose the axes per icon from its shape**: a mark weighted equally left and right (chevron-down) is judged only up–down; one balanced top–bottom (play) only left–right; one lopsided both ways (check) on both together; one symmetric both ways (plus, x) needs no sheet. The tool detects this and prints which axes it judges; say so to the user. Once an axis has been picked it is **locked**: a follow-up sheet uses `--axes x` or `--axes y` to vary only the other axis, keeping the locked shift in every row. Always use the template, never a chat widget or the Construction board:
 
 ```bash
 node tools/optical-sheet.mjs check check-small check-2 check-2-small --ids C,Cs,W,Ws   # size variants follow their default
 ```
 
-Then open `/lab/optical-shift.html` (reload it). Each shape gets its own grid of (x, y) positions around its recommendation (`--xs` / `--ys`, default ±0.1), plus the box centre and the shipped position. Every row shows the mark inside its canvas outline at each master, then the UI contexts. The shipped and recommended rows are tagged. The recommendation is measured for single-bend marks (end-triangle offset × 0.5 on each axis; an axis the default already ships keeps its value). Other shapes need `--rec <shape>=<x>:<y>`. Tell the user which measure each number comes from, and never copy a value from another icon. When the user picks, approve the row ids with `queue.mjs approve <id>=<file> …` (ids read like `Cr45u20`), then commit.
+Then open `/lab/optical-shift.html` (reload it). Each shape gets its own positions around its recommendation on its judged axes (±0.1 ±0.2 for one axis, a ±0.1 grid for two; `--xs` / `--ys` / `--axes` override), plus the box centre and the shipped position. Every row shows the mark inside its canvas outline at each master, then the UI contexts. The shipped and recommended rows are tagged. The recommendation is measured for single-bend marks (end-triangle offset × 0.5 on each axis; an axis the default already ships keeps its value). Other shapes need `--rec <shape>=<x>:<y>`. Tell the user which measure each number comes from, and never copy a value from another icon. When the user picks, approve the row ids with `queue.mjs approve <id>=<file> …` (ids read like `Cr45u20`), then commit.
 
 ## 5. Iterate
 
