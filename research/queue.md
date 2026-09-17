@@ -97,7 +97,8 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 
 The ⌀20 keyline and what sits inside it.
 
-- [ ] 16. `check-circle` · Status & Feedback
+- [x] 16. `check-circle` · Status & Feedback — approved 2026-09-17
+- [x] 16. `check-circle-2` · Status & Feedback · variant of `check-circle` — Small check · approved 2026-09-17
 - [ ] 17. `x-circle` · Status & Feedback
 - [ ] 18. `plus-circle` · UI & Layout
 - [ ] 19. `minus-circle` · UI & Layout
