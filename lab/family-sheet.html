@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Family sheet</title>
+<style>
+/* A plain sheet for judging a board's candidates beside shipped relatives (the board's `family`),
+   so size and alignment read across the set. Rows: each candidate after the family icons, at
+   24 · 20 · 16, then the 24 master drawn 4× with guides: the first family icon's inner-mark box
+   (accent) carried across the row, plus the canvas centre lines. A candidate with size: 'small'
+   is compared with the family's -small files. Reads lab/drafts/current.js and lab/manifest.json. */
+:root{--bg:#fff;--line:#d7d7d4;--ink:#16171a;--muted:#8a8c92;--ui:#f1f1ef;--guide:#e5484d;--centre:#2f6feb}
+:root[data-theme="dark"]{--bg:#18181b;--line:#3a3b40;--ink:#f4f4f5;--muted:#a1a1aa;--ui:#26272b;--guide:#ff6369;--centre:#60a5fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.bar{display:flex;gap:8px;align-items:center;padding:12px 40px 0;flex-wrap:wrap}
+.bar b{color:var(--ink);font-size:12px;margin-right:auto}
+.bar button{font:inherit;border:1px solid var(--ui);background:none;color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
+.bar button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+#sheet{display:grid;grid-template-columns:150px auto auto auto auto auto;gap:14px 28px;align-items:center;justify-content:start;padding:16px 40px 40px}
+.head{color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:10px}
+.lab{display:flex;flex-direction:column;gap:3px;color:var(--ink);font-weight:600}
+.lab small{color:var(--muted);font-weight:400;font-size:10px;max-width:150px}
+.set{display:flex;gap:10px;align-items:center;color:var(--ink)}
+.set .cand{outline:1px dashed var(--line);outline-offset:3px;border-radius:2px}
+.big{display:flex;gap:6px;color:var(--ink)}
+.big svg{outline:1px solid var(--line)}
+.ctx{display:flex;flex-direction:column;gap:6px;color:var(--ink);font:14px Inter,system-ui}
+.ctx span{display:inline-flex;align-items:center;gap:6px}
+.guide{stroke:var(--guide);stroke-width:.06;fill:none}
+.centre{stroke:var(--centre);stroke-width:.05;fill:none;stroke-dasharray:.3 .3}
+.nog .guide,.nog .centre{display:none}
+svg{display:block;flex:none}
+</style></head><body>
+<div class="bar"><b id="title"></b>
+  <button data-s="outline" class="on">Outline</button><button data-s="filled">Filled</button>
+  <button id="guides" class="on">Guides</button>
+  <button id="theme">Dark</button></div>
+<div id="sheet"></div>
+<script type="module">
+const { default: draft } = await import(`./drafts/current.js?${Date.now()}`);
+const manifest = await (await fetch(`./manifest.json?${Date.now()}`)).json();
+const FAMILY = draft.family ?? [];
+const M = [24, 20, 16];
+let style = 'outline';
+document.getElementById('title').textContent = `${draft.concept} · beside ${FAMILY.join(', ') || '(no family on the board)'}`;
+
+// A drawing as { lines, areas, weight } for one master: a candidate or a shipped file.
+const fromCand = (c, m) => {
+  const f = c.filled?.[m];
+  return style === 'filled' && f ? { lines: f.stroke ?? [], areas: f.fill ?? [], weight: f.weight ?? 1.5 }
+    : { lines: c.masters[m] ?? [], areas: [], weight: 1.5 };
+};
+const fromFile = (name, m) => {
+  const i = manifest.masters[m]?.icons?.[style === 'filled' ? `${name}-filled` : name];
+  return i ? { lines: i.paths ?? [], areas: i.areas ?? [], weight: i.stroke ?? 1.5 } : null;
+};
+const draw = (g, m, px, extra = '', cls = '') => `<svg class="${cls}" width="${px}" height="${px}" viewBox="0 0 ${m} ${m}">${
+  g ? g.areas.map((d) => `<path d="${d}" fill="currentColor" fill-rule="evenodd"/>`).join('')
+    + g.lines.map((d) => `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${g.weight}" stroke-linecap="round" stroke-linejoin="round"/>`).join('') : ''}${extra}</svg>`;
+
+// Inner-mark ink box: the outline's paths after the ring, grown by half the stroke.
+const probe = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+probe.style.cssText = 'position:absolute;visibility:hidden'; document.body.append(probe);
+function markBox(lines) {
+  const inner = lines.length > 1 ? lines.slice(1) : lines;
+  probe.innerHTML = inner.map((d) => `<path d="${d}"/>`).join('');
+  const b = probe.getBBox();
+  return { x0: b.x - 0.75, y0: b.y - 0.75, x1: b.x + b.width + 0.75, y1: b.y + b.height + 0.75 };
+}
+const guides = (m, b) => `<g><path class="centre" d="M${m / 2} 0V${m}M0 ${m / 2}H${m}"/>`
+  + (b ? `<path class="guide" d="M0 ${b.y0}H${m}M0 ${b.y1}H${m}M${b.x0} 0V${m}M${b.x1} 0V${m}"/>` : '') + `</g>`;
+
+function render() {
+  const rows = [`<span class="head">candidate</span>`, ...M.map((m) => `<span class="head">${m} · 1×</span>`),
+    `<span class="head">24 · 4× · guides = ${FAMILY[0] ?? '—'} mark</span>`, `<span class="head">in text · 14px</span>`];
+  for (const c of draft.candidates) {
+    const fam = FAMILY.map((n) => (c.size === 'small' ? `${n}-small` : n));
+    rows.push(`<span class="lab">${c.id} · ${c.label}<small>${fam.join(' · ')}</small></span>`);
+    for (const m of M) rows.push(`<span class="set">${fam.map((n) => draw(fromFile(n, m), m, m)).join('')}${draw(fromCand(c, m), m, m, '', 'cand')}</span>`);
+    const refLines = manifest.masters[24]?.icons?.[fam[0]]?.paths;
+    const b = refLines ? markBox(refLines) : null;
+    rows.push(`<span class="big">${fam.map((n) => draw(fromFile(n, 24), 24, 96, guides(24, b))).join('')}${draw(fromCand(c, 24), 24, 96, guides(24, b))}</span>`);
+    const all = [...fam.map((n) => draw(fromFile(n, 20), 20, 16)), draw(fromCand(c, 20), 20, 16)];
+    rows.push(`<span class="ctx"><span>${all.join('')}</span><span>${all[all.length - 1]} More information</span></span>`);
+  }
+  document.getElementById('sheet').innerHTML = rows.join('');
+}
+document.querySelectorAll('[data-s]').forEach((b) => b.onclick = () => {
+  style = b.dataset.s; document.querySelectorAll('[data-s]').forEach((x) => x.classList.toggle('on', x === b)); render();
+});
+const gb = document.getElementById('guides');
+gb.onclick = () => { gb.classList.toggle('on'); document.body.classList.toggle('nog', !gb.classList.contains('on')); };
+const tb = document.getElementById('theme');
+const setTheme = (t) => { document.documentElement.dataset.theme = t; tb.textContent = t === 'dark' ? 'Light' : 'Dark'; };
+setTheme(matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+tb.onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+render();
+</script>
+</body></html>

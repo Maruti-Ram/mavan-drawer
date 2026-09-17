@@ -66,7 +66,8 @@ export default {
 2. Open `/lab/icon.html` and **reload** it; it caches the draft.
 3. Check the console for errors.
 4. Take a screenshot of Construction, and of Compare (Style → Outline) when the choice is about size or proportion.
-5. Tell the user, in plain words: the options with their numbers, your recommendation and why, and exactly what to look at.
+5. When the icon belongs to a family of shipped icons (circles, squares…), add `family: ['plus-circle', …]` to the board (small candidates carry `size: 'small'`) and show `/lab/family-sheet.html`: every candidate beside those icons at 24 · 20 · 16, a 4× row with the first family icon's mark box as guides, and in-text use.
+6. Tell the user, in plain words: the options with their numbers, your recommendation and why, and exactly what to look at.
 
 **Refined, not comical.** Never review an icon alone: judge it at 16 next to the approved set (the Library's At 16 strip).
 
