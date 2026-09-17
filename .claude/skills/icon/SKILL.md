@@ -75,10 +75,10 @@ export default {
 To judge where a mark should sit (an open or asymmetric mark reading high, low or off to one side), always use the template, never a chat widget or the Construction board:
 
 ```bash
-node tools/optical-sheet.mjs check check-2 --dir up --rec check=0.5,check-2=0.5   # one arg per shape
+node tools/optical-sheet.mjs check check-2 --dir up   # one arg per shape
 ```
 
-Then open `/lab/optical-shift.html` (reload it). Each shape gets rows at 0 · 0.25 · 0.5 · 0.75 · 1 (`--shifts` to change them); the shipped row and your `--rec` row are tagged. Give a recommendation for every shape. When the user picks, write the chosen shift into each file of the family and commit.
+Then open `/lab/optical-shift.html` (reload it). Each shape gets **its own rows**, spread ±0.1 and ±0.2 around its recommendation, plus 0 and the shipped value. The recommendation is measured for single-bend marks: the offset of the triangle through the ends and the bend, times 0.5 (calibrated on the chevrons). Other shapes need `--rec <shape>=<n>`. Tell the user which measure each recommendation comes from, and never copy a value from another icon. When the user picks, write the chosen shift into each file of the family and commit.
 
 ## 5. Iterate
 

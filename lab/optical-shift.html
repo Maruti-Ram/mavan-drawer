@@ -50,7 +50,6 @@ function ic(c, m) {
     strokes.map((d) => `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}</svg>`;
 }
 const btn = (c, m, box, circle) => `<span class="btn${circle ? ' circle' : ''}" style="width:${box}px;height:${box}px">${ic(c, m)}</span>`;
-const by = (c, m) => Math.hypot(...(c.optical?.[m] ?? [0, 0]));   // amount at one master
 
 const groups = new Map();
 for (const c of draft.candidates) groups.set(c.group, [...(groups.get(c.group) ?? []), c]);
@@ -60,7 +59,7 @@ function render() {
   document.getElementById('sheet').innerHTML = [...groups].map(([name, cs]) =>
     `<b class="group">${name}</b>` + cs.sort((a, b) => a.shift - b.shift).map((c) => `
       <div class="lab${c.shipped ? ' shipped' : ''}"><span>${c.id} · ${c.shift}</span>
-        <small>${[24, 20, 16].map((m) => +by(c, m).toFixed(2)).join(' · ')}</small>
+        <small>${(c.by ?? []).join(' · ')}</small>
         ${c.shipped ? '<span class="tag ship">shipped</span>' : ''}${c.recommended ? '<span class="tag rec">recommended</span>' : ''}</div>
       <div><span class="menu">${ic(c, 24)}<span>${VERB}</span></span></div>
       <div><span class="inl">Press ${ic(c, 24)} to ${VERB.toLowerCase()}</span></div>

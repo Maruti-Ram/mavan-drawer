@@ -4,12 +4,19 @@
 // per shift, in a menu row, inline text and icon buttons at 24 · 20 · 16.
 //
 //   node tools/optical-sheet.mjs <shape>… --dir up|down|left|right
-//        [--shifts 0,0.25,0.5,0.75,1]      shifts at each shape's default 24, in units
-//        [--rec <shape>=<n>,…]             the row to mark "recommended" per shape
+//        [--rec <shape>=<n>,…]             the row to mark "recommended" (default: measured, below)
+//        [--spread 0.1]                    rows sit at rec ± 1 and 2 × spread, plus 0 and shipped
+//        [--shifts 0,0.25,…]               fixed rows for every shape instead of the spread
 //        [--ids <id>,…]                    one id letter per shape (default: its tag's initial)
 //        [--context "Mark as done"]        the verb in the menu row and inline text
 //
-//   e.g. node tools/optical-sheet.mjs check check-2 check-3 check-4 --dir up --rec check=0.5,check-2=0.5
+//   e.g. node tools/optical-sheet.mjs check check-2 check-3 check-4 --dir up
+//
+// The measured recommendation (single-bend marks): the eye reads a bent mark's centre as the
+// centre of the triangle through its two ends and its bend, so the mark moves against that
+// triangle's offset from the box centre, by K of it. K = 0.5 is calibrated on the chevron picks
+// (classic 0.50 · steep 0.47 · flat 0.70 of their offsets). Rows are spread around each shape's
+// own value, so shapes that need different amounts are judged on their own ranges.
 //
 // Shapes are read from the built manifest (run `npm run build` first). Each is taken back to its
 // box centre (its declared shift removed), then moved by n × (ink height ÷ its default-24 ink
@@ -26,7 +33,9 @@ const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(`--${k}`); return i < 0 ? d : args.splice(i, 2)[1]; };
 const dirName = opt('dir', '');
 const dir = DIRS[dirName] ?? die('--dir up|down|left|right is required');
-const shifts = opt('shifts', '0,0.25,0.5,0.75,1').split(',').map(Number);
+const K = 0.5;
+const fixed = opt('shifts', null)?.split(',').map(Number);
+const spread = Number(opt('spread', '0.1'));
 const rec = Object.fromEntries(opt('rec', '').split(',').filter(Boolean).map((p) => p.split('=')).map(([k, v]) => [k, Number(v)]));
 const ids = opt('ids', '').split(',').filter(Boolean);
 const context = opt('context', null);
@@ -54,6 +63,25 @@ function move(d, dx, dy) {
   });
 }
 
+// Triangle through a single-bend mark's ends and bend apex; its centre's offset from the ink box
+// centre, measured on the box-centred drawing. null when the mark isn't one open bend.
+function triangleOffset(i) {
+  if (i.paths.length !== 1) return null;
+  const n = i.paths[0].match(/[A-Za-z]|-?[\d.]+/g);
+  if (n.join('').replace(/[-\d.]/g, '') !== 'MLAL') return null;
+  const v = n.filter((x) => !/[A-Za-z]/.test(x)).map(Number);
+  const S = [v[0], v[1]], P1 = [v[2], v[3]], r = v[4], P2 = [v[9], v[10]], E = [v[11], v[12]];
+  const M = [(P1[0] + P2[0]) / 2, (P1[1] + P2[1]) / 2];
+  const half = Math.hypot(P2[0] - P1[0], P2[1] - P1[1]) / 2;
+  const sag = r - Math.sqrt(Math.max(r * r - half * half, 0));          // arc bulge past its chord
+  const inward = [(S[0] + E[0]) / 2 - M[0], (S[1] + E[1]) / 2 - M[1]];
+  const len = Math.hypot(...inward) || 1;
+  const A = [M[0] - sag * inward[0] / len, M[1] - sag * inward[1] / len];
+  const box = [i.ink.x + i.ink.w / 2 - i.shift[0], i.ink.y + i.ink.h / 2 - i.shift[1]];
+  return [(S[0] + A[0] + E[0]) / 3 - i.shift[0] - box[0], (S[1] + A[1] + E[1]) / 3 - i.shift[1] - box[1]];
+}
+const r05 = (v) => Math.round(v * 20) / 20 || 0;
+
 const used = new Set();
 const candidates = [];
 shapes.forEach((name, k) => {
@@ -63,7 +91,14 @@ shapes.forEach((name, k) => {
   let id = ids[k] ?? [...tag.toUpperCase()].find((ch) => /[A-Z]/.test(ch) && !used.has(ch)) ?? String(k + 1);
   used.add(id);
   const shipped = r2(base.shift[0] * dir[0] + base.shift[1] * dir[1]);   // along the chosen direction
-  const list = [...new Set([...shifts, ...(shipped ? [shipped] : []), ...(name in rec ? [rec[name]] : [])])].sort((a, b) => a - b);
+  const tri = triangleOffset(base);
+  const measured = tri && r05(-K * (tri[0] * dir[0] + tri[1] * dir[1]));
+  if (!(name in rec) && measured != null) rec[name] = measured;
+  const around = rec[name] ?? shipped;
+  const rows = fixed ?? [-2, -1, 0, 1, 2].map((k) => r2(around + k * spread));
+  const list = [...new Set([0, shipped, around, ...rows])].sort((a, b) => a - b);
+  console.log(`${name.padEnd(16)} ${tri ? `triangle ${r2(tri[0])}, ${r2(tri[1])} → measured ${measured}` : 'no measure (not a single-bend mark)'}` +
+    ` · recommended ${rec[name] ?? '—'} · shipped ${shipped} · rows ${list.join(' ')}`);
   for (const s of list) {
     const c = { id: `${id}${Math.round(s * 100)}`, label: `${name} · ${tag} · ${dirName} ${s}`, tags: base.tags ?? [],
       group: `${name} · ${tag}`, shift: s, shipped: s === shipped, recommended: rec[name] === s,
@@ -71,7 +106,7 @@ shapes.forEach((name, k) => {
     const by = [];
     for (const m of MASTERS) {
       const o = at(m, name), f = at(m, `${name}-filled`);
-      const amt = r2(s * o.ink.h / base.ink.h);
+      const amt = r2(s * o.ink.h / base.ink.h);   // signed: negative moves against --dir
       const [dx, dy] = [r2(dir[0] * amt), r2(dir[1] * amt)];
       by.push(amt);
       c.optical[m] = [dx, dy];
@@ -81,6 +116,7 @@ shapes.forEach((name, k) => {
         ? { fill: f.areas.map(back), stroke: f.paths.map(back) }
         : { weight: f.stroke, stroke: f.paths.map(back) };
     }
+    c.by = by;
     c.note = `${by.join(' · ')} at 24 · 20 · 16` + (c.shipped ? ' · shipped' : '') + (c.recommended ? ' · recommended' : '');
     candidates.push(c);
   }
