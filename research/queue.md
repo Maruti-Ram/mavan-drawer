@@ -87,6 +87,11 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 13. `more-horizontal` · UI & Layout — approved 2026-09-17
 - [x] 14. `more-vertical` · UI & Layout — approved 2026-09-17
 - [x] 15. `menu` · UI & Layout — approved 2026-09-17
+- [x] 15. `menu-2` · UI & Layout · variant of `menu` — Asymmetric · approved 2026-09-17
+- [x] 15. `menu-3` · UI & Layout · variant of `menu` — Two lines, short bottom · approved 2026-09-17
+- [x] 15. `menu-4` · UI & Layout · variant of `menu` — Two lines, open · approved 2026-09-17
+- [x] 15. `menu-collapse` · UI & Layout · variant of `menu` — Fold (collapse) · approved 2026-09-17
+- [x] 15. `menu-expand` · UI & Layout · variant of `menu` — Unfold (expand) · approved 2026-09-17
 
 ## B · Circles
 
