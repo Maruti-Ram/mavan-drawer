@@ -70,9 +70,11 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 8. `chevron-right-3-large` · Arrows & Direction · variant of `chevron-right` — chevron-right-3-large · steep · approved 2026-09-17
 - [x] 9. `arrow-up` · Arrows & Direction — approved 2026-09-17
 - [x] 9. `arrow-up-2` · Arrows & Direction · variant of `arrow-up` — Wide head · approved 2026-09-17
-- [ ] 10. `arrow-down` · Arrows & Direction
-- [ ] 11. `arrow-left` · Arrows & Direction
-- [ ] 12. `arrow-right` · Arrows & Direction
+- [x] 9. `arrow-up-3` · Arrows & Direction · variant of `arrow-up` — Flat head · approved 2026-09-17
+- [x] 9. `arrow-up-4` · Arrows & Direction · variant of `arrow-up` — Closed head · approved 2026-09-17
+- [~] 10. `arrow-down` · Arrows & Direction
+- [~] 11. `arrow-left` · Arrows & Direction
+- [~] 12. `arrow-right` · Arrows & Direction
 - [ ] 13. `more-horizontal` · UI & Layout
 - [ ] 14. `more-vertical` · UI & Layout
 - [ ] 15. `menu` · UI & Layout
