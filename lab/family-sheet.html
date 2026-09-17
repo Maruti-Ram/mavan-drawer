@@ -23,6 +23,9 @@ body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-s
 .set .cand{outline:1px dashed var(--line);outline-offset:3px;border-radius:2px}
 .big{display:flex;gap:6px;color:var(--ink)}
 .big svg{outline:1px solid var(--line)}
+.big figure{margin:0;display:flex;flex-direction:column;gap:4px;align-items:center}
+.big figcaption{color:var(--muted);font-size:10px;max-width:96px;text-align:center}
+.big figure.cand figcaption{color:var(--ink);font-weight:600}
 .ctx{display:flex;flex-direction:column;gap:6px;color:var(--ink);font:14px Inter,system-ui}
 .ctx span{display:inline-flex;align-items:center;gap:6px}
 .guide{stroke:var(--guide);stroke-width:.06;fill:none}
@@ -78,7 +81,8 @@ function render() {
     for (const m of M) rows.push(`<span class="set">${fam.map((n) => draw(fromFile(n, m), m, m)).join('')}${draw(fromCand(c, m), m, m, '', 'cand')}</span>`);
     const refLines = manifest.masters[24]?.icons?.[fam[0]]?.paths;
     const b = refLines ? markBox(refLines) : null;
-    rows.push(`<span class="big">${fam.map((n) => draw(fromFile(n, 24), 24, 96, guides(24, b))).join('')}${draw(fromCand(c, 24), 24, 96, guides(24, b))}</span>`);
+    const fig = (svg, cap, cls = '') => `<figure class="${cls}">${svg}<figcaption>${cap}</figcaption></figure>`;
+    rows.push(`<span class="big">${fam.map((n) => fig(draw(fromFile(n, 24), 24, 96, guides(24, b)), `${n} · shipped`)).join('')}${fig(draw(fromCand(c, 24), 24, 96, guides(24, b)), `${c.id} · candidate`, 'cand')}</span>`);
     const all = [...fam.map((n) => draw(fromFile(n, 20), 20, 16)), draw(fromCand(c, 20), 20, 16)];
     rows.push(`<span class="ctx"><span>${all.join('')}</span><span>${all[all.length - 1]} More information</span></span>`);
   }
