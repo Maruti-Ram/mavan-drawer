@@ -24,8 +24,8 @@
 // own value, so shapes that need different amounts are judged on their own ranges.
 //
 // Shapes are read from the built manifest (run `npm run build` first). Each is taken back to its
-// box centre (its declared shift removed), then moved by n × (ink height ÷ its default-24 ink
-// height), so 20 and 16 and other sizes scale like C14 does. The row equal to the shipped shift is
+// box centre on the judged axis (its shift on the other axis is kept), then moved by n × (ink height ÷ its default-24 ink
+// height, or width for left/right), so 20 and 16 and other sizes scale like C14 does. The row equal to the shipped shift is
 // marked "shipped". Candidates carry `optical`, so `queue.mjs approve` can write a picked row.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { sizeBase } from './masters.mjs';
@@ -99,10 +99,13 @@ shapes.forEach((name, k) => {
   // The file's own description: its last comment that isn't keyline / tags / optical.
   const said = [...readFileSync(`src/icons/24/${name}.svg`, 'utf8').matchAll(/<!--\s*(.*?)\s*-->/g)]
     .map((x) => x[1]).filter((x) => !/^(keyline|tags|optical):/.test(x)).pop() ?? `${name} · ${tag}`;
-  const [own, detail] = [said.split(': ')[0], said.split(': ').slice(1).join(': ')];
+  const axis = dir[0] ? 'left|right' : 'up|down';                // drop an older note on this axis only
+  const [own, detail] = [said.split(': ')[0], said.split(': ').slice(1).join(': ')
+    .replace(new RegExp(` · optical (${axis}) [^(]*\\(C14\\)`), '')];
   let id = ids[k] ?? [...tag.toUpperCase()].find((ch) => /[A-Z]/.test(ch) && !used.has(ch)) ?? String(k + 1);
   used.add(id);
-  const scale = base.ink.h / ref.ink.h;
+  const span = (i) => (dir[0] ? i.ink.w : i.ink.h);           // scale along the judged axis (C14)
+  const scale = span(base) / span(ref);
   let shipped = r2((base.shift[0] * dir[0] + base.shift[1] * dir[1]) / scale);   // along --dir, family units
   const tri = triangleOffset(ref);
   const measured = tri && r05(-K * (tri[0] * dir[0] + tri[1] * dir[1]));
@@ -122,8 +125,11 @@ shapes.forEach((name, k) => {
     const by = [];
     for (const m of MASTERS) {
       const o = at(m, name), f = at(m, `${name}-filled`);
-      const amt = r2(s * o.ink.h / ref.ink.h);    // signed: negative moves against --dir
-      const [dx, dy] = [r2(dir[0] * amt), r2(dir[1] * amt)];
+      const amt = r2(s * span(o) / span(ref));    // signed: negative moves against --dir
+      // Keep whatever shift the file already has on the other axis (a check's up shift stays
+      // while its left-right one is judged), and replace only the axis being judged.
+      const keep = [o.shift[0] * (1 - Math.abs(dir[0])), o.shift[1] * (1 - Math.abs(dir[1]))];
+      const [dx, dy] = [r2(dir[0] * amt + keep[0]), r2(dir[1] * amt + keep[1])];
       by.push(amt);
       c.optical[m] = [dx, dy];
       c.masters[m] = o.paths.map((d) => move(d, dx - o.shift[0], dy - o.shift[1]));
@@ -133,7 +139,7 @@ shapes.forEach((name, k) => {
         : { weight: f.stroke, stroke: f.paths.map(back) };
     }
     c.by = by;
-    c.note = [detail, `optical ${dirName} ${by.join(' · ')} at 24 · 20 · 16 (C14)`].filter(Boolean).join(' · ');
+    c.note = [detail, s ? `optical ${dirName} ${by.join(' · ')} at 24 · 20 · 16 (C14)` : ''].filter(Boolean).join(' · ');
     candidates.push(c);
   }
 });

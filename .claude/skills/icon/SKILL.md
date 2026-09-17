@@ -78,7 +78,7 @@ To judge where a mark should sit (an open or asymmetric mark reading high, low o
 node tools/optical-sheet.mjs check check-2 --dir up   # one arg per shape
 ```
 
-Then open `/lab/optical-shift.html` (reload it). Each shape gets **its own rows**, spread ±0.1 and ±0.2 around its recommendation, plus 0 and the shipped value. The recommendation is measured for single-bend marks: the offset of the triangle through the ends and the bend, times 0.5 (calibrated on the chevrons). Other shapes need `--rec <shape>=<n>`. Tell the user which measure each recommendation comes from, and never copy a value from another icon. When the user picks, write the chosen shift into each file of the family and commit.
+Then open `/lab/optical-shift.html` (reload it). Each shape gets **its own rows**, spread ±0.1 and ±0.2 around its recommendation, plus 0 and the shipped value. The recommendation is measured for single-bend marks: the offset of the triangle through the ends and the bend, times 0.5 (calibrated on the chevrons). Other shapes need `--rec <shape>=<n>`. Tell the user which measure each recommendation comes from, and never copy a value from another icon. **Judge both axes**: after the up/down pick is approved, run the same shapes with `--dir left` or `--dir right` (the tool keeps the approved vertical shift), then approve again. Skip an axis only when the mark is symmetric across it. When the user picks, write the chosen shift into each file of the family and commit.
 
 ## 5. Iterate
 

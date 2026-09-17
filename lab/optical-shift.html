@@ -55,7 +55,7 @@ const groups = new Map();
 for (const c of draft.candidates) groups.set(c.group, [...(groups.get(c.group) ?? []), c]);
 
 function render() {
-  document.getElementById('title').textContent = `${draft.concept} · moved ${draft.direction ?? ''} (24 units; 20 and 16 scale by ink height)`;
+  document.getElementById('title').textContent = `${draft.concept} · moved ${draft.direction ?? ''} (24 units; 20 and 16 scale by ink ${/left|right/.test(draft.direction) ? 'width' : 'height'}; the other axis stays as shipped)`;
   document.getElementById('sheet').innerHTML = [...groups].map(([name, cs]) =>
     `<b class="group">${name}</b>` + cs.sort((a, b) => a.shift - b.shift).map((c) => `
       <div class="lab${c.shipped ? ' shipped' : ''}"><span>${c.id} · ${c.shift}</span>
