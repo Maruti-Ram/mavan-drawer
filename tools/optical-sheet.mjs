@@ -169,6 +169,7 @@ shapes.forEach((name, k) => {
         ? { fill: f.areas.map(back), stroke: f.paths.map(back) }
         : { weight: f.stroke, stroke: f.paths.map(back) };
     }
+    if (!c.optical[24][0] && !c.optical[24][1]) delete c.optical;   // centred: no optical comment
     c.at = arrow(pos);
     c.by = by;
     c.note = [detail, pos[0] || pos[1] ? `optical ${by.join(' / ')} at 24 / 20 / 16 (C14, C15)` : ''].filter(Boolean).join(' · ');
