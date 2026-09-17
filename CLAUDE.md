@@ -83,6 +83,7 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Mark bends (C10) | a bent mark's corner is an arc of radius **half the weight** (0.75 outline · 1.25/1/1 filled) — the tightest even-width bend; lint warns below it |
 | Sizes (C8, C13) | ship only the sizes with a use case (`check`: default + small); every shipped style then gets all of them — styles × sizes is a full grid |
 | Optical placement (C14) | open pointing marks move toward their point by a per-shape anchor picked by eye at default 24 (chevron classic 0.5 · steep 0.61 · flat 0.55), scaled by ink height for other sizes/masters; declared as `<!-- optical: dx dy -->`, checked by lint, written to metrics as `shift`. Symmetric marks stay on the box centre. |
+| Deciding a shift (C15) | **measure, don't copy**: each shape's recommendation = end-triangle offset × 0.5 (not ink mass); rows spread ±0.1/±0.2 around it, plus 0 and shipped (never one grid for all shapes); always shown on `/lab/optical-shift.html` via `tools/optical-sheet.mjs`, with shipped + recommended tagged; the eye makes the final pick; check both axes |
 | Exact placement (C10, C12) | bent marks: outline ink centred to 2 dp; filled ink box == outline's to 2 dp, no tolerance. Chevron filled bends grow (≤ 2× minimum) to keep the leg angle |
 
 ## The geometry
