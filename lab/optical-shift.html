@@ -64,7 +64,7 @@ function render() {
   document.getElementById('title').textContent = `${draft.concept} · optical placement in the canvas (24 units; 20 and 16 scale by ink width and height)`;
   document.getElementById('sheet').innerHTML = [...groups].map(([name, cs]) =>
     `<b class="group">${name}</b>` + cs.map((c) => `
-      <div class="lab${c.shipped ? ' shipped' : ''}"><span>${c.id}</span><span>${c.at}</span>
+      <div class="lab${c.shipped ? ' shipped' : ''}">${c.name ? `<span style="color:var(--ink)">${c.name}</span>` : ''}<span>${c.id} · ${c.at}</span>
         <small>${(c.by ?? []).map((b, i) => `${[24, 20, 16][i]}: ${b}`).join('<br>')}</small>
         ${c.shipped ? '<span class="tag ship">shipped</span>' : ''}${c.recommended ? '<span class="tag rec">recommended</span>' : ''}</div>
       <div class="canvas">${[24, 20, 16].map((m) => ic(c, m, m * 3)).join('')}</div>

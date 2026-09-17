@@ -11,6 +11,9 @@
 //        [--axes x|y|xy]                   force the judged axes (default: the lopsided ones)
 //        [--xs …] [--ys …]                 offsets around the recommendation on each axis
 //                                          (default ±0.1 ±0.2 when one axis is judged, ±0.1 for both)
+//        [--rows <shape>=<name>:<x>:<y>|…;…]
+//                                          named rows instead of the grid (plus centred and shipped),
+//                                          e.g. --rows "check=line weight:0:-0.94|triangle:0:-0.22"
 //        [--ids <id>,…]                    one id per shape (default: its tag's initial)
 //        [--context "Mark as done"]        the verb in the menu row and inline text
 //
@@ -50,6 +53,10 @@ const xsOpt = opt('xs', null), ysOpt = opt('ys', null);
 const forced = opt('axes', null);
 const rec = Object.fromEntries(opt('rec', '').split(',').filter(Boolean)
   .map((p) => p.split('=')).map(([k, v]) => [k, v.split(':').map(Number)]));
+const named = Object.fromEntries((opt('rows', '') || '').split(';').filter(Boolean).map((p) => {
+  const [shape, rest] = p.split('=');
+  return [shape.trim(), rest.split('|').map((r) => { const [n, x, y] = r.split(':'); return { name: n.trim(), pos: [Number(x), Number(y)] }; })];
+}));
 const ids = opt('ids', '').split(',').filter(Boolean);
 const context = opt('context', null);
 const shapes = args;
@@ -143,10 +150,11 @@ shapes.forEach((name, k) => {
 
   const seen = new Set();
   const centre = [0, 1].map((a) => (judged[a] ? 0 : ship[a]));   // box centre on the judged axes only
-  const positions = [centre, ship, ...offs[0].flatMap((dx) => offs[1].map((dy) => [r2(want[0] + dx), r2(want[1] + dy)]))]
+  const names = new Map([[centre.join(), 'centred'], ...(named[name] ?? []).map((r) => [r.pos.map(r2).join(), r.name])]);
+  const positions = (named[name] ? [centre, ship, ...named[name].map((r) => r.pos.map(r2))] : [centre, ship, ...offs[0].flatMap((dx) => offs[1].map((dy) => [r2(want[0] + dx), r2(want[1] + dy)]))])
     .filter((p) => { const key = p.join(); return !seen.has(key) && seen.add(key); })
-    .filter((p) => p.every((v, a) => judged[a] || v === ship[a] || v === 0))
-    .sort((p, q) => p[1] - q[1] || p[0] - q[0]);
+    .filter((p) => named[name] || p.every((v, a) => judged[a] || v === ship[a] || v === 0));
+  if (!named[name]) positions.sort((p, q) => p[1] - q[1] || p[0] - q[0]);
   const why = (a) => (forced ? `${a === 0 ? 'up–down' : 'left–right'} locked` : `mirrors ${a === 0 ? 'top–bottom' : 'left–right'}`);
   const axesSaid = judged[0] && judged[1] ? 'both axes' : judged[0] ? `left–right only (${why(0)})` : `up–down only (${why(1)})`;
   console.log(`${name.padEnd(16)} ${axesSaid} · ${tri ? `triangle ${tri.map(r2).join(', ')} → measured ${measured.join(', ')}` : 'no measure'}` +
@@ -154,7 +162,7 @@ shapes.forEach((name, k) => {
 
   for (const pos of positions) {
     const c = { id: `${id}${code(pos[0], 'r', 'l')}${code(pos[1], 'd', 'u')}` || id, label: own, tags: base.tags ?? [],
-      group: `${name} · ${tag}`, axes: axesSaid, pos, shipped: same(pos, ship), recommended: same(pos, want),
+      group: `${name} · ${tag}`, axes: axesSaid, pos, name: names.get(pos.join()), shipped: same(pos, ship), recommended: same(pos, want),
       optical: {}, masters: {}, filled: {} };
     if (c.id === id) c.id = `${id}0`;
     const by = [];
