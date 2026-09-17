@@ -101,7 +101,9 @@ The ⌀20 keyline and what sits inside it.
 - [x] 16. `check-circle-2` · Status & Feedback · variant of `check-circle` — Small check · approved 2026-09-17
 - [x] 16. `check-circle-3` · Status & Feedback · variant of `check-circle` — steep in ring · approved 2026-09-17
 - [x] 16. `check-circle-4` · Status & Feedback · variant of `check-circle` — lean in ring · approved 2026-09-17
-- [ ] 17. `x-circle` · Status & Feedback
+- [x] 16. `check-circle-5` · Status & Feedback · variant of `check-circle` — steep in ring · approved 2026-09-17
+- [x] 16. `check-circle-6` · Status & Feedback · variant of `check-circle` — lean in ring · approved 2026-09-17
+- [~] 17. `x-circle` · Status & Feedback
 - [ ] 18. `plus-circle` · UI & Layout
 - [ ] 19. `minus-circle` · UI & Layout
 - [ ] 20. `info` · Status & Feedback
