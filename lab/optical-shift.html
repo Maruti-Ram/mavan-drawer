@@ -10,11 +10,11 @@
 :root[data-theme="dark"]{--bg:#18181b;--ink:#f4f4f5;--muted:#a1a1aa;--ui:#26272b;--pick:#60a5fa;--rec:#4ade80;--rec-bg:#14532d}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.bar{display:flex;gap:8px;align-items:center;padding:12px 16px 0}
+.bar{display:flex;gap:8px;align-items:center;padding:12px 40px 0}
 .bar b{color:var(--ink);font-size:12px;margin-right:auto}
 .bar button{font:inherit;border:1px solid var(--ui);background:none;color:var(--muted);border-radius:6px;padding:4px 10px;cursor:pointer}
 .bar button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-#sheet{display:grid;grid-template-columns:110px auto auto auto auto;gap:9px 22px;align-content:start;align-items:center;justify-content:start;padding:12px 16px 40px;zoom:1.2}
+#sheet{display:grid;grid-template-columns:110px auto auto auto auto;gap:9px 22px;align-content:start;align-items:center;justify-content:start;padding:12px 0 40px calc(40px / 1.2);zoom:1.2}   /* 40px left edge after the zoom */
 .group{color:var(--ink);grid-column:1/-1;margin-top:10px}
 .row{display:flex;gap:6px;align-items:center}
 .menu{display:inline-flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:8px;background:var(--ui);color:var(--ink);font:16px Inter,system-ui}
