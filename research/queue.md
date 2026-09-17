@@ -97,12 +97,12 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 
 The ⌀20 keyline and what sits inside it.
 
-- [x] 16. `check-circle` · Status & Feedback — approved 2026-09-17
-- [x] 16. `check-circle-2` · Status & Feedback · variant of `check-circle` — Small check · approved 2026-09-17
-- [x] 16. `check-circle-3` · Status & Feedback · variant of `check-circle` — steep in ring · approved 2026-09-17
-- [x] 16. `check-circle-4` · Status & Feedback · variant of `check-circle` — lean in ring · approved 2026-09-17
-- [x] 16. `check-circle-5` · Status & Feedback · variant of `check-circle` — steep in ring · approved 2026-09-17
-- [x] 16. `check-circle-6` · Status & Feedback · variant of `check-circle` — lean in ring · approved 2026-09-17
+- [x] 16. `check-circle` · Status & Feedback — classic · approved 2026-09-17
+- [x] 16. `check-circle-small` · Status & Feedback · variant of `check-circle` — classic, small check · approved 2026-09-17
+- [x] 16. `check-circle-3` · Status & Feedback · variant of `check-circle` — steep (check-3) · approved 2026-09-17
+- [x] 16. `check-circle-3-small` · Status & Feedback · variant of `check-circle` — steep, small check · approved 2026-09-17
+- [x] 16. `check-circle-4` · Status & Feedback · variant of `check-circle` — lean (check-4) · approved 2026-09-17
+- [x] 16. `check-circle-4-small` · Status & Feedback · variant of `check-circle` — lean, small check · approved 2026-09-17
 - [~] 17. `x-circle` · Status & Feedback
 - [ ] 18. `plus-circle` · UI & Layout
 - [ ] 19. `minus-circle` · UI & Layout

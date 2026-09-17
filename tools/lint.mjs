@@ -51,7 +51,7 @@ function lint(canvas, file) {
   const REQUIRED = required(canvas, STROKE);
   const mid = canvas / 2;
   const errors = [], warnings = [], notes = [];
-  let size = null;
+  let size = null, inner = null, isMark = false;
   const hasComment = /<!--/.test(src);
 
   // --- 1. root attributes -------------------------------------------------
@@ -107,7 +107,13 @@ function lint(canvas, file) {
     const cx = r2((o.x0 + o.x1) / 2 - sx), cy = r2((o.y0 + o.y1) / 2 - sy);
     if (sx || sy) notes.push(`optical shift ${sx}, ${sy}`);
     const declared = src.match(/<!--\s*keyline:\s*(\w+)\s*-->/)?.[1];
-    if (declared === 'mark') {
+    isMark = declared === 'mark';
+    // A container's first path is the container; the rest is its inner mark (measured on the outline file).
+    if (!isMark && !areas.length && ds.length > 1) {
+      const b = bbox(ds.slice(1));
+      inner = r2(Math.max(b.x1 - b.x0, b.y1 - b.y0) + STROKE);
+    }
+    if (isMark) {
       notes.push(`${w}×${h}  declared mark  centre ${cx},${cy}`);
       if (w > MARK_MAX || h > MARK_MAX) warnings.push(`mark is ${w}×${h} — exceeds ${MARK_MAX}×${MARK_MAX} (§2)`);
     } else {
@@ -141,7 +147,7 @@ function lint(canvas, file) {
       warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — §6 needs ${need} (edge gap ${r2(min - STROKE)} < ${MIN_GAP})`);
   }
 
-  return { file, errors, warnings, notes, size };
+  return { file, errors, warnings, notes, size, inner, isMark };
 }
 
 const jobs = Object.keys(MASTERS).map(Number).sort((a, b) => b - a).flatMap((m) => {
@@ -153,13 +159,23 @@ const G = '\x1b[32m', Y = '\x1b[33m', R = '\x1b[31m', D = '\x1b[2m', X = '\x1b[0
 
 const results = new Map(jobs.map(([m, f]) => [`${m}/${f}`, lint(m, f)]));
 
-// --- 6. size families (C8): large and small sit one SIZE_STEP from the default
+// --- 6. size families (C8): a mark's large and small sit one SIZE_STEP from the default;
+// a container's keep the container and change only the inner mark (outline file measures it)
 for (const [key, r] of results) {
   const [m, f] = key.split('/'), name = f.replace('.svg', '');
   const size = sizeOf(name);
   if (!size || r.size == null) continue;
-  const base = results.get(`${m}/${sizeBase(name)}.svg`);
-  if (!base) { r.warnings.push(`${size} variant has no default \`${sizeBase(name)}\` at ${m}`); continue; }
+  const baseName = sizeBase(name);
+  const base = results.get(`${m}/${baseName}.svg`);
+  if (!base) { r.warnings.push(`${size} variant has no default \`${baseName}\` at ${m}`); continue; }
+  if (!r.isMark && !base.isMark) {
+    if (Math.abs(r.size - base.size) > 0.01)
+      r.warnings.push(`${size} container is ${r.size} — C8 keeps the default's ${base.size}; only the inner mark changes`);
+    const ob = results.get(`${m}/${baseName.replace(/-filled$/, '')}.svg`), ov = results.get(`${m}/${name.replace(/-filled$/, '')}.svg`);
+    if (ob?.inner != null && ov?.inner != null && (size === 'small' ? ov.inner >= ob.inner : ov.inner <= ob.inner))
+      r.warnings.push(`${size} inner mark is ${ov.inner} — must be ${size === 'small' ? 'smaller' : 'larger'} than the default's ${ob.inner} (C8)`);
+    continue;
+  }
   const want = base.size + (SIZES.indexOf(size) - 1) * SIZE_STEP[m];
   if (Math.abs(r.size - want) > 0.01)
     r.warnings.push(`${size} is ${r.size} — C8 wants ${want} (default ${base.size} ${size === 'large' ? '+' : '−'} ${SIZE_STEP[m]})`);
