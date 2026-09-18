@@ -44,7 +44,7 @@ Serve the lab with the `lab-4175` launch config if another session holds 4174.
 
 **Visual language (O1)** — decisions C1–C8 in `docs/07-character.md`: no sharp icons; refined
 and professional, not comical; three masters 24/20/16; stroke 1.5 everywhere; trash family
-(`trash`…`trash-4`, tab handle); numbered variants allowed; -large/-small size variants on a fixed step. Still open there: container radius,
+(`trash`…`trash-5`, tab handle; `-2`/`-3`/`-4` reserved for C4's interiors); numbered variants allowed; -large/-small size variants on a fixed step. Still open there: container radius,
 angle exceptions, the user icon. Specimens live in `lab/character.html` (`node tools/refs.mjs`
 with no argument builds its reference rows).
 

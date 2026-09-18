@@ -131,7 +131,8 @@ The ⌀20 keyline and what sits inside it.
 
 Square, portrait and landscape keylines; the icons every screen has.
 
-- [ ] 27. `trash` · Files & Folders — trash family C4: trash, trash-2, trash-3, trash-4
+- [x] 27. `trash` · Files & Folders — trash family C4: trash, trash-2, trash-3, trash-4 · approved 2026-09-19
+- [x] 27. `trash-5` · Files & Folders · variant of `trash` — Detached lid (Nucleo / Central) · approved 2026-09-19
 - [ ] 28. `file` · Files & Folders
 - [ ] 29. `file-text` · Files & Folders
 - [ ] 30. `folder` · Files & Folders

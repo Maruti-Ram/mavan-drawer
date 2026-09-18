@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: ribs, detached -->
+  <!-- Detached lid (Nucleo / Central): The lid is its own bar with 1.5 of air under it and the body hangs below, which is how Nucleo and Central build it - and the only version whose FILLED state still has a lid, because A and B fill into one mass from tab to bottom. The cost is measured: the gap is 1.5 and the lid is 1.5, so a detached lid spends 3.0 of vertical budget that does not scale down. Body height goes 10.5 of 18 at 24 (58%, Nucleo's ratio exactly), 6.5 of 14 at 20 (46%) and 4.5 of 12 at 16 (37%) - and the r1 bottom corners eat 1 of that 4.5, so at 16 the rib has to shrink to a single 1.5 dot to keep 1.5 off the bottom stroke. The 16 rib you flagged was mine: it sat 0.25 off the bottom in the outline while the filled hole had 1.75 of material under it - the same defect lint caught. Both are centred on the tub now -->
+  <path d="M2.75 5.75H13.25"/>
+  <path d="M5.75 5.75V3.75A1 1 0 0 1 6.75 2.75H9.25A1 1 0 0 1 10.25 3.75V5.75"/>
+  <path d="M3.75 8.75L4 12.32A1 1 0 0 0 5 13.25H11A1 1 0 0 0 12 12.32L12.25 8.75"/>
+  <path d="M8 10.25V10.25"/>
+</svg>
