@@ -183,6 +183,46 @@ function lint(canvas, file) {
       warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? 'C19 glyph gap' : '§6'} needs ${floor} (it turns ${self.span}°)`);
   }
 
+  // --- 5c. advisory: a knockout cut wider than the counter it sits in --------
+  // A shape-filled file cuts its mark OUT of a solid shape, at C18's per-mark width -
+  // heavier than the 1.5 outline stroke. Every gap inside the mark therefore loses
+  // (cut - stroke) when it is knocked out, and nothing has ever checked what that
+  // leaves. `areas` are not in the pair loop and were not in the self-gap loop either,
+  // so all 66 shape-filled files had no gap check of any kind (docs/08 §6.5).
+  //
+  // No declaration is needed: the outline and the filled file are a pair, so every
+  // point of the knockout's boundary sits exactly cut/2 from the outline's centreline.
+  // The furthest one recovers the cut width to within 0.03.
+  if (areas.length && ds.length === 0) {
+    const pair = file.replace('-filled.svg', '.svg');
+    const outline = existsSync(join('src/icons', String(canvas), pair))
+      ? readFileSync(join('src/icons', String(canvas), pair), 'utf8') : null;
+    if (outline) {
+      const ods = [...outline.matchAll(/<path d="([^"]+)"\/>/g)].map((m) => m[1]);
+      const line = ods.flatMap(samplePath);
+      let cut = 0;
+      for (const d of areas[0].split(/(?=M)/).filter(Boolean)) {
+        let far = 0;
+        for (const [x, y] of samplePath(d)) {
+          let near = Infinity;
+          for (const [u, v] of line) near = Math.min(near, Math.hypot(x - u, y - v));
+          far = Math.max(far, near);
+        }
+        cut = Math.max(cut, far * 2);
+      }
+      const glyph = /<!--\s*glyph:\s*dot\s*-->/.test(outline);
+      for (let i = 0; i < ods.length; i++) {
+        if (isDot(ods[i])) continue;
+        const self = selfGap(ods[i], STROKE);
+        if (!self) continue;
+        const floor = glyph ? GLYPH_GAP : MIN_GAP;
+        const left = r2(self.gap + STROKE - cut);
+        if (left < floor - 0.05)
+          warnings.push(`the ${r2(cut)} cut leaves ${left} inside path ${i + 1} (counter ${self.gap}) — needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
+      }
+    }
+  }
+
   return { file, errors, warnings, notes, size, inner, isMark };
 }
 
