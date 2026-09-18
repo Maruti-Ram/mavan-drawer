@@ -68,7 +68,7 @@ purely weight.
 **9.4%** of the canvas. CLAUDE.md's geometry block already states this as a benefit
 ("smaller masters are heavier for free"); at 16 that is the thing being seen.
 
-**But this is a fork, not a defect** — see §6.
+**But this is a fork, not a defect** — settled as **C7** in `docs/07-character.md`, 2026-09-18. See §6.2.
 
 ### 3.2 A stroke on the canvas centre axis never fills a pixel
 
@@ -209,14 +209,14 @@ Recommendation: no, hold the ratio across masters. Counter-argument: the 16 mast
 partly to be drawn differently, and a fixed ratio may fight legibility at 16. Needs a
 sheet with the pixel view live, not arithmetic.
 
-### 6.2 Stroke weight at the small masters (§3.1)
+### 6.2 Stroke weight at the small masters (§3.1) — **CLOSED 2026-09-18**
 
-**Question:** do we follow Central (one relative weight, lighter at 16) or hold C7?
+**Hold C7: 1.5 at every master.** Written into `docs/07-character.md` as C7 with its evidence
+(the 16×16 ink comparison, the fork, the Fluent stroke table, the half-tone control), so §3.1
+above is a *recorded consequence*, not an open defect. Nothing to do.
 
-Recommendation: **hold C7.** Fluent uses 1.5 at 12/16/20/24/28 exactly as we do — this is
-a fork we already took, with the largest deployed set on our side. Central looks lighter
-only because it ships one drawing. *This was initially mis-assessed as a defect; the
-Fluent stroke table corrected it.*
+Not closed by this, and still open in §9: Fluent's filled weight (+0.5 against our +1.0 at 24)
+and its "the filled version may be slightly smaller" against C10/C12.
 
 ### 6.3 `MIN_GAP` 1.5 in general
 
