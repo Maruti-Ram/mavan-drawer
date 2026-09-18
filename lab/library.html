@@ -117,6 +117,13 @@ body.nav-collapsed .sec{display:flex;justify-content:center;padding:8px 0}
 .cell .nm{font-size:12px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cell .no{position:absolute;top:6px;left:8px;font-size:10px;color:var(--faint)}
 .cell .st{position:absolute;top:9px;right:9px;width:6px;height:6px;border-radius:50%}
+.cell .alt{position:absolute;top:6px;right:22px;font-size:10px;color:var(--faint)}
+.alts{display:flex;flex-wrap:wrap;gap:8px}
+.altc{flex:1 1 96px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 8px;border:1px solid var(--line);border-radius:6px;background:none;color:inherit;cursor:pointer;min-width:0}
+.altc:hover{background:var(--hover)}
+.altc.on{border-color:var(--sel);background:color-mix(in srgb,var(--sel) 7%,var(--panel))}
+.altc b{font-size:11px;font-weight:500;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.altc small{font-size:10px;color:var(--faint)}
 .st.done{background:var(--done)} .st.review{background:var(--review)}
 .cell.todo{cursor:default}
 .cell.todo:hover{background:none}
@@ -293,6 +300,36 @@ const entries = [
   ...drawnNames.filter((n) => !byName.has(n)).map((n) => ({ n: null, name: n, section: 'Unqueued', status: 'done' })),
 ];
 
+// ── Filled twins (C21) ─────────────────────────────────────────────────────────
+// An icon in this set is a pair, not a drawing, so two icons may share one outline
+// and differ only filled — `ban` keeps the ring, `ban-2` keeps the disc whole. In
+// OUTLINE mode they are the same picture, so showing both puts identical cards in
+// the grid; they merge onto the representative there and the card says how many
+// filled styles sit behind it. In FILLED mode they are different drawings and every
+// one stands on its own — nothing a customer can pick is ever hidden.
+const outlineSig = (n) => MASTERS.map((m) => file(n, m, false)?.body ?? '').join('|');
+const twinsOf = new Map();                                   // name → every name sharing its outline
+{
+  const groups = new Map();
+  for (const n of drawnNames) {
+    const sig = outlineSig(n);
+    if (!sig.replace(/\|/g, '')) continue;                    // nothing drawn yet
+    if (!groups.has(sig)) groups.set(sig, []);
+    groups.get(sig).push(n);
+  }
+  for (const g of groups.values()) {
+    if (g.length < 2) continue;
+    // The representative is the unnumbered name (`ban` over `ban-2`), else the lowest in the queue.
+    g.sort((a, b) => (/-\d+$/.test(a) - /-\d+$/.test(b))
+      || ((byName.get(a)?.n ?? 1e9) - (byName.get(b)?.n ?? 1e9)) || a.localeCompare(b));
+    for (const n of g) twinsOf.set(n, g);
+  }
+}
+const repOf = (n) => twinsOf.get(n)?.[0] ?? n;
+// Outline mode collapses a twin set onto its representative; filled mode shows them all.
+const merged = (list) => (state.filled ? list
+  : list.filter((e) => e.status !== 'done' || repOf(e.name) === e.name));
+
 /* ───────── header ───────── */
 
 function applyTheme() {
@@ -362,7 +399,7 @@ document.getElementById('secs').addEventListener('click', (e) => {
 /* ───────── specimen + grid ───────── */
 
 function renderSpec() {
-  const names = drawnNames;
+  const names = state.filled ? drawnNames : drawnNames.filter((n) => repOf(n) === n);   // twins merge in outline
   document.getElementById('specCount').textContent = names.length;
   document.getElementById('spec').innerHTML = names.length
     ? names.map((n) => `<span title="${esc(n)}">${icon(n, 16)}</span>`).join('')
@@ -383,14 +420,16 @@ function cell(e) {
   const drawn = e.status === 'done';
   const ms = drawn ? icon(e.name, 24) : blank(24, true);    // one representative; the rest live in the metrics panel
   const tag = drawn ? 'button' : 'div';
-  return `<${tag} class="cell${drawn ? '' : ' todo'}${state.sel === e.name ? ' on' : ''}" ${drawn ? `data-name="${esc(e.name)}"` : ''} title="${esc(e.name)}${e.category ? ` · ${esc(e.category)}` : ''}">
-    ${e.n != null ? `<span class="no num">${e.n}</span>` : ''}${e.status !== 'todo' ? `<i class="st ${e.status}"></i>` : ''}
+  const alts = !state.filled && drawn ? twinsOf.get(e.name)?.length ?? 0 : 0;   // merged twins, outline mode only
+  return `<${tag} class="cell${drawn ? '' : ' todo'}${state.sel === e.name ? ' on' : ''}" ${drawn ? `data-name="${esc(e.name)}"` : ''} title="${esc(e.name)}${e.category ? ` · ${esc(e.category)}` : ''}${alts ? ` · ${alts} filled styles: ${twinsOf.get(e.name).join(', ')}` : ''}">
+    ${e.n != null ? `<span class="no num">${e.n}</span>` : ''}${e.status !== 'todo' ? `<i class="st ${e.status}"></i>` : ''}${alts ? `<span class="alt num">${alts} filled</span>` : ''}
     <span class="ms">${ms}</span><span class="nm">${esc(e.name)}</span></${tag}>`;
 }
 
 function renderGrid() {
   const list = visible();
   const sheet = state.view === 'sheet';
+  const shown = sheet ? list : merged(list);        // the Sheet is research/queue.md — every row stays
   document.getElementById('grid').hidden = sheet;
   document.getElementById('sheet').hidden = !sheet;
   document.getElementById('view').innerHTML = ['grid', 'sheet'].map((v) =>
@@ -400,11 +439,11 @@ function renderGrid() {
     : 'The 24 master stands for each icon. Click one for every size and property.';
   const title = state.sec === 'all' ? (state.show === 'queue' ? 'Queue' : 'Icons') : label(state.sec);
   document.getElementById('gridTitle').textContent = title;
-  document.getElementById('gridCount').textContent = state.show === 'queue' ? `${counts(list).done} / ${list.length}` : list.length;
+  document.getElementById('gridCount').textContent = state.show === 'queue' ? `${counts(shown).done} / ${shown.length}` : shown.length;
   document.getElementById('gridStyle').textContent = state.filled ? 'Filled' : 'Outline';
   if (sheet) return renderSheet(list);
   const el = document.getElementById('grid');
-  if (!list.length) {
+  if (!shown.length) {
     const next = entries.find((e) => e.n != null && e.status !== 'done');
     el.innerHTML = `<div class="empty" style="grid-column:1/-1">${state.q
       ? `<b>No icons match “${esc(state.q)}”</b>Try another name, or show the whole queue.`
@@ -413,7 +452,7 @@ function renderGrid() {
   }
   // In the whole queue, group headings keep sections readable.
   let html = '', last = null;
-  for (const e of list) {
+  for (const e of shown) {
     if (state.sec === 'all' && state.show === 'queue' && e.section !== last) { html += `<div class="group">${esc(e.section)}</div>`; last = e.section; }
     html += cell(e);
   }
@@ -509,6 +548,14 @@ function renderDetail() {
   document.getElementById('dName').textContent = n;
   document.getElementById('dNo').textContent = q ? `#${q.n}` : 'unqueued';
   const hasFilled = MASTERS.some((m) => file(n, m, true));
+  const twins = twinsOf.get(n) ?? [];
+  // One outline, several filled drawings (C21). The outline is drawn once, so the
+  // choice is entirely in this row — each is a real icon with its own name.
+  const alts = twins.length ? `<div class="dsec"><h3>Filled styles · one outline</h3>
+    <div class="alts">${twins.map((t) => `<button class="altc${t === n ? ' on' : ''}" data-alt="${esc(t)}">
+      <span class="ms">${icon(t, 24, 40, true)}</span><b>${esc(t)}</b>
+      <small>${esc(man.masters[24]?.icons[t]?.tags?.join(' · ') || '—')}</small></button>`).join('')}</div>
+    <p class="hint">These share one outline drawing, so the grid shows them as one icon in Outline and separately in Filled. Click to switch.</p></div>` : '';
   document.getElementById('detail').innerHTML = `
     <div class="hero">${icon(n, 24, 96)}</div>
     <div class="sizes">${MASTERS.map((m) => `<div><span class="pr">${icon(n, m)}${icon(n, m, m * 2)}</span><small>${m} · 1× 2×</small></div>`).join('')}</div>
@@ -516,9 +563,9 @@ function renderDetail() {
       <dt>Section</dt><dd>${esc(q?.section ?? '—')}</dd>
       ${q?.category ? `<dt>Category</dt><dd>${esc(q.category)}</dd>` : ''}
       ${q?.base ? `<dt>Variant of</dt><dd>${esc(q.base)}</dd>` : ''}
-      <dt>Styles</dt><dd>Outline${hasFilled ? ' + filled' : ' · <span style="color:var(--review)">filled missing</span>'}</dd>
+      <dt>Styles</dt><dd>Outline${hasFilled ? ' + filled' : ' · <span style="color:var(--review)">filled missing</span>'}${twins.length ? ` · ${twins.length} filled on this outline` : ''}</dd>
       <dt>Files</dt><dd><code>src/icons/{24,20,16}/${esc(n)}${state.filled ? '-filled' : ''}.svg</code></dd>
-    </dl></div>
+    </dl></div>${alts}
     <div class="dsec"><h3>Outline metrics</h3>${metricsTable(n, false)}</div>
     <div class="dsec"><h3>Filled metrics</h3>${metricsTable(n, true)}
       <p class="hint">Bearings read left · right · top · bottom, in units of each master. Geometric is where ink stops; optical is where it reads as stopping — consumers subtract it as negative margin (<code>dist/metrics.json</code>).</p></div>
@@ -527,6 +574,7 @@ function renderDetail() {
       <p class="hint">Copies the stroked source. The shipped asset is outlined fills.</p></div>`;
 }
 document.getElementById('detail').addEventListener('click', async (e) => {
+  const a = e.target.closest('[data-alt]'); if (a) return open(a.dataset.alt);
   const t = e.target.closest('[data-copy]'); if (!t || !state.sel) return;
   const m = +t.dataset.copy, r = file(state.sel, m, state.filled);
   const text = `<svg xmlns="http://www.w3.org/2000/svg" width="${m}" height="${m}" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${r.stroke}" stroke-linecap="round" stroke-linejoin="round">${r.body}</svg>`;
@@ -558,7 +606,7 @@ document.addEventListener('keydown', (e) => {
   else if (e.key === '[') setNav(!document.body.classList.contains('nav-collapsed'));
   else if (e.key === 'f' || e.key === 'F') setFilled(!state.filled);
   else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && state.sel) {
-    const names = visible().filter((x) => x.status === 'done').map((x) => x.name);
+    const names = merged(visible()).filter((x) => x.status === 'done').map((x) => x.name);
     const i = names.indexOf(state.sel); if (i < 0 || !names.length) return;
     const next = names[(i + (e.key === 'ArrowRight' ? 1 : names.length - 1)) % names.length];
     open(next);
