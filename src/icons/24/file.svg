@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: fold, chamfer, sharp tip -->
+  <!-- Polaris tips, chamfer 6 · 5 · 4 (recommended): The flap's two 45 deg tips cut from r0.5 to **r0.25**, which is what makes it read as the corner peeling back rather than a shape parked in the notch. A 45 deg corner's tangent length is r / tan 22.5, so r0.5 pulls each tip back 1.21 along the edge - 0.85 in x - and shortens the flap's straight hypotenuse from 5.56 to 3.86 of the chamfer's 6.0 at 24. At r0.25 it runs 4.70. Polaris cuts the same two tips at about 0.12 (on its 20 canvas, ~0.14 here) and rounds the flap's right-angle corner at 0.375 against its body notch's 1.625 - the same difference-equals-the-gap relationship this build already has (2.25 against 0.75). Chamfer back to the references' 6 · 5 · 4, so the 16 master keeps 4.5 of top edge and the flap's counter measures 2.09 (recommended) -->
+  <path d="M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z"/>
+  <path d="M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25"/>
+</svg>

@@ -154,6 +154,8 @@
     "chevron-up-small-filled",
     "clock",
     "clock-filled",
+    "file",
+    "file-filled",
     "globe",
     "globe-2",
     "globe-2-filled",
@@ -8387,6 +8389,126 @@
       "ratio": null,
       "gap": null
     },
+    "file": {
+      "paths": [
+        "M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z",
+        "M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25\"/>",
+      "mark": false,
+      "tags": [
+        "fold",
+        "chamfer",
+        "sharp tip"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.54,
+          "optical": 4.4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.67,
+          "optical": 2.5
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.27,
+          "optical": 2.2
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 7.5,
+        "h": 7.5
+      },
+      "ratio": {
+        "w": 0.38,
+        "h": 0.38
+      },
+      "gap": null
+    },
+    "file-filled": {
+      "paths": [],
+      "areas": [
+        "M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z",
+        "M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z\"/>",
+      "mark": false,
+      "tags": [
+        "fold",
+        "chamfer",
+        "sharp tip"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "globe": {
       "paths": [
         "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
@@ -12766,6 +12888,8 @@
         "chevron-up-small-filled",
         "clock",
         "clock-filled",
+        "file",
+        "file-filled",
         "globe",
         "globe-2",
         "globe-2-filled",
@@ -20999,6 +21123,126 @@
           "ratio": null,
           "gap": null
         },
+        "file": {
+          "paths": [
+            "M5.25 1.75H8.25L12.25 5.75V12.75A1.5 1.5 0 0 1 10.75 14.25H5.25A1.5 1.5 0 0 1 3.75 12.75V3.25A1.5 1.5 0 0 1 5.25 1.75Z",
+            "M8.25 1.75V4.75A1 1 0 0 0 9.25 5.75H12.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 1.75H8.25L12.25 5.75V12.75A1.5 1.5 0 0 1 10.75 14.25H5.25A1.5 1.5 0 0 1 3.75 12.75V3.25A1.5 1.5 0 0 1 5.25 1.75Z\"/> <path d=\"M8.25 1.75V4.75A1 1 0 0 0 9.25 5.75H12.25\"/>",
+          "mark": false,
+          "tags": [
+            "fold",
+            "chamfer",
+            "sharp tip"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.17,
+              "optical": 3.13
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.49,
+              "optical": 3.37
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.68,
+              "optical": 1.51
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.24,
+              "optical": 1.18
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 5.5,
+            "h": 5.5
+          },
+          "ratio": {
+            "w": 0.39,
+            "h": 0.39
+          },
+          "gap": null
+        },
+        "file-filled": {
+          "paths": [],
+          "areas": [
+            "M5.25 1H7A0.5 0.5 0 0 1 7.5 1.5V4.75A1.75 1.75 0 0 0 9.25 6.5H12.5A0.5 0.5 0 0 1 13 7V12.75A2.25 2.25 0 0 1 10.75 15H5.25A2.25 2.25 0 0 1 3 12.75V3.25A2.25 2.25 0 0 1 5.25 1Z",
+            "M9 2.04V4.75A0.25 0.25 0 0 0 9.25 5H11.96A0.25 0.25 0 0 0 12.13 4.57L9.43 1.87A0.25 0.25 0 0 0 9 2.04Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 1H7A0.5 0.5 0 0 1 7.5 1.5V4.75A1.75 1.75 0 0 0 9.25 6.5H12.5A0.5 0.5 0 0 1 13 7V12.75A2.25 2.25 0 0 1 10.75 15H5.25A2.25 2.25 0 0 1 3 12.75V3.25A2.25 2.25 0 0 1 5.25 1Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 2.04V4.75A0.25 0.25 0 0 0 9.25 5H11.96A0.25 0.25 0 0 0 12.13 4.57L9.43 1.87A0.25 0.25 0 0 0 9 2.04Z\"/>",
+          "mark": false,
+          "tags": [
+            "fold",
+            "chamfer",
+            "sharp tip"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "globe": {
           "paths": [
             "M1.75 8A6.25 6.25 0 1 0 14.25 8A6.25 6.25 0 1 0 1.75 8Z",
@@ -25376,6 +25620,8 @@
         "chevron-up-small-filled",
         "clock",
         "clock-filled",
+        "file",
+        "file-filled",
         "globe",
         "globe-2",
         "globe-2-filled",
@@ -33609,6 +33855,126 @@
           "ratio": null,
           "gap": null
         },
+        "file": {
+          "paths": [
+            "M6.75 2.75H10.25L15.25 7.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z",
+            "M10.25 2.75V6.5A1.25 1.25 0 0 0 11.5 7.75H15.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.75 2.75H10.25L15.25 7.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z\"/> <path d=\"M10.25 2.75V6.5A1.25 1.25 0 0 0 11.5 7.75H15.25\"/>",
+          "mark": false,
+          "tags": [
+            "fold",
+            "chamfer",
+            "sharp tip"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.55,
+              "optical": 4.41
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.73,
+              "optical": 2.55
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 6.5,
+            "h": 6.5
+          },
+          "ratio": {
+            "w": 0.41,
+            "h": 0.41
+          },
+          "gap": null
+        },
+        "file-filled": {
+          "paths": [],
+          "areas": [
+            "M6.75 2H9A0.5 0.5 0 0 1 9.5 2.5V6.5A2 2 0 0 0 11.5 8.5H15.5A0.5 0.5 0 0 1 16 9V15.25A2.75 2.75 0 0 1 13.25 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2Z",
+            "M11 3.04V6.5A0.5 0.5 0 0 0 11.5 7H14.96A0.25 0.25 0 0 0 15.13 6.57L11.43 2.87A0.25 0.25 0 0 0 11 3.04Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 2H9A0.5 0.5 0 0 1 9.5 2.5V6.5A2 2 0 0 0 11.5 8.5H15.5A0.5 0.5 0 0 1 16 9V15.25A2.75 2.75 0 0 1 13.25 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 3.04V6.5A0.5 0.5 0 0 0 11.5 7H14.96A0.25 0.25 0 0 0 15.13 6.57L11.43 2.87A0.25 0.25 0 0 0 11 3.04Z\"/>",
+          "mark": false,
+          "tags": [
+            "fold",
+            "chamfer",
+            "sharp tip"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "globe": {
           "paths": [
             "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
@@ -37988,6 +38354,8 @@
         "chevron-up-small-filled",
         "clock",
         "clock-filled",
+        "file",
+        "file-filled",
         "globe",
         "globe-2",
         "globe-2-filled",
@@ -46221,6 +46589,126 @@
           "ratio": null,
           "gap": null
         },
+        "file": {
+          "paths": [
+            "M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z",
+            "M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25\"/>",
+          "mark": false,
+          "tags": [
+            "fold",
+            "chamfer",
+            "sharp tip"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.54,
+              "optical": 4.4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.67,
+              "optical": 2.5
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 7.5,
+            "h": 7.5
+          },
+          "ratio": {
+            "w": 0.38,
+            "h": 0.38
+          },
+          "gap": null
+        },
+        "file-filled": {
+          "paths": [],
+          "areas": [
+            "M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z",
+            "M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z\"/>",
+          "mark": false,
+          "tags": [
+            "fold",
+            "chamfer",
+            "sharp tip"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "globe": {
           "paths": [
             "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
@@ -51430,8 +51918,8 @@
       "section": "C · Core containers and figures",
       "category": "Files & Folders",
       "base": null,
-      "note": null,
-      "status": "todo"
+      "note": "approved 2026-09-19",
+      "status": "done"
     },
     {
       "n": 29,
