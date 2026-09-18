@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { numbersIn, samplePath, bbox, parsePath } from './geometry.mjs';
-import { MASTERS, MIN_GAP, STROKE as BASE_STROKE, SIZE_STEP, SIZES, markMax, sizeBase, sizeOf, weightOf } from './masters.mjs';
+import { GLYPH_GAP, MASTERS, MIN_GAP, STROKE as BASE_STROKE, SIZE_STEP, SIZES, markMax, sizeBase, sizeOf, weightOf } from './masters.mjs';
 
 const MAX_DP = 2;
 // Directional marks (chevron, caret, minus) are deliberately smaller than any
@@ -126,8 +126,10 @@ function lint(canvas, file) {
 
   // --- 4b. advisory: bends tighter than half the stroke (C10) --------------
   // Below R = weight / 2 the inner corner stays a notch and the corner reads heavier.
-  // A dot (one closed circle drawn as two arcs) is not a bend: under half the stroke it is a solid disc.
-  const isDot = (d) => /^M[^A-Za-z]+A[^A-Za-z]+A[^A-Za-z]+Z?$/.test(d.trim());
+  // A dot (one CLOSED circle drawn as two arcs) is not a bend: under half the stroke it is a
+  // solid disc. The path must close — an open two-arc path is a bend (a bowl running into a
+  // tuck) and is checked like any other, and in a glyph mark it is the body, not the dot (C19).
+  const isDot = (d) => /^M[^A-Za-z]+A[^A-Za-z]+A[^A-Za-z]+Z$/.test(d.trim());
   for (const d of ds) if (!isDot(d)) for (const { cmd, args } of parsePath(d)) {
     if (cmd.toUpperCase() !== 'A') continue;
     for (let k = 0; k + 7 <= args.length; k += 7)
@@ -136,15 +138,25 @@ function lint(canvas, file) {
   }
 
   // --- 5. advisory: near-collisions between separate paths ---------------
+  // §6 asks one stroke width between any two stroke edges. C19 carves out one case:
+  // in a file that declares `<!-- glyph: dot -->`, the pair {dot, body} is the inside
+  // of one character and floors at GLYPH_GAP instead. The dot's clearance to the
+  // silhouette (the path spanning the whole ink box) is not that pair, and keeps MIN_GAP.
   const sampled = ds.map(samplePath);
-  const need = MIN_GAP + STROKE; // centreline distance for a one-stroke edge gap
+  const isGlyph = /<!--\s*glyph:\s*dot\s*-->/.test(src);
+  const spans = ds.map((d) => bbox([d]));
+  const whole = ds.length ? bbox(ds) : null;
+  const isShell = (b) => whole && ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(b[k] - whole[k]) < 0.01);
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
     if (crosses(sampled[i], sampled[j])) continue; // paths that cross (x, plus) join by design
+    const glyphPair = isGlyph && isDot(ds[i]) !== isDot(ds[j]) && !isShell(spans[i]) && !isShell(spans[j]);
+    const floor = glyphPair ? GLYPH_GAP : MIN_GAP;
+    const need = floor + STROKE; // centreline distance for a one-stroke edge gap
     let min = Infinity;
     for (const [ax, ay] of sampled[i]) for (const [bx, by] of sampled[j])
       min = Math.min(min, Math.hypot(ax - bx, ay - by));
     if (min > 0.1 && min < need - 0.01)
-      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — §6 needs ${need} (edge gap ${r2(min - STROKE)} < ${MIN_GAP})`);
+      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : '§6'} needs ${need} (edge gap ${r2(min - STROKE)} < ${floor})`);
   }
 
   return { file, errors, warnings, notes, size, inner, isMark };

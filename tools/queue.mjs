@@ -129,10 +129,13 @@ function start(name) {
 // ─── approve ───────────────────────────────────────────────────────────────
 // tags: search words kept beside the name (check-2 → "long sweep"); build.mjs reads them.
 // optical: [dx, dy] the ink is deliberately moved off the box centre (C14); lint and build read it.
-const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null) => [
+// glyph: dot — the mark is one character whose dot is detached (i, ?, !); its dot-to-body
+// gap floors at GLYPH_GAP rather than MIN_GAP (C19). Lint reads it.
+const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
+  ...(glyph ? [`  <!-- glyph: ${glyph} -->`] : []),
   ...(optical ? [`  <!-- optical: ${optical.join(' ')} -->`] : []),
   ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
   ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
@@ -157,16 +160,17 @@ async function approve(args) {
   for (const { c, file } of plan) {
     const keyline = c.keyline ?? d.keyline ?? null;
     const tags = c.tags ?? d.tags ?? [];
+    const glyph = c.glyph ?? d.glyph ?? null;
     for (const m of masters) {
       const o = c.masters?.[m] ?? die(`${c.id} has no ${m} master.`);
       const f = c.filled?.[m];
       if (c.filled === 'outline' || !f) die(`${c.id} has no filled drawing at ${m} (filled: 'outline' is retired — give it a weight or fill).`);
       const note = [c.label, c.note].filter(Boolean).join(': ');
-      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o, tags, c.optical?.[m]));
+      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o, tags, c.optical?.[m], glyph));
       const fw = f.weight ?? STROKE;
       writeFileSync(`src/icons/${m}/${file}-filled.svg`, svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? ': shapes filled, lines stay 1.5' : `: weight ${fw}, ends pulled in ${(fw - STROKE) / 2} so the ink box matches the outline`),
-        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m]));
+        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph));
       written.push(`src/icons/${m}/${file}.svg`, `src/icons/${m}/${file}-filled.svg`);
     }
   }

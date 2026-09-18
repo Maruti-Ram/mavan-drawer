@@ -44,3 +44,11 @@ export const markMax = (name, master) =>
 // Minimum gap between any two stroke edges: one outline stroke width, at every
 // master and in both styles.
 export const MIN_GAP = STROKE;
+
+// C19. One exception: a glyph mark's detached dot (info's i, help's ?, alert's !)
+// is one character, not two elements, so the space between dot and body is a
+// counter, not clearance. It floors at GLYPH_GAP — one whole unit, which is one
+// pixel at every master's own size, the smallest gap that still holds a clear
+// pixel row. Declared per file as `<!-- glyph: dot -->`; it never applies to the
+// dot's clearance to a container, and everything else keeps MIN_GAP.
+export const GLYPH_GAP = 1;
