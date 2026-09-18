@@ -234,7 +234,7 @@ writeFileSync('lab/drafts/current.js',
   `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each row is an (x, y)\n` +
   `// position in family-default units at 24; judge the balance in the canvas against all four edges.\n` +
   `export default ${JSON.stringify({
-    concept, ...(concepts.length > 1 ? { concepts } : {}), ...(draftFile ? { drafted: true } : {}), keyline: 'mark', ...(context ? { context } : {}),
+    concept, ...(concepts.length > 1 ? { concepts } : {}), ...(draftFile ? { drafted: true } : {}), ...(hold ? {} : { keyline: 'mark' }),   // a held container is the silhouette, not a mark ...(context ? { context } : {}),
     question: 'Optical placement (C15): which position reads balanced in the canvas — top, bottom, left and right — for each shape? Open /lab/optical-shift.html.',
     candidates,
   }, null, 2)};\n`);

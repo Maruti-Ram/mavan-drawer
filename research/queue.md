@@ -595,3 +595,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 
 - [x] 488. `info-2` — added 2026-09-17 · approved 2026-09-17
 - [x] 488. `info-2-small` · variant of `info-2` — Flag · small · approved 2026-09-17
+- [x] 489. `info-3` — added 2026-09-17 · approved 2026-09-18
