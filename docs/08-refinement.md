@@ -247,14 +247,27 @@ earns its keep).
 `docs/01-foundations.md:243` states *"no enclosed shape smaller than 1.5 units across"*
 and *"no more than 3 parallel strokes in one run"*.
 
-**The first is now in code.** `selfGap` in `tools/geometry.mjs`, wired into lint, nine
+**The first is now in code.** `selfGap` in `tools/geometry.mjs`, wired into lint, ten
 tests in `tools/geometry.test.mjs`. The thing that made it hard is that neither distance
 nor arc length separates a legal bend from an illegal counter — a C10 corner at the
 minimum radius brings its own tangent points 1.06 apart, and a 90° corner can span as much
 path as a closing bowl. **Turn** separates them: a bend turns 45°, 90°, at most 135° and
-leaves, so a pair of points is judged only once the path between them has turned past 180°.
-Turn accumulates signed (a bowl into a reverse tuck unwinds), and on a closed path the
-short way round is the real separation (a ring does not read as touching itself at its seam).
+leaves, so a pair of points is judged only once the path between them has turned past the
+gate. Turn accumulates signed (a bowl into a reverse tuck unwinds), and a closed path is
+not judged against itself at all: going the short way round its widest pair is its own
+diameter, which is a radius, not a counter.
+
+**The gate is 170°, not 180° — corrected 2026-09-18.** At 180 the measure missed the very
+shape it was built for. A half-circle bowl ends on a 45° diagonal, where the 2 dp grid rule
+rounds 1.0607 to 1.06 and the sweep comes out at **175.96°**; `help-3`'s proposed 16 — an
+r1.5 bowl plus a straight tangent tail — therefore turned *under* the gate, and its counter,
+its mouth and its filled knockout were all unjudged while lint printed it clean. Two fixes
+went in together: the polyline's chord directions lag the true tangents by half a segment
+at each end, which was costing every measured sweep a few degrees (`help` 16 read 241°,
+not 245°), and the gate dropped to 170 — 35° of margin over the widest legal bend, 6° under
+the tightest half-bowl. Judging a pair 170° apart reads their chord rather than the full
+diameter, so a counter can read ~0.01 tight, inside lint's existing tolerance. The 576 stay
+clean, and an over-cut `help-3` knockout fires as it should.
 
 Across all 576 drawings it reported four, all question marks at the 16 master and nothing
 else — which settled **C19's extension to the glyph mouth** (doc 07). `help-4`'s first 16

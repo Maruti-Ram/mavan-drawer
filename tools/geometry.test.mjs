@@ -60,3 +60,18 @@ test('an S unwinds: reversing curvature is not doubling back', () => {
   const d = 'M9.01 9.49A3 3 0 1 1 12.83 12.63A1.14 1.14 0 0 0 12 13.73';
   assert.ok(selfGap(d, 1.5).gap >= 1.5, 'shipped help 24 must pass');
 });
+
+test('a half-circle bowl is judged, though the grid rounds its sweep under 180', () => {
+  // help-3's proposed 16: bowl r1.5 centred (7.75, 6.25) swept 180 deg, then a
+  // straight 45 deg tangent tail. Its ends sit on the diagonal, where 2 dp turns
+  // 1.0607 into 1.06 and the sweep into 175.96 - so a 180 gate never judged it and
+  // the mark passed lint with its counter, its mouth and its knockout all unseen.
+  const d = 'M6.69 5.19A1.5 1.5 0 0 1 8.81 7.31L8 8.12';
+  const got = selfGap(d, 1.5);
+  assert.ok(got, 'a half-circle bowl must be judged');
+  near(got.gap, 1.5);           // 2r - stroke, the counter
+});
+
+test('a 135 deg bend - the widest C10 allows - is still never judged', () => {
+  assert.equal(selfGap('M4 4L8 8A0.75 0.75 0 0 1 7.47 9.28L4 10.31', 1.5), null);
+});

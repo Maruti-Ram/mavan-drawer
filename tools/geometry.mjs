@@ -214,6 +214,15 @@ export function anatomy(paths, stroke) {
 //
 // Turn is accumulated SIGNED, so an S — a bowl into a reverse tuck — unwinds as it
 // should: reversing curvature moves the path away from itself, not alongside it.
+//
+// The gate is 170, not 180. A half-circle bowl is the archetype this measure exists
+// for, and it can never reach 180 on our grid: its ends sit on a 45 deg diagonal, so
+// the 2 dp rule rounds 1.0607 to 1.06 and the sweep comes out at 175.96 — under a 180
+// gate the whole mark goes unjudged, which is how `help-3`'s proposed 16 first passed
+// clean. 170 keeps a 35 deg margin over the widest legal bend (C10 tops out at 135)
+// and 6 under the tightest half-bowl. Judging a pair 170 apart reads their chord
+// rather than the full diameter, so a counter can read ~0.01 tight; lint's tolerance
+// already allows for that.
 const TAU = Math.PI * 2;
 
 /** Sample points with the signed turn and the arc length accumulated along the path. */
@@ -237,6 +246,19 @@ function sampleWithTurn(d) {
     const run = i === 0 ? 0 : out.at(-1)[3] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
     out.push([pts[i][0], pts[i][1], (turn * 180) / Math.PI, run]);
   }
+  // A polyline's chord directions are the true tangents rotated by half a segment's
+  // turn, and the last sample has no segment after it, so a half turn is lost at each
+  // end. Give each end its half back, or every measured sweep reads a few degrees
+  // short of what was drawn.
+  // A closed path is exempt either way: going the short way round, no two of its
+  // points are more than half a revolution apart, so a ring's hole reads as a
+  // radius and not a counter. Correcting its ends would make antipodes land on
+  // exactly 180 and start judging every circle in the set against itself.
+  const shut = out.length > 3 && Math.hypot(out.at(-1)[0] - out[0][0], out.at(-1)[1] - out[0][1]) < 0.01;
+  if (out.length > 3 && !shut) {
+    out[0][2] -= (out[1][2] - out[0][2]) / 2;
+    out.at(-1)[2] += (out.at(-2)[2] - out.at(-3)[2]) / 2;
+  }
   return out;
 }
 
@@ -247,7 +269,7 @@ function sampleWithTurn(d) {
  * Returns null when the path never turns that far — a straight or singly-bent
  * mark has no counter and nothing to check.
  */
-export function selfGap(d, stroke = 0, turn = 180) {
+export function selfGap(d, stroke = 0, turn = 170) {
   // A `d` holding several subpaths (an evenodd area) is not one path: measure each
   // on its own, or a shape reads as touching the shape beside it inside the same d.
   const subs = d.trim().split(/(?=[Mm])/).filter((x) => x.trim());
@@ -261,6 +283,12 @@ export function selfGap(d, stroke = 0, turn = 180) {
   // point: without this the wrap reads as a zero gap on every circle in the set.
   const total = pts.at(-1)[3];
   const closed = Math.hypot(pts.at(-1)[0] - pts[0][0], pts.at(-1)[1] - pts[0][1]) < 0.01;
+  // A closed path is not judged against itself at all. Going the short way round, no
+  // two of its points are more than half a revolution apart, so the widest pair on a
+  // ring is its own diameter — a radius, not a counter. That was true by accident
+  // while the gate sat at 180 and sampling read 178; with the gate at 170 it has to
+  // be said out loud, or every circle in the set reports its own hole.
+  if (closed) return null;
   const NEIGHBOUR = 0.5;
   const whole = Math.abs(pts.at(-1)[2] - pts[0][2]);
   let min = Infinity, at = null;
