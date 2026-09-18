@@ -119,7 +119,8 @@ The ⌀20 keyline and what sits inside it.
 - [x] 22. `alert-circle-4` · Status & Feedback · variant of `alert-circle` — Wedge + dash mid · approved 2026-09-18
 - [x] 23. `clock` · Time & Calendar — approved 2026-09-18
 - [x] 24. `search` · UI & Layout — approved 2026-09-18
-- [ ] 25. `globe` · Maps & Location
+- [x] 24. `search-2` · UI & Layout · variant of `search` — Big lens · approved 2026-09-18
+- [~] 25. `globe` · Maps & Location
 - [ ] 26. `ban` · Status & Feedback
 
 ## C · Core containers and figures
