@@ -5,7 +5,12 @@ Explored in `lab/character.html` against Polaris, Nucleo UI and Central Icons
 
 ## How to read this table (C0)
 
-**These decisions exist to hold the language together, not to constrain the next drawing.**
+**The intent is always balance, refined symbols, consistency, character.** That is what the set
+is for. Every row below is a means to it — a number that was found to serve it once, written
+down so it does not have to be rediscovered. **None of them outranks it.** When a rule and the
+intent disagree, the intent is right and the rule has been carried outside its range.
+
+So these decisions exist to hold the language together, not to constrain the next drawing.
 Before applying any row below to an icon being constructed, ask the question in this order:
 
 1. Does the rule, *here*, make this icon better and more of a piece with the set?
