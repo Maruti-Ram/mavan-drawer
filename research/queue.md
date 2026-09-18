@@ -123,7 +123,9 @@ The ⌀20 keyline and what sits inside it.
 - [x] 24. `search-3` · UI & Layout · variant of `search` — Long handle · approved 2026-09-18
 - [x] 25. `globe` · Maps & Location — approved 2026-09-19
 - [x] 25. `globe-2` · Maps & Location · variant of `globe` — Tilted · approved 2026-09-19
-- [ ] 26. `ban` · Status & Feedback
+- [x] 26. `ban` · Status & Feedback — approved 2026-09-19
+- [x] 26. `ban-2` · Status & Feedback · variant of `ban` — Filled rim unbroken · approved 2026-09-19
+- [x] 26. `ban-3` · Status & Feedback · variant of `ban` — Bar inset (anchor) · approved 2026-09-19
 
 ## C · Core containers and figures
 
