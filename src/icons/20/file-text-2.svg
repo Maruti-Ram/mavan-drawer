@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: ragged -->
+  <!-- Short first line — paragraph, ragged: 3 · 2 · 2, top line short at every master: 2.5 of 8.5 at 24 (40% of the ink, Lucide rags to 25% and Nucleo to 31%), 62% at 20 and 62% at 16 — the ratio climbs because MIN_GAP takes proportionally more of the small canvas, the same way trash's handle does. At 16 the top bar is 6.75→7.75, ink 2.5 against the full 4.0, and that rag pays for itself: a 2.5 bar clears the fold at y 8.46, so 8.5 is legal and only the bottom line's 2.75 to the floor is short — one warning, not two. Against B at 16 it is a 2.5px bar over a 4px one, which is the separation. Filled, the short bar keeps 1.0 of straight run inside its stadium -->
+  <path d="M6.75 2.75H10.25L15.25 7.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z"/>
+  <path d="M10.25 2.75V6.5A1.25 1.25 0 0 0 11.5 7.75H15.25"/>
+  <path d="M7.75 11H9.5"/>
+  <path d="M7.75 14H12.25"/>
+</svg>
