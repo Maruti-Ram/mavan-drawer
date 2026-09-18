@@ -110,7 +110,9 @@ The ⌀20 keyline and what sits inside it.
 - [x] 19. `minus-circle` · UI & Layout — approved 2026-09-17
 - [x] 19. `minus-circle-small` · UI & Layout · variant of `minus-circle` — Heavy · run kept · plus width · small · approved 2026-09-17
 - [x] 20. `info` · Status & Feedback — approved 2026-09-18
-- [ ] 21. `help` · Status & Feedback
+- [x] 21. `help` · Status & Feedback — approved 2026-09-18
+- [x] 21. `help-2` · Status & Feedback · variant of `help` — Coil · approved 2026-09-18
+- [x] 21. `help-3` · Status & Feedback · variant of `help` — Hook · approved 2026-09-18
 - [ ] 22. `alert-circle` · Status & Feedback
 - [ ] 23. `clock` · Time & Calendar
 - [ ] 24. `search` · UI & Layout
