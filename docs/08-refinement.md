@@ -163,9 +163,24 @@ All three share: circle, glyph box **12 · 10 · 8**, dot 2.5 · 2 · 2, termina
 axis with the dot directly below, counter never under one stroke. They differ only in
 the tail (Polaris tuck / coil / straight 45°).
 
-**All three share one identical 16 master.** At 16, a one-stroke counter plus the C19 gap
-leaves no height for a tail, and a C10-legal tuck would need a 0.57 radius. There is
-exactly one legal 16 drawing, so `help-2` and `help-3` ship 16 as a copy.
+**All three share one identical 16 master**, and `help-2` and `help-3` ship 16 as a copy.
+
+**Corrected 2026-09-18.** This was first recorded as *"a C10-legal tuck would need a 0.57
+radius; there is exactly one legal 16 drawing"*. Both halves are wrong. The 0.57 came from
+forcing the **mark's** ink box onto the canvas centre; lint centres the whole ink box, which
+on a container icon is the ring — shipped `help`'s 16 mark sits at **8.08**. Searched properly,
+**31 legal 16 drawings exist**, including tucks at r1 – r1.5 and a straight 45° tail 1.15 long.
+
+What actually forces the shared 16 is a different pair of rules. C19 makes the **dot** hold
+MIN_GAP 1.5 to the ring, which pins the dot centre at y ≤ 11 and so the terminal at y ≤ 8.25.
+An r1.75 bowl's foot already sits at 8.25, so it has no room to grow a tail; and dropping to
+r1.5 to make room takes the **counter from 2 to 1.5** — one clear pixel instead of two at 16.
+So a distinct 16 per shape is *available*, at the cost of half the bowl's counter. That is a
+judgement at real pixels, not a geometric impossibility, and it is **undecided**.
+
+The trap worth remembering: the first search constrained the glyph against the ring and forgot
+the dot. It produced a drawing that measured well on every reported number and failed lint on
+the one gap nobody had measured.
 
 ---
 
