@@ -51,4 +51,8 @@ export const MIN_GAP = STROKE;
 // pixel at every master's own size, the smallest gap that still holds a clear
 // pixel row. Declared per file as `<!-- glyph: dot -->`; it never applies to the
 // dot's clearance to a container, and everything else keeps MIN_GAP.
+// Extended 2026-09-18: it also floors a glyph's own OPENING - the mouth of a `?`,
+// where the hook starts and ends without closing - which `selfGap` measures. Same
+// reason: that space is the inside of one character, not clearance between two
+// elements. All four question marks measure 1.33-1.45 there at the 16 master.
 export const GLYPH_GAP = 1;

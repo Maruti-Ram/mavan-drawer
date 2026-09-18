@@ -167,11 +167,20 @@ function lint(canvas, file) {
   // C10 bend — which legitimately brings its own tangent points 1.06 apart — is never
   // flagged, while a mouth that has closed up is. A dot is a solid disc by design.
   // Caught by eye and not by lint before this existed: help-4's 16 shipped a 0.30 mouth.
+  // C19 extends here: in a file that declares `<!-- glyph: dot -->`, a mark's own
+  // opening - the mouth of a `?`, of an `!`, of an `i` - is the inside of one
+  // character and floors at GLYPH_GAP, for the same reason its dot gap does. §6's
+  // one-stroke floor was written for parallel runs and repeated elements; applied
+  // inside a letter it hollows it out. The container ring is not part of the
+  // character and keeps MIN_GAP (it is a closed circle, so it has no mouth anyway).
   for (let i = 0; i < ds.length; i++) {
     if (isDot(ds[i])) continue;
     const self = selfGap(ds[i], STROKE);
-    if (self && self.gap < MIN_GAP - 0.01)
-      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — §6 needs ${MIN_GAP} (it turns ${self.span}°)`);
+    if (!self) continue;
+    const inGlyph = isGlyph && !isShell(spans[i]);
+    const floor = inGlyph ? GLYPH_GAP : MIN_GAP;
+    if (self.gap < floor - 0.01)
+      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? 'C19 glyph gap' : '§6'} needs ${floor} (it turns ${self.span}°)`);
   }
 
   return { file, errors, warnings, notes, size, inner, isMark };

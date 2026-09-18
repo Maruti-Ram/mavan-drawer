@@ -10,7 +10,11 @@ const near = (got, want, tol = 0.06) =>
 
 test('catches a closed mouth: help-4 16 as first drawn', () => {
   const d = 'M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8';
-  near(selfGap(d, 1.5).gap, 0.30);
+  const got = selfGap(d, 1.5).gap;
+  near(got, 0.30);
+  // it must still fail under C19's looser floor for the inside of a character,
+  // or extending C19 to the mouth would have disarmed the check that found it
+  assert.ok(got < 1.0, 'must fail even at GLYPH_GAP');
 });
 
 test('passes the same mark once the mouth is opened (shipped help-4 16)', () => {

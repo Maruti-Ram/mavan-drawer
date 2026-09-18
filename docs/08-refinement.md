@@ -242,16 +242,29 @@ Recommendation: leave it for now. The scan (§3.5) shows it binds almost nothing
 cost is low and the risk of loosening it is real (`more-*` dots, menu runs are where it
 earns its keep).
 
-### 6.4 The unenforced §6 corollaries
+### 6.4 The unenforced §6 corollaries — **enclosed shapes DONE 2026-09-18**
 
 `docs/01-foundations.md:243` states *"no enclosed shape smaller than 1.5 units across"*
-and *"no more than 3 parallel strokes in one run"*. **Neither exists in code.** The first
-is exactly the "stuffed" fault.
+and *"no more than 3 parallel strokes in one run"*.
 
-This is ranked item 3 and it is **the hard one** — it needs a "how close does a single
-path come to itself" measure, and that was hand-rolled twice in one session and got wrong
-both times (first measuring the arc's own curvature, then an arc-length filter that
-excluded the real mouth). Do it once, properly, with tests.
+**The first is now in code.** `selfGap` in `tools/geometry.mjs`, wired into lint, nine
+tests in `tools/geometry.test.mjs`. The thing that made it hard is that neither distance
+nor arc length separates a legal bend from an illegal counter — a C10 corner at the
+minimum radius brings its own tangent points 1.06 apart, and a 90° corner can span as much
+path as a closing bowl. **Turn** separates them: a bend turns 45°, 90°, at most 135° and
+leaves, so a pair of points is judged only once the path between them has turned past 180°.
+Turn accumulates signed (a bowl into a reverse tuck unwinds), and on a closed path the
+short way round is the real separation (a ring does not read as touching itself at its seam).
+
+Across all 576 drawings it reported four, all question marks at the 16 master and nothing
+else — which settled **C19's extension to the glyph mouth** (doc 07). `help-4`'s first 16
+measured 0.30 there and had shipped lint-clean that morning.
+
+**The second corollary — no more than 3 parallel strokes in one run — is still not in code.**
+Nothing approved breaks it (`menu` is the widest run at three), so it binds nothing today.
+
+Also still open: `docs/01-foundations.md:245` says *"when a detail cannot fit at a **2-unit**
+gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2 era.
 
 ### 6.5 Holes in what the gap rule actually covers
 
@@ -270,7 +283,7 @@ excluded the real mouth). Do it once, properly, with tests.
 |---|---|---|
 | 1 | Ratio metrics | **done** (`9bf26d7`) |
 | 2 | Real pixels in the review loop | **done** (`9bf26d7`) |
-| 3 | A counter minimum, actually checked | **open** — the hard one, see §6.4 |
+| 3 | A counter minimum, actually checked | **done** (`5ed8f2b`) — `selfGap`, see §6.4 |
 | 4 | Void/mass ratio | **done** (`9bf26d7`) |
 | 5 | The blur test (Fluent's) | **open** — cheap, additive |
 | 6 | Primitive-drift linter | **open** — on CLAUDE.md's list already; this session used bowl radii 2.25 / 2.5 / 2.75 / 3 / 3.5 with nothing checking they related to anything |
