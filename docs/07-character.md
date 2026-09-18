@@ -3,6 +3,31 @@
 Explored in `lab/character.html` against Polaris, Nucleo UI and Central Icons
 (`node tools/refs.mjs` builds the licensed references locally; they are gitignored).
 
+## How to read this table (C0)
+
+**These decisions exist to hold the language together, not to constrain the next drawing.**
+Before applying any row below to an icon being constructed, ask the question in this order:
+
+1. Does the rule, *here*, make this icon better and more of a piece with the set?
+2. Or does it force a drawing the eye rejects — a hollow glyph, a dash where text belongs,
+   a detail cut to a speck?
+
+If (2), the rule is out of its range, and the answer is to say so with the measurement and put
+it to the user — **not** to ship the worse drawing because the table said so, and not to bend
+the rule silently. A rule that starts producing discrepancy is reporting a gap in itself.
+
+This is not a licence to improvise: the range is widened once, in writing, with the numbers
+that showed it, and the widening is scoped to what was measured — see C24 for what happens when
+one icon's arithmetic is promoted to a corollary. The table already carries three cases of this
+working as intended: **C19** (§6's one-stroke floor was written for line marks and runs; inside a
+glyph it left a hollow middle, so the glyph gap was carved out and floored at 1), **C22** (the
+`trash` tab legs trip lint at 20 and 16 where the strokes never share space, so the drawing
+stands and the fix is owed to `tools/lint.mjs`), and **C23** (`file`'s fold and chamfer enclose a
+counter, not a pair of strokes; measured as a pair the rule demanded a chamfer 65% of the body).
+
+| User direction 2026-09-19, after C24 was written as a general corollary and withdrawn. |
+|---|
+
 ## Decided
 
 | # | Decision | Why |
