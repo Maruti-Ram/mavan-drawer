@@ -3,20 +3,18 @@
   "configurations": [
     {
       "name": "lab",
-      "runtimeExecutable": "python3",
+      "runtimeExecutable": "node",
       "runtimeArgs": [
-        "-m",
-        "http.server",
+        "tools/serve.mjs",
         "4174"
       ],
       "port": 4174
     },
     {
       "name": "lab-4175",
-      "runtimeExecutable": "python3",
+      "runtimeExecutable": "node",
       "runtimeArgs": [
-        "-m",
-        "http.server",
+        "tools/serve.mjs",
         "4175"
       ],
       "port": 4175,

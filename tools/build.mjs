@@ -3,7 +3,7 @@
 // Every master in tools/masters.mjs is built; lab pages read the 24 master.
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { bbox } from './geometry.mjs';
+import { bbox, anatomy } from './geometry.mjs';
 import { opticalBearings } from './optical.mjs';
 import { MASTERS, STROKE, FILLED_WEIGHT, weightOf } from './masters.mjs';
 
@@ -48,7 +48,12 @@ function buildMaster(canvas) {
     // Optical bearings model strokes only; shape-filled drawings get geometric ones for now.
     const optical = paths.length && !areas.length ? opticalBearings(paths, sw, canvas)
       : Object.fromEntries(Object.entries(bearing).map(([k, v]) => [k, { geometric: v, recession: 0, optical: v }]));
-    return [n, { paths, areas, body, mark, tags, shift, stroke: sw, ink, bearing, optical }];
+    // Anatomy: the mark as a fraction of its container, and the void inside a glyph
+    // mark. Absolute numbers (ink, bearings) cannot see either — a mark can hold a
+    // perfect ink box and still sit small in its ring, or leave a hollow middle.
+    const { container, mark: markBox, ratio, gap } = anatomy(paths, sw);
+    return [n, { paths, areas, body, mark, tags, shift, stroke: sw, ink, bearing, optical,
+      container, markBox, ratio, gap }];
   }));
   return { names, icons };
 }
@@ -80,6 +85,9 @@ const metrics = Object.fromEntries(Object.entries(built).map(([m, { names, icons
     shift: icons[n].shift,                   // declared optical offset from the box centre (C14)
     bearing: icons[n].bearing,               // geometric — where ink stops
     optical: icons[n].optical,               // tuned — where ink *reads* as stopping
+    container: icons[n].container,           // the silhouette's ink diameter, when there is one
+    ratio: icons[n].ratio,                   // mark ink box ÷ container — what absolute numbers hide
+    gap: icons[n].gap,                       // a glyph mark's dot-to-body void, and it ÷ the dot
   }]))]));
 writeFileSync('dist/metrics.json', JSON.stringify(metrics, null, 2));
 

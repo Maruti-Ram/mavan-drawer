@@ -2,7 +2,7 @@
 // Mechanically enforces docs/01-foundations.md. Exit 1 on any error.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { numbersIn, samplePath, bbox, parsePath } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, STROKE as BASE_STROKE, SIZE_STEP, SIZES, markMax, sizeBase, sizeOf, weightOf } from './masters.mjs';
 
 const MAX_DP = 2;
@@ -127,9 +127,9 @@ function lint(canvas, file) {
   // --- 4b. advisory: bends tighter than half the stroke (C10) --------------
   // Below R = weight / 2 the inner corner stays a notch and the corner reads heavier.
   // A dot (one CLOSED circle drawn as two arcs) is not a bend: under half the stroke it is a
-  // solid disc. The path must close — an open two-arc path is a bend (a bowl running into a
-  // tuck) and is checked like any other, and in a glyph mark it is the body, not the dot (C19).
-  const isDot = (d) => /^M[^A-Za-z]+A[^A-Za-z]+A[^A-Za-z]+Z$/.test(d.trim());
+  // solid disc. `isDot` lives in geometry.mjs so lint, build and the lab share one test — an
+  // open two-arc path is a bend (a bowl running into a tuck), checked like any other, and in a
+  // glyph mark it is the body, not the dot (C19).
   for (const d of ds) if (!isDot(d)) for (const { cmd, args } of parsePath(d)) {
     if (cmd.toUpperCase() !== 'A') continue;
     for (let k = 0; k + 7 <= args.length; k += 7)

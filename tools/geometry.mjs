@@ -139,3 +139,57 @@ export function bbox(ds) {
   }
   return { x0, y0, x1, y1 };
 }
+
+// ── anatomy ────────────────────────────────────────────────────────────────
+// What a drawing is made of, so lint, build and the lab all read one measure
+// instead of each re-deriving it (and getting it wrong differently).
+
+/** A dot is a CLOSED circle drawn as two arcs. An open two-arc path is a bend. */
+export const isDot = (d) => /^M[^A-Za-z]+A[^A-Za-z]+A[^A-Za-z]+Z$/.test(d.trim());
+
+const grow = (b, h) => ({ x0: b.x0 - h, y0: b.y0 - h, x1: b.x1 + h, y1: b.y1 + h });
+const same = (a, b) => ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(a[k] - b[k]) < 0.01);
+const r2 = (n) => Math.round(n * 100) / 100;
+
+/**
+ * Split a stroked drawing into its silhouette and its mark, and measure the two
+ * ratios absolute numbers hide:
+ *
+ *   ratio  the mark's ink box as a fraction of the container's ink diameter.
+ *          A container icon reads wrong when this drifts from its family, however
+ *          correct its own ink box is.
+ *   gap    for a mark with one detached dot (an i, a ?, a !), the space between
+ *          dot and body, and that space over the dot's own size. This is what
+ *          "a hollow middle" measures; 1.5 units next to a 2-unit dot is 0.75 of it.
+ *
+ * `shell` is the path whose ink box is the whole drawing's — the ring of a
+ * `-circle` icon. A bare mark has none, and then there is no ratio to take.
+ */
+export function anatomy(paths, stroke) {
+  if (!paths || paths.length < 2) return { shell: null, container: null, mark: null, ratio: null, gap: null };
+  const h = stroke / 2;
+  const boxes = paths.map((d) => grow(bbox([d]), h));
+  const whole = grow(bbox(paths), h);
+  const shell = boxes.findIndex((b) => same(b, whole));
+  const rest = paths.filter((_, i) => i !== shell);
+  if (shell < 0 || !rest.length) return { shell: null, container: null, mark: null, ratio: null, gap: null };
+
+  const sb = boxes[shell], mb = grow(bbox(rest), h);
+  const container = r2(Math.max(sb.x1 - sb.x0, sb.y1 - sb.y0));
+  const mark = { w: r2(mb.x1 - mb.x0), h: r2(mb.y1 - mb.y0) };
+  const ratio = { w: r2(mark.w / container), h: r2(mark.h / container) };
+
+  // one detached dot, and the nearest approach from it to everything else
+  let gap = null;
+  const di = rest.findIndex(isDot);
+  if (di >= 0 && rest.length > 1 && rest.filter(isDot).length === 1) {
+    const dot = rest[di], body = rest.filter((_, i) => i !== di);
+    const db = grow(bbox([dot]), h);
+    const dp = samplePath(dot), bp = body.flatMap(samplePath);
+    let min = Infinity;
+    for (const [ax, ay] of dp) for (const [bx, by] of bp) min = Math.min(min, Math.hypot(ax - bx, ay - by));
+    const part = r2(db.y1 - db.y0), size = r2(min - stroke);
+    gap = { size, part, ratio: r2(size / part) };
+  }
+  return { shell, container, mark, ratio, gap };
+}

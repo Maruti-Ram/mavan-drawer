@@ -487,9 +487,18 @@ function metricsTable(n, filled) {
     if (!r) return `<tr><td>${m}</td><td colspan="3" class="sub">not drawn</td></tr>`;
     const c = { x: r.ink.x + r.ink.w / 2 - m / 2, y: r.ink.y + r.ink.h / 2 - m / 2 };
     const off = Math.abs(c.x) > 0.005 || Math.abs(c.y) > 0.005;
+    // The two ratios absolute numbers hide: how big the mark is inside its container,
+    // and how much of a glyph mark is void. Only shown when there is a container to
+    // measure against — a bare mark has none.
+    const an = r.ratio
+      ? `<tr><td class="sub" title="mark ink box ÷ the container's ink diameter">mark</td><td colspan="3">${f(r.markBox.w)} × ${f(r.markBox.h)} of ⌀${f(r.container)} = <b>${r.ratio.w} × ${r.ratio.h}</b></td></tr>`
+      : '';
+    const vd = r.gap
+      ? `<tr><td class="sub" title="dot-to-body gap ÷ the dot's own size">void</td><td colspan="3">${f(r.gap.size)} / ${f(r.gap.part)} = <b>${r.gap.ratio}</b></td></tr>`
+      : '';
     return `<tr><td>${m}</td><td>${f(r.stroke)}</td><td>${f(r.ink.w)} × ${f(r.ink.h)}</td><td class="${off ? 'warn' : ''}" title="ink centre relative to canvas centre">${off ? `${f(c.x)}, ${f(c.y)}` : 'centred'}</td></tr>
       <tr><td class="sub">geometric</td><td colspan="3">${sides(r.bearing)}</td></tr>
-      <tr><td class="sub">optical</td><td colspan="3">${sides(r.optical)}</td></tr>`;
+      <tr><td class="sub">optical</td><td colspan="3">${sides(r.optical)}</td></tr>${an}${vd}`;
   }).join('');
   return `<table class="mt"><thead><tr><th>Master</th><th>Stroke</th><th>Ink</th><th>Centre</th></tr></thead><tbody>${rows}</tbody></table>`;
 }

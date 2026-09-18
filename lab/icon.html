@@ -128,6 +128,12 @@ body.nav-collapsed .iter.on .mini{color:var(--ink)}
 .bh .pill{margin-left:8px;vertical-align:1px}
 .actual{display:flex;align-items:center;gap:10px;padding:4px 8px;border-radius:8px;background:var(--inset)}
 .board svg.cv{width:100%;height:auto;user-select:none}
+.pxrow{margin-left:20px;display:flex;align-items:flex-end;gap:12px}
+.pxrow canvas{image-rendering:pixelated;background:var(--inset);border:1px solid var(--line);border-radius:3px;display:block}
+.pxrow .cap{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.pxrow{margin-left:20px;display:flex;align-items:flex-end;gap:12px}
+.pxrow canvas{image-rendering:pixelated;background:var(--inset);border:1px solid var(--line);border-radius:3px;display:block}
+.pxrow .cap{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
 .cv .canvas{fill:var(--inset);stroke:var(--line);stroke-width:1;vector-effect:non-scaling-stroke}
 .cv .hair{fill:none;stroke-width:1;vector-effect:non-scaling-stroke}
 .cv .g1{stroke:var(--grid)} .cv .gq{stroke:var(--grid2)}
@@ -153,7 +159,7 @@ body.nav-collapsed .iter.on .mini{color:var(--ink)}
 .cv .tag text{fill:#fff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600}
 .cv .ctr{fill:none;stroke:var(--measure);stroke-width:1;vector-effect:non-scaling-stroke}
 .cv .mass{fill:var(--measure)}
-.stats{margin:0 0 0 20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto 18px;gap:10px 16px}
+.stats{margin:0 0 0 20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto 18px 18px;gap:10px 16px}
 .stats div{min-width:0}
 .stats dt{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
 .stats dd{margin:0;font-size:12px;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -272,8 +278,12 @@ body.refs-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
 </aside>
 
 <script type="module">
-import { MASTERS as M, STROKE, FILLED_WEIGHT as FW } from '../tools/masters.mjs';
-import { parsePath, bbox } from '../tools/geometry.mjs';
+// The lab is a dev page and these modules are edited constantly, so they are pulled
+// in dynamically with a cache-buster: a static import is keyed by URL and some preview
+// hosts pin it for the whole session, which silently runs the board on stale code.
+const V = `?v=${Date.now()}`;
+const { MASTERS: M, STROKE, FILLED_WEIGHT: FW } = await import(`../tools/masters.mjs${V}`);
+const { parsePath, bbox, anatomy } = await import(`../tools/geometry.mjs${V}`);
 // One drawing board: whatever icon is on it lives in drafts/current.js, and its
 // references in refs/current.js (node tools/refs.mjs <name>).
 const draft = (await import(`./drafts/current.js?${Date.now()}`)).default;
@@ -590,7 +600,10 @@ function board(style, m, c) {
   if (!dr) return `<figure class="board ${style}">${head}<p class="mute" style="padding-left:20px">Not drawn yet</p></figure>`;
   const parts = [...dr.fill.map((d) => ({ d, area: true })), ...dr.stroke.flatMap(split).map((d) => ({ d, sw: dr.sw }))];
   const boxes = parts.map(inkBox);
-  boards[k] = { m, parts, boxes, ink: union(boxes), px, mass: null };
+  // The mark as a fraction of its container, and a glyph's dot-to-body void.
+  // Absolute numbers cannot see either, and a draft has no metrics.json yet.
+  const an = anatomy(dr.stroke?.flatMap(split) ?? [], dr.sw);
+  boards[k] = { m, parts, boxes, ink: union(boxes), px, mass: null, an, dr };
   massCentre(dr, m).then((p) => { if (boards[k]?.parts === parts) { boards[k].mass = p; idle(k); } });
   return `<figure class="board ${style}" data-k="${k}" style="--w:${size}px">
     ${head}
@@ -606,6 +619,7 @@ function board(style, m, c) {
       <g class="overlay measure"></g>
     </svg>
     <dl class="stats"></dl>
+    <div class="pxrow"><canvas width="1" height="1"></canvas><span class="cap">real pixels at ${m}</span></div>
   </figure>`;
 }
 
@@ -616,7 +630,32 @@ function renderStage() {
   document.getElementById('stage').innerHTML =
     STYLES.map((s) => `<div class="shead"><b>${STYLE_LABEL[s]}</b>${note[s]}</div>`).join('') +
     MASTERS.map((m) => STYLES.map((s) => board(s, m, c)).join('')).join('');
-  for (const k of Object.keys(boards)) idle(k);
+  for (const k of Object.keys(boards)) { idle(k); pixels(k); }
+}
+
+// Real pixels: rasterise at the master's own size (1 unit = 1 pixel), then blow it up
+// with smoothing off. A 1.5 stroke can never fill a whole pixel, so this is where a
+// closed counter, a hollow middle or a soft centre line actually shows up.
+const PXZOOM = 6;
+async function pixels(k) {
+  const B = boards[k], el = els(k); if (!B || !el) return;
+  const cv = el.querySelector('.pxrow canvas'); if (!cv) return;
+  const { dr, m } = B;
+  // A standalone data: URL has no inherited colour, so currentColor would come out
+  // black — on the dark theme that is ink on ink. Bake in the theme's own ink instead.
+  const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000';
+  const src = `<svg xmlns="http://www.w3.org/2000/svg" width="${m}" height="${m}" viewBox="0 0 ${m} ${m}">${
+    paint(dr).replaceAll('currentColor', ink)}</svg>`;
+  const img = new Image();
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`;
+  try { await img.decode(); } catch { return; }
+  if (boards[k]?.dr !== dr) return;                   // the board moved on
+  const off = document.createElement('canvas'); off.width = off.height = m;
+  off.getContext('2d').drawImage(img, 0, 0, m, m);
+  cv.width = m * PXZOOM; cv.height = m * PXZOOM;
+  const ctx = cv.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(off, 0, 0, m, m, 0, 0, cv.width, cv.height);
 }
 
 // Mass centre of the rendered ink — where the icon's visual weight sits.
@@ -688,10 +727,20 @@ const size = (b) => `${f(b.x1 - b.x0)} × ${f(b.y1 - b.y0)}`;
 const range = (a, b) => `${f(a)} – ${f(b)}`;
 const pair = (x, y) => `${f(x)}, ${f(y)}`;
 const stat = (label, value, cls = '', title = '') => `<div${title ? ` title="${title}"` : ''}><dt>${label}</dt><dd class="${cls}">${value}</dd></div>`;
-// The second row always exists, so the board never changes height between modes.
+// The last two rows always exist, so the board never changes height between modes.
 const line = (left, pt) => state.inspect
   ? `<div class="line"><span>${left}</span><span>${pt ? `x ${f(pt[0])}  y ${f(pt[1])}` : ''}</span></div>`
   : '<div class="line hint"><span>Inspect to measure strokes</span></div>';
+
+// Anatomy: what absolute numbers hide. `mark` is the mark's ink box over the
+// container's ink diameter — a mark can hold a perfect ink box and still sit small in
+// its ring. `void` is a glyph's dot-to-body gap over the dot's own size: 1.5 beside a
+// 2-unit dot is 0.75 of it, which is what reads as a hollow middle.
+function anat(an) {
+  if (!an?.ratio) return '<div class="line hint"><span>No container to measure the mark against</span></div>';
+  const g = an.gap ? `void ${f(an.gap.size)} / ${f(an.gap.part)} = ${an.gap.ratio}` : '';
+  return `<div class="line"><span>mark ${f(an.mark.w)}×${f(an.mark.h)} of ⌀${f(an.container)} = ${an.ratio.w} × ${an.ratio.h}</span><span>${g}</span></div>`;
+}
 
 // Resting state: whole-icon ink box, its margins, and where the weight sits.
 function idle(k, pt = null) {
@@ -705,7 +754,7 @@ function idle(k, pt = null) {
     stat('Margins', `${f(I.x0)} · ${f(m - I.x1)} · ${f(I.y0)} · ${f(m - I.y1)}`, '', 'left · right · top · bottom') +
     stat('Centre', boxOff, boxCls, 'ink box centre relative to canvas centre') +
     stat('Mass', massOff, massCls, 'visual weight relative to canvas centre') +
-    line('Hover a stroke', pt);
+    line('Hover a stroke', pt) + anat(B.an);
   let g = '';
   if (state.inspect) {
     const t = 4 / px;
@@ -735,7 +784,7 @@ function hover(k, hi, pt) {
   el.querySelector('.stats').innerHTML =
     (both ? stat('Pinned', size(B.boxes[pi])) + stat('Hover', size(b)) : stat('Size', size(b)) + stat('State', pi != null ? 'Pinned' : 'Hover', 'ok')) +
     stat('X', range(b.x0, b.x1)) + stat('Y', range(b.y0, b.y1)) +
-    line(B.parts[i].d, pt);
+    line(B.parts[i].d, pt) + anat(B.an);
 }
 
 function eventPoint(svgEl, e) {

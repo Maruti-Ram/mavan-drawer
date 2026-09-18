@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "node tools/lint.mjs",
     "build": "node tools/build.mjs",
-    "lab": "npm run build && python3 -m http.server 4174",
+    "lab": "npm run build && node tools/serve.mjs 4174",
     "check": "npm run build && npm run lint",
     "audit": "node tools/audit.mjs",
     "queue": "node tools/queue.mjs"
