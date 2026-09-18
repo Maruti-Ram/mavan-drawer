@@ -109,8 +109,8 @@ The ⌀20 keyline and what sits inside it.
 - [x] 18. `plus-circle-small` · UI & Layout · variant of `plus-circle` — C · small · approved 2026-09-17
 - [x] 19. `minus-circle` · UI & Layout — approved 2026-09-17
 - [x] 19. `minus-circle-small` · UI & Layout · variant of `minus-circle` — Heavy · run kept · plus width · small · approved 2026-09-17
-- [x] 20. `info` · Status & Feedback — approved 2026-09-17
-- [x] 20. `info-small` · Status & Feedback · variant of `info` — Airy · small · approved 2026-09-17
+- [x] 20. `info` · Status & Feedback — approved 2026-09-18
+- [x] 20. `info-small` · Status & Feedback · variant of `info` — Airy · small · approved 2026-09-18
 - [ ] 21. `help` · Status & Feedback
 - [ ] 22. `alert-circle` · Status & Feedback
 - [ ] 23. `clock` · Time & Calendar
@@ -593,6 +593,6 @@ Bases before their variants; within that, highest evidence first.
 
 Icons asked for while drawing, in the order they were asked. Not in the audit ranking.
 
-- [x] 488. `info-2` — added 2026-09-17 · approved 2026-09-17
-- [x] 488. `info-2-small` · variant of `info-2` — Flag · small · approved 2026-09-17
+- [x] 488. `info-2` — added 2026-09-17 · approved 2026-09-18
+- [x] 488. `info-2-small` · variant of `info-2` — Flag · small · approved 2026-09-18
 - [x] 489. `info-3` — added 2026-09-17 · approved 2026-09-18
