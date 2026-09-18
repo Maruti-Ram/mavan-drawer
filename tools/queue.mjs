@@ -9,11 +9,13 @@
 //   node tools/queue.mjs start <name>         mark it in review and load its references; a name
 //                                             not on the sheet is added (a size under its default,
 //                                             anything else at the end, in "E · Added on request")
+//   node tools/queue.mjs drop <name>…        retire a name: delete its files (every master, both
+//                                             styles) and remove its row from the sheet
 //   node tools/queue.mjs approve <id>=<file> [<id>=<file>…]
 //                                             write the board's candidates to src/icons,
 //                                             lint, tick the sheet. `approve B` alone
 //                                             writes candidate B as the concept name.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { MASTERS, STROKE, sizeBase, sizeOf } from './masters.mjs';
@@ -202,11 +204,37 @@ async function approve(args) {
   console.log(nx ? `Next: ${label(nx)} (${nx.section}) — run: node tools/queue.mjs start ${nx.name}` : 'Queue complete.');
 }
 
+// ─── drop ──────────────────────────────────────────────────────────────────
+// Retire a name the set is not shipping after all: its files go, its row goes.
+// A concept with variants still on the sheet is refused — drop the variants first.
+function drop(names) {
+  const q = readQueue();
+  const gone = [];
+  for (const name of names) {
+    const r = find(q, name) ?? die(`${name} is not in the queue.`);
+    const kids = q.rows.filter((x) => x.base === name && !names.includes(x.name));
+    if (kids.length) die(`${name} still has ${kids.map((k) => k.name).join(', ')} on the sheet — drop those too.`);
+    for (const m of masters) for (const f of [`${name}.svg`, `${name}-filled.svg`]) {
+      const file = `src/icons/${m}/${f}`;
+      if (existsSync(file)) { unlinkSync(file); gone.push(file); }
+    }
+    q.lines.splice(r.i, 1);
+    for (const x of q.rows) if (x.i > r.i) x.i -= 1;                 // rows after it shift up
+    q.rows.splice(q.rows.indexOf(r), 1);
+    console.log(`${label(r)} dropped from the sheet`);
+  }
+  save(q);
+  spawnSync('npm', ['run', 'build', '--silent'], { stdio: 'ignore' });
+  console.log(`Deleted ${gone.length} files:\n  ${gone.join('\n  ')}`);
+  console.log(`Commit: ${[...gone, QUEUE, 'lab/manifest.json'].join(' ')}`);
+}
+
 // ─── dispatch ──────────────────────────────────────────────────────────────
 const [cmd, ...rest] = process.argv.slice(2);
 if (cmd === 'status' || !cmd) await status();
 else if (cmd === 'next') { const r = next(readQueue()); console.log(r ? `${r.name}\t#${r.n}\t${r.section}` : ''); }
 else if (cmd === 'show') show(rest[0] ?? die('show <name>'));
 else if (cmd === 'start') start(rest[0] ?? die('start <name>'));
+else if (cmd === 'drop') drop(rest.length ? rest : die('drop <name>…'));
 else if (cmd === 'approve') await approve(rest);
-else die(`Unknown command ${cmd}. Use status | next | show | start | approve.`);
+else die(`Unknown command ${cmd}. Use status | next | show | start | approve | drop.`);
