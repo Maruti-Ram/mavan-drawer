@@ -118,7 +118,7 @@ The ⌀20 keyline and what sits inside it.
 - [x] 22. `alert-circle-3` · Status & Feedback · variant of `alert-circle` — Dash mid · approved 2026-09-18
 - [x] 22. `alert-circle-4` · Status & Feedback · variant of `alert-circle` — Wedge + dash mid · approved 2026-09-18
 - [x] 23. `clock` · Time & Calendar — approved 2026-09-18
-- [ ] 24. `search` · UI & Layout
+- [x] 24. `search` · UI & Layout — approved 2026-09-18
 - [ ] 25. `globe` · Maps & Location
 - [ ] 26. `ban` · Status & Feedback
 

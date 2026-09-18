@@ -169,7 +169,7 @@ async function approve(args) {
       writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o, tags, c.optical?.[m], glyph));
       const fw = f.weight ?? STROKE;
       writeFileSync(`src/icons/${m}/${file}-filled.svg`, svg(m, fw, keyline,
-        `${c.label}, filled` + (f.fill?.length ? ': shapes filled, lines stay 1.5' : `: weight ${fw}, ends pulled in ${(fw - STROKE) / 2} so the ink box matches the outline`),
+        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? ', lines stay 1.5' : ''}` : `: weight ${fw}, ends pulled in ${(fw - STROKE) / 2} so the ink box matches the outline`),
         f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph));
       written.push(`src/icons/${m}/${file}.svg`, `src/icons/${m}/${file}-filled.svg`);
     }
