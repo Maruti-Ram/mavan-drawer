@@ -2,7 +2,7 @@
 // Mechanically enforces docs/01-foundations.md. Exit 1 on any error.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { numbersIn, samplePath, bbox, parsePath, isDot } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, STROKE as BASE_STROKE, SIZE_STEP, SIZES, markMax, sizeBase, sizeOf, weightOf } from './masters.mjs';
 
 const MAX_DP = 2;
@@ -157,6 +157,21 @@ function lint(canvas, file) {
       min = Math.min(min, Math.hypot(ax - bx, ay - by));
     if (min > 0.1 && min < need - 0.01)
       warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : '§6'} needs ${need} (edge gap ${r2(min - STROKE)} < ${floor})`);
+  }
+
+  // --- 5b. advisory: a path coming too close to ITSELF ---------------------
+  // §6's corollary "no enclosed shape smaller than 1.5 units across" has never been
+  // in code, and the pair loop above cannot see it: both ends of one stroke, and a
+  // counter drawn by one curling path, belong to a single `d`. `selfGap` judges a
+  // pair of points only once the path between them has turned past 180 degrees, so a
+  // C10 bend — which legitimately brings its own tangent points 1.06 apart — is never
+  // flagged, while a mouth that has closed up is. A dot is a solid disc by design.
+  // Caught by eye and not by lint before this existed: help-4's 16 shipped a 0.30 mouth.
+  for (let i = 0; i < ds.length; i++) {
+    if (isDot(ds[i])) continue;
+    const self = selfGap(ds[i], STROKE);
+    if (self && self.gap < MIN_GAP - 0.01)
+      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — §6 needs ${MIN_GAP} (it turns ${self.span}°)`);
   }
 
   return { file, errors, warnings, notes, size, inner, isMark };

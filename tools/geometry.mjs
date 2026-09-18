@@ -193,3 +193,90 @@ export function anatomy(paths, stroke) {
   }
   return { shell, container, mark, ratio, gap };
 }
+
+// ── selfGap ────────────────────────────────────────────────────────────────
+// How close a path comes to ITSELF. This is the measure `docs/01-foundations.md`
+// §6 has always implied ("no enclosed shape smaller than 1.5 units across") and
+// `docs/08-refinement.md` §6.4 calls the hard one, and it is what the pair loop
+// in lint can never see: both ends of one stroke, and a counter drawn by one
+// curling path.
+//
+// The trap: a path is *supposed* to come close to itself at a bend. A C10 corner
+// of radius 0.75 brings its own tangent points 1.06 apart — legal, and identical
+// on a ruler to a counter that is too tight. Arc length does not separate the two
+// either: a 90 deg corner and a closing bowl can span the same length of path.
+//
+// What separates them is TURN. A bend turns 45, 90, at most 135 degrees and then
+// leaves. A path only comes back alongside itself after it has turned past half a
+// revolution. So a pair of points is judged only once the path between them has
+// turned more than `turn` degrees (180 by default, i.e. it has doubled back);
+// everything inside a single bend is below that and is never judged.
+//
+// Turn is accumulated SIGNED, so an S — a bowl into a reverse tuck — unwinds as it
+// should: reversing curvature moves the path away from itself, not alongside it.
+const TAU = Math.PI * 2;
+
+/** Sample points with the signed turn and the arc length accumulated along the path. */
+function sampleWithTurn(d) {
+  const pts = samplePath(d).filter((p, i, a) => i === 0 || Math.hypot(p[0] - a[i - 1][0], p[1] - a[i - 1][1]) > 1e-9);
+  const out = [];
+  let turn = 0, prev = null;
+  for (let i = 0; i < pts.length; i++) {
+    const nxt = pts[i + 1] ?? pts[i - 1];
+    if (!nxt) continue;
+    const dir = i + 1 < pts.length
+      ? Math.atan2(pts[i + 1][1] - pts[i][1], pts[i + 1][0] - pts[i][0])
+      : Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0]);
+    if (prev !== null) {
+      let dt = dir - prev;
+      while (dt > Math.PI) dt -= TAU;
+      while (dt < -Math.PI) dt += TAU;
+      turn += dt;
+    }
+    prev = dir;
+    const run = i === 0 ? 0 : out.at(-1)[3] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    out.push([pts[i][0], pts[i][1], (turn * 180) / Math.PI, run]);
+  }
+  return out;
+}
+
+/**
+ * The narrowest the path comes to itself, measured between stroke EDGES
+ * (subtract `stroke`; pass 0 for a filled area's boundary, which has no stroke).
+ * Only pairs separated by more than `turn` degrees of turning are judged.
+ * Returns null when the path never turns that far — a straight or singly-bent
+ * mark has no counter and nothing to check.
+ */
+export function selfGap(d, stroke = 0, turn = 180) {
+  // A `d` holding several subpaths (an evenodd area) is not one path: measure each
+  // on its own, or a shape reads as touching the shape beside it inside the same d.
+  const subs = d.trim().split(/(?=[Mm])/).filter((x) => x.trim());
+  if (subs.length > 1) {
+    const each = subs.map((x) => selfGap(x, stroke, turn)).filter(Boolean);
+    return each.length ? each.reduce((a, b) => (b.gap < a.gap ? b : a)) : null;
+  }
+  const pts = sampleWithTurn(d);
+  if (pts.length < 3) return null;
+  // A closed path ends where it started, so its first and last samples are the same
+  // point: without this the wrap reads as a zero gap on every circle in the set.
+  const total = pts.at(-1)[3];
+  const closed = Math.hypot(pts.at(-1)[0] - pts[0][0], pts.at(-1)[1] - pts[0][1]) < 0.01;
+  const NEIGHBOUR = 0.5;
+  const whole = Math.abs(pts.at(-1)[2] - pts[0][2]);
+  let min = Infinity, at = null;
+  for (let i = 0; i < pts.length; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      // On a closed path the short way round is the real separation: two points
+      // 357 deg apart are 3 deg apart, and the ring must not read as touching itself.
+      const raw = Math.abs(pts[j][2] - pts[i][2]);
+      const between = closed ? Math.min(raw, whole - raw) : raw;
+      if (between < turn - 0.5) continue;
+      const run = pts[j][3] - pts[i][3];
+      if (run < NEIGHBOUR || (closed && total - run < NEIGHBOUR)) continue;
+      const dist = Math.hypot(pts[j][0] - pts[i][0], pts[j][1] - pts[i][1]);
+      if (dist < min) { min = dist; at = [r2((pts[i][0] + pts[j][0]) / 2), r2((pts[i][1] + pts[j][1]) / 2)]; }
+    }
+  }
+  if (!isFinite(min)) return null;
+  return { gap: r2(min - stroke), at, span: r2(Math.abs(pts.at(-1)[2] - pts[0][2])) };
+}
