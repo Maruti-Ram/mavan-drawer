@@ -48,6 +48,12 @@ and professional, not comical; three masters 24/20/16; stroke 1.5 everywhere; tr
 angle exceptions, the user icon. Specimens live in `lab/character.html` (`node tools/refs.mjs`
 with no argument builds its reference rows).
 
+**Refinement assessment (2026-09-18)** — `docs/08-refinement.md`: why our marks read less refined than the
+references, every number that was measured, what C19 settled, and the **open agenda** — the undecided 13%
+mark/container drift from 24 to 16, the two unenforced §6 corollaries, the gap rule's holes (counters inside
+one path and *all* shape-filled files go unchecked), and the Fluent items worth inheriting. Read it before
+reopening stroke weight, `MIN_GAP` or the optical machinery — §8 lists what was already ruled out and why.
+
 **Audit** — done: `docs/06-audit.md`, `research/ranked.md`. The user has **not** yet ruled on
 the D23 revisions it proposes (add `home`, `checkbox`, `save`, `chevrons-up-down`…; cut
 `caret-left/right`; merge `close`=`x`, `copy`=`duplicate`; 13 open slots) — do not edit doc 04
