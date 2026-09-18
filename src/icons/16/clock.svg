@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: 45 -->
+  <!-- Quarter grid: The minute hand up to 12, the hour hand at exactly 45 deg. Hands 5.5 / 3.89 · 4.25 / 3.18 · 3.25 / 2.12, short-to-long 0.71 at 24 — Polaris' ratio to two decimals. This is the only one of the three that needs no rule discussion: 0/45/90 is what CLAUDE.md's grid allows, and Polaris draws its clock the same way. The bend at the centre is a round linejoin, so its corner radius is stroke / 2 = 0.75, C10 for free, with no arc command to declare (recommended) -->
+  <path d="M1.75 8A6.25 6.25 0 1 0 14.25 8A6.25 6.25 0 1 0 1.75 8Z"/>
+  <path d="M8 4.75V8L9.5 9.5"/>
+</svg>
