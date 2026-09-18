@@ -163,7 +163,9 @@ All three share: circle, glyph box **12 · 10 · 8**, dot 2.5 · 2 · 2, termina
 axis with the dot directly below, counter never under one stroke. They differ only in
 the tail (Polaris tuck / coil / straight 45°).
 
-**All three share one identical 16 master**, and `help-2` and `help-3` ship 16 as a copy.
+**They no longer all share one 16 — settled 2026-09-18.** `help-3` took its own (commit
+`657fddf`); `help` and `help-2` keep the shared bowl. The two rulings were made on different
+grounds, and both are recorded below.
 
 **Corrected 2026-09-18.** This was first recorded as *"a C10-legal tuck would need a 0.57
 radius; there is exactly one legal 16 drawing"*. Both halves are wrong. The 0.57 came from
@@ -181,6 +183,37 @@ judgement at real pixels, not a geometric impossibility, and it is **undecided**
 The trap worth remembering: the first search constrained the glyph against the ring and forgot
 the dot. It produced a drawing that measured well on every reported number and failed lint on
 the one gap nobody had measured.
+
+**`help-3` took the trade (user, 2026-09-18).** Its 24 and 20 are a bowl into a straight 45°
+tangent tail, and its 16 had no tail at all — at the size where it is most likely to be read,
+the hook had no hook and the three were one icon. Its 16 is now its own construction: bowl
+r1.5 centred (7.75, 6.25) swept 180°, straight tangent tail 1.15 long onto the axis at
+(8, 8.12), dot at 10.87. Counter 2 → 1.5, and in exchange the mouth opens 1.45 → 1.71. The
+mark's **narrowest** white barely moves (1.45 → 1.49); it relocates from the mouth to the
+counter. Filled at C18's medium cut 1.75, leaving 1.24 — legal only because C19 governs the
+inside of a character; under MIN_GAP only a 1.5 cut fitted, which would have been a
+deviation.
+
+**`help-2` cannot take it: its 16 has no legal drawing at all (measured 2026-09-18).** The
+coil is 240° of bowl into a reverse arc of the *same radius* turning 60°, which is what makes
+it a coil rather than a hook. At 16:
+
+| | |
+|---|---|
+| full coil, r1.5 | mouth closes to **0.97** — under C19's 1.0 |
+| full coil, r1.25 | mouth **0.56**; no legal drawing at this radius at all |
+| truncated curls | legal, but a 30° curl of r1.5 bows **0.051 units** off a straight tail — a twentieth of a pixel at 16 |
+| truncated curls, centred | **zero legal drawings** |
+
+The last row is the one that decides it, and it is the 0.57 trap again in a new place. Only
+the *full* 60° curl is self-centring, because only then does the terminal land directly below
+the bowl centre. A truncated curl has to move the bowl left to keep the terminal on the axis:
+the best of them (r1.5, 210° bowl, 30° curl) passes `npm run check` clean and sits with its
+mark at x 6.9, margins **2.9 against 5.1**. Lint centres the whole ink box — the ring on a
+container icon — so it cannot see a mark hanging 1.1 off centre.
+
+So `help-2`'s shared 16 is no longer an accident of an unexamined claim. At 16 a coil closes
+its own mouth, and what survives of it is invisible.
 
 ---
 
