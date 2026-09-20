@@ -93,4 +93,8 @@ export const gridName = (master) => gridNameFor(strokeOf(master));
 // where the hook starts and ends without closing - which `selfGap` measures. Same
 // reason: that space is the inside of one character, not clearance between two
 // elements. All four question marks measure 1.33-1.45 there at the 16 master.
+// Extended 2026-09-20 to the filled twin: what a glyph's knockout leaves standing
+// between two parts of the same character (the mouth of a filled `?`, info-3's
+// flag-to-bar strip, 1.25 at 16) is that same space seen from the other side, and
+// floors here too. Lint measures it on the filled drawing (`materialGap`).
 export const GLYPH_GAP = 1;

@@ -325,6 +325,22 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   them.
 - **Shape-filled files are unchecked entirely** — their geometry is in `areas`, not `ds`,
   so the loop has nothing to iterate. Every filled circle icon gets no gap check at all.
+  **Dated note, 2026-09-20 — one part of this is covered, and now measured properly.** Lint §5c
+  checks what a knockout leaves standing between two parts of itself (the mouth of a filled `?`,
+  `info-3`'s flag-to-bar, the panels a globe's cut leaves as islands), against the same floor the
+  outline's mouth gets. It first inferred that from the outline twin — cut width = twice the
+  furthest the knockout strays from the outline's centreline — which is only true while the cut is
+  centred on the outline; when the 16 outlines moved 0.125 under cut-outs that were left as
+  approved (C7), an unchanged `help-4-filled` read 0.91 and warned. `materialGap`
+  (`tools/geometry.mjs`) now measures the filled drawing alone, and lint prints the reading.
+  The glyph floor for these strips is C19's, extended to the filled twin on 2026-09-20 (doc 07).
+  Measured at 16: `help-4-filled` leaves **1.13**, `help` / `help-2` / `help-3` 1.23, `info-3` 1.25
+  (all against C19's 1); `globe-2` 1.97 and `globe` 2.82 (against 1.5). For the `help` family at 24
+  and 20, where nothing moved, old and new agree to 0.01–0.08; `info-3` and the globes had no
+  reading at all before. **Still uncovered:** the material between two *different* holes (a filled
+  glyph's terminal to its dot — 0.92 in `help-4-filled` at 16, measured 2026-09-20), a hole to the
+  shape's outer edge, a wedge of material tapering by more than 20° (read as the inside of a bend,
+  the same blind side as `selfGap`'s 170° gate), and shape-filled files that also carry strokes.
 - Touching paths are skipped (`min > 0.1`), which is why C18's flag-to-bar exception was
   invisible.
 

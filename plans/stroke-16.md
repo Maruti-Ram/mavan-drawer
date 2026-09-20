@@ -3,9 +3,9 @@
 Status: **landed** — converted, reviewed, decided and committed · written 2026-09-20, converted 2026-09-20
 
 **Start here (fresh session):** this build is closed. The 16 master draws at 1.25; every decision is in the
-Status list and "What the conversion found". Two follow-ups are open and neither blocks drawing: lint's
-knockout check over-measures `help-4-filled` (it assumes the cut is centred on the outline), and lint's
-`polyGap` should carry real subpath breaks. `folder` (#30) is off hold. Re-run the proof at any time:
+Status list and "What the conversion found". One follow-up is open and does not block drawing: lint's
+`polyGap` should carry real subpath breaks. (The other — the knockout check over-measuring `help-4-filled`
+— is fixed: lint now measures the filled drawing itself, see "What the conversion found".) `folder` (#30) is off hold. Re-run the proof at any time:
 `node tools/inkbox-guard.mjs`, `npm run check`, `node --test tools/geometry.test.mjs`.
 
 ## What changes, in plain words
@@ -126,7 +126,12 @@ Measured this session by `tools/convert-16.mjs`, `tools/inkbox-guard.mjs` and li
   still warns (handle to body 0.5 → 0.75), `trash` at 20 is unchanged, and **one is new: `help-4-filled`** —
   lint's knockout check assumes the cut is centred on the outline, and the outline moved 0.125 under a cut
   that was deliberately left alone. The filled drawing is byte-identical apart from its root attribute.
-  Follow-up: make that check measure the knockout itself.
+  Follow-up: make that check measure the knockout itself. **Done 2026-09-20** (`materialGap` in
+  `tools/geometry.mjs`, lint §5c): `help-4-filled` at 16 leaves **1.13** of material in its mouth and passes
+  C19's 1 — not the 1.07 the old reading gave against the 1.5 outline; the start cap is drawn `A0.88` over a
+  1.75 chord, so it is 0.09 shallower than a true half-circle. Lint is now 682 clean · 2 warned (`trash` at 20
+  and 16); no other drawing's result changed. The same pass now also reads `info-3`'s flag-to-bar (1.25 at 16)
+  and the globes' panels (1.97 · 2.82 at 16), which had no reading before; all pass.
 - **Lint fix made on the way:** the pair-gap check measured sample point to sample point and read `info-3`'s
   stem, standing on its bar, as "0.13 apart" once the bar sat on the eighth grid. It now measures point to
   segment. Only other effect: `trash` at 20 reads 2.49 instead of 2.5.
@@ -141,6 +146,8 @@ Measured this session by `tools/convert-16.mjs`, `tools/inkbox-guard.mjs` and li
   / `globe` knockouts. Checked one by one: the lighter outline sits inside the shipped cut everywhere (the
   outline's outer ink did not move), and re-centring the cut on the new skeleton would push each terminal
   0.125 closer to its dot (0.87 → 0.75 of material in `help-4-filled`). Question 2 on the sheet.
+  *Re-measured 2026-09-20: that material is **0.92**, not 0.87 — the terminal's cap is drawn `A0.88` over a
+  1.754 chord, so its centre sits at (8.053, 7.947), not (8, 8); 0.87 is `help-filled`'s figure.*
 - **`menu` (×4) and `menu-arrow-*` — decided, option B (Maruti, 2026-09-20):** the lines stay on the
   centrelines they had at 1.5 and only get thinner, so the filled twin still thickens in place (C17). The
   stack is 0.25 shorter; air between lines at 16 is 3.25 (`menu`, `menu-2`, the menu-arrows), 4.75

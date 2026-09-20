@@ -2,7 +2,7 @@
 // Mechanically enforces docs/01-foundations.md. Exit 1 on any error.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap, materialGap } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -208,44 +208,29 @@ function lint(canvas, file) {
       warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? 'C19 glyph gap' : '§6'} needs ${floor} (it turns ${self.span}°)`);
   }
 
-  // --- 5c. advisory: a knockout cut wider than the counter it sits in --------
+  // --- 5c. advisory: a knockout that leaves too little standing ---------------
   // A shape-filled file cuts its mark OUT of a solid shape, at C18's per-mark width -
   // heavier than the master's outline stroke. Every gap inside the mark therefore loses
-  // (cut - stroke) when it is knocked out, and nothing has ever checked what that
-  // leaves. `areas` are not in the pair loop and were not in the self-gap loop either,
-  // so all 66 shape-filled files had no gap check of any kind (docs/08 §6.5).
+  // (cut - stroke) when it is knocked out: the mouth of a `?` stops being air and
+  // becomes a neck of material, and it is that neck which has to survive 16 px.
+  // `areas` are not in the pair loop and were not in the self-gap loop either
+  // (docs/08 §6.5).
   //
-  // No declaration is needed: the outline and the filled file are a pair, so every
-  // point of the knockout's boundary sits exactly cut/2 from the outline's centreline.
-  // The furthest one recovers the cut width to within 0.03.
+  // Measured on the filled drawing itself (`materialGap`: the narrowest filled span
+  // between two parts of one hole). Until 2026-09-20 this recovered the cut's width
+  // from the OUTLINE twin's centreline and subtracted it from the outline's counter,
+  // which assumed the cut was centred on the outline. The 16 master's move to stroke
+  // 1.25 shifted the outlines 0.125 under cut-outs that were deliberately left as
+  // approved, and an unchanged `help-4-filled` began to warn. The floor is the one the
+  // outline's own mouth gets in 5b: GLYPH_GAP inside a declared glyph, else MIN_GAP.
   if (areas.length && ds.length === 0) {
-    const pair = file.replace('-filled.svg', '.svg');
-    const outline = existsSync(join('src/icons', String(canvas), pair))
-      ? readFileSync(join('src/icons', String(canvas), pair), 'utf8') : null;
-    if (outline) {
-      const ods = [...outline.matchAll(/<path d="([^"]+)"\/>/g)].map((m) => m[1]);
-      const line = ods.flatMap(samplePath);
-      let cut = 0;
-      for (const d of areas[0].split(/(?=M)/).filter(Boolean)) {
-        let far = 0;
-        for (const [x, y] of samplePath(d)) {
-          let near = Infinity;
-          for (const [u, v] of line) near = Math.min(near, Math.hypot(x - u, y - v));
-          far = Math.max(far, near);
-        }
-        cut = Math.max(cut, far * 2);
-      }
-      const glyph = /<!--\s*glyph:\s*dot\s*-->/.test(outline);
-      for (let i = 0; i < ods.length; i++) {
-        if (isDot(ods[i])) continue;
-        const self = selfGap(ods[i], STROKE);
-        if (!self) continue;
-        const floor = glyph ? GLYPH_GAP : MIN_GAP;
-        const left = r2(self.gap + STROKE - cut);
-        if (left < floor - 0.05)
-          warnings.push(`the ${r2(cut)} cut leaves ${left} inside path ${i + 1} (counter ${self.gap}) — needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
-      }
-    }
+    const left = materialGap(areas);
+    const floor = isGlyph ? GLYPH_GAP : MIN_GAP;
+    // Printed whenever there is a reading, so a drawing that stops being measured (the
+    // measure returns null when no cut faces itself) shows up as a line that went missing.
+    if (left) notes.splice(-1, 0, `knockout leaves ${left.gap} at ${left.at.join(',')}`);
+    if (left && left.gap < floor - 0.01)
+      warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : '§6'} needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
   }
 
   return { file, errors, warnings, notes, size, inner, isMark };

@@ -224,6 +224,8 @@ export function anatomy(paths, stroke) {
 // rather than the full diameter, so a counter can read ~0.01 tight; lint's tolerance
 // already allows for that.
 const TAU = Math.PI * 2;
+// two points closer than this ALONG the path are neighbours, not a pair to judge
+const NEIGHBOUR = 0.5;
 
 /** Sample points with the signed turn and the arc length accumulated along the path. */
 function sampleWithTurn(d) {
@@ -289,7 +291,6 @@ export function selfGap(d, stroke = 0, turn = 170) {
   // while the gate sat at 180 and sampling read 178; with the gate at 170 it has to
   // be said out loud, or every circle in the set reports its own hole.
   if (closed) return null;
-  const NEIGHBOUR = 0.5;
   const whole = Math.abs(pts.at(-1)[2] - pts[0][2]);
   let min = Infinity, at = null;
   for (let i = 0; i < pts.length; i++) {
@@ -307,4 +308,154 @@ export function selfGap(d, stroke = 0, turn = 170) {
   }
   if (!isFinite(min)) return null;
   return { gap: r2(min - stroke), at, span: r2(Math.abs(pts.at(-1)[2] - pts[0][2])) };
+}
+
+// ── materialGap ────────────────────────────────────────────────────────────
+// What a knockout leaves standing. A shape-filled drawing cuts its mark OUT of a
+// solid, so the thing that closes up at 16 px is no longer the air inside the mark
+// but the MATERIAL the cut leaves between two parts of itself: the mouth of a `?`,
+// the flag-to-bar of a serif `i`, an island a ring-shaped cut leaves in its middle.
+// `selfGap` cannot see it — a knockout's boundary is a
+// closed path, and a closed path is never judged against itself there.
+//
+// It is measured on the filled drawing alone. The first version recovered the cut's
+// width from the outline twin's centreline and subtracted it from the outline's
+// counter, which is only true while the cut is centred on the outline; when the 16
+// master went to stroke 1.25 the outlines moved 0.125 under cut-outs that were
+// deliberately left as approved, and `help-4-filled` read 0.91 for a mouth that had
+// not changed.
+//
+// A span counts when it is a real neck of material, which takes three things:
+//   · both ends on the SAME boundary — one hole, or one island inside a hole (two
+//     different holes are a pair, not a counter, and are not this measure's business;
+//     nor is the outermost shape, whose thickness is a drawing decision, not a cut);
+//   · it leaves one wall and arrives at the other square-on, within FACING degrees.
+//     Where two smooth walls come closest the span is perpendicular to both; asking
+//     for that is what keeps a bend from flagging — across the inside of a 90 deg
+//     corner every chord sits 45 deg off both walls, and shrinks to nothing at the
+//     apex. It is the same line `selfGap` draws with its 170 deg turn gate, and it
+//     has the same blind side: a tongue that TAPERS is read only while its walls are
+//     within 2 x FACING of parallel (chords across it sit half the taper off each
+//     wall). A sharper wedge of material is a bend's inside and is not judged;
+//   · every point of it lies in material, and just past each end there is none — so
+//     the cut's own width, which joins the same two walls the short way through the
+//     hole, is never read as a gap, and neither is a wall another area has painted over.
+// At a corner that points into the material the wall has no single normal, so any
+// direction between its two edges' normals counts as square-on there.
+//
+// Two ends closer than NEIGHBOUR along the boundary are not judged, as in `selfGap`.
+// A neck of width w needs at least w * pi / 2 of boundary to get round its tip, so
+// this only blinds the measure to tongues under a third of a unit — and what it does
+// remove is real: an offset outline leaves hairline loops where an inner fillet has
+// collapsed (`help-filled` at 20 carries an arc of radius 0.02), which evenodd paints
+// as a sliver of material that reads 0.00.
+//
+// Walls are walked every FINE units, not at `samplePath`'s 0.25: on a tapering neck
+// the reading is taken up to one step short of the tip, and at 0.25 a 16 deg taper
+// read 0.07 wide — enough to pass a 0.95 neck at a floor of 1.
+//
+// Subpaths must start with an absolute M (as in `selfGap`): every area in the set does.
+const FACING = 10;
+const FINE = 0.05;
+
+const subpathsOf = (d) => d.trim().split(/(?=[Mm])/).filter((x) => x.trim());
+
+/** `ring` with extra points along its edges so that none is longer than `step`. */
+const refine = (ring, step) => ring.flatMap(([x, y], i) => {
+  const [bx, by] = ring[(i + 1) % ring.length], m = Math.max(1, Math.ceil(Math.hypot(bx - x, by - y) / step));
+  return Array.from({ length: m }, (_, j) => [x + ((bx - x) * j) / m, y + ((by - y) * j) / m]);
+});
+
+/** A subpath as a closed ring of distinct points (no repeated closing point). */
+function ringOf(d) {
+  const pts = samplePath(d).filter((p, i, a) => i === 0 || Math.hypot(p[0] - a[i - 1][0], p[1] - a[i - 1][1]) > 1e-9);
+  if (pts.length > 1 && Math.hypot(pts.at(-1)[0] - pts[0][0], pts.at(-1)[1] - pts[0][1]) < 1e-9) pts.pop();
+  return pts;
+}
+
+function inside(ring, x, y) {
+  let odd = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i], [xj, yj] = ring[j];
+    if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) odd = !odd;
+  }
+  return odd;
+}
+
+/**
+ * The narrowest filled span between two parts of one boundary, across every hole (and
+ * every island inside a hole) of the given evenodd area(s). `areas` is one `d` or a
+ * list of them (a file's areas are painted together, so material is whatever any of
+ * them fills). Returns { gap, at, area, sub } — `sub` is the subpath's index within
+ * `areas[area]` — or null when no cut faces itself across material (a dot, a bar, a
+ * single bend).
+ */
+export function materialGap(areas) {
+  const list = (Array.isArray(areas) ? areas : [areas]).map((d) => subpathsOf(d).map(ringOf));
+  const filled = (x, y) => list.some((rings) => rings.filter((r) => r.length > 2 && inside(r, x, y)).length % 2 === 1);
+  const COS = Math.cos((FACING * Math.PI) / 180);
+  const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1];
+  let min = Infinity, found = null;
+
+  list.forEach((rings, ai) => rings.forEach((coarse, s) => {
+    if (coarse.length < 3) return;
+    // How many of its d's other subpaths it sits inside. 0 is the shape itself and is
+    // not judged; odd is a hole (material outside it); even is an island (material inside).
+    const depth = rings.filter((o) => o !== coarse && o.length > 2 && inside(o, coarse[0][0], coarse[0][1])).length;
+    if (!depth) return;
+    const ring = refine(coarse, FINE), n = ring.length;
+    let area = 0;
+    for (let i = 0; i < n; i++) area += cross(ring[i], ring[(i + 1) % n]);
+    if (depth % 2 === 0) area = -area; // an island is a hole inside out
+    // edge k runs ring[k] → ring[k+1]; its normal points into material
+    const tan = [], nor = [], run = [0];
+    for (let k = 0; k < n; k++) {
+      const [ax, ay] = ring[k], [bx, by] = ring[(k + 1) % n], L = Math.hypot(bx - ax, by - ay);
+      const t = [(bx - ax) / L, (by - ay) / L];
+      run.push(run[k] + L); // run[k] = boundary length up to ring[k]; run[n] = all the way round
+      tan.push(t);
+      nor.push(area > 0 ? [t[1], -t[0]] : [-t[1], t[0]]);
+    }
+    // Is `dir` square-on to the wall at vertex v? Within FACING of either edge that meets
+    // there, or - at a corner pointing into the material - anywhere between the two.
+    const squareOn = (v, dir) => {
+      const ka = (v - 1 + n) % n, na = nor[ka], nb = nor[v], fan = cross(na, nb);
+      return dot(dir, na) >= COS || dot(dir, nb) >= COS
+        || (cross(tan[ka], tan[v]) * area > 0 && cross(na, dir) * fan >= 0 && cross(dir, nb) * fan >= 0);
+    };
+    // the way out of the material from vertex v (between its two edges, so it holds at a
+    // point too), and whether it really is empty a hair's breadth that way
+    const into = (v) => {
+      const na = nor[(v - 1 + n) % n], nb = nor[v], L = Math.hypot(na[0] + nb[0], na[1] + nb[1]) || 1;
+      return [-(na[0] + nb[0]) / L, -(na[1] + nb[1]) / L];
+    };
+    const open = (pt, way) => !filled(pt[0] + way[0] * 0.02, pt[1] + way[1] * 0.02);
+    for (let i = 0; i < n; i++) {
+      const p = ring[i];
+      for (let k = 0; k < n; k++) {
+        if (k === (i - 1 + n) % n || k === i) continue;
+        const a = ring[k], b = ring[(k + 1) % n];
+        const ex = b[0] - a[0], ey = b[1] - a[1];
+        const u = Math.max(0, Math.min(1, ((p[0] - a[0]) * ex + (p[1] - a[1]) * ey) / (ex * ex + ey * ey)));
+        const q = [a[0] + u * ex, a[1] + u * ey];
+        const dist = Math.hypot(q[0] - p[0], q[1] - p[1]);
+        if (dist < 1e-6 || dist >= min) continue;
+        const along = Math.abs(run[k] + u * (run[k + 1] - run[k]) - run[i]);
+        if (Math.min(along, run[n] - along) < NEIGHBOUR) continue;
+        const dir = [(q[0] - p[0]) / dist, (q[1] - p[1]) / dist], back = [-dir[0], -dir[1]];
+        // the far end is the foot of a perpendicular, or one of the edge's own corners
+        const arrives = u > 0 && u < 1 ? dot(back, nor[k]) >= COS : squareOn(u === 0 ? k : (k + 1) % n, back);
+        if (!arrives || !squareOn(i, dir)) continue;
+        const steps = Math.max(5, Math.ceil(dist / 0.1));
+        let solid = true;
+        for (let m = 1; m < steps && solid; m++) solid = filled(p[0] + (dir[0] * dist * m) / steps, p[1] + (dir[1] * dist * m) / steps);
+        // both ends must be a real edge of the ink: another area painted over the hole
+        // (a file's areas are drawn together) turns its wall into the middle of a solid
+        if (!solid || !open(p, into(i)) || !open(q, u > 0 && u < 1 ? [-nor[k][0], -nor[k][1]] : into(u === 0 ? k : (k + 1) % n))) continue;
+        min = dist; found = { at: [r2((p[0] + q[0]) / 2), r2((p[1] + q[1]) / 2)], area: ai, sub: s };
+      }
+    }
+  }));
+  return found ? { gap: r2(min), ...found } : null;
 }

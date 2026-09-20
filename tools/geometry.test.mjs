@@ -3,7 +3,8 @@
 // lint clean in one session (2026-09-18) plus the bends that must NOT flag.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { selfGap } from './geometry.mjs';
+import { readFileSync } from 'node:fs';
+import { materialGap, selfGap } from './geometry.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
   gridFor, gridNameFor, gridOf, strokeOf, weightOf,
@@ -161,4 +162,114 @@ test('the eighth grid only ever widens the quarter grid', () => {
   }
   assert.ok(decimalsFor(1.25) >= decimalsFor(1.5));
   assert.ok(gridFor(1.25) < gridFor(1.5));
+});
+
+// ── materialGap: what a knockout leaves standing ─────────────────────────────
+// Lint's knockout check used to infer this from the OUTLINE twin (cut width = twice the
+// furthest the knockout strays from the outline's centreline), which is only true while
+// the cut is centred on the outline. These pin the measure to the filled drawing alone.
+
+const DISC16 = 'M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8Z';
+const PLATE = 'M0 0H14V14H0Z';
+
+test('help-4-filled at 16 reads its own mouth: 1.13, whatever the outline does', () => {
+  // The shipped knockout, unchanged since it was approved. Exact geometry: the start cap
+  // is A0.88 over a 1.75 chord, so its centre sits 0.094 above the chord at (6.255, 5.656),
+  // 2.014 from the diagonal's inner edge (x + y = 14.76) - 1.134 of material. The old
+  // twin-derived reading was 1.07 against the 1.5 outline and 0.91 against the 1.25 one.
+  const d = `${DISC16}M7 10.75A1 1 0 1 0 9 10.75A1 1 0 1 0 7 10.75ZM7.13 5.75L7 5.88L9 5.88L8.88 5.75L8.88 5.94L8.91 5.85L7.38 7.38A0.88 0.88 0 0 0 8.62 8.62L10.15 7.09A1.63 1.63 0 0 0 10.63 5.94L10.63 5.75A1.63 1.63 0 0 0 9 4.13L7 4.13A1.63 1.63 0 0 0 5.38 5.75A0.88 0.88 0 0 0 7.13 5.75Z`;
+  const got = materialGap(d);
+  near(got.gap, 1.13, 0.02);
+  assert.equal(got.sub, 2, 'measured on the ? knockout, not the disc or the dot');
+  assert.ok(got.gap >= GLYPH_GAP, 'passes C19 on its own geometry');
+});
+
+test('two round caps facing each other: help-filled at 16 reads 1.23', () => {
+  // cap centres (6.446, 5.693) and (8, 8.25), both r 0.88: 2.992 apart, 1.232 of material
+  const d = `${DISC16}M5.62 5.39A2.63 2.63 0 1 1 8 9.13A0.88 0.88 0 0 1 8 7.37A0.87 0.87 0 1 0 7.21 6.13A0.88 0.88 0 0 1 5.62 5.39Z`;
+  near(materialGap(d).gap, 1.23, 0.02);
+});
+
+test('reads the tongue between the legs of a U, never the width of the cut', () => {
+  // legs 1 wide, 2 apart: the cut's own width joins the same two walls through the hole
+  const u = (x) => `M4 4H5V9H${x}V4H${x + 1}V10H4Z`;
+  assert.equal(materialGap(PLATE + u(7)).gap, 2);
+  // an over-cut knockout still fires: the same U with its legs 0.8 apart
+  const tight = materialGap(PLATE + u(5.8));
+  assert.equal(tight.gap, 0.8);
+  assert.ok(tight.gap < GLYPH_GAP);
+  assert.deepEqual(tight.at, [5.4, 4]);
+});
+
+test('the inside of a bend is not a gap', () => {
+  // a 90 deg chevron knocked out of a plate: across its inside corner every chord sits
+  // 45 deg off both walls and shrinks to nothing at the apex
+  assert.equal(materialGap(`${PLATE}M3 5L7 9L11 5L11 7L7 11L3 7Z`), null);
+});
+
+test('two corners pointing at each other count, though neither wall is square-on', () => {
+  // a C whose arms end in points 3 apart; at a point the wall has no single normal
+  const c = 'M7 5L9 3.5L12 3.5L12 9.5L9 9.5L7 8L9 8.5L11 8.5L11 4.5L9 4.5Z';
+  const got = materialGap(PLATE + c);
+  assert.equal(got.gap, 3);
+  assert.deepEqual(got.at, [7, 6.5]);
+});
+
+test('a hairline loop left by a collapsed fillet is not a neck', () => {
+  // help-filled at 20 carries an arc of radius 0.02 where the hook meets its cap; evenodd
+  // paints the loop as a sliver 0.003 across. The mouth is what should be read: 1.99.
+  const d = 'M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM6.92 7.46A3.13 3.13 0 1 1 10.86 11.01A-0.02 -0.02 0 0 0 10.88 10.99A0.88 0.88 0 0 1 9.12 10.99A1.74 1.74 0 0 1 10.38 9.32A1.37 1.37 0 1 0 8.65 7.76A0.88 0.88 0 0 1 6.92 7.46Z';
+  near(materialGap(d).gap, 1.99, 0.02);
+});
+
+test('only holes are judged: a dot has no neck, and a thin solid is not a knockout', () => {
+  assert.equal(materialGap(`${DISC16}M7 10.75A1 1 0 1 0 9 10.75A1 1 0 1 0 7 10.75Z`), null);
+  assert.equal(materialGap('M2 7H12V8H2Z'), null);              // a 1-thick bar: material, not a cut
+  assert.equal(materialGap([PLATE, 'M2 16H12V17H2Z']), null);   // several areas, still no hole
+});
+
+test('a wall that a second area paints over is no longer an edge', () => {
+  // a file's areas are drawn together, so material is whatever any of them fills: with
+  // the left leg filled back in, the tongue is the middle of a solid and not a neck
+  const u = 'M4 4H5V9H5.8V4H6.8V10H4Z';
+  assert.equal(materialGap([PLATE + u]).gap, 0.8);
+  assert.equal(materialGap([PLATE + u, 'M3.9 3.9H5.1V9.1H3.9Z']), null);
+});
+
+test('an island left inside a ring-shaped cut is measured across', () => {
+  // a square ring knocked out of the plate leaves an island 0.8 wide: a hole inside out
+  const got = materialGap(`${PLATE}M3 3H11V11H3ZM6.6 5H7.4V9H6.6Z`);
+  assert.equal(got.gap, 0.8);
+  assert.equal(got.sub, 2);
+  // the plate itself is never judged, however thin: its thickness is a drawing decision
+  assert.equal(materialGap('M0 0H14V0.8H0Z'), null);
+});
+
+test('a tapering tongue is read at its tip, to within one fine step', () => {
+  // walls 8 deg off the axis each (16 deg of taper), free tip 0.9 wide. Walked at the
+  // 0.25 of samplePath this read 0.97 - enough to pass a 0.95 neck at a floor of 1.
+  const tongue = (half, base) => `${PLATE}M4 4H10V11H${7 + base}L${7 + half} 5L${7 - half} 5L${7 - base} 11H4Z`;
+  near(materialGap(tongue(0.45, 1.15)).gap, 0.9, 0.02);
+  // the gate's blind side, stated rather than hidden: at 30 deg of taper the chords sit
+  // 15 deg off each wall and the wedge is treated as the inside of a bend, like selfGap's 170
+  assert.equal(materialGap(tongue(0.45, 0.45 + 6 * Math.tan(Math.PI / 12))), null);
+});
+
+test('help-3-filled at 16 reads the island inside its bowl: 1.23', () => {
+  // The tightest reading against the facing gate in the set: the span joins two corners
+  // of the r0.63 inner arc, 6 deg off-normal at one end because 2 dp leaves small kinks
+  // at the arc's joins. Pinned so a change to FACING cannot turn it into a silent null.
+  const d = readFileSync(new URL('../src/icons/16/help-3-filled.svg', import.meta.url), 'utf8').match(/ d="([^"]+)"/)[1];
+  near(materialGap(d).gap, 1.23, 0.02);
+});
+
+test('a span that crosses a second hole is two spans, not one', () => {
+  // the U's tongue is 3 wide, x 4 to 7, y 4 to 9. A 1-wide slot cut down its middle to
+  // y 8.475 leaves the two walls joined through material only in the half unit below it
+  const u = 'M3 4H4V9H7V4H8V10H3Z';
+  assert.deepEqual(materialGap(PLATE + u).at, [5.5, 4]);
+  const got = materialGap(`${PLATE}${u}M5 3H6V8.475H5Z`);
+  assert.equal(got.gap, 3);
+  assert.equal(got.sub, 1);
+  assert.ok(got.at[1] > 8.475, `read below the slot, not through it (at y ${got.at[1]})`);
 });
