@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { materialGap, selfGap } from './geometry.mjs';
-import { checkPairs, comparePair, lintSource, parseBoxNote, parseGrowsNote } from './lint.mjs';
+import { checkPairs, comparePair, lintSource, parseBoxNote, parseGapNote, parseGrowsNote } from './lint.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
   gridFor, gridNameFor, gridOf, strokeOf, weightOf,
@@ -457,4 +457,102 @@ test('the shipped set: `more-horizontal` at 24 is C17 thickening in place', () =
   assert.match(r.warnings[0], /left \+0\.5 · right \+0\.5 · top \+0\.5 · bottom \+0\.5 \(filled 16×4 vs outline 15×3\)/);
   assert.deepEqual(comparePair(ink('more-horizontal-filled.svg'), ink('more-horizontal.svg'),
     parseGrowsNote('<!-- grows: 0.5 0.5 0.5 0.5 -->')), { errors: [], warnings: [], notes: ['agreed growth 0.5 0.5 0.5 0.5'] });
+});
+
+// ── lint: an agreed per-file gap ─────────────────────────────────────────────
+// `<!-- gap: N -->` says "this drawing holds N, not §6's 1.5" (attachment-4-filled,
+// 2026-09-20: the filled clip keeps all four legs, so the path passes within 1.04 of
+// itself at 24 and 1.0 at 20). It replaces MIN_GAP in that file's two proximity checks
+// and nowhere else. Like `box` and `grows`, it may not hide a mistake: a note lint
+// cannot read, one that is not below MIN_GAP, and one the drawing no longer needs are
+// all errors.
+
+const shipped = (m, f) => readFileSync(new URL(`../src/icons/${m}/${f}`, import.meta.url), 'utf8');
+const CLIP24 = shipped(24, 'attachment-4-filled.svg');
+const CLIP20 = shipped(20, 'attachment-4-filled.svg');
+const CLIP16 = shipped(16, 'attachment-4-filled.svg');
+const lintClip = (m, src) => lintSource(m, 'attachment-4-filled.svg', src);
+const gapWarn = (r) => r.warnings.filter((w) => /comes within|apart/.test(w));
+
+test('parseGapNote reads a distance and refuses anything else', () => {
+  assert.deepEqual(parseGapNote('<!-- gap: 1 -->'), { n: 1, raw: '1' });
+  assert.deepEqual(parseGapNote('<!-- gap: 1.25 -->'), { n: 1.25, raw: '1.25' });
+  assert.equal(parseGapNote('<!-- gap:1.04-->').n, 1.04);
+  assert.equal(parseGapNote('<!-- grows: 0 0 0.5 0.5 -->'), null);
+  assert.equal(parseGapNote('<!-- box: 20x18 -->'), null);
+  assert.ok(parseGapNote('<!-- gap: tight -->').bad);
+  assert.ok(parseGapNote('<!-- gap: 1 1 -->').bad, 'a gap is one number');
+  assert.ok(parseGapNote('<!-- gap: -1 -->').bad, 'a gap is a distance, so it is positive');
+  assert.ok(parseGapNote('<!-- gap: 0 -->').bad);
+});
+
+test('the shipped clip declares the gap it holds: clean, with a note saying so', () => {
+  // 1.04 at 24 and exactly 1.0 at 20 — the tolerance is what carries the 20
+  const r24 = lintClip(24, CLIP24);
+  assert.deepEqual(r24.errors, []);
+  assert.deepEqual(gapWarn(r24), []);
+  assert.ok(r24.notes.some((n) => n === 'agreed gap 1 — smallest measured 1.04'), r24.notes.join(' | '));
+  const r20 = lintClip(20, CLIP20);
+  assert.deepEqual(r20.errors, []);
+  assert.deepEqual(gapWarn(r20), []);
+  assert.ok(r20.notes.some((n) => n === 'agreed gap 1 — smallest measured 1'), r20.notes.join(' | '));
+  // and the headline note is still the last one, so run() prints it inline
+  assert.match(r24.notes.at(-1), /fits circle keyline/);
+});
+
+test('without the note nothing changes: the §6 warning comes back', () => {
+  const r = lintClip(24, CLIP24.replace('  <!-- gap: 1 -->\n', ''));
+  assert.deepEqual(r.errors, []);
+  assert.equal(gapWarn(r).length, 1);
+  assert.match(gapWarn(r)[0], /comes within 1\.04 of itself at 8\.53,15\.47 — §6 needs 1\.5/);
+});
+
+test('a drawing that measures below its declared gap still WARNS, against that number', () => {
+  const r = lintClip(24, CLIP24.replace('gap: 1 ', 'gap: 1.25 '));
+  assert.deepEqual(r.errors, []);
+  assert.equal(gapWarn(r).length, 1);
+  assert.match(gapWarn(r)[0], /comes within 1\.04 of itself at 8\.53,15\.47 — agreed gap 1\.25 needs 1\.25/);
+  assert.ok(!r.notes.some((n) => n.startsWith('agreed gap')), 'no "in force" note while it is failing');
+  // 0.01 is the tolerance, not a free eighth
+  assert.deepEqual(gapWarn(lintClip(24, CLIP24.replace('gap: 1 ', 'gap: 1.045 '))), []);
+  assert.equal(gapWarn(lintClip(24, CLIP24.replace('gap: 1 ', 'gap: 1.06 '))).length, 1);
+});
+
+test('the note covers the path-vs-path check too, not just path-vs-itself', () => {
+  // shipped `trash` at 20 warns: paths 2/3 are 2.49 apart, an edge gap of 0.99
+  const TRASH20 = shipped(20, 'trash.svg');
+  assert.equal(lintSource(20, 'trash.svg', TRASH20).warnings.filter((w) => /apart/.test(w)).length, 1);
+  const r = lintSource(20, 'trash.svg', TRASH20.replace(/(<!-- [^>]*-->)/, '<!-- gap: 0.75 -->\n  $1'));
+  assert.deepEqual(r.warnings.filter((w) => /apart/.test(w)), [], 'the §6 pair warning is silenced by the note');
+  assert.ok(r.notes.some((n) => n === 'agreed gap 0.75 — smallest measured 0.99'), r.notes.join(' | '));
+});
+
+test('a gap note lint cannot read is an ERROR, never a silent pass', () => {
+  const r = lintClip(24, CLIP24.replace('gap: 1 ', 'gap: tight '));
+  assert.ok(r.errors.some((e) => /gap note "tight" is not a distance/.test(e)), r.errors.join(' | '));
+  assert.equal(r.gap, null, 'an unreadable note is dropped, not half-believed');
+  assert.equal(gapWarn(r).length, 1, 'and the drawing is judged at §6 again');
+});
+
+test('a gap that is not BELOW §6 is an ERROR — the note only ever lowers the floor', () => {
+  for (const n of [1.5, 2]) {
+    const r = lintClip(24, CLIP24.replace('gap: 1 ', `gap: ${n} `));
+    assert.ok(r.errors.some((e) => new RegExp(`declares gap ${n}, which is not below §6's 1\\.5`).test(e)), r.errors.join(' | '));
+    assert.equal(r.gap, null);
+  }
+  assert.deepEqual(lintClip(24, CLIP24.replace('gap: 1 ', 'gap: 1.49 ')).errors, [], '1.49 is below 1.5 and is allowed');
+});
+
+test('a stale gap note — the drawing already holds §6 — is an ERROR', () => {
+  // the clip at 16 measures 1.86, so it never needed the note
+  const r = lintClip(16, CLIP16.replace(/(<!-- tags:[^>]*-->)/, '$1\n  <!-- gap: 1 -->'));
+  assert.deepEqual(gapWarn(r), []);
+  assert.equal(r.errors.length, 1, r.errors.join(' | '));
+  assert.match(r.errors[0], /declares gap 1 but nothing in this drawing comes within §6's 1\.5 \(smallest measured 1\.86\) — the note is not needed; delete it/);
+});
+
+test('a gap note on a drawing with nothing to measure is an ERROR too', () => {
+  const r = lintSource(24, 'minus.svg', shipped(24, 'minus.svg').replace(/(<!--)/, '<!-- gap: 1 -->\n  $1'));
+  assert.ok(r.errors.some((e) => /the note is not needed/.test(e)), r.errors.join(' | '));
+  assert.ok(!/smallest measured/.test(r.errors.find((e) => /not needed/.test(e))), 'nothing measured, so no number is invented');
 });

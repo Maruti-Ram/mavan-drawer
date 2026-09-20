@@ -77,6 +77,12 @@ export default {
   only, as `<!-- grows: 0 0 0.5 0.5 -->`. Declare it when the filled twin cannot keep the outline's
   ink box — C17 repeated elements (menu lines, dots) thicken in place. Lint checks the number
   against the drawings, so a wrong note is an error, not a licence.
+- **Agreed gap.** `gap` — `{ 24: 1, 20: 1 }` for both files, or `{ filled: { 24: 1 } }` /
+  `{ outline: { … } }` to scope it to one style — is written as `<!-- gap: 1 -->` and replaces §6's
+  1.5 for that file's proximity checks only. Declare it when Maruti approves a drawing that comes
+  closer to itself than 1.5 (`attachment-4-filled`: 1.04 at 24, 1.0 at 20). Round it down to what
+  the drawing really holds; lint errors on a note it cannot read, one that is not below 1.5, and
+  one the drawing no longer needs.
 - **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge.
 - **Consistency.** Check against approved relatives first (`src/icons/24/`, `node tools/queue.mjs show <name>`). Reuse their lengths, radii and weights unless the question is about changing them.
 

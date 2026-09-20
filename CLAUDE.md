@@ -271,6 +271,11 @@ depending on the icon.
   Lint compares every pair and warns on any undeclared difference; a note the drawings do not
   measure is an error. The 33 that differ today are C17 repeated elements and `minus` — all
   agreed, none yet noted (2026-09-20 census)
+- `<!-- gap: N -->` declares the agreed minimum gap between stroke edges for that one file, in
+  that master's units; it replaces §6's 1.5 in that file's two proximity checks (C19 glyph pairs
+  and the knockout check are untouched). Lint prints it as an info line while the drawing holds
+  it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
+  the drawing no longer needs. Today: `attachment-4-filled` at 24 and 20 (`gap: 1`)
 - One icon per commit
 - **An icon is never reviewed alone** — only in a grid at 16px next to twenty others
 

@@ -91,6 +91,24 @@ export function parseGrowsNote(src) {
     : { raw: m[1], bad: true };
 }
 
+// An icon may declare its own agreed minimum gap: `<!-- gap: N -->`, that master's
+// units, between any two stroke edges in THIS file. It replaces §6's MIN_GAP for the
+// two proximity checks below (path-vs-path in §5, path-vs-itself in §5b) and for that
+// file alone; C19's glyph pairs keep GLYPH_GAP, and the knockout check keeps MIN_GAP.
+// Agreed by eye at approval (attachment-4-filled, 2026-09-20: the filled clip keeps all
+// four legs, so the path passes within 1.04 of itself at 24 and 1.0 at 20).
+// Same spirit as `box:` and `grows:` — a declared deviation is held to its own number
+// instead of leaving a warning that buries real ones, and it can never hide a mistake:
+// a note lint cannot read, one that is not below MIN_GAP, and one the drawing does not
+// need are all ERRORS.
+// Returns null (no note), {n, raw}, or {raw, bad: true}.
+export function parseGapNote(src) {
+  const m = src.match(/<!--\s*gap:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  const v = m[1].match(/^\d+(?:\.\d+)?$/);
+  return v && +m[1] > 0 ? { n: +m[1], raw: m[1] } : { raw: m[1], bad: true };
+}
+
 const SIDES = { l: 'left', r: 'right', t: 'top', b: 'bottom' };
 const growsText = (g) => `${g.l} ${g.r} ${g.t} ${g.b}`;
 const signed = (n) => (n > 0 ? `+${r3(n)}` : `${r3(n)}`);
@@ -167,6 +185,18 @@ export function lintSource(canvas, file, src) {
     errors.push(`grows note "${grows.raw}" is not four numbers — write <!-- grows: L R T B -->, e.g. <!-- grows: 0 0 0.25 0.25 -->`);
     grows = null;
   }
+
+  // --- 0b. the agreed-gap note (§5 / §5b read it; checked against the drawing below) ---
+  let gap = parseGapNote(src);
+  if (gap?.bad) {
+    errors.push(`gap note "${gap.raw}" is not a distance — write <!-- gap: N -->, e.g. <!-- gap: 1 -->`);
+    gap = null;
+  } else if (gap && gap.n >= MIN_GAP) {
+    errors.push(`declares gap ${gap.n}, which is not below §6's ${MIN_GAP} — the note only ever lowers the floor for one file; delete it`);
+    gap = null;
+  }
+  const GAP = gap ? gap.n : MIN_GAP;
+  const measured = [];   // every edge gap the note governs, for the "is it still needed" check
 
   // --- 1. root attributes -------------------------------------------------
   const root = src.match(/<svg\b([^>]*)>/);
@@ -282,13 +312,15 @@ export function lintSource(canvas, file, src) {
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
     if (crosses(sampled[i], sampled[j])) continue; // paths that cross (x, plus) join by design
     const glyphPair = isGlyph && isDot(ds[i]) !== isDot(ds[j]) && !isShell(spans[i]) && !isShell(spans[j]);
-    const floor = glyphPair ? GLYPH_GAP : MIN_GAP;
+    const floor = glyphPair ? GLYPH_GAP : GAP;
     const need = floor + STROKE; // centreline distance that leaves `floor` between the two edges
     // Point-to-SEGMENT, both ways: point-to-point read a stem standing on a bar as 0.13
     // apart whenever the bar's samples straddled the stem (info-3 at 16, on the eighth grid).
     const min = Math.min(polyGap(sampled[i], sampled[j]), polyGap(sampled[j], sampled[i]));
-    if (min > 0.1 && min < need - 0.01)
-      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : '§6'} needs ${need} (edge gap ${r2(min - STROKE)} < ${floor})`);
+    if (min <= 0.1) continue;
+    if (!glyphPair) measured.push(r2(min - STROKE));
+    if (min < need - 0.01)
+      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${need} (edge gap ${r2(min - STROKE)} < ${floor})`);
   }
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
@@ -311,9 +343,10 @@ export function lintSource(canvas, file, src) {
     const self = selfGap(ds[i], STROKE);
     if (!self) continue;
     const inGlyph = isGlyph && !isShell(spans[i]);
-    const floor = inGlyph ? GLYPH_GAP : MIN_GAP;
+    const floor = inGlyph ? GLYPH_GAP : GAP;
+    if (!inGlyph) measured.push(self.gap);
     if (self.gap < floor - 0.01)
-      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? 'C19 glyph gap' : '§6'} needs ${floor} (it turns ${self.span}°)`);
+      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (it turns ${self.span}°)`);
   }
 
   // --- 5c. advisory: a knockout that leaves too little standing ---------------
@@ -341,7 +374,20 @@ export function lintSource(canvas, file, src) {
       warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : '§6'} needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
   }
 
-  return { file, errors, warnings, notes, size, inner, isMark, ink, grows };
+  // --- 5d. is the agreed gap still doing anything? ------------------------
+  // The note lowers the floor, so it has to earn its place: if nothing the two checks
+  // above measure comes closer than §6's own floor, the drawing no longer needs it and
+  // the note is stale — an ERROR, so it is deleted rather than left to excuse a future
+  // change nobody agreed. Otherwise it is in force, and says so the way `grows` does.
+  if (gap) {
+    const smallest = measured.length ? Math.min(...measured) : Infinity;
+    if (smallest >= MIN_GAP - 0.01)
+      errors.push(`declares gap ${gap.n} but nothing in this drawing comes within §6's ${MIN_GAP}${Number.isFinite(smallest) ? ` (smallest measured ${smallest})` : ''} — the note is not needed; delete it`);
+    else if (smallest >= gap.n - 0.01)
+      notes.splice(-1, 0, `agreed gap ${gap.n} — smallest measured ${smallest}`);
+  }
+
+  return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap };
 }
 
 // --- 6. size families (C8): a mark's large and small sit one SIZE_STEP from the default;

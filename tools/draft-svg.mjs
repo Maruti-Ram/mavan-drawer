@@ -14,17 +14,32 @@
 //   grows: L R T B  FILLED FILES ONLY — how far the filled ink is agreed to stand proud of its
 //                   outline twin's box on each side, in that master's units. C17's repeated
 //                   elements (menu lines, dots) thicken in place and cannot keep the box
+//   gap: N          the agreed minimum gap between stroke edges for THIS file, in that master's
+//                   units; it replaces §6's MIN_GAP in this file's proximity checks (C19 glyph
+//                   pairs are untouched). A candidate writes `gap: { 24: 1, 20: 1 }` for both
+//                   files, or `gap: { filled: { 24: 1, 20: 1 } }` to scope it to one style
 // Lint reads all of them; a note the drawing does not measure is an error, not a warning.
 import { MASTERS, strokeOf } from './masters.mjs';
 
 export const masters = Object.keys(MASTERS).map(Number).sort((a, b) => b - a);
 
-export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null) => [
+// `gap` is scoped like nothing else here, because it is the one note that can belong to
+// either style: `{ 24: 1 }` gives both files the same agreed gap (like `box`), and
+// `{ filled: { 24: 1 } }` / `{ outline: { … } }` names one style (like `grows`, which is
+// filled-only). A style key present anywhere switches the whole note to the scoped form.
+export const gapFor = (gap, m, filled) => {
+  if (!gap) return null;
+  const scoped = gap.filled !== undefined || gap.outline !== undefined;
+  return (scoped ? gap[filled ? 'filled' : 'outline'] : gap)?.[m] ?? null;
+};
+
+export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
   ...(box ? [`  <!-- box: ${box[0]}x${box[1]} -->`] : []),
   ...(grows ? [`  <!-- grows: ${grows.join(' ')} -->`] : []),
+  ...(gap ? [`  <!-- gap: ${gap} -->`] : []),
   ...(glyph ? [`  <!-- glyph: ${glyph} -->`] : []),
   ...(optical ? [`  <!-- optical: ${optical.join(' ')} -->`] : []),
   ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
@@ -43,6 +58,7 @@ export function candidateFiles(draft, c, name) {
   const glyph = c.glyph ?? draft.glyph ?? null;
   const box = c.box ?? draft.box ?? null;              // { 24: [w, h], 20: […], 16: […] }
   const grows = c.grows ?? draft.grows ?? null;        // { 24: [l, r, t, b], … } — filled files only
+  const gap = c.gap ?? draft.gap ?? null;              // { 24: n, … } or { filled: { 24: n, … }, outline: … }
   const out = [];
   for (const m of masters) {
     const o = c.masters?.[m];
@@ -56,11 +72,11 @@ export function candidateFiles(draft, c, name) {
     const sw = strokeOf(m);
     const fw = f.weight ?? sw;
     out.push({ master: m, name, file: `${name}.svg`, filled: false,
-      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph, box?.[m]) });
+      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph, box?.[m], null, gapFor(gap, m, false)) });
     out.push({ master: m, name: `${name}-filled`, file: `${name}-filled.svg`, filled: true,
       src: svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline`),
-        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m]) });
+        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m], gapFor(gap, m, true)) });
   }
   return out;
 }

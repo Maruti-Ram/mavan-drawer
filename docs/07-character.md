@@ -72,6 +72,7 @@ is the reference for other containers: bags, boxes, archive.
 - **Corner radius.** Refined uses 2.5 for containers and 1.5 for bends. Mark corners are settled by C10.
 - **Angle exceptions.** Tapers (≤10°) and 30° hexagons are drawn but not yet
   allowed by `01-foundations.md`. The check family (C11) is the first granted one; chevron-3 (C12) and the `mail` family's flap (C25) are the others, each scoped to its own icons. `home-2` / `home-3` carry a 36.9° roof (3 up for 4 across), approved 2026-09-20 for those two only; `home` itself is 45°. `gear` / `gear-2` are built on 60° (six teeth), approved 2026-09-20 for those two only.
+- **Gap exceptions.** Scoped the same way, and declared in the file as `<!-- gap: N -->` so lint holds the drawing to the agreed number instead of §6's 1.5: `attachment-4-filled` at 24 and 20 keeps all four legs of the clip, so the path passes within 1.04 and 1.0 of itself — agreed 2026-09-20 for that icon's filled files only (the 16 holds 1.86 and needs no note).
 - ~~User icon~~ — settled 2026-09-20: `user` is a small head over a full half-round body in the
   portrait keyline (16×20 · 12×16 · 10×14); `user-2` large head over a low dome, `user-3` open
   square shoulders, `user-4` one splayed arc. The half-ellipse shoulders with a bowed base were
