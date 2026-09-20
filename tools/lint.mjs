@@ -4,7 +4,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap, materialGap } from './geometry.mjs';
-import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
+import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
 function polyGap(a, b) {
@@ -43,6 +43,8 @@ const BANNED_ATTR = /\s(transform|id|class|style|fill-rule|clip-path|opacity)=/;
 
 const dp = (n) => { const s = String(n); const i = s.indexOf('.'); return i < 0 ? 0 : s.length - i - 1; };
 const r2 = (n) => Math.round(n * 100) / 100;
+// 3 dp, so an eighth-grid difference at 16 prints as 0.125 and not as a rounded 0.13.
+const r3 = (n) => Math.round(n * 1000) / 1000;
 
 // true when two sampled polylines properly intersect (sampling can miss the exact crossing point)
 const side = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]));
@@ -67,6 +69,73 @@ export function parseBoxNote(src) {
   return v ? { w: +v[1], h: +v[2], raw: m[1] } : { raw: m[1], bad: true };
 }
 
+// --- the pair: a filled drawing's ink box is its outline twin's -------------
+// Settled ("Exact placement", C10/C12): the two styles of one icon at one master occupy
+// exactly the same ink box, to 2 dp. Every check above reads one file alone, so nothing
+// has ever compared the pair (docs/09 §2). These two do.
+//
+// A filled drawing may declare an agreed difference: `<!-- grows: L R T B -->`, four
+// signed numbers in that master's units saying how far the filled ink stands PROUD of
+// the outline's on the left, right, top and bottom — negative means pulled inside.
+// Three agreed cases exist today: C17's repeated elements (dots, menu lines) thicken in
+// place, and a lone bar (`minus`) cannot thicken without growing. Same spirit as
+// `box:` — the note only silences the warning while the drawings measure what it says,
+// so it can never hide a mistake.
+// Returns null (no note), {l, r, t, b, raw}, or {raw, bad: true}.
+export function parseGrowsNote(src) {
+  const m = src.match(/<!--\s*grows:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  const parts = m[1].split(/\s+/).filter(Boolean);
+  return parts.length === 4 && parts.every((p) => /^[+-]?\d+(?:\.\d+)?$/.test(p))
+    ? { l: +parts[0], r: +parts[1], t: +parts[2], b: +parts[3], raw: m[1] }
+    : { raw: m[1], bad: true };
+}
+
+const SIDES = { l: 'left', r: 'right', t: 'top', b: 'bottom' };
+const growsText = (g) => `${g.l} ${g.r} ${g.t} ${g.b}`;
+const signed = (n) => (n > 0 ? `+${r3(n)}` : `${r3(n)}`);
+
+// Pure: two raw ink boxes ({x0, y0, x1, y1}) as §4 measures them, plus the filled file's
+// `grows` note if it has one. No filesystem, so tools/geometry.test.mjs can hand it numbers.
+export function comparePair(filled, outline, grows = null) {
+  const d = {
+    l: outline.x0 - filled.x0,   // outward on every side: + is filled ink standing proud
+    r: filled.x1 - outline.x1,
+    t: outline.y0 - filled.y0,
+    b: filled.y1 - outline.y1,
+  };
+  const keys = Object.keys(SIDES);
+  const dims = (b) => `${r3(b.x1 - b.x0)}×${r3(b.y1 - b.y0)}`;
+  const measured = keys.map((k) => `${SIDES[k]} ${signed(d[k])}`).join(' · ');
+  const off = keys.filter((k) => Math.abs(d[k] - (grows ? grows[k] : 0)) > 0.01);
+  if (!off.length) return { errors: [], warnings: [], notes: grows ? [`agreed growth ${growsText(grows)}`] : [] };
+  if (grows) return { errors: [`declares growth ${growsText(grows)} but the filled ink measures ${measured} — the agreed growth and the drawings disagree`], warnings: [], notes: [] };
+  return { errors: [], warnings: [`ink box differs from the outline's: ${measured} (filled ${dims(filled)} vs outline ${dims(outline)}) — Settled: filled box = outline box`], notes: [] };
+}
+
+// The directory-level half. A file cannot see its twin, so this runs over the whole
+// map of results — `${master}/${file}.svg` → what `lintSource` returned — and adds to
+// them in place. Takes a plain Map, so a test can build one without a drawing on disk.
+export function checkPairs(results) {
+  for (const [key, r] of results) {
+    const [m, f] = key.split('/'), name = f.replace('.svg', '');
+    const filled = isFilled(name);
+    const twinName = filled ? name.replace(/-filled$/, '') : `${name}-filled`;
+    const twin = results.get(`${m}/${twinName}.svg`);
+    if (!twin) {
+      r.warnings.push(`no ${filled ? 'outline' : 'filled'} twin \`${twinName}.svg\` at ${m} — an icon ships as a pair`);
+      continue;
+    }
+    // Judged once per pair, on the filled file: it is the one that may declare `grows`.
+    if (!filled || !r.ink || !twin.ink) continue;
+    const pair = comparePair(r.ink, twin.ink, r.grows);
+    r.errors.push(...pair.errors);
+    r.warnings.push(...pair.warnings);
+    r.notes.splice(-1, 0, ...pair.notes);   // the headline note stays last (run prints it inline)
+  }
+  return results;
+}
+
 function lint(canvas, file) {
   return lintSource(canvas, file, readFileSync(join('src/icons', String(canvas), file), 'utf8'));
 }
@@ -84,8 +153,20 @@ export function lintSource(canvas, file, src) {
   const REQUIRED = required(canvas, STROKE);
   const mid = canvas / 2;
   const errors = [], warnings = [], notes = [];
-  let size = null, inner = null, isMark = false;
+  let size = null, inner = null, isMark = false, ink = null;
   const hasComment = /<!--/.test(src);
+
+  // --- 0. the agreed-growth note (checked against the twin in run()) ------
+  // Read here so a note lint cannot parse, or one sitting in the wrong file, is an error
+  // even when the twin is missing — it must never be able to pass unseen.
+  let grows = parseGrowsNote(src);
+  if (grows && !isFilledFile) {
+    errors.push('only a `-filled` file may declare `grows:` — it says how the filled ink differs from its outline twin');
+    grows = null;
+  } else if (grows?.bad) {
+    errors.push(`grows note "${grows.raw}" is not four numbers — write <!-- grows: L R T B -->, e.g. <!-- grows: 0 0 0.25 0.25 -->`);
+    grows = null;
+  }
 
   // --- 1. root attributes -------------------------------------------------
   const root = src.match(/<svg\b([^>]*)>/);
@@ -131,8 +212,11 @@ export function lintSource(canvas, file, src) {
     const half = STROKE / 2, boxes = [];
     if (ds.length) { const b = bbox(ds); boxes.push([b.x0 - half, b.y0 - half, b.x1 + half, b.y1 + half]); }
     if (areas.length) { const b = bbox(areas); boxes.push([b.x0, b.y0, b.x1, b.y1]); }
-    const o = { x0: r2(Math.min(...boxes.map((b) => b[0]))), y0: r2(Math.min(...boxes.map((b) => b[1]))),
-      x1: r2(Math.max(...boxes.map((b) => b[2]))), y1: r2(Math.max(...boxes.map((b) => b[3]))) };
+    // Kept unrounded for the pair comparison: at 16 a filled edge can land on x.625, and
+    // rounding it to 2 dp would invent 0.005 of difference the drawing does not have.
+    ink = { x0: Math.min(...boxes.map((b) => b[0])), y0: Math.min(...boxes.map((b) => b[1])),
+      x1: Math.max(...boxes.map((b) => b[2])), y1: Math.max(...boxes.map((b) => b[3])) };
+    const o = { x0: r2(ink.x0), y0: r2(ink.y0), x1: r2(ink.x1), y1: r2(ink.y1) };
     if (o.x0 < BOUND[0] || o.y0 < BOUND[0] || o.x1 > BOUND[1] || o.y1 > BOUND[1])
       errors.push(`crosses the margin: outer box ${o.x0},${o.y0} → ${o.x1},${o.y1} (drawing bound is ${BOUND[0]}..${BOUND[1]})`);
 
@@ -257,7 +341,7 @@ export function lintSource(canvas, file, src) {
       warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : '§6'} needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
   }
 
-  return { file, errors, warnings, notes, size, inner, isMark };
+  return { file, errors, warnings, notes, size, inner, isMark, ink, grows };
 }
 
 // --- the run over src/icons ---------------------------------------------
@@ -296,6 +380,9 @@ for (const [key, r] of results) {
   if (Math.abs(r.size - want) > 0.01)
     r.warnings.push(`${size} is ${r.size} — C8 wants ${want} (default ${base.size} ${size === 'large' ? '+' : '−'} ${SIZE_STEP[m]})`);
 }
+
+// --- 7. the pair: every icon ships as outline + filled, in the same ink box ---
+checkPairs(results);
 
 for (const [m, f] of jobs) {
   const { errors, warnings, notes } = results.get(`${m}/${f}`);

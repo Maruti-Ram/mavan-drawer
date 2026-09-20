@@ -252,6 +252,11 @@ depending on the icon.
 - `<!-- keyline: mark -->` opts an icon out of silhouette keylines
 - `<!-- box: WxH -->` declares an agreed per-icon ink size (that master's units); lint verifies
   the drawing against it — as an error — instead of matching a keyline. Never with `keyline: mark`
+- `<!-- grows: L R T B -->` (filled files only) declares how far the filled ink is allowed to
+  stand proud of its outline twin's box on each side, in that master's units; negative is inside.
+  Lint compares every pair and warns on any undeclared difference; a note the drawings do not
+  measure is an error. The 33 that differ today are C17 repeated elements and `minus` — all
+  agreed, none yet noted (2026-09-20 census)
 - One icon per commit
 - **An icon is never reviewed alone** — only in a grid at 16px next to twenty others
 

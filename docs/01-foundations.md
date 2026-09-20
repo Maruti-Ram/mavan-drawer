@@ -213,6 +213,27 @@ fills its shapes and keeps its **outline weight** for any leftover line — 1.5
 at 24 and 20, 1.25 at 16. Numbers live in `tools/masters.mjs` (`FILLED_WEIGHT`,
 `strokeOf`); lint enforces them on `*-filled.svg`.
 
+**Lint compares the pair (added 2026-09-20).** Every icon ships as
+`<name>.svg` and `<name>-filled.svg` at each master, and the two are meant to
+occupy the same ink box. Until now every check read one file alone, so nothing
+ever held them to it. Lint now measures both boxes the same way it measures one
+— a line grown by half its own stroke, a filled area taken as drawn — and warns
+on the filled file when any side differs by more than 0.01, naming the four
+sides and both boxes.
+
+Some differences are agreed rather than wrong: a repeated element thickens in
+place (C17's dots and menu lines), and a lone bar cannot get heavier without
+getting taller (`minus`). Those declare the difference, in the same spirit as
+`box:` above — `<!-- grows: L R T B -->` on the filled file, four signed numbers
+in that master's units saying how far the filled ink stands **proud** of the
+outline's on the left, right, top and bottom; negative means pulled inside. The
+note silences the warning only while the drawings measure what it says: a note
+that disagrees with them, one lint cannot read, or one sitting in an outline
+file is an **error**. It can never hide a mistake.
+
+Measured across all 351 shipped pairs on the day the check landed: 33 differ,
+all of them C17 repeated elements or `minus`, none of them anything else.
+
 **16 draws a lighter line than 24 and 20 (C7, amended 2026-09-20).** Until
 then, the library held one physical weight at every master, so the smaller
 masters were proportionally heavier for free — 6.3% · 7.5% · 9.4% of the

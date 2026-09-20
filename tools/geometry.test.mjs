@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { materialGap, selfGap } from './geometry.mjs';
-import { lintSource, parseBoxNote } from './lint.mjs';
+import { checkPairs, comparePair, lintSource, parseBoxNote, parseGrowsNote } from './lint.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
   gridFor, gridNameFor, gridOf, strokeOf, weightOf,
@@ -338,4 +338,123 @@ test('the box does not excuse the margin or the centre', () => {
   assert.deepEqual(r.errors.filter((e) => /agreed size/.test(e)), [], 'the box itself still matches');
   assert.ok(r.errors.some((e) => /crosses the margin/.test(e)), r.errors.join(' | '));
   assert.ok(r.warnings.some((w) => /off-centre/.test(w)), r.warnings.join(' | '));
+});
+
+// ── lint: the pair — a filled drawing's ink box is its outline twin's ────────
+// Settled ("Exact placement"): the two styles of one icon at one master occupy the same
+// ink box, to 2 dp. Until 2026-09-20 nothing compared them (docs/09 §2). `comparePair`
+// is pure — two boxes and an optional note — so these need no drawing on disk, and
+// `checkPairs` is handed a plain Map for the same reason.
+// Signs read OUTWARD on every side: + is filled ink standing proud of the outline's.
+
+const BOX = (x0, y0, x1, y1) => ({ x0, y0, x1, y1 });
+const pairWarn = (r) => r.warnings.filter((w) => w.includes('ink box differs'));
+
+test('a pair in the same ink box is clean and says nothing', () => {
+  const r = comparePair(BOX(4.5, 6.75, 19.5, 17.25), BOX(4.5, 6.75, 19.5, 17.25));
+  assert.deepEqual(r, { errors: [], warnings: [], notes: [] });
+  // 0.01 is the tolerance, and it is a tolerance, not a free eighth
+  assert.deepEqual(comparePair(BOX(4.5, 6.75, 19.5, 17.25), BOX(4.505, 6.75, 19.5, 17.25)).warnings, []);
+  assert.equal(comparePair(BOX(4.5, 6.75, 19.5, 17.25), BOX(4.52, 6.75, 19.5, 17.25)).warnings.length, 1);
+});
+
+test('an undeclared difference is a WARNING, with the four sides and both boxes', () => {
+  // the shipped `menu` at 24, measured 2026-09-20: the stack thickens in place (C17),
+  // so the filled ink stands 0.5 proud top and bottom and the sides do not move
+  const r = comparePair(BOX(4.5, 6.25, 19.5, 17.75), BOX(4.5, 6.75, 19.5, 17.25));
+  assert.deepEqual(r.errors, []);
+  assert.equal(r.warnings.length, 1);
+  assert.match(r.warnings[0], /^ink box differs from the outline's: left 0 · right 0 · top \+0\.5 · bottom \+0\.5 \(filled 15×11\.5 vs outline 15×10\.5\) — Settled: filled box = outline box$/);
+});
+
+test('an eighth-grid difference at 16 prints as 0.375, not a rounded 0.38', () => {
+  // shipped `minus` at 16: outline 1.25 thick, filled 2 — half the extra each side
+  const r = comparePair(BOX(2, 7, 14, 9), BOX(2, 7.375, 14, 8.625));
+  assert.match(r.warnings[0], /top \+0\.375 · bottom \+0\.375/);
+  assert.match(r.warnings[0], /filled 12×2 vs outline 12×1\.25/);
+});
+
+test('filled ink pulled INSIDE the outline reads negative', () => {
+  const r = comparePair(BOX(5, 5, 19, 19), BOX(4.5, 5, 19.5, 19));
+  assert.match(r.warnings[0], /left -0\.5 · right -0\.5 · top 0 · bottom 0/);
+});
+
+test('parseGrowsNote reads four signed numbers and refuses anything else', () => {
+  assert.deepEqual(parseGrowsNote('<!-- grows: 0 0 0.5 0.5 -->'), { l: 0, r: 0, t: 0.5, b: 0.5, raw: '0 0 0.5 0.5' });
+  assert.deepEqual(parseGrowsNote('<!-- grows: -0.25 +0.25 0 0 -->').l, -0.25);
+  assert.equal(parseGrowsNote('<!-- grows:0 0 0.375 0.375-->').t, 0.375);
+  assert.equal(parseGrowsNote('<!-- box: 20x18 -->'), null);
+  assert.ok(parseGrowsNote('<!-- grows: 0 0 0.5 -->').bad, 'three numbers is not four');
+  assert.ok(parseGrowsNote('<!-- grows: 0 0 0.5 0.5 0.5 -->').bad, 'five numbers is not four');
+  assert.ok(parseGrowsNote('<!-- grows: 0,0,0.5,0.5 -->').bad, 'commas are not spaces');
+  assert.ok(parseGrowsNote('<!-- grows: a bit taller -->').bad);
+});
+
+test('a declared growth the drawings measure: clean, with a note saying so', () => {
+  const grows = parseGrowsNote('<!-- grows: 0 0 0.5 0.5 -->');
+  const r = comparePair(BOX(4.5, 6.25, 19.5, 17.75), BOX(4.5, 6.75, 19.5, 17.25), grows);
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(r.warnings, []);
+  assert.deepEqual(r.notes, ['agreed growth 0 0 0.5 0.5']);
+});
+
+test('a declared growth the drawings do NOT measure is an ERROR', () => {
+  // the note may never hide a mistake: declare the C17 growth, then draw it 0.25 wider
+  const grows = parseGrowsNote('<!-- grows: 0 0 0.5 0.5 -->');
+  const r = comparePair(BOX(4.25, 6.25, 19.75, 17.75), BOX(4.5, 6.75, 19.5, 17.25), grows);
+  assert.deepEqual(r.warnings, [], 'an error, not a warning — a wrong note is worse than no note');
+  assert.equal(r.errors.length, 1);
+  assert.match(r.errors[0], /declares growth 0 0 0\.5 0\.5 but the filled ink measures left \+0\.25 · right \+0\.25 · top \+0\.5 · bottom \+0\.5 — the agreed growth and the drawings disagree/);
+  // and a note of zeroes does not excuse a difference either
+  assert.equal(comparePair(BOX(4.5, 6.25, 19.5, 17.75), BOX(4.5, 6.75, 19.5, 17.25),
+    parseGrowsNote('<!-- grows: 0 0 0 0 -->')).errors.length, 1);
+});
+
+test('a grows note lint cannot read is an ERROR, never a silent pass', () => {
+  const src = FOLDER24.replace('<!-- box: 20x18 -->', '<!-- grows: a bit taller -->');
+  const r = lintSource(24, 'folder-filled.svg', src);
+  assert.ok(r.errors.some((e) => /grows note "a bit taller" is not four numbers/.test(e)), r.errors.join(' | '));
+  assert.equal(r.grows, null, 'an unreadable note is dropped, not half-believed');
+});
+
+test('only a -filled file may declare `grows`', () => {
+  const r = lintSource(24, 'folder.svg', FOLDER24.replace('<!-- box: 20x18 -->', '<!-- grows: 0 0 0.5 0.5 -->'));
+  assert.ok(r.errors.some((e) => /only a `-filled` file may declare/.test(e)), r.errors.join(' | '));
+  assert.equal(r.grows, null);
+});
+
+test('checkPairs finds the twin in the same master and judges once, on the filled file', () => {
+  const results = new Map([
+    ['24/menu.svg', { errors: [], warnings: [], notes: ['head'], ink: BOX(4.5, 6.75, 19.5, 17.25), grows: null }],
+    ['24/menu-filled.svg', { errors: [], warnings: [], notes: ['head'], ink: BOX(4.5, 6.25, 19.5, 17.75), grows: null }],
+  ]);
+  checkPairs(results);
+  assert.deepEqual(results.get('24/menu.svg').warnings, [], 'the outline half stays quiet');
+  assert.equal(pairWarn(results.get('24/menu-filled.svg')).length, 1);
+});
+
+test('a missing twin is a warning on whichever file exists', () => {
+  const lone = (key) => {
+    const r = { errors: [], warnings: [], notes: ['head'], ink: BOX(4.5, 6.75, 19.5, 17.25), grows: null };
+    checkPairs(new Map([[key, r]]));
+    return r.warnings;
+  };
+  assert.equal(lone('24/menu.svg').length, 1);
+  assert.match(lone('24/menu.svg')[0], /no filled twin `menu-filled\.svg` at 24 — an icon ships as a pair/);
+  assert.match(lone('24/menu-filled.svg')[0], /no outline twin `menu\.svg` at 24/);
+  // and a twin at a DIFFERENT master is not a twin
+  const r = { errors: [], warnings: [], notes: ['head'], ink: BOX(4.5, 6.75, 19.5, 17.25), grows: null };
+  checkPairs(new Map([['24/menu-filled.svg', r], ['20/menu.svg', { errors: [], warnings: [], notes: [], ink: null, grows: null }]]));
+  assert.match(r.warnings[0], /no outline twin/);
+});
+
+test('the shipped set: `more-horizontal` at 24 is C17 thickening in place', () => {
+  // measured from src this session, not recalled: both styles carry the SAME three
+  // r0.75 discs, so the whole difference is half the weight step (1.5 → 2.5) on all
+  // four sides. The reading a `<!-- grows: 0.5 0.5 0.5 0.5 -->` note would have to match.
+  const ink = (f) => lintSource(24, f, readFileSync(new URL(`../src/icons/24/${f}`, import.meta.url), 'utf8')).ink;
+  const r = comparePair(ink('more-horizontal-filled.svg'), ink('more-horizontal.svg'));
+  assert.match(r.warnings[0], /left \+0\.5 · right \+0\.5 · top \+0\.5 · bottom \+0\.5 \(filled 16×4 vs outline 15×3\)/);
+  assert.deepEqual(comparePair(ink('more-horizontal-filled.svg'), ink('more-horizontal.svg'),
+    parseGrowsNote('<!-- grows: 0.5 0.5 0.5 0.5 -->')), { errors: [], warnings: [], notes: ['agreed growth 0.5 0.5 0.5 0.5'] });
 });
