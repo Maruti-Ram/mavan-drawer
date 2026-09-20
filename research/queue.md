@@ -142,7 +142,9 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 31. `calendar` · Time & Calendar — approved 2026-09-20
 - [x] 31. `calendar-2` · Time & Calendar · variant of `calendar` — Floating line · approved 2026-09-20
 - [x] 31. `calendar-3` · Time & Calendar · variant of `calendar` — One dot · approved 2026-09-20
-- [ ] 32. `credit-card` · Commerce & Payments
+- [x] 32. `credit-card` · Commerce & Payments — approved 2026-09-20
+- [x] 32. `credit-card-2` · Commerce & Payments · variant of `credit-card` — Bar right · approved 2026-09-20
+- [x] 32. `credit-card-3` · Commerce & Payments · variant of `credit-card` — Bar and dot · approved 2026-09-20
 - [ ] 33. `image` · Files & Folders
 - [ ] 34. `lock` · Users & Access
 - [ ] 35. `clipboard` · Files & Folders
