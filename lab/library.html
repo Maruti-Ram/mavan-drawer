@@ -383,8 +383,10 @@ function renderSections() {
     const c = counts(q.filter((e) => e.section === s));
     return `<div title="${esc(s)}"><span class="k">${esc(s)}</span><span class="v num">${c.done}<span>of ${c.all}${c.review ? ` · ${c.review} in review` : ''}</span></span><span class="bar">${bar(c)}</span></div>`;
   }).join('');
+  // Stroke is per master (1.5 · 1.5 · 1.25), listed in the masters' own order.
+  const sw = MASTERS.map((m) => man.strokes?.[m] ?? man.stroke).join(' · ');
   document.getElementById('subtitle').textContent =
-    `${all.done} of ${all.all} approved · outline + filled · masters 24 · 20 · 16 · stroke ${man.stroke}`;
+    `${all.done} of ${all.all} approved · outline + filled · masters 24 · 20 · 16 · stroke ${sw}`;
 
   const next = q.find((e) => e.status !== 'done');
   document.getElementById('next').innerHTML = next

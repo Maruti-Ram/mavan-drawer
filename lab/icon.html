@@ -282,7 +282,7 @@ body.refs-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
 // in dynamically with a cache-buster: a static import is keyed by URL and some preview
 // hosts pin it for the whole session, which silently runs the board on stale code.
 const V = `?v=${Date.now()}`;
-const { MASTERS: M, STROKE, FILLED_WEIGHT: FW } = await import(`../tools/masters.mjs${V}`);
+const { MASTERS: M, STROKES: SW, strokeOf, FILLED_WEIGHT: FW } = await import(`../tools/masters.mjs${V}`);
 const { parsePath, bbox, anatomy } = await import(`../tools/geometry.mjs${V}`);
 // One drawing board: whatever icon is on it lives in drafts/current.js, and its
 // references in refs/current.js (node tools/refs.mjs <name>).
@@ -313,7 +313,6 @@ const LAYERS = [
   { id: 'mark', label: 'Mark', on: false, sw: 'k', dash: true },
 ];
 const state = {
-  sw: STROKE,
   theme: store.get('icon-theme', 'auto'),
   key: store.get('icon-overlay', true),
   layers: { ...Object.fromEntries(LAYERS.map((l) => [l.id, l.on])), ...store.get('icon-layers', {}) },
@@ -336,18 +335,19 @@ const split = (d) => (/^\s*M/.test(d) ? d.match(/M[^M]*/g).map((s) => s.trim()) 
 // Outline and filled are separate drawings of one candidate, approved as a pair.
 // A drawing is stroked centrelines plus filled areas; each fill entry is one
 // shape with its holes (evenodd), so it is never split.
-//   masters: { 24: [stroke d…] }                                      the outline, stroke 1.5
+//   masters: { 24: [stroke d…] }                          the outline, at that master's stroke
 //   filled:  { 24: { fill: [d…], stroke: [d…], weight } } | 'outline'  'outline' = same drawing
 // Line-only icons have nothing to fill, so their filled drawing is the same
 // idea at a heavier weight — never a background.
 const STYLES = ['outline', 'filled'];
 const STYLE_LABEL = { outline: 'Outline', filled: 'Filled', both: 'Both' };
+// The outline weight is the master's own (tools/masters.mjs), not one global stroke.
 function drawing(c, style, m) {
   const o = c.masters?.[m];
-  if (style === 'outline') return o ? { stroke: o, fill: [], sw: state.sw } : null;
-  if (c.filled === 'outline') return o ? { stroke: o, fill: [], sw: state.sw, same: true } : null;
+  if (style === 'outline') return o ? { stroke: o, fill: [], sw: strokeOf(m) } : null;
+  if (c.filled === 'outline') return o ? { stroke: o, fill: [], sw: strokeOf(m), same: true } : null;
   const d = c.filled?.[m];
-  return d ? { stroke: d.stroke ?? [], fill: d.fill ?? [], sw: d.weight ?? state.sw } : null;
+  return d ? { stroke: d.stroke ?? [], fill: d.fill ?? [], sw: d.weight ?? strokeOf(m) } : null;
 }
 const paint = (dr) => dr.fill.map((d) => `<path fill="currentColor" fill-rule="evenodd" d="${d}"/>`).join('') + (dr.stroke.length ? strokes(dr.stroke, dr.sw) : '');
 const blank = (px) => `<span style="width:${px}px;height:${px}px"></span>`;
@@ -391,7 +391,7 @@ function applyTheme() {
 function renderBar() {
   const opt = (v, label) => `<button data-theme="${v}" class="${state.theme === v ? 'on' : ''}">${label}</button>`;
   document.getElementById('bar').innerHTML =
-    `<span class="pill" title="Outline stroke · filled line weight at 24 / 20 / 16">Stroke ${STROKE} · filled ${FW[24]} / ${FW[20]} / ${FW[16]}</span>
+    `<span class="pill" title="Outline stroke · filled line weight at 24 / 20 / 16">Stroke ${SW[24]} / ${SW[20]} / ${SW[16]} · filled ${FW[24]} / ${FW[20]} / ${FW[16]}</span>
      <button class="switch${state.key ? ' on' : ''}" data-overlay title="Overlay"><span></span>Overlay</button>
      <span class="divider"></span>
      <span class="seg">${opt('auto', 'Auto')}${opt('light', 'Light')}${opt('dark', 'Dark')}</span>`;
@@ -595,7 +595,7 @@ function rulers(m, px) {
 function board(style, m, c) {
   const k = `${style}:${m}`, px = pxPerUnit(m), r = RULER / px, size = m * px + RULER;
   const dr = drawing(c, style, m);
-  const head = `<div class="bh"><b>${m} <span>master</span>${dr?.same ? '<span class="pill">Same as outline</span>' : ''}${dr && !dr.same && dr.stroke.length && dr.sw !== STROKE ? `<span class="pill">Stroke ${dr.sw}</span>` : ''}</b>${
+  const head = `<div class="bh"><b>${m} <span>master</span>${dr?.same ? '<span class="pill">Same as outline</span>' : ''}${dr && !dr.same && dr.stroke.length && dr.sw !== strokeOf(m) ? `<span class="pill">Stroke ${dr.sw}</span>` : ''}</b>${
     dr ? `<span class="actual" title="Actual size · 1× and 2×">${icon(c, m, m, style)}${icon(c, m, m * 2, style)}</span>` : ''}</div>`;
   if (!dr) return `<figure class="board ${style}">${head}<p class="mute" style="padding-left:20px">Not drawn yet</p></figure>`;
   const parts = [...dr.fill.map((d) => ({ d, area: true })), ...dr.stroke.flatMap(split).map((d) => ({ d, sw: dr.sw }))];
@@ -626,7 +626,7 @@ function board(style, m, c) {
 function renderStage() {
   for (const k of Object.keys(boards)) delete boards[k];
   const c = current();
-  const note = { outline: 'stroke 1.5', filled: c.filled === 'outline' ? 'same drawing as outline' : 'solid · holes ≥ 3 · lines heavier' };
+  const note = { outline: `stroke ${MASTERS.map(strokeOf).join(' · ')}`, filled: c.filled === 'outline' ? 'same drawing as outline' : 'solid · holes ≥ 3 · lines heavier' };
   document.getElementById('stage').innerHTML =
     STYLES.map((s) => `<div class="shead"><b>${STYLE_LABEL[s]}</b>${note[s]}</div>`).join('') +
     MASTERS.map((m) => STYLES.map((s) => board(s, m, c)).join('')).join('');

@@ -56,14 +56,18 @@ consumer's <code>&lt;Icon&gt;</code> subtracts them as negative margins, once, a
 gap value in the product becomes literally true.</p></div>
 </main>
 <script type="module">
-const { names, icons } = await (await fetch('manifest.json')).json();
-const PICK = ['chevron-down', 'check-circle', 'user', 'plus', 'trash'];
+const { names, icons, strokes } = await (await fetch('manifest.json')).json();
+// `user` is still undecided, so the list is filtered to what is actually drawn —
+// a name that has not been approved yet must not take the whole page down.
+const PICK = ['chevron-down', 'check-circle', 'user', 'plus', 'trash'].filter((n) => icons[n]);
 const SIZE = 20, PAD = 12, GAP = 8;
 const u = (n) => n * SIZE / 24;           // units → px at render size
 let comp = false, guides = false;
 
+// The 24 master, rendered at 20px. Its weight comes from the file itself
+// (manifest, from tools/masters.mjs) — stroke is per master, not one global 1.5.
 const svg = (n) => `<svg width="${SIZE}" height="${SIZE}" viewBox="0 0 24 24" fill="none"
-  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+  stroke="currentColor" stroke-width="${icons[n].stroke ?? strokes[24]}" stroke-linecap="round" stroke-linejoin="round"
   style="display:block;flex:none">${icons[n].paths.map((d) => `<path d="${d}"/>`).join('')}</svg>`;
 
 function btn(n, chip) {

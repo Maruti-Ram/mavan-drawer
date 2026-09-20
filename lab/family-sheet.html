@@ -39,6 +39,8 @@ svg{display:block;flex:none}
   <button id="theme">Dark</button></div>
 <div id="sheet"></div>
 <script type="module">
+// Cache-buster: the lab is a dev page and these modules are edited constantly.
+const { strokeOf } = await import(`../tools/masters.mjs?v=${Date.now()}`);
 const { default: draft } = await import(`./drafts/current.js?${Date.now()}`);
 const manifest = await (await fetch(`./manifest.json?${Date.now()}`)).json();
 const FAMILY = draft.family ?? [];
@@ -47,14 +49,16 @@ let style = 'outline';
 document.getElementById('title').textContent = `${draft.concept} · beside ${FAMILY.join(', ') || '(no family on the board)'}`;
 
 // A drawing as { lines, areas, weight } for one master: a candidate or a shipped file.
+// The outline weight is the master's own (tools/masters.mjs: 1.5 · 1.5 · 1.25), never
+// one global stroke; a shipped file states the weight it was drawn at.
 const fromCand = (c, m) => {
   const f = c.filled?.[m];
-  return style === 'filled' && f ? { lines: f.stroke ?? [], areas: f.fill ?? [], weight: f.weight ?? 1.5 }
-    : { lines: c.masters[m] ?? [], areas: [], weight: 1.5 };
+  return style === 'filled' && f ? { lines: f.stroke ?? [], areas: f.fill ?? [], weight: f.weight ?? strokeOf(m) }
+    : { lines: c.masters[m] ?? [], areas: [], weight: strokeOf(m) };
 };
 const fromFile = (name, m) => {
   const i = manifest.masters[m]?.icons?.[style === 'filled' ? `${name}-filled` : name];
-  return i ? { lines: i.paths ?? [], areas: i.areas ?? [], weight: i.stroke ?? 1.5 } : null;
+  return i ? { lines: i.paths ?? [], areas: i.areas ?? [], weight: i.stroke ?? strokeOf(m) } : null;
 };
 const draw = (g, m, px, extra = '', cls = '') => `<svg class="${cls}" width="${px}" height="${px}" viewBox="0 0 ${m} ${m}">${
   g ? g.areas.map((d) => `<path d="${d}" fill="currentColor" fill-rule="evenodd"/>`).join('')
@@ -63,11 +67,12 @@ const draw = (g, m, px, extra = '', cls = '') => `<svg class="${cls}" width="${p
 // Inner-mark ink box: the outline's paths after the ring, grown by half the stroke.
 const probe = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 probe.style.cssText = 'position:absolute;visibility:hidden'; document.body.append(probe);
-function markBox(lines) {
+function markBox(lines, m) {
   const inner = lines.length > 1 ? lines.slice(1) : lines;
   probe.innerHTML = inner.map((d) => `<path d="${d}"/>`).join('');
   const b = probe.getBBox();
-  return { x0: b.x - 0.75, y0: b.y - 0.75, x1: b.x + b.width + 0.75, y1: b.y + b.height + 0.75 };
+  const half = strokeOf(m) / 2;                    // round caps reach half a stroke past the centreline
+  return { x0: b.x - half, y0: b.y - half, x1: b.x + b.width + half, y1: b.y + b.height + half };
 }
 const guides = (m, b) => `<g><path class="centre" d="M${m / 2} 0V${m}M0 ${m / 2}H${m}"/>`
   + (b ? `<path class="guide" d="M0 ${b.y0}H${m}M0 ${b.y1}H${m}M${b.x0} 0V${m}M${b.x1} 0V${m}"/>` : '') + `</g>`;
@@ -80,7 +85,7 @@ function render() {
     rows.push(`<span class="lab">${c.id} · ${c.label}<small>${fam.join(' · ')}</small></span>`);
     for (const m of M) rows.push(`<span class="set">${fam.map((n) => draw(fromFile(n, m), m, m)).join('')}${draw(fromCand(c, m), m, m, '', 'cand')}</span>`);
     const refLines = manifest.masters[24]?.icons?.[fam[0]]?.paths;
-    const b = refLines ? markBox(refLines) : null;
+    const b = refLines ? markBox(refLines, 24) : null;
     const fig = (svg, cap, cls = '') => `<figure class="${cls}">${svg}<figcaption>${cap}</figcaption></figure>`;
     rows.push(`<span class="big">${fam.map((n) => fig(draw(fromFile(n, 24), 24, 96, guides(24, b)), `${n} · shipped`)).join('')}${fig(draw(fromCand(c, 24), 24, 96, guides(24, b)), `${c.id} · candidate`, 'cand')}</span>`);
     const all = [...fam.map((n) => draw(fromFile(n, 20), 20, 16)), draw(fromCand(c, 20), 20, 16)];

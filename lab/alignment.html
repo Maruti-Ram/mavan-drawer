@@ -41,7 +41,12 @@ icon's <em>ink</em> actually begins.</p>
 
 <div class="big" id="verdict"></div>
 </main>
-<script>
+<script type="module">
+// Both columns are the SAME drawing — the 24 master's ink, once with its 2-unit
+// shell and once without — so both carry that master's weight. Stroke is per
+// master (tools/masters.mjs: 1.5 · 1.5 · 1.25), never one global number.
+const { strokeOf } = await import(`../tools/masters.mjs?v=${Date.now()}`);
+const SW = strokeOf(24);
 const SHAPES = [
   { n: 'Inbox',    k: 'landscape', w: 20, h: 16 },
   { n: 'Issues',   k: 'circle',    w: 20, h: 20 },
@@ -60,7 +65,7 @@ function icon(s, canvas) {
     ? `<path d="M${x + 1} ${y + 1}l${s.w / 2 - 1} ${s.h - 2} ${s.w / 2 - 1} ${-(s.h - 2)}"/>`
     : `<rect x="${x + 1}" y="${y + 1}" width="${s.w - 2}" height="${s.h - 2}" rx="2"/>`;
   return `<svg width="${box}" height="${box}" viewBox="0 0 ${canvas} ${canvas}" fill="none"
-    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
+    stroke="currentColor" stroke-width="${SW}" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
 }
 
 const offs = (canvas) => SHAPES.map((s) => (canvas * (INK / 20) - s.w * (INK / 20)) / 2);

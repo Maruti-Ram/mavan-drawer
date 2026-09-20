@@ -48,16 +48,22 @@ try { draft = (await import(`./drafts/current.js?${Date.now()}`)).default; } cat
 const SHIPPED = ['check-circle', 'x-circle', 'plus-circle', 'minus-circle', 'info', 'info-2', 'info-3'];
 const CAND = draft.candidates.filter((c) => /^(P|S)/.test(c.id));
 const MASTERS = [24, 20, 16];
-const body = (name, m, filled) => man.masters[m].icons[filled ? `${name}-filled` : name]?.body ?? '';
+// Weight per master, never one global stroke: the outline is 1.5 · 1.5 · 1.25
+// (manifest.strokes, from tools/masters.mjs) and a shipped file states the weight
+// it was drawn at, so a filled line icon comes out at its own 2.5 · 2 · 2.
+const rec = (name, m, filled) => man.masters[m].icons[filled ? `${name}-filled` : name] ?? null;
+const body = (name, m, filled) => rec(name, m, filled)?.body ?? '';
+const weight = (name, m, filled) => rec(name, m, filled)?.stroke ?? man.strokes[m];
 const draw = (c, m, filled) => filled
   ? (c.filled[m].fill ?? []).map((d) => `<path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`).join('')
     + (c.filled[m].stroke ?? []).map((d) => `<path d="${d}"/>`).join('')
   : c.masters[m].map((d) => `<path d="${d}"/>`).join('');
-const svg = (inner, m, px = m) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" fill="none"
-  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
+const candWeight = (c, m, filled) => (filled ? c.filled[m]?.weight ?? man.strokes[m] : man.strokes[m]);
+const svg = (inner, m, sw, px = m) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" fill="none"
+  stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
 const rows = [
-  ...SHIPPED.map((n) => ({ label: n, at: (m, f) => svg(body(n, m, f), m) })),
-  ...CAND.map((c) => ({ label: `${c.id} · ${c.label}`, cand: true, at: (m, f) => svg(draw(c, m, f), m) })),
+  ...SHIPPED.map((n) => ({ label: n, at: (m, f) => svg(body(n, m, f), m, weight(n, m, f)) })),
+  ...CAND.map((c) => ({ label: `${c.id} · ${c.label}`, cand: true, at: (m, f) => svg(draw(c, m, f), m, candWeight(c, m, f)) })),
 ];
 const CONTEXTS = [
   ['In a list row', 'each master beside 14px text, on one baseline', (r, f) =>
