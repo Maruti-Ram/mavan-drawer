@@ -205,7 +205,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 47. `at-sign-2` · Communication · variant of `at-sign` — Baseline tail, large bowl · approved 2026-09-20
 - [~] 48. `attachment` · Files & Folders
 - [~] 49. `book-open` · Files & Folders
-- [~] 50. `chart-bar` · Charts & Data
+- [x] 50. `chart-bar` · Charts & Data — approved 2026-09-20
+- [x] 50. `chart-bar-2` · Charts & Data · variant of `chart-bar` — Three bars over a floor line · approved 2026-09-20
+- [x] 50. `chart-bar-3` · Charts & Data · variant of `chart-bar` — Corner axis, three bars · approved 2026-09-20
+- [x] 50. `chart-bar-4` · Charts & Data · variant of `chart-bar` — Joined columns · approved 2026-09-20
+- [x] 50. `chart-bar-5` · Charts & Data · variant of `chart-bar` — Framed · approved 2026-09-20
 - [ ] 51. `checkbox` · UI & Layout
 - [ ] 52. `cursor` · UI & Layout
 - [ ] 53. `database` · Charts & Data
