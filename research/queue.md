@@ -191,7 +191,10 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 44. `sliders-3` · UI & Layout · variant of `sliders` — Upright tracks, ring joined · approved 2026-09-20
 - [x] 44. `sliders-4` · UI & Layout · variant of `sliders` — Upright tracks, bar knobs · approved 2026-09-20
 - [x] 44. `sliders-5` · UI & Layout · variant of `sliders` — Two tracks, knob at the end · approved 2026-09-20
-- [~] 45. `filter` · UI & Layout
+- [x] 45. `filter` · UI & Layout — approved 2026-09-20
+- [x] 45. `filter-2` · UI & Layout · variant of `filter` — Lines, even thirds · approved 2026-09-20
+- [x] 45. `filter-3` · UI & Layout · variant of `filter` — Funnel, round shoulders · approved 2026-09-20
+- [x] 45. `filter-4` · UI & Layout · variant of `filter` — Funnel, slanted stem · approved 2026-09-20
 
 ## D · The rest, by audit rank
 
