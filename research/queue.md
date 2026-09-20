@@ -201,7 +201,8 @@ Square, portrait and landscape keylines; the icons every screen has.
 Bases before their variants; within that, highest evidence first.
 
 - [~] 46. `alert-triangle` · Status & Feedback
-- [~] 47. `at-sign` · Communication
+- [x] 47. `at-sign` · Communication — approved 2026-09-20
+- [x] 47. `at-sign-2` · Communication · variant of `at-sign` — Baseline tail, large bowl · approved 2026-09-20
 - [~] 48. `attachment` · Files & Folders
 - [~] 49. `book-open` · Files & Folders
 - [~] 50. `chart-bar` · Charts & Data
