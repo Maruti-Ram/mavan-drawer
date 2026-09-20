@@ -5,6 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { materialGap, selfGap } from './geometry.mjs';
+import { lintSource, parseBoxNote } from './lint.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
   gridFor, gridNameFor, gridOf, strokeOf, weightOf,
@@ -272,4 +273,69 @@ test('a span that crosses a second hole is two spans, not one', () => {
   assert.equal(got.gap, 3);
   assert.equal(got.sub, 1);
   assert.ok(got.at[1] > 8.475, `read below the slot, not through it (at y ${got.at[1]})`);
+});
+
+// ── lint: an agreed per-icon ink box ─────────────────────────────────────────
+// `<!-- box: WxH -->` says "this icon keeps a box of its own" (folder, 2026-09-20):
+// lint stops asking it to match a keyline and holds it to the declared size instead.
+// The note is only worth having if it cannot hide a mistake, so a drawing that does
+// not measure what it declares is an error, and so is a note lint cannot read.
+
+const FOLDER24 = readFileSync(new URL('../src/icons/24/folder.svg', import.meta.url), 'utf8');
+const lintFolder = (src) => lintSource(24, 'folder.svg', src);
+const noKeyline = (r) => r.warnings.filter((w) => w.includes('keyline'));
+
+test('parseBoxNote reads a size and refuses anything else', () => {
+  assert.deepEqual(parseBoxNote('<!-- box: 20x18 -->'), { w: 20, h: 18, raw: '20x18' });
+  assert.deepEqual(parseBoxNote('<!-- box: 13.5x10 -->'), { w: 13.5, h: 10, raw: '13.5x10' });
+  assert.equal(parseBoxNote('<!-- box: 16 × 14 -->').w, 16);      // unicode ×, spaces round it
+  assert.equal(parseBoxNote('<!-- box:16x14-->').h, 14);
+  assert.equal(parseBoxNote('<!-- tags: plain -->'), null);
+  assert.equal(parseBoxNote('<!-- Plain: Folder box, this icon only: 20x18 -->'), null);  // prose, not the note
+  assert.deepEqual(parseBoxNote('<!-- box: big -->'), { raw: 'big', bad: true });
+  assert.ok(parseBoxNote('<!-- box: 20 -->').bad);
+});
+
+test('a declared box that matches: no keyline warning, no error', () => {
+  const r = lintFolder(FOLDER24);                                  // shipped folder is 20×18
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(noKeyline(r), []);
+  assert.ok(r.notes.some((n) => n.includes('20×18  agreed box  centre 12,12')), r.notes.join(' | '));
+});
+
+test('a declared box the drawing does not measure is an ERROR', () => {
+  const r = lintFolder(FOLDER24.replace('box: 20x18', 'box: 20x17.5'));
+  assert.equal(r.errors.length, 1, r.errors.join(' | '));
+  assert.match(r.errors[0], /declares box 20x17\.5 but the ink is 20×18 — the agreed size and the drawing disagree/);
+  // and 0.01 is the tolerance, not a free quarter unit
+  assert.equal(lintFolder(FOLDER24.replace('box: 20x18', 'box: 20x18.005')).errors.length, 0);
+  assert.equal(lintFolder(FOLDER24.replace('box: 20x18', 'box: 20x18.02')).errors.length, 1);
+});
+
+test('a box note lint cannot read is an ERROR, never a silent pass', () => {
+  const r = lintFolder(FOLDER24.replace('box: 20x18', 'box: big'));
+  assert.equal(r.errors.length, 1, r.errors.join(' | '));
+  assert.match(r.errors[0], /is not a size/);
+});
+
+test('declaring both `keyline: mark` and a box is an ERROR', () => {
+  const r = lintFolder(FOLDER24.replace('<!-- box: 20x18 -->', '<!-- keyline: mark -->\n  <!-- box: 20x18 -->'));
+  assert.ok(r.errors.some((e) => /declares both/.test(e)), r.errors.join(' | '));
+});
+
+test('without the note nothing changes: the keyline warning comes back', () => {
+  const r = lintFolder(FOLDER24.replace('  <!-- box: 20x18 -->\n', ''));
+  assert.deepEqual(r.errors, []);
+  assert.equal(noKeyline(r).length, 1);
+  assert.match(noKeyline(r)[0], /20×18 matches no keyline/);
+  assert.ok(r.notes.some((n) => n.includes('no keyline match')));
+});
+
+test('the box does not excuse the margin or the centre', () => {
+  // a 20×18 box, exactly as declared, but sitting 2 to the right: the ink runs to x 24
+  const moved = FOLDER24.replace(/ d="[^"]+"/, ' d="M6.75 3.75H25.25V20.25H6.75Z"');
+  const r = lintFolder(moved);
+  assert.deepEqual(r.errors.filter((e) => /agreed size/.test(e)), [], 'the box itself still matches');
+  assert.ok(r.errors.some((e) => /crosses the margin/.test(e)), r.errors.join(' | '));
+  assert.ok(r.warnings.some((w) => /off-centre/.test(w)), r.warnings.join(' | '));
 });

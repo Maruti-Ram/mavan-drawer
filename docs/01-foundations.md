@@ -114,6 +114,21 @@ requirement. A file opts in explicitly:
 If you find yourself reaching for `mark` on something that depicts an object,
 you have the wrong keyline, not the wrong rule.
 
+**An agreed box.** An icon whose proportion is settled by eye may declare the ink
+size it was approved at, in that master's units:
+
+```svg
+<!-- box: 20x18 -->
+```
+
+Lint then holds the drawing to that size — to 0.01, as an error, not a warning —
+instead of asking it to match a keyline. Everything else still applies: the margin,
+the centring, the grid. It is a decision about one icon, recorded in the file, not a
+new keyline; a file may declare `box` or `keyline: mark`, never both. First used by
+`folder` (20 × 18 · 16 × 14 · 14 × 12, 2026-09-20): the landscape keyline went
+1.25 → 1.33 → 1.4 wide-to-tall as the masters shrank and the folder read squashed at
+20 and 16, where the agreed box holds 1.11 · 1.14 · 1.17.
+
 **These are outer dimensions — they include the stroke.** At 24, a stroked
 circle that should hit the ⌀20 keyline has a *centreline* radius of 9.25,
 because the 1.5-unit stroke adds 0.75 on each side. At 16, the same logic on

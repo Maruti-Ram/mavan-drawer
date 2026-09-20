@@ -250,6 +250,8 @@ depending on the icon.
 - Naming: `<object>-<modifier>`, object first — `calendar-plus`, never `add-calendar`
 - Every decimal in a path carries a comment saying what it corrects
 - `<!-- keyline: mark -->` opts an icon out of silhouette keylines
+- `<!-- box: WxH -->` declares an agreed per-icon ink size (that master's units); lint verifies
+  the drawing against it — as an error — instead of matching a keyline. Never with `keyline: mark`
 - One icon per commit
 - **An icon is never reviewed alone** — only in a grid at 16px next to twenty others
 

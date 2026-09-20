@@ -40,6 +40,8 @@ Overwrite `lab/drafts/current.js`. There are **no per-icon lab files**. Format:
 export default {
   concept: '<name>',
   keyline: 'mark',            // only for marks (arrows, chevrons, plus…); silhouettes omit it
+  box: { 24: [20, 18], 20: [16, 14], 16: [14, 12] },   // only when the icon keeps an agreed ink
+                              // box of its own instead of a keyline (folder); never with `keyline`
   question: '<the one decision the user is making>',
   candidates: [
     { id: 'A', label: 'Short name', note: 'numbers + why (recommended)',
@@ -63,6 +65,9 @@ export default {
   - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
     on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
     pixels — with at most 3 decimal places. Comment every decimal that corrects something.
+- **Agreed box.** `box` (on the board, or on one candidate — the candidate wins, like `keyline` and
+  `tags`) is written into both files as `<!-- box: 20x18 -->` for that master. Lint then holds the
+  drawing to that ink size as an **error** rather than asking it to match a keyline.
 - **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge.
 - **Consistency.** Check against approved relatives first (`src/icons/24/`, `node tools/queue.mjs show <name>`). Reuse their lengths, radii and weights unless the question is about changing them.
 
@@ -117,6 +122,10 @@ git commit -m "Add <name>" -m "<one line: the choice and its numbers>"   # end w
 ```
 
 Commit on the current branch without asking. Don't push.
+
+If the approval agreed a **deviation** from a rule for this icon, teach lint that decision in the
+same piece of work — a note the file declares and lint verifies (`box`, `keyline: mark`, `glyph`) —
+so the deviation is held to its own number instead of leaving a warning that buries real ones.
 
 If the approval also settled a **rule** (a new size step, a naming convention, a weight):
 - record it in `docs/07-character.md` (next C-number) and in `tools/masters.mjs` / `tools/lint.mjs` if it can be checked;

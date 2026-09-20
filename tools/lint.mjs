@@ -2,6 +2,7 @@
 // Mechanically enforces docs/01-foundations.md. Exit 1 on any error.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap, materialGap } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
@@ -53,11 +54,27 @@ const crosses = (a, b) => {
   return false;
 };
 
+// An icon may declare its own agreed ink size: `<!-- box: 20x18 -->`, that master's
+// units, width × height. It is a per-icon decision (folder, 2026-09-20), not a new
+// keyline — so lint stops asking the drawing to match a keyline and holds it to the
+// declared size instead, to 0.01. The note may never hide a mistake: a drawing that
+// does not measure what it declares is an ERROR, not a warning.
+// Returns null (no note), {w, h, raw}, or {raw, bad: true} for a note that is not a size.
+export function parseBoxNote(src) {
+  const m = src.match(/<!--\s*box:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  const v = m[1].match(/^(\d+(?:\.\d+)?)\s*[x×]\s*(\d+(?:\.\d+)?)$/);
+  return v ? { w: +v[1], h: +v[2], raw: m[1] } : { raw: m[1], bad: true };
+}
+
 function lint(canvas, file) {
+  return lintSource(canvas, file, readFileSync(join('src/icons', String(canvas), file), 'utf8'));
+}
+
+export function lintSource(canvas, file, src) {
   const { bound: BOUND, keylines } = MASTERS[canvas];
   const MARK_MAX = markMax(file.replace('.svg', ''), canvas);
   const KEYLINES = Object.entries(keylines).map(([k, [w, h]]) => [k, w, h]);
-  const src = readFileSync(join('src/icons', String(canvas), file), 'utf8');
   const isFilledFile = file.endsWith('-filled.svg');
   const areas = isFilledFile ? [...src.matchAll(AREA)].map((m) => m[1]) : [];
   // The weight this file's strokes are drawn at, per master and per style. A
@@ -127,6 +144,9 @@ function lint(canvas, file) {
     if (sx || sy) notes.push(`optical shift ${sx}, ${sy}`);
     const declared = src.match(/<!--\s*keyline:\s*(\w+)\s*-->/)?.[1];
     isMark = declared === 'mark';
+    const box = parseBoxNote(src);
+    if (box?.bad) errors.push(`box note "${box.raw}" is not a size — write <!-- box: WxH -->, e.g. <!-- box: 20x18 -->`);
+    if (box && isMark) errors.push('declares both `keyline: mark` and `box:` — a mark is held to the mark ceiling, an agreed box to its own size; pick one');
     // A container's first path is the container; the rest is its inner mark (measured on the outline file).
     if (!isMark && !areas.length && ds.length > 1) {
       const b = bbox(ds.slice(1));
@@ -135,6 +155,10 @@ function lint(canvas, file) {
     if (isMark) {
       notes.push(`${w}×${h}  declared mark  centre ${cx},${cy}`);
       if (w > MARK_MAX || h > MARK_MAX) warnings.push(`mark is ${w}×${h} — exceeds ${MARK_MAX}×${MARK_MAX} (§2)`);
+    } else if (box && !box.bad) {
+      notes.push(`${w}×${h}  agreed box  centre ${cx},${cy}`);
+      if (Math.abs(w - box.w) > 0.01 || Math.abs(h - box.h) > 0.01)
+        errors.push(`declares box ${box.w}x${box.h} but the ink is ${w}×${h} — the agreed size and the drawing disagree`);
     } else {
       const key = KEYLINES.find(([, kw, kh]) => Math.abs(w - kw) <= 0.5 && Math.abs(h - kh) <= 0.5);
       notes.push(`${w}×${h}  ${key ? `fits ${key[0]} keyline` : 'no keyline match'}  centre ${cx},${cy}`);
@@ -236,6 +260,12 @@ function lint(canvas, file) {
   return { file, errors, warnings, notes, size, inner, isMark };
 }
 
+// --- the run over src/icons ---------------------------------------------
+// Everything below is the command; `lintSource` above is the whole check, so a test
+// can hand it one file's text without a drawing on disk (tools/geometry.test.mjs).
+if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) run();
+
+function run() {
 const jobs = Object.keys(MASTERS).map(Number).sort((a, b) => b - a).flatMap((m) => {
   const dir = join('src/icons', String(m));
   return existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.svg')).sort().map((f) => [m, f]) : [];
@@ -279,3 +309,4 @@ for (const [m, f] of jobs) {
 
 console.log(`\n${jobs.length} drawings · ${G}${jobs.length - bad - warned} clean${X} · ${Y}${warned} warned${X} · ${R}${bad} failed${X}`);
 process.exit(bad ? 1 : 0);
+}
