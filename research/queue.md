@@ -203,7 +203,10 @@ Bases before their variants; within that, highest evidence first.
 - [~] 46. `alert-triangle` · Status & Feedback
 - [x] 47. `at-sign` · Communication — approved 2026-09-20
 - [x] 47. `at-sign-2` · Communication · variant of `at-sign` — Baseline tail, large bowl · approved 2026-09-20
-- [~] 48. `attachment` · Files & Folders
+- [x] 48. `attachment` · Files & Folders — approved 2026-09-20
+- [x] 48. `attachment-2` · Files & Folders · variant of `attachment` — Upright, classic, nested loops · approved 2026-09-20
+- [x] 48. `attachment-3` · Files & Folders · variant of `attachment` — Tilted, three legs · approved 2026-09-20
+- [x] 48. `attachment-4` · Files & Folders · variant of `attachment` — Tilted, classic in both styles · approved 2026-09-20
 - [~] 49. `book-open` · Files & Folders
 - [x] 50. `chart-bar` · Charts & Data — approved 2026-09-20
 - [x] 50. `chart-bar-2` · Charts & Data · variant of `chart-bar` — Three bars over a floor line · approved 2026-09-20
