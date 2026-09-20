@@ -102,8 +102,9 @@ async function rebuildIndex(quiet = false) {
     board: board ? { name: board.concept, candidates: board.candidates?.length ?? 0, status: find(q, board.concept)?.status ?? null } : null,
     icons,
   };
-  if (!icons.length) { if (existsSync(BATCH_INDEX)) unlinkSync(BATCH_INDEX); }
-  else { mkdirSync(BATCH_DIR, { recursive: true }); writeFileSync(BATCH_INDEX, `${JSON.stringify(index, null, 2)}\n`); }
+  // An empty batch still writes its (empty) index: the lab pages fetch it, and a missing
+  // file is a 404 in a console that is supposed to stay clean.
+  mkdirSync(BATCH_DIR, { recursive: true }); writeFileSync(BATCH_INDEX, `${JSON.stringify(index, null, 2)}\n`);
   if (!quiet) console.log(icons.length
     ? `Batch of ${icons.length} → ${BATCH_INDEX}\n${icons.map((b) => `  ${b.name} · ${b.candidates} candidates (${b.ids.join(' ')}) · ${b.status ?? 'not in queue'} · /lab/icon.html?icon=${b.name}`).join('\n')}`
     : `No batch drafts in ${BATCH_DIR}/ — the board is the only icon.`);
