@@ -160,6 +160,8 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 35. `clipboard-4` · Files & Folders · variant of `clipboard` — Short, deep clip · approved 2026-09-20
 - [x] 36. `archive` · Files & Folders — approved 2026-09-20
 - [x] 37. `mail` · Communication — approved 2026-09-20
+- [x] 37. `mail-2` · Communication · variant of `mail` — Shallow shoulder flap · approved 2026-09-20
+- [x] 37. `mail-3` · Communication · variant of `mail` — Square envelope, shoulder flap · approved 2026-09-20
 - [ ] 38. `message` · Communication
 - [ ] 39. `bell` · Communication
 - [ ] 40. `home` · UI & Layout
