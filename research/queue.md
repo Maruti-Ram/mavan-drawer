@@ -162,7 +162,8 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 37. `mail` · Communication — approved 2026-09-20
 - [x] 37. `mail-2` · Communication · variant of `mail` — Shallow shoulder flap · approved 2026-09-20
 - [x] 37. `mail-3` · Communication · variant of `mail` — Square envelope, shoulder flap · approved 2026-09-20
-- [ ] 38. `message` · Communication
+- [x] 38. `message` · Communication — approved 2026-09-20
+- [x] 38. `message-2` · Communication · variant of `message` — Inset tail · approved 2026-09-20
 - [ ] 39. `bell` · Communication
 - [ ] 40. `home` · UI & Layout
 - [ ] 41. `user` · Users & Access
