@@ -207,7 +207,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 48. `attachment-2` · Files & Folders · variant of `attachment` — Upright, classic, nested loops · approved 2026-09-20
 - [x] 48. `attachment-3` · Files & Folders · variant of `attachment` — Tilted, three legs · approved 2026-09-20
 - [x] 48. `attachment-4` · Files & Folders · variant of `attachment` — Tilted, classic in both styles · approved 2026-09-20
-- [~] 49. `book-open` · Files & Folders
+- [x] 49. `book-open` · Files & Folders — approved 2026-09-20
+- [x] 49. `book-open-2` · Files & Folders · variant of `book-open` — Bound book, pointed base · approved 2026-09-20
 - [x] 50. `chart-bar` · Charts & Data — approved 2026-09-20
 - [x] 50. `chart-bar-2` · Charts & Data · variant of `chart-bar` — Three bars over a floor line · approved 2026-09-20
 - [x] 50. `chart-bar-3` · Charts & Data · variant of `chart-bar` — Corner axis, three bars · approved 2026-09-20
