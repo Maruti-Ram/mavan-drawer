@@ -1,8 +1,8 @@
 // credit-card - inside the landscape keyline as it stands: 20x16 · 16x12 · 14x10, centred, container
 // radius 2.5 · 2 · 1.5. Card + stripe are constant; the board varies the detail under the stripe.
 // Gaps are a literal 1.5 (top line to stripe, stripe to bar, bar to bottom, bar end to wall).
-// 16 master at stroke 1.25: outer centrelines on the eighth grid; stripe at 6.625 and bar at 9.625 so
-// their top edges land on whole pixels. Filled: 1.5 cut on the stripe (top edge shared with the line
+// 16 master at stroke 1.25: outer centrelines on the eighth grid; stripe at 6.625 so its top edge lands on a
+// whole pixel; bar and dot share one centre line at 9.5, midway between stripe and bottom wall. Filled: 1.5 cut on the stripe (top edge shared with the line
 // at 16), cut corners eased 0.5 (0.25 where the header is only 3 tall); bar = 1.5 slot, dot = hole.
 // References measured 2026-09-20 (12 sets, facts only, input not rule): w:h 1.11-1.50, median 1.36 at
 // ~24 and 1.37 at ~16; stripe at 17-33% of the height; usually one bar.
@@ -28,7 +28,7 @@ export default {
         "16": [
           "M3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625Z",
           "M1.625 6.625H14.375",
-          "M4.375 9.625H6.625"
+          "M4.375 9.5H6.625"
         ],
         "20": [
           "M4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V13.25A2 2 0 0 1 15.25 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75Z",
@@ -45,7 +45,7 @@ export default {
         "16": {
           "fill": [
             "M1 5.25A2.25 2.25 0 0 1 3.25 3H12.75A2.25 2.25 0 0 1 15 5.25V5.5A0.5 0.5 0 0 1 14.5 6H1.5A0.5 0.5 0 0 1 1 5.5Z",
-            "M1 8A0.5 0.5 0 0 1 1.5 7.5H14.5A0.5 0.5 0 0 1 15 8V10.75A2.25 2.25 0 0 1 12.75 13H3.25A2.25 2.25 0 0 1 1 10.75ZM4.375 9H6.625A0.75 0.75 0 0 1 6.625 10.5H4.375A0.75 0.75 0 0 1 4.375 9Z"
+            "M1 8A0.5 0.5 0 0 1 1.5 7.5H14.5A0.5 0.5 0 0 1 15 8V10.75A2.25 2.25 0 0 1 12.75 13H3.25A2.25 2.25 0 0 1 1 10.75ZM4.5 9H6.5A0.75 0.75 0 0 1 6.5 10.5H4.5A0.75 0.75 0 0 1 4.5 9Z"
           ],
           "stroke": []
         },
@@ -77,7 +77,7 @@ export default {
         "16": [
           "M3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625Z",
           "M1.625 6.625H14.375",
-          "M9.375 9.625H11.625"
+          "M9.375 9.5H11.625"
         ],
         "20": [
           "M4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V13.25A2 2 0 0 1 15.25 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75Z",
@@ -94,7 +94,7 @@ export default {
         "16": {
           "fill": [
             "M1 5.25A2.25 2.25 0 0 1 3.25 3H12.75A2.25 2.25 0 0 1 15 5.25V5.5A0.5 0.5 0 0 1 14.5 6H1.5A0.5 0.5 0 0 1 1 5.5Z",
-            "M1 8A0.5 0.5 0 0 1 1.5 7.5H14.5A0.5 0.5 0 0 1 15 8V10.75A2.25 2.25 0 0 1 12.75 13H3.25A2.25 2.25 0 0 1 1 10.75ZM9.375 9H11.625A0.75 0.75 0 0 1 11.625 10.5H9.375A0.75 0.75 0 0 1 9.375 9Z"
+            "M1 8A0.5 0.5 0 0 1 1.5 7.5H14.5A0.5 0.5 0 0 1 15 8V10.75A2.25 2.25 0 0 1 12.75 13H3.25A2.25 2.25 0 0 1 1 10.75ZM9.5 9H11.5A0.75 0.75 0 0 1 11.5 10.5H9.5A0.75 0.75 0 0 1 9.5 9Z"
           ],
           "stroke": []
         },
@@ -166,12 +166,12 @@ export default {
         "bar",
         "dot"
       ],
-      "note": "A shorter bar (ink 5 · 3.5 · 2.75 long) followed by a dot (3 · 2 · 1.5 across), 1.5 apart. Reads as name and logo. At 16 the dot is 1.5 across (sitting on the same bottom edge as the bar) and the bar under 3 long: the busiest option at the smallest size",
+      "note": "A shorter bar (ink 5 · 3.5 · 2.75 long) followed by a dot (3 · 2 · 1.5 across), 1.5 apart. Reads as name and logo. At 16 the dot is 1.5 across, centred on the bar (both on 9.5, midway between stripe and bottom wall); in the filled, slot and dot hole share 9 to 10.5 and the bar under 3 long: the busiest option at the smallest size",
       "masters": {
         "16": [
           "M3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625Z",
           "M1.625 6.625H14.375",
-          "M4.375 9.625H5.875",
+          "M4.375 9.5H5.875",
           "M8.625 9.5A0.125 0.125 0 1 0 8.875 9.5A0.125 0.125 0 1 0 8.625 9.5Z"
         ],
         "20": [
@@ -191,7 +191,7 @@ export default {
         "16": {
           "fill": [
             "M1 5.25A2.25 2.25 0 0 1 3.25 3H12.75A2.25 2.25 0 0 1 15 5.25V5.5A0.5 0.5 0 0 1 14.5 6H1.5A0.5 0.5 0 0 1 1 5.5Z",
-            "M1 8A0.5 0.5 0 0 1 1.5 7.5H14.5A0.5 0.5 0 0 1 15 8V10.75A2.25 2.25 0 0 1 12.75 13H3.25A2.25 2.25 0 0 1 1 10.75ZM4.375 9H5.875A0.75 0.75 0 0 1 5.875 10.5H4.375A0.75 0.75 0 0 1 4.375 9ZM8 9.5A0.75 0.75 0 1 0 9.5 9.5A0.75 0.75 0 1 0 8 9.5Z"
+            "M1 8A0.5 0.5 0 0 1 1.5 7.5H14.5A0.5 0.5 0 0 1 15 8V10.75A2.25 2.25 0 0 1 12.75 13H3.25A2.25 2.25 0 0 1 1 10.75ZM4.5 9H5.75A0.75 0.75 0 0 1 5.75 10.5H4.5A0.75 0.75 0 0 1 4.5 9ZM8 9.75A0.75 0.75 0 1 0 9.5 9.75A0.75 0.75 0 1 0 8 9.75Z"
           ],
           "stroke": []
         },
