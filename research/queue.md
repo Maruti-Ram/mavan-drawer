@@ -171,6 +171,7 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 38. `message-7` · Communication · variant of `message` — Soft bubble · approved 2026-09-20
 - [x] 39. `bell` · Communication — approved 2026-09-20
 - [x] 39. `bell-2` · Communication · variant of `bell` — Swept sides, dot clapper · approved 2026-09-20
+- [x] 39. `bell-3` · Communication · variant of `bell` — Big dome · approved 2026-09-20
 - [ ] 40. `home` · UI & Layout
 - [ ] 41. `user` · Users & Access
 - [ ] 42. `users` · Users & Access
