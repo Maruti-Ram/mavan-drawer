@@ -172,7 +172,9 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 39. `bell` · Communication — approved 2026-09-20
 - [x] 39. `bell-2` · Communication · variant of `bell` — Swept sides, dot clapper · approved 2026-09-20
 - [x] 39. `bell-3` · Communication · variant of `bell` — Big dome · approved 2026-09-20
-- [ ] 40. `home` · UI & Layout
+- [x] 40. `home` · UI & Layout — approved 2026-09-20
+- [x] 40. `home-2` · UI & Layout · variant of `home` — Low roof, door · approved 2026-09-20
+- [x] 40. `home-3` · UI & Layout · variant of `home` — Low roof, doormat line · approved 2026-09-20
 - [ ] 41. `user` · Users & Access
 - [ ] 42. `users` · Users & Access
 - [ ] 43. `gear` · UI & Layout
