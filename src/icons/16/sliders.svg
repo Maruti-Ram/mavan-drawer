@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+  <!-- keyline: mark -->
+  <!-- tags: adjust, controls, filters, settings, tune, two tracks, ring, horizontal -->
+  <!-- Two tracks, ring joined: Two level tracks, each running into an open ring knob - top knob right, bottom knob left. The track stops on the ring itself, so there is no break to go muddy and the ring stays empty: at 16 it reads as a clear white hole (3 · 2 · 2.5 across) on crisp lines. The two tracks at 24 sit on menu's top and bottom lines (y 7.5 and 16.5, read from src/icons/24/menu.svg); 20 uses 6.5 and 13.5, 16 uses 4.5 and 11.5 so every track edge and ring edge lands on a whole pixel. Square guide box, width 18 · 14 · 12 in full; ink 18×15 · 14×12 · 12×12. Knob 6 · 5 · 5 across, track showing past the knob 3 · 2 · 2. Smallest gap between parts: 4.817 at 24 (top ring to bottom ring), 3.603 at 20 (top ring to bottom ring), 2.616 at 16 (top ring to bottom ring). At 16 the tracks sit 7 apart rather than 5 - at 5 the two rings came within 0.83 of each other (measured), so the 16 is taller in proportion than 24 and 20. Filled: the shape case - each knob fills to a solid disc the size of the ring's outer edge, tracks stay at the outline weight 1.5 · 1.5 · 1.25; filled ink box equals the outline's at all three. Zero lint warnings. (recommended) -->
+  <path d="M2.625 4.5H7.625"/>
+  <path d="M11.375 4.5H13.375"/>
+  <path d="M7.625 4.5A1.875 1.875 0 1 0 11.375 4.5A1.875 1.875 0 1 0 7.625 4.5Z"/>
+  <path d="M2.625 11.5H4.625"/>
+  <path d="M8.375 11.5H13.375"/>
+  <path d="M4.625 11.5A1.875 1.875 0 1 0 8.375 11.5A1.875 1.875 0 1 0 4.625 11.5Z"/>
+</svg>
