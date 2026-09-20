@@ -14,7 +14,7 @@ export default {
     "folder",
     "file"
   ],
-  "question": "Two pictures in the same frame: our square guide box exactly (18 · 14 · 12 across, corner radius 2.5 · 2 · 1.5) with a solid sun top left (3 · 2.5 · 2 across). A has one mountain: a single line rising at 45 degrees from the bottom edge to a rounded peak two thirds of the way across, then down to the right wall. B has two mountains running wall to wall. Judge the 16 first: is B still a landscape there, or a squiggle?",
+  "question": "Two trials beside the two pictures already shipped (A, B). C puts the one-mountain picture in the wide card-shaped frame (20x16 · 16x12 · 14x10). D keeps the square but makes the sun a ring. Look at 20 and 16 first: in D the ring has to be 4.5 · 4.5 · 4 across to keep a 1.5 hole, so the mountain is pushed down and right to stay 1.5 clear of it. Is either worth shipping as image-3?",
   "candidates": [
     {
       "id": "A",
@@ -23,7 +23,7 @@ export default {
         "mountain",
         "sun"
       ],
-      "note": "One 45 degree line, rounded peak (radius 1.5 · 1.25 · 1) at 67 · 66 · 64% of the width and half the height. Sun clear of the walls by 2.75 · 2 · 1.75, of the mountain by 4.29 · 2.60 · 2.26. 3 of the 4 measured references build it this way. Filled: the mountain line becomes a 1.5 cut through to the edge (as the calendar and card stripes do), sun is a hole (recommended)",
+      "note": "One 45 degree line, rounded peak (radius 1.5 · 1.25 · 1) at 67 · 66 · 64% of the width and half the height. Sun clear of the walls by 2.75 · 2 · 1.75, of the mountain by 4.29 · 2.60 · 2.26. 3 of the 4 measured references build it this way. Filled: the mountain line becomes a 1.5 cut through to the edge (as the calendar and card stripes do), sun is a hole. Shipped as image",
       "masters": {
         "16": [
           "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
@@ -72,7 +72,7 @@ export default {
         "mountains",
         "sun"
       ],
-      "note": "Small peak left, big peak right, joined wall to wall. The two rising slopes are 2.04 · 1.68 · 1.58 apart (floor 1.5), so at 16 nothing is spare and the rounded peaks start to read as a wave. Sun sits above the small peak. 1 of the 4 references (Polaris) uses two",
+      "note": "Small peak left, big peak right, joined wall to wall. The two rising slopes are 2.04 · 1.68 · 1.58 apart (floor 1.5), so at 16 nothing is spare and the rounded peaks start to read as a wave. Sun sits above the small peak. 1 of the 4 references (Polaris) uses two. Shipped as image-2",
       "masters": {
         "16": [
           "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
@@ -109,6 +109,106 @@ export default {
           "fill": [
             "M3 16.23L3 6.25A3.25 3.25 0 0 1 6.25 3L17.75 3A3.25 3.25 0 0 1 21 6.25L21 14.73A0.5 0.5 0 0 1 20.15 15.09L16.84 11.78A2.25 2.25 0 0 0 13.66 11.78L11.28 14.16A0.75 0.75 0 0 1 10.22 14.16L9.84 13.78A2.25 2.25 0 0 0 6.66 13.78L3.85 16.59A0.5 0.5 0 0 1 3 16.23ZM6.75 8.25A1.5 1.5 0 1 0 9.75 8.25A1.5 1.5 0 1 0 6.75 8.25Z",
             "M20.95 18.31A3.25 3.25 0 0 1 17.75 21L6.25 21A3.25 3.25 0 0 1 3.56 19.57A0.5 0.5 0 0 1 3.62 18.94L7.72 14.84A0.75 0.75 0 0 1 8.78 14.84L9.16 15.22A2.25 2.25 0 0 0 12.34 15.22L14.72 12.84A0.75 0.75 0 0 1 15.78 12.84L20.81 17.87A0.5 0.5 0 0 1 20.95 18.31Z"
+          ],
+          "stroke": []
+        }
+      }
+    },
+    {
+      "id": "C",
+      "label": "Wide frame",
+      "tags": [
+        "mountain",
+        "sun",
+        "wide"
+      ],
+      "note": "A in the landscape keyline, the credit card's frame. Peak at 69 · 69 · 70% of the width, about 40% of the height; sun clear of the walls by 2.75 · 2 · 1.75, of the mountain by 4.11 · 2.24 · 2.26. 0 of the 4 measured references use a wide frame; at 16 the silhouette is the credit card's",
+      "masters": {
+        "16": [
+          "M3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625Z",
+          "M5.125 12.375L9.793 7.707A1 1 0 0 1 11.207 7.707L14.375 10.875",
+          "M4.625 7A0.375 0.375 0 1 0 5.375 7A0.375 0.375 0 1 0 4.625 7Z"
+        ],
+        "20": [
+          "M4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V13.25A2 2 0 0 1 15.25 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75Z",
+          "M6.25 15.25L11.87 9.63A1.25 1.25 0 0 1 13.63 9.63L17.25 13.25",
+          "M6.25 8.75A0.5 0.5 0 1 0 7.25 8.75A0.5 0.5 0 1 0 6.25 8.75Z"
+        ],
+        "24": [
+          "M5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75Z",
+          "M7.25 19.25L14.44 12.06A1.5 1.5 0 0 1 16.56 12.06L21.25 16.75",
+          "M7 9.75A0.75 0.75 0 1 0 8.5 9.75A0.75 0.75 0 1 0 7 9.75Z"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M3.232 13L3.125 13A2.125 2.125 0 0 1 1 10.875L1 5.125A2.125 2.125 0 0 1 3.125 3L12.875 3A2.125 2.125 0 0 1 15 5.125L15 9.232A0.5 0.5 0 0 1 14.146 9.586L11.737 7.177A1.75 1.75 0 0 0 9.263 7.177L3.586 12.854A0.5 0.5 0 0 1 3.232 13ZM4 7A1 1 0 1 0 6 7A1 1 0 1 0 4 7Z",
+            "M14.192 12.542A2.125 2.125 0 0 1 12.875 13L6.768 13A0.5 0.5 0 0 1 6.414 12.146L10.323 8.237A0.25 0.25 0 0 1 10.677 8.237L14.236 11.797A0.5 0.5 0 0 1 14.192 12.542Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M4.18 15.94A2.75 2.75 0 0 1 2 13.25L2 6.75A2.75 2.75 0 0 1 4.75 4L15.25 4A2.75 2.75 0 0 1 18 6.75L18 11.73A0.5 0.5 0 0 1 17.15 12.09L14.16 9.1A2 2 0 0 0 11.34 9.1L4.64 15.8A0.5 0.5 0 0 1 4.18 15.94ZM5.5 8.75A1.25 1.25 0 1 0 8 8.75A1.25 1.25 0 1 0 5.5 8.75Z",
+            "M17.33 15.05A2.75 2.75 0 0 1 15.25 16L7.77 16A0.5 0.5 0 0 1 7.41 15.15L12.4 10.16A0.5 0.5 0 0 1 13.1 10.16L17.31 14.37A0.5 0.5 0 0 1 17.33 15.05Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M5.23 20A3.25 3.25 0 0 1 2 16.75L2 7.25A3.25 3.25 0 0 1 5.25 4L18.75 4A3.25 3.25 0 0 1 22 7.25L22 15.23A0.5 0.5 0 0 1 21.15 15.59L17.09 11.53A2.25 2.25 0 0 0 13.91 11.53L5.59 19.85A0.5 0.5 0 0 1 5.23 20ZM6.25 9.75A1.5 1.5 0 1 0 9.25 9.75A1.5 1.5 0 1 0 6.25 9.75Z",
+            "M21.44 18.57A3.25 3.25 0 0 1 18.75 20L8.77 20A0.5 0.5 0 0 1 8.41 19.15L14.97 12.59A0.75 0.75 0 0 1 16.03 12.59L21.38 17.94A0.5 0.5 0 0 1 21.44 18.57Z"
+          ],
+          "stroke": []
+        }
+      }
+    },
+    {
+      "id": "D",
+      "label": "Ring sun",
+      "tags": [
+        "mountain",
+        "sun",
+        "ring"
+      ],
+      "note": "Sun drawn as a ring with a 1.5 hole: 4.5 · 4.5 · 4 across (the dot is 3 · 2.5 · 2). At 24 the mountain is A's. At 20 and 16 the ring only fits 1.5 from both walls, and the mountain moves down and right to clear it (1.60 · 1.62), so the peak sits at 70 · 73% of the width. Filled: the hole is the ring's outer size. 2 of the 4 references use a ring, both on heavier, larger suns",
+      "masters": {
+        "16": [
+          "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
+          "M6.125 13.375L9.793 9.707A1 1 0 0 1 11.207 9.707L13.375 11.875",
+          "M5.375 6.75A1.375 1.375 0 1 0 8.125 6.75A1.375 1.375 0 1 0 5.375 6.75Z"
+        ],
+        "20": [
+          "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
+          "M6.75 16.25L11.62 11.38A1.25 1.25 0 0 1 13.38 11.38L16.25 14.25",
+          "M6.75 8.25A1.5 1.5 0 1 0 9.75 8.25A1.5 1.5 0 1 0 6.75 8.25Z"
+        ],
+        "24": [
+          "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
+          "M6.5 20.25L13.69 13.06A1.5 1.5 0 0 1 15.81 13.06L20.25 17.5",
+          "M7.25 8.75A1.5 1.5 0 1 0 10.25 8.75A1.5 1.5 0 1 0 7.25 8.75Z"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M4.232 14L4.125 14A2.125 2.125 0 0 1 2 11.875L2 4.125A2.125 2.125 0 0 1 4.125 2L11.875 2A2.125 2.125 0 0 1 14 4.125L14 10.232A0.5 0.5 0 0 1 13.146 10.586L11.737 9.177A1.75 1.75 0 0 0 9.263 9.177L4.586 13.854A0.5 0.5 0 0 1 4.232 14ZM4.75 6.75A2 2 0 1 0 8.75 6.75A2 2 0 1 0 4.75 6.75Z",
+            "M13.192 13.542A2.125 2.125 0 0 1 11.875 14L7.768 14A0.5 0.5 0 0 1 7.414 13.146L10.323 10.237A0.25 0.25 0 0 1 10.677 10.237L13.236 12.797A0.5 0.5 0 0 1 13.192 13.542Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M4.71 16.8A2.75 2.75 0 0 1 3 14.25L3 5.75A2.75 2.75 0 0 1 5.75 3L14.25 3A2.75 2.75 0 0 1 17 5.75L17 12.73A0.5 0.5 0 0 1 16.15 13.09L13.91 10.85A2 2 0 0 0 11.09 10.85L5.25 16.69A0.5 0.5 0 0 1 4.71 16.8ZM6 8.25A2.25 2.25 0 1 0 10.5 8.25A2.25 2.25 0 1 0 6 8.25Z",
+            "M16.33 16.05A2.75 2.75 0 0 1 14.25 17L8.27 17A0.5 0.5 0 0 1 7.91 16.15L12.15 11.91A0.5 0.5 0 0 1 12.85 11.91L16.31 15.37A0.5 0.5 0 0 1 16.33 16.05Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M4.61 20.55A3.25 3.25 0 0 1 3 17.75L3 6.25A3.25 3.25 0 0 1 6.25 3L17.75 3A3.25 3.25 0 0 1 21 6.25L21 15.98A0.5 0.5 0 0 1 20.15 16.34L16.34 12.53A2.25 2.25 0 0 0 13.16 12.53L5.21 20.48A0.5 0.5 0 0 1 4.61 20.55ZM6.5 8.75A2.25 2.25 0 1 0 11 8.75A2.25 2.25 0 1 0 6.5 8.75Z",
+            "M20.55 19.39A3.25 3.25 0 0 1 17.75 21L8.02 21A0.5 0.5 0 0 1 7.66 20.15L14.22 13.59A0.75 0.75 0 0 1 15.28 13.59L20.48 18.79A0.5 0.5 0 0 1 20.55 19.39Z"
           ],
           "stroke": []
         }

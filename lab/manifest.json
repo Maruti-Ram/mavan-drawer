@@ -198,6 +198,8 @@
     "image",
     "image-2",
     "image-2-filled",
+    "image-3",
+    "image-3-filled",
     "image-filled",
     "info",
     "info-2",
@@ -10737,6 +10739,131 @@
       "ratio": null,
       "gap": null
     },
+    "image-3": {
+      "paths": [
+        "M5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75Z",
+        "M7.25 19.25L14.44 12.06A1.5 1.5 0 0 1 16.56 12.06L21.25 16.75",
+        "M7 9.75A0.75 0.75 0 1 0 8.5 9.75A0.75 0.75 0 1 0 7 9.75Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75Z\"/> <path d=\"M7.25 19.25L14.44 12.06A1.5 1.5 0 0 1 16.56 12.06L21.25 16.75\"/> <path d=\"M7 9.75A0.75 0.75 0 1 0 8.5 9.75A0.75 0.75 0 1 0 7 9.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "mountain",
+        "sun",
+        "wide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.27,
+          "optical": 2.2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.27,
+          "optical": 2.2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 15.75,
+        "h": 11.75
+      },
+      "ratio": {
+        "w": 0.79,
+        "h": 0.59
+      },
+      "gap": {
+        "size": 4.12,
+        "part": 3,
+        "ratio": 1.37
+      }
+    },
+    "image-3-filled": {
+      "paths": [],
+      "areas": [
+        "M5.23 20A3.25 3.25 0 0 1 2 16.75L2 7.25A3.25 3.25 0 0 1 5.25 4L18.75 4A3.25 3.25 0 0 1 22 7.25L22 15.23A0.5 0.5 0 0 1 21.15 15.59L17.09 11.53A2.25 2.25 0 0 0 13.91 11.53L5.59 19.85A0.5 0.5 0 0 1 5.23 20ZM6.25 9.75A1.5 1.5 0 1 0 9.25 9.75A1.5 1.5 0 1 0 6.25 9.75Z",
+        "M21.44 18.57A3.25 3.25 0 0 1 18.75 20L8.77 20A0.5 0.5 0 0 1 8.41 19.15L14.97 12.59A0.75 0.75 0 0 1 16.03 12.59L21.38 17.94A0.5 0.5 0 0 1 21.44 18.57Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.23 20A3.25 3.25 0 0 1 2 16.75L2 7.25A3.25 3.25 0 0 1 5.25 4L18.75 4A3.25 3.25 0 0 1 22 7.25L22 15.23A0.5 0.5 0 0 1 21.15 15.59L17.09 11.53A2.25 2.25 0 0 0 13.91 11.53L5.59 19.85A0.5 0.5 0 0 1 5.23 20ZM6.25 9.75A1.5 1.5 0 1 0 9.25 9.75A1.5 1.5 0 1 0 6.25 9.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M21.44 18.57A3.25 3.25 0 0 1 18.75 20L8.77 20A0.5 0.5 0 0 1 8.41 19.15L14.97 12.59A0.75 0.75 0 0 1 16.03 12.59L21.38 17.94A0.5 0.5 0 0 1 21.44 18.57Z\"/>",
+      "mark": false,
+      "tags": [
+        "mountain",
+        "sun",
+        "wide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "image-filled": {
       "paths": [],
       "areas": [
@@ -14487,6 +14614,8 @@
         "image",
         "image-2",
         "image-2-filled",
+        "image-3",
+        "image-3-filled",
         "image-filled",
         "info",
         "info-2",
@@ -25024,6 +25153,131 @@
           "ratio": null,
           "gap": null
         },
+        "image-3": {
+          "paths": [
+            "M3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625Z",
+            "M5.125 12.375L9.793 7.707A1 1 0 0 1 11.207 7.707L14.375 10.875",
+            "M4.625 7A0.375 0.375 0 1 0 5.375 7A0.375 0.375 0 1 0 4.625 7Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625Z\"/> <path d=\"M5.125 12.375L9.793 7.707A1 1 0 0 1 11.207 7.707L14.375 10.875\"/> <path d=\"M4.625 7A0.375 0.375 0 1 0 5.375 7A0.375 0.375 0 1 0 4.625 7Z\"/>",
+          "mark": false,
+          "tags": [
+            "mountain",
+            "sun",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.21,
+              "optical": 1.16
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.21,
+              "optical": 1.16
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 11,
+            "h": 7
+          },
+          "ratio": {
+            "w": 0.79,
+            "h": 0.5
+          },
+          "gap": {
+            "size": 2.26,
+            "part": 2,
+            "ratio": 1.13
+          }
+        },
+        "image-3-filled": {
+          "paths": [],
+          "areas": [
+            "M3.232 13L3.125 13A2.125 2.125 0 0 1 1 10.875L1 5.125A2.125 2.125 0 0 1 3.125 3L12.875 3A2.125 2.125 0 0 1 15 5.125L15 9.232A0.5 0.5 0 0 1 14.146 9.586L11.737 7.177A1.75 1.75 0 0 0 9.263 7.177L3.586 12.854A0.5 0.5 0 0 1 3.232 13ZM4 7A1 1 0 1 0 6 7A1 1 0 1 0 4 7Z",
+            "M14.192 12.542A2.125 2.125 0 0 1 12.875 13L6.768 13A0.5 0.5 0 0 1 6.414 12.146L10.323 8.237A0.25 0.25 0 0 1 10.677 8.237L14.236 11.797A0.5 0.5 0 0 1 14.192 12.542Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.232 13L3.125 13A2.125 2.125 0 0 1 1 10.875L1 5.125A2.125 2.125 0 0 1 3.125 3L12.875 3A2.125 2.125 0 0 1 15 5.125L15 9.232A0.5 0.5 0 0 1 14.146 9.586L11.737 7.177A1.75 1.75 0 0 0 9.263 7.177L3.586 12.854A0.5 0.5 0 0 1 3.232 13ZM4 7A1 1 0 1 0 6 7A1 1 0 1 0 4 7Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.192 12.542A2.125 2.125 0 0 1 12.875 13L6.768 13A0.5 0.5 0 0 1 6.414 12.146L10.323 8.237A0.25 0.25 0 0 1 10.677 8.237L14.236 11.797A0.5 0.5 0 0 1 14.192 12.542Z\"/>",
+          "mark": false,
+          "tags": [
+            "mountain",
+            "sun",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "image-filled": {
           "paths": [],
           "areas": [
@@ -28772,6 +29026,8 @@
         "image",
         "image-2",
         "image-2-filled",
+        "image-3",
+        "image-3-filled",
         "image-filled",
         "info",
         "info-2",
@@ -39310,6 +39566,131 @@
           "ratio": null,
           "gap": null
         },
+        "image-3": {
+          "paths": [
+            "M4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V13.25A2 2 0 0 1 15.25 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75Z",
+            "M6.25 15.25L11.87 9.63A1.25 1.25 0 0 1 13.63 9.63L17.25 13.25",
+            "M6.25 8.75A0.5 0.5 0 1 0 7.25 8.75A0.5 0.5 0 1 0 6.25 8.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V13.25A2 2 0 0 1 15.25 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75Z\"/> <path d=\"M6.25 15.25L11.87 9.63A1.25 1.25 0 0 1 13.63 9.63L17.25 13.25\"/> <path d=\"M6.25 8.75A0.5 0.5 0 1 0 7.25 8.75A0.5 0.5 0 1 0 6.25 8.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "mountain",
+            "sun",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 12.5,
+            "h": 8.5
+          },
+          "ratio": {
+            "w": 0.78,
+            "h": 0.53
+          },
+          "gap": {
+            "size": 2.24,
+            "part": 2.5,
+            "ratio": 0.9
+          }
+        },
+        "image-3-filled": {
+          "paths": [],
+          "areas": [
+            "M4.18 15.94A2.75 2.75 0 0 1 2 13.25L2 6.75A2.75 2.75 0 0 1 4.75 4L15.25 4A2.75 2.75 0 0 1 18 6.75L18 11.73A0.5 0.5 0 0 1 17.15 12.09L14.16 9.1A2 2 0 0 0 11.34 9.1L4.64 15.8A0.5 0.5 0 0 1 4.18 15.94ZM5.5 8.75A1.25 1.25 0 1 0 8 8.75A1.25 1.25 0 1 0 5.5 8.75Z",
+            "M17.33 15.05A2.75 2.75 0 0 1 15.25 16L7.77 16A0.5 0.5 0 0 1 7.41 15.15L12.4 10.16A0.5 0.5 0 0 1 13.1 10.16L17.31 14.37A0.5 0.5 0 0 1 17.33 15.05Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.18 15.94A2.75 2.75 0 0 1 2 13.25L2 6.75A2.75 2.75 0 0 1 4.75 4L15.25 4A2.75 2.75 0 0 1 18 6.75L18 11.73A0.5 0.5 0 0 1 17.15 12.09L14.16 9.1A2 2 0 0 0 11.34 9.1L4.64 15.8A0.5 0.5 0 0 1 4.18 15.94ZM5.5 8.75A1.25 1.25 0 1 0 8 8.75A1.25 1.25 0 1 0 5.5 8.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M17.33 15.05A2.75 2.75 0 0 1 15.25 16L7.77 16A0.5 0.5 0 0 1 7.41 15.15L12.4 10.16A0.5 0.5 0 0 1 13.1 10.16L17.31 14.37A0.5 0.5 0 0 1 17.33 15.05Z\"/>",
+          "mark": false,
+          "tags": [
+            "mountain",
+            "sun",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "image-filled": {
           "paths": [],
           "areas": [
@@ -43060,6 +43441,8 @@
         "image",
         "image-2",
         "image-2-filled",
+        "image-3",
+        "image-3-filled",
         "image-filled",
         "info",
         "info-2",
@@ -53599,6 +53982,131 @@
           "ratio": null,
           "gap": null
         },
+        "image-3": {
+          "paths": [
+            "M5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75Z",
+            "M7.25 19.25L14.44 12.06A1.5 1.5 0 0 1 16.56 12.06L21.25 16.75",
+            "M7 9.75A0.75 0.75 0 1 0 8.5 9.75A0.75 0.75 0 1 0 7 9.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75Z\"/> <path d=\"M7.25 19.25L14.44 12.06A1.5 1.5 0 0 1 16.56 12.06L21.25 16.75\"/> <path d=\"M7 9.75A0.75 0.75 0 1 0 8.5 9.75A0.75 0.75 0 1 0 7 9.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "mountain",
+            "sun",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 15.75,
+            "h": 11.75
+          },
+          "ratio": {
+            "w": 0.79,
+            "h": 0.59
+          },
+          "gap": {
+            "size": 4.12,
+            "part": 3,
+            "ratio": 1.37
+          }
+        },
+        "image-3-filled": {
+          "paths": [],
+          "areas": [
+            "M5.23 20A3.25 3.25 0 0 1 2 16.75L2 7.25A3.25 3.25 0 0 1 5.25 4L18.75 4A3.25 3.25 0 0 1 22 7.25L22 15.23A0.5 0.5 0 0 1 21.15 15.59L17.09 11.53A2.25 2.25 0 0 0 13.91 11.53L5.59 19.85A0.5 0.5 0 0 1 5.23 20ZM6.25 9.75A1.5 1.5 0 1 0 9.25 9.75A1.5 1.5 0 1 0 6.25 9.75Z",
+            "M21.44 18.57A3.25 3.25 0 0 1 18.75 20L8.77 20A0.5 0.5 0 0 1 8.41 19.15L14.97 12.59A0.75 0.75 0 0 1 16.03 12.59L21.38 17.94A0.5 0.5 0 0 1 21.44 18.57Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.23 20A3.25 3.25 0 0 1 2 16.75L2 7.25A3.25 3.25 0 0 1 5.25 4L18.75 4A3.25 3.25 0 0 1 22 7.25L22 15.23A0.5 0.5 0 0 1 21.15 15.59L17.09 11.53A2.25 2.25 0 0 0 13.91 11.53L5.59 19.85A0.5 0.5 0 0 1 5.23 20ZM6.25 9.75A1.5 1.5 0 1 0 9.25 9.75A1.5 1.5 0 1 0 6.25 9.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M21.44 18.57A3.25 3.25 0 0 1 18.75 20L8.77 20A0.5 0.5 0 0 1 8.41 19.15L14.97 12.59A0.75 0.75 0 0 1 16.03 12.59L21.38 17.94A0.5 0.5 0 0 1 21.44 18.57Z\"/>",
+          "mark": false,
+          "tags": [
+            "mountain",
+            "sun",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "image-filled": {
           "paths": [],
           "areas": [
@@ -58258,6 +58766,15 @@
       "category": "Files & Folders",
       "base": "image",
       "note": "Two mountains · approved 2026-09-20",
+      "status": "done"
+    },
+    {
+      "n": 33,
+      "name": "image-3",
+      "section": "C · Core containers and figures",
+      "category": "Files & Folders",
+      "base": "image",
+      "note": "Wide frame · approved 2026-09-20",
       "status": "done"
     },
     {

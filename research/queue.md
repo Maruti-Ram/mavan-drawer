@@ -147,6 +147,7 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 32. `credit-card-3` · Commerce & Payments · variant of `credit-card` — Bar and dot · approved 2026-09-20
 - [x] 33. `image` · Files & Folders — approved 2026-09-20
 - [x] 33. `image-2` · Files & Folders · variant of `image` — Two mountains · approved 2026-09-20
+- [x] 33. `image-3` · Files & Folders · variant of `image` — Wide frame · approved 2026-09-20
 - [ ] 34. `lock` · Users & Access
 - [ ] 35. `clipboard` · Files & Folders
 - [ ] 36. `archive` · Files & Folders
