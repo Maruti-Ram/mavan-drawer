@@ -200,7 +200,10 @@ Square, portrait and landscape keylines; the icons every screen has.
 
 Bases before their variants; within that, highest evidence first.
 
-- [~] 46. `alert-triangle` · Status & Feedback
+- [x] 46. `alert-triangle` · Status & Feedback — approved 2026-09-20
+- [x] 46. `alert-triangle-2` · Status & Feedback · variant of `alert-triangle` — Wedge "!", 16 slimmer, 1.25 of air · approved 2026-09-20
+- [x] 46. `alert-triangle-3` · Status & Feedback · variant of `alert-triangle` — Dash foot (alert-circle-3) · approved 2026-09-20
+- [x] 46. `alert-triangle-4` · Status & Feedback · variant of `alert-triangle` — Wedge + dash, 16 slimmer, 1.25 of air · approved 2026-09-20
 - [x] 47. `at-sign` · Communication — approved 2026-09-20
 - [x] 47. `at-sign-2` · Communication · variant of `at-sign` — Baseline tail, large bowl · approved 2026-09-20
 - [x] 48. `attachment` · Files & Folders — approved 2026-09-20
