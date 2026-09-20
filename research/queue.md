@@ -200,11 +200,11 @@ Square, portrait and landscape keylines; the icons every screen has.
 
 Bases before their variants; within that, highest evidence first.
 
-- [ ] 46. `alert-triangle` · Status & Feedback
-- [ ] 47. `at-sign` · Communication
-- [ ] 48. `attachment` · Files & Folders
-- [ ] 49. `book-open` · Files & Folders
-- [ ] 50. `chart-bar` · Charts & Data
+- [~] 46. `alert-triangle` · Status & Feedback
+- [~] 47. `at-sign` · Communication
+- [~] 48. `attachment` · Files & Folders
+- [~] 49. `book-open` · Files & Folders
+- [~] 50. `chart-bar` · Charts & Data
 - [ ] 51. `checkbox` · UI & Layout
 - [ ] 52. `cursor` · UI & Layout
 - [ ] 53. `database` · Charts & Data
