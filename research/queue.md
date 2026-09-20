@@ -148,7 +148,8 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 33. `image` · Files & Folders — approved 2026-09-20
 - [x] 33. `image-2` · Files & Folders · variant of `image` — Two mountains · approved 2026-09-20
 - [x] 33. `image-3` · Files & Folders · variant of `image` — Wide frame · approved 2026-09-20
-- [ ] 34. `lock` · Users & Access
+- [x] 34. `lock` · Users & Access — approved 2026-09-20
+- [x] 34. `lock-2` · Users & Access · variant of `lock` — Keyhole dot · approved 2026-09-20
 - [ ] 35. `clipboard` · Files & Folders
 - [ ] 36. `archive` · Files & Folders
 - [ ] 37. `mail` · Communication
