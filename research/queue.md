@@ -139,7 +139,9 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 30. `folder` · Files & Folders — Plain · approved 2026-09-20
 - [x] 30. `folder-2` · Files & Folders · variant of `folder` — Closed tab · approved 2026-09-20
 - [x] 30. `folder-3` · Files & Folders · variant of `folder` — Hook · approved 2026-09-20
-- [ ] 31. `calendar` · Time & Calendar
+- [x] 31. `calendar` · Time & Calendar — approved 2026-09-20
+- [x] 31. `calendar-2` · Time & Calendar · variant of `calendar` — Floating line · approved 2026-09-20
+- [x] 31. `calendar-3` · Time & Calendar · variant of `calendar` — One dot · approved 2026-09-20
 - [ ] 32. `credit-card` · Commerce & Payments
 - [ ] 33. `image` · Files & Folders
 - [ ] 34. `lock` · Users & Access
