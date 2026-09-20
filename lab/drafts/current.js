@@ -24,7 +24,7 @@ export default {
         "notification",
         "alert"
       ],
-      "note": "Each side is one arc, radius 24.02 · 17.52 · 15.26, leaving the dome upright and leaning out 22 · 21.8 · 22.1 degrees from upright by the time it reaches the rim. Body 80 · 75 · 73% of the height; clapper arc 5.5 · 4.5 · 4 wide, 1.5 · 1.5 · 1.625 below the rim. The classic silhouette, all arcs and one level line, no odd angles. Filled: solid body, clapper stays a line (recommended)",
+      "note": "Each side is one arc, radius 24.02 · 17.52 · 15.26, leaving the dome upright and leaning out 22 · 21.8 · 22.1 degrees from upright by the time it reaches the rim. Body 80 · 75 · 73% of the height; clapper arc 5.5 · 4.5 · 4 wide, 1.5 · 1.5 · 1.625 below the rim. The classic silhouette, all arcs and one level line, no odd angles. At 20 the clapper arc ends on 16.35 with radius 1.7 (3 wide, 0.9 deep) so its lowest ink lands exactly on the box. Filled: solid body, clapper stays a line",
       "masters": {
         "16": [
           "M3.625 10.625A15.26 15.26 0 0 0 4.75 4.875A3.25 3.25 0 0 1 11.25 4.875A15.26 15.26 0 0 0 12.375 10.625Z",
@@ -32,7 +32,7 @@ export default {
         ],
         "20": [
           "M4.75 13.25A17.53 17.53 0 0 0 6 6.75A4 4 0 0 1 14 6.75A17.53 17.53 0 0 0 15.25 13.25Z",
-          "M8.5 16.25A1.63 1.63 0 0 0 11.5 16.25"
+          "M8.5 16.35A1.7 1.7 0 0 0 11.5 16.35"
         ],
         "24": [
           "M4.75 17.25A24.02 24.02 0 0 0 6.5 8.25A5.5 5.5 0 0 1 17.5 8.25A24.02 24.02 0 0 0 19.25 17.25Z",
@@ -53,7 +53,7 @@ export default {
             "M4.75 14A0.75 0.75 0 0 1 4.05 12.97A16.78 16.78 0 0 0 5.25 6.75A4.75 4.75 0 0 1 14.75 6.75A16.78 16.78 0 0 0 15.95 12.97A0.75 0.75 0 0 1 15.25 14Z"
           ],
           "stroke": [
-            "M8.5 16.25A1.63 1.63 0 0 0 11.5 16.25"
+            "M8.5 16.35A1.7 1.7 0 0 0 11.5 16.35"
           ]
         },
         "24": {
@@ -82,7 +82,7 @@ export default {
         ],
         "20": [
           "M4.75 13.25A1.25 1.25 0 0 0 6 12V6.75A4 4 0 0 1 14 6.75V12A1.25 1.25 0 0 0 15.25 13.25Z",
-          "M8.5 16.25A1.63 1.63 0 0 0 11.5 16.25"
+          "M8.5 16.35A1.7 1.7 0 0 0 11.5 16.35"
         ],
         "24": [
           "M4.75 17.25A1.75 1.75 0 0 0 6.5 15.5V8.25A5.5 5.5 0 0 1 17.5 8.25V15.5A1.75 1.75 0 0 0 19.25 17.25Z",
@@ -103,7 +103,7 @@ export default {
             "M4.75 14A0.75 0.75 0 0 1 4.75 12.5A0.5 0.5 0 0 0 5.25 12V6.75A4.75 4.75 0 0 1 14.75 6.75V12A0.5 0.5 0 0 0 15.25 12.5A0.75 0.75 0 0 1 15.25 14Z"
           ],
           "stroke": [
-            "M8.5 16.25A1.63 1.63 0 0 0 11.5 16.25"
+            "M8.5 16.35A1.7 1.7 0 0 0 11.5 16.35"
           ]
         },
         "24": {
