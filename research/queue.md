@@ -153,7 +153,8 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 34. `lock-3` · Users & Access · variant of `lock` — Round body · approved 2026-09-20
 - [x] 34. `lock-4` · Users & Access · variant of `lock` — Pouch body · approved 2026-09-20
 - [x] 34. `lock-5` · Users & Access · variant of `lock` — Classic keyhole · approved 2026-09-20
-- [ ] 35. `clipboard` · Files & Folders
+- [x] 34. `lock-6` · Users & Access · variant of `lock` — Pouch, F corners · approved 2026-09-20
+- [~] 35. `clipboard` · Files & Folders
 - [ ] 36. `archive` · Files & Folders
 - [ ] 37. `mail` · Communication
 - [ ] 38. `message` · Communication
