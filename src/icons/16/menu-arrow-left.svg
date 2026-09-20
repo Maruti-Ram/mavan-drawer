@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
   <!-- keyline: mark -->
   <!-- tags: collapse, expand, fold, unfold, sidebar, drawer, panel -->
   <!-- Arrow left: lines 9.5 · 8.5 · 7.5 right-aligned, a left chevron in the free column (≥ 1.5 gap): a panel toggle named by what is drawn: collapses a left panel or expands a right one -->
-  <path d="M4.25 6.19L2.97 7.47A0.75 0.75 0 0 0 2.97 8.53L4.25 9.81"/>
-  <path d="M7.25 3.5h6"/>
-  <path d="M7.25 8h6"/>
-  <path d="M7.25 12.5h6"/>
+  <!-- 16 master at stroke 1.25 (C7, 2026-09-20): the lines stay on the centrelines they had at 1.5 and only get thinner, so the filled twin still thickens in place (C17, Maruti 2026-09-20); their ends keep their ink. The stack is 0.25 shorter and the air between lines is 3.25 at 16 — supersedes the 16 figures above. The arrow head keeps its ink box on the eighth grid. -->
+  <path d="M4.375 6.065L2.819 7.548A0.625 0.625 0 0 0 2.819 8.452L4.375 9.935"/>
+  <path d="M7.125 3.5h6.25"/>
+  <path d="M7.125 8h6.25"/>
+  <path d="M7.125 12.5h6.25"/>
 </svg>

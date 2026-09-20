@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
   <!-- keyline: mark -->
   <!-- tags: asymmetric, hamburger -->
   <!-- Asymmetric: short right / full / short left; gap 3; short top right, full middle, short bottom left: playful, still reads as a menu -->
-  <path d="M8.75 3.5h4.5"/>
-  <path d="M2.75 8h10.5"/>
-  <path d="M2.75 12.5h4.5"/>
+  <!-- 16 master at stroke 1.25 (C7, 2026-09-20): the lines stay on the centrelines they had at 1.5 and only get thinner, so the filled twin still thickens in place (C17, Maruti 2026-09-20); their ends keep their ink. The stack is 0.25 shorter and the air between lines is 3.25 at 16 — supersedes the 16 figures above. -->
+  <path d="M8.625 3.5h4.75"/>
+  <path d="M2.625 8h10.75"/>
+  <path d="M2.625 12.5h4.75"/>
 </svg>

@@ -18,7 +18,7 @@
 import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
-import { MASTERS, STROKE, sizeBase, sizeOf } from './masters.mjs';
+import { MASTERS, sizeBase, sizeOf, strokeOf } from './masters.mjs';
 
 const QUEUE = 'research/queue.md';
 const ADDED = 'E · Added on request';
@@ -166,10 +166,14 @@ async function approve(args) {
       const f = c.filled?.[m];
       if (c.filled === 'outline' || !f) die(`${c.id} has no filled drawing at ${m} (filled: 'outline' is retired — give it a weight or fill).`);
       const note = [c.label, c.note].filter(Boolean).join(': ');
-      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, STROKE, keyline, note, [], o, tags, c.optical?.[m], glyph));
-      const fw = f.weight ?? STROKE;
+      // The outline stroke is the master's own (masters.mjs): 1.5 at 24 and 20,
+      // and whatever STROKES says at 16. A filled drawing declares its weight;
+      // a shape-filled one has none, and its leftover lines keep the outline stroke.
+      const sw = strokeOf(m);
+      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph));
+      const fw = f.weight ?? sw;
       writeFileSync(`src/icons/${m}/${file}-filled.svg`, svg(m, fw, keyline,
-        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? ', lines stay 1.5' : ''}` : `: weight ${fw}, ends pulled in ${(fw - STROKE) / 2} so the ink box matches the outline`),
+        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline`),
         f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph));
       written.push(`src/icons/${m}/${file}.svg`, `src/icons/${m}/${file}-filled.svg`);
     }

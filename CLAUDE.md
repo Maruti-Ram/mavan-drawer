@@ -3,7 +3,93 @@
 A commercial icon library. Read this before touching anything; it records
 decisions that are **settled** and the reasoning that is expensive to rediscover.
 
+## How we work — Maruti and Claude
+
+Maruti is a designer, not a developer. **Maruti decides what an icon looks like and what the set
+stands for; the eye makes the final pick** (C0, C15). Claude is the lead engineer and the project
+manager: it owns the tools, lint, build, lab pages, docs and the queue, makes every technical
+decision there without asking, checks its own work, and owns the mistakes.
+
+What goes to Maruti, always: a visual choice, a new or widened rule, a change of scope or order,
+anything that ships to customers. What never does: file formats, tool design, how a check is coded.
+Claude explains those choices in a sentence instead of asking Maruti to make them.
+
+### Hard rules
+
+- **Plain language.** Lead with what the eye will see ("the tick reads thinner than the cross"),
+  then the number that shows it. A technical term gets one sentence of explanation. Rule numbers
+  (C18) are references, not explanations.
+- **Nothing gets drawn or built on a fuzzy picture.** A board carries **one** question. If the
+  question is not clear, keep talking until it is. Questions come in one batch, each with a
+  recommendation.
+- **Measure, never recall.** No number is stated unless it was measured this session or cited from
+  a file in the repo. An unmeasured number is written `[needs measuring]`. A clean lint is not a
+  correct drawing (doc 08 §10).
+- **A rule lives in one place and is changed everywhere at once.** When a decision changes, the
+  same commit updates every place that states it — the Settled table, `docs/07-character.md`,
+  `docs/01-foundations.md`, `tools/masters.mjs`, lint, the icon skill. A stale doc is a bug.
+- **Git:** an approval is committed without asking (the icon skill). Tool and docs work is
+  committed once Maruti has agreed the change, one topic per commit. Never push, branch, open a
+  PR or rewrite history unless Maruti says so.
+
+### Standing directives
+
+1. **Orchestrate by default.** Substantive work that is not the drawing itself is delegated to
+   subagents, workflows or agent teams, whichever fits. This is a standing opt-in; never ask per
+   task. The reason: the main conversation must stay small and sharp so it does not lose the thread.
+2. **Keep the main session clean.** The main thread holds the board, the decisions and the results.
+   Reference measuring, censuses across `src/icons/`, doc sweeps, reading lab pages and tool
+   building happen inside subagents, which report conclusions, not file dumps.
+3. **Plan, then fan out.** Work that can run at the same time does. The natural split here: while
+   one icon is under review, agents measure references and relatives for the **next** ones.
+4. **Pick the model per task,** and say which model each agent got.
+
+   | Kind of work | Model |
+   |---|---|
+   | Taste and judgement: drawing candidates, judging at 16 in the set, writing or widening a rule, reviewing a result, hard geometry bugs | the strongest model |
+   | Building from a clear spec: a lint check, a lab panel, a build step, a fix with a known cause | a strong builder model |
+   | Checklists and lookups: measuring references, censuses of radii / gaps / ratios, browser checks, doc sweeps for stale statements | Sonnet |
+   | Mechanical chores: renames, regenerating files, format conversions | Haiku |
+
+   A vague brief or a result that needs judging moves up a tier. Nothing moves down to save tokens.
+5. **One owner per file.** The board (`lab/drafts/current.js`), the sheet (`research/queue.md`),
+   `src/icons/` and `lab/manifest.json` belong to the main session and `queue.mjs` alone — no agent
+   writes them, and only one icon is on the board at a time. Agents own named files and prefer new
+   files; Claude merges. Parallel tool work may use worktrees.
+6. **Verify before saying done.** The default, by kind of work:
+   - *An icon:* `npm run check` with no new warnings; filled ink box equals the outline's; the board
+     reloaded with a clean console; looked at in **real pixels at 16** and in the Library's At 16
+     strip beside the set, outline and filled; relatives checked for shared lengths, radii and cuts.
+   - *A tool or lint change:* `node --test tools/geometry.test.mjs` passes; all shipped drawings still
+     lint the same unless the change meant otherwise, and every drawing whose result changed is listed.
+   - *A lab page:* clean console, nothing shifts when a control toggles, light and dark.
+   - A fresh reviewer agent that did not do the work checks the result against the plan or the rule.
+   - Failures are reported with their evidence. Never rounded up to "done".
+7. **Report like a PM.** What shipped, what is in flight, what is blocked and why, what Maruti needs
+   to decide. Short.
+
+### Builds that are not an icon
+
+The icon loop is its own plan (the `icon` skill). Anything else of size — the shipping pipeline, a
+lint overhaul, a docs rewrite, a new lab surface — starts with a plan document, not code:
+
+1. **Brainstorm until confident,** asking about what Maruti or the customer will see, not about the
+   technique.
+2. **Test the unknowns first** with a throwaway proof (doc 08: half a session once went to a stale
+   module cache, not the feature).
+3. **Write `plans/<build-name>.md`:** what changes for Maruti or the customer in plain words; the
+   work as cards (scope, files owned, how we know it is done, model, depends on); the waves that
+   can run in parallel; how the combined result is proven; status checkboxes. The plan is the only
+   progress log for that build — it does not replace the sheet and the board for icons.
+4. **Get Maruti's nod, then fan out.**
+
 ## Picking up
+
+**Open builds live in `plans/`.** Before starting or approving any icon, read every plan there whose
+Status has unticked boxes — it says what is in flight and what is on hold (2026-09-20: none open;
+`plans/stroke-16.md` is closed — the 16 master draws at 1.25 (C7) and the plan records how the 114 were
+converted and what was decided on the way).
+`docs/09-rule-audit.md` is the open agenda for the rules themselves.
 
 **Resume point = the sheet + the board, never a note.** `research/queue.md` is the sheet (status per icon;
 Library → **Sheet** view shows it) and `lab/drafts/current.js` is the board. A SessionStart hook prints
@@ -11,7 +97,7 @@ Library → **Sheet** view shows it) and `lab/drafts/current.js` is the board. A
 "let's do <name>" → `queue.mjs start` (adds unlisted names) → draft → show; an approval → `queue.mjs
 approve` (writes, lints, ticks) → commit, **without asking** → next icon. **Size rule (C8):** `-large` /
 `-small` step 3 · 2.5 · 2 units from the default; `-large` may reach the margin edge; lint checks families. File pair per master:
-`<name>.svg` (stroke 1.5) + `<name>-filled.svg`; lint enforces the filled weight.
+`<name>.svg` (stroke 1.5 at 24 and 20, 1.25 at 16) + `<name>-filled.svg`; lint enforces the filled weight.
 **Library (built 2026-09-17):** `lab/library.html` (`/lab/` redirects there). The grid shows **one
 representative icon** (24 master) per concept; clicking opens a right panel with all three masters
 and their metrics (ink, centring, geometric/optical bearings, copy SVG). Outline/Filled switch (F),
@@ -43,7 +129,8 @@ centralicons.com browser tab (site controls: Stroke / Corner menus) into
 Serve the lab with the `lab-4175` launch config if another session holds 4174.
 
 **Visual language (O1)** — decisions C1–C8 in `docs/07-character.md`: no sharp icons; refined
-and professional, not comical; three masters 24/20/16; stroke 1.5 everywhere; trash family
+and professional, not comical; three masters 24/20/16; stroke 1.5 at 24 and 20, **1.25 at 16**
+(C7); trash family
 (`trash` + `trash-5`, tab handle; C4's interiors dropped, `-2`/`-3`/`-4` left unused); numbered variants allowed; -large/-small size variants on a fixed step. Still open there: container radius,
 angle exceptions, the user icon. Specimens live in `lab/character.html` (`node tools/refs.mjs`
 with no argument builds its reference rows).
@@ -79,14 +166,14 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Source of truth | hand-authored SVG in `src/icons/24/`, **not** Figma |
 | Authoring format | **strokes** (typable, lintable, 10× smaller) |
 | Shipped format | **outlined fills only** — the stroked source stays private |
-| Styles | outline + filled, **drawn together per icon** and approved as a pair (user decision 2026-09-17). Separate drawings; filled outer edge = outline outer edge. **Filled rule (locked 2026-09-17):** *line-heavy* icons (plus, check, arrows, chevrons — nothing to fill) show weight by a **heavier stroke — 2.5 at 24, 2 at 20 and 16** (`FILLED_WEIGHT`), never a background; ink box stays identical, so ends pull in by half the added weight. *Repeated elements* (C17: dots, menu lines) are spaced by their own thickness (menu: fixed gap 3) and thicken in place, so their filled version is slightly larger than the outline. *Every other* icon fills its shapes (plus-circle fills the circle) and its **strokes stay 1.5**. Duotone deferred. |
+| Styles | outline + filled, **drawn together per icon** and approved as a pair (user decision 2026-09-17). Separate drawings; filled outer edge = outline outer edge. **Filled rule (locked 2026-09-17):** *line-heavy* icons (plus, check, arrows, chevrons — nothing to fill) show weight by a **heavier stroke — 2.5 at 24, 2 at 20 and 16** (`FILLED_WEIGHT`), never a background; ink box stays identical, so ends pull in by half the added weight. *Repeated elements* (C17: dots, menu lines) are spaced by their own thickness (menu: fixed gap 3 at 24 and 20; **at 16 the lines hold their 1.5-era centrelines instead, so the gap is 3.25 for `menu`/`menu-2`/`menu-arrow-*`, 4.75 for `menu-3`, 6.25 for `menu-4`** — decided 2026-09-20) and thicken in place, so their filled version is slightly larger than the outline. *Every other* icon fills its shapes (plus-circle fills the circle) and its **strokes stay at the outline weight — 1.5 at 24 and 20, 1.25 at 16**. Duotone deferred. |
 | Weight axis | **none.** Opinionated defaults; customers do not adjust stroke. |
-| Stroke | **1.5 at every master** (user decision 2026-09-16; supersedes 2 at 24) |
+| Stroke | **1.5 at 24 and 20 · 1.25 at 16** (user decision 2026-09-20, C7 amended; blind pick + eight true redraws, carried out in `plans/stroke-16.md`). Filled line weight at 16 stays 2. 219 of 228 drawings at 16 keep their ink box exactly; nine — `minus` ×3 and six menu stacks — are 0.25 shorter and nothing else, because their ink ends are the sides of a line (`tools/inkbox-guard.mjs`; dated note, 2026-09-20). 16 centrelines sit on x.375 / x.625 (eighth grid, 3 dp, that master only); gap floor stays a **literal 1.5 at every master** — no longer "one stroke-width" at 16, since the 16 stroke is now 1.25. |
 | Canvas | 24 |
 | Masters | **24 · 20 · 16** — three drawn masters (user direction, 2026-09-16; supersedes "drop 20") |
 | Business model | sold to many customers → we do not control render size |
 | Naming (C9) | `<object>[-<modifier>][-<n>][-<size>][-filled]`; shape variants are numbered (`check-2`), their style word is a **tag** (`<!-- tags: long sweep -->`, candidate `tags: [...]` on the board) that the build and Library search read. Numbers never change. |
-| Mark bends (C10) | a bent mark's corner is an arc of radius **half the weight** (0.75 outline · 1.25/1/1 filled) — the tightest even-width bend; lint warns below it |
+| Mark bends (C10) | a bent mark's corner is an arc of radius **half the weight** — outline 0.75 · 0.75 · 0.625 (24 · 20 · 16), filled 1.25 · 1 · 1 (`bendMin`) — the tightest even-width bend; lint warns below it. At 16 the ink box is still held exactly and the leg angle gives instead (classic chevron 45° → 45.5°, largest shift 1.87° on `check-circle-small`; measured by `tools/convert-16.mjs`, 2026-09-20) |
 | Sizes (C8, C13, C18) | ship only the sizes with a use case (`check`: default + small); every shipped style then gets all of them — styles × sizes is a full grid. **Containers** (`check-circle-small`) keep the container and shrink only the inner mark |
 | Optical placement (C14) | open pointing marks move toward their point by a per-shape anchor picked by eye at default 24 (chevron down: classic 0.5 · steep 0.61 · flat 0.55; up/left/right, same drawings flipped or turned: classic 0.5 · steep 0.65 · flat 0.4 up, 0.55 left/right; checks stay box-centred — audited 2026-09-17), scaled by ink height for other sizes/masters; declared as `<!-- optical: dx dy -->`, checked by lint, written to metrics as `shift`. Symmetric marks stay on the box centre. |
 | Deciding a shift (C15) | **measure, don't copy**: each shape's recommendation = end-triangle offset × 0.5 (not ink mass); positions around each shape's own recommendation, plus box centre and shipped (never one grid for all shapes); always shown on `/lab/optical-shift.html` via `tools/optical-sheet.mjs`, with shipped + recommended tagged; the eye makes the final pick; **balanced in the canvas against all four edges** (optically, not geometrically even), on **the axes the shape is lopsided on** — chevron up–down only, play left–right only, check both; symmetry is detected by the tool; each position shown inside its canvas outline |
@@ -100,11 +187,14 @@ masters    24 · 20 · 16, each drawn by hand      (numbers: tools/masters.mjs)
 keylines   24: circle ⌀20 · square 18 · portrait 16×20 · landscape 20×16 · mark ≤18
            20: circle ⌀16 · square 14 · mark ≤14 · 16: circle ⌀14 · square 12 · mark ≤12
 sizes      -small / default / -large marks step 3 · 2.5 · 2 (12.5%); -large may reach the margin edge
-stroke     1.5 at every master (6.3% · 7.5% · 9.4%)  ← smaller masters are heavier for free
-filled     line-heavy icons: 2.5 · 2 · 2 (10.4% · 10% · 12.5%) — shapes-icons fill, strokes stay 1.5
-grid       quarter units · container edges on .25/.75 · 2 dp max · angles 0/45/90
+stroke     1.5 · 1.5 · 1.25 (6.3% · 7.5% · 7.8%)  ← C7 amended 2026-09-20, carried out in plans/stroke-16.md
+filled     line-heavy icons: 2.5 · 2 · 2 (10.4% · 10% · 12.5%) — shape icons fill, strokes stay at
+           the master's outline weight (1.5 · 1.5 · 1.25)
+grid       quarter units, 2 dp max, at 24 and 20 · eighth units, 3 dp max, at 16 only (centrelines
+           on x.375/x.625, so outer edges stay whole) · container edges on .25/.75 · angles 0/45/90
 radius     container 2.5 · bend/detail 1.5 (at 24; proposed) · mark corners = weight / 2 (C10)
-min gap    one stroke-width (1.5) between any two stroke edges
+min gap    a literal 1.5 between any two stroke edges, at every master — no longer "one
+           stroke-width" at 16, since the 16 stroke is 1.25
 ```
 
 **There is no "live area."** The circle keyline IS the outer drawing bound. The
@@ -113,12 +203,16 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 
 ### Two rules that are easy to get wrong
 
-1. **Round caps extend half a stroke past the path endpoint.** To span the
-   18-unit square keyline (3→21) the path is `M3.75 12h16.5`. Off-by-one here is the
-   commonest defect in icon sets.
-2. **Min gap = one stroke-width.** This is what survives 16px and what lets the
-   filled style exist without shapes welding shut. When a detail cannot hold the
-   gap, **remove the detail** — that is the rule working, not failing.
+1. **Round caps extend half a stroke past the path endpoint.** At 24 and 20 (stroke
+   1.5, half = 0.75), to span the 18-unit square keyline (3→21) the path is
+   `M3.75 12h16.5`. At 16 (stroke 1.25, half = 0.625) the same line's endpoints sit
+   0.625 inside the extent, not 0.75. Off-by-one here is the commonest defect in
+   icon sets.
+2. **Min gap is a literal 1.5, not "one stroke-width."** That equivalence only
+   holds at 24 and 20; at 16 the stroke is 1.25 but the gap floor still holds at
+   1.5. This is what survives 16px and what lets the filled style exist without
+   shapes welding shut. When a detail cannot hold the gap, **remove the detail**
+   — that is the rule working, not failing.
 
 ## Open — in dependency order
 

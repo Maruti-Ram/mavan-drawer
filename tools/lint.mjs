@@ -3,17 +3,30 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap } from './geometry.mjs';
-import { GLYPH_GAP, MASTERS, MIN_GAP, STROKE as BASE_STROKE, SIZE_STEP, SIZES, markMax, sizeBase, sizeOf, weightOf } from './masters.mjs';
+import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
-const MAX_DP = 2;
+// Smallest distance from any sample of `a` to the polyline through `b`'s samples.
+function polyGap(a, b) {
+  let min = Infinity;
+  for (const [px, py] of a) for (let k = 0; k < b.length; k++) {
+    const [x1, y1] = b[k], [x2, y2] = b[k + 1] ?? b[k];
+    const dx = x2 - x1, dy = y2 - y1, L = dx * dx + dy * dy;
+    // samples sit STEP apart along a path; a longer hop is a jump between subpaths, not ink
+    const t = L && L < 0.3 ? Math.max(0, Math.min(1, ((px - x1) * dx + (py - y1) * dy) / L)) : 0;
+    min = Math.min(min, Math.hypot(px - (x1 + t * dx), py - (y1 + t * dy)));
+  }
+  return min;
+}
+
 // Directional marks (chevron, caret, minus) are deliberately smaller than any
 // silhouette keyline. A file opts in with `<!-- keyline: mark -->`; it then only
 // has to stay inside the master's mark ceiling and stay centred. A `-large`
 // mark may run to the margin edge (C8).
-// Outline files stroke at 1.5; `-filled` files of line-heavy icons at the
-// master's filled weight (masters.mjs). A shape-filled `-filled` file draws its
-// areas as `<path fill="currentColor" fill-rule="evenodd" stroke="none" d…>`
-// (the one path form allowed to carry paint) and keeps 1.5 for its lines.
+// Outline files stroke at their master's weight (`strokeOf`); `-filled` files of
+// line-heavy icons at the master's filled weight (masters.mjs). A shape-filled
+// `-filled` file draws its areas as `<path fill="currentColor" fill-rule="evenodd"
+// stroke="none" d…>` (the one path form allowed to carry paint) and keeps the
+// master's outline stroke for whatever lines are left.
 const required = (canvas, weight) => ({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: `0 0 ${canvas} ${canvas}`,
@@ -47,7 +60,10 @@ function lint(canvas, file) {
   const src = readFileSync(join('src/icons', String(canvas), file), 'utf8');
   const isFilledFile = file.endsWith('-filled.svg');
   const areas = isFilledFile ? [...src.matchAll(AREA)].map((m) => m[1]) : [];
-  const STROKE = areas.length ? BASE_STROKE : weightOf(file.replace('.svg', ''), canvas);
+  // The weight this file's strokes are drawn at, per master and per style. A
+  // shape-filled file paints its areas and keeps the master's outline stroke for
+  // the lines it has left, so it is the presence of areas that decides, not the name.
+  const STROKE = areas.length ? strokeOf(canvas) : weightOf(file.replace('.svg', ''), canvas);
   const REQUIRED = required(canvas, STROKE);
   const mid = canvas / 2;
   const errors = [], warnings = [], notes = [];
@@ -77,15 +93,18 @@ function lint(canvas, file) {
   if (!ds.length && !areas.length) errors.push('no <path> found');
 
   // --- 3. precision + grid ------------------------------------------------
-  // The grid is quarter units: a 1.5 stroke centred on x.25/x.75 has integer
-  // edges. Anything off the quarter grid needs a comment saying why.
+  // The grid follows the master's stroke (masters.mjs): a 1.5 stroke centred on
+  // x.25/x.75 has integer edges, so 24 and 20 work in quarter units with 2
+  // decimals; a 1.25 stroke needs x.375/x.625, so that master works in eighths
+  // with 3. Anything off its master's grid needs a comment saying why.
+  const GRID = gridOf(canvas), MAX_DP = decimalsOf(canvas), PER_UNIT = Math.round(1 / GRID);
   const offGrid = [];
   for (const d of [...ds, ...areas]) for (const n of numbersIn(d)) {
     if (dp(n) > MAX_DP) errors.push(`${n} exceeds ${MAX_DP} decimal places`);
-    else if (!Number.isInteger(n * 4)) offGrid.push(n);
+    else if (!Number.isInteger(n * PER_UNIT)) offGrid.push(n);
   }
   if (offGrid.length) {
-    const msg = `${offGrid.length} off-quarter-grid value(s): ${[...new Set(offGrid)].join(', ')}`;
+    const msg = `${offGrid.length} off-${gridName(canvas)}-grid value(s): ${[...new Set(offGrid)].join(', ')}`;
     hasComment ? notes.push(`${msg} — documented exception`) : warnings.push(`${msg} — undocumented (§3 requires a comment)`);
   }
 
@@ -126,6 +145,8 @@ function lint(canvas, file) {
 
   // --- 4b. advisory: bends tighter than half the stroke (C10) --------------
   // Below R = weight / 2 the inner corner stays a notch and the corner reads heavier.
+  // `bendMin` takes THIS file's weight, so the floor is per master and per style:
+  // 0.75 for an outline at 1.5, 0.625 at 1.25, 1.25 for a filled line icon at 24.
   // A dot (one CLOSED circle drawn as two arcs) is not a bend: under half the stroke it is a
   // solid disc. `isDot` lives in geometry.mjs so lint, build and the lab share one test — an
   // open two-arc path is a bend (a bowl running into a tuck), checked like any other, and in a
@@ -133,12 +154,15 @@ function lint(canvas, file) {
   for (const d of ds) if (!isDot(d)) for (const { cmd, args } of parsePath(d)) {
     if (cmd.toUpperCase() !== 'A') continue;
     for (let k = 0; k + 7 <= args.length; k += 7)
-      if (Math.min(args[k], args[k + 1]) < STROKE / 2 - 0.005)
-        warnings.push(`bend radius ${args[k]} is under half the stroke (${STROKE / 2}) — the corner reads uneven (C10)`);
+      if (Math.min(args[k], args[k + 1]) < bendMin(STROKE) - 0.005)
+        warnings.push(`bend radius ${args[k]} is under half the stroke (${bendMin(STROKE)}) — the corner reads uneven (C10)`);
   }
 
   // --- 5. advisory: near-collisions between separate paths ---------------
-  // §6 asks one stroke width between any two stroke edges. C19 carves out one case:
+  // §6 asks MIN_GAP (1.5 units) between any two stroke edges, at every master —
+  // the floor does not thin with the line, so a lighter master just leaves more
+  // air. Only the conversion from centreline distance to edge gap is per master:
+  // it subtracts this file's own stroke. C19 carves out one case:
   // in a file that declares `<!-- glyph: dot -->`, the pair {dot, body} is the inside
   // of one character and floors at GLYPH_GAP instead. The dot's clearance to the
   // silhouette (the path spanning the whole ink box) is not that pair, and keeps MIN_GAP.
@@ -151,10 +175,10 @@ function lint(canvas, file) {
     if (crosses(sampled[i], sampled[j])) continue; // paths that cross (x, plus) join by design
     const glyphPair = isGlyph && isDot(ds[i]) !== isDot(ds[j]) && !isShell(spans[i]) && !isShell(spans[j]);
     const floor = glyphPair ? GLYPH_GAP : MIN_GAP;
-    const need = floor + STROKE; // centreline distance for a one-stroke edge gap
-    let min = Infinity;
-    for (const [ax, ay] of sampled[i]) for (const [bx, by] of sampled[j])
-      min = Math.min(min, Math.hypot(ax - bx, ay - by));
+    const need = floor + STROKE; // centreline distance that leaves `floor` between the two edges
+    // Point-to-SEGMENT, both ways: point-to-point read a stem standing on a bar as 0.13
+    // apart whenever the bar's samples straddled the stem (info-3 at 16, on the eighth grid).
+    const min = Math.min(polyGap(sampled[i], sampled[j]), polyGap(sampled[j], sampled[i]));
     if (min > 0.1 && min < need - 0.01)
       warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : '§6'} needs ${need} (edge gap ${r2(min - STROKE)} < ${floor})`);
   }
@@ -173,6 +197,7 @@ function lint(canvas, file) {
   // one-stroke floor was written for parallel runs and repeated elements; applied
   // inside a letter it hollows it out. The container ring is not part of the
   // character and keeps MIN_GAP (it is a closed circle, so it has no mouth anyway).
+  // `selfGap` is handed this file's own stroke, so it reads edge-to-edge at any master.
   for (let i = 0; i < ds.length; i++) {
     if (isDot(ds[i])) continue;
     const self = selfGap(ds[i], STROKE);
@@ -185,7 +210,7 @@ function lint(canvas, file) {
 
   // --- 5c. advisory: a knockout cut wider than the counter it sits in --------
   // A shape-filled file cuts its mark OUT of a solid shape, at C18's per-mark width -
-  // heavier than the 1.5 outline stroke. Every gap inside the mark therefore loses
+  // heavier than the master's outline stroke. Every gap inside the mark therefore loses
   // (cut - stroke) when it is knocked out, and nothing has ever checked what that
   // leaves. `areas` are not in the pair loop and were not in the self-gap loop either,
   // so all 66 shape-filled files had no gap check of any kind (docs/08 §6.5).

@@ -5,7 +5,7 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { join } from 'node:path';
 import { bbox, anatomy } from './geometry.mjs';
 import { opticalBearings } from './optical.mjs';
-import { MASTERS, STROKE, FILLED_WEIGHT, weightOf } from './masters.mjs';
+import { MASTERS, STROKES, FILLED_WEIGHT, strokeOf, weightOf } from './masters.mjs';
 
 const r2 = (n) => Math.round(n * 100) / 100;
 
@@ -31,7 +31,7 @@ function buildMaster(canvas) {
     // Ink bounds and side bearings — the SVG equivalent of a typeface's side
     // bearings. Consumers use these to align optical edges instead of box edges.
     // The root's own stroke-width is authoritative (lint checks it); a shape-filled
-    // drawing keeps 1.5 for its leftover lines.
+    // drawing keeps the master's outline stroke for its leftover lines.
     const sw = Number(clean.match(/<svg\b[^>]*\bstroke-width="([\d.]+)"/)?.[1] ?? weightOf(n, canvas));
     const h = sw / 2;
     // A stroke grows its centreline box by half a stroke; a filled area is its own box.
@@ -74,7 +74,9 @@ for (const line of readFileSync('research/queue.md', 'utf8').split('\n')) {
 
 mkdirSync('lab', { recursive: true });
 mkdirSync('dist', { recursive: true });
-writeFileSync('lab/manifest.json', JSON.stringify({ stroke: STROKE, filledWeight: FILLED_WEIGHT, ...built[24], masters: built, queue }, null, 2));
+// `stroke` is the 24 master's, kept for the lab pages that still read one scalar;
+// `strokes` is the per-master map they should read instead (plans/stroke-16.md card 6).
+writeFileSync('lab/manifest.json', JSON.stringify({ stroke: strokeOf(24), strokes: STROKES, filledWeight: FILLED_WEIGHT, ...built[24], masters: built, queue }, null, 2));
 writeFileSync('dist/icons.json', JSON.stringify(Object.fromEntries(Object.entries(built).map(([m, b]) => [m, b.icons]))));
 
 // Standalone metrics file — small, and the thing a consumer's <Icon> needs to

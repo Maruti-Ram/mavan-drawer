@@ -44,7 +44,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { sizeBase } from './masters.mjs';
+import { sizeBase, strokeOf } from './masters.mjs';
 import { samplePath, bbox } from './geometry.mjs';
 
 const MASTERS = [24, 20, 16];
@@ -90,16 +90,17 @@ if (draftFile) {
     draftSaid[name] = [c.label, c.note].filter(Boolean).join(': ');
     for (const m of MASTERS) {
       const shift = c.optical?.[m] ?? [0, 0], f = c.filled[m];
-      (drafted[m] ??= {})[name] = measure(c.masters[m], [], 1.5, shift, c.tags ?? []);
-      drafted[m][`${name}-filled`] = measure(f.stroke ?? [], f.fill ?? [], f.weight ?? 1.5, shift, c.tags ?? []);
+      (drafted[m] ??= {})[name] = measure(c.masters[m], [], strokeOf(m), shift, c.tags ?? []);
+      drafted[m][`${name}-filled`] = measure(f.stroke ?? [], f.fill ?? [], f.weight ?? strokeOf(m), shift, c.tags ?? []);
     }
   }
 }
-// The mark's own ink (the container held still is left out), stroked at 1.5.
+// The mark's own ink (the container held still is left out), stroked at the
+// weight the file itself declares — its master's, whatever that master is.
 const markInk = (i) => {
   if (!hold) return i.ink;
-  const b = bbox(i.paths.slice(hold));
-  return { x: b.x0 - 0.75, y: b.y0 - 0.75, w: b.x1 - b.x0 + 1.5, h: b.y1 - b.y0 + 1.5 };
+  const b = bbox(i.paths.slice(hold)), h = i.stroke / 2;
+  return { x: b.x0 - h, y: b.y0 - h, w: b.x1 - b.x0 + i.stroke, h: b.y1 - b.y0 + i.stroke };
 };
 const at = (m, n) => drafted[m]?.[n] ?? man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
 

@@ -4,6 +4,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { selfGap } from './geometry.mjs';
+import {
+  FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
+  gridFor, gridNameFor, gridOf, strokeOf, weightOf,
+} from './masters.mjs';
 
 const near = (got, want, tol = 0.06) =>
   assert.ok(Math.abs(got - want) <= tol, `expected ~${want}, got ${got}`);
@@ -74,4 +78,87 @@ test('a half-circle bowl is judged, though the grid rounds its sweep under 180',
 
 test('a 135 deg bend - the widest C10 allows - is still never judged', () => {
   assert.equal(selfGap('M4 4L8 8A0.75 0.75 0 0 1 7.47 9.28L4 10.31', 1.5), null);
+});
+
+// ─── masters.mjs: the stroke is per master, and what follows it ──────────────
+// Written for plans/stroke-16.md card 2. The point of these is that flipping
+// STROKES[16] to 1.25 is the WHOLE change: the grid, the decimal ceiling and
+// C10's bend minimum move with it, and the gap floor does not. So wherever it
+// can be done, the derivation is tested with an explicit weight rather than by
+// asking what the 16 master happens to be today.
+const masters = Object.keys(MASTERS).map(Number);
+
+test('every master declares its own stroke', () => {
+  assert.deepEqual(Object.keys(STROKES).map(Number).sort(), masters.slice().sort());
+  for (const m of masters) assert.equal(strokeOf(m), STROKES[m], `strokeOf(${m})`);
+  assert.equal(strokeOf(24), 1.5);
+  assert.equal(strokeOf(20), 1.5);
+  // 16 is mid-transition (C7 amended 2026-09-20): 1.5 until the conversion lands,
+  // 1.25 after. Either is legal here; nothing else in these tests depends on which.
+  assert.ok([1.5, 1.25].includes(strokeOf(16)), `16 is ${strokeOf(16)}`);
+});
+
+test('weightOf picks the style first, then the master', () => {
+  for (const m of masters) {
+    assert.equal(weightOf('check', m), strokeOf(m), `outline at ${m}`);
+    assert.equal(weightOf('check.svg', m), strokeOf(m), `outline at ${m}, with extension`);
+    assert.equal(weightOf('check-filled', m), FILLED_WEIGHT[m], `filled at ${m}`);
+    assert.equal(weightOf('check-filled.svg', m), FILLED_WEIGHT[m], `filled at ${m}, with extension`);
+  }
+  // a name that merely contains the word is not a filled file
+  assert.equal(weightOf('filled-box', 24), strokeOf(24));
+});
+
+test('the gap floor is 1.5 units whatever the stroke does', () => {
+  // MIN_GAP is a literal, not strokeOf(master): the floor is what survives a 16px
+  // render, so a lighter line leaves more air rather than a narrower gap.
+  assert.equal(MIN_GAP, 1.5);
+  assert.equal(GLYPH_GAP, 1);
+  for (const m of masters) assert.equal(MIN_GAP, 1.5, `floor at ${m} (stroke ${strokeOf(m)})`);
+});
+
+test('C10: the bend minimum is half the weight the mark is drawn at', () => {
+  assert.equal(bendMin(1.5), 0.75);          // outline at 24 / 20, and 16 today
+  assert.equal(bendMin(1.25), 0.625);        // outline at 16 after the flip
+  assert.equal(bendMin(2.5), 1.25);          // filled line icon at 24
+  assert.equal(bendMin(2), 1);               // filled line icon at 20 / 16
+  for (const m of masters) {
+    assert.equal(bendMin(strokeOf(m)), strokeOf(m) / 2, `outline bend at ${m}`);
+    assert.equal(bendMin(FILLED_WEIGHT[m]), FILLED_WEIGHT[m] / 2, `filled bend at ${m}`);
+  }
+});
+
+test('the grid and the decimal ceiling are derived from the stroke', () => {
+  // A container's outer edge is on a whole pixel only when its centreline sits at
+  // edge ∓ stroke/2. Half of 1.5 is 0.75 — already a quarter. Half of 1.25 is
+  // 0.625, which is not, so that master needs eighths and a third decimal.
+  assert.equal(gridFor(1.5), 0.25);
+  assert.equal(decimalsFor(1.5), 2);
+  assert.equal(gridNameFor(1.5), 'quarter');
+  assert.equal(gridFor(1.25), 0.125);
+  assert.equal(decimalsFor(1.25), 3);
+  assert.equal(gridNameFor(1.25), 'eighth');
+  assert.equal(gridFor(2), 0.25);            // filled weights stay on quarters
+  assert.equal(gridFor(2.5), 0.25);
+});
+
+test('gridOf and decimalsOf apply that derivation per master', () => {
+  for (const m of masters) {
+    assert.equal(gridOf(m), gridFor(strokeOf(m)), `grid at ${m}`);
+    assert.equal(decimalsOf(m), decimalsFor(strokeOf(m)), `decimals at ${m}`);
+  }
+  assert.equal(gridOf(24), 0.25);
+  assert.equal(decimalsOf(24), 2);
+});
+
+test('the eighth grid only ever widens the quarter grid', () => {
+  // Why the allowance is per master and not per style: the 16 filled files are not
+  // being redrawn, and they must keep passing. Every quarter IS an eighth and 2 dp
+  // is within 3, so loosening the master never rejects a drawing it accepted.
+  for (const v of [0, 0.25, 0.75, 3.75, 8.5, 12, 20.25]) {
+    assert.ok(Number.isInteger(v / gridFor(1.5)), `${v} is on the quarter grid`);
+    assert.ok(Number.isInteger(v / gridFor(1.25)), `${v} is still on the eighth grid`);
+  }
+  assert.ok(decimalsFor(1.25) >= decimalsFor(1.5));
+  assert.ok(gridFor(1.25) < gridFor(1.5));
 });

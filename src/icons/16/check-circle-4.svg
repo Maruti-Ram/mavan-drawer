@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
   <!-- tags: lean -->
   <!-- lean `check-4` in the ring, 2.5 · 2 · 1.75 clear. Ring box-centred; check box-centred (C14); tangent points off grid by construction (C10) -->
-  <path d="M1.75 8A6.25 6.25 0 1 0 14.25 8A6.25 6.25 0 1 0 1.75 8Z"/>
-  <path d="M5.64 8.64L6.61 9.62A0.75 0.75 0 0 0 7.73 9.55L10.36 6.17"/>
+  <!-- 16 master at stroke 1.25 (C7, 2026-09-20): centrelines on the eighth grid so every ink edge stays where the 1.5 line had it. Measured at 16 now: check-to-ring clearance 1.96 — supersedes the 16 figures above -->
+  <path d="M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z"/>
+  <path d="M5.515 8.515L6.704 9.768A0.625 0.625 0 0 0 7.652 9.72L10.485 6.045"/>
 </svg>

@@ -51,12 +51,18 @@ export default {
 
 - **Filled style.** Every candidate carries all three masters in **both** styles. Pick the form by icon type:
   - *Line-heavy icons* (nothing to fill) use `{ weight, stroke }` at `FILLED_WEIGHT` (2.5 · 2 · 2). Pull each end in by half the added weight, so the ink box matches the outline.
-  - *Shape icons* use `{ fill: [evenodd d…], stroke: [1.5 lines] }`. The filled outer edge equals the outline's outer edge.
+  - *Shape icons* use `{ fill: [evenodd d…], stroke: [lines at the outline weight] }` — 1.5 at 24 and 20, **1.25 at 16**. The filled outer edge equals the outline's outer edge.
 - **Candidates.** Give 2–4, and mark one "(recommended)". The first line of the file comments why the decision matters.
 - **Geometry** (CLAUDE.md):
-  - Round caps reach half a stroke past each endpoint.
-  - Keep a gap of at least 1.5 between stroke edges. If a detail can't keep that gap, remove the detail.
-  - Stay on the quarter grid, with at most 2 decimal places. Comment every decimal that corrects something.
+  - Round caps reach half a stroke past each endpoint — 0.75 at 24 and 20, **0.625 at 16** (a 16
+    master's ink ends sit at the endpoint ± 0.625, not ± 0.75). A **diagonal** open end at 16 moves
+    out 0.125 on **both** axes, not just along the line, to keep its cap's two outward extremes
+    (2026-09-20).
+  - Keep a gap of at least 1.5 between stroke edges, at every master — a literal 1.5, not "one
+    stroke-width" (the 16 stroke is 1.25). If a detail can't keep that gap, remove the detail.
+  - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
+    on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
+    pixels — with at most 3 decimal places. Comment every decimal that corrects something.
 - **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge.
 - **Consistency.** Check against approved relatives first (`src/icons/24/`, `node tools/queue.mjs show <name>`). Reuse their lengths, radii and weights unless the question is about changing them.
 

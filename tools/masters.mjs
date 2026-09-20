@@ -1,16 +1,31 @@
 // The three drawn masters. One source of truth for lint, build and the lab.
 // All sizes are OUTER ink dimensions — they include the stroke. See
 // docs/01-foundations.md §2 and §4.
-export const STROKE = 1.5;
+
+// Outline stroke, PER MASTER. C7 (amended 2026-09-20): the 16 master draws at
+// 1.25 — a lighter line beside 16px text (6.3% · 7.5% · 7.8% of the canvas) —
+// and 24 and 20 stay at 1.5. The grid, the decimal allowance, C10's bend
+// minimum, lint's root check and queue.mjs's writer are all derived from this
+// table. The gap floor is not (below). Conversion record: plans/stroke-16.md.
+export const STROKES = { 24: 1.5, 20: 1.5, 16: 1.25 };
+export const strokeOf = (master) => STROKES[master];
 
 // Filled style of a LINE-HEAVY icon (plus, check, arrows: nothing encloses an
 // area) shows weight by a heavier stroke, never a background. Locked 2026-09-17.
 // Heavier at 24, where 1.5 is lightest (6.3%), so every master lands near
 // 10–12.5% of its canvas. Steps of +0.5 keep pulled-in ends on the quarter grid.
-// Every other icon fills its shapes and keeps STROKE for any leftover line.
+// 16 stays at 2 when its outline goes to 1.25 (Maruti, 2026-09-20): the contrast
+// becomes 1.6×, matching 24's 1.67×, and no filled line file has to be redrawn.
+// Every other icon fills its shapes and keeps the outline stroke for any line.
 export const FILLED_WEIGHT = { 24: 2.5, 20: 2, 16: 2 };
 export const isFilled = (file) => /-filled(\.svg)?$/.test(file);
-export const weightOf = (file, master) => (isFilled(file) ? FILLED_WEIGHT[master] : STROKE);
+export const weightOf = (file, master) => (isFilled(file) ? FILLED_WEIGHT[master] : strokeOf(master));
+
+// C10: a bent mark's corner is an arc of radius half the weight it is drawn at —
+// the tightest bend whose inner corner still reads as even width. It follows the
+// weight, so it is per master AND per style: 0.75 for an outline at 24 and 20
+// (0.625 at 16), 1.25 · 1 · 1 for a line-heavy filled file.
+export const bendMin = (weight) => weight / 2;
 
 export const MASTERS = {
   24: {
@@ -41,9 +56,32 @@ export const sizeBase = (name) => name.replace(/-(large|small)(?=-filled$|$)/, '
 export const markMax = (name, master) =>
   sizeOf(name) === 'large' ? MASTERS[master].bound[1] - MASTERS[master].bound[0] : MASTERS[master].mark;
 
-// Minimum gap between any two stroke edges: one outline stroke width, at every
-// master and in both styles.
-export const MIN_GAP = STROKE;
+// Minimum gap between any two stroke edges: 1.5 units, at every master and in
+// both styles. A LITERAL, deliberately not `strokeOf(master)` — the floor is what
+// survives a 16px render, not a fraction of the line. The 16 master's 1.25
+// line keeps the 1.5 floor; a thinner line simply leaves more air
+// (plans/stroke-16.md: file-text-2's short gap at 16 opened and its warning went).
+export const MIN_GAP = 1.5;
+
+// The drawing grid and the decimal ceiling, DERIVED from the master's stroke so
+// they flip with it. A container's outer edge lands on a whole pixel only when
+// its centreline sits at edge ∓ stroke/2. At stroke 1.5 that half is 0.75, which
+// is already on the quarter grid, so 24 and 20 draw on quarters with 2 decimals.
+// At 1.25 the half is 0.625: centrelines move to x.375 / x.625, which needs the
+// eighth grid and a third decimal.
+//
+// The allowance is per MASTER, not per file. Two reasons. A quarter is always an
+// eighth and 2 dp is always within 3, so every filled file at that master (weight
+// 2, untouched by the flip) keeps passing exactly as it does today — the check
+// only widens, never tightens. And a shape-filled file whose cut-outs follow a
+// 1.25 outline needs eighth-grid values of its own, so splitting the allowance by
+// style would fail the very files the conversion has to re-cut.
+export const gridFor = (stroke) => (Number.isInteger((stroke / 2) * 4) ? 0.25 : 0.125);
+export const decimalsFor = (stroke) => String(gridFor(stroke)).split('.')[1].length;
+export const gridNameFor = (stroke) => ({ 0.25: 'quarter', 0.125: 'eighth' })[gridFor(stroke)];
+export const gridOf = (master) => gridFor(strokeOf(master));
+export const decimalsOf = (master) => decimalsFor(strokeOf(master));
+export const gridName = (master) => gridNameFor(strokeOf(master));
 
 // C19. One exception: a glyph mark's detached dot (info's i, help's ?, alert's !)
 // is one character, not two elements, so the space between dot and body is a

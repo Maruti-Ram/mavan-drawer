@@ -114,9 +114,13 @@ requirement. A file opts in explicitly:
 If you find yourself reaching for `mark` on something that depicts an object,
 you have the wrong keyline, not the wrong rule.
 
-**These are outer dimensions — they include the stroke.** A stroked circle that
-should hit the ⌀20 keyline has a *centreline* radius of 9.25, because the
-1.5-unit stroke adds 0.75 on each side. See §4.
+**These are outer dimensions — they include the stroke.** At 24, a stroked
+circle that should hit the ⌀20 keyline has a *centreline* radius of 9.25,
+because the 1.5-unit stroke adds 0.75 on each side. At 16, the same logic on
+the ⌀14 keyline gives a centreline radius of 6.375 — the 1.25-unit stroke adds
+0.625 on each side (C7). Every ring file at 16 uses this: `M1.625 8A6.375
+6.375 …` (`src/icons/16/alert-circle.svg` and the rest of the ring family).
+See §4.
 
 Use a keyline as the ceiling, not a quota. A minus sign does not need to fill
 18 × 18. But nothing should exceed its keyline, and the dominant mass of most
@@ -126,26 +130,38 @@ icons should reach it.
 
 ## 3. The coordinate grid
 
-**All coordinates land on the quarter grid** — integers, `.25`, `.5` or `.75`.
+**All coordinates land on the quarter grid** — integers, `.25`, `.5` or `.75` —
+**at 24 and 20.** The 16 master is the one exception: see the callout below.
 
 The reason is the stroke (§4). A 1.5 stroke centred on `x.25` or `x.75` has
 both edges on integers — `3.75` spans 3 → 4.5, and `20.25` spans 19.5 → 21 — so
 the *outer* edge of a container lands exactly on a pixel boundary. Container
 edges therefore sit on `.25` / `.75`.
 
-**Symmetric marks may sit on the canvas midline** (`12`, `10`, `8`). A plus
-centred on x=12 has its edges on 11.25 and 12.75, which is soft by a quarter
-pixel on each side — but symmetric. For a mark, symmetry beats crispness.
+**At 16 the grid is one step finer.** The 16 master's stroke is 1.25 (§4, C7),
+so a centreline on the quarter grid no longer puts the outer edge on a pixel.
+Centred on `x.375` / `x.625` instead — an **eighth grid** — it does: the
+12-unit square keyline's left wall sits at `2.625` (outer edge `2.625 − 0.625 =
+2`) and its right wall at `13.375` (outer edge `13.375 + 0.625 = 14`), on the
+same logic as the quarter-grid case above. This applies to the 16 master only;
+24 and 20 keep the quarter grid.
 
-Permitted exceptions, in order of preference:
+**Symmetric marks may sit on the canvas midline** (`12`, `10`, `8`). At 24, a
+plus centred on x=12 has its edges on 11.25 and 12.75, which is soft by a
+quarter pixel on each side. At 16, the same plus centred on x=8 (stroke 1.25)
+has its edges on 7.375 and 8.625, soft by three-eighths of a pixel — but
+symmetric either way. For a mark, symmetry beats crispness.
+
+Permitted exceptions, in order of preference (24 and 20; see above for 16):
 
 1. **Arc-derived decimals** — the endpoint of a circular arc rarely lands on the
    quarter grid. Round to **2 decimal places**, never more.
 2. **Optical corrections** — anything else off the quarter grid. Requires a
    comment in the source file saying what it corrects.
 
-**Maximum precision anywhere in the library: 2 decimal places.** The linter
-enforces this. Beyond that you are storing float error, not design intent.
+**Maximum precision at 24 and 20: 2 decimal places. At 16: 3**, to reach the
+eighth grid above. The linter enforces both. Beyond that you are storing float
+error, not design intent.
 
 Angles default to **0°, 45°, 90°**. 30° and 60° are allowed when the subject
 demands it (a hexagon, a chart line) and must be justified in the source file.
@@ -154,13 +170,13 @@ demands it (a hexagon, a chart line) and must be justified in the source file.
 
 ## 4. The stroke system
 
-### Weight: 1.5 units at every master
+### Weight: 1.5 at 24 and 20, 1.25 at 16 (C7)
 
 Everything in the library is drawn as a **stroke**, not a fill, at the master.
 Fills are a derived style (see `03-variants.md`), not a drawing technique.
 
 ```
-stroke-width="1.5"
+stroke-width="1.5"    (24 and 20) or "1.25" (16)
 stroke-linecap="round"
 stroke-linejoin="round"
 fill="none"
@@ -171,30 +187,40 @@ stroke="currentColor"
 |--------|--------|---------------------|--------------------|-------|
 | 24     | 1.5    | 6.3%                | **2.5**            | 10.4% |
 | 20     | 1.5    | 7.5%                | **2**              | 10%   |
-| 16     | 1.5    | 9.4%                | **2**              | 12.5% |
+| 16     | 1.25   | 7.8%                | **2**              | 12.5% |
 
 **Filled line weight (locked 2026-09-17).** A *line-heavy* icon (`plus`,
 `check`, arrows, chevrons — nothing encloses an area) has nothing to fill, so
 its filled style is the same lines at the weight above. Never a background. The
 ink box stays identical to the outline's, so each end pulls in by half the
 added weight (`M5.25 12h13.5` at 1.5 → `M5.75 12h12.5` at 2.5). Every other icon
-fills its shapes and keeps 1.5 for any leftover line. Numbers live in
-`tools/masters.mjs` (`FILLED_WEIGHT`); lint enforces them on `*-filled.svg`.
+fills its shapes and keeps its **outline weight** for any leftover line — 1.5
+at 24 and 20, 1.25 at 16. Numbers live in `tools/masters.mjs` (`FILLED_WEIGHT`,
+`strokeOf`); lint enforces them on `*-filled.svg`.
 
-The same physical weight at every size means smaller masters are proportionally
-heavier, which is exactly what they need. This is what Polaris (20), Central
-(24) and Font Awesome regular (20) do.
+**16 draws a lighter line than 24 and 20 (C7, amended 2026-09-20).** Until
+then, the library held one physical weight at every master, so the smaller
+masters were proportionally heavier for free — 6.3% · 7.5% · 9.4% of the
+canvas. Measured at 16×16, that read as roughly 50% more ink than a reference
+that scales one 24 drawing down (`docs/08-refinement.md` §3.1), and the user's
+blind pick on eight true redraws preferred a 16 master a touch lighter: 1.25,
+7.8% of the canvas — still heavier than 24 and 20, just not by a jump to 9.4%.
+24 and 20 keep one physical weight between them; 16 is now its own.
 
-### Why 1.5 and not 2
+### Why 1.5 at 24 and 20, and not 2
 
 Decided 2026-09-16 after a side-by-side in `lab/character.html`. 2 is the
 pixel-perfect answer — an integer stroke has integer edges — but it reads heavy
 and friendly. The library's character is refined and professional
-(`docs/07-character.md`), and 1.5 is the weight of that character.
+(`docs/07-character.md`), and 1.5 is the weight of that character. The 16
+master's own weight, 1.25, was picked the same way — see the callout above.
 
-The cost is crispness at 1×: a 1.5 stroke can never have both edges on
-integers. The quarter grid (§3) puts the edge that matters — the outside of a
-container — on a pixel boundary. On 2× and denser screens 1.5 is exact.
+The cost is crispness at 1×: neither a 1.5 nor a 1.25 stroke can have both
+edges on integers. The quarter grid (§3), or the eighth grid at 16, puts the
+edge that matters — the outside of a container — on a pixel boundary. On a 2×
+(retina) screen 1.5 is exact, a whole 3 device pixels; 1.25 is 2.5 device
+pixels and still cannot land clean on both edges there — the price of the
+lighter 16 line, accepted with the C7 amendment.
 
 ### Caps and joins: round
 
@@ -202,14 +228,25 @@ Round caps and joins, everywhere, no exceptions (`07-character.md` C1). A
 terminal's visual end is predictable: exactly `stroke-width / 2` past the path
 endpoint.
 
-**The round-cap rule:** a path endpoint sits `0.75` *inside* the extent you
-actually want.
+**The round-cap rule:** a path endpoint sits `stroke-width / 2` *inside* the
+extent you actually want — `0.75` at 24 and 20, `0.625` at 16.
 
-> To draw a horizontal line that visually spans the 18-unit square keyline
-> (3 → 21), the path is `M3.75 12h16.5` — endpoints at 3.75 and 20.25, caps
-> extending to 3 and 21.
+> At 24, to draw a horizontal line that visually spans the 18-unit square
+> keyline (3 → 21), the path is `M3.75 12h16.5` — endpoints at 3.75 and 20.25,
+> caps extending to 3 and 21. At 16, the same line spanning the 12-unit square
+> keyline (2 → 14) is `M2.625 8h10.75` — endpoints at 2.625 and 13.375 (the
+> eighth grid, §3), caps extending to 2 and 14.
 
 Getting this wrong by a stroke is the most common error in icon sets.
+
+**Dated note, 2026-09-20 — a diagonal end needs both axes.** The example above
+is orthogonal: the endpoint only has to move along the line to hold the cap
+where it was. A 45°-diagonal endpoint's cap is a full circle, so it has two
+outward extremes — one on x, one on y — and holding both means moving the
+endpoint out 0.125 on **both** axes, not 0.125 along the diagonal. That lands
+the cap 0.052 further along the diagonal than the old 1.5 line reached
+(measured by the reviewer and `tools/convert-16.mjs`, 2026-09-20). Ink boxes
+are unaffected.
 
 ---
 
@@ -232,7 +269,10 @@ mood.
 
 ## 6. Negative space — the rule that decides whether the set survives at 16px
 
-**Minimum gap between any two stroke edges: 1.5 units — one stroke width.**
+**Minimum gap between any two stroke edges: a literal 1.5 units, at every
+master.** At 24 and 20 that is also one stroke width, since the stroke there
+is 1.5; at 16 the stroke is 1.25 (C7), so the floor is wider than the stroke
+by design, not "one stroke width" any more.
 
 The same at every master, and at the 16 master that is 1.5px — the smallest gap
 that still reads as a gap rather than a smudge. Anything

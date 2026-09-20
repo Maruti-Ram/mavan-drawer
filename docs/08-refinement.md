@@ -257,11 +257,18 @@ Recommendation: no, hold the ratio across masters. Counter-argument: the 16 mast
 partly to be drawn differently, and a fixed ratio may fight legibility at 16. Needs a
 sheet with the pixel view live, not arithmetic.
 
-### 6.2 Stroke weight at the small masters (§3.1) — **CLOSED 2026-09-18**
+### 6.2 Stroke weight at the small masters (§3.1) — **closed 2026-09-18, reopened and amended 2026-09-20**
 
 **Hold C7: 1.5 at every master.** Written into `docs/07-character.md` as C7 with its evidence
 (the 16×16 ink comparison, the fork, the Fluent stroke table, the half-tone control), so §3.1
-above is a *recorded consequence*, not an open defect. Nothing to do.
+above is a *recorded consequence*, not an open defect. Nothing to do. *(This was the ruling as of
+2026-09-18; see below for what changed.)*
+
+**Superseded 2026-09-20.** C7 was reopened on the test it set for itself — a reference that draws
+a separate 16 master and still goes lighter — and the Cursor set meets it (16 grid at 1.25, 24 at
+1.5). The 16 master now draws at **1.25**; 24 and 20 stay at 1.5 (`docs/07-character.md` C7,
+`plans/stroke-16.md`). §3.1's ink comparison above is unchanged as a record of the *old* 16
+master; it is not a description of the current drawing.
 
 Not closed by this, and still open in §9: Fluent's filled weight (+0.5 against our +1.0 at 24)
 and its "the filled version may be slightly smaller" against C10/C12.

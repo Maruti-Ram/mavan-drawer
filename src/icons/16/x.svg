@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
   <!-- keyline: mark -->
   <!-- Medium: x · 13 · 12 · 10.5, about 1.5 inside the plus box so the longer diagonals carry the same presence as plus (recommended) -->
-  <path d="M3.5 3.5l9 9"/>
-  <path d="M12.5 3.5l-9 9"/>
+  <!-- 16 master at stroke 1.25 (C7, 2026-09-20): centrelines on the eighth grid so every ink edge stays where the 1.5 line had it -->
+  <path d="M3.375 3.375l9.25 9.25"/>
+  <path d="M12.625 3.375l-9.25 9.25"/>
 </svg>
