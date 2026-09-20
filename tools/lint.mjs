@@ -344,6 +344,34 @@ export function lintSource(canvas, file, src) {
   return { file, errors, warnings, notes, size, inner, isMark, ink, grows };
 }
 
+// --- 6. size families (C8): a mark's large and small sit one SIZE_STEP from the default;
+// a container's keep the container and change only the inner mark (outline file measures it).
+// Like `checkPairs`, it reads the whole map — `${master}/${file}.svg` → what `lintSource`
+// returned — and adds to the results in place, so a draft can be checked the same way
+// without a drawing on disk (tools/draft-check.mjs).
+export function checkFamilies(results) {
+  for (const [key, r] of results) {
+    const [m, f] = key.split('/'), name = f.replace('.svg', '');
+    const size = sizeOf(name);
+    if (!size || r.size == null) continue;
+    const baseName = sizeBase(name);
+    const base = results.get(`${m}/${baseName}.svg`);
+    if (!base) { r.warnings.push(`${size} variant has no default \`${baseName}\` at ${m}`); continue; }
+    if (!r.isMark && !base.isMark) {
+      if (Math.abs(r.size - base.size) > 0.01)
+        r.warnings.push(`${size} container is ${r.size} — C8 keeps the default's ${base.size}; only the inner mark changes`);
+      const ob = results.get(`${m}/${baseName.replace(/-filled$/, '')}.svg`), ov = results.get(`${m}/${name.replace(/-filled$/, '')}.svg`);
+      if (ob?.inner != null && ov?.inner != null && (size === 'small' ? ov.inner >= ob.inner : ov.inner <= ob.inner))
+        r.warnings.push(`${size} inner mark is ${ov.inner} — must be ${size === 'small' ? 'smaller' : 'larger'} than the default's ${ob.inner} (C8)`);
+      continue;
+    }
+    const want = base.size + (SIZES.indexOf(size) - 1) * SIZE_STEP[m];
+    if (Math.abs(r.size - want) > 0.01)
+      r.warnings.push(`${size} is ${r.size} — C8 wants ${want} (default ${base.size} ${size === 'large' ? '+' : '−'} ${SIZE_STEP[m]})`);
+  }
+  return results;
+}
+
 // --- the run over src/icons ---------------------------------------------
 // Everything below is the command; `lintSource` above is the whole check, so a test
 // can hand it one file's text without a drawing on disk (tools/geometry.test.mjs).
@@ -359,27 +387,8 @@ const G = '\x1b[32m', Y = '\x1b[33m', R = '\x1b[31m', D = '\x1b[2m', X = '\x1b[0
 
 const results = new Map(jobs.map(([m, f]) => [`${m}/${f}`, lint(m, f)]));
 
-// --- 6. size families (C8): a mark's large and small sit one SIZE_STEP from the default;
-// a container's keep the container and change only the inner mark (outline file measures it)
-for (const [key, r] of results) {
-  const [m, f] = key.split('/'), name = f.replace('.svg', '');
-  const size = sizeOf(name);
-  if (!size || r.size == null) continue;
-  const baseName = sizeBase(name);
-  const base = results.get(`${m}/${baseName}.svg`);
-  if (!base) { r.warnings.push(`${size} variant has no default \`${baseName}\` at ${m}`); continue; }
-  if (!r.isMark && !base.isMark) {
-    if (Math.abs(r.size - base.size) > 0.01)
-      r.warnings.push(`${size} container is ${r.size} — C8 keeps the default's ${base.size}; only the inner mark changes`);
-    const ob = results.get(`${m}/${baseName.replace(/-filled$/, '')}.svg`), ov = results.get(`${m}/${name.replace(/-filled$/, '')}.svg`);
-    if (ob?.inner != null && ov?.inner != null && (size === 'small' ? ov.inner >= ob.inner : ov.inner <= ob.inner))
-      r.warnings.push(`${size} inner mark is ${ov.inner} — must be ${size === 'small' ? 'smaller' : 'larger'} than the default's ${ob.inner} (C8)`);
-    continue;
-  }
-  const want = base.size + (SIZES.indexOf(size) - 1) * SIZE_STEP[m];
-  if (Math.abs(r.size - want) > 0.01)
-    r.warnings.push(`${size} is ${r.size} — C8 wants ${want} (default ${base.size} ${size === 'large' ? '+' : '−'} ${SIZE_STEP[m]})`);
-}
+// --- 6. size families (C8) ---
+checkFamilies(results);
 
 // --- 7. the pair: every icon ships as outline + filled, in the same ink box ---
 checkPairs(results);

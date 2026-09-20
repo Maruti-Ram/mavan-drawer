@@ -3,7 +3,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Slot test</title>
 <!-- Do status icons sit level when they swap in the same slot? One row per icon, at real size,
      in the places they actually swap: a list row, a toast, an icon button. Shipped icons come from
-     lab/manifest.json; candidates on the board (lab/drafts/current.js) are added, so a proposed
+     lab/manifest.json; candidates on the board (lab/drafts/current.js, or lab/drafts/batch/<name>.js
+     with ?icon=<name>) are added, so a proposed
      shift can be read beside the shipped set. Nothing here decides anything — it is a looking page. -->
 <style>
  :root{--bg:#121212;--panel:#1a1a1a;--ink:#f4f4f4;--muted:#8a8a8a;--line:#2b2b2b;--toast:#202020}
@@ -41,8 +42,10 @@
 <main id="main"></main>
 <script type="module">
 const man = await (await fetch(`./manifest.json?${Date.now()}`)).json();
+// The board (drafts/current.js), or one icon of a batch with ?icon=<name>, same as lab/icon.html.
+const PICK = new URLSearchParams(location.search).get('icon');
 let draft = { candidates: [] };
-try { draft = (await import(`./drafts/current.js?${Date.now()}`)).default; } catch {}
+try { draft = (await import(`${PICK ? `./drafts/batch/${PICK}.js` : './drafts/current.js'}?${Date.now()}`)).default; } catch {}
 
 // The slot: status icons that share the ring, plus every info style, plus board candidates.
 const SHIPPED = ['check-circle', 'x-circle', 'plus-circle', 'minus-circle', 'info', 'info-2', 'info-3'];

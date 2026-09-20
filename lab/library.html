@@ -278,8 +278,12 @@ const state = {
   menu: false,
 };
 
-// The icon on the drawing board, so the sheet can say so. Absent is fine.
-const board = await import('./drafts/current.js').then((m) => m.default?.concept ?? null).catch(() => null);
+// What is on a drawing board right now, so the sheet can say so: the board itself, plus
+// any icons of a batch (lab/drafts/batch/, listed by `node tools/queue.mjs batch`). Absent is fine.
+const boards = new Set([
+  await import('./drafts/current.js').then((m) => m.default?.concept ?? null).catch(() => null),
+  ...await fetch('./drafts/batch/index.json').then((r) => r.json()).then((j) => (j?.icons ?? []).map((b) => b.name)).catch(() => []),
+].filter(Boolean));
 const file = (n, m, filled) => man.masters[m]?.icons[filled ? `${n}-filled` : n] ?? null;
 const svg = (m, px, rec) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${rec.stroke}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${rec.body}</svg>`;
 const blank = (px, dashed) => `<span class="gap${dashed ? ' ph-box' : ''}" style="width:${px}px;height:${px}px"></span>`;
@@ -471,7 +475,7 @@ function renderSheet(list) {
   if (!list.length) { el.innerHTML = `<div class="empty"><b>${state.q ? `No icons match “${esc(state.q)}”` : 'Nothing to show'}</b>Show <em>Whole queue</em> to see every row.</div>`; return; }
   let last = null;
   const rows = list.map((e) => {
-    const st = e.name === board && e.status !== 'done' ? 'board' : e.status;
+    const st = boards.has(e.name) && e.status !== 'done' ? 'board' : e.status;
     const drawn = e.status === 'done' && drawnNames.includes(e.name);
     const grp = state.sec === 'all' && e.section !== last ? `<tr class="grp"><td colspan="8">${esc(e.section)}</td></tr>` : '';
     last = e.section;

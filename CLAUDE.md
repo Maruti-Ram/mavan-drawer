@@ -54,7 +54,9 @@ Claude explains those choices in a sentence instead of asking Maruti to make the
    A vague brief or a result that needs judging moves up a tier. Nothing moves down to save tokens.
 5. **One owner per file.** The board (`lab/drafts/current.js`), the sheet (`research/queue.md`),
    `src/icons/` and `lab/manifest.json` belong to the main session and `queue.mjs` alone — no agent
-   writes them, and only one icon is on the board at a time. Agents own named files and prefer new
+   writes them, and only one icon is on the board at a time. When Maruti asks to review several
+   icons together, up to five more sit in `lab/drafts/batch/<name>.js`, one agent per file, and
+   `lab/drafts/batch/index.json` belongs to `queue.mjs`. Agents own named files and prefer new
    files; Claude merges. Parallel tool work may use worktrees.
 6. **Verify before saying done.** The default, by kind of work:
    - *An icon:* `npm run check` with no new warnings; filled ink box equals the outline's; the board
@@ -94,7 +96,7 @@ converted and what was decided on the way).
 **Resume point = the sheet + the board, never a note.** `research/queue.md` is the sheet (status per icon;
 Library → **Sheet** view shows it) and `lab/drafts/current.js` is the board. A SessionStart hook prints
 `node tools/queue.mjs status`; the **`icon` skill** (`.claude/skills/icon`) runs the loop: "next icon" /
-"let's do <name>" → `queue.mjs start` (adds unlisted names) → draft → show; an approval → `queue.mjs
+"let's do <name>" → `queue.mjs start` (adds unlisted names) → draft → `draft-check.mjs` → show; an approval → `queue.mjs
 approve` (writes, lints, ticks) → commit, **without asking** → next icon. **Size rule (C8):** `-large` /
 `-small` step 3 · 2.5 · 2 units from the default; `-large` may reach the margin edge; lint checks families. File pair per master:
 `<name>.svg` (stroke 1.5 at 24 and 20, 1.25 at 16) + `<name>-filled.svg`; lint enforces the filled weight.
@@ -122,7 +124,17 @@ two tabs: **Construction** (grid + keyline build-up, actual sizes, in context) a
 always shows the icon in `lab/drafts/current.js`; `node tools/refs.mjs <name>` writes that icon's
 references to `lab/refs/current.js` (gitignored). When the user approves an option: `node tools/queue.mjs approve <id>[=<file>]…`
 (writes `src/icons/{24,20,16}/`, runs `npm run check`, ticks the sheet), commit, then
-`queue.mjs start` the next icon and overwrite `current.js`. **No per-icon lab files.** Central references are captured from the
+`queue.mjs start` the next icon and overwrite `current.js`. `approve --dry-run` lints the whole
+thing in a temp directory and writes nothing. **No per-icon lab pages.**
+
+**A batch (only when Maruti asks for it).** The board still holds **one** icon; up to five more sit
+beside it in `lab/drafts/batch/<name>.js`, same format, ten candidates each when asked.
+`queue.mjs start <name> --batch` marks the sheet and writes refs to `lab/refs/batch/<name>.js`
+without touching the board; `queue.mjs batch` rebuilds `lab/drafts/batch/index.json` from the drafts
+present; `queue.mjs approve --icon <name> <id>…` approves from that draft and then deletes it and
+its refs. `/lab/icon.html?icon=<name>` opens one — the header's **Icon** menu lists every board with
+its candidate count and sheet status, and `,` / `.` step between them. `family-sheet.html` and
+`slot-test.html` take the same `?icon=`. Central references are captured from the
 centralicons.com browser tab (site controls: Stroke / Corner menus) into
 `research/references/central/<name>.json`.
 
@@ -235,7 +247,9 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity |
 | `tools/optical.mjs` | optical side bearings computed from the outline |
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
-| `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `approve` |
+| `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `batch` · `approve` |
+| `tools/draft-svg.mjs` | one candidate → the six SVG texts it ships as; shared by `queue.mjs` and `draft-check.mjs` so a check and an approval cannot drift |
+| `tools/draft-check.mjs` | `node tools/draft-check.mjs <draft.js> [id…]` — lints a draft's candidates in a temp directory with the whole of `npm run check` (root weight, grid, keyline, gaps, C8 family, the filled-vs-outline ink box) and prints both ink boxes per master. Writes nothing |
 | `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
 | `tools/optical-sheet.mjs` | **optical placement (C14) template**: `node tools/optical-sheet.mjs <shape>… [--rec <shape>=<x>:<y>] [--xs …] [--ys …]` measures each shape's (x, y) recommendation (end-triangle offset × 0.5) and writes a grid of positions around it to the board; view on **`/lab/optical-shift.html`** (plain sheet: the mark in its canvas outline at 24 · 20 · 16, menu row, inline, 40 square/circle, 32 · 28 buttons; shipped and recommended rows tagged) |
 

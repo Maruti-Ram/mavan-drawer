@@ -6,7 +6,8 @@
    so size and alignment read across the set. Rows: each candidate after the family icons, at
    24 · 20 · 16, then the 24 master drawn 4× with guides: the first family icon's inner-mark box
    (accent) carried across the row, plus the canvas centre lines. A candidate with size: 'small'
-   is compared with the family's -small files. Reads lab/drafts/current.js and lab/manifest.json. */
+   is compared with the family's -small files. Reads lab/drafts/current.js — or, with ?icon=<name>,
+   lab/drafts/batch/<name>.js — and lab/manifest.json. */
 :root{--bg:#fff;--line:#d7d7d4;--ink:#16171a;--muted:#8a8c92;--ui:#f1f1ef;--guide:#e5484d;--centre:#2f6feb}
 :root[data-theme="dark"]{--bg:#18181b;--line:#3a3b40;--ink:#f4f4f5;--muted:#a1a1aa;--ui:#26272b;--guide:#ff6369;--centre:#60a5fa}
 *{box-sizing:border-box}
@@ -41,7 +42,17 @@ svg{display:block;flex:none}
 <script type="module">
 // Cache-buster: the lab is a dev page and these modules are edited constantly.
 const { strokeOf } = await import(`../tools/masters.mjs?v=${Date.now()}`);
-const { default: draft } = await import(`./drafts/current.js?${Date.now()}`);
+// The board (drafts/current.js), or one icon of a batch with ?icon=<name>, same as lab/icon.html.
+const PICK = new URLSearchParams(location.search).get('icon');
+const DRAFT_URL = PICK ? `./drafts/batch/${PICK}.js` : './drafts/current.js';
+let draft = null;
+try { draft = (await import(`${DRAFT_URL}?${Date.now()}`)).default; } catch { /* reported below */ }
+if (!draft?.candidates?.length) {
+  document.body.innerHTML = `<div style="max-width:520px;margin:14vh auto;padding:0 24px;font:14px/1.6 system-ui,sans-serif">
+    <b style="color:var(--ink)">No draft at ${DRAFT_URL}</b><br>Nothing to compare with the family.
+    <br><br><a href="family-sheet.html" style="color:var(--centre)">Back to the board</a></div>`;
+  await new Promise(() => {});
+}
 const manifest = await (await fetch(`./manifest.json?${Date.now()}`)).json();
 const FAMILY = draft.family ?? [];
 const M = [24, 20, 16];

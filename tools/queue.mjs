@@ -15,14 +15,33 @@
 //                                             write the board's candidates to src/icons,
 //                                             lint, tick the sheet. `approve B` alone
 //                                             writes candidate B as the concept name.
-import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'node:fs';
+//
+// A BATCH: when Maruti wants to review several icons together, up to five sit in
+// lab/drafts/batch/<name>.js beside the board, and lab/icon.html opens one with
+// ?icon=<name>. The board itself still holds exactly one icon.
+//
+//   node tools/queue.mjs start <name> --batch mark it in review and write its references to
+//                                             lab/refs/batch/<name>.js — current.js untouched
+//   node tools/queue.mjs batch                rebuild lab/drafts/batch/index.json from the
+//                                             drafts present (start and approve do this too)
+//   node tools/queue.mjs approve --icon <name> <id>[=<file>]…
+//                                             approve from lab/drafts/batch/<name>.js; on success
+//                                             the batch draft and its references are deleted
+//   node tools/queue.mjs approve --dry-run …  lint the same six files per candidate in a temp
+//                                             directory (tools/draft-check.mjs) and write nothing
+import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync, mkdirSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
-import { MASTERS, sizeBase, sizeOf, strokeOf } from './masters.mjs';
+import { MASTERS, sizeBase, sizeOf } from './masters.mjs';
+import { candidateFiles } from './draft-svg.mjs';
 
 const QUEUE = 'research/queue.md';
 const ADDED = 'E · Added on request';
 const DRAFT = 'lab/drafts/current.js';
+const BATCH_DIR = 'lab/drafts/batch';
+const BATCH_INDEX = `${BATCH_DIR}/index.json`;
+const batchDraft = (name) => `${BATCH_DIR}/${name}.js`;
+const batchRefs = (name) => `lab/refs/batch/${name}.js`;
 const ROW = /^- \[([ x~])\] (\d+)\. `([^`]+)`(?: · ([^·—]+?))?(?: · variant of `([^`]+)`)?(?: — (.+))?\s*$/;
 const MARK = { todo: ' ', review: '~', done: 'x' };
 const STATUS = { ' ': 'todo', '~': 'review', x: 'done' };
@@ -46,10 +65,49 @@ const format = (r) => `- [${MARK[r.status]}] ${r.n}. \`${r.name}\``
 const save = (q) => writeFileSync(QUEUE, q.lines.join('\n'));
 const find = (q, name) => q.rows.find((r) => r.name === name);
 
-async function draft() {
-  if (!existsSync(DRAFT)) return null;
+async function draft(path = DRAFT) {
+  if (!existsSync(path)) return null;
   // Cache-bust: the file changes between calls in one process only in tests, but be safe.
-  return (await import(`${pathToFileURL(DRAFT).href}?t=${Date.now()}`)).default;
+  return (await import(`${pathToFileURL(path).href}?t=${Date.now()}`)).default;
+}
+
+// ─── the batch index ───────────────────────────────────────────────────────
+// lab/drafts/batch/index.json is not state: it is a listing of the drafts that are
+// there, rebuilt from the files themselves, so the lab pages can offer an Icon menu
+// without reading the sheet. Deleting it loses nothing — the menu then shows the
+// board alone until this runs again.
+async function batchNames() {
+  if (!existsSync(BATCH_DIR)) return [];
+  return readdirSync(BATCH_DIR).filter((f) => f.endsWith('.js') && !f.startsWith('_')).map((f) => f.replace(/\.js$/, '')).sort();
+}
+async function rebuildIndex(quiet = false) {
+  const q = readQueue();
+  const board = await draft();
+  const icons = [];
+  for (const name of await batchNames()) {
+    let d = null;
+    try { d = await draft(batchDraft(name)); } catch (e) { console.error(`  ${batchDraft(name)} did not load: ${e.message}`); }
+    icons.push({
+      name, concept: d?.concept ?? name,
+      candidates: d?.candidates?.length ?? 0,
+      ids: d?.candidates?.map((c) => c.id) ?? [],
+      status: find(q, d?.concept ?? name)?.status ?? null,
+    });
+  }
+  // The sheet's order, so stepping through the batch follows the queue; names not on the sheet go last.
+  const order = (i) => find(q, i.concept)?.n ?? Infinity;
+  icons.sort((a, b) => order(a) - order(b));
+  const index = {
+    generated: today(),
+    board: board ? { name: board.concept, candidates: board.candidates?.length ?? 0, status: find(q, board.concept)?.status ?? null } : null,
+    icons,
+  };
+  if (!icons.length) { if (existsSync(BATCH_INDEX)) unlinkSync(BATCH_INDEX); }
+  else { mkdirSync(BATCH_DIR, { recursive: true }); writeFileSync(BATCH_INDEX, `${JSON.stringify(index, null, 2)}\n`); }
+  if (!quiet) console.log(icons.length
+    ? `Batch of ${icons.length} → ${BATCH_INDEX}\n${icons.map((b) => `  ${b.name} · ${b.candidates} candidates (${b.ids.join(' ')}) · ${b.status ?? 'not in queue'} · /lab/icon.html?icon=${b.name}`).join('\n')}`
+    : `No batch drafts in ${BATCH_DIR}/ — the board is the only icon.`);
+  return index;
 }
 const files = (name) => masters.flatMap((m) => [name, `${name}-filled`].map((f) => `src/icons/${m}/${f}.svg`)).filter(existsSync);
 const next = (q) => q.rows.find((r) => r.status !== 'done' && !r.base) ?? null;
@@ -75,6 +133,12 @@ async function status() {
     if (d.question) out.push(`  Open question: ${d.question}`);
     if (board?.status === 'done') out.push('  (already approved: the board is stale, start the next icon)');
   } else out.push('On the board: nothing');
+  for (const name of await batchNames()) {
+    const bd = await draft(batchDraft(name)).catch(() => null);
+    const row = find(q, bd?.concept ?? name);
+    out.push(`  Batch (${batchDraft(name)}): ${row ? label(row) : name} · ${row?.status ?? 'not in queue'}`
+      + ` · candidates ${bd?.candidates?.map((c) => c.id).join(', ') ?? 'none'} · /lab/icon.html?icon=${name}`);
+  }
   out.push(after ? `Next after that: ${label(after)} (${after.section})` : 'Queue complete after the board.');
   if (dirty) out.push(`Uncommitted sheet/icon changes:\n${dirty.split('\n').map((l) => `  ${l}`).join('\n')}`);
   out.push('Workflow: the `icon` skill (.claude/skills/icon). "next icon" or "let\'s do <name>" starts one; an approval is written, ticked and committed without being asked.');
@@ -114,72 +178,60 @@ function add(q, name) {
   return readQueue();
 }
 
-function start(name) {
+// `--batch` puts the icon beside the board instead of on it: the sheet is marked the same
+// way, but the references go to lab/refs/batch/<name>.js and neither current.js nor
+// refs/current.js is touched, so an icon already under review stays where it is.
+async function start(name, isBatch = false) {
   let q = readQueue();
   if (!find(q, name)) q = add(q, name);
   const r = find(q, name);
   if (r.status === 'done') console.log(`${label(r)} is already approved; re-opening it for review leaves the files until a new approval.`);
   if (r.status === 'todo') { r.status = 'review'; q.lines[r.i] = format(r); save(q); }
-  const refs = spawnSync('node', ['tools/refs.mjs', sizeBase(name)], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  const out = isBatch ? ['--out', batchRefs(name)] : [];
+  const refs = spawnSync('node', ['tools/refs.mjs', sizeBase(name), ...out], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   console.log(`${label(r)} · ${r.section}${r.category ? ` · ${r.category}` : ''}${r.base ? ` · variant of ${r.base}` : ''} → in review`);
   console.log((refs.stdout || refs.stderr).trim());
-  console.log(`Now write ${DRAFT} (concept: '${name}') with the candidates, then open lab/icon.html.`);
+  if (!isBatch) return console.log(`Now write ${DRAFT} (concept: '${name}') with the candidates, then open lab/icon.html.`);
+  console.log(`Now write ${batchDraft(name)} (concept: '${name}') with the candidates, check it with`);
+  console.log(`  node tools/draft-check.mjs ${batchDraft(name)}`);
+  console.log(`then run \`node tools/queue.mjs batch\` to list it and open /lab/icon.html?icon=${name}.`);
+  await rebuildIndex(true);
 }
 
 // ─── approve ───────────────────────────────────────────────────────────────
-// tags: search words kept beside the name (check-2 → "long sweep"); build.mjs reads them.
-// optical: [dx, dy] the ink is deliberately moved off the box centre (C14); lint and build read it.
-// glyph: dot — the mark is one character whose dot is detached (i, ?, !); its dot-to-body
-// gap floors at GLYPH_GAP rather than MIN_GAP (C19). Lint reads it.
-// box: [w, h] — the agreed ink size for this master, in its units, when the icon keeps a box
-// of its own instead of a keyline (folder). Lint holds the drawing to it and errors if it drifts.
-const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null) => [
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
-  ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
-  ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
-  ...(box ? [`  <!-- box: ${box[0]}x${box[1]} -->`] : []),
-  ...(glyph ? [`  <!-- glyph: ${glyph} -->`] : []),
-  ...(optical ? [`  <!-- optical: ${optical.join(' ')} -->`] : []),
-  ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
-  ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
-  ...stroke.map((d) => `  <path d="${d}"/>`),
-  '</svg>', '',
-].join('\n');
+// The SVG text itself is written by tools/draft-svg.mjs, shared with
+// tools/draft-check.mjs so a dry check and a real approval can never drift.
 
 async function approve(args) {
-  const d = await draft() ?? die(`No draft in ${DRAFT}.`);
+  // `--icon <name>` takes the candidates from a batch draft instead of the board;
+  // `--dry-run` lints them in a temp directory and writes nothing at all.
+  const iconAt = args.indexOf('--icon');
+  const icon = iconAt < 0 ? null : args[iconAt + 1] ?? die('approve --icon <name> <id>…');
+  const dry = args.includes('--dry-run');
+  args = args.filter((a, i) => !a.startsWith('--') && !(iconAt >= 0 && i === iconAt + 1));
+
+  const path = icon ? batchDraft(icon) : DRAFT;
+  const d = await draft(path) ?? die(`No draft in ${path}.`);
   if (!args.length) die('Say which candidate: approve <id> or approve <id>=<file-name> …');
   // A sheet can span concepts (chevron-up, -left, -right): each file belongs to the one it extends.
   const concepts = d.concepts ?? [d.concept];
   const conceptOf = (file) => concepts.find((k) => sizeBase(file) === sizeBase(k) || file.startsWith(`${k}-`));
   const plan = args.map((a) => {
     const [id, file = d.concept] = a.split('=');
-    const c = d.candidates.find((x) => x.id === id) ?? die(`No candidate "${id}" on the board (have: ${d.candidates.map((x) => x.id).join(', ')}).`);
+    const c = d.candidates.find((x) => x.id === id) ?? die(`No candidate "${id}" in ${path} (have: ${d.candidates.map((x) => x.id).join(', ')}).`);
     const concept = conceptOf(file) ?? die(`${file} is not a variant of ${concepts.join(' / ')}.`);
     return { c, file, concept };
   });
 
+  if (dry) return dryRun(path, plan, icon);
+
   const written = [];
   for (const { c, file } of plan) {
-    const keyline = c.keyline ?? d.keyline ?? null;
-    const tags = c.tags ?? d.tags ?? [];
-    const glyph = c.glyph ?? d.glyph ?? null;
-    const box = c.box ?? d.box ?? null;              // { 24: [w, h], 20: […], 16: […] }
-    for (const m of masters) {
-      const o = c.masters?.[m] ?? die(`${c.id} has no ${m} master.`);
-      const f = c.filled?.[m];
-      if (c.filled === 'outline' || !f) die(`${c.id} has no filled drawing at ${m} (filled: 'outline' is retired — give it a weight or fill).`);
-      const note = [c.label, c.note].filter(Boolean).join(': ');
-      // The outline stroke is the master's own (masters.mjs): 1.5 at 24 and 20,
-      // and whatever STROKES says at 16. A filled drawing declares its weight;
-      // a shape-filled one has none, and its leftover lines keep the outline stroke.
-      const sw = strokeOf(m);
-      writeFileSync(`src/icons/${m}/${file}.svg`, svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph, box?.[m]));
-      const fw = f.weight ?? sw;
-      writeFileSync(`src/icons/${m}/${file}-filled.svg`, svg(m, fw, keyline,
-        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline`),
-        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m]));
-      written.push(`src/icons/${m}/${file}.svg`, `src/icons/${m}/${file}-filled.svg`);
+    let out;
+    try { out = candidateFiles(d, c, file); } catch (e) { die(e.message); }
+    for (const { master, file: f, src } of out) {
+      writeFileSync(`src/icons/${master}/${f}`, src);
+      written.push(`src/icons/${master}/${f}`);
     }
   }
 
@@ -210,10 +262,42 @@ async function approve(args) {
   save(q);
   spawnSync('npm', ['run', 'build', '--silent'], { stdio: 'ignore' });
 
+  // An approved batch icon leaves the batch: its draft and its references go, and the
+  // index is rebuilt from what is left. The deleted draft and the index are part of the
+  // same commit — the refs are gitignored, so they are not.
+  const removed = [];
+  if (icon) {
+    for (const f of [batchDraft(icon), batchRefs(icon)]) if (existsSync(f)) { rmSync(f); removed.push(f); }
+    await rebuildIndex(true);
+    if (existsSync(BATCH_INDEX)) removed.push(BATCH_INDEX);
+  }
+
   console.log(`\nTicked in ${QUEUE}: ${plan.map(({ file }) => file).join(', ')} (${stamp}).`);
-  console.log(`Commit: ${[...written, QUEUE, 'lab/manifest.json'].join(' ')}`);
+  if (icon) console.log(`Off the batch: ${removed.join(', ')}`);
+  console.log(`Commit: ${[...written, QUEUE, 'lab/manifest.json', ...removed.filter((f) => !f.startsWith('lab/refs/'))].join(' ')}`);
+  if (icon) {
+    const left = await batchNames();
+    console.log(left.length ? `Still in the batch: ${left.join(', ')}` : 'The batch is empty.');
+  }
   const nx = next(readQueue());
   console.log(nx ? `Next: ${label(nx)} (${nx.section}) — run: node tools/queue.mjs start ${nx.name}` : 'Queue complete.');
+}
+
+// ─── approve --dry-run ─────────────────────────────────────────────────────
+// The whole of approve, proved without a single write: draft-check.mjs builds the same
+// six files per candidate from the same tools/draft-svg.mjs and lints them in os.tmpdir.
+// What the sheet WOULD say is printed, not saved.
+function dryRun(path, plan, icon) {
+  const args = plan.map(({ c, file }) => `${c.id}=${file}`);
+  console.log(`Dry run · ${path} · nothing will be written\n`);
+  const check = spawnSync('node', ['tools/draft-check.mjs', path, ...args], { stdio: 'inherit' });
+  const q = readQueue();
+  console.log('\nOn a real approve this would write:');
+  for (const { file } of plan) for (const m of masters) console.log(`  src/icons/${m}/${file}.svg  src/icons/${m}/${file}-filled.svg`);
+  console.log(`and tick in ${QUEUE}: ${plan.map(({ file }) => `${file} (${find(q, file) ? 'existing row' : 'new row'})`).join(', ')}.`);
+  if (icon) console.log(`and delete ${batchDraft(icon)} + ${batchRefs(icon)}, then rebuild ${BATCH_INDEX}.`);
+  if (check.status !== 0) die('\nLint failed on the draft — fix it before approving.');
+  console.log('\nLint is clean. Run the same command without --dry-run to approve.');
 }
 
 // ─── drop ──────────────────────────────────────────────────────────────────
@@ -246,7 +330,8 @@ const [cmd, ...rest] = process.argv.slice(2);
 if (cmd === 'status' || !cmd) await status();
 else if (cmd === 'next') { const r = next(readQueue()); console.log(r ? `${r.name}\t#${r.n}\t${r.section}` : ''); }
 else if (cmd === 'show') show(rest[0] ?? die('show <name>'));
-else if (cmd === 'start') start(rest[0] ?? die('start <name>'));
+else if (cmd === 'start') await start(rest.find((a) => !a.startsWith('--')) ?? die('start <name> [--batch]'), rest.includes('--batch'));
+else if (cmd === 'batch') await rebuildIndex();
 else if (cmd === 'drop') drop(rest.length ? rest : die('drop <name>…'));
 else if (cmd === 'approve') await approve(rest);
-else die(`Unknown command ${cmd}. Use status | next | show | start | approve | drop.`);
+else die(`Unknown command ${cmd}. Use status | next | show | start | batch | approve | drop.`);

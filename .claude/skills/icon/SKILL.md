@@ -8,7 +8,8 @@ description: Draw, review and approve Mavan Drawer icons one at a time. Use when
 State lives in two files, never in the conversation:
 
 - `research/queue.md` is **the sheet**: every icon, its order and its status (`[ ]` · `[~]` in review · `[x]` approved). The Library's **Sheet** view (`lab/library.html`) shows it.
-- `lab/drafts/current.js` is **the board**: the icon under review and its candidates.
+- `lab/drafts/current.js` is **the board**: the icon under review and its candidates. It holds **one** icon.
+- `lab/drafts/batch/<name>.js` is **a batch**, and only exists when Maruti asks to review several icons together: up to five boards side by side, opened with `/lab/icon.html?icon=<name>`. The board itself still holds one icon.
 
 `node tools/queue.mjs` is the only thing that edits the sheet. The SessionStart hook prints `node tools/queue.mjs status`. If that output isn't in context, run it first.
 
@@ -18,15 +19,16 @@ Read CLAUDE.md's geometry and "Settled" table before drawing. Those decisions ar
 
 - **The user names an icon** ("let's do bell"): use that name, object-first (`calendar-plus`, never `add-calendar`).
 - **"next icon", "continue", "carry on"**: if the board holds an icon that isn't approved yet, **resume it**. Show the board and restate its open question. Otherwise take `node tools/queue.mjs next`.
-- **Several icons at once**: do them one after another, in the order given.
+- **Several icons at once**: do them one after another, in the order given — unless Maruti asks to review them **together**, which is the batch (up to five).
 
 ## 2. Start it
 
 ```bash
-node tools/queue.mjs start <name>
+node tools/queue.mjs start <name>              # the board
+node tools/queue.mjs start <name> --batch      # beside the board, for a batch of up to five
 ```
 
-This marks the icon in review and writes its references to `lab/refs/current.js`. If the name isn't on the sheet, it adds it:
+This marks the icon in review and writes its references to `lab/refs/current.js` — or, with `--batch`, to `lab/refs/batch/<name>.js`, leaving the board and its references alone. If the name isn't on the sheet, it adds it:
 - a size name (`bell-small`) goes under its default;
 - anything else goes at the end, in "E · Added on request".
 
@@ -34,7 +36,7 @@ Tell the user in one line when a name was added. Don't ask first.
 
 ## 3. Draft the candidates
 
-Overwrite `lab/drafts/current.js`. There are **no per-icon lab files**. Format:
+Overwrite `lab/drafts/current.js` — or, in a batch, write `lab/drafts/batch/<name>.js` in the same format. There are **no per-icon lab pages**. Format:
 
 ```js
 export default {
@@ -42,6 +44,9 @@ export default {
   keyline: 'mark',            // only for marks (arrows, chevrons, plus…); silhouettes omit it
   box: { 24: [20, 18], 20: [16, 14], 16: [14, 12] },   // only when the icon keeps an agreed ink
                               // box of its own instead of a keyline (folder); never with `keyline`
+  grows: { 24: [0, 0, .5, .5], 20: [...], 16: [...] }, // L R T B, filled file only: how far the
+                              // filled ink is agreed to stand proud of the outline's box (C17
+                              // repeated elements thicken in place and cannot keep it)
   question: '<the one decision the user is making>',
   candidates: [
     { id: 'A', label: 'Short name', note: 'numbers + why (recommended)',
@@ -54,7 +59,7 @@ export default {
 - **Filled style.** Every candidate carries all three masters in **both** styles. Pick the form by icon type:
   - *Line-heavy icons* (nothing to fill) use `{ weight, stroke }` at `FILLED_WEIGHT` (2.5 · 2 · 2). Pull each end in by half the added weight, so the ink box matches the outline.
   - *Shape icons* use `{ fill: [evenodd d…], stroke: [lines at the outline weight] }` — 1.5 at 24 and 20, **1.25 at 16**. The filled outer edge equals the outline's outer edge.
-- **Candidates.** Give 2–4, and mark one "(recommended)". The first line of the file comments why the decision matters.
+- **Candidates.** Give 2–4 — or ten when Maruti asks for ten — and mark one "(recommended)". The first line of the file comments why the decision matters.
 - **Geometry** (CLAUDE.md):
   - Round caps reach half a stroke past each endpoint — 0.75 at 24 and 20, **0.625 at 16** (a 16
     master's ink ends sit at the endpoint ± 0.625, not ± 0.75). A **diagonal** open end at 16 moves
@@ -68,13 +73,28 @@ export default {
 - **Agreed box.** `box` (on the board, or on one candidate — the candidate wins, like `keyline` and
   `tags`) is written into both files as `<!-- box: 20x18 -->` for that master. Lint then holds the
   drawing to that ink size as an **error** rather than asking it to match a keyline.
+- **Agreed growth.** `grows` follows the same precedence and is written into the **filled** file
+  only, as `<!-- grows: 0 0 0.5 0.5 -->`. Declare it when the filled twin cannot keep the outline's
+  ink box — C17 repeated elements (menu lines, dots) thicken in place. Lint checks the number
+  against the drawings, so a wrong note is an error, not a licence.
 - **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge.
 - **Consistency.** Check against approved relatives first (`src/icons/24/`, `node tools/queue.mjs show <name>`). Reuse their lengths, radii and weights unless the question is about changing them.
+
+**Check the draft before showing it:**
+
+```bash
+node tools/draft-check.mjs lab/drafts/current.js          # or lab/drafts/batch/<name>.js
+```
+
+It builds the same six files per candidate that `approve` would write, lints them in a temp
+directory with the whole of `npm run check` — root weight, grid, keyline, gaps, the C8 family and
+the filled-vs-outline ink box — and prints both ink boxes per master. It writes nothing into the
+repo, so it is safe while an icon is on the board. Fix what it reports before Maruti sees the board.
 
 ## 4. Show it
 
 1. Start the `lab` preview (use `lab-4175` if another session holds port 4174).
-2. Open `/lab/icon.html` and **reload** it; it caches the draft.
+2. Open `/lab/icon.html` and **reload** it; it caches the draft. A batch icon is `/lab/icon.html?icon=<name>` — the header's **Icon** menu lists every board, and `,` / `.` step between them. After writing a batch draft run `node tools/queue.mjs batch` so it appears there.
 3. Check the console for errors.
 4. Take a screenshot of Construction, and of Compare (Style → Outline) when the choice is about size or proportion.
 5. When the icon belongs to a family of shipped icons (circles, squares…), add `family: ['plus-circle', …]` to the board (small candidates carry `size: 'small'`) and show `/lab/family-sheet.html`: every candidate beside those icons at 24 · 20 · 16, a 4× row with the first family icon's mark box as guides, and in-text use.
@@ -94,7 +114,7 @@ Then open `/lab/optical-shift.html` (reload it). Each shape gets its own positio
 
 ## 5. Iterate
 
-Feedback like "shorter", "try a rounder one" or "more options" means editing the candidates in `current.js`, then reloading and showing the board again. Keep the rejected options on the board only while they help the comparison.
+Feedback like "shorter", "try a rounder one" or "more options" means editing the candidates in `current.js` (or that icon's batch draft), then reloading and showing the board again. Keep the rejected options on the board only while they help the comparison.
 
 ## 6. Approve: write, tick and commit without being asked
 
@@ -103,6 +123,8 @@ The user approves with words like "go with B", "approve", "lock it", "this one",
 ```bash
 node tools/queue.mjs approve B                                  # one candidate → <concept>
 node tools/queue.mjs approve M L=<name>-large S=<name>-small    # a size family
+node tools/queue.mjs approve --icon <name> B                    # a batch icon, from batch/<name>.js
+node tools/queue.mjs approve B --dry-run                        # lint it all, write nothing
 ```
 
 The command:
@@ -110,7 +132,8 @@ The command:
 2. runs `npm run check`;
 3. if the check passes, ticks the sheet with today's date, adding rows for new sizes;
 4. rebuilds the manifest;
-5. prints the file list to commit.
+5. with `--icon`, deletes that batch draft and its references and rebuilds the batch index;
+6. prints the file list to commit.
 
 If lint fails, nothing is ticked. Fix the draft and approve again.
 
@@ -136,7 +159,7 @@ Update CLAUDE.md only for settled rules. Never write a "resume here" note: the s
 ## 7. Move on
 
 Right after the commit:
-1. `node tools/queue.mjs next`
+1. `node tools/queue.mjs next` — in a batch, the next icon is whatever is still in `lab/drafts/batch/`, which `approve --icon` prints
 2. `start` that icon
 3. draft it and show it, unless the user said to stop.
 
