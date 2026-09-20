@@ -175,11 +175,11 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 40. `home` · UI & Layout — approved 2026-09-20
 - [x] 40. `home-2` · UI & Layout · variant of `home` — Low roof, door · approved 2026-09-20
 - [x] 40. `home-3` · UI & Layout · variant of `home` — Low roof, doormat line · approved 2026-09-20
-- [ ] 41. `user` · Users & Access
-- [ ] 42. `users` · Users & Access
-- [ ] 43. `gear` · UI & Layout
-- [ ] 44. `sliders` · UI & Layout
-- [ ] 45. `filter` · UI & Layout
+- [~] 41. `user` · Users & Access
+- [~] 42. `users` · Users & Access
+- [~] 43. `gear` · UI & Layout
+- [~] 44. `sliders` · UI & Layout
+- [~] 45. `filter` · UI & Layout
 
 ## D · The rest, by audit rank
 
