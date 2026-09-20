@@ -144,7 +144,7 @@ Serve the lab with the `lab-4175` launch config if another session holds 4174.
 and professional, not comical; three masters 24/20/16; stroke 1.5 at 24 and 20, **1.25 at 16**
 (C7); trash family
 (`trash` + `trash-5`, tab handle; C4's interiors dropped, `-2`/`-3`/`-4` left unused); numbered variants allowed; -large/-small size variants on a fixed step. Still open there: container radius,
-angle exceptions, the user icon. Specimens live in `lab/character.html` (`node tools/refs.mjs`
+angle exceptions (the user icon was settled 2026-09-20: `user` … `user-4`). Specimens live in `lab/character.html` (`node tools/refs.mjs`
 with no argument builds its reference rows).
 
 **Refinement assessment (2026-09-18)** — `docs/08-refinement.md`: why our marks read less refined than the
