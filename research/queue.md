@@ -254,7 +254,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 58. `grid-5` · UI & Layout · variant of `grid` — Three squares and a circle · approved 2026-09-23
 - [x] 58. `grid-6` · UI & Layout · variant of `grid` — Layout: sidebar and two rows · approved 2026-09-23
 - [x] 58. `grid-7` · UI & Layout · variant of `grid` — Four squares, whole pixels · approved 2026-09-23
-- [~] 59. `heart` · Status & Feedback
+- [x] 59. `heart` · Status & Feedback — approved 2026-09-23
 - [~] 60. `key` · Users & Access
 - [ ] 61. `link` · Files & Folders
 - [ ] 62. `list-bullet` · Editing & Text
