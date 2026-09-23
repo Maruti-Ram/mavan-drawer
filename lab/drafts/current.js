@@ -33,12 +33,12 @@ export default {
         "classic",
         "record"
       ],
-      "note": "The classic mic: a pill capsule inside a U cradle (straight sides into a half circle), a stem and a base line, on the portrait keyline 16×20 · 12×16 · 10×14 — the same box as lock and user. Capsule 8 · 6 · 4 wide × 14 · 10 · 8 tall (70 · 63 · 57% of the height), counter 5 · 3 · 1.5 wide, ends a full half circle. Cradle 16 · 12 · 10 wide outside (centreline radius 7.25 · 5.25 · 4.375), its sides 1.25 · 1.25 · 1.63 straight so the tips stop at the capsule's mid-height (50 · 50 · 50% down it). Air capsule-to-cradle 1.5 · 1.5 · 1.75 below and 2.5 · 1.5 · 1.75 at the sides; cradle-to-base 1.5 · 1.5 · 1.5, the stem showing 1.5 · 1.5 · 1.5 between them — the floor, so the base is the lowest thing the keyline allows. Base 8 · 6 · 4, as wide as the capsule. At 16 the capsule is pinned at 4 by the 1.5 floor on both sides (5 wide would leave 1.25) and its counter is exactly 1.5; its bottom lands on 9 (a whole pixel) rather than the 9.5 the gap would allow. Filled: capsule solid to the outline's outer edge, cradle, stem and base at the outline weight; ink box identical. Mass: in the outline the cradle, stem and base outweigh the capsule's line, so the centreline mass sits 0.96 · 0.37 · 0.11 BELOW the box centre; filled, the solid capsule pulls it 0.35 · 0.33 · 0.32 ABOVE it (area-weighted, approximate). Symmetric left-right, lopsided up-down only, so the eye judges the vertical axis; box-centred here, and the two styles pull opposite ways, which argues for leaving it there (C14 sheet only if the eye asks). Takes the -off slash well: 2.5 · 1.5 · 1.75 of air beside the capsule for the line to pass through (recommended)",
+      "note": "The classic mic: a pill capsule inside a U cradle (straight sides into a half circle), a stem and a base line, on the portrait keyline 16×20 · 12×16 · 10×14 — the same box as lock and user. Capsule 10 · 6 · 4 wide × 14 · 10 · 8 tall (70 · 63 · 57% of the height), counter 7 · 3 · 1.5 wide, ends a full half circle. Cradle 16 · 12 · 10 wide outside (centreline radius 7.25 · 5.25 · 4.375), its sides 1.25 · 1.25 · 1.38 straight so the tips stop at the capsule's mid-height (50 · 50 · 50% down it). Air capsule-to-cradle 1.5 · 1.5 · 1.75 below and 1.5 · 1.5 · 1.75 at each side — equal on all three sides at every master (Maruti, 2026-09-23: the first cut had 2.5 beside and 1.5 below at 24); at 24 and 20 the capsule's bottom half-circle and the cradle are concentric, so the air is 1.5 all the way round the bend. Cradle-to-base 1.5 · 1.5 · 1.75, the stem showing 1.5 · 1.5 · 1.75 between them. Base 10 · 6 · 4, as wide as the capsule. At 16 the capsule is pinned at 4 by the 1.5 floor on both sides (5 wide would leave 1.25) and its counter is exactly 1.5; the air that leaves beside it is 1.75, so the cradle is lifted 0.25 (its arc centre at 7, not 7.25) to put 1.75 below the capsule too, with every outer edge still on a whole pixel — the alternative, a capsule 8.25 tall, lands its bottom on a quarter pixel. Filled: capsule solid to the outline's outer edge, cradle, stem and base at the outline weight; ink box identical. Mass: in the outline the cradle, stem and base outweigh the capsule's line, so the centreline mass sits 1.06 · 0.37 · 0.05 BELOW the box centre; filled, the solid capsule pulls it 0.49 · 0.33 · 0.37 ABOVE it (area-weighted, approximate). Symmetric left-right, lopsided up-down only, so the eye judges the vertical axis; box-centred here, and the two styles pull opposite ways, which argues for leaving it there (C14 sheet only if the eye asks). Takes the -off slash: 1.5 · 1.5 · 1.75 of air beside the capsule for the line to pass through — the floor, so the slash will need its own cut-outs (recommended)",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V7A1.375 1.375 0 0 1 6.625 7Z",
-          "M3.625 5.625V7.25A4.375 4.375 0 0 0 12.375 7.25V5.625",
-          "M8 11.625V14.375",
+          "M3.625 5.625V7A4.375 4.375 0 0 0 12.375 7V5.625",
+          "M8 11.375V14.375",
           "M6.625 14.375H9.375"
         ],
         "20": [
@@ -48,10 +48,10 @@ export default {
           "M7.75 17.25H12.25"
         ],
         "24": [
-          "M8.75 6A3.25 3.25 0 0 1 15.25 6V12A3.25 3.25 0 0 1 8.75 12Z",
+          "M7.75 7A4.25 4.25 0 0 1 16.25 7V11A4.25 4.25 0 0 1 7.75 11Z",
           "M4.75 9.75V11A7.25 7.25 0 0 0 19.25 11V9.75",
           "M12 18.25V21.25",
-          "M8.75 21.25H15.25"
+          "M7.75 21.25H16.25"
         ]
       },
       "filled": {
@@ -60,8 +60,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V7A2 2 0 0 1 6 7Z"
           ],
           "stroke": [
-            "M3.625 5.625V7.25A4.375 4.375 0 0 0 12.375 7.25V5.625",
-            "M8 11.625V14.375",
+            "M3.625 5.625V7A4.375 4.375 0 0 0 12.375 7V5.625",
+            "M8 11.375V14.375",
             "M6.625 14.375H9.375"
           ]
         },
@@ -77,12 +77,12 @@ export default {
         },
         "24": {
           "fill": [
-            "M8 6A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12Z"
+            "M7 7A5 5 0 0 1 17 7V11A5 5 0 0 1 7 11Z"
           ],
           "stroke": [
             "M4.75 9.75V11A7.25 7.25 0 0 0 19.25 11V9.75",
             "M12 18.25V21.25",
-            "M8.75 21.25H15.25"
+            "M7.75 21.25H16.25"
           ]
         }
       }
@@ -97,12 +97,12 @@ export default {
         "base",
         "nucleo"
       ],
-      "note": "A with the cradle cut to a bare half circle — no straight sides, the tips stop level with the arc's centre, 59 · 63 · 70% down the capsule. Capsule 8 · 6 · 4×14 · 10 · 8, cradle radius 7.25 · 5.25 · 4.375, air 1.5 · 1.5 · 1.76 below and 2.5 · 1.5 · 1.75 beside, base and stem as A. The bowl reads lighter and lower; the risk is a spoon or a cup at 16, where the tips sit below the capsule's middle. Filled as A; ink box identical",
+      "note": "A with the cradle cut to a bare half circle — no straight sides, the tips stop level with the arc's centre, 59 · 63 · 67% down the capsule. Capsule 10 · 6 · 4×14 · 10 · 8, cradle radius 7.25 · 5.25 · 4.375, air 1.5 · 1.5 · 1.75 below and 1.5 · 1.5 · 1.75 beside, base and stem as A. The bowl reads lighter and lower; the risk is a spoon or a cup at 16, where the tips sit below the capsule's middle. Filled as A; ink box identical",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V7A1.375 1.375 0 0 1 6.625 7Z",
-          "M3.625 7.25A4.375 4.375 0 0 0 12.375 7.25",
-          "M8 11.625V14.375",
+          "M3.625 7A4.375 4.375 0 0 0 12.375 7",
+          "M8 11.375V14.375",
           "M6.625 14.375H9.375"
         ],
         "20": [
@@ -112,10 +112,10 @@ export default {
           "M7.75 17.25H12.25"
         ],
         "24": [
-          "M8.75 6A3.25 3.25 0 0 1 15.25 6V12A3.25 3.25 0 0 1 8.75 12Z",
+          "M7.75 7A4.25 4.25 0 0 1 16.25 7V11A4.25 4.25 0 0 1 7.75 11Z",
           "M4.75 11A7.25 7.25 0 0 0 19.25 11",
           "M12 18.25V21.25",
-          "M8.75 21.25H15.25"
+          "M7.75 21.25H16.25"
         ]
       },
       "filled": {
@@ -124,8 +124,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V7A2 2 0 0 1 6 7Z"
           ],
           "stroke": [
-            "M3.625 7.25A4.375 4.375 0 0 0 12.375 7.25",
-            "M8 11.625V14.375",
+            "M3.625 7A4.375 4.375 0 0 0 12.375 7",
+            "M8 11.375V14.375",
             "M6.625 14.375H9.375"
           ]
         },
@@ -141,12 +141,12 @@ export default {
         },
         "24": {
           "fill": [
-            "M8 6A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12Z"
+            "M7 7A5 5 0 0 1 17 7V11A5 5 0 0 1 7 11Z"
           ],
           "stroke": [
             "M4.75 11A7.25 7.25 0 0 0 19.25 11",
             "M12 18.25V21.25",
-            "M8.75 21.25H15.25"
+            "M7.75 21.25H16.25"
           ]
         }
       }
@@ -161,12 +161,12 @@ export default {
         "bracket",
         "base"
       ],
-      "note": "A with a deeper cradle: the sides run 3.5 · 3 · 3 straight and stop a third of the way down the capsule (34 · 33 · 33%), so the cradle reads as a bracket holding the capsule rather than a bowl under it. Everything else as A (capsule 8 · 6 · 4×14 · 10 · 8, air 1.5 · 1.5 · 1.75 below, 2.5 · 1.5 · 1.75 beside). Three parallel uprights over 3.5 · 3 · 3 at the sides — at 16 the two cradle sides and the capsule's sides make a 3-line run 3.25 wide from 3 to 13, the busiest of the ten",
+      "note": "A with a deeper cradle: the sides run 3.5 · 3 · 2.75 straight and stop a third of the way down the capsule (34 · 33 · 33%), so the cradle reads as a bracket holding the capsule rather than a bowl under it. Everything else as A (capsule 10 · 6 · 4×14 · 10 · 8, air 1.5 · 1.5 · 1.75 below, 1.5 · 1.5 · 1.75 beside). Three parallel uprights over 3.5 · 3 · 2.75 at the sides — at 16 the two cradle sides and the capsule's sides make a 3-line run 3.25 wide from 3 to 13, the busiest of the ten",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V7A1.375 1.375 0 0 1 6.625 7Z",
-          "M3.625 4.25V7.25A4.375 4.375 0 0 0 12.375 7.25V4.25",
-          "M8 11.625V14.375",
+          "M3.625 4.25V7A4.375 4.375 0 0 0 12.375 7V4.25",
+          "M8 11.375V14.375",
           "M6.625 14.375H9.375"
         ],
         "20": [
@@ -176,10 +176,10 @@ export default {
           "M7.75 17.25H12.25"
         ],
         "24": [
-          "M8.75 6A3.25 3.25 0 0 1 15.25 6V12A3.25 3.25 0 0 1 8.75 12Z",
+          "M7.75 7A4.25 4.25 0 0 1 16.25 7V11A4.25 4.25 0 0 1 7.75 11Z",
           "M4.75 7.5V11A7.25 7.25 0 0 0 19.25 11V7.5",
           "M12 18.25V21.25",
-          "M8.75 21.25H15.25"
+          "M7.75 21.25H16.25"
         ]
       },
       "filled": {
@@ -188,8 +188,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V7A2 2 0 0 1 6 7Z"
           ],
           "stroke": [
-            "M3.625 4.25V7.25A4.375 4.375 0 0 0 12.375 7.25V4.25",
-            "M8 11.625V14.375",
+            "M3.625 4.25V7A4.375 4.375 0 0 0 12.375 7V4.25",
+            "M8 11.375V14.375",
             "M6.625 14.375H9.375"
           ]
         },
@@ -205,12 +205,12 @@ export default {
         },
         "24": {
           "fill": [
-            "M8 6A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12Z"
+            "M7 7A5 5 0 0 1 17 7V11A5 5 0 0 1 7 11Z"
           ],
           "stroke": [
             "M4.75 7.5V11A7.25 7.25 0 0 0 19.25 11V7.5",
             "M12 18.25V21.25",
-            "M8.75 21.25H15.25"
+            "M7.75 21.25H16.25"
           ]
         }
       }
@@ -224,12 +224,12 @@ export default {
         "stem",
         "lucide"
       ],
-      "note": "A without the base line: the same capsule and cradle, the stem carried down to the keyline bottom instead, showing 3 · 3 · 2.75 of ink below the cradle. Same ink box (the stem's cap now sets the bottom edge). Fewer parts at 16 — three paths instead of four — and no 1.5-gap at the foot to fill in; the trade is that a stem alone can read as a pin. Filled as A",
+      "note": "A without the base line: the same capsule and cradle, the stem carried down to the keyline bottom instead, showing 3 · 3 · 3 of ink below the cradle. Same ink box (the stem's cap now sets the bottom edge). Fewer parts at 16 — three paths instead of four — and no 1.5-gap at the foot to fill in; the trade is that a stem alone can read as a pin. Filled as A",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V7A1.375 1.375 0 0 1 6.625 7Z",
-          "M3.625 5.625V7.25A4.375 4.375 0 0 0 12.375 7.25V5.625",
-          "M8 11.625V14.375"
+          "M3.625 5.625V7A4.375 4.375 0 0 0 12.375 7V5.625",
+          "M8 11.375V14.375"
         ],
         "20": [
           "M7.75 5A2.25 2.25 0 0 1 12.25 5V9A2.25 2.25 0 0 1 7.75 9Z",
@@ -237,7 +237,7 @@ export default {
           "M10 14.25V17.25"
         ],
         "24": [
-          "M8.75 6A3.25 3.25 0 0 1 15.25 6V12A3.25 3.25 0 0 1 8.75 12Z",
+          "M7.75 7A4.25 4.25 0 0 1 16.25 7V11A4.25 4.25 0 0 1 7.75 11Z",
           "M4.75 9.75V11A7.25 7.25 0 0 0 19.25 11V9.75",
           "M12 18.25V21.25"
         ]
@@ -248,8 +248,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V7A2 2 0 0 1 6 7Z"
           ],
           "stroke": [
-            "M3.625 5.625V7.25A4.375 4.375 0 0 0 12.375 7.25V5.625",
-            "M8 11.625V14.375"
+            "M3.625 5.625V7A4.375 4.375 0 0 0 12.375 7V5.625",
+            "M8 11.375V14.375"
           ]
         },
         "20": {
@@ -263,7 +263,7 @@ export default {
         },
         "24": {
           "fill": [
-            "M8 6A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12Z"
+            "M7 7A5 5 0 0 1 17 7V11A5 5 0 0 1 7 11Z"
           ],
           "stroke": [
             "M4.75 9.75V11A7.25 7.25 0 0 0 19.25 11V9.75",
@@ -281,12 +281,12 @@ export default {
         "stem",
         "minimal"
       ],
-      "note": "B without the base: the barest stand — capsule, half circle, stem 3 · 3 · 2.75. Capsule 8 · 6 · 4×14 · 10 · 8, radius 7.25 · 5.25 · 4.375. The fewest strokes and the most air, which is what survives best at 16, but it is also the least mic-like: a pill over a bowl on a pin. Filled as A",
+      "note": "B without the base: the barest stand — capsule, half circle, stem 3 · 3 · 3. Capsule 10 · 6 · 4×14 · 10 · 8, radius 7.25 · 5.25 · 4.375. The fewest strokes and the most air, which is what survives best at 16, but it is also the least mic-like: a pill over a bowl on a pin. Filled as A",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V7A1.375 1.375 0 0 1 6.625 7Z",
-          "M3.625 7.25A4.375 4.375 0 0 0 12.375 7.25",
-          "M8 11.625V14.375"
+          "M3.625 7A4.375 4.375 0 0 0 12.375 7",
+          "M8 11.375V14.375"
         ],
         "20": [
           "M7.75 5A2.25 2.25 0 0 1 12.25 5V9A2.25 2.25 0 0 1 7.75 9Z",
@@ -294,7 +294,7 @@ export default {
           "M10 14.25V17.25"
         ],
         "24": [
-          "M8.75 6A3.25 3.25 0 0 1 15.25 6V12A3.25 3.25 0 0 1 8.75 12Z",
+          "M7.75 7A4.25 4.25 0 0 1 16.25 7V11A4.25 4.25 0 0 1 7.75 11Z",
           "M4.75 11A7.25 7.25 0 0 0 19.25 11",
           "M12 18.25V21.25"
         ]
@@ -305,8 +305,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V7A2 2 0 0 1 6 7Z"
           ],
           "stroke": [
-            "M3.625 7.25A4.375 4.375 0 0 0 12.375 7.25",
-            "M8 11.625V14.375"
+            "M3.625 7A4.375 4.375 0 0 0 12.375 7",
+            "M8 11.375V14.375"
           ]
         },
         "20": {
@@ -320,7 +320,7 @@ export default {
         },
         "24": {
           "fill": [
-            "M8 6A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12Z"
+            "M7 7A5 5 0 0 1 17 7V11A5 5 0 0 1 7 11Z"
           ],
           "stroke": [
             "M4.75 11A7.25 7.25 0 0 0 19.25 11",
@@ -339,12 +339,12 @@ export default {
         "stem",
         "tall"
       ],
-      "note": "A with the capsule shortened to 8 · 6 · 4×12 · 8.5 · 7 (60 · 53 · 50% of the height) and the cradle lifted with it, so the stem shows 3.5 · 3 · 3 between cradle and base instead of A's 1.5 — the stand reads as a stand. Air 1.5 · 1.5 · 1.5 below, 2.5 · 1.5 · 1.75 beside; the cradle tips still stop at the capsule's mid-height, which with the shorter capsule leaves only 0.25 · 0.5 · 0.63 of straight side — it is nearly B's bowl. The mic is smaller in the same box; outline centreline mass 0.24 · -0.12 · -0.31 below the box centre (A: 0.96 · 0.37 · 0.11), filled 1.01 · 0.76 · 0.7 above",
+      "note": "A with the capsule shortened to 10 · 6 · 4×12 · 8.5 · 7 (60 · 53 · 50% of the height) and the cradle lifted with it, so the stem shows 3.5 · 3 · 2.75 between cradle and base instead of A's 1.5 · 1.5 · 1.75 — the stand reads as a stand. Air 1.5 · 1.5 · 1.75 below, 1.5 · 1.5 · 1.75 beside; the cradle tips still stop at the capsule's mid-height, which with the shorter capsule leaves only 0.25 · 0.5 · 0.88 of straight side — it is nearly B's bowl. The mic is smaller in the same box; outline centreline mass 0.37 · -0.12 · -0.26 below the box centre (A: 1.06 · 0.37 · 0.05), filled 1.12 · 0.76 · 0.65 above",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V6A1.375 1.375 0 0 1 6.625 6Z",
-          "M3.625 5.125V5.75A4.375 4.375 0 0 0 12.375 5.75V5.125",
-          "M8 10.125V14.375",
+          "M3.625 5.125V6A4.375 4.375 0 0 0 12.375 6V5.125",
+          "M8 10.375V14.375",
           "M6.625 14.375H9.375"
         ],
         "20": [
@@ -354,10 +354,10 @@ export default {
           "M7.75 17.25H12.25"
         ],
         "24": [
-          "M8.75 6A3.25 3.25 0 0 1 15.25 6V10A3.25 3.25 0 0 1 8.75 10Z",
+          "M7.75 7A4.25 4.25 0 0 1 16.25 7V9A4.25 4.25 0 0 1 7.75 9Z",
           "M4.75 8.75V9A7.25 7.25 0 0 0 19.25 9V8.75",
           "M12 16.25V21.25",
-          "M8.75 21.25H15.25"
+          "M7.75 21.25H16.25"
         ]
       },
       "filled": {
@@ -366,8 +366,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V6A2 2 0 0 1 6 6Z"
           ],
           "stroke": [
-            "M3.625 5.125V5.75A4.375 4.375 0 0 0 12.375 5.75V5.125",
-            "M8 10.125V14.375",
+            "M3.625 5.125V6A4.375 4.375 0 0 0 12.375 6V5.125",
+            "M8 10.375V14.375",
             "M6.625 14.375H9.375"
           ]
         },
@@ -383,19 +383,19 @@ export default {
         },
         "24": {
           "fill": [
-            "M8 6A4 4 0 0 1 16 6V10A4 4 0 0 1 8 10Z"
+            "M7 7A5 5 0 0 1 17 7V9A5 5 0 0 1 7 9Z"
           ],
           "stroke": [
             "M4.75 8.75V9A7.25 7.25 0 0 0 19.25 9V8.75",
             "M12 16.25V21.25",
-            "M8.75 21.25H15.25"
+            "M7.75 21.25H16.25"
           ]
         }
       }
     },
     {
       "id": "G",
-      "label": "Narrow capsule",
+      "label": "Narrow capsule, narrow cradle",
       "tags": [
         "stand",
         "cradle",
@@ -403,23 +403,23 @@ export default {
         "slim",
         "off-ready"
       ],
-      "note": "A with a slimmer capsule: 7 · 5 · 4 wide (44 · 42 · 40% of the cradle), counter 4 · 2 · 1.5, air beside it 3 · 2 · 1.75. At 16 it is A exactly — the 1.5 floor already pins the capsule at 4 there — so this is a 24-and-20 decision only. The extra air is what a microphone-off slash needs: 3 · 2 · 1.75 beside the capsule against A's 2.5 · 1.5 · 1.75",
+      "note": "A with a slimmer capsule, 7 · 5 · 4 wide (counter 4 · 2 · 1.5), and the cradle drawn in to keep the air equal on all three sides (1.5 · 1.5 · 1.75 beside, 1.5 · 1.5 · 1.75 below): cradle radius 5.75 · 4.75 · 4.375 on the centreline, 13 · 11 · 10 wide outside, so the whole mic is 13×20 · 11×16 · 10×14 and declares its own box at 24 and 20 rather than the portrait keyline. At 16 it is A exactly — the floor already pins the capsule at 4 there — so this is a 24-and-20 decision only: a slimmer, taller mic in the same height, 54 · 45 · 40% capsule to cradle against A's 63 · 50 · 40%",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V7A1.375 1.375 0 0 1 6.625 7Z",
-          "M3.625 5.625V7.25A4.375 4.375 0 0 0 12.375 7.25V5.625",
-          "M8 11.625V14.375",
+          "M3.625 5.625V7A4.375 4.375 0 0 0 12.375 7V5.625",
+          "M8 11.375V14.375",
           "M6.625 14.375H9.375"
         ],
         "20": [
           "M8.25 4.5A1.75 1.75 0 0 1 11.75 4.5V9.5A1.75 1.75 0 0 1 8.25 9.5Z",
-          "M4.75 7.75V9A5.25 5.25 0 0 0 15.25 9V7.75",
+          "M5.25 7.75V9.5A4.75 4.75 0 0 0 14.75 9.5V7.75",
           "M10 14.25V17.25",
           "M8.25 17.25H11.75"
         ],
         "24": [
           "M9.25 5.5A2.75 2.75 0 0 1 14.75 5.5V12.5A2.75 2.75 0 0 1 9.25 12.5Z",
-          "M4.75 9.75V11A7.25 7.25 0 0 0 19.25 11V9.75",
+          "M6.25 9.75V12.5A5.75 5.75 0 0 0 17.75 12.5V9.75",
           "M12 18.25V21.25",
           "M9.25 21.25H14.75"
         ]
@@ -430,8 +430,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V7A2 2 0 0 1 6 7Z"
           ],
           "stroke": [
-            "M3.625 5.625V7.25A4.375 4.375 0 0 0 12.375 7.25V5.625",
-            "M8 11.625V14.375",
+            "M3.625 5.625V7A4.375 4.375 0 0 0 12.375 7V5.625",
+            "M8 11.375V14.375",
             "M6.625 14.375H9.375"
           ]
         },
@@ -440,7 +440,7 @@ export default {
             "M7.5 4.5A2.5 2.5 0 0 1 12.5 4.5V9.5A2.5 2.5 0 0 1 7.5 9.5Z"
           ],
           "stroke": [
-            "M4.75 7.75V9A5.25 5.25 0 0 0 15.25 9V7.75",
+            "M5.25 7.75V9.5A4.75 4.75 0 0 0 14.75 9.5V7.75",
             "M10 14.25V17.25",
             "M8.25 17.25H11.75"
           ]
@@ -450,11 +450,25 @@ export default {
             "M8.5 5.5A3.5 3.5 0 0 1 15.5 5.5V12.5A3.5 3.5 0 0 1 8.5 12.5Z"
           ],
           "stroke": [
-            "M4.75 9.75V11A7.25 7.25 0 0 0 19.25 11V9.75",
+            "M6.25 9.75V12.5A5.75 5.75 0 0 0 17.75 12.5V9.75",
             "M12 18.25V21.25",
             "M9.25 21.25H14.75"
           ]
         }
+      },
+      "box": {
+        "16": [
+          10,
+          14
+        ],
+        "20": [
+          11,
+          16
+        ],
+        "24": [
+          13,
+          20
+        ]
       }
     },
     {
@@ -588,12 +602,12 @@ export default {
         "container",
         "base"
       ],
-      "note": "A with the cradle bent like a container instead of a bowl: straight sides into the set's container corners (radius 2.5 · 2 · 1.5, as message and lock) and a flat bottom. The flat bottom sits where A's arc bottomed, so the base and stem are A's; the capsule 8 · 6 · 4×14 · 10 · 8 now has 1.5 · 1.5 · 1.75 of air below it and 2.5 · 1.5 · 1.75 beside, and the cradle tips stop at its mid-height. It reads as a cup or a socket more than a cradle, but it is the only stand built entirely from the set's container radius",
+      "note": "A with the cradle bent like a container instead of a bowl: straight sides into the set's container corners (radius 2.5 · 2 · 1.5, as message and lock) and a flat bottom. The flat bottom sits where A's arc bottomed, so the base and stem are A's; the capsule 10 · 6 · 4×14 · 10 · 8 now has 1.5 · 1.5 · 1.75 of air below it and 1.5 · 1.5 · 1.75 beside, and the cradle tips stop at its mid-height. It reads as a cup or a socket more than a cradle, but it is the only stand built entirely from the set's container radius",
       "masters": {
         "16": [
           "M6.625 3A1.375 1.375 0 0 1 9.375 3V7A1.375 1.375 0 0 1 6.625 7Z",
-          "M3.625 5.625V10.125A1.5 1.5 0 0 0 5.125 11.625H10.875A1.5 1.5 0 0 0 12.375 10.125V5.625",
-          "M8 11.625V14.375",
+          "M3.625 5.625V9.875A1.5 1.5 0 0 0 5.125 11.375H10.875A1.5 1.5 0 0 0 12.375 9.875V5.625",
+          "M8 11.375V14.375",
           "M6.625 14.375H9.375"
         ],
         "20": [
@@ -603,10 +617,10 @@ export default {
           "M7.75 17.25H12.25"
         ],
         "24": [
-          "M8.75 6A3.25 3.25 0 0 1 15.25 6V12A3.25 3.25 0 0 1 8.75 12Z",
+          "M7.75 7A4.25 4.25 0 0 1 16.25 7V11A4.25 4.25 0 0 1 7.75 11Z",
           "M4.75 9.75V15.75A2.5 2.5 0 0 0 7.25 18.25H16.75A2.5 2.5 0 0 0 19.25 15.75V9.75",
           "M12 18.25V21.25",
-          "M8.75 21.25H15.25"
+          "M7.75 21.25H16.25"
         ]
       },
       "filled": {
@@ -615,8 +629,8 @@ export default {
             "M6 3A2 2 0 0 1 10 3V7A2 2 0 0 1 6 7Z"
           ],
           "stroke": [
-            "M3.625 5.625V10.125A1.5 1.5 0 0 0 5.125 11.625H10.875A1.5 1.5 0 0 0 12.375 10.125V5.625",
-            "M8 11.625V14.375",
+            "M3.625 5.625V9.875A1.5 1.5 0 0 0 5.125 11.375H10.875A1.5 1.5 0 0 0 12.375 9.875V5.625",
+            "M8 11.375V14.375",
             "M6.625 14.375H9.375"
           ]
         },
@@ -632,12 +646,12 @@ export default {
         },
         "24": {
           "fill": [
-            "M8 6A4 4 0 0 1 16 6V12A4 4 0 0 1 8 12Z"
+            "M7 7A5 5 0 0 1 17 7V11A5 5 0 0 1 7 11Z"
           ],
           "stroke": [
             "M4.75 9.75V15.75A2.5 2.5 0 0 0 7.25 18.25H16.75A2.5 2.5 0 0 0 19.25 15.75V9.75",
             "M12 18.25V21.25",
-            "M8.75 21.25H15.25"
+            "M7.75 21.25H16.25"
           ]
         }
       }
