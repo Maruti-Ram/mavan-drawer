@@ -281,7 +281,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 65. `maximize-3` · UI & Layout · variant of `maximize` — Broken frame · approved 2026-09-23
 - [x] 65. `maximize-4` · UI & Layout · variant of `maximize` — Two arrows, medium head · approved 2026-09-23
 - [x] 65. `maximize-5` · UI & Layout · variant of `maximize` — Frame and pane · approved 2026-09-23
-- [~] 66. `microphone` · Communication
+- [x] 66. `microphone` · Communication — approved 2026-09-23
+- [x] 66. `microphone-2` · Communication · variant of `microphone` — C with a base · approved 2026-09-23
+- [x] 66. `microphone-3` · Communication · variant of `microphone` — Deep U cradle · approved 2026-09-23
+- [x] 66. `microphone-4` · Communication · variant of `microphone` — Squared cradle · approved 2026-09-23
+- [x] 66. `microphone-5` · Communication · variant of `microphone` — Cradle pulled in, 1.5 air · approved 2026-09-23
 - [~] 67. `pencil` · Editing & Text
 - [~] 68. `phone` · Communication
 - [~] 69. `refresh` · Arrows & Direction
