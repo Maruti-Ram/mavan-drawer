@@ -268,7 +268,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 62. `list-bullet` · Editing & Text — approved 2026-09-23
 - [x] 62. `list-bullet-2` · Editing & Text · variant of `list-bullet` — Bold discs (the more dot) · approved 2026-09-23
 - [x] 62. `list-bullet-3` · Editing & Text · variant of `list-bullet` — Two rows, ring bullets · approved 2026-09-23
-- [~] 63. `login` · Users & Access
+- [x] 63. `login` · Users & Access — approved 2026-09-23
+- [x] 63. `login-2` · Users & Access · variant of `login` — Bracket 8, arrow at the mouth · approved 2026-09-23
+- [x] 63. `login-3` · Users & Access · variant of `login` — Door fixed left (Tabler) · approved 2026-09-23
 - [~] 64. `logout` · Users & Access
 - [x] 65. `maximize` · UI & Layout — approved 2026-09-23
 - [x] 65. `maximize-2` · UI & Layout · variant of `maximize` — Crisp corners · approved 2026-09-23
