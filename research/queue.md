@@ -229,11 +229,14 @@ Bases before their variants; within that, highest evidence first.
 - [x] 50. `chart-bar-3` · Charts & Data · variant of `chart-bar` — Corner axis, three bars · approved 2026-09-20
 - [x] 50. `chart-bar-4` · Charts & Data · variant of `chart-bar` — Joined columns · approved 2026-09-20
 - [x] 50. `chart-bar-5` · Charts & Data · variant of `chart-bar` — Framed · approved 2026-09-20
-- [ ] 51. `checkbox` · UI & Layout
-- [ ] 52. `cursor` · UI & Layout
-- [ ] 53. `database` · Charts & Data
-- [ ] 54. `external-link` · Arrows & Direction
-- [ ] 55. `eye` · Users & Access
+- [x] 51. `checkbox` · UI & Layout — approved 2026-09-23
+- [x] 51. `checkbox-2` · UI & Layout · variant of `checkbox` — Steep tick (check-3) · approved 2026-09-23
+- [x] 51. `checkbox-3` · UI & Layout · variant of `checkbox` — Lean tick (check-4) · approved 2026-09-23
+- [x] 51. `checkbox-4` · UI & Layout · variant of `checkbox` — Quieter tick · approved 2026-09-23
+- [~] 52. `cursor` · UI & Layout
+- [~] 53. `database` · Charts & Data
+- [~] 54. `external-link` · Arrows & Direction
+- [~] 55. `eye` · Users & Access
 - [ ] 56. `face-smile` · Communication
 - [ ] 57. `flag` · Status & Feedback
 - [ ] 58. `grid` · UI & Layout
