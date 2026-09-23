@@ -242,7 +242,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 54. `external-link` · Arrows & Direction — approved 2026-09-23
 - [x] 54. `external-link-2` · Arrows & Direction · variant of `external-link` — Smaller box · approved 2026-09-23
 - [x] 55. `eye` · Users & Access — approved 2026-09-23
-- [~] 56. `face-smile` · Communication
+- [x] 56. `face-smile` · Communication — approved 2026-09-23
 - [x] 57. `flag` · Status & Feedback — approved 2026-09-23
 - [x] 57. `flag-2` · Status & Feedback · variant of `flag` — One wave · approved 2026-09-23
 - [x] 57. `flag-3` · Status & Feedback · variant of `flag` — Drooping sweep · approved 2026-09-23
