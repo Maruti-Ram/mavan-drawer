@@ -297,7 +297,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 70. `save` · Files & Folders — approved 2026-09-23
 - [x] 71. `send` · Communication — approved 2026-09-24
 - [x] 72. `star` · Status & Feedback — approved 2026-09-24
-- [~] 73. `target` · Status & Feedback
+- [x] 73. `target` · Status & Feedback — approved 2026-09-24
+- [x] 73. `target-2` · Status & Feedback · variant of `target` — Crosshair · approved 2026-09-24
+- [x] 73. `target-3` · Status & Feedback · variant of `target` — Focus · approved 2026-09-24
 - [~] 74. `text` · Editing & Text
 - [~] 75. `thumbs-up` · Communication
 - [ ] 76. `toggle-on` · UI & Layout
