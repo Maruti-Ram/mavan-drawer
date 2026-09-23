@@ -233,7 +233,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 51. `checkbox-2` · UI & Layout · variant of `checkbox` — Steep tick (check-3) · approved 2026-09-23
 - [x] 51. `checkbox-3` · UI & Layout · variant of `checkbox` — Lean tick (check-4) · approved 2026-09-23
 - [x] 51. `checkbox-4` · UI & Layout · variant of `checkbox` — Quieter tick · approved 2026-09-23
-- [~] 52. `cursor` · UI & Layout
+- [x] 52. `cursor` · UI & Layout — approved 2026-09-23
+- [x] 52. `cursor-2` · UI & Layout · variant of `cursor` — Blunter point, 60 degrees · approved 2026-09-23
+- [x] 52. `cursor-3` · UI & Layout · variant of `cursor` — Dart, no tail · approved 2026-09-23
 - [~] 53. `database` · Charts & Data
 - [~] 54. `external-link` · Arrows & Direction
 - [~] 55. `eye` · Users & Access
@@ -574,7 +576,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 390. `chart-bar-horizontal` · Charts & Data · variant of `chart-bar`
 - [ ] 391. `chart-bar-stacked` · Charts & Data · variant of `chart-bar`
 - [ ] 392. `collapse-horizontal` · Arrows & Direction · variant of `collapse`
-- [ ] 393. `cursor-click` · UI & Layout · variant of `cursor`
+- [x] 393. `cursor-click` · UI & Layout · variant of `cursor` — approved 2026-09-23
 - [ ] 394. `expand-horizontal` · Arrows & Direction · variant of `expand`
 - [ ] 395. `file-down` · Files & Folders · variant of `file`
 - [ ] 396. `file-signature` · Files & Folders · variant of `file`
