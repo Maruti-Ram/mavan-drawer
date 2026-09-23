@@ -10,6 +10,7 @@
 
 export default {
   "concept": "users",
+  "set": { "A": "users-3", "B": "users-3-behind", "D": "users-3-wide", "E": "users-3-level" },
   "context": "Team, group, members - the group icon built on user-3 (open shoulders), shipping as users-6 onward",
   "tags": [
     "user-3",
