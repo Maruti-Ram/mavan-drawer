@@ -22,6 +22,8 @@
 //
 //   node tools/queue.mjs start <name> --batch mark it in review and write its references to
 //                                             lab/refs/batch/<name>.js — current.js untouched
+//   node tools/queue.mjs clear                take an approved icon off the board: delete
+//                                             lab/drafts/current.js and lab/refs/current.js
 //   node tools/queue.mjs batch                rebuild lab/drafts/batch/index.json from the
 //                                             drafts present (start and approve do this too)
 //   node tools/queue.mjs approve --icon <name> <id>[=<file>]…
@@ -114,6 +116,19 @@ const files = (name) => masters.flatMap((m) => [name, `${name}-filled`].map((f) 
 const next = (q) => q.rows.find((r) => r.status !== 'done' && !r.base) ?? null;
 const label = (r) => `#${r.n} ${r.name}`;
 const die = (msg) => { console.error(msg); process.exit(1); };
+
+// ─── clear ─────────────────────────────────────────────────────────────
+// The board goes stale once its icon is approved; this empties it. Refuses while the
+// icon on it is still in review, so nothing unapproved is thrown away by accident.
+async function clear() {
+  const d = await draft();
+  if (!d) return console.log('The board is already empty.');
+  const row = find(readQueue(), d.concept);
+  if (row && row.status !== 'done') die(`${label(row)} is still in review — approve it or drop it before clearing the board.`);
+  for (const f of [DRAFT, 'lab/refs/current.js']) if (existsSync(f)) unlinkSync(f);
+  await rebuildIndex(true);
+  console.log(`Board cleared (${d.concept} was on it). lab/icon.html now shows the batch list.`);
+}
 
 // ─── status ────────────────────────────────────────────────────────────────
 async function status() {
@@ -333,6 +348,7 @@ else if (cmd === 'next') { const r = next(readQueue()); console.log(r ? `${r.nam
 else if (cmd === 'show') show(rest[0] ?? die('show <name>'));
 else if (cmd === 'start') await start(rest.find((a) => !a.startsWith('--')) ?? die('start <name> [--batch]'), rest.includes('--batch'));
 else if (cmd === 'batch') await rebuildIndex();
+else if (cmd === 'clear') await clear();
 else if (cmd === 'drop') drop(rest.length ? rest : die('drop <name>…'));
 else if (cmd === 'approve') await approve(rest);
 else die(`Unknown command ${cmd}. Use status | next | show | start | batch | approve | drop.`);
