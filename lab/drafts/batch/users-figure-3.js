@@ -21,7 +21,7 @@ export default {
     "users-2",
     "users-level"
   ],
-  "question": "The figure is user-3. Which arrangements read as a group at 16, outline and filled, beside user-3 and the shipped users? A to E are the five shipped arrangements re-fitted (raised arcs, level smaller back, whole small head, wide whole heads, wide level arcs); F to J are what the open figure adds (side by side, shoulder line only, three in a row, the line-back filled treatment, two heads on one shoulder line). Judge the 16 first, outline and filled.",
+  "question": "THE SET: A = users-3, B = users-3-behind, D = users-3-wide, E = users-3-level (the four arrangements every figure carries). The figure is user-3. Which arrangements read as a group at 16, outline and filled, beside user-3 and the shipped users? A to E are the five shipped arrangements re-fitted (raised arcs, level smaller back, whole small head, wide whole heads, wide level arcs); F to J are what the open figure adds (side by side, shoulder line only, three in a row, the line-back filled treatment, two heads on one shoulder line). Judge the 16 first, outline and filled.",
   "candidates": [
     {
       "id": "A",
