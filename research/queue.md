@@ -262,11 +262,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 60. `key-4` · Users & Access · variant of `key` — Block bit · approved 2026-09-23
 - [x] 60. `key-5` · Users & Access · variant of `key` — Level key, ring bow · approved 2026-09-23
 - [x] 60. `key-6` · Users & Access · variant of `key` — Hanging key · approved 2026-09-23
-- [ ] 61. `link` · Files & Folders
-- [ ] 62. `list-bullet` · Editing & Text
-- [ ] 63. `login` · Users & Access
-- [ ] 64. `logout` · Users & Access
-- [ ] 65. `maximize` · UI & Layout
+- [~] 61. `link` · Files & Folders
+- [~] 62. `list-bullet` · Editing & Text
+- [~] 63. `login` · Users & Access
+- [~] 64. `logout` · Users & Access
+- [~] 65. `maximize` · UI & Layout
 - [ ] 66. `microphone` · Communication
 - [ ] 67. `pencil` · Editing & Text
 - [ ] 68. `phone` · Communication
