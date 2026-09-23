@@ -280,9 +280,12 @@ const state = {
 
 // What is on a drawing board right now, so the sheet can say so: the board itself, plus
 // any icons of a batch (lab/drafts/batch/, listed by `node tools/queue.mjs batch`). Absent is fine.
+// index.json says whether the board holds anything, so an empty board (queue.mjs clear)
+// is not a 404 for current.js in the console.
+const index = await fetch('./drafts/batch/index.json').then((r) => r.json()).catch(() => null);
 const boards = new Set([
-  await import('./drafts/current.js').then((m) => m.default?.concept ?? null).catch(() => null),
-  ...await fetch('./drafts/batch/index.json').then((r) => r.json()).then((j) => (j?.icons ?? []).map((b) => b.name)).catch(() => []),
+  index?.board?.name ?? null,
+  ...(index?.icons ?? []).map((b) => b.name),
 ].filter(Boolean));
 const file = (n, m, filled) => man.masters[m]?.icons[filled ? `${n}-filled` : n] ?? null;
 const svg = (m, px, rec) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${rec.stroke}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${rec.body}</svg>`;
