@@ -286,7 +286,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 66. `microphone-3` · Communication · variant of `microphone` — Deep U cradle · approved 2026-09-23
 - [x] 66. `microphone-4` · Communication · variant of `microphone` — Squared cradle · approved 2026-09-23
 - [x] 66. `microphone-5` · Communication · variant of `microphone` — Cradle pulled in, 1.5 air · approved 2026-09-23
-- [~] 67. `pencil` · Editing & Text
+- [x] 67. `pencil` · Editing & Text — approved 2026-09-23
+- [x] 67. `pencil-2` · Editing & Text · variant of `pencil` — Round end · approved 2026-09-23
+- [x] 67. `pencil-3` · Editing & Text · variant of `pencil` — Wide body · approved 2026-09-23
+- [x] 67. `pencil-4` · Editing & Text · variant of `pencil` — Pencil-line (write) · approved 2026-09-23
 - [~] 68. `phone` · Communication
 - [~] 69. `refresh` · Arrows & Direction
 - [~] 70. `save` · Files & Folders
