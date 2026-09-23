@@ -270,7 +270,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 62. `list-bullet-3` · Editing & Text · variant of `list-bullet` — Two rows, ring bullets · approved 2026-09-23
 - [~] 63. `login` · Users & Access
 - [~] 64. `logout` · Users & Access
-- [~] 65. `maximize` · UI & Layout
+- [x] 65. `maximize` · UI & Layout — approved 2026-09-23
+- [x] 65. `maximize-2` · UI & Layout · variant of `maximize` — Crisp corners · approved 2026-09-23
+- [x] 65. `maximize-3` · UI & Layout · variant of `maximize` — Broken frame · approved 2026-09-23
+- [x] 65. `maximize-4` · UI & Layout · variant of `maximize` — Two arrows, medium head · approved 2026-09-23
+- [x] 65. `maximize-5` · UI & Layout · variant of `maximize` — Frame and pane · approved 2026-09-23
 - [ ] 66. `microphone` · Communication
 - [ ] 67. `pencil` · Editing & Text
 - [ ] 68. `phone` · Communication
