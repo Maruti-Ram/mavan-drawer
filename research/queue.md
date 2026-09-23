@@ -242,11 +242,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 54. `external-link` · Arrows & Direction — approved 2026-09-23
 - [x] 54. `external-link-2` · Arrows & Direction · variant of `external-link` — Smaller box · approved 2026-09-23
 - [x] 55. `eye` · Users & Access — approved 2026-09-23
-- [ ] 56. `face-smile` · Communication
-- [ ] 57. `flag` · Status & Feedback
-- [ ] 58. `grid` · UI & Layout
-- [ ] 59. `heart` · Status & Feedback
-- [ ] 60. `key` · Users & Access
+- [~] 56. `face-smile` · Communication
+- [~] 57. `flag` · Status & Feedback
+- [~] 58. `grid` · UI & Layout
+- [~] 59. `heart` · Status & Feedback
+- [~] 60. `key` · Users & Access
 - [ ] 61. `link` · Files & Folders
 - [ ] 62. `list-bullet` · Editing & Text
 - [ ] 63. `login` · Users & Access
