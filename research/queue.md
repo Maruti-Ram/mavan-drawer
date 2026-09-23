@@ -243,7 +243,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 54. `external-link-2` · Arrows & Direction · variant of `external-link` — Smaller box · approved 2026-09-23
 - [x] 55. `eye` · Users & Access — approved 2026-09-23
 - [~] 56. `face-smile` · Communication
-- [~] 57. `flag` · Status & Feedback
+- [x] 57. `flag` · Status & Feedback — approved 2026-09-23
+- [x] 57. `flag-2` · Status & Feedback · variant of `flag` — One wave · approved 2026-09-23
+- [x] 57. `flag-3` · Status & Feedback · variant of `flag` — Drooping sweep · approved 2026-09-23
+- [x] 57. `flag-4` · Status & Feedback · variant of `flag` — Stepped cloth · approved 2026-09-23
 - [~] 58. `grid` · UI & Layout
 - [~] 59. `heart` · Status & Feedback
 - [~] 60. `key` · Users & Access
