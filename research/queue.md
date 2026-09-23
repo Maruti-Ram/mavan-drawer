@@ -281,11 +281,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 65. `maximize-3` · UI & Layout · variant of `maximize` — Broken frame · approved 2026-09-23
 - [x] 65. `maximize-4` · UI & Layout · variant of `maximize` — Two arrows, medium head · approved 2026-09-23
 - [x] 65. `maximize-5` · UI & Layout · variant of `maximize` — Frame and pane · approved 2026-09-23
-- [ ] 66. `microphone` · Communication
-- [ ] 67. `pencil` · Editing & Text
-- [ ] 68. `phone` · Communication
-- [ ] 69. `refresh` · Arrows & Direction
-- [ ] 70. `save` · Files & Folders
+- [~] 66. `microphone` · Communication
+- [~] 67. `pencil` · Editing & Text
+- [~] 68. `phone` · Communication
+- [~] 69. `refresh` · Arrows & Direction
+- [~] 70. `save` · Files & Folders
 - [ ] 71. `send` · Communication
 - [ ] 72. `star` · Status & Feedback
 - [ ] 73. `target` · Status & Feedback
