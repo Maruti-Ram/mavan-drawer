@@ -185,6 +185,10 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 42. `users-level` · Users & Access · variant of `users` — Level pair in arcs, wide · approved 2026-09-20
 - [x] 42. `users-2` · Users & Access · variant of `users` — Raised back, arcs · approved 2026-09-23
 - [x] 42. `users-3` · Users & Access · variant of `users` — Raised back, arcs · approved 2026-09-23
+- [x] 42. `users-4` · Users & Access · variant of `users` — Raised back, cut · approved 2026-09-23
+- [x] 42. `users-4-behind` · Users & Access · variant of `users` — Smaller back, level · approved 2026-09-23
+- [x] 42. `users-4-wide` · Users & Access · variant of `users` — Wide, whole heads, raised back · approved 2026-09-23
+- [x] 42. `users-4-level` · Users & Access · variant of `users` — Wide, level pair · approved 2026-09-23
 - [x] 42. `users-3-behind` · Users & Access · variant of `users` — Level, smaller back, arcs · approved 2026-09-23
 - [x] 42. `users-3-wide` · Users & Access · variant of `users` — Raised back, whole heads, wide · approved 2026-09-23
 - [x] 42. `users-3-level` · Users & Access · variant of `users` — Level pair in arcs, wide · approved 2026-09-23
