@@ -180,12 +180,12 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 41. `user-3` · Users & Access · variant of `user` — Open square shoulders · approved 2026-09-20
 - [x] 41. `user-4` · Users & Access · variant of `user` — Splayed arc · approved 2026-09-20
 - [x] 42. `users` · Users & Access — approved 2026-09-20
-- [x] 42. `users-2` · Users & Access · variant of `users` — Smaller back, arcs · approved 2026-09-20
-- [x] 42. `users-3` · Users & Access · variant of `users` — Raised back, whole small head · approved 2026-09-20
-- [x] 42. `users-4` · Users & Access · variant of `users` — Raised back, whole heads, wide · approved 2026-09-20
-- [x] 42. `users-5` · Users & Access · variant of `users` — Level pair in arcs, wide · approved 2026-09-20
-- [x] 42. `users-6` · Users & Access · variant of `users` — Raised back, arcs · approved 2026-09-23
-- [x] 42. `users-7` · Users & Access · variant of `users` — Smaller back, level, arcs · approved 2026-09-23
+- [x] 42. `users-behind` · Users & Access · variant of `users` — Smaller back, arcs · approved 2026-09-20
+- [x] 42. `users-heads` · Users & Access · variant of `users` — Raised back, whole small head · approved 2026-09-20
+- [x] 42. `users-wide` · Users & Access · variant of `users` — Raised back, whole heads, wide · approved 2026-09-20
+- [x] 42. `users-level` · Users & Access · variant of `users` — Level pair in arcs, wide · approved 2026-09-20
+- [x] 42. `users-2` · Users & Access · variant of `users` — Raised back, arcs · approved 2026-09-23
+- [x] 42. `users-2-behind` · Users & Access · variant of `users` — Smaller back, level, arcs · approved 2026-09-23
 - [x] 43. `gear` · UI & Layout — approved 2026-09-20
 - [x] 43. `gear-2` · UI & Layout · variant of `gear` — Six tapered teeth, deeper, valley on top · approved 2026-09-20
 - [x] 44. `sliders` · UI & Layout — approved 2026-09-20
