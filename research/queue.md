@@ -236,7 +236,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 52. `cursor` · UI & Layout — approved 2026-09-23
 - [x] 52. `cursor-2` · UI & Layout · variant of `cursor` — Blunter point, 60 degrees · approved 2026-09-23
 - [x] 52. `cursor-3` · UI & Layout · variant of `cursor` — Dart, no tail · approved 2026-09-23
-- [~] 53. `database` · Charts & Data
+- [x] 53. `database` · Charts & Data — approved 2026-09-23
+- [x] 53. `database-2` · Charts & Data · variant of `database` — Round discs, two · approved 2026-09-23
+- [x] 53. `database-3` · Charts & Data · variant of `database` — Wide, three discs · approved 2026-09-23
 - [~] 54. `external-link` · Arrows & Direction
 - [~] 55. `eye` · Users & Access
 - [ ] 56. `face-smile` · Communication

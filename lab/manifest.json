@@ -237,6 +237,12 @@
     "cursor-click",
     "cursor-click-filled",
     "cursor-filled",
+    "database",
+    "database-2",
+    "database-2-filled",
+    "database-3",
+    "database-3-filled",
+    "database-filled",
     "file",
     "file-filled",
     "file-text",
@@ -13262,6 +13268,348 @@
       "ratio": null,
       "gap": null
     },
+    "database": {
+      "paths": [
+        "M4.75 5.25A7.25 2.5 0 0 1 19.25 5.25A7.25 2.5 0 0 1 4.75 5.25Z",
+        "M4.75 5.25V18.75A7.25 2.5 0 0 0 19.25 18.75V5.25",
+        "M4.75 9.75A7.25 2.5 0 0 0 19.25 9.75",
+        "M4.75 14.25A7.25 2.5 0 0 0 19.25 14.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 5.25A7.25 2.5 0 0 1 19.25 5.25A7.25 2.5 0 0 1 4.75 5.25Z\"/> <path d=\"M4.75 5.25V18.75A7.25 2.5 0 0 0 19.25 18.75V5.25\"/> <path d=\"M4.75 9.75A7.25 2.5 0 0 0 19.25 9.75\"/> <path d=\"M4.75 14.25A7.25 2.5 0 0 0 19.25 14.25\"/>",
+      "mark": false,
+      "tags": [
+        "cylinder",
+        "three discs"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.26,
+          "optical": 4.2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.26,
+          "optical": 4.2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.6,
+          "optical": 2.45
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.6,
+          "optical": 2.45
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "database-2": {
+      "paths": [
+        "M4.75 5.75A7.25 3 0 0 1 19.25 5.75A7.25 3 0 0 1 4.75 5.75Z",
+        "M4.75 5.75V18.25A7.25 3 0 0 0 19.25 18.25V5.75",
+        "M4.75 12A7.25 3 0 0 0 19.25 12"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 5.75A7.25 3 0 0 1 19.25 5.75A7.25 3 0 0 1 4.75 5.75Z\"/> <path d=\"M4.75 5.75V18.25A7.25 3 0 0 0 19.25 18.25V5.75\"/> <path d=\"M4.75 12A7.25 3 0 0 0 19.25 12\"/>",
+      "mark": false,
+      "tags": [
+        "cylinder",
+        "two discs",
+        "round"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.31,
+          "optical": 4.23
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.31,
+          "optical": 4.23
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.66,
+          "optical": 2.49
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.66,
+          "optical": 2.49
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "database-2-filled": {
+      "paths": [],
+      "areas": [
+        "M4 5.75A8 3.75 0 0 1 20 5.75V18.25A8 3.75 0 0 1 4 18.25ZM5.89 8.24A7.75 3.25 0 0 0 18.11 8.24A0.75 0.75 0 0 0 17.39 6.92A7 3 0 0 1 6.61 6.92A0.75 0.75 0 0 0 5.89 8.24ZM5.89 14.49A7.75 3.25 0 0 0 18.11 14.49A0.75 0.75 0 0 0 17.39 13.17A7 3 0 0 1 6.61 13.17A0.75 0.75 0 0 0 5.89 14.49Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 5.75A8 3.75 0 0 1 20 5.75V18.25A8 3.75 0 0 1 4 18.25ZM5.89 8.24A7.75 3.25 0 0 0 18.11 8.24A0.75 0.75 0 0 0 17.39 6.92A7 3 0 0 1 6.61 6.92A0.75 0.75 0 0 0 5.89 8.24ZM5.89 14.49A7.75 3.25 0 0 0 18.11 14.49A0.75 0.75 0 0 0 17.39 13.17A7 3 0 0 1 6.61 13.17A0.75 0.75 0 0 0 5.89 14.49Z\"/>",
+      "mark": false,
+      "tags": [
+        "cylinder",
+        "two discs",
+        "round"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "database-3": {
+      "paths": [
+        "M3.75 6A8.25 2.25 0 0 1 20.25 6A8.25 2.25 0 0 1 3.75 6Z",
+        "M3.75 6V18A8.25 2.25 0 0 0 20.25 18V6",
+        "M3.75 10A8.25 2.25 0 0 0 20.25 10",
+        "M3.75 14A8.25 2.25 0 0 0 20.25 14"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 6A8.25 2.25 0 0 1 20.25 6A8.25 2.25 0 0 1 3.75 6Z\"/> <path d=\"M3.75 6V18A8.25 2.25 0 0 0 20.25 18V6\"/> <path d=\"M3.75 10A8.25 2.25 0 0 0 20.25 10\"/> <path d=\"M3.75 14A8.25 2.25 0 0 0 20.25 14\"/>",
+      "mark": false,
+      "tags": [
+        "cylinder",
+        "three discs",
+        "wide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.27,
+          "optical": 3.2
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.27,
+          "optical": 3.2
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.56,
+          "optical": 3.42
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.56,
+          "optical": 3.42
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "database-3-filled": {
+      "paths": [],
+      "areas": [
+        "M3 6A9 3 0 0 1 21 6V18A9 3 0 0 1 3 18ZM4.98 7.99A8.75 2.5 0 0 0 19.02 7.99A0.75 0.75 0 0 0 18.48 6.59A7.75 2 0 0 1 5.52 6.59A0.75 0.75 0 0 0 4.98 7.99ZM4.98 11.99A8.75 2.5 0 0 0 19.02 11.99A0.75 0.75 0 0 0 18.48 10.59A7.75 2 0 0 1 5.52 10.59A0.75 0.75 0 0 0 4.98 11.99ZM4.98 15.99A8.75 2.5 0 0 0 19.02 15.99A0.75 0.75 0 0 0 18.48 14.59A7.75 2 0 0 1 5.52 14.59A0.75 0.75 0 0 0 4.98 15.99Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6A9 3 0 0 1 21 6V18A9 3 0 0 1 3 18ZM4.98 7.99A8.75 2.5 0 0 0 19.02 7.99A0.75 0.75 0 0 0 18.48 6.59A7.75 2 0 0 1 5.52 6.59A0.75 0.75 0 0 0 4.98 7.99ZM4.98 11.99A8.75 2.5 0 0 0 19.02 11.99A0.75 0.75 0 0 0 18.48 10.59A7.75 2 0 0 1 5.52 10.59A0.75 0.75 0 0 0 4.98 11.99ZM4.98 15.99A8.75 2.5 0 0 0 19.02 15.99A0.75 0.75 0 0 0 18.48 14.59A7.75 2 0 0 1 5.52 14.59A0.75 0.75 0 0 0 4.98 15.99Z\"/>",
+      "mark": false,
+      "tags": [
+        "cylinder",
+        "three discs",
+        "wide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "database-filled": {
+      "paths": [],
+      "areas": [
+        "M4 5.25A8 3.25 0 0 1 20 5.25V18.75A8 3.25 0 0 1 4 18.75ZM5.94 7.46A8 3 0 0 0 18.06 7.46A0.75 0.75 0 0 0 17.44 6.09A6.5 2 0 0 1 6.56 6.09A0.75 0.75 0 0 0 5.94 7.46ZM5.94 11.96A8 3 0 0 0 18.06 11.96A0.75 0.75 0 0 0 17.44 10.59A6.5 2 0 0 1 6.56 10.59A0.75 0.75 0 0 0 5.94 11.96ZM5.94 16.46A8 3 0 0 0 18.06 16.46A0.75 0.75 0 0 0 17.44 15.09A6.5 2 0 0 1 6.56 15.09A0.75 0.75 0 0 0 5.94 16.46Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 5.25A8 3.25 0 0 1 20 5.25V18.75A8 3.25 0 0 1 4 18.75ZM5.94 7.46A8 3 0 0 0 18.06 7.46A0.75 0.75 0 0 0 17.44 6.09A6.5 2 0 0 1 6.56 6.09A0.75 0.75 0 0 0 5.94 7.46ZM5.94 11.96A8 3 0 0 0 18.06 11.96A0.75 0.75 0 0 0 17.44 10.59A6.5 2 0 0 1 6.56 10.59A0.75 0.75 0 0 0 5.94 11.96ZM5.94 16.46A8 3 0 0 0 18.06 16.46A0.75 0.75 0 0 0 17.44 15.09A6.5 2 0 0 1 6.56 15.09A0.75 0.75 0 0 0 5.94 16.46Z\"/>",
+      "mark": false,
+      "tags": [
+        "cylinder",
+        "three discs"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "file": {
       "paths": [
         "M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z",
@@ -24993,6 +25341,12 @@
         "cursor-click",
         "cursor-click-filled",
         "cursor-filled",
+        "database",
+        "database-2",
+        "database-2-filled",
+        "database-3",
+        "database-3-filled",
+        "database-filled",
         "file",
         "file-filled",
         "file-text",
@@ -38015,6 +38369,346 @@
           "ratio": null,
           "gap": null
         },
+        "database": {
+          "paths": [
+            "M3.625 3.125A4.375 1.5 0 0 1 12.375 3.125A4.375 1.5 0 0 1 3.625 3.125Z",
+            "M3.625 3.125V12.875A4.375 1.5 0 0 0 12.375 12.875V3.125",
+            "M3.625 8A4.375 1.5 0 0 0 12.375 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 3.125A4.375 1.5 0 0 1 12.375 3.125A4.375 1.5 0 0 1 3.625 3.125Z\"/> <path d=\"M3.625 3.125V12.875A4.375 1.5 0 0 0 12.375 12.875V3.125\"/> <path d=\"M3.625 8A4.375 1.5 0 0 0 12.375 8\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.18,
+              "optical": 3.13
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.18,
+              "optical": 3.13
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.42,
+              "optical": 1.32
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.42,
+              "optical": 1.32
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-2": {
+          "paths": [
+            "M3.625 3.375A4.375 1.75 0 0 1 12.375 3.375A4.375 1.75 0 0 1 3.625 3.375Z",
+            "M3.625 3.375V12.625A4.375 1.75 0 0 0 12.375 12.625V3.375",
+            "M3.625 8A4.375 1.75 0 0 0 12.375 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 3.375A4.375 1.75 0 0 1 12.375 3.375A4.375 1.75 0 0 1 3.625 3.375Z\"/> <path d=\"M3.625 3.375V12.625A4.375 1.75 0 0 0 12.375 12.625V3.375\"/> <path d=\"M3.625 8A4.375 1.75 0 0 0 12.375 8\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "two discs",
+            "round"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.21,
+              "optical": 3.15
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.21,
+              "optical": 3.15
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.47,
+              "optical": 1.35
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.47,
+              "optical": 1.35
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-2-filled": {
+          "paths": [],
+          "areas": [
+            "M3 3.375A5 2.375 0 0 1 13 3.375V12.625A5 2.375 0 0 1 3 12.625ZM5.019 5.45A6.125 3.375 0 0 0 10.981 5.45A0.75 0.75 0 0 0 10.519 4.022A3.625 1.25 0 0 1 5.481 4.022A0.75 0.75 0 0 0 5.019 5.45ZM5.019 10.075A6.125 3.375 0 0 0 10.981 10.075A0.75 0.75 0 0 0 10.519 8.647A3.625 1.25 0 0 1 5.481 8.647A0.75 0.75 0 0 0 5.019 10.075Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 3.375A5 2.375 0 0 1 13 3.375V12.625A5 2.375 0 0 1 3 12.625ZM5.019 5.45A6.125 3.375 0 0 0 10.981 5.45A0.75 0.75 0 0 0 10.519 4.022A3.625 1.25 0 0 1 5.481 4.022A0.75 0.75 0 0 0 5.019 5.45ZM5.019 10.075A6.125 3.375 0 0 0 10.981 10.075A0.75 0.75 0 0 0 10.519 8.647A3.625 1.25 0 0 1 5.481 8.647A0.75 0.75 0 0 0 5.019 10.075Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "two discs",
+            "round"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-3": {
+          "paths": [
+            "M2.625 4.125A5.375 1.5 0 0 1 13.375 4.125A5.375 1.5 0 0 1 2.625 4.125Z",
+            "M2.625 4.125V11.875A5.375 1.5 0 0 0 13.375 11.875V4.125",
+            "M2.625 8A5.375 1.5 0 0 0 13.375 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 4.125A5.375 1.5 0 0 1 13.375 4.125A5.375 1.5 0 0 1 2.625 4.125Z\"/> <path d=\"M2.625 4.125V11.875A5.375 1.5 0 0 0 13.375 11.875V4.125\"/> <path d=\"M2.625 8A5.375 1.5 0 0 0 13.375 8\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.22,
+              "optical": 2.16
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.22,
+              "optical": 2.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.41,
+              "optical": 2.31
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.41,
+              "optical": 2.31
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-3-filled": {
+          "paths": [],
+          "areas": [
+            "M2 4.125A6 2.125 0 0 1 14 4.125V11.875A6 2.125 0 0 1 2 11.875ZM4.053 5.923A5.875 1.75 0 0 0 11.947 5.923A0.75 0.75 0 0 0 11.553 4.476A5.25 1.5 0 0 1 4.447 4.476A0.75 0.75 0 0 0 4.053 5.923ZM4.053 9.798A5.875 1.75 0 0 0 11.947 9.798A0.75 0.75 0 0 0 11.553 8.351A5.25 1.5 0 0 1 4.447 8.351A0.75 0.75 0 0 0 4.053 9.798Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 4.125A6 2.125 0 0 1 14 4.125V11.875A6 2.125 0 0 1 2 11.875ZM4.053 5.923A5.875 1.75 0 0 0 11.947 5.923A0.75 0.75 0 0 0 11.553 4.476A5.25 1.5 0 0 1 4.447 4.476A0.75 0.75 0 0 0 4.053 5.923ZM4.053 9.798A5.875 1.75 0 0 0 11.947 9.798A0.75 0.75 0 0 0 11.553 8.351A5.25 1.5 0 0 1 4.447 8.351A0.75 0.75 0 0 0 4.053 9.798Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-filled": {
+          "paths": [],
+          "areas": [
+            "M3 3.125A5 2.125 0 0 1 13 3.125V12.875A5 2.125 0 0 1 3 12.875ZM5.05 5.014A5 1.875 0 0 0 10.95 5.014A0.75 0.75 0 0 0 10.55 3.569A4.5 1.75 0 0 1 5.45 3.569A0.75 0.75 0 0 0 5.05 5.014ZM5.05 9.889A5 1.875 0 0 0 10.95 9.889A0.75 0.75 0 0 0 10.55 8.444A4.5 1.75 0 0 1 5.45 8.444A0.75 0.75 0 0 0 5.05 9.889Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 3.125A5 2.125 0 0 1 13 3.125V12.875A5 2.125 0 0 1 3 12.875ZM5.05 5.014A5 1.875 0 0 0 10.95 5.014A0.75 0.75 0 0 0 10.55 3.569A4.5 1.75 0 0 1 5.45 3.569A0.75 0.75 0 0 0 5.05 5.014ZM5.05 9.889A5 1.875 0 0 0 10.95 9.889A0.75 0.75 0 0 0 10.55 8.444A4.5 1.75 0 0 1 5.45 8.444A0.75 0.75 0 0 0 5.05 9.889Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "file": {
           "paths": [
             "M5.125 1.625H8.25L12.375 5.75V12.875A1.5 1.5 0 0 1 10.875 14.375H5.125A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625Z",
@@ -49723,6 +50417,12 @@
         "cursor-click",
         "cursor-click-filled",
         "cursor-filled",
+        "database",
+        "database-2",
+        "database-2-filled",
+        "database-3",
+        "database-3-filled",
+        "database-filled",
         "file",
         "file-filled",
         "file-text",
@@ -62748,6 +63448,346 @@
           "ratio": null,
           "gap": null
         },
+        "database": {
+          "paths": [
+            "M4.75 4.5A5.25 1.75 0 0 1 15.25 4.5A5.25 1.75 0 0 1 4.75 4.5Z",
+            "M4.75 4.5V15.5A5.25 1.75 0 0 0 15.25 15.5V4.5",
+            "M4.75 10A5.25 1.75 0 0 0 15.25 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 4.5A5.25 1.75 0 0 1 15.25 4.5A5.25 1.75 0 0 1 4.75 4.5Z\"/> <path d=\"M4.75 4.5V15.5A5.25 1.75 0 0 0 15.25 15.5V4.5\"/> <path d=\"M4.75 10A5.25 1.75 0 0 0 15.25 10\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.49,
+              "optical": 2.37
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.49,
+              "optical": 2.37
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-2": {
+          "paths": [
+            "M4.75 5A5.25 2.25 0 0 1 15.25 5A5.25 2.25 0 0 1 4.75 5Z",
+            "M4.75 5V15A5.25 2.25 0 0 0 15.25 15V5",
+            "M4.75 10A5.25 2.25 0 0 0 15.25 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 5A5.25 2.25 0 0 1 15.25 5A5.25 2.25 0 0 1 4.75 5Z\"/> <path d=\"M4.75 5V15A5.25 2.25 0 0 0 15.25 15V5\"/> <path d=\"M4.75 10A5.25 2.25 0 0 0 15.25 10\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "two discs",
+            "round"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.27,
+              "optical": 4.2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.27,
+              "optical": 4.2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.58,
+              "optical": 2.43
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.58,
+              "optical": 2.43
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-2-filled": {
+          "paths": [],
+          "areas": [
+            "M4 5A6 3 0 0 1 16 5V15A6 3 0 0 1 4 15ZM5.95 7.26A6.75 3.75 0 0 0 14.05 7.26A0.75 0.75 0 0 0 13.45 5.89A5.25 2.5 0 0 1 6.55 5.89A0.75 0.75 0 0 0 5.95 7.26ZM5.95 12.26A6.75 3.75 0 0 0 14.05 12.26A0.75 0.75 0 0 0 13.45 10.89A5.25 2.5 0 0 1 6.55 10.89A0.75 0.75 0 0 0 5.95 12.26Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 5A6 3 0 0 1 16 5V15A6 3 0 0 1 4 15ZM5.95 7.26A6.75 3.75 0 0 0 14.05 7.26A0.75 0.75 0 0 0 13.45 5.89A5.25 2.5 0 0 1 6.55 5.89A0.75 0.75 0 0 0 5.95 7.26ZM5.95 12.26A6.75 3.75 0 0 0 14.05 12.26A0.75 0.75 0 0 0 13.45 10.89A5.25 2.5 0 0 1 6.55 10.89A0.75 0.75 0 0 0 5.95 12.26Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "two discs",
+            "round"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-3": {
+          "paths": [
+            "M3.75 5.5A6.25 1.75 0 0 1 16.25 5.5A6.25 1.75 0 0 1 3.75 5.5Z",
+            "M3.75 5.5V14.5A6.25 1.75 0 0 0 16.25 14.5V5.5",
+            "M3.75 10A6.25 1.75 0 0 0 16.25 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 5.5A6.25 1.75 0 0 1 16.25 5.5A6.25 1.75 0 0 1 3.75 5.5Z\"/> <path d=\"M3.75 5.5V14.5A6.25 1.75 0 0 0 16.25 14.5V5.5\"/> <path d=\"M3.75 10A6.25 1.75 0 0 0 16.25 10\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.25,
+              "optical": 3.19
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.25,
+              "optical": 3.19
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.48,
+              "optical": 3.36
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.48,
+              "optical": 3.36
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-3-filled": {
+          "paths": [],
+          "areas": [
+            "M3 5.5A7 2.5 0 0 1 17 5.5V14.5A7 2.5 0 0 1 3 14.5ZM5.02 7.35A6.75 2 0 0 0 14.98 7.35A0.75 0.75 0 0 0 14.52 5.92A5.75 1.5 0 0 1 5.48 5.92A0.75 0.75 0 0 0 5.02 7.35ZM5.02 11.85A6.75 2 0 0 0 14.98 11.85A0.75 0.75 0 0 0 14.52 10.42A5.75 1.5 0 0 1 5.48 10.42A0.75 0.75 0 0 0 5.02 11.85Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 5.5A7 2.5 0 0 1 17 5.5V14.5A7 2.5 0 0 1 3 14.5ZM5.02 7.35A6.75 2 0 0 0 14.98 7.35A0.75 0.75 0 0 0 14.52 5.92A5.75 1.5 0 0 1 5.48 5.92A0.75 0.75 0 0 0 5.02 7.35ZM5.02 11.85A6.75 2 0 0 0 14.98 11.85A0.75 0.75 0 0 0 14.52 10.42A5.75 1.5 0 0 1 5.48 10.42A0.75 0.75 0 0 0 5.02 11.85Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-filled": {
+          "paths": [],
+          "areas": [
+            "M4 4.5A6 2.5 0 0 1 16 4.5V15.5A6 2.5 0 0 1 4 15.5ZM6.01 6.43A6 2.25 0 0 0 13.99 6.43A0.75 0.75 0 0 0 13.51 5.01A4.75 1.5 0 0 1 6.49 5.01A0.75 0.75 0 0 0 6.01 6.43ZM6.01 11.93A6 2.25 0 0 0 13.99 11.93A0.75 0.75 0 0 0 13.51 10.51A4.75 1.5 0 0 1 6.49 10.51A0.75 0.75 0 0 0 6.01 11.93Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 4.5A6 2.5 0 0 1 16 4.5V15.5A6 2.5 0 0 1 4 15.5ZM6.01 6.43A6 2.25 0 0 0 13.99 6.43A0.75 0.75 0 0 0 13.51 5.01A4.75 1.5 0 0 1 6.49 5.01A0.75 0.75 0 0 0 6.01 6.43ZM6.01 11.93A6 2.25 0 0 0 13.99 11.93A0.75 0.75 0 0 0 13.51 10.51A4.75 1.5 0 0 1 6.49 10.51A0.75 0.75 0 0 0 6.01 11.93Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "file": {
           "paths": [
             "M6.75 2.75H10.25L15.25 7.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z",
@@ -74475,6 +75515,12 @@
         "cursor-click",
         "cursor-click-filled",
         "cursor-filled",
+        "database",
+        "database-2",
+        "database-2-filled",
+        "database-3",
+        "database-3-filled",
+        "database-filled",
         "file",
         "file-filled",
         "file-text",
@@ -87493,6 +88539,348 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database": {
+          "paths": [
+            "M4.75 5.25A7.25 2.5 0 0 1 19.25 5.25A7.25 2.5 0 0 1 4.75 5.25Z",
+            "M4.75 5.25V18.75A7.25 2.5 0 0 0 19.25 18.75V5.25",
+            "M4.75 9.75A7.25 2.5 0 0 0 19.25 9.75",
+            "M4.75 14.25A7.25 2.5 0 0 0 19.25 14.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 5.25A7.25 2.5 0 0 1 19.25 5.25A7.25 2.5 0 0 1 4.75 5.25Z\"/> <path d=\"M4.75 5.25V18.75A7.25 2.5 0 0 0 19.25 18.75V5.25\"/> <path d=\"M4.75 9.75A7.25 2.5 0 0 0 19.25 9.75\"/> <path d=\"M4.75 14.25A7.25 2.5 0 0 0 19.25 14.25\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.26,
+              "optical": 4.2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.26,
+              "optical": 4.2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.6,
+              "optical": 2.45
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.6,
+              "optical": 2.45
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-2": {
+          "paths": [
+            "M4.75 5.75A7.25 3 0 0 1 19.25 5.75A7.25 3 0 0 1 4.75 5.75Z",
+            "M4.75 5.75V18.25A7.25 3 0 0 0 19.25 18.25V5.75",
+            "M4.75 12A7.25 3 0 0 0 19.25 12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 5.75A7.25 3 0 0 1 19.25 5.75A7.25 3 0 0 1 4.75 5.75Z\"/> <path d=\"M4.75 5.75V18.25A7.25 3 0 0 0 19.25 18.25V5.75\"/> <path d=\"M4.75 12A7.25 3 0 0 0 19.25 12\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "two discs",
+            "round"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.31,
+              "optical": 4.23
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.31,
+              "optical": 4.23
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.66,
+              "optical": 2.49
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.66,
+              "optical": 2.49
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-2-filled": {
+          "paths": [],
+          "areas": [
+            "M4 5.75A8 3.75 0 0 1 20 5.75V18.25A8 3.75 0 0 1 4 18.25ZM5.89 8.24A7.75 3.25 0 0 0 18.11 8.24A0.75 0.75 0 0 0 17.39 6.92A7 3 0 0 1 6.61 6.92A0.75 0.75 0 0 0 5.89 8.24ZM5.89 14.49A7.75 3.25 0 0 0 18.11 14.49A0.75 0.75 0 0 0 17.39 13.17A7 3 0 0 1 6.61 13.17A0.75 0.75 0 0 0 5.89 14.49Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 5.75A8 3.75 0 0 1 20 5.75V18.25A8 3.75 0 0 1 4 18.25ZM5.89 8.24A7.75 3.25 0 0 0 18.11 8.24A0.75 0.75 0 0 0 17.39 6.92A7 3 0 0 1 6.61 6.92A0.75 0.75 0 0 0 5.89 8.24ZM5.89 14.49A7.75 3.25 0 0 0 18.11 14.49A0.75 0.75 0 0 0 17.39 13.17A7 3 0 0 1 6.61 13.17A0.75 0.75 0 0 0 5.89 14.49Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "two discs",
+            "round"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-3": {
+          "paths": [
+            "M3.75 6A8.25 2.25 0 0 1 20.25 6A8.25 2.25 0 0 1 3.75 6Z",
+            "M3.75 6V18A8.25 2.25 0 0 0 20.25 18V6",
+            "M3.75 10A8.25 2.25 0 0 0 20.25 10",
+            "M3.75 14A8.25 2.25 0 0 0 20.25 14"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 6A8.25 2.25 0 0 1 20.25 6A8.25 2.25 0 0 1 3.75 6Z\"/> <path d=\"M3.75 6V18A8.25 2.25 0 0 0 20.25 18V6\"/> <path d=\"M3.75 10A8.25 2.25 0 0 0 20.25 10\"/> <path d=\"M3.75 14A8.25 2.25 0 0 0 20.25 14\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.27,
+              "optical": 3.2
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.27,
+              "optical": 3.2
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.56,
+              "optical": 3.42
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.56,
+              "optical": 3.42
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-3-filled": {
+          "paths": [],
+          "areas": [
+            "M3 6A9 3 0 0 1 21 6V18A9 3 0 0 1 3 18ZM4.98 7.99A8.75 2.5 0 0 0 19.02 7.99A0.75 0.75 0 0 0 18.48 6.59A7.75 2 0 0 1 5.52 6.59A0.75 0.75 0 0 0 4.98 7.99ZM4.98 11.99A8.75 2.5 0 0 0 19.02 11.99A0.75 0.75 0 0 0 18.48 10.59A7.75 2 0 0 1 5.52 10.59A0.75 0.75 0 0 0 4.98 11.99ZM4.98 15.99A8.75 2.5 0 0 0 19.02 15.99A0.75 0.75 0 0 0 18.48 14.59A7.75 2 0 0 1 5.52 14.59A0.75 0.75 0 0 0 4.98 15.99Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6A9 3 0 0 1 21 6V18A9 3 0 0 1 3 18ZM4.98 7.99A8.75 2.5 0 0 0 19.02 7.99A0.75 0.75 0 0 0 18.48 6.59A7.75 2 0 0 1 5.52 6.59A0.75 0.75 0 0 0 4.98 7.99ZM4.98 11.99A8.75 2.5 0 0 0 19.02 11.99A0.75 0.75 0 0 0 18.48 10.59A7.75 2 0 0 1 5.52 10.59A0.75 0.75 0 0 0 4.98 11.99ZM4.98 15.99A8.75 2.5 0 0 0 19.02 15.99A0.75 0.75 0 0 0 18.48 14.59A7.75 2 0 0 1 5.52 14.59A0.75 0.75 0 0 0 4.98 15.99Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "database-filled": {
+          "paths": [],
+          "areas": [
+            "M4 5.25A8 3.25 0 0 1 20 5.25V18.75A8 3.25 0 0 1 4 18.75ZM5.94 7.46A8 3 0 0 0 18.06 7.46A0.75 0.75 0 0 0 17.44 6.09A6.5 2 0 0 1 6.56 6.09A0.75 0.75 0 0 0 5.94 7.46ZM5.94 11.96A8 3 0 0 0 18.06 11.96A0.75 0.75 0 0 0 17.44 10.59A6.5 2 0 0 1 6.56 10.59A0.75 0.75 0 0 0 5.94 11.96ZM5.94 16.46A8 3 0 0 0 18.06 16.46A0.75 0.75 0 0 0 17.44 15.09A6.5 2 0 0 1 6.56 15.09A0.75 0.75 0 0 0 5.94 16.46Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 5.25A8 3.25 0 0 1 20 5.25V18.75A8 3.25 0 0 1 4 18.75ZM5.94 7.46A8 3 0 0 0 18.06 7.46A0.75 0.75 0 0 0 17.44 6.09A6.5 2 0 0 1 6.56 6.09A0.75 0.75 0 0 0 5.94 7.46ZM5.94 11.96A8 3 0 0 0 18.06 11.96A0.75 0.75 0 0 0 17.44 10.59A6.5 2 0 0 1 6.56 10.59A0.75 0.75 0 0 0 5.94 11.96ZM5.94 16.46A8 3 0 0 0 18.06 16.46A0.75 0.75 0 0 0 17.44 15.09A6.5 2 0 0 1 6.56 15.09A0.75 0.75 0 0 0 5.94 16.46Z\"/>",
+          "mark": false,
+          "tags": [
+            "cylinder",
+            "three discs"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -100865,8 +102253,26 @@
       "section": "D · The rest, by audit rank",
       "category": "Charts & Data",
       "base": null,
-      "note": null,
-      "status": "review"
+      "note": "approved 2026-09-23",
+      "status": "done"
+    },
+    {
+      "n": 53,
+      "name": "database-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "database",
+      "note": "Round discs, two · approved 2026-09-23",
+      "status": "done"
+    },
+    {
+      "n": 53,
+      "name": "database-3",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "database",
+      "note": "Wide, three discs · approved 2026-09-23",
+      "status": "done"
     },
     {
       "n": 54,
