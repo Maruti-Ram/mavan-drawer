@@ -262,7 +262,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 60. `key-4` · Users & Access · variant of `key` — Block bit · approved 2026-09-23
 - [x] 60. `key-5` · Users & Access · variant of `key` — Level key, ring bow · approved 2026-09-23
 - [x] 60. `key-6` · Users & Access · variant of `key` — Hanging key · approved 2026-09-23
-- [~] 61. `link` · Files & Folders
+- [x] 61. `link` · Files & Folders — approved 2026-09-23
+- [x] 61. `link-2` · Files & Folders · variant of `link` — Diagonal chain, bar · approved 2026-09-23
+- [x] 61. `link-3` · Files & Folders · variant of `link` — Level chain, bar · approved 2026-09-23
 - [~] 62. `list-bullet` · Editing & Text
 - [~] 63. `login` · Users & Access
 - [~] 64. `logout` · Users & Access
