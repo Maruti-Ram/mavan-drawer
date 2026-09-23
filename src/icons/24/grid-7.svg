@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: apps, tiles, tight, large -->
+  <!-- Four squares, whole pixels: Larger cells, tighter gap: gap 2 at every master, cells 8 · 6 · 5 outer, counters 5 · 3 · 2.5; radius 1 · 0.75 · 0.75 (outer 22 · 25 · 28% of the cell). The only 2×2 in this set with every edge on a whole pixel at all three masters (24: 3 / 11 / 13 / 21; 20: 3 / 9 / 11 / 17; 16: 2 / 7 / 9 / 14), so each wall at 16 renders as one solid pixel column and a quarter. Gap 2 is near the references (Lucide 2 at stroke 2, Nucleo 2 at 1.5) and under menu's 3 at 24 and 20. The absolute floor, 1.5, would give 5.25 cells at 16 with edges on 7.25 / 8.75; it is what C's filled twin shows. Smallest gap at 16: 2 between cells, counter 2.5. Filled: four solid squares, gap 2 -->
+  <path d="M4.75 3.75H9.25A1 1 0 0 1 10.25 4.75V9.25A1 1 0 0 1 9.25 10.25H4.75A1 1 0 0 1 3.75 9.25V4.75A1 1 0 0 1 4.75 3.75Z"/>
+  <path d="M14.75 3.75H19.25A1 1 0 0 1 20.25 4.75V9.25A1 1 0 0 1 19.25 10.25H14.75A1 1 0 0 1 13.75 9.25V4.75A1 1 0 0 1 14.75 3.75Z"/>
+  <path d="M4.75 13.75H9.25A1 1 0 0 1 10.25 14.75V19.25A1 1 0 0 1 9.25 20.25H4.75A1 1 0 0 1 3.75 19.25V14.75A1 1 0 0 1 4.75 13.75Z"/>
+  <path d="M14.75 13.75H19.25A1 1 0 0 1 20.25 14.75V19.25A1 1 0 0 1 19.25 20.25H14.75A1 1 0 0 1 13.75 19.25V14.75A1 1 0 0 1 14.75 13.75Z"/>
+</svg>

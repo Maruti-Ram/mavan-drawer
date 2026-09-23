@@ -247,7 +247,13 @@ Bases before their variants; within that, highest evidence first.
 - [x] 57. `flag-2` · Status & Feedback · variant of `flag` — One wave · approved 2026-09-23
 - [x] 57. `flag-3` · Status & Feedback · variant of `flag` — Drooping sweep · approved 2026-09-23
 - [x] 57. `flag-4` · Status & Feedback · variant of `flag` — Stepped cloth · approved 2026-09-23
-- [~] 58. `grid` · UI & Layout
+- [x] 58. `grid` · UI & Layout — approved 2026-09-23
+- [x] 58. `grid-2` · UI & Layout · variant of `grid` — Window, cross divider · approved 2026-09-23
+- [x] 58. `grid-3` · UI & Layout · variant of `grid` — Nine dots · approved 2026-09-23
+- [x] 58. `grid-4` · UI & Layout · variant of `grid` — Nine tiles · approved 2026-09-23
+- [x] 58. `grid-5` · UI & Layout · variant of `grid` — Three squares and a circle · approved 2026-09-23
+- [x] 58. `grid-6` · UI & Layout · variant of `grid` — Layout: sidebar and two rows · approved 2026-09-23
+- [x] 58. `grid-7` · UI & Layout · variant of `grid` — Four squares, whole pixels · approved 2026-09-23
 - [~] 59. `heart` · Status & Feedback
 - [~] 60. `key` · Users & Access
 - [ ] 61. `link` · Files & Folders

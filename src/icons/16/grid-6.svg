@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: layout, sidebar, dashboard, panels -->
+  <!-- Layout: sidebar and two rows: Checkbox's square with a full-height divider a third of the way in and the main area split in two rows. Sidebar counter 4.5 · 3.25 · 2.75 = 33 · 34 · 33% of the inside width (13.5 · 9.5 · 8.25 after the divider), rows 6.75 · 4.75 · 4.125 tall. Divider at x 9.75 · 8.5 · 6.625 (at 16 on x.625, so its left edge lands on pixel 6); the row line starts on the divider's centreline, its cap hidden inside the divider. Smallest gap at 16: sidebar 2.75. Filled: three pieces split by 1.5 cuts, outer corners 3.25 · 2.75 · 2.125, cut corners eased 0.5; at 16 the vertical cut is 6 to 7.5, sharing the line's whole-pixel left edge (the calendar-filled choice), the row cut 7.25 to 8.75 centred on 8. Sidebar piece 6 · 4.75 · 4 wide -->
+  <path d="M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z"/>
+  <path d="M6.625 2.625V13.375"/>
+  <path d="M6.625 8H13.375"/>
+</svg>

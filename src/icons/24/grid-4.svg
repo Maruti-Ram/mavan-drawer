@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- keyline: mark -->
+  <!-- tags: apps, launcher, tiles, nine, squares -->
+  <!-- Nine tiles: Nine hollow squares cannot be drawn: a square needs 1.5 of counter plus two walls, 4.5 · 4.5 · 4 outer, and three of them with two 1.5 gaps need 16.5 · 16.5 · 15 against the 18 · 14 · 12 keyline, so they die at 20 and 16. So these are solid tiles: a closed square whose side equals the stroke (1.5 · 1.5 · 1.25), no counter, 3 · 3 · 2.5 outer with the round join giving corners of 0.75 · 0.75 · 0.625. Pitch 6 · 5.25 · 4.5 (at 16 the centrelines of menu, 3.5 / 8 / 12.5), ink 15 · 13.5 · 11.5 as D, keyline: mark. Outline air 3 · 2.25 · 2; filled 2 · 1.75 · 1.5. Honest limit: at 16 a 2.5 tile with 0.625 corners is within a quarter pixel of D's 2.4 dot, so D and E only read as different at 24 and 20. Filled: tiles thicken in place (C17) at weight 2.5 · 2 · 2, 4 · 3.5 · 3 outer (at 16 the path shrinks to side 1 so the air holds 1.5), grows 0.5 · 0.25 · 0.25 -->
+  <path d="M5.25 5.25H6.75V6.75H5.25Z"/>
+  <path d="M11.25 5.25H12.75V6.75H11.25Z"/>
+  <path d="M17.25 5.25H18.75V6.75H17.25Z"/>
+  <path d="M5.25 11.25H6.75V12.75H5.25Z"/>
+  <path d="M11.25 11.25H12.75V12.75H11.25Z"/>
+  <path d="M17.25 11.25H18.75V12.75H17.25Z"/>
+  <path d="M5.25 17.25H6.75V18.75H5.25Z"/>
+  <path d="M11.25 17.25H12.75V18.75H11.25Z"/>
+  <path d="M17.25 17.25H18.75V18.75H17.25Z"/>
+</svg>
