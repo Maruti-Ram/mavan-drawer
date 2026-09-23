@@ -295,7 +295,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 69. `refresh-2` · Arrows & Direction · variant of `refresh` — Shipped head, circle keyline · approved 2026-09-23
 - [x] 69. `refresh-3` · Arrows & Direction · variant of `refresh` — Openings top and bottom · approved 2026-09-23
 - [x] 70. `save` · Files & Folders — approved 2026-09-23
-- [~] 71. `send` · Communication
+- [x] 71. `send` · Communication — approved 2026-09-24
 - [~] 72. `star` · Status & Feedback
 - [~] 73. `target` · Status & Feedback
 - [~] 74. `text` · Editing & Text
