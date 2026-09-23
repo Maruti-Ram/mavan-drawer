@@ -291,7 +291,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 67. `pencil-3` · Editing & Text · variant of `pencil` — Wide body · approved 2026-09-23
 - [x] 67. `pencil-4` · Editing & Text · variant of `pencil` — Pencil-line (write) · approved 2026-09-23
 - [x] 68. `phone` · Communication — approved 2026-09-23
-- [~] 69. `refresh` · Arrows & Direction
+- [x] 69. `refresh` · Arrows & Direction — approved 2026-09-23
+- [x] 69. `refresh-2` · Arrows & Direction · variant of `refresh` — Shipped head, circle keyline · approved 2026-09-23
+- [x] 69. `refresh-3` · Arrows & Direction · variant of `refresh` — Openings top and bottom · approved 2026-09-23
 - [~] 70. `save` · Files & Folders
 - [ ] 71. `send` · Communication
 - [ ] 72. `star` · Status & Feedback
