@@ -255,7 +255,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 58. `grid-6` · UI & Layout · variant of `grid` — Layout: sidebar and two rows · approved 2026-09-23
 - [x] 58. `grid-7` · UI & Layout · variant of `grid` — Four squares, whole pixels · approved 2026-09-23
 - [x] 59. `heart` · Status & Feedback — approved 2026-09-23
-- [~] 60. `key` · Users & Access
+- [x] 60. `key` · Users & Access — approved 2026-09-23
+- [x] 60. `key-2` · Users & Access · variant of `key` — Diagonal ring, two teeth · approved 2026-09-23
+- [x] 60. `key-3` · Users & Access · variant of `key` — Teardrop bow · approved 2026-09-23
+- [x] 60. `key-4` · Users & Access · variant of `key` — Block bit · approved 2026-09-23
+- [x] 60. `key-5` · Users & Access · variant of `key` — Level key, ring bow · approved 2026-09-23
+- [x] 60. `key-6` · Users & Access · variant of `key` — Hanging key · approved 2026-09-23
 - [ ] 61. `link` · Files & Folders
 - [ ] 62. `list-bullet` · Editing & Text
 - [ ] 63. `login` · Users & Access
