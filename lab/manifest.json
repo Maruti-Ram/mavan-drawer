@@ -376,6 +376,10 @@
     "users-2-behind",
     "users-2-behind-filled",
     "users-2-filled",
+    "users-2-level",
+    "users-2-level-filled",
+    "users-2-wide",
+    "users-2-wide-filled",
     "users-behind",
     "users-behind-filled",
     "users-filled",
@@ -21367,6 +21371,268 @@
       "ratio": null,
       "gap": null
     },
+    "users-2-level": {
+      "paths": [
+        "M4.75 8A3.25 3.25 0 1 0 11.25 8A3.25 3.25 0 1 0 4.75 8Z",
+        "M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3 16.91A6.02 6.02 0 0 1 8 14.25A6.02 6.02 0 0 1 13 16.91A1.5 1.5 0 0 1 13.25 17.75A1.5 1.5 0 0 1 11.75 19.25Z",
+        "M13.79 5.62A3.25 3.25 0 0 1 16 4.75A3.25 3.25 0 0 1 19.25 8A3.25 3.25 0 0 1 16 11.25A3.25 3.25 0 0 1 13.79 10.38",
+        "M16 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21 16.91A6.02 6.02 0 0 0 16 14.25A6.02 6.02 0 0 0 14.83 14.37"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 8A3.25 3.25 0 1 0 11.25 8A3.25 3.25 0 1 0 4.75 8Z\"/> <path d=\"M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3 16.91A6.02 6.02 0 0 1 8 14.25A6.02 6.02 0 0 1 13 16.91A1.5 1.5 0 0 1 13.25 17.75A1.5 1.5 0 0 1 11.75 19.25Z\"/> <path d=\"M13.79 5.62A3.25 3.25 0 0 1 16 4.75A3.25 3.25 0 0 1 19.25 8A3.25 3.25 0 0 1 16 11.25A3.25 3.25 0 0 1 13.79 10.38\"/> <path d=\"M16 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21 16.91A6.02 6.02 0 0 0 16 14.25A6.02 6.02 0 0 0 14.83 14.37\"/>",
+      "mark": false,
+      "tags": [
+        "team",
+        "group",
+        "people",
+        "members",
+        "user-2",
+        "large head",
+        "pair",
+        "arcs",
+        "wide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.33,
+          "optical": 2.25
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.33,
+          "optical": 2.25
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.27,
+          "optical": 4.2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.12,
+          "optical": 4.09
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "users-2-level-filled": {
+      "paths": [],
+      "areas": [
+        "M4 8A4 4 0 1 0 12 8A4 4 0 1 0 4 8Z",
+        "M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.38 16.5A6.77 6.77 0 0 1 8 13.5A6.77 6.77 0 0 1 13.62 16.5A2.25 2.25 0 0 1 14 17.75A2.25 2.25 0 0 1 11.75 20Z",
+        "M13.28 5.07A4 4 0 0 1 16 4A4 4 0 0 1 20 8A4 4 0 0 1 16 12A4 4 0 0 1 13.28 10.93A0.75 0.75 0 0 1 13.09 10.09A5.5 5.5 0 0 0 13.09 5.91A0.75 0.75 0 0 1 13.28 5.07Z",
+        "M16 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.62 16.5A6.77 6.77 0 0 0 16 13.5A6.77 6.77 0 0 0 14.68 13.63A0.75 0.75 0 0 0 14.26 14.86A8.27 8.27 0 0 1 14.86 15.66A3.75 3.75 0 0 1 15.5 17.75A3.75 3.75 0 0 1 15.29 19A0.75 0.75 0 0 0 16 20Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 8A4 4 0 1 0 12 8A4 4 0 1 0 4 8Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.38 16.5A6.77 6.77 0 0 1 8 13.5A6.77 6.77 0 0 1 13.62 16.5A2.25 2.25 0 0 1 14 17.75A2.25 2.25 0 0 1 11.75 20Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.28 5.07A4 4 0 0 1 16 4A4 4 0 0 1 20 8A4 4 0 0 1 16 12A4 4 0 0 1 13.28 10.93A0.75 0.75 0 0 1 13.09 10.09A5.5 5.5 0 0 0 13.09 5.91A0.75 0.75 0 0 1 13.28 5.07Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.62 16.5A6.77 6.77 0 0 0 16 13.5A6.77 6.77 0 0 0 14.68 13.63A0.75 0.75 0 0 0 14.26 14.86A8.27 8.27 0 0 1 14.86 15.66A3.75 3.75 0 0 1 15.5 17.75A3.75 3.75 0 0 1 15.29 19A0.75 0.75 0 0 0 16 20Z\"/>",
+      "mark": false,
+      "tags": [
+        "team",
+        "group",
+        "people",
+        "members",
+        "user-2",
+        "large head",
+        "pair",
+        "arcs",
+        "wide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "users-2-wide": {
+      "paths": [
+        "M4.75 9.5A2.75 2.75 0 1 0 10.25 9.5A2.75 2.75 0 1 0 4.75 9.5Z",
+        "M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3.41 16.51A7.28 7.28 0 0 1 7.5 15.25A7.28 7.28 0 0 1 11.59 16.51A1.5 1.5 0 0 1 12.25 17.75A1.5 1.5 0 0 1 10.75 19.25Z",
+        "M13.75 7.5A2.75 2.75 0 1 0 19.25 7.5A2.75 2.75 0 1 0 13.75 7.5Z",
+        "M15 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21.25 17.63A4.76 4.76 0 0 0 16.5 13.25A4.76 4.76 0 0 0 13.58 14.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 9.5A2.75 2.75 0 1 0 10.25 9.5A2.75 2.75 0 1 0 4.75 9.5Z\"/> <path d=\"M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3.41 16.51A7.28 7.28 0 0 1 7.5 15.25A7.28 7.28 0 0 1 11.59 16.51A1.5 1.5 0 0 1 12.25 17.75A1.5 1.5 0 0 1 10.75 19.25Z\"/> <path d=\"M13.75 7.5A2.75 2.75 0 1 0 19.25 7.5A2.75 2.75 0 1 0 13.75 7.5Z\"/> <path d=\"M15 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21.25 17.63A4.76 4.76 0 0 0 16.5 13.25A4.76 4.76 0 0 0 13.58 14.25\"/>",
+      "mark": false,
+      "tags": [
+        "team",
+        "group",
+        "people",
+        "members",
+        "user-2",
+        "large head",
+        "pair",
+        "whole head",
+        "wide",
+        "depth"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.22,
+          "optical": 2.17
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.33,
+          "optical": 2.25
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.24,
+          "optical": 4.18
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.12,
+          "optical": 4.09
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "users-2-wide-filled": {
+      "paths": [],
+      "areas": [
+        "M4 9.5A3.5 3.5 0 1 0 11 9.5A3.5 3.5 0 1 0 4 9.5Z",
+        "M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.99 15.89A8.03 8.03 0 0 1 7.5 14.5A8.03 8.03 0 0 1 12.01 15.89A2.25 2.25 0 0 1 13 17.75A2.25 2.25 0 0 1 10.75 20Z",
+        "M13 7.5A3.5 3.5 0 1 0 20 7.5A3.5 3.5 0 1 0 13 7.5Z",
+        "M15 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.99 17.57A5.51 5.51 0 0 0 16.5 12.5A5.51 5.51 0 0 0 13.13 13.65A0.75 0.75 0 0 0 13.11 14.83A3.75 3.75 0 0 1 14.5 17.75A3.75 3.75 0 0 1 14.29 19A0.75 0.75 0 0 0 15 20Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 9.5A3.5 3.5 0 1 0 11 9.5A3.5 3.5 0 1 0 4 9.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.99 15.89A8.03 8.03 0 0 1 7.5 14.5A8.03 8.03 0 0 1 12.01 15.89A2.25 2.25 0 0 1 13 17.75A2.25 2.25 0 0 1 10.75 20Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 7.5A3.5 3.5 0 1 0 20 7.5A3.5 3.5 0 1 0 13 7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.99 17.57A5.51 5.51 0 0 0 16.5 12.5A5.51 5.51 0 0 0 13.13 13.65A0.75 0.75 0 0 0 13.11 14.83A3.75 3.75 0 0 1 14.5 17.75A3.75 3.75 0 0 1 14.29 19A0.75 0.75 0 0 0 15 20Z\"/>",
+      "mark": false,
+      "tags": [
+        "team",
+        "group",
+        "people",
+        "members",
+        "user-2",
+        "large head",
+        "pair",
+        "whole head",
+        "wide",
+        "depth"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "users-behind": {
       "paths": [
         "M7.25 6.5A2.75 2.75 0 1 0 12.75 6.5A2.75 2.75 0 1 0 7.25 6.5Z",
@@ -22757,6 +23023,10 @@
         "users-2-behind",
         "users-2-behind-filled",
         "users-2-filled",
+        "users-2-level",
+        "users-2-level-filled",
+        "users-2-wide",
+        "users-2-wide-filled",
         "users-behind",
         "users-behind-filled",
         "users-filled",
@@ -43730,6 +44000,268 @@
           "ratio": null,
           "gap": null
         },
+        "users-2-level": {
+          "paths": [
+            "M3.875 5.25A1.625 1.625 0 1 0 7.125 5.25A1.625 1.625 0 1 0 3.875 5.25Z",
+            "M2.625 12.375A1 1 0 0 1 1.625 11.375A1 1 0 0 1 2.137 10.502A6.885 6.885 0 0 1 5.5 9.625A6.885 6.885 0 0 1 8.863 10.502A1 1 0 0 1 9.375 11.375A1 1 0 0 1 8.375 12.375Z",
+            "M9.655 3.862A1.625 1.625 0 0 1 10.5 3.625A1.625 1.625 0 0 1 12.125 5.25A1.625 1.625 0 0 1 10.5 6.875A1.625 1.625 0 0 1 9.655 6.638",
+            "M11.996 12.375H13.375A1 1 0 0 0 14.375 11.375A1 1 0 0 0 13.863 10.502A6.885 6.885 0 0 0 11.757 9.741"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.875 5.25A1.625 1.625 0 1 0 7.125 5.25A1.625 1.625 0 1 0 3.875 5.25Z\"/> <path d=\"M2.625 12.375A1 1 0 0 1 1.625 11.375A1 1 0 0 1 2.137 10.502A6.885 6.885 0 0 1 5.5 9.625A6.885 6.885 0 0 1 8.863 10.502A1 1 0 0 1 9.375 11.375A1 1 0 0 1 8.375 12.375Z\"/> <path d=\"M9.655 3.862A1.625 1.625 0 0 1 10.5 3.625A1.625 1.625 0 0 1 12.125 5.25A1.625 1.625 0 0 1 10.5 6.875A1.625 1.625 0 0 1 9.655 6.638\"/> <path d=\"M11.996 12.375H13.375A1 1 0 0 0 14.375 11.375A1 1 0 0 0 13.863 10.502A6.885 6.885 0 0 0 11.757 9.741\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "arcs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.23,
+              "optical": 1.17
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.23,
+              "optical": 1.17
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.1,
+              "optical": 3.07
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-level-filled": {
+          "paths": [],
+          "areas": [
+            "M3.25 5.25A2.25 2.25 0 1 0 7.75 5.25A2.25 2.25 0 1 0 3.25 5.25Z",
+            "M2.625 13A1.625 1.625 0 0 1 1 11.375A1.625 1.625 0 0 1 1.831 9.957A7.51 7.51 0 0 1 5.5 9A7.51 7.51 0 0 1 9.169 9.957A1.625 1.625 0 0 1 10 11.375A1.625 1.625 0 0 1 8.375 13Z",
+            "M9.33 3.328A2.25 2.25 0 0 1 10.5 3A2.25 2.25 0 0 1 12.75 5.25A2.25 2.25 0 0 1 10.5 7.5A2.25 2.25 0 0 1 9.33 7.172A0.625 0.625 0 0 1 9.062 6.44A3.75 3.75 0 0 0 9.062 4.06A0.625 0.625 0 0 1 9.33 3.328Z",
+            "M11.996 13H13.375A1.625 1.625 0 0 0 15 11.375A1.625 1.625 0 0 0 14.169 9.957A7.51 7.51 0 0 0 11.871 9.126A0.625 0.625 0 0 0 11.194 10.013A3.125 3.125 0 0 1 11.5 11.375A3.125 3.125 0 0 1 11.393 12.209A0.625 0.625 0 0 0 11.996 13Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.25 5.25A2.25 2.25 0 1 0 7.75 5.25A2.25 2.25 0 1 0 3.25 5.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.625 13A1.625 1.625 0 0 1 1 11.375A1.625 1.625 0 0 1 1.831 9.957A7.51 7.51 0 0 1 5.5 9A7.51 7.51 0 0 1 9.169 9.957A1.625 1.625 0 0 1 10 11.375A1.625 1.625 0 0 1 8.375 13Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.33 3.328A2.25 2.25 0 0 1 10.5 3A2.25 2.25 0 0 1 12.75 5.25A2.25 2.25 0 0 1 10.5 7.5A2.25 2.25 0 0 1 9.33 7.172A0.625 0.625 0 0 1 9.062 6.44A3.75 3.75 0 0 0 9.062 4.06A0.625 0.625 0 0 1 9.33 3.328Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.996 13H13.375A1.625 1.625 0 0 0 15 11.375A1.625 1.625 0 0 0 14.169 9.957A7.51 7.51 0 0 0 11.871 9.126A0.625 0.625 0 0 0 11.194 10.013A3.125 3.125 0 0 1 11.5 11.375A3.125 3.125 0 0 1 11.393 12.209A0.625 0.625 0 0 0 11.996 13Z\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "arcs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-wide": {
+          "paths": [
+            "M3.625 5.5A1.375 1.375 0 1 0 6.375 5.5A1.375 1.375 0 1 0 3.625 5.5Z",
+            "M2.625 12.375A1 1 0 0 1 1.625 11.375A1 1 0 0 1 2.051 10.556A5.135 5.135 0 0 1 5 9.625A5.135 5.135 0 0 1 7.949 10.556A1 1 0 0 1 8.375 11.375A1 1 0 0 1 7.375 12.375Z",
+            "M9.625 5A1.375 1.375 0 1 0 12.375 5A1.375 1.375 0 1 0 9.625 5Z",
+            "M10.996 12.375H13.375A1 1 0 0 0 14.375 11.375A1 1 0 0 0 14.199 10.809A3.881 3.881 0 0 0 11 9.125A3.881 3.881 0 0 0 10.415 9.169"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 5.5A1.375 1.375 0 1 0 6.375 5.5A1.375 1.375 0 1 0 3.625 5.5Z\"/> <path d=\"M2.625 12.375A1 1 0 0 1 1.625 11.375A1 1 0 0 1 2.051 10.556A5.135 5.135 0 0 1 5 9.625A5.135 5.135 0 0 1 7.949 10.556A1 1 0 0 1 8.375 11.375A1 1 0 0 1 7.375 12.375Z\"/> <path d=\"M9.625 5A1.375 1.375 0 1 0 12.375 5A1.375 1.375 0 1 0 9.625 5Z\"/> <path d=\"M10.996 12.375H13.375A1 1 0 0 0 14.375 11.375A1 1 0 0 0 14.199 10.809A3.881 3.881 0 0 0 11 9.125A3.881 3.881 0 0 0 10.415 9.169\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "whole head",
+            "wide",
+            "depth"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.21,
+              "optical": 1.16
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.27,
+              "optical": 1.2
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-wide-filled": {
+          "paths": [],
+          "areas": [
+            "M3 5.5A2 2 0 1 0 7 5.5A2 2 0 1 0 3 5.5Z",
+            "M2.625 13A1.625 1.625 0 0 1 1 11.375A1.625 1.625 0 0 1 1.692 10.045A5.76 5.76 0 0 1 5 9A5.76 5.76 0 0 1 8.308 10.045A1.625 1.625 0 0 1 9 11.375A1.625 1.625 0 0 1 7.375 13Z",
+            "M9 5A2 2 0 1 0 13 5A2 2 0 1 0 9 5Z",
+            "M10.996 13H13.375A1.625 1.625 0 0 0 15 11.375A1.625 1.625 0 0 0 14.714 10.455A4.506 4.506 0 0 0 11 8.5A4.506 4.506 0 0 0 10.321 8.551A0.625 0.625 0 0 0 9.91 9.536A3.125 3.125 0 0 1 10.5 11.375A3.125 3.125 0 0 1 10.393 12.209A0.625 0.625 0 0 0 10.996 13Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 5.5A2 2 0 1 0 7 5.5A2 2 0 1 0 3 5.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.625 13A1.625 1.625 0 0 1 1 11.375A1.625 1.625 0 0 1 1.692 10.045A5.76 5.76 0 0 1 5 9A5.76 5.76 0 0 1 8.308 10.045A1.625 1.625 0 0 1 9 11.375A1.625 1.625 0 0 1 7.375 13Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 5A2 2 0 1 0 13 5A2 2 0 1 0 9 5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.996 13H13.375A1.625 1.625 0 0 0 15 11.375A1.625 1.625 0 0 0 14.714 10.455A4.506 4.506 0 0 0 11 8.5A4.506 4.506 0 0 0 10.321 8.551A0.625 0.625 0 0 0 9.91 9.536A3.125 3.125 0 0 1 10.5 11.375A3.125 3.125 0 0 1 10.393 12.209A0.625 0.625 0 0 0 10.996 13Z\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "whole head",
+            "wide",
+            "depth"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "users-behind": {
           "paths": [
             "M4.125 4.5A1.875 1.875 0 1 0 7.875 4.5A1.875 1.875 0 1 0 4.125 4.5Z",
@@ -45120,6 +45652,10 @@
         "users-2-behind",
         "users-2-behind-filled",
         "users-2-filled",
+        "users-2-level",
+        "users-2-level-filled",
+        "users-2-wide",
+        "users-2-wide-filled",
         "users-behind",
         "users-behind-filled",
         "users-filled",
@@ -66110,6 +66646,268 @@
           "ratio": null,
           "gap": null
         },
+        "users-2-level": {
+          "paths": [
+            "M5 6.75A2 2 0 1 0 9 6.75A2 2 0 1 0 5 6.75Z",
+            "M4 15.25A1.25 1.25 0 0 1 2.75 14A1.25 1.25 0 0 1 3.25 13A6.25 6.25 0 0 1 7 11.75A6.25 6.25 0 0 1 10.75 13A1.25 1.25 0 0 1 11.25 14A1.25 1.25 0 0 1 10 15.25Z",
+            "M11.76 5.18A2 2 0 0 1 13 4.75A2 2 0 0 1 15 6.75A2 2 0 0 1 13 8.75A2 2 0 0 1 11.76 8.32",
+            "M14.07 15.25H16A1.25 1.25 0 0 0 17.25 14A1.25 1.25 0 0 0 16.75 13A6.25 6.25 0 0 0 13.63 11.78"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5 6.75A2 2 0 1 0 9 6.75A2 2 0 1 0 5 6.75Z\"/> <path d=\"M4 15.25A1.25 1.25 0 0 1 2.75 14A1.25 1.25 0 0 1 3.25 13A6.25 6.25 0 0 1 7 11.75A6.25 6.25 0 0 1 10.75 13A1.25 1.25 0 0 1 11.25 14A1.25 1.25 0 0 1 10 15.25Z\"/> <path d=\"M11.76 5.18A2 2 0 0 1 13 4.75A2 2 0 0 1 15 6.75A2 2 0 0 1 13 8.75A2 2 0 0 1 11.76 8.32\"/> <path d=\"M14.07 15.25H16A1.25 1.25 0 0 0 17.25 14A1.25 1.25 0 0 0 16.75 13A6.25 6.25 0 0 0 13.63 11.78\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "arcs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.29,
+              "optical": 2.22
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.29,
+              "optical": 2.22
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.13,
+              "optical": 4.1
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.13,
+              "optical": 4.1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-level-filled": {
+          "paths": [],
+          "areas": [
+            "M4.25 6.75A2.75 2.75 0 1 0 9.75 6.75A2.75 2.75 0 1 0 4.25 6.75Z",
+            "M4 16A2 2 0 0 1 2 14A2 2 0 0 1 2.8 12.4A7 7 0 0 1 7 11A7 7 0 0 1 11.2 12.4A2 2 0 0 1 12 14A2 2 0 0 1 10 16Z",
+            "M11.29 4.6A2.75 2.75 0 0 1 13 4A2.75 2.75 0 0 1 15.75 6.75A2.75 2.75 0 0 1 13 9.5A2.75 2.75 0 0 1 11.29 8.9A0.75 0.75 0 0 1 11.04 8.08A4.25 4.25 0 0 0 11.04 5.42A0.75 0.75 0 0 1 11.29 4.6Z",
+            "M14.07 16H16A2 2 0 0 0 18 14A2 2 0 0 0 17.2 12.4A7 7 0 0 0 13.71 11.04A0.75 0.75 0 0 0 12.99 12.17A3.5 3.5 0 0 1 13.5 14A3.5 3.5 0 0 1 13.35 15.03A0.75 0.75 0 0 0 14.07 16Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.25 6.75A2.75 2.75 0 1 0 9.75 6.75A2.75 2.75 0 1 0 4.25 6.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 16A2 2 0 0 1 2 14A2 2 0 0 1 2.8 12.4A7 7 0 0 1 7 11A7 7 0 0 1 11.2 12.4A2 2 0 0 1 12 14A2 2 0 0 1 10 16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.29 4.6A2.75 2.75 0 0 1 13 4A2.75 2.75 0 0 1 15.75 6.75A2.75 2.75 0 0 1 13 9.5A2.75 2.75 0 0 1 11.29 8.9A0.75 0.75 0 0 1 11.04 8.08A4.25 4.25 0 0 0 11.04 5.42A0.75 0.75 0 0 1 11.29 4.6Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.07 16H16A2 2 0 0 0 18 14A2 2 0 0 0 17.2 12.4A7 7 0 0 0 13.71 11.04A0.75 0.75 0 0 0 12.99 12.17A3.5 3.5 0 0 1 13.5 14A3.5 3.5 0 0 1 13.35 15.03A0.75 0.75 0 0 0 14.07 16Z\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "arcs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-wide": {
+          "paths": [
+            "M4.25 7A1.75 1.75 0 1 0 7.75 7A1.75 1.75 0 1 0 4.25 7Z",
+            "M4 15.25A1.25 1.25 0 0 1 2.75 14A1.25 1.25 0 0 1 3 13.25A3.75 3.75 0 0 1 6 11.75A3.75 3.75 0 0 1 9 13.25A1.25 1.25 0 0 1 9.25 14A1.25 1.25 0 0 1 8 15.25Z",
+            "M12.25 6.5A1.75 1.75 0 1 0 15.75 6.5A1.75 1.75 0 1 0 12.25 6.5Z",
+            "M12.07 15.25H16A1.25 1.25 0 0 0 17.25 14A1.25 1.25 0 0 0 17.2 13.65A3.33 3.33 0 0 0 14 11.25A3.33 3.33 0 0 0 11.8 12.08"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 7A1.75 1.75 0 1 0 7.75 7A1.75 1.75 0 1 0 4.25 7Z\"/> <path d=\"M4 15.25A1.25 1.25 0 0 1 2.75 14A1.25 1.25 0 0 1 3 13.25A3.75 3.75 0 0 1 6 11.75A3.75 3.75 0 0 1 9 13.25A1.25 1.25 0 0 1 9.25 14A1.25 1.25 0 0 1 8 15.25Z\"/> <path d=\"M12.25 6.5A1.75 1.75 0 1 0 15.75 6.5A1.75 1.75 0 1 0 12.25 6.5Z\"/> <path d=\"M12.07 15.25H16A1.25 1.25 0 0 0 17.25 14A1.25 1.25 0 0 0 17.2 13.65A3.33 3.33 0 0 0 14 11.25A3.33 3.33 0 0 0 11.8 12.08\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "whole head",
+            "wide",
+            "depth"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.3,
+              "optical": 2.22
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.19,
+              "optical": 4.14
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.16,
+              "optical": 4.12
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-wide-filled": {
+          "paths": [],
+          "areas": [
+            "M3.5 7A2.5 2.5 0 1 0 8.5 7A2.5 2.5 0 1 0 3.5 7Z",
+            "M4 16A2 2 0 0 1 2 14A2 2 0 0 1 2.4 12.8A4.5 4.5 0 0 1 6 11A4.5 4.5 0 0 1 9.6 12.8A2 2 0 0 1 10 14A2 2 0 0 1 8 16Z",
+            "M11.5 6.5A2.5 2.5 0 1 0 16.5 6.5A2.5 2.5 0 1 0 11.5 6.5Z",
+            "M12.07 16H16A2 2 0 0 0 18 14A2 2 0 0 0 17.92 13.44A4.08 4.08 0 0 0 14 10.5A4.08 4.08 0 0 0 11.3 11.52A0.75 0.75 0 0 0 11.13 12.42A3.5 3.5 0 0 1 11.5 14A3.5 3.5 0 0 1 11.35 15.03A0.75 0.75 0 0 0 12.07 16Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.5 7A2.5 2.5 0 1 0 8.5 7A2.5 2.5 0 1 0 3.5 7Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 16A2 2 0 0 1 2 14A2 2 0 0 1 2.4 12.8A4.5 4.5 0 0 1 6 11A4.5 4.5 0 0 1 9.6 12.8A2 2 0 0 1 10 14A2 2 0 0 1 8 16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.5 6.5A2.5 2.5 0 1 0 16.5 6.5A2.5 2.5 0 1 0 11.5 6.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.07 16H16A2 2 0 0 0 18 14A2 2 0 0 0 17.92 13.44A4.08 4.08 0 0 0 14 10.5A4.08 4.08 0 0 0 11.3 11.52A0.75 0.75 0 0 0 11.13 12.42A3.5 3.5 0 0 1 11.5 14A3.5 3.5 0 0 1 11.35 15.03A0.75 0.75 0 0 0 12.07 16Z\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "whole head",
+            "wide",
+            "depth"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "users-behind": {
           "paths": [
             "M6.25 5.5A1.75 1.75 0 1 0 9.75 5.5A1.75 1.75 0 1 0 6.25 5.5Z",
@@ -67500,6 +68298,10 @@
         "users-2-behind",
         "users-2-behind-filled",
         "users-2-filled",
+        "users-2-level",
+        "users-2-level-filled",
+        "users-2-wide",
+        "users-2-wide-filled",
         "users-behind",
         "users-behind-filled",
         "users-filled",
@@ -88491,6 +89293,268 @@
           "ratio": null,
           "gap": null
         },
+        "users-2-level": {
+          "paths": [
+            "M4.75 8A3.25 3.25 0 1 0 11.25 8A3.25 3.25 0 1 0 4.75 8Z",
+            "M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3 16.91A6.02 6.02 0 0 1 8 14.25A6.02 6.02 0 0 1 13 16.91A1.5 1.5 0 0 1 13.25 17.75A1.5 1.5 0 0 1 11.75 19.25Z",
+            "M13.79 5.62A3.25 3.25 0 0 1 16 4.75A3.25 3.25 0 0 1 19.25 8A3.25 3.25 0 0 1 16 11.25A3.25 3.25 0 0 1 13.79 10.38",
+            "M16 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21 16.91A6.02 6.02 0 0 0 16 14.25A6.02 6.02 0 0 0 14.83 14.37"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 8A3.25 3.25 0 1 0 11.25 8A3.25 3.25 0 1 0 4.75 8Z\"/> <path d=\"M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3 16.91A6.02 6.02 0 0 1 8 14.25A6.02 6.02 0 0 1 13 16.91A1.5 1.5 0 0 1 13.25 17.75A1.5 1.5 0 0 1 11.75 19.25Z\"/> <path d=\"M13.79 5.62A3.25 3.25 0 0 1 16 4.75A3.25 3.25 0 0 1 19.25 8A3.25 3.25 0 0 1 16 11.25A3.25 3.25 0 0 1 13.79 10.38\"/> <path d=\"M16 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21 16.91A6.02 6.02 0 0 0 16 14.25A6.02 6.02 0 0 0 14.83 14.37\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "arcs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.27,
+              "optical": 4.2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.12,
+              "optical": 4.09
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-level-filled": {
+          "paths": [],
+          "areas": [
+            "M4 8A4 4 0 1 0 12 8A4 4 0 1 0 4 8Z",
+            "M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.38 16.5A6.77 6.77 0 0 1 8 13.5A6.77 6.77 0 0 1 13.62 16.5A2.25 2.25 0 0 1 14 17.75A2.25 2.25 0 0 1 11.75 20Z",
+            "M13.28 5.07A4 4 0 0 1 16 4A4 4 0 0 1 20 8A4 4 0 0 1 16 12A4 4 0 0 1 13.28 10.93A0.75 0.75 0 0 1 13.09 10.09A5.5 5.5 0 0 0 13.09 5.91A0.75 0.75 0 0 1 13.28 5.07Z",
+            "M16 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.62 16.5A6.77 6.77 0 0 0 16 13.5A6.77 6.77 0 0 0 14.68 13.63A0.75 0.75 0 0 0 14.26 14.86A8.27 8.27 0 0 1 14.86 15.66A3.75 3.75 0 0 1 15.5 17.75A3.75 3.75 0 0 1 15.29 19A0.75 0.75 0 0 0 16 20Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 8A4 4 0 1 0 12 8A4 4 0 1 0 4 8Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.38 16.5A6.77 6.77 0 0 1 8 13.5A6.77 6.77 0 0 1 13.62 16.5A2.25 2.25 0 0 1 14 17.75A2.25 2.25 0 0 1 11.75 20Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.28 5.07A4 4 0 0 1 16 4A4 4 0 0 1 20 8A4 4 0 0 1 16 12A4 4 0 0 1 13.28 10.93A0.75 0.75 0 0 1 13.09 10.09A5.5 5.5 0 0 0 13.09 5.91A0.75 0.75 0 0 1 13.28 5.07Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.62 16.5A6.77 6.77 0 0 0 16 13.5A6.77 6.77 0 0 0 14.68 13.63A0.75 0.75 0 0 0 14.26 14.86A8.27 8.27 0 0 1 14.86 15.66A3.75 3.75 0 0 1 15.5 17.75A3.75 3.75 0 0 1 15.29 19A0.75 0.75 0 0 0 16 20Z\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "arcs",
+            "wide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-wide": {
+          "paths": [
+            "M4.75 9.5A2.75 2.75 0 1 0 10.25 9.5A2.75 2.75 0 1 0 4.75 9.5Z",
+            "M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3.41 16.51A7.28 7.28 0 0 1 7.5 15.25A7.28 7.28 0 0 1 11.59 16.51A1.5 1.5 0 0 1 12.25 17.75A1.5 1.5 0 0 1 10.75 19.25Z",
+            "M13.75 7.5A2.75 2.75 0 1 0 19.25 7.5A2.75 2.75 0 1 0 13.75 7.5Z",
+            "M15 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21.25 17.63A4.76 4.76 0 0 0 16.5 13.25A4.76 4.76 0 0 0 13.58 14.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 9.5A2.75 2.75 0 1 0 10.25 9.5A2.75 2.75 0 1 0 4.75 9.5Z\"/> <path d=\"M4.25 19.25A1.5 1.5 0 0 1 2.75 17.75A1.5 1.5 0 0 1 3.41 16.51A7.28 7.28 0 0 1 7.5 15.25A7.28 7.28 0 0 1 11.59 16.51A1.5 1.5 0 0 1 12.25 17.75A1.5 1.5 0 0 1 10.75 19.25Z\"/> <path d=\"M13.75 7.5A2.75 2.75 0 1 0 19.25 7.5A2.75 2.75 0 1 0 13.75 7.5Z\"/> <path d=\"M15 19.25H19.75A1.5 1.5 0 0 0 21.25 17.75A1.5 1.5 0 0 0 21.25 17.63A4.76 4.76 0 0 0 16.5 13.25A4.76 4.76 0 0 0 13.58 14.25\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "whole head",
+            "wide",
+            "depth"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.22,
+              "optical": 2.17
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.24,
+              "optical": 4.18
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.12,
+              "optical": 4.09
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "users-2-wide-filled": {
+          "paths": [],
+          "areas": [
+            "M4 9.5A3.5 3.5 0 1 0 11 9.5A3.5 3.5 0 1 0 4 9.5Z",
+            "M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.99 15.89A8.03 8.03 0 0 1 7.5 14.5A8.03 8.03 0 0 1 12.01 15.89A2.25 2.25 0 0 1 13 17.75A2.25 2.25 0 0 1 10.75 20Z",
+            "M13 7.5A3.5 3.5 0 1 0 20 7.5A3.5 3.5 0 1 0 13 7.5Z",
+            "M15 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.99 17.57A5.51 5.51 0 0 0 16.5 12.5A5.51 5.51 0 0 0 13.13 13.65A0.75 0.75 0 0 0 13.11 14.83A3.75 3.75 0 0 1 14.5 17.75A3.75 3.75 0 0 1 14.29 19A0.75 0.75 0 0 0 15 20Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 9.5A3.5 3.5 0 1 0 11 9.5A3.5 3.5 0 1 0 4 9.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.25 20A2.25 2.25 0 0 1 2 17.75A2.25 2.25 0 0 1 2.99 15.89A8.03 8.03 0 0 1 7.5 14.5A8.03 8.03 0 0 1 12.01 15.89A2.25 2.25 0 0 1 13 17.75A2.25 2.25 0 0 1 10.75 20Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 7.5A3.5 3.5 0 1 0 20 7.5A3.5 3.5 0 1 0 13 7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15 20H19.75A2.25 2.25 0 0 0 22 17.75A2.25 2.25 0 0 0 21.99 17.57A5.51 5.51 0 0 0 16.5 12.5A5.51 5.51 0 0 0 13.13 13.65A0.75 0.75 0 0 0 13.11 14.83A3.75 3.75 0 0 1 14.5 17.75A3.75 3.75 0 0 1 14.29 19A0.75 0.75 0 0 0 15 20Z\"/>",
+          "mark": false,
+          "tags": [
+            "team",
+            "group",
+            "people",
+            "members",
+            "user-2",
+            "large head",
+            "pair",
+            "whole head",
+            "wide",
+            "depth"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "users-behind": {
           "paths": [
             "M7.25 6.5A2.75 2.75 0 1 0 12.75 6.5A2.75 2.75 0 1 0 7.25 6.5Z",
@@ -90945,6 +92009,24 @@
       "category": "Users & Access",
       "base": "users",
       "note": "Raised back, arcs · approved 2026-09-23",
+      "status": "done"
+    },
+    {
+      "n": 42,
+      "name": "users-2-wide",
+      "section": "C · Core containers and figures",
+      "category": "Users & Access",
+      "base": "users",
+      "note": "Raised back, whole heads, wide · approved 2026-09-23",
+      "status": "done"
+    },
+    {
+      "n": 42,
+      "name": "users-2-level",
+      "section": "C · Core containers and figures",
+      "category": "Users & Access",
+      "base": "users",
+      "note": "Level pair in arcs, wide · approved 2026-09-23",
       "status": "done"
     },
     {
