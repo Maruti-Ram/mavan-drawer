@@ -255,6 +255,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 58. `grid-6` · UI & Layout · variant of `grid` — Layout: sidebar and two rows · approved 2026-09-23
 - [x] 58. `grid-7` · UI & Layout · variant of `grid` — Four squares, whole pixels · approved 2026-09-23
 - [x] 59. `heart` · Status & Feedback — approved 2026-09-23
+- [x] 59. `heart-2` · Status & Feedback · variant of `heart` — Faceted · approved 2026-09-23
 - [x] 60. `key` · Users & Access — approved 2026-09-23
 - [x] 60. `key-2` · Users & Access · variant of `key` — Diagonal ring, two teeth · approved 2026-09-23
 - [x] 60. `key-3` · Users & Access · variant of `key` — Teardrop bow · approved 2026-09-23
