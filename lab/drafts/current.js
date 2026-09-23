@@ -8,6 +8,8 @@
 // 0.25 · 0.125 · 0.25 further; the closed mouths (F, G) are knocked out at their outline ink. Gaps are measured by a throwaway
 // script on the rounded path text (lint never measures a knockout against another knockout); every gap holds 1.5.
 // Off-grid numbers are the cut's offset arcs (radius +- half the cut) and their tangent points, rounded to 2 dp (3 at 16).
+// K and L (added after C's mouth read unbalanced): Polaris's smile on our ring, a concentric mouth sweeping 150 degrees, ends
+// 15 degrees below level; K with dots, L with C's dashes. Eyes start at Polaris's proportion and move only where the 1.5 gap needs it.
 
 export default {
   "concept": "face-smile",
@@ -19,7 +21,7 @@ export default {
     "check-circle",
     "x-circle"
   ],
-  "question": "Which of these ten faces reads as a calm, refined smile at 16 beside info and help, outline and filled, to ship as face-smile, with any others you want locked as face-smile-2 onward?",
+  "question": "Which of these twelve faces reads as a calm, refined smile at 16 beside info and help, outline and filled, to ship as face-smile, with any others you want locked as face-smile-2 onward?",
   "candidates": [
     {
       "id": "A",
@@ -28,7 +30,7 @@ export default {
         "dots",
         "round"
       ],
-      "note": "RECOMMENDED. Library dots 6 · 4 · 4 apart, 2.5 · 2 · 2 above centre (at 20 and 16 on whole pixels, so each eye is a crisp 2×2 pixel square). Mouth one true arc: ends ±4.5 · 3.5 · 2.75 at 1.5 · 1.25 · 1.375 below centre, radius 5.5 · 4.25 · 3.25, sweep 110° · 111° · 116°; ink 10.5×3.84 · 8.5×3.34 · 6.75×2.77. Eye top to mouth bottom sits 0.42 · 0.42 · 0.26 below centre. Gaps, outline: eye to mouth 2.27 · 1.83 · 1.83, eye to ring 3.34 · 2.67 · 1.92, mouth to ring 3.01 · 2.03 · 2.05; filled: eye hole to mouth hole 2.05 · 1.74 · 1.6 (the smallest), rim 4.27 · 3.05 at 24 · 16. Why recommended: it is built only from parts the circle family already has (info's dot, one stroke like info's stem), the mouth is a single circular arc with no new radius, and at 16 it is the fullest smile that still keeps 1.6 of disc between eye and mouth when filled.",
+      "note": "Library dots 6 · 4 · 4 apart, 2.5 · 2 · 2 above centre (at 20 and 16 on whole pixels, so each eye is a crisp 2×2 pixel square). Mouth one true arc: ends ±4.5 · 3.5 · 2.75 at 1.5 · 1.25 · 1.375 below centre, radius 5.5 · 4.25 · 3.25, sweep 110° · 111° · 116°; ink 10.5×3.84 · 8.5×3.34 · 6.75×2.77. Eye top to mouth bottom sits 0.42 · 0.42 · 0.26 below centre. Gaps, outline: eye to mouth 2.27 · 1.83 · 1.83, eye to ring 3.34 · 2.67 · 1.92, mouth to ring 3.01 · 2.03 · 2.05; filled: eye hole to mouth hole 2.05 · 1.74 · 1.6 (the smallest), rim 4.27 · 3.05 at 24 · 16. Why it was first recommended: it is built only from parts the circle family already has (info's dot, one stroke like info's stem), the mouth is a single circular arc with no new radius, and at 16 it is the fullest smile that still keeps 1.6 of disc between eye and mouth when filled.",
       "masters": {
         "16": [
           "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
@@ -515,6 +517,108 @@ export default {
         "24": {
           "fill": [
             "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM7.75 9A1.25 1.25 0 1 0 10.25 9A1.25 1.25 0 1 0 7.75 9ZM13.75 9A1.25 1.25 0 1 0 16.25 9A1.25 1.25 0 1 0 13.75 9ZM7.2 15.6A6 6 0 0 0 16.8 15.6A1 1 0 0 0 15.2 14.4A4 4 0 0 1 8.8 14.4A1 1 0 0 0 7.2 15.6Z"
+          ],
+          "stroke": []
+        }
+      }
+    },
+    {
+      "id": "K",
+      "label": "Polaris balance, dots",
+      "tags": [
+        "dots",
+        "concentric",
+        "polaris",
+        "wide sweep"
+      ],
+      "note": "(recommended) Polaris balance, dots. The mouth is Polaris's: one arc on the ring's own centre, sweeping 150°, so its ends stop 15° below the level of the centre and the curve follows the ring instead of hanging under the eyes as a U (A and C: arc centre 1.66 below the face centre, ends turned up 55°; J is concentric but sweeps only 106°). Centreline radius = Polaris's mouth outer edge (4/7 of its ring's outer radius) on our ring, less our half stroke: 24: 10 × 4/7 = 5.71 − 0.75 = 4.96 → 5; 20: 8 × 4/7 = 4.57 − 0.75 = 3.82 → 3.75; 16: 7 × 4/7 = 4 − 0.625 = 3.375, exact on the eighth grid (J uses 3.125 at 16, a quarter smaller than the proportion). The ends are the point (radius, 0) turned 15° down about the centre, then rounded: (±4.83, 1.29) · (±3.62, 0.97) · (±3.26, 0.874) from centre, so the sweep is 150.03 · 149.74 · 150° and the ends sit 14.98 · 15.13 · 15° below level. Mouth ink 11.16×5.21 · 8.74×4.27 · 7.77×3.75. Stroke stays 1.5 · 1.5 · 1.25, never scaled. Eyes: the library dot ⌀2.5 · 2 · 2 (A, info) at Polaris's place, (±1.5, −1.5) of 7 from centre. 24: (±2.14, −2.14) → (±2.25, −2.25) on the grid, unchanged. 20: (±1.75, −1.75) leaves 1.43 of disc between eye hole and mouth hole when filled, so the eyes go up 0.25 and out 0.25 to (±2, −2): whole pixels, each eye a crisp 2×2 square (x 8 / 12, y 8), as A. 16: Polaris's (±1.5, −1.5) puts the dots 1.0 apart and 1.08 from the mouth hole filled; the eyes go out 0.5 and up 1.0 to (±2, −2.5): whole pixels across (x 6 / 10) but a half pixel down (y 5.5), so each eye is crisp at its sides and soft top and bottom. No spot whole in both directions holds 1.5 with the 150° mouth: (±2, −2) leaves 1.28 filled to the mouth, (±2, −3) leaves 1.14 to the ring. Gaps 24 · 20 · 16 — eye to mouth end: outline 2.38 · 1.63 · 1.98, filled 2.13 · 1.51 · 1.73; eye to ring 4.07 · 2.67 · 1.55; mouth to ring 2.75 · 2 · 1.75; eye to eye 2 · 2 · 2; filled rim 4 · 3.38 · 2.75. Filled: the disc with dot holes the size of the dots and the mouth cut 2 · 1.75 · 1.75 wide, as A. Off-grid numbers: the rotated mouth ends above, and in the filled file the cut's edges (radius ± half the cut) turned the same way, 2 dp (3 at 16). The board's MASS line is not a rule; balance is judged by eye. Why recommended: it is the curve Maruti liked in Polaris, the same 150° at all three masters, with the dots the circle family already uses.",
+      "masters": {
+        "16": [
+          "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+          "M5.625 5.5A0.375 0.375 0 1 0 6.375 5.5A0.375 0.375 0 1 0 5.625 5.5Z",
+          "M9.625 5.5A0.375 0.375 0 1 0 10.375 5.5A0.375 0.375 0 1 0 9.625 5.5Z",
+          "M4.74 8.874A3.375 3.375 0 0 0 11.26 8.874"
+        ],
+        "20": [
+          "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+          "M7.75 8A0.25 0.25 0 1 0 8.25 8A0.25 0.25 0 1 0 7.75 8Z",
+          "M11.75 8A0.25 0.25 0 1 0 12.25 8A0.25 0.25 0 1 0 11.75 8Z",
+          "M6.38 10.97A3.75 3.75 0 0 0 13.62 10.97"
+        ],
+        "24": [
+          "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+          "M9.25 9.75A0.5 0.5 0 1 0 10.25 9.75A0.5 0.5 0 1 0 9.25 9.75Z",
+          "M13.75 9.75A0.5 0.5 0 1 0 14.75 9.75A0.5 0.5 0 1 0 13.75 9.75Z",
+          "M7.17 13.29A5 5 0 0 0 16.83 13.29"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5 5.5A1 1 0 1 0 7 5.5A1 1 0 1 0 5 5.5ZM9 5.5A1 1 0 1 0 11 5.5A1 1 0 1 0 9 5.5ZM3.895 9.1A4.25 4.25 0 0 0 12.105 9.1A0.875 0.875 0 0 0 10.415 8.647A2.5 2.5 0 0 1 5.585 8.647A0.875 0.875 0 0 0 3.895 9.1Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7 8A1 1 0 1 0 9 8A1 1 0 1 0 7 8ZM11 8A1 1 0 1 0 13 8A1 1 0 1 0 11 8ZM5.53 11.2A4.63 4.63 0 0 0 14.47 11.2A0.88 0.88 0 0 0 12.78 10.74A2.88 2.88 0 0 1 7.22 10.74A0.88 0.88 0 0 0 5.53 11.2Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.5 9.75A1.25 1.25 0 1 0 11 9.75A1.25 1.25 0 1 0 8.5 9.75ZM13 9.75A1.25 1.25 0 1 0 15.5 9.75A1.25 1.25 0 1 0 13 9.75ZM6.2 13.55A6 6 0 0 0 17.8 13.55A1 1 0 0 0 15.86 13.04A4 4 0 0 1 8.14 13.04A1 1 0 0 0 6.2 13.55Z"
+          ],
+          "stroke": []
+        }
+      }
+    },
+    {
+      "id": "L",
+      "label": "Polaris balance, dashes",
+      "tags": [
+        "dash eyes",
+        "concentric",
+        "polaris",
+        "wide sweep"
+      ],
+      "note": "Polaris balance, dashes. K's mouth — same radius 5 · 3.75 · 3.375 and 150° at 24 and 20 — with C's dash eyes: ink 1.5×3 · 1.5×2.75 · 1.25×2.5, cut 2 · 1.75 · 1.75 wide in the filled twin, as C. Placement from Polaris's (±1.5, −1.5) of 7: 24: dashes centred on (±2.25, −2.25), lines at x ±2.25 from y −3 to −1.5, unchanged. 20: the nearest grid dash to Polaris's place (x ±1.75, centred −1.875) leaves 1.15 filled between dash end and mouth end; the dashes rise 0.5 to centre −2.375 (lines −3 to −1.75), the least quarter step that holds (a 0.25 rise gives 1.35). 16: dashes on x ±1.625 (the 16 line grid, x 6.375 / 9.625; 1.5 apart filled), risen 1.0 from Polaris's −1.5 to centre −2.5 (lines −3.125 to −1.875), as high as the ring allows (eye to ring 1.6; one eighth higher is 1.49). That still leaves 1.45 filled at 150°, so at 16 only the sweep closes to 146°: ends at 17° below level, (±3.228, 0.987) from centre, the point (3.375, 0) turned 17° and rounded (148° gives 1.49). Sweep 150.03 · 149.74 · 146.05°, ends 14.98 · 15.13 · 16.97° below level. Gaps 24 · 20 · 16 — eye to mouth end: outline 2.3 · 1.8 · 2.03, filled 1.8 · 1.55 · 1.53; eye to ring 4 · 2.28 · 1.6; mouth to ring 2.75 · 2 · 1.75; eye to eye outline 3 · 2 · 2, filled 2.5 · 1.75 · 1.5; filled rim 4 · 3.38 · 2.6. Off-grid numbers: the rotated mouth ends and the filled cut's edges, as K. The board's MASS line is not a rule; balance is judged by eye. Closest to Polaris's own face; the dashes sit higher than Polaris's because our 1.5 gap is wider than Polaris's own (about 0.8 there).",
+      "masters": {
+        "16": [
+          "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+          "M6.375 4.875V6.125",
+          "M9.625 4.875V6.125",
+          "M4.772 8.987A3.375 3.375 0 0 0 11.228 8.987"
+        ],
+        "20": [
+          "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+          "M8.25 7V8.25",
+          "M11.75 7V8.25",
+          "M6.38 10.97A3.75 3.75 0 0 0 13.62 10.97"
+        ],
+        "24": [
+          "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+          "M9.75 9V10.5",
+          "M14.25 9V10.5",
+          "M7.17 13.29A5 5 0 0 0 16.83 13.29"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5.5 4.875L5.5 6.125A0.875 0.875 0 0 0 7.25 6.125L7.25 4.875A0.875 0.875 0 0 0 5.5 4.875ZM8.75 4.875L8.75 6.125A0.875 0.875 0 0 0 10.5 6.125L10.5 4.875A0.875 0.875 0 0 0 8.75 4.875ZM3.936 9.243A4.25 4.25 0 0 0 12.064 9.243A0.875 0.875 0 0 0 10.391 8.731A2.5 2.5 0 0 1 5.609 8.731A0.875 0.875 0 0 0 3.936 9.243Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7.38 7L7.38 8.25A0.88 0.88 0 0 0 9.13 8.25L9.13 7A0.88 0.88 0 0 0 7.38 7ZM10.88 7L10.88 8.25A0.88 0.88 0 0 0 12.63 8.25L12.63 7A0.88 0.88 0 0 0 10.88 7ZM5.53 11.2A4.63 4.63 0 0 0 14.47 11.2A0.88 0.88 0 0 0 12.78 10.74A2.88 2.88 0 0 1 7.22 10.74A0.88 0.88 0 0 0 5.53 11.2Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM13.25 9L13.25 10.5A1 1 0 0 0 15.25 10.5L15.25 9A1 1 0 0 0 13.25 9ZM6.2 13.55A6 6 0 0 0 17.8 13.55A1 1 0 0 0 15.86 13.04A4 4 0 0 1 8.14 13.04A1 1 0 0 0 6.2 13.55Z"
           ],
           "stroke": []
         }
