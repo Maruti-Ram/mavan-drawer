@@ -290,7 +290,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 67. `pencil-2` · Editing & Text · variant of `pencil` — Round end · approved 2026-09-23
 - [x] 67. `pencil-3` · Editing & Text · variant of `pencil` — Wide body · approved 2026-09-23
 - [x] 67. `pencil-4` · Editing & Text · variant of `pencil` — Pencil-line (write) · approved 2026-09-23
-- [~] 68. `phone` · Communication
+- [x] 68. `phone` · Communication — approved 2026-09-23
 - [~] 69. `refresh` · Arrows & Direction
 - [~] 70. `save` · Files & Folders
 - [ ] 71. `send` · Communication
