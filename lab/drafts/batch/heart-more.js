@@ -8,7 +8,7 @@
 
 export default {
   "concept": "heart",
-  "context": "Like, favourite, love, save for later - and the hearts beside it: broken, health, rating, saved",
+  "context": "Like",
   "family": [
     "heart",
     "bell",
