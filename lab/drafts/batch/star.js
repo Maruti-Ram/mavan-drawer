@@ -8,7 +8,7 @@
 // round too (Lucide 2.12 on 24, Polaris ≈ 1.5 outer), and where a star sits: its ink box is wider than tall
 // (W/H = 1.051 for any regular star) with more of its area below the centre, so box-centred and circle-centred
 // disagree by 0.81 at 24 (a regular star's area centre IS its circumcentre, so box-centred puts the
-// mass 0.85 · 0.65 · 0.57 low and circle-centred puts it exactly on the canvas centre with the ink box that much high).
+// mass 0.86 · 0.65 · 0.58 low and circle-centred puts it exactly on the canvas centre with the ink box that much high).
 // The board holds every candidate box-centred except I, which declares the lift.
 // The ten: A classic 0.47 (recommended); B full 0.5; C slim 0.42; D pentagram 0.382; E soft tips; F soft tips and notches;
 // G full with round notches (Lucide); H compact, square-keyline width; I tips on the circle keyline, circle-centred (lifted);
@@ -38,7 +38,7 @@ export default {
         "rating",
         "five-point"
       ],
-      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 147.69 · 91.99 · 70.93 (38.54 · 37.43 · 37.7% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.85 · 0.65 · 0.57 below the canvas centre (0.85 · 0.65 · 0.57 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 7.28 · 5.57 · 4.92 across, each arm's counter is 4.46 · 3.29 · 2.94 clear at its base and narrows into the tip's bend; adjacent notches 5.96 · 4.79 · 4.19 apart on the line. Straight run left on each edge after the bends 5.63 · 4.2 · 3.74; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes (recommended)",
+      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 207.74 · 140.52 · 106.25 (54.21 · 57.18 · 56.47% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.86 · 0.65 · 0.58 below the canvas centre (0.86 · 0.65 · 0.58 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 7.28 · 5.57 · 4.92 across, each arm's counter is 4.46 · 3.29 · 2.94 clear at its base and narrows into the tip's bend; adjacent notches 5.96 · 4.79 · 4.19 apart on the line. Straight run left on each edge after the bends 5.63 · 4.2 · 3.74; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes (recommended)",
       "box": {
         "16": [
           14,
@@ -67,19 +67,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.333 2.184A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 8.667 2.184L9.67 6.278L13.873 5.967A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.286 7.236L10.703 9.455L12.297 13.356A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 11.218 14.141L8 11.418L4.782 14.141A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.703 13.356L5.297 9.455L1.714 7.236A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.127 5.967L6.33 6.278Z"
+            "M6.858 2.022A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 9.142 2.022L10.518 5.111L13.881 5.466A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.587 7.637L12.075 9.901L12.776 13.209A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 10.929 14.551L8 12.861L5.071 14.551A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.224 13.209L3.925 9.901L1.413 7.637A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.119 5.466L5.482 5.111Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.22 3.41A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 10.78 3.41L11.89 8.06L16.65 7.67A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.13 9.16L13.06 11.65L14.89 16.06A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.63 16.97L10 13.87L6.37 16.97A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 5.11 16.06L6.95 11.65L2.87 9.16A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.35 7.67L8.11 8.06Z"
+            "M8.63 3.21A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 11.37 3.21L12.91 6.65L16.66 7.05A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.5 9.66L14.7 12.18L15.48 15.87A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.27 17.48L10 15.6L6.73 17.48A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 4.52 15.87L5.3 12.18L2.5 9.66A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.34 7.05L7.09 6.65Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.13 3.49A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 12.87 3.49L14.47 9.46L20.64 9.13A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.18 10.79L16 14.16L18.21 19.93A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.8 20.95L12 17.06L7.2 20.95A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.79 19.93L8.01 14.16L2.82 10.79A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.36 9.13L9.53 9.46Z"
+            "M10.63 3.31A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 13.37 3.31L15.49 8.06L20.66 8.6A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.5 11.21L17.64 14.69L18.72 19.78A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.5 21.39L12 18.79L7.5 21.39A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.28 19.78L6.36 14.69L2.5 11.21A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.34 8.6L8.51 8.06Z"
           ],
           "stroke": []
         }
@@ -94,7 +94,7 @@ export default {
         "favourite",
         "rating"
       ],
-      "note": "Inner radius 0.5 of the outer (sharp skeleton), so the tips open 52.54 · 52.54 · 52.54° and the notches 124.54 · 124.54 · 124.54°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 154.88 · 96.3 · 74.31 (40.42 · 39.18 · 39.49% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.85 · 0.65 · 0.57 below the canvas centre (0.85 · 0.65 · 0.57 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 7.91 · 6.05 · 5.35 across, each arm's counter is 4.75 · 3.51 · 3.13 clear at its base and narrows into the tip's bend; adjacent notches 6.25 · 5.01 · 4.38 apart on the line. Straight run left on each edge after the bends 5.54 · 4.14 · 3.69; the tip's cap pulls 0.94 · 0.94 · 0.79 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.5 of the outer (sharp skeleton), so the tips open 52.54 · 52.54 · 52.54° and the notches 124.54 · 124.54 · 124.54°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 212.99 · 143.32 · 108.49 (55.58 · 58.32 · 57.66% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.86 · 0.66 · 0.58 below the canvas centre (0.85 · 0.66 · 0.58 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 7.91 · 6.05 · 5.35 across, each arm's counter is 4.75 · 3.51 · 3.13 clear at its base and narrows into the tip's bend; adjacent notches 6.25 · 5.01 · 4.38 apart on the line. Straight run left on each edge after the bends 5.54 · 4.14 · 3.69; the tip's cap pulls 0.94 · 0.94 · 0.79 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           14,
@@ -123,19 +123,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.325 2.148A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 8.675 2.148L9.777 6.131L13.906 5.948A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.323 7.232L10.875 9.511L12.325 13.381A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 11.233 14.175L8 11.6L4.767 14.175A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.675 13.381L5.125 9.511L1.677 7.232A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.094 5.948L6.223 6.131Z"
+            "M6.879 1.978A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 9.121 1.978L10.607 4.989L13.93 5.472A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.623 7.604L12.218 9.947L12.786 13.257A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 10.972 14.575L8 13.012L5.028 14.575A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.214 13.257L3.782 9.947L1.377 7.604A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.07 5.472L5.393 4.989Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.21 3.37A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 10.79 3.37L12.01 7.89L16.69 7.65A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.18 9.15L13.25 11.71L14.92 16.09A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.65 17.02L10 14.07L6.35 17.02A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 5.08 16.09L6.75 11.71L2.82 9.15A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.31 7.65L7.99 7.89Z"
+            "M8.65 3.16A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 11.35 3.16L13 6.52L16.72 7.06A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.55 9.62L14.86 12.23L15.5 15.93A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.32 17.51L10 15.77L6.68 17.51A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 4.5 15.93L5.14 12.23L2.45 9.62A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.28 7.06L7 6.52Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.12 3.44A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 12.88 3.44L14.63 9.24L20.68 9.11A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.23 10.78L16.25 14.24L18.24 19.96A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.83 20.99L12 17.33L7.17 20.99A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.76 19.96L7.75 14.24L2.77 10.78A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.32 9.11L9.37 9.24Z"
+            "M10.65 3.26A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 13.35 3.26L15.62 7.87L20.72 8.61A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.55 11.17L17.86 14.76L18.73 19.83A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.56 21.42L12 19.02L7.44 21.42A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.27 19.83L6.14 14.76L2.45 11.17A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.28 8.61L8.38 7.87Z"
           ],
           "stroke": []
         }
@@ -149,7 +149,7 @@ export default {
         "favourite",
         "rating"
       ],
-      "note": "Inner radius 0.42 of the outer (sharp skeleton), so the tips open 41 · 41 · 41° and the notches 113 · 113 · 113°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 135.46 · 84.66 · 65.21 (35.35 · 34.45 · 34.66% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.85 · 0.64 · 0.57 below the canvas centre (0.85 · 0.64 · 0.57 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.26 · 4.79 · 4.24 across, each arm's counter is 3.97 · 2.93 · 2.62 clear at its base and narrows into the tip's bend; adjacent notches 5.47 · 4.43 · 3.87 apart on the line. Straight run left on each edge after the bends 5.8 · 4.32 · 3.85; the tip's cap pulls 1.39 · 1.39 · 1.16 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.42 of the outer (sharp skeleton), so the tips open 41 · 41 · 41° and the notches 113 · 113 · 113°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 199.12 · 136.03 · 102.7 (51.96 · 55.35 · 54.58% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.86 · 0.65 · 0.58 below the canvas centre (0.86 · 0.65 · 0.58 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.26 · 4.79 · 4.24 across, each arm's counter is 3.97 · 2.93 · 2.62 clear at its base and narrows into the tip's bend; adjacent notches 5.47 · 4.43 · 3.87 apart on the line. Straight run left on each edge after the bends 5.8 · 4.32 · 3.85; the tip's cap pulls 1.39 · 1.39 · 1.16 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           14,
@@ -178,19 +178,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.353 2.242A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 8.647 2.242L9.493 6.523L13.825 6.003A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.225 7.235L10.415 9.362L12.248 13.322A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 11.2 14.083L8 11.116L4.8 14.083A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.752 13.322L5.585 9.362L1.775 7.235A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.175 6.003L6.507 6.523Z"
+            "M6.829 2.093A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 9.171 2.093L10.374 5.31L13.805 5.46A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.528 7.687L11.841 9.825L12.758 13.134A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 10.864 14.511L8 12.615L5.136 14.511A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.242 13.134L4.159 9.825L1.472 7.687A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.195 5.46L5.626 5.31Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.24 3.48A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 10.76 3.48L11.69 8.33L16.59 7.72A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.06 9.16L12.73 11.54L14.83 16.02A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.61 16.91L10 13.52L6.39 16.91A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 5.17 16.02L7.27 11.54L2.94 9.16A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.41 7.72L8.31 8.33Z"
+            "M8.6 3.29A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 11.4 3.29L12.74 6.88L16.57 7.04A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.43 9.72L14.44 12.1L15.46 15.78A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.19 17.43L10 15.32L6.81 17.43A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 4.54 15.78L5.56 12.1L2.57 9.72A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.43 7.04L7.26 6.88Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.15 3.56A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 12.85 3.56L14.21 9.82L20.58 9.18A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.11 10.79L15.57 14.02L18.15 19.88A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.78 20.88L12 16.61L7.22 20.88A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.85 19.88L8.43 14.02L2.89 10.79A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.42 9.18L9.79 9.82Z"
+            "M10.6 3.39A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 13.4 3.39L15.26 8.37L20.57 8.6A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.43 11.27L17.28 14.57L18.7 19.69A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.43 21.34L12 18.41L7.57 21.34A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.3 19.69L6.72 14.57L2.57 11.27A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.43 8.6L8.74 8.37Z"
           ],
           "stroke": []
         }
@@ -204,7 +204,7 @@ export default {
         "geometric",
         "thin"
       ],
-      "note": "Inner radius 0.382 of the outer (sharp skeleton), so the tips open 36 · 36 · 36° and the notches 108 · 108 · 108°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 126.22 · 78.85 · 60.76 (32.94 · 32.08 · 32.29% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.85 · 0.65 · 0.57 below the canvas centre (0.85 · 0.65 · 0.57 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 5.52 · 4.22 · 3.74 across, each arm's counter is 3.6 · 2.66 · 2.37 clear at its base and narrows into the tip's bend; adjacent notches 5.1 · 4.16 · 3.62 apart on the line. Straight run left on each edge after the bends 5.95 · 4.42 · 3.94; the tip's cap pulls 1.68 · 1.68 · 1.4 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.382 of the outer (sharp skeleton), so the tips open 36 · 36 · 36° and the notches 108 · 108 · 108°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 193 · 132.89 · 100.09 (50.37 · 54.07 · 53.19% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.86 · 0.65 · 0.58 below the canvas centre (0.86 · 0.65 · 0.58 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 5.52 · 4.22 · 3.74 across, each arm's counter is 3.6 · 2.66 · 2.37 clear at its base and narrows into the tip's bend; adjacent notches 5.1 · 4.16 · 3.62 apart on the line. Straight run left on each edge after the bends 5.95 · 4.42 · 3.94; the tip's cap pulls 1.68 · 1.68 · 1.4 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           14,
@@ -233,19 +233,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.373 2.282A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 8.627 2.282L9.358 6.708L13.794 6.036A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.181 7.228L10.197 9.291L12.207 13.302A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 11.193 14.038L8 10.886L4.807 14.038A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.793 13.302L5.804 9.291L1.819 7.228A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.206 6.036L6.642 6.708Z"
+            "M6.811 2.145A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 9.189 2.145L10.266 5.458L13.75 5.459A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.485 7.72L11.666 9.768L12.743 13.082A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 10.819 14.479L8 12.431L5.181 14.479A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.257 13.082L4.334 9.768L1.515 7.72A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.25 5.459L5.734 5.458Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.27 3.52A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 10.73 3.52L11.53 8.54L16.56 7.76A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.01 9.15L12.48 11.46L14.78 15.99A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.6 16.85L10 13.27L6.4 16.85A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 5.22 15.99L7.52 11.46L2.99 9.15A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.44 7.76L8.47 8.54Z"
+            "M8.57 3.36A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 11.43 3.36L12.62 7.04L16.5 7.04A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.38 9.76L14.25 12.03L15.44 15.72A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.14 17.4L10 15.12L6.86 17.4A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 4.56 15.72L5.75 12.03L2.62 9.76A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.5 7.04L7.38 7.04Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.17 3.61A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 12.83 3.61L14.01 10.1L20.54 9.21A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.05 10.79L15.25 13.91L18.11 19.85A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.77 20.83L12 16.27L7.23 20.83A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.89 19.85L8.75 13.91L2.95 10.79A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.46 9.21L9.99 10.1Z"
+            "M10.57 3.46A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 13.43 3.46L15.1 8.6L20.5 8.6A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.38 11.31L17.01 14.49L18.68 19.62A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.37 21.3L12 18.13L7.63 21.3A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.32 19.62L6.99 14.49L2.62 11.31A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.5 8.6L8.9 8.6Z"
           ],
           "stroke": []
         }
@@ -259,7 +259,7 @@ export default {
         "favourite",
         "rating"
       ],
-      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips at the detail radius 1.5 · 1.25 · 1 on the line (2.25 · 2 · 1.63 on the outer edge). notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.78 · 0.6 · 0.54 below it. Filled area 169.73 · 103.29 · 78.44 (44.11 · 41.86 · 41.6% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.77 · 0.59 · 0.53 below the canvas centre (0.77 · 0.59 · 0.53 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 8.14 · 6.14 · 5.35 across, each arm's counter is 5.04 · 3.68 · 3.23 clear at its base and narrows into the tip's bend; adjacent notches 6.54 · 5.18 · 4.48 apart on the line. Straight run left on each edge after the bends 4.66 · 3.56 · 3.26; the tip's cap pulls 2.18 · 1.82 · 1.46 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.24 · 16x15.42 · 14x13.47 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips at the detail radius 1.5 · 1.25 · 1 on the line (2.25 · 2 · 1.63 on the outer edge). notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.78 · 0.6 · 0.54 below it. Filled area 230.74 · 152.12 · 114.03 (59.96 · 61.66 · 60.47% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.78 · 0.6 · 0.54 below the canvas centre (0.78 · 0.6 · 0.54 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 8.14 · 6.14 · 5.35 across, each arm's counter is 5.04 · 3.68 · 3.23 clear at its base and narrows into the tip's bend; adjacent notches 6.54 · 5.18 · 4.48 apart on the line. Straight run left on each edge after the bends 4.66 · 3.56 · 3.26; the tip's cap pulls 2.18 · 1.82 · 1.46 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.24 · 16x15.42 · 14x13.47 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           14,
@@ -288,19 +288,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.102 2.43A1.625 1.625 0 0 1 8 1.263A1.625 1.625 0 0 1 8.898 2.43L9.816 6.04L13.533 5.798A1.625 1.625 0 0 1 15 6.793A1.625 1.625 0 0 1 14.088 7.506L10.938 9.494L12.318 12.955A1.625 1.625 0 0 1 11.322 14.737A1.625 1.625 0 0 1 10.865 14.01L8 11.629L5.135 14.01A1.625 1.625 0 0 1 4.678 14.737A1.625 1.625 0 0 1 3.682 12.955L5.062 9.494L1.912 7.506A1.625 1.625 0 0 1 1 6.793A1.625 1.625 0 0 1 2.467 5.798L6.184 6.04Z"
+            "M6.516 2.226A1.625 1.625 0 0 1 8 1.263A1.625 1.625 0 0 1 9.484 2.226L10.664 4.873L13.546 5.177A1.625 1.625 0 0 1 15 6.793A1.625 1.625 0 0 1 14.463 8L12.31 9.94L12.912 12.775A1.625 1.625 0 0 1 11.322 14.737A1.625 1.625 0 0 1 10.51 14.52L8 13.072L5.49 14.52A1.625 1.625 0 0 1 4.678 14.737A1.625 1.625 0 0 1 3.088 12.775L3.69 9.94L1.537 8A1.625 1.625 0 0 1 1 6.793A1.625 1.625 0 0 1 2.454 5.177L5.336 4.873Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M8.92 3.73A2 2 0 0 1 10 2.29A2 2 0 0 1 11.08 3.73L12.08 7.73L16.2 7.44A2 2 0 0 1 18 8.65A2 2 0 0 1 16.87 9.51L13.37 11.69L14.91 15.52A2 2 0 0 1 13.71 17.71A2 2 0 0 1 13.16 16.79L10 14.14L6.84 16.79A2 2 0 0 1 6.29 17.71A2 2 0 0 1 5.09 15.52L6.63 11.69L3.13 9.51A2 2 0 0 1 2 8.65A2 2 0 0 1 3.8 7.44L7.92 7.73Z"
+            "M8.17 3.48A2 2 0 0 1 10 2.29A2 2 0 0 1 11.83 3.48L13.1 6.33L16.21 6.66A2 2 0 0 1 18 8.65A2 2 0 0 1 17.34 10.13L15.02 12.23L15.66 15.29A2 2 0 0 1 13.71 17.71A2 2 0 0 1 12.71 17.44L10 15.87L7.29 17.44A2 2 0 0 1 6.29 17.71A2 2 0 0 1 4.34 15.29L4.98 12.23L2.66 10.13A2 2 0 0 1 2 8.65A2 2 0 0 1 3.79 6.66L6.9 6.33Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M10.64 3.96A2.25 2.25 0 0 1 12 2.38A2.25 2.25 0 0 1 13.36 3.96L14.76 8.98L19.96 8.76A2.25 2.25 0 0 1 22 10.26A2.25 2.25 0 0 1 20.8 11.35L16.47 14.23L18.28 19.11A2.25 2.25 0 0 1 16.79 21.62A2.25 2.25 0 0 1 16.08 20.71L12 17.47L7.92 20.71A2.25 2.25 0 0 1 7.21 21.62A2.25 2.25 0 0 1 5.72 19.11L7.53 14.23L3.2 11.35A2.25 2.25 0 0 1 2 10.26A2.25 2.25 0 0 1 4.04 8.76L9.24 8.98Z"
+            "M9.94 3.71A2.25 2.25 0 0 1 12 2.38A2.25 2.25 0 0 1 14.06 3.71L15.78 7.58L19.99 8.02A2.25 2.25 0 0 1 22 10.26A2.25 2.25 0 0 1 21.26 11.93L18.11 14.77L18.99 18.9A2.25 2.25 0 0 1 16.79 21.62A2.25 2.25 0 0 1 15.67 21.32L12 19.21L8.33 21.32A2.25 2.25 0 0 1 7.21 21.62A2.25 2.25 0 0 1 5.01 18.9L5.89 14.77L2.74 11.93A2.25 2.25 0 0 1 2 10.26A2.25 2.25 0 0 1 4.01 8.02L8.22 7.58Z"
           ],
           "stroke": []
         }
@@ -314,7 +314,7 @@ export default {
         "rounded",
         "favourite"
       ],
-      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips at the detail radius 1.5 · 1.25 · 1 on the line (2.25 · 2 · 1.63 on the outer edge). notches rounded 2.5 · 2 · 1.5 on the line (1.75 · 1.25 · 0.88 on the filled edge). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.78 · 0.6 · 0.54 below it. Filled area 171.18 · 104.1 · 78.82 (44.49 · 42.2 · 41.8% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.77 · 0.59 · 0.53 below the canvas centre (0.77 · 0.59 · 0.53 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 8.14 · 6.14 · 5.35 across, each arm's counter is 5.04 · 3.68 · 3.23 clear at its base and narrows into the tip's bend; adjacent notches 6.54 · 5.18 · 4.48 apart on the line. Straight run left on each edge after the bends 3.22 · 2.41 · 2.39; the tip's cap pulls 2.18 · 1.82 · 1.46 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.24 · 16x15.42 · 14x13.47 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips at the detail radius 1.5 · 1.25 · 1 on the line (2.25 · 2 · 1.63 on the outer edge). notches rounded 2.5 · 2 · 1.5 on the line (1.75 · 1.25 · 0.88 on the filled edge). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.78 · 0.6 · 0.54 below it. Filled area 231.58 · 152.56 · 114.23 (60.18 · 61.83 · 60.57% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.78 · 0.6 · 0.54 below the canvas centre (0.78 · 0.6 · 0.54 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 8.14 · 6.14 · 5.35 across, each arm's counter is 5.04 · 3.68 · 3.23 clear at its base and narrows into the tip's bend; adjacent notches 6.54 · 5.18 · 4.48 apart on the line. Straight run left on each edge after the bends 3.22 · 2.41 · 2.39; the tip's cap pulls 2.18 · 1.82 · 1.46 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.24 · 16x15.42 · 14x13.47 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           14,
@@ -343,19 +343,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.102 2.43A1.625 1.625 0 0 1 8 1.263A1.625 1.625 0 0 1 8.898 2.43L9.691 5.551A0.875 0.875 0 0 0 10.319 6.008L13.533 5.798A1.625 1.625 0 0 1 15 6.793A1.625 1.625 0 0 1 14.088 7.506L11.365 9.225A0.875 0.875 0 0 0 11.125 9.963L12.318 12.955A1.625 1.625 0 0 1 11.322 14.737A1.625 1.625 0 0 1 10.865 14.01L8.388 11.951A0.875 0.875 0 0 0 7.612 11.951L5.135 14.01A1.625 1.625 0 0 1 4.678 14.737A1.625 1.625 0 0 1 3.682 12.955L4.875 9.963A0.875 0.875 0 0 0 4.635 9.225L1.912 7.506A1.625 1.625 0 0 1 1 6.793A1.625 1.625 0 0 1 2.467 5.798L5.681 6.008A0.875 0.875 0 0 0 6.309 5.551Z"
+            "M6.516 2.226A1.625 1.625 0 0 1 8 1.263A1.625 1.625 0 0 1 9.484 2.226L10.458 4.412A0.875 0.875 0 0 0 11.166 4.926L13.546 5.177A1.625 1.625 0 0 1 15 6.793A1.625 1.625 0 0 1 14.463 8L12.685 9.602A0.875 0.875 0 0 0 12.415 10.434L12.912 12.775A1.625 1.625 0 0 1 11.322 14.737A1.625 1.625 0 0 1 10.51 14.52L8.437 13.324A0.875 0.875 0 0 0 7.563 13.324L5.49 14.52A1.625 1.625 0 0 1 4.678 14.737A1.625 1.625 0 0 1 3.088 12.775L3.585 10.434A0.875 0.875 0 0 0 3.315 9.602L1.537 8A1.625 1.625 0 0 1 1 6.793A1.625 1.625 0 0 1 2.454 5.177L4.834 4.926A0.875 0.875 0 0 0 5.542 4.412Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M8.92 3.73A2 2 0 0 1 10 2.29A2 2 0 0 1 11.08 3.73L11.91 7.03A1.25 1.25 0 0 0 12.8 7.68L16.2 7.44A2 2 0 0 1 18 8.65A2 2 0 0 1 16.87 9.51L13.98 11.31A1.25 1.25 0 0 0 13.64 12.36L14.91 15.52A2 2 0 0 1 13.71 17.71A2 2 0 0 1 13.16 16.79L10.55 14.6A1.25 1.25 0 0 0 9.45 14.6L6.84 16.79A2 2 0 0 1 6.29 17.71A2 2 0 0 1 5.09 15.52L6.36 12.36A1.25 1.25 0 0 0 6.02 11.31L3.13 9.51A2 2 0 0 1 2 8.65A2 2 0 0 1 3.8 7.44L7.2 7.68A1.25 1.25 0 0 0 8.09 7.03Z"
+            "M8.17 3.48A2 2 0 0 1 10 2.29A2 2 0 0 1 11.83 3.48L12.81 5.67A1.25 1.25 0 0 0 13.82 6.41L16.21 6.66A2 2 0 0 1 18 8.65A2 2 0 0 1 17.34 10.13L15.55 11.75A1.25 1.25 0 0 0 15.17 12.93L15.66 15.29A2 2 0 0 1 13.71 17.71A2 2 0 0 1 12.71 17.44L10.62 16.23A1.25 1.25 0 0 0 9.38 16.23L7.29 17.44A2 2 0 0 1 6.29 17.71A2 2 0 0 1 4.34 15.29L4.83 12.93A1.25 1.25 0 0 0 4.45 11.75L2.66 10.13A2 2 0 0 1 2 8.65A2 2 0 0 1 3.79 6.66L6.18 6.41A1.25 1.25 0 0 0 7.19 5.67Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M10.64 3.96A2.25 2.25 0 0 1 12 2.38A2.25 2.25 0 0 1 13.36 3.96L14.49 8.01A1.75 1.75 0 0 0 15.77 8.94L19.96 8.76A2.25 2.25 0 0 1 22 10.26A2.25 2.25 0 0 1 20.8 11.35L17.31 13.67A1.75 1.75 0 0 0 16.82 15.18L18.28 19.11A2.25 2.25 0 0 1 16.79 21.62A2.25 2.25 0 0 1 16.08 20.71L12.79 18.1A1.75 1.75 0 0 0 11.21 18.1L7.92 20.71A2.25 2.25 0 0 1 7.21 21.62A2.25 2.25 0 0 1 5.72 19.11L7.18 15.18A1.75 1.75 0 0 0 6.69 13.67L3.2 11.35A2.25 2.25 0 0 1 2 10.26A2.25 2.25 0 0 1 4.04 8.76L8.23 8.94A1.75 1.75 0 0 0 9.51 8.01Z"
+            "M9.94 3.71A2.25 2.25 0 0 1 12 2.38A2.25 2.25 0 0 1 14.06 3.71L15.37 6.66A1.75 1.75 0 0 0 16.78 7.68L19.99 8.02A2.25 2.25 0 0 1 22 10.26A2.25 2.25 0 0 1 21.26 11.93L18.86 14.09A1.75 1.75 0 0 0 18.32 15.75L18.99 18.9A2.25 2.25 0 0 1 16.79 21.62A2.25 2.25 0 0 1 15.67 21.32L12.87 19.71A1.75 1.75 0 0 0 11.13 19.71L8.33 21.32A2.25 2.25 0 0 1 7.21 21.62A2.25 2.25 0 0 1 5.01 18.9L5.68 15.75A1.75 1.75 0 0 0 5.14 14.09L2.74 11.93A2.25 2.25 0 0 1 2 10.26A2.25 2.25 0 0 1 4.01 8.02L7.22 7.68A1.75 1.75 0 0 0 8.63 6.66Z"
           ],
           "stroke": []
         }
@@ -369,7 +369,7 @@ export default {
         "full",
         "favourite"
       ],
-      "note": "Inner radius 0.5 of the outer (sharp skeleton), so the tips open 52.54 · 52.54 · 52.54° and the notches 124.54 · 124.54 · 124.54°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches rounded 2 · 1.75 · 1.25 on the line (1.25 · 1 · 0.63 on the filled edge). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 155.46 · 96.73 · 74.47 (40.57 · 39.36 · 39.58% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.85 · 0.65 · 0.57 below the canvas centre (0.85 · 0.65 · 0.57 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 7.91 · 6.05 · 5.35 across, each arm's counter is 4.75 · 3.51 · 3.13 clear at its base and narrows into the tip's bend; adjacent notches 6.25 · 5.01 · 4.38 apart on the line. Straight run left on each edge after the bends 4.49 · 3.22 · 3.03; the tip's cap pulls 0.94 · 0.94 · 0.79 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.5 of the outer (sharp skeleton), so the tips open 52.54 · 52.54 · 52.54° and the notches 124.54 · 124.54 · 124.54°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches rounded 2 · 1.75 · 1.25 on the line (1.25 · 1 · 0.63 on the filled edge). as wide as the circle keyline (20 · 16 · 14). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.86 · 0.65 · 0.58 below it. Filled area 213.29 · 143.56 · 108.57 (55.66 · 58.42 · 57.7% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.86 · 0.65 · 0.58 below the canvas centre (0.86 · 0.65 · 0.58 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 7.91 · 6.05 · 5.35 across, each arm's counter is 4.75 · 3.51 · 3.13 clear at its base and narrows into the tip's bend; adjacent notches 6.25 · 5.01 · 4.38 apart on the line. Straight run left on each edge after the bends 4.49 · 3.22 · 3.03; the tip's cap pulls 0.94 · 0.94 · 0.79 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 20x19.16 · 16x15.36 · 14x13.44 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           14,
@@ -398,19 +398,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.325 2.148A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 8.675 2.148L9.689 5.815A0.625 0.625 0 0 0 10.105 6.117L13.906 5.948A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.323 7.232L11.149 9.33A0.625 0.625 0 0 0 10.99 9.819L12.325 13.381A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 11.233 14.175L8.257 11.805A0.625 0.625 0 0 0 7.743 11.805L4.767 14.175A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.675 13.381L5.01 9.819A0.625 0.625 0 0 0 4.851 9.33L1.677 7.232A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.094 5.948L5.895 6.117A0.625 0.625 0 0 0 6.311 5.815Z"
+            "M6.879 1.978A1.25 1.25 0 0 1 8 1.281A1.25 1.25 0 0 1 9.121 1.978L10.462 4.694A0.625 0.625 0 0 0 10.932 5.036L13.93 5.472A1.25 1.25 0 0 1 15 6.709A1.25 1.25 0 0 1 14.623 7.604L12.453 9.718A0.625 0.625 0 0 0 12.274 10.271L12.786 13.257A1.25 1.25 0 0 1 11.554 14.719A1.25 1.25 0 0 1 10.972 14.575L8.291 13.165A0.625 0.625 0 0 0 7.709 13.165L5.028 14.575A1.25 1.25 0 0 1 4.446 14.719A1.25 1.25 0 0 1 3.214 13.257L3.726 10.271A0.625 0.625 0 0 0 3.547 9.718L1.377 7.604A1.25 1.25 0 0 1 1 6.709A1.25 1.25 0 0 1 2.07 5.472L5.068 5.036A0.625 0.625 0 0 0 5.538 4.694Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.21 3.37A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 10.79 3.37L11.87 7.38A1 1 0 0 0 12.53 7.86L16.69 7.65A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.18 9.15L13.69 11.42A1 1 0 0 0 13.44 12.2L14.92 16.09A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.65 17.02L10.41 14.4A1 1 0 0 0 9.59 14.4L6.35 17.02A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 5.08 16.09L6.56 12.2A1 1 0 0 0 6.31 11.42L2.82 9.15A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.31 7.65L7.47 7.86A1 1 0 0 0 8.13 7.38Z"
+            "M8.65 3.16A1.5 1.5 0 0 1 10 2.32A1.5 1.5 0 0 1 11.35 3.16L12.77 6.05A1 1 0 0 0 13.52 6.59L16.72 7.06A1.5 1.5 0 0 1 18 8.54A1.5 1.5 0 0 1 17.55 9.62L15.24 11.87A1 1 0 0 0 14.95 12.75L15.5 15.93A1.5 1.5 0 0 1 14.02 17.68A1.5 1.5 0 0 1 13.32 17.51L10.47 16.01A1 1 0 0 0 9.53 16.01L6.68 17.51A1.5 1.5 0 0 1 5.98 17.68A1.5 1.5 0 0 1 4.5 15.93L5.05 12.75A1 1 0 0 0 4.76 11.87L2.45 9.62A1.5 1.5 0 0 1 2 8.54A1.5 1.5 0 0 1 3.28 7.06L6.48 6.59A1 1 0 0 0 7.23 6.05Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.12 3.44A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 12.88 3.44L14.44 8.61A1.25 1.25 0 0 0 15.28 9.23L20.68 9.11A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.23 10.78L16.79 13.86A1.25 1.25 0 0 0 16.47 14.86L18.24 19.96A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.83 20.99L12.52 17.72A1.25 1.25 0 0 0 11.48 17.72L7.17 20.99A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.76 19.96L7.53 14.86A1.25 1.25 0 0 0 7.21 13.86L2.77 10.78A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.32 9.11L8.72 9.23A1.25 1.25 0 0 0 9.56 8.61Z"
+            "M10.65 3.26A1.5 1.5 0 0 1 12 2.42A1.5 1.5 0 0 1 13.35 3.26L15.33 7.28A1.25 1.25 0 0 0 16.27 7.97L20.72 8.61A1.5 1.5 0 0 1 22 10.1A1.5 1.5 0 0 1 21.55 11.17L18.33 14.3A1.25 1.25 0 0 0 17.97 15.41L18.73 19.83A1.5 1.5 0 0 1 17.25 21.58A1.5 1.5 0 0 1 16.56 21.42L12.58 19.33A1.25 1.25 0 0 0 11.42 19.33L7.44 21.42A1.5 1.5 0 0 1 6.75 21.58A1.5 1.5 0 0 1 5.27 19.83L6.03 15.41A1.25 1.25 0 0 0 5.67 14.3L2.45 11.17A1.5 1.5 0 0 1 2 10.1A1.5 1.5 0 0 1 3.28 8.61L7.73 7.97A1.25 1.25 0 0 0 8.67 7.28Z"
           ],
           "stroke": []
         }
@@ -424,7 +424,7 @@ export default {
         "classic",
         "favourite"
       ],
-      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the square keyline (18 · 14 · 12). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.76 · 0.55 · 0.48 below it. Filled area 118.27 · 68.89 · 50.88 (38.07 · 36.56 · 36.74% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.75 · 0.55 · 0.47 below the canvas centre (0.75 · 0.55 · 0.47 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.42 · 4.71 · 4.07 across, each arm's counter is 3.87 · 2.71 · 2.36 clear at its base and narrows into the tip's bend; adjacent notches 5.37 · 4.21 · 3.61 apart on the line. Straight run left on each edge after the bends 4.92 · 3.49 · 3.03; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 18x17.26 · 14x13.46 · 12x11.54 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). as wide as the square keyline (18 · 14 · 12). Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.76 · 0.55 · 0.48 below it. Filled area 172.53 · 111.56 · 81.31 (55.53 · 59.2 · 58.72% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.75 · 0.55 · 0.48 below the canvas centre (0.75 · 0.55 · 0.48 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.42 · 4.71 · 4.07 across, each arm's counter is 3.87 · 2.71 · 2.36 clear at its base and narrows into the tip's bend; adjacent notches 5.37 · 4.21 · 3.61 apart on the line. Straight run left on each edge after the bends 4.92 · 3.49 · 3.03; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 18x17.26 · 14x13.46 · 12x11.54 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           12,
@@ -453,19 +453,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.388 3.148A1.25 1.25 0 0 1 8 2.232A1.25 1.25 0 0 1 8.612 3.148L9.38 6.577L12.878 6.248A1.25 1.25 0 0 1 14 6.933A1.25 1.25 0 0 1 13.257 7.412L10.233 9.202L11.627 12.427A1.25 1.25 0 0 1 10.936 13.768A1.25 1.25 0 0 1 10.636 13.147L8 10.824L5.364 13.147A1.25 1.25 0 0 1 5.064 13.768A1.25 1.25 0 0 1 4.373 12.427L5.768 9.202L2.743 7.412A1.25 1.25 0 0 1 2 6.933A1.25 1.25 0 0 1 3.122 6.248L6.62 6.577Z"
+            "M6.858 2.973A1.25 1.25 0 0 1 8 2.232A1.25 1.25 0 0 1 9.142 2.973L10.228 5.41L12.881 5.69A1.25 1.25 0 0 1 14 6.933A1.25 1.25 0 0 1 13.587 7.862L11.605 9.648L12.158 12.258A1.25 1.25 0 0 1 10.936 13.768A1.25 1.25 0 0 1 10.311 13.6L8 12.267L5.689 13.6A1.25 1.25 0 0 1 5.064 13.768A1.25 1.25 0 0 1 3.842 12.258L4.395 9.648L2.413 7.862A1.25 1.25 0 0 1 2 6.933A1.25 1.25 0 0 1 3.119 5.69L5.772 5.41Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.28 4.37A1.5 1.5 0 0 1 10 3.27A1.5 1.5 0 0 1 10.72 4.37L11.6 8.35L15.65 7.96A1.5 1.5 0 0 1 17 8.77A1.5 1.5 0 0 1 16.1 9.33L12.59 11.39L14.22 15.13A1.5 1.5 0 0 1 13.4 16.73A1.5 1.5 0 0 1 13.05 15.98L10 13.27L6.95 15.98A1.5 1.5 0 0 1 6.6 16.73A1.5 1.5 0 0 1 5.78 15.13L7.42 11.39L3.9 9.33A1.5 1.5 0 0 1 3 8.77A1.5 1.5 0 0 1 4.35 7.96L8.4 8.35Z"
+            "M8.63 4.16A1.5 1.5 0 0 1 10 3.27A1.5 1.5 0 0 1 11.37 4.16L12.62 6.95L15.66 7.27A1.5 1.5 0 0 1 17 8.77A1.5 1.5 0 0 1 16.5 9.88L14.23 11.93L14.87 14.92A1.5 1.5 0 0 1 13.4 16.73A1.5 1.5 0 0 1 12.65 16.53L10 15L7.35 16.53A1.5 1.5 0 0 1 6.6 16.73A1.5 1.5 0 0 1 5.13 14.92L5.77 11.93L3.5 9.88A1.5 1.5 0 0 1 3 8.77A1.5 1.5 0 0 1 4.34 7.27L7.38 6.95Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.17 4.45A1.5 1.5 0 0 1 12 3.37A1.5 1.5 0 0 1 12.83 4.45L14.18 9.76L19.65 9.4A1.5 1.5 0 0 1 21 10.32A1.5 1.5 0 0 1 20.16 10.98L15.53 13.9L17.55 18.99A1.5 1.5 0 0 1 16.64 20.63A1.5 1.5 0 0 1 16.21 19.97L12 16.46L7.79 19.97A1.5 1.5 0 0 1 7.36 20.63A1.5 1.5 0 0 1 6.45 18.99L8.48 13.9L3.84 10.98A1.5 1.5 0 0 1 3 10.32A1.5 1.5 0 0 1 4.35 9.4L9.82 9.76Z"
+            "M10.63 4.26A1.5 1.5 0 0 1 12 3.37A1.5 1.5 0 0 1 13.37 4.26L15.2 8.36L19.66 8.83A1.5 1.5 0 0 1 21 10.32A1.5 1.5 0 0 1 20.5 11.43L17.17 14.44L18.1 18.82A1.5 1.5 0 0 1 16.64 20.63A1.5 1.5 0 0 1 15.89 20.44L12 18.19L8.11 20.44A1.5 1.5 0 0 1 7.36 20.63A1.5 1.5 0 0 1 5.9 18.82L6.83 14.44L3.5 11.43A1.5 1.5 0 0 1 3 10.32A1.5 1.5 0 0 1 4.34 8.83L8.8 8.36Z"
           ],
           "stroke": []
         }
@@ -479,7 +479,7 @@ export default {
         "lifted",
         "classic"
       ],
-      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). every tip cap touches the circle keyline (radius 10 · 8 · 7, centred on the canvas), which makes the star 19.16 · 15.36 · 13.44 wide. Circle-centred: the top tip sits on the keyline top (2 · 2 · 1) like alert-triangle's point and the ink box centre sits 0.81 · 0.62 · 0.55 above the canvas centre, declared as an optical lift (C14) — the one candidate not box-centred. Filled area 135.05 · 84.37 · 64.97 (38.35 · 37.21 · 37.47% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits exactly on the canvas centre (0.81 · 0.62 · 0.54 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.92 · 5.29 · 4.68 across, each arm's counter is 4.21 · 3.11 · 2.78 clear at its base and narrows into the tip's bend; adjacent notches 5.71 · 4.61 · 4.03 apart on the line. Straight run left on each edge after the bends 5.34 · 3.98 · 3.54; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 19.16x18.38 · 15.36x14.76 · 13.44x12.9 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). every tip cap touches the circle keyline (radius 10 · 8 · 7, centred on the canvas), which makes the star 19.16 · 15.36 · 13.44 wide. Circle-centred: the top tip sits on the keyline top (2 · 2 · 1) like alert-triangle's point and the ink box centre sits 0.81 · 0.62 · 0.55 above the canvas centre, declared as an optical lift (C14) — the one candidate not box-centred. Filled area 192.82 · 131 · 98.94 (54.75 · 57.78 · 57.07% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits exactly on the canvas centre (0.81 · 0.62 · 0.55 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.92 · 5.29 · 4.68 across, each arm's counter is 4.21 · 3.11 · 2.78 clear at its base and narrows into the tip's bend; adjacent notches 5.71 · 4.61 · 4.03 apart on the line. Straight run left on each edge after the bends 5.34 · 3.98 · 3.54; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 19.16x18.38 · 15.36x14.76 · 13.44x12.9 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           13.44,
@@ -522,19 +522,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.347 1.907A1.25 1.25 0 0 1 8 1A1.25 1.25 0 0 1 8.653 1.907L9.588 5.814L13.593 5.496A1.25 1.25 0 0 1 14.719 6.223A1.25 1.25 0 0 1 13.997 6.738L10.57 8.835L12.11 12.546A1.25 1.25 0 0 1 11.38 13.902A1.25 1.25 0 0 1 11.053 13.313L8 10.703L4.947 13.313A1.25 1.25 0 0 1 4.62 13.902A1.25 1.25 0 0 1 3.89 12.546L5.43 8.835L2.003 6.738A1.25 1.25 0 0 1 1.281 6.223A1.25 1.25 0 0 1 2.407 5.496L6.412 5.814Z"
+            "M6.858 1.741A1.25 1.25 0 0 1 8 1A1.25 1.25 0 0 1 9.142 1.741L10.437 4.646L13.6 4.98A1.25 1.25 0 0 1 14.719 6.223A1.25 1.25 0 0 1 14.305 7.152L11.943 9.281L12.603 12.392A1.25 1.25 0 0 1 11.38 13.902A1.25 1.25 0 0 1 10.755 13.735L8 12.146L5.245 13.735A1.25 1.25 0 0 1 4.62 13.902A1.25 1.25 0 0 1 3.397 12.392L4.057 9.281L1.695 7.152A1.25 1.25 0 0 1 1.281 6.223A1.25 1.25 0 0 1 2.4 4.98L5.563 4.646Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.24 3.09A1.5 1.5 0 0 1 10 2A1.5 1.5 0 0 1 10.76 3.09L11.8 7.53L16.33 7.14A1.5 1.5 0 0 1 17.68 7.99A1.5 1.5 0 0 1 16.8 8.59L12.91 10.94L14.68 15.14A1.5 1.5 0 0 1 13.82 16.76A1.5 1.5 0 0 1 13.44 16.04L10 13.06L6.56 16.04A1.5 1.5 0 0 1 6.18 16.76A1.5 1.5 0 0 1 5.32 15.14L7.09 10.94L3.2 8.59A1.5 1.5 0 0 1 2.32 7.99A1.5 1.5 0 0 1 3.67 7.14L8.2 7.53Z"
+            "M8.63 2.89A1.5 1.5 0 0 1 10 2A1.5 1.5 0 0 1 11.37 2.89L12.81 6.13L16.34 6.5A1.5 1.5 0 0 1 17.68 7.99A1.5 1.5 0 0 1 17.19 9.11L14.55 11.48L15.29 14.95A1.5 1.5 0 0 1 13.82 16.76A1.5 1.5 0 0 1 13.07 16.56L10 14.79L6.93 16.56A1.5 1.5 0 0 1 6.18 16.76A1.5 1.5 0 0 1 4.71 14.95L5.45 11.48L2.81 9.11A1.5 1.5 0 0 1 2.32 7.99A1.5 1.5 0 0 1 3.66 6.5L7.19 6.13Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.15 3.07A1.5 1.5 0 0 1 12 2A1.5 1.5 0 0 1 12.85 3.07L14.35 8.77L20.23 8.43A1.5 1.5 0 0 1 21.58 9.37A1.5 1.5 0 0 1 20.76 10.05L15.8 13.23L17.94 18.72A1.5 1.5 0 0 1 17 20.38A1.5 1.5 0 0 1 16.56 19.73L12 16L7.44 19.73A1.5 1.5 0 0 1 7 20.38A1.5 1.5 0 0 1 6.06 18.72L8.2 13.23L3.24 10.05A1.5 1.5 0 0 1 2.42 9.37A1.5 1.5 0 0 1 3.77 8.43L9.65 8.77Z"
+            "M10.63 2.89A1.5 1.5 0 0 1 12 2A1.5 1.5 0 0 1 13.37 2.89L15.37 7.37L20.24 7.88A1.5 1.5 0 0 1 21.58 9.37A1.5 1.5 0 0 1 21.09 10.49L17.45 13.77L18.46 18.57A1.5 1.5 0 0 1 17 20.38A1.5 1.5 0 0 1 16.25 20.18L12 17.73L7.75 20.18A1.5 1.5 0 0 1 7 20.38A1.5 1.5 0 0 1 5.54 18.57L6.55 13.77L2.91 10.49A1.5 1.5 0 0 1 2.42 9.37A1.5 1.5 0 0 1 3.76 7.88L8.63 7.37Z"
           ],
           "stroke": []
         }
@@ -547,7 +547,7 @@ export default {
         "on the circle",
         "classic"
       ],
-      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). every tip cap touches the circle keyline (radius 10 · 8 · 7, its centre 12.81 · 10.62 · 8.55), which makes the star 19.16 · 15.36 · 13.44 wide. Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.81 · 0.62 · 0.55 below it. Filled area 135.05 · 84.37 · 64.97 (38.35 · 37.21 · 37.47% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.81 · 0.62 · 0.54 below the canvas centre (0.81 · 0.62 · 0.54 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.92 · 5.29 · 4.68 across, each arm's counter is 4.21 · 3.11 · 2.78 clear at its base and narrows into the tip's bend; adjacent notches 5.71 · 4.61 · 4.03 apart on the line. Straight run left on each edge after the bends 5.34 · 3.98 · 3.54; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 19.16x18.38 · 15.36x14.76 · 13.44x12.9 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
+      "note": "Inner radius 0.47 of the outer (sharp skeleton), so the tips open 48.05 · 48.05 · 48.05° and the notches 120.05 · 120.05 · 120.05°. tips bent at half the weight (C10) 0.75 · 0.75 · 0.625 on the line, 1.5 · 1.5 · 1.25 on the outer edge. notches sharp on the line, so the round join fills the inside corner and the filled edge comes to a point (as flag's swallowtail does). every tip cap touches the circle keyline (radius 10 · 8 · 7, its centre 12.81 · 10.62 · 8.55), which makes the star 19.16 · 15.36 · 13.44 wide. Box-centred (C14): ink box centre on the canvas centre to 2 dp; the circle through the tips is centred 0.81 · 0.62 · 0.55 below it. Filled area 192.82 · 131 · 98.94 (54.75 · 57.78 · 57.07% of the box); a regular star's area centre is the centre of the circle through its tips, so it sits 0.81 · 0.62 · 0.55 below the canvas centre (0.81 · 0.62 · 0.55 below the box centre). Air: one closed outline, nothing inside; the core holds a circle 6.92 · 5.29 · 4.68 across, each arm's counter is 4.21 · 3.11 · 2.78 clear at its base and narrows into the tip's bend; adjacent notches 5.71 · 4.61 · 4.03 apart on the line. Straight run left on each edge after the bends 5.34 · 3.98 · 3.54; the tip's cap pulls 1.09 · 1.09 · 0.91 back from the sharp vertex. Off-grid numbers are the star's vertices and tangent points (72° geometry, like heart's and flag's tangent points); the centre, the box and all five cap extremes sit on the grid. Ink box 19.16x18.38 · 15.36x14.76 · 13.44x12.9 (agreed box, declared), filled identical: solid to the outline's outer edge, no strokes",
       "box": {
         "16": [
           13.44,
@@ -576,19 +576,19 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M7.347 2.456A1.25 1.25 0 0 1 8 1.549A1.25 1.25 0 0 1 8.653 2.456L9.588 6.363L13.593 6.045A1.25 1.25 0 0 1 14.719 6.772A1.25 1.25 0 0 1 13.997 7.287L10.57 9.384L12.11 13.095A1.25 1.25 0 0 1 11.38 14.451A1.25 1.25 0 0 1 11.053 13.862L8 11.252L4.947 13.862A1.25 1.25 0 0 1 4.62 14.451A1.25 1.25 0 0 1 3.89 13.095L5.43 9.384L2.003 7.287A1.25 1.25 0 0 1 1.281 6.772A1.25 1.25 0 0 1 2.407 6.045L6.412 6.363Z"
+            "M6.858 2.29A1.25 1.25 0 0 1 8 1.549A1.25 1.25 0 0 1 9.142 2.29L10.437 5.195L13.6 5.529A1.25 1.25 0 0 1 14.719 6.772A1.25 1.25 0 0 1 14.305 7.701L11.943 9.83L12.603 12.941A1.25 1.25 0 0 1 11.38 14.451A1.25 1.25 0 0 1 10.755 14.284L8 12.695L5.245 14.284A1.25 1.25 0 0 1 4.62 14.451A1.25 1.25 0 0 1 3.397 12.941L4.057 9.83L1.695 7.701A1.25 1.25 0 0 1 1.281 6.772A1.25 1.25 0 0 1 2.4 5.529L5.563 5.195Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M9.24 3.71A1.5 1.5 0 0 1 10 2.62A1.5 1.5 0 0 1 10.76 3.71L11.8 8.15L16.33 7.76A1.5 1.5 0 0 1 17.68 8.61A1.5 1.5 0 0 1 16.8 9.21L12.91 11.56L14.68 15.76A1.5 1.5 0 0 1 13.82 17.38A1.5 1.5 0 0 1 13.44 16.66L10 13.68L6.56 16.66A1.5 1.5 0 0 1 6.18 17.38A1.5 1.5 0 0 1 5.32 15.76L7.09 11.56L3.2 9.21A1.5 1.5 0 0 1 2.32 8.61A1.5 1.5 0 0 1 3.67 7.76L8.2 8.15Z"
+            "M8.63 3.51A1.5 1.5 0 0 1 10 2.62A1.5 1.5 0 0 1 11.37 3.51L12.81 6.75L16.34 7.12A1.5 1.5 0 0 1 17.68 8.61A1.5 1.5 0 0 1 17.19 9.73L14.55 12.1L15.29 15.57A1.5 1.5 0 0 1 13.82 17.38A1.5 1.5 0 0 1 13.07 17.18L10 15.41L6.93 17.18A1.5 1.5 0 0 1 6.18 17.38A1.5 1.5 0 0 1 4.71 15.57L5.45 12.1L2.81 9.73A1.5 1.5 0 0 1 2.32 8.61A1.5 1.5 0 0 1 3.66 7.12L7.19 6.75Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M11.15 3.88A1.5 1.5 0 0 1 12 2.81A1.5 1.5 0 0 1 12.85 3.88L14.35 9.58L20.23 9.24A1.5 1.5 0 0 1 21.58 10.18A1.5 1.5 0 0 1 20.76 10.86L15.8 14.04L17.94 19.53A1.5 1.5 0 0 1 17 21.19A1.5 1.5 0 0 1 16.56 20.54L12 16.81L7.44 20.54A1.5 1.5 0 0 1 7 21.19A1.5 1.5 0 0 1 6.06 19.53L8.2 14.04L3.24 10.86A1.5 1.5 0 0 1 2.42 10.18A1.5 1.5 0 0 1 3.77 9.24L9.65 9.58Z"
+            "M10.63 3.7A1.5 1.5 0 0 1 12 2.81A1.5 1.5 0 0 1 13.37 3.7L15.37 8.18L20.24 8.69A1.5 1.5 0 0 1 21.58 10.18A1.5 1.5 0 0 1 21.09 11.3L17.45 14.58L18.46 19.38A1.5 1.5 0 0 1 17 21.19A1.5 1.5 0 0 1 16.25 20.99L12 18.54L7.75 20.99A1.5 1.5 0 0 1 7 21.19A1.5 1.5 0 0 1 5.54 19.38L6.55 14.58L2.91 11.3A1.5 1.5 0 0 1 2.42 10.18A1.5 1.5 0 0 1 3.76 8.69L8.63 8.18Z"
           ],
           "stroke": []
         }
