@@ -197,6 +197,7 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 42. `users-2-behind` · Users & Access · variant of `users` — Smaller back, level, arcs · approved 2026-09-23
 - [x] 43. `gear` · UI & Layout — approved 2026-09-20
 - [x] 43. `gear-2` · UI & Layout · variant of `gear` — Six tapered teeth, deeper, valley on top · approved 2026-09-20
+- [x] 43. `gear-3` · UI & Layout · variant of `gear` — Spoked wheel, three spokes · approved 2026-09-23
 - [x] 44. `sliders` · UI & Layout — approved 2026-09-20
 - [x] 44. `sliders-2` · UI & Layout · variant of `sliders` — Three tracks, bar knobs, broken · approved 2026-09-20
 - [x] 44. `sliders-3` · UI & Layout · variant of `sliders` — Upright tracks, ring joined · approved 2026-09-20
