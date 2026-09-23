@@ -105,6 +105,10 @@ representative icon** (24 master) per concept; clicking opens a right panel with
 and their metrics (ink, centring, geometric/optical bearings, copy SVG). Outline/Filled switch (F),
 search (/), Show Approved | Whole queue, sections rail with progress, and an "At 16" strip. It reads
 `lab/manifest.json`, which `npm run build` now fills with each file's `body` and the parsed `queue`.
+**Figure families:** `lab/figures.html` (Library sidebar → Figures) puts every figure (`user`, `user-<n>`) in a
+row beside its group and the group's arrangements (`users[-n]`, `-behind`, `-wide`, `-level`; C27), at 24 · 20 · 16 plus
+real pixels at 16 (1×, 2×), Outline | Filled (F). A name not yet shipped is drawn from the batch draft whose `set` names
+it (dotted cell, linked to its board), else a dashed placeholder. `?object=&group=&words=` reuse it for another family.
 Board layout, for reference: iterations sit in a full-height left sidebar that collapses
 to a strip (**[**, ↑ ↓ to step). It lists every candidate in `current.js`; the one you click goes on
 the board, and "more iterations" means adding candidates there. A sticky header holds the glyph,

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Figure families</title>
+<style>
+/* Figure families: every figure of one object (`user`, `user-2` …) in a row, beside its group
+   (`users`, `users-2` …) and the group's other arrangements (`-behind`, `-wide`, `-level`; C27).
+   A cell is the shipped file when the manifest has it, else the candidate a batch draft names for
+   it in its board-level `set`, else a dashed placeholder. ?object=user&group=users&words=behind,wide,level */
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--hover:rgba(255,255,255,.05);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--hover:rgba(255,255,255,.05);--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+svg{display:block;overflow:visible;flex:none}
+button{font:inherit;color:inherit}
+a{color:inherit}
+kbd{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-block;min-width:18px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 4px;background:var(--panel);color:var(--muted)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px}
+
+/* ── header ── */
+.app{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.app .top{display:flex;align-items:center;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.ident{display:flex;align-items:center;gap:12px;flex:1;min-width:220px}
+.glyph{width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);color:var(--ink)}
+.ident h1{font-size:18px;line-height:1.2;margin:0;font-weight:600;letter-spacing:-.01em}
+.ident p{margin:2px 0 0;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.divider{width:1px;height:20px;background:var(--line);margin:0 4px}
+.seg{display:inline-flex;height:28px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.seg button{font-size:12px;padding:0 9px;border:0;border-radius:5px;background:none;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--hover);color:var(--ink)}
+.back{font-size:12px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+
+/* ── the sheet ── */
+main.wrap{padding-top:24px;padding-bottom:80px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.ph{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);min-height:57px}
+.ph h2{font-size:14px;font-weight:600;margin:0}
+.ph p{margin:0;font-size:12px;color:var(--muted)}
+.scroll{overflow-x:auto}
+.sheet{display:grid;grid-template-columns:128px repeat(var(--cols),184px);width:max-content}
+.sheet>*{box-shadow:1px 0 0 var(--line),0 1px 0 var(--line)}
+.head{padding:10px 14px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--inset);white-space:nowrap}
+.head code{font:inherit;text-transform:none;letter-spacing:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500}
+.rowlab{padding:16px 14px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.rowlab b{font-size:13px;font-weight:600}
+.rowlab small{font-size:11px;color:var(--muted)}
+.cell{position:relative;padding:18px 12px 12px;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+/* a draft cell: dotted frame drawn as an outline, so it takes no room and shifts nothing */
+.cell.draft{outline:1.5px dotted var(--muted);outline-offset:-5px;border-radius:10px}
+.ms{display:flex;align-items:center;gap:12px;height:24px;color:var(--ink)}
+.px{display:flex;gap:10px}
+.px figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.px canvas{width:64px;height:64px;image-rendering:pixelated;background:var(--inset);border:1px solid var(--line);border-radius:3px;display:block}
+.px small,.cap{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.nm{font-size:12px;font-weight:500;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.tag{font-size:11px;height:16px;line-height:16px;color:var(--muted);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;margin-top:-8px}
+.tag a{text-decoration:none;border-bottom:1px dotted currentColor}
+.tag a:hover{color:var(--ink)}
+.ph-box{display:block;flex:none;border:1px dashed var(--line);border-radius:3px}
+.cell.missing .nm{color:var(--faint);font-weight:400}
+.cell.missing .tag{color:var(--faint)}
+.cell.missing .px canvas{border-style:dashed;background:none}
+.pf{display:flex;align-items:center;gap:16px;height:41px;white-space:nowrap;overflow:hidden;padding:0 20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.keys{display:inline-flex;align-items:center;gap:6px}
+.swatch{display:inline-block;width:14px;height:10px;border-radius:3px}
+.swatch.d{outline:1.5px dotted var(--muted);outline-offset:-1px}
+.swatch.m{border:1px dashed var(--line)}
+.empty{padding:48px 20px;text-align:center;color:var(--muted);font-size:13px}
+.empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+</style>
+</head>
+<body>
+<header class="app">
+  <div class="wrap top">
+    <div class="ident">
+      <div class="glyph" id="glyph"></div>
+      <div><h1>Figure families</h1><p id="subtitle">&nbsp;</p></div>
+    </div>
+    <div class="actions" id="bar">
+      <a class="back" href="library.html">Library</a>
+      <span class="divider"></span>
+      <span class="seg" id="style"></span>
+      <span class="divider"></span>
+      <span class="seg" id="theme"></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="panel">
+    <div class="ph"><h2 id="ttl"></h2><p id="hint"></p></div>
+    <div class="scroll"><div class="sheet" id="sheet"></div></div>
+    <div class="pf">
+      <span class="keys"><kbd>F</kbd> filled</span>
+      <span class="keys">theme: Auto · Light · Dark, top right</span>
+      <span class="keys" style="margin-left:auto"><i class="swatch d"></i> on a board</span>
+      <span class="keys"><i class="swatch m"></i> not drawn</span>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+// Cache-buster: the lab is a dev page and these modules are edited constantly.
+const { strokeOf } = await import(`../tools/masters.mjs?v=${Date.now()}`);
+const MASTERS = [24, 20, 16];
+const q = new URLSearchParams(location.search);
+const OBJECT = q.get('object') || 'user';
+const GROUP = q.get('group') || 'users';
+const WORDS = (q.get('words') ?? 'behind,wide,level').split(',').map((w) => w.trim()).filter(Boolean);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage may be unavailable */ } },
+};
+const state = { theme: store.get('icon-theme', 'auto'), filled: store.get('fig-filled', false) };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+const man = await (await fetch('manifest.json', { cache: 'no-store' })).json();
+const rec = (n, m, filled) => man.masters[m]?.icons?.[filled ? `${n}-filled` : n] ?? null;
+const shipped = (n) => MASTERS.some((m) => rec(n, m, false));
+
+// Every drawing board that exists: the board itself (lab/drafts/current.js) when index.json says it
+// holds an icon, and each batch draft it lists. A draft whose `set` maps a candidate id to a name
+// stands in for that name until it ships. index.json missing, or a draft that will not import, is
+// skipped without a word.
+const index = await fetch('./drafts/batch/index.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+const sources = [
+  ...(index?.board?.name ? [{ board: index.board.name, url: './drafts/current.js', href: 'icon.html' }] : []),
+  ...(index?.icons ?? []).filter((b) => b?.name).map((b) => ({
+    board: b.name, url: `./drafts/batch/${encodeURIComponent(b.name)}.js`, href: `icon.html?icon=${encodeURIComponent(b.name)}` })),
+];
+const onBoard = new Map();                                   // shipping name → { board, href, id, cand }
+for (const [i, r] of (await Promise.allSettled(sources.map((s) => import(`${s.url}?${Date.now()}`)))).entries()) {
+  const d = r.status === 'fulfilled' ? r.value?.default : null;
+  if (!d?.set || !Array.isArray(d.candidates)) continue;
+  for (const [id, name] of Object.entries(d.set)) {
+    const cand = d.candidates.find((c) => c?.id === id);
+    if (cand && !onBoard.has(name)) onBoard.set(name, { ...sources[i], id, cand });
+  }
+}
+
+// ── What to draw ──────────────────────────────────────────────────────────────────
+// One master of one cell, as SVG children with every paint attribute spelled out, so the
+// same markup draws inline and rasterises from a data: URL. Shipped files carry their own
+// weight (`stroke`); a candidate's outline is the master's own weight (tools/masters.mjs),
+// its filled form `{ fill, stroke, weight }` or 'outline' (the same line drawing), as on the board.
+const g = (sw, inner) => `<g fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${inner}</g>`;
+function art(cell, m) {
+  if (cell.kind === 'shipped') {
+    const r = rec(cell.name, m, state.filled);
+    return r ? g(r.stroke ?? strokeOf(m), r.body) : null;
+  }
+  if (cell.kind !== 'draft') return null;
+  const c = cell.src.cand, o = c.masters?.[m];
+  let fill = [], lines = o, sw = strokeOf(m);
+  if (state.filled && c.filled !== 'outline') {
+    const f = c.filled?.[m]; if (!f) return null;
+    fill = f.fill ?? []; lines = f.stroke ?? []; sw = f.weight ?? strokeOf(m);
+  }
+  if (!lines && !fill.length) return null;
+  return fill.map((d) => `<path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`).join('')
+    + g(sw, (lines ?? []).map((d) => `<path d="${d}"/>`).join(''));
+}
+const blank = (px) => `<span class="ph-box" style="width:${px}px;height:${px}px"></span>`;
+const svg = (m, px, inner) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" aria-hidden="true">${inner}</svg>`;
+
+// Rows: the object and every numbered figure that ships. Columns: the figure, its group, then one per word.
+const figures = [...new Set(MASTERS.flatMap((m) => man.masters[m]?.names ?? []))]
+  .filter((n) => n === OBJECT || new RegExp(`^${OBJECT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}-\\d+$`).test(n))
+  .sort((a, b) => (+(a.split('-').pop()) || 1) - (+(b.split('-').pop()) || 1));
+const COLS = ['figure', 'group', ...WORDS];
+const nameFor = (fig, col) => {
+  const n = fig === OBJECT ? '' : fig.slice(OBJECT.length);   // '' or '-2'
+  return col === 'figure' ? fig : col === 'group' ? `${GROUP}${n}` : `${GROUP}${n}-${col}`;
+};
+const cells = figures.map((fig) => COLS.map((col) => {
+  const name = nameFor(fig, col);
+  if (shipped(name)) return { name, kind: 'shipped' };
+  const src = onBoard.get(name);
+  return src ? { name, kind: 'draft', src } : { name, kind: 'missing' };
+}));
+
+// ── Layout, built once; the style switch only repaints the drawings in place ──
+const all = cells.flat();
+const count = (k) => all.filter((c) => c.kind === k).length;
+document.getElementById('subtitle').textContent =
+  `${count('shipped')} shipped · ${count('draft')} on a board · ${count('missing')} missing`;
+document.getElementById('ttl').textContent = `${OBJECT} · ${GROUP}`;
+document.getElementById('hint').textContent = 'Rows are figures; columns are the figure, its group and the group\'s arrangements. 24 · 20 · 16 at 1×, then real pixels at 16.';
+const glyphRec = rec(OBJECT, 24, false);
+document.getElementById('glyph').innerHTML = glyphRec ? svg(24, 20, g(glyphRec.stroke, glyphRec.body)) : '';
+
+const sheet = document.getElementById('sheet');
+sheet.style.setProperty('--cols', COLS.length);
+const colHead = (col) => col === 'figure' ? `figure · <code>${esc(OBJECT)}[-n]</code>`
+  : col === 'group' ? `group · <code>${esc(GROUP)}[-n]</code>` : `<code>-${esc(col)}</code>`;
+const tag = (c) => c.kind === 'draft'
+  ? `draft · <a href="${esc(c.src.href)}">${esc(c.src.board)} ${esc(c.src.id)}</a>`
+  : c.kind === 'missing' ? 'not drawn' : '';
+sheet.innerHTML = figures.length
+  ? `<div class="head"></div>${COLS.map((c) => `<div class="head">${colHead(c)}</div>`).join('')}`
+    + figures.map((fig, i) => `<div class="rowlab"><b>${esc(fig)}</b><small>${esc(nameFor(fig, 'group'))}</small></div>`
+      + cells[i].map((c, j) => `<div class="cell ${c.kind}" data-r="${i}" data-c="${j}" title="${esc(c.name)}">
+          <div class="ms"></div>
+          <div class="px"><figure><canvas data-dpr="1"></canvas><small>16 · 1×</small></figure><figure><canvas data-dpr="2"></canvas><small>16 · 2×</small></figure></div>
+          <div class="nm">${esc(c.name)}</div><div class="tag">${tag(c)}</div></div>`).join('')).join('')
+  : '';
+if (!figures.length) sheet.outerHTML = `<div class="empty"><b>No figures</b>Nothing named <code>${esc(OBJECT)}</code> or <code>${esc(OBJECT)}-&lt;n&gt;</code> ships yet.</div>`;
+
+// Real pixels: rasterise the 16 master at 1 unit = 1 device pixel (1×) and at 2 device pixels a
+// unit (2×, a retina screen), then show each blown up with smoothing off. A standalone data: URL
+// has no inherited colour, so the theme's ink is baked in.
+let gen = 0;
+async function pixels(cv, inner, run) {
+  const dpr = +cv.dataset.dpr, n = 16 * dpr;
+  cv.width = n; cv.height = n;                                // also clears it
+  if (!inner) return;
+  const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000';
+  const img = new Image();
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${n}" height="${n}" viewBox="0 0 16 16">${inner.replaceAll('currentColor', ink)}</svg>`)}`;
+  try { await img.decode(); } catch { return; }
+  if (run !== gen) return;                                    // a newer paint took over
+  const ctx = cv.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, n, n);
+}
+function paint() {
+  const run = ++gen;
+  for (const el of sheet.querySelectorAll('.cell')) {
+    const c = cells[el.dataset.r][el.dataset.c];
+    el.querySelector('.ms').innerHTML = MASTERS.map((m) => { const a = art(c, m); return a ? svg(m, m, a) : blank(m); }).join('');
+    const a16 = art(c, 16);
+    for (const cv of el.querySelectorAll('canvas')) pixels(cv, a16, run);
+  }
+}
+
+// ── Controls ──
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+function renderBar() {
+  const opt = (k, v, text, on, title = '') => `<button data-${k}="${v}" class="${on ? 'on' : ''}"${title ? ` title="${title}"` : ''}>${text}</button>`;
+  document.getElementById('style').innerHTML = opt('style', 'outline', 'Outline', !state.filled) + opt('style', 'filled', 'Filled', state.filled, 'Filled (F)');
+  document.getElementById('theme').innerHTML = ['auto', 'light', 'dark'].map((t) => opt('theme', t, t[0].toUpperCase() + t.slice(1), state.theme === t)).join('');
+}
+function setFilled(v) { state.filled = v; store.set('fig-filled', v); renderBar(); paint(); }
+document.getElementById('bar').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.theme) { state.theme = t.dataset.theme; store.set('icon-theme', state.theme); applyTheme(); renderBar(); paint(); }
+  else if (t.dataset.style) setFilled(t.dataset.style === 'filled');
+});
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.('input,textarea,select')) return;
+  if (e.key === 'f' || e.key === 'F') setFilled(!state.filled);
+});
+// The baked-in ink follows the system theme while on Auto.
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (state.theme === 'auto') paint(); });
+
+applyTheme(); renderBar(); paint();
+</script>
+</body>
+</html>

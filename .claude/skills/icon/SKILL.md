@@ -104,6 +104,7 @@ repo, so it is safe while an icon is on the board. Fix what it reports before Ma
 3. Check the console for errors.
 4. Take a screenshot of Construction, and of Compare (Style → Outline) when the choice is about size or proportion.
 5. When the icon belongs to a family of shipped icons (circles, squares…), add `family: ['plus-circle', …]` to the board (small candidates carry `size: 'small'`) and show `/lab/family-sheet.html`: every candidate beside those icons at 24 · 20 · 16, a 4× row with the first family icon's mark box as guides, and in-text use.
+   For a group on a figure (C27), give the draft a `set: { A: 'users-3', … }` naming what each candidate ships as; `/lab/figures.html` then shows those candidates in place beside every shipped figure and group, outline and filled.
 6. Tell the user, in plain words: the options with their numbers, your recommendation and why, and exactly what to look at.
 
 **Refined, not comical.** Never review an icon alone: judge it at 16 next to the approved set (the Library's At 16 strip).
