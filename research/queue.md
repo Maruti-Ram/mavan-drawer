@@ -271,7 +271,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 63. `login` · Users & Access — approved 2026-09-23
 - [x] 63. `login-2` · Users & Access · variant of `login` — Bracket 8, arrow at the mouth · approved 2026-09-23
 - [x] 63. `login-3` · Users & Access · variant of `login` — Door fixed left (Tabler) · approved 2026-09-23
-- [~] 64. `logout` · Users & Access
+- [x] 64. `logout` · Users & Access — approved 2026-09-23
+- [x] 64. `logout-2` · Users & Access · variant of `logout` — Bracket 8, arrow at the mouth · approved 2026-09-23
+- [x] 64. `logout-3` · Users & Access · variant of `logout` — Door fixed right, arrow left · approved 2026-09-23
 - [x] 65. `maximize` · UI & Layout — approved 2026-09-23
 - [x] 65. `maximize-2` · UI & Layout · variant of `maximize` — Crisp corners · approved 2026-09-23
 - [x] 65. `maximize-3` · UI & Layout · variant of `maximize` — Broken frame · approved 2026-09-23
