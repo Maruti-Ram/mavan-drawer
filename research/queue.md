@@ -300,7 +300,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 73. `target` · Status & Feedback — approved 2026-09-24
 - [x] 73. `target-2` · Status & Feedback · variant of `target` — Crosshair · approved 2026-09-24
 - [x] 73. `target-3` · Status & Feedback · variant of `target` — Focus · approved 2026-09-24
-- [~] 74. `text` · Editing & Text
+- [x] 74. `text` · Editing & Text — approved 2026-09-24
+- [x] 74. `text-2` · Editing & Text · variant of `text` — Text lines · approved 2026-09-24
+- [x] 74. `text-3` · Editing & Text · variant of `text` — T on a baseline · approved 2026-09-24
+- [x] 74. `text-4` · Editing & Text · variant of `text` — Serif T, plus box · approved 2026-09-24
 - [~] 75. `thumbs-up` · Communication
 - [ ] 76. `toggle-on` · UI & Layout
 - [ ] 77. `upload` · Files & Folders
