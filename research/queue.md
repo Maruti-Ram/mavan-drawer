@@ -241,7 +241,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 53. `database-3` · Charts & Data · variant of `database` — Wide, three discs · approved 2026-09-23
 - [x] 54. `external-link` · Arrows & Direction — approved 2026-09-23
 - [x] 54. `external-link-2` · Arrows & Direction · variant of `external-link` — Smaller box · approved 2026-09-23
-- [~] 55. `eye` · Users & Access
+- [x] 55. `eye` · Users & Access — approved 2026-09-23
 - [ ] 56. `face-smile` · Communication
 - [ ] 57. `flag` · Status & Feedback
 - [ ] 58. `grid` · UI & Layout
