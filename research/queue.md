@@ -265,7 +265,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 61. `link` · Files & Folders — approved 2026-09-23
 - [x] 61. `link-2` · Files & Folders · variant of `link` — Diagonal chain, bar · approved 2026-09-23
 - [x] 61. `link-3` · Files & Folders · variant of `link` — Level chain, bar · approved 2026-09-23
-- [~] 62. `list-bullet` · Editing & Text
+- [x] 62. `list-bullet` · Editing & Text — approved 2026-09-23
+- [x] 62. `list-bullet-2` · Editing & Text · variant of `list-bullet` — Bold discs (the more dot) · approved 2026-09-23
+- [x] 62. `list-bullet-3` · Editing & Text · variant of `list-bullet` — Two rows, ring bullets · approved 2026-09-23
 - [~] 63. `login` · Users & Access
 - [~] 64. `logout` · Users & Access
 - [~] 65. `maximize` · UI & Layout
