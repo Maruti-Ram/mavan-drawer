@@ -308,7 +308,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 75. `thumbs-up-2` · Communication · variant of `thumbs-up` — Wedge, welded cuff · approved 2026-09-24
 - [x] 76. `toggle-on` · UI & Layout — approved 2026-09-26
 - [x] 76. `toggle-on-2` · UI & Layout · variant of `toggle-on` — Big knob over a slim track · approved 2026-09-26
-- [~] 77. `upload` · Files & Folders
+- [x] 77. `upload` · Files & Folders — approved 2026-09-26
+- [x] 77. `upload-2` · Files & Folders · variant of `upload` — Tray, arrow at the rim · approved 2026-09-26
+- [x] 77. `upload-3` · Files & Folders · variant of `upload` — Deep tray, arrow deep · approved 2026-09-26
 - [~] 78. `briefcase` · Commerce & Payments
 - [ ] 79. `camera` · Media & Playback
 - [ ] 80. `cart` · Commerce & Payments
