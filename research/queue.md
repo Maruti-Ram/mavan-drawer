@@ -311,7 +311,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 77. `upload` · Files & Folders — approved 2026-09-26
 - [x] 77. `upload-2` · Files & Folders · variant of `upload` — Tray, arrow at the rim · approved 2026-09-26
 - [x] 77. `upload-3` · Files & Folders · variant of `upload` — Deep tray, arrow deep · approved 2026-09-26
-- [~] 78. `briefcase` · Commerce & Payments
+- [x] 78. `briefcase` · Commerce & Payments — approved 2026-09-26
 - [ ] 79. `camera` · Media & Playback
 - [ ] 80. `cart` · Commerce & Payments
 - [ ] 81. `desktop` · Devices & Hardware
