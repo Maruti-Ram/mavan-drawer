@@ -323,7 +323,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 80. `cart-3` · Commerce & Payments · variant of `cart` — Hook, tapered front · approved 2026-09-26
 - [x] 80. `cart-4` · Commerce & Payments · variant of `cart` — Ring wheels · approved 2026-09-26
 - [x] 80. `cart-5` · Commerce & Payments · variant of `cart` — Basket on wheels, rail inside · approved 2026-09-26
-- [~] 81. `desktop` · Devices & Hardware
+- [x] 81. `desktop` · Devices & Hardware — approved 2026-09-26
+- [x] 81. `desktop-2` · Devices & Hardware · variant of `desktop` — Foot only · approved 2026-09-26
+- [x] 81. `desktop-3` · Devices & Hardware · variant of `desktop` — Chin · approved 2026-09-26
+- [x] 81. `desktop-4` · Devices & Hardware · variant of `desktop` — Wide screen · approved 2026-09-26
+- [x] 81. `desktop-5` · Devices & Hardware · variant of `desktop` — Card screen · approved 2026-09-26
+- [x] 81. `desktop-6` · Devices & Hardware · variant of `desktop` — Flared stand · approved 2026-09-26
 - [ ] 82. `map-pin` · Maps & Location
 - [ ] 83. `package` · Commerce & Payments
 - [ ] 84. `printer` · Devices & Hardware
