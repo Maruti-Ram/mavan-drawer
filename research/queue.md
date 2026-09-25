@@ -318,7 +318,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 79. `camera-4` · Media & Playback · variant of `camera` — Shutter tab · approved 2026-09-26
 - [x] 79. `camera-5` · Media & Playback · variant of `camera` — Large lens · approved 2026-09-26
 - [x] 79. `camera-6` · Media & Playback · variant of `camera` — No hump, flash dot, whole pixels at 16 · approved 2026-09-26
-- [~] 80. `cart` · Commerce & Payments
+- [x] 80. `cart` · Commerce & Payments — approved 2026-09-26
+- [x] 80. `cart-2` · Commerce & Payments · variant of `cart` — Hook, square basket · approved 2026-09-26
+- [x] 80. `cart-3` · Commerce & Payments · variant of `cart` — Hook, tapered front · approved 2026-09-26
+- [x] 80. `cart-4` · Commerce & Payments · variant of `cart` — Ring wheels · approved 2026-09-26
+- [x] 80. `cart-5` · Commerce & Payments · variant of `cart` — Basket on wheels, rail inside · approved 2026-09-26
 - [~] 81. `desktop` · Devices & Hardware
 - [ ] 82. `map-pin` · Maps & Location
 - [ ] 83. `package` · Commerce & Payments
