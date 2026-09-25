@@ -306,7 +306,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 74. `text-4` · Editing & Text · variant of `text` — Serif T, plus box · approved 2026-09-24
 - [x] 75. `thumbs-up` · Communication — approved 2026-09-24
 - [x] 75. `thumbs-up-2` · Communication · variant of `thumbs-up` — Wedge, welded cuff · approved 2026-09-24
-- [~] 76. `toggle-on` · UI & Layout
+- [x] 76. `toggle-on` · UI & Layout — approved 2026-09-26
+- [x] 76. `toggle-on-2` · UI & Layout · variant of `toggle-on` — Big knob over a slim track · approved 2026-09-26
 - [~] 77. `upload` · Files & Folders
 - [~] 78. `briefcase` · Commerce & Payments
 - [ ] 79. `camera` · Media & Playback
