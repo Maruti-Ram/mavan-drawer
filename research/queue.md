@@ -312,7 +312,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 77. `upload-2` · Files & Folders · variant of `upload` — Tray, arrow at the rim · approved 2026-09-26
 - [x] 77. `upload-3` · Files & Folders · variant of `upload` — Deep tray, arrow deep · approved 2026-09-26
 - [x] 78. `briefcase` · Commerce & Payments — approved 2026-09-26
-- [~] 79. `camera` · Media & Playback
+- [x] 79. `camera` · Media & Playback — approved 2026-09-26
+- [x] 79. `camera-2` · Media & Playback · variant of `camera` — Landscape body · approved 2026-09-26
+- [x] 79. `camera-3` · Media & Playback · variant of `camera` — Square tab · approved 2026-09-26
+- [x] 79. `camera-4` · Media & Playback · variant of `camera` — Shutter tab · approved 2026-09-26
+- [x] 79. `camera-5` · Media & Playback · variant of `camera` — Large lens · approved 2026-09-26
+- [x] 79. `camera-6` · Media & Playback · variant of `camera` — No hump, flash dot, whole pixels at 16 · approved 2026-09-26
 - [~] 80. `cart` · Commerce & Payments
 - [~] 81. `desktop` · Devices & Hardware
 - [ ] 82. `map-pin` · Maps & Location
