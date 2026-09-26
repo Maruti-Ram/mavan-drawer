@@ -621,6 +621,10 @@
     "plus-large-filled",
     "plus-small",
     "plus-small-filled",
+    "presentation",
+    "presentation-2",
+    "presentation-2-filled",
+    "presentation-filled",
     "printer",
     "printer-2",
     "printer-2-filled",
@@ -36452,6 +36456,257 @@
       "ratio": null,
       "gap": null
     },
+    "presentation": {
+      "paths": [
+        "M2.75 3.75H21.25",
+        "M3.75 3.75V12.75A2.5 2.5 0 0 0 6.25 15.25H17.75A2.5 2.5 0 0 0 20.25 12.75V3.75",
+        "M12 15.25V20.25",
+        "M12 15.25L7 20.25",
+        "M12 15.25L17 20.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 3.75H21.25\"/> <path d=\"M3.75 3.75V12.75A2.5 2.5 0 0 0 6.25 15.25H17.75A2.5 2.5 0 0 0 20.25 12.75V3.75\"/> <path d=\"M12 15.25V20.25\"/> <path d=\"M12 15.25L7 20.25\"/> <path d=\"M12 15.25L17 20.25\"/>",
+      "mark": false,
+      "tags": [
+        "board",
+        "tripod",
+        "easel",
+        "slides",
+        "screen"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 3,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 3,
+        "right": 2,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.72,
+          "optical": 2.54
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.72,
+          "optical": 2.54
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.02,
+          "optical": 3.02
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "presentation-2": {
+      "paths": [
+        "M5.25 2.75H18.75A2.5 2.5 0 0 1 21.25 5.25V13.75A2.5 2.5 0 0 1 18.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V5.25A2.5 2.5 0 0 1 5.25 2.75Z",
+        "M6.5 12.5L9.47 9.53A0.75 0.75 0 0 1 10.53 9.53L11.97 10.97A0.75 0.75 0 0 0 13.03 10.97L17.5 6.5",
+        "M12 16.25L7 21.25",
+        "M12 16.25L17 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.25 2.75H18.75A2.5 2.5 0 0 1 21.25 5.25V13.75A2.5 2.5 0 0 1 18.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V5.25A2.5 2.5 0 0 1 5.25 2.75Z\"/> <path d=\"M6.5 12.5L9.47 9.53A0.75 0.75 0 0 1 10.53 9.53L11.97 10.97A0.75 0.75 0 0 0 13.03 10.97L17.5 6.5\"/> <path d=\"M12 16.25L7 21.25\"/> <path d=\"M12 16.25L17 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "board",
+        "easel",
+        "chart",
+        "line",
+        "trend",
+        "growth",
+        "report"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.21,
+          "optical": 2.16
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.21,
+          "optical": 2.16
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.21,
+          "optical": 2.16
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.61,
+          "optical": 2.46
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "presentation-2-filled": {
+      "paths": [
+        "M12 16.25L7 21.25",
+        "M12 16.25L17 21.25"
+      ],
+      "areas": [
+        "M5.25 2H18.75A3.25 3.25 0 0 1 22 5.25V13.75A3.25 3.25 0 0 1 18.75 17H5.25A3.25 3.25 0 0 1 2 13.75V5.25A3.25 3.25 0 0 1 5.25 2ZM5.97 11.97L8.94 9A1.5 1.5 0 0 1 11.06 9L12.5 10.44L16.97 5.97A0.75 0.75 0 0 1 18.03 7.03L13.56 11.5A1.5 1.5 0 0 1 11.44 11.5L10 10.06L7.03 13.03A0.75 0.75 0 0 1 5.97 11.97Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 2H18.75A3.25 3.25 0 0 1 22 5.25V13.75A3.25 3.25 0 0 1 18.75 17H5.25A3.25 3.25 0 0 1 2 13.75V5.25A3.25 3.25 0 0 1 5.25 2ZM5.97 11.97L8.94 9A1.5 1.5 0 0 1 11.06 9L12.5 10.44L16.97 5.97A0.75 0.75 0 0 1 18.03 7.03L13.56 11.5A1.5 1.5 0 0 1 11.44 11.5L10 10.06L7.03 13.03A0.75 0.75 0 0 1 5.97 11.97Z\"/> <path d=\"M12 16.25L7 21.25\"/> <path d=\"M12 16.25L17 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "board",
+        "easel",
+        "chart",
+        "line",
+        "trend",
+        "growth",
+        "report"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "presentation-filled": {
+      "paths": [
+        "M2.75 3.75H21.25",
+        "M12 15.25V20.25",
+        "M12 15.25L7 20.25",
+        "M12 15.25L17 20.25"
+      ],
+      "areas": [
+        "M3 3.75H21V12.75A3.25 3.25 0 0 1 17.75 16H6.25A3.25 3.25 0 0 1 3 12.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 3.75H21V12.75A3.25 3.25 0 0 1 17.75 16H6.25A3.25 3.25 0 0 1 3 12.75Z\"/> <path d=\"M2.75 3.75H21.25\"/> <path d=\"M12 15.25V20.25\"/> <path d=\"M12 15.25L7 20.25\"/> <path d=\"M12 15.25L17 20.25\"/>",
+      "mark": false,
+      "tags": [
+        "board",
+        "tripod",
+        "easel",
+        "slides",
+        "screen"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 3,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 3,
+        "right": 2,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "printer": {
       "paths": [
         "M6.75 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V10.25A2.5 2.5 0 0 1 5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V14.75A2.5 2.5 0 0 1 18.75 17.25H17.25",
@@ -45201,6 +45456,10 @@
         "plus-large-filled",
         "plus-small",
         "plus-small-filled",
+        "presentation",
+        "presentation-2",
+        "presentation-2-filled",
+        "presentation-filled",
         "printer",
         "printer-2",
         "printer-2-filled",
@@ -81005,6 +81264,257 @@
           "ratio": null,
           "gap": null
         },
+        "presentation": {
+          "paths": [
+            "M1.625 2.625H14.375",
+            "M2.625 2.625V8.875A1.5 1.5 0 0 0 4.125 10.375H11.875A1.5 1.5 0 0 0 13.375 8.875V2.625",
+            "M8 10.375V13.375",
+            "M8 10.375L5 13.375",
+            "M8 10.375L11 13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 2.625H14.375\"/> <path d=\"M2.625 2.625V8.875A1.5 1.5 0 0 0 4.125 10.375H11.875A1.5 1.5 0 0 0 13.375 8.875V2.625\"/> <path d=\"M8 10.375V13.375\"/> <path d=\"M8 10.375L5 13.375\"/> <path d=\"M8 10.375L11 13.375\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "tripod",
+            "easel",
+            "slides",
+            "screen"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.69,
+              "optical": 1.52
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.69,
+              "optical": 1.52
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-2": {
+          "paths": [
+            "M3.125 1.625H12.875A1.5 1.5 0 0 1 14.375 3.125V8.875A1.5 1.5 0 0 1 12.875 10.375H3.125A1.5 1.5 0 0 1 1.625 8.875V3.125A1.5 1.5 0 0 1 3.125 1.625Z",
+            "M4.375 7.375L5.933 5.817A0.625 0.625 0 0 1 6.817 5.817L8.183 7.183A0.625 0.625 0 0 0 9.067 7.183L11.625 4.625",
+            "M8 10.375L4 14.375",
+            "M8 10.375L12 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.125 1.625H12.875A1.5 1.5 0 0 1 14.375 3.125V8.875A1.5 1.5 0 0 1 12.875 10.375H3.125A1.5 1.5 0 0 1 1.625 8.875V3.125A1.5 1.5 0 0 1 3.125 1.625Z\"/> <path d=\"M4.375 7.375L5.933 5.817A0.625 0.625 0 0 1 6.817 5.817L8.183 7.183A0.625 0.625 0 0 0 9.067 7.183L11.625 4.625\"/> <path d=\"M8 10.375L4 14.375\"/> <path d=\"M8 10.375L12 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "easel",
+            "chart",
+            "line",
+            "trend",
+            "growth",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.15,
+              "optical": 1.11
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.15,
+              "optical": 1.11
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.15,
+              "optical": 1.12
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.56,
+              "optical": 1.42
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-2-filled": {
+          "paths": [
+            "M8 10.375L4 14.375",
+            "M8 10.375L12 14.375"
+          ],
+          "areas": [
+            "M3.125 1H12.875A2.125 2.125 0 0 1 15 3.125V8.875A2.125 2.125 0 0 1 12.875 11H3.125A2.125 2.125 0 0 1 1 8.875V3.125A2.125 2.125 0 0 1 3.125 1ZM3.845 6.845L5.314 5.375A1.5 1.5 0 0 1 7.436 5.375L8.625 6.564L11.095 4.095A0.75 0.75 0 0 1 12.155 5.155L9.686 7.625A1.5 1.5 0 0 1 7.564 7.625L6.375 6.436L4.905 7.905A0.75 0.75 0 0 1 3.845 6.845Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.125 1H12.875A2.125 2.125 0 0 1 15 3.125V8.875A2.125 2.125 0 0 1 12.875 11H3.125A2.125 2.125 0 0 1 1 8.875V3.125A2.125 2.125 0 0 1 3.125 1ZM3.845 6.845L5.314 5.375A1.5 1.5 0 0 1 7.436 5.375L8.625 6.564L11.095 4.095A0.75 0.75 0 0 1 12.155 5.155L9.686 7.625A1.5 1.5 0 0 1 7.564 7.625L6.375 6.436L4.905 7.905A0.75 0.75 0 0 1 3.845 6.845Z\"/> <path d=\"M8 10.375L4 14.375\"/> <path d=\"M8 10.375L12 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "easel",
+            "chart",
+            "line",
+            "trend",
+            "growth",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-filled": {
+          "paths": [
+            "M1.625 2.625H14.375",
+            "M8 10.375V13.375",
+            "M8 10.375L5 13.375",
+            "M8 10.375L11 13.375"
+          ],
+          "areas": [
+            "M2 2.625H14V8.875A2.125 2.125 0 0 1 11.875 11H4.125A2.125 2.125 0 0 1 2 8.875Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 2.625H14V8.875A2.125 2.125 0 0 1 11.875 11H4.125A2.125 2.125 0 0 1 2 8.875Z\"/> <path d=\"M1.625 2.625H14.375\"/> <path d=\"M8 10.375V13.375\"/> <path d=\"M8 10.375L5 13.375\"/> <path d=\"M8 10.375L11 13.375\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "tripod",
+            "easel",
+            "slides",
+            "screen"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "printer": {
           "paths": [
             "M4.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625H12.875A1.5 1.5 0 0 1 14.375 6.125V9.875A1.5 1.5 0 0 1 12.875 11.375H11.375",
@@ -89737,6 +90247,10 @@
         "plus-large-filled",
         "plus-small",
         "plus-small-filled",
+        "presentation",
+        "presentation-2",
+        "presentation-2-filled",
+        "presentation-filled",
         "printer",
         "printer-2",
         "printer-2-filled",
@@ -125552,6 +126066,257 @@
           "ratio": null,
           "gap": null
         },
+        "presentation": {
+          "paths": [
+            "M2.75 3.75H17.25",
+            "M3.75 3.75V10.25A2 2 0 0 0 5.75 12.25H14.25A2 2 0 0 0 16.25 10.25V3.75",
+            "M10 12.25V16.25",
+            "M10 12.25L6 16.25",
+            "M10 12.25L14 16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 3.75H17.25\"/> <path d=\"M3.75 3.75V10.25A2 2 0 0 0 5.75 12.25H14.25A2 2 0 0 0 16.25 10.25V3.75\"/> <path d=\"M10 12.25V16.25\"/> <path d=\"M10 12.25L6 16.25\"/> <path d=\"M10 12.25L14 16.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "tripod",
+            "easel",
+            "slides",
+            "screen"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.69,
+              "optical": 2.52
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.69,
+              "optical": 2.52
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.21,
+              "optical": 3.16
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-2": {
+          "paths": [
+            "M4.75 2.75H15.25A2 2 0 0 1 17.25 4.75V11.25A2 2 0 0 1 15.25 13.25H4.75A2 2 0 0 1 2.75 11.25V4.75A2 2 0 0 1 4.75 2.75Z",
+            "M5.75 10L7.72 8.03A0.75 0.75 0 0 1 8.78 8.03L9.97 9.22A0.75 0.75 0 0 0 11.03 9.22L14.25 6",
+            "M10 13.25L6 17.25",
+            "M10 13.25L14 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 2.75H15.25A2 2 0 0 1 17.25 4.75V11.25A2 2 0 0 1 15.25 13.25H4.75A2 2 0 0 1 2.75 11.25V4.75A2 2 0 0 1 4.75 2.75Z\"/> <path d=\"M5.75 10L7.72 8.03A0.75 0.75 0 0 1 8.78 8.03L9.97 9.22A0.75 0.75 0 0 0 11.03 9.22L14.25 6\"/> <path d=\"M10 13.25L6 17.25\"/> <path d=\"M10 13.25L14 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "easel",
+            "chart",
+            "line",
+            "trend",
+            "growth",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.21,
+              "optical": 2.16
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.21,
+              "optical": 2.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.21,
+              "optical": 2.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.57,
+              "optical": 2.43
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-2-filled": {
+          "paths": [
+            "M10 13.25L6 17.25",
+            "M10 13.25L14 17.25"
+          ],
+          "areas": [
+            "M4.75 2H15.25A2.75 2.75 0 0 1 18 4.75V11.25A2.75 2.75 0 0 1 15.25 14H4.75A2.75 2.75 0 0 1 2 11.25V4.75A2.75 2.75 0 0 1 4.75 2ZM5.22 9.47L7.19 7.5A1.5 1.5 0 0 1 9.31 7.5L10.5 8.69L13.72 5.47A0.75 0.75 0 0 1 14.78 6.53L11.56 9.75A1.5 1.5 0 0 1 9.44 9.75L8.25 8.56L6.28 10.53A0.75 0.75 0 0 1 5.22 9.47Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H15.25A2.75 2.75 0 0 1 18 4.75V11.25A2.75 2.75 0 0 1 15.25 14H4.75A2.75 2.75 0 0 1 2 11.25V4.75A2.75 2.75 0 0 1 4.75 2ZM5.22 9.47L7.19 7.5A1.5 1.5 0 0 1 9.31 7.5L10.5 8.69L13.72 5.47A0.75 0.75 0 0 1 14.78 6.53L11.56 9.75A1.5 1.5 0 0 1 9.44 9.75L8.25 8.56L6.28 10.53A0.75 0.75 0 0 1 5.22 9.47Z\"/> <path d=\"M10 13.25L6 17.25\"/> <path d=\"M10 13.25L14 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "easel",
+            "chart",
+            "line",
+            "trend",
+            "growth",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-filled": {
+          "paths": [
+            "M2.75 3.75H17.25",
+            "M10 12.25V16.25",
+            "M10 12.25L6 16.25",
+            "M10 12.25L14 16.25"
+          ],
+          "areas": [
+            "M3 3.75H17V10.25A2.75 2.75 0 0 1 14.25 13H5.75A2.75 2.75 0 0 1 3 10.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 3.75H17V10.25A2.75 2.75 0 0 1 14.25 13H5.75A2.75 2.75 0 0 1 3 10.25Z\"/> <path d=\"M2.75 3.75H17.25\"/> <path d=\"M10 12.25V16.25\"/> <path d=\"M10 12.25L6 16.25\"/> <path d=\"M10 12.25L14 16.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "tripod",
+            "easel",
+            "slides",
+            "screen"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "printer": {
           "paths": [
             "M5.75 13.25H4.75A2 2 0 0 1 2.75 11.25V8.75A2 2 0 0 1 4.75 6.75H15.25A2 2 0 0 1 17.25 8.75V11.25A2 2 0 0 1 15.25 13.25H14.25",
@@ -134301,6 +135066,10 @@
         "plus-large-filled",
         "plus-small",
         "plus-small-filled",
+        "presentation",
+        "presentation-2",
+        "presentation-2-filled",
+        "presentation-filled",
         "printer",
         "printer-2",
         "printer-2-filled",
@@ -170132,6 +170901,257 @@
           "ratio": null,
           "gap": null
         },
+        "presentation": {
+          "paths": [
+            "M2.75 3.75H21.25",
+            "M3.75 3.75V12.75A2.5 2.5 0 0 0 6.25 15.25H17.75A2.5 2.5 0 0 0 20.25 12.75V3.75",
+            "M12 15.25V20.25",
+            "M12 15.25L7 20.25",
+            "M12 15.25L17 20.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 3.75H21.25\"/> <path d=\"M3.75 3.75V12.75A2.5 2.5 0 0 0 6.25 15.25H17.75A2.5 2.5 0 0 0 20.25 12.75V3.75\"/> <path d=\"M12 15.25V20.25\"/> <path d=\"M12 15.25L7 20.25\"/> <path d=\"M12 15.25L17 20.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "tripod",
+            "easel",
+            "slides",
+            "screen"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.72,
+              "optical": 2.54
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.72,
+              "optical": 2.54
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.02,
+              "optical": 3.02
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-2": {
+          "paths": [
+            "M5.25 2.75H18.75A2.5 2.5 0 0 1 21.25 5.25V13.75A2.5 2.5 0 0 1 18.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V5.25A2.5 2.5 0 0 1 5.25 2.75Z",
+            "M6.5 12.5L9.47 9.53A0.75 0.75 0 0 1 10.53 9.53L11.97 10.97A0.75 0.75 0 0 0 13.03 10.97L17.5 6.5",
+            "M12 16.25L7 21.25",
+            "M12 16.25L17 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 2.75H18.75A2.5 2.5 0 0 1 21.25 5.25V13.75A2.5 2.5 0 0 1 18.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V5.25A2.5 2.5 0 0 1 5.25 2.75Z\"/> <path d=\"M6.5 12.5L9.47 9.53A0.75 0.75 0 0 1 10.53 9.53L11.97 10.97A0.75 0.75 0 0 0 13.03 10.97L17.5 6.5\"/> <path d=\"M12 16.25L7 21.25\"/> <path d=\"M12 16.25L17 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "easel",
+            "chart",
+            "line",
+            "trend",
+            "growth",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.21,
+              "optical": 2.16
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.21,
+              "optical": 2.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.21,
+              "optical": 2.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.61,
+              "optical": 2.46
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-2-filled": {
+          "paths": [
+            "M12 16.25L7 21.25",
+            "M12 16.25L17 21.25"
+          ],
+          "areas": [
+            "M5.25 2H18.75A3.25 3.25 0 0 1 22 5.25V13.75A3.25 3.25 0 0 1 18.75 17H5.25A3.25 3.25 0 0 1 2 13.75V5.25A3.25 3.25 0 0 1 5.25 2ZM5.97 11.97L8.94 9A1.5 1.5 0 0 1 11.06 9L12.5 10.44L16.97 5.97A0.75 0.75 0 0 1 18.03 7.03L13.56 11.5A1.5 1.5 0 0 1 11.44 11.5L10 10.06L7.03 13.03A0.75 0.75 0 0 1 5.97 11.97Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 2H18.75A3.25 3.25 0 0 1 22 5.25V13.75A3.25 3.25 0 0 1 18.75 17H5.25A3.25 3.25 0 0 1 2 13.75V5.25A3.25 3.25 0 0 1 5.25 2ZM5.97 11.97L8.94 9A1.5 1.5 0 0 1 11.06 9L12.5 10.44L16.97 5.97A0.75 0.75 0 0 1 18.03 7.03L13.56 11.5A1.5 1.5 0 0 1 11.44 11.5L10 10.06L7.03 13.03A0.75 0.75 0 0 1 5.97 11.97Z\"/> <path d=\"M12 16.25L7 21.25\"/> <path d=\"M12 16.25L17 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "easel",
+            "chart",
+            "line",
+            "trend",
+            "growth",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "presentation-filled": {
+          "paths": [
+            "M2.75 3.75H21.25",
+            "M12 15.25V20.25",
+            "M12 15.25L7 20.25",
+            "M12 15.25L17 20.25"
+          ],
+          "areas": [
+            "M3 3.75H21V12.75A3.25 3.25 0 0 1 17.75 16H6.25A3.25 3.25 0 0 1 3 12.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 3.75H21V12.75A3.25 3.25 0 0 1 17.75 16H6.25A3.25 3.25 0 0 1 3 12.75Z\"/> <path d=\"M2.75 3.75H21.25\"/> <path d=\"M12 15.25V20.25\"/> <path d=\"M12 15.25L7 20.25\"/> <path d=\"M12 15.25L17 20.25\"/>",
+          "mark": false,
+          "tags": [
+            "board",
+            "tripod",
+            "easel",
+            "slides",
+            "screen"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "printer": {
           "paths": [
             "M6.75 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V10.25A2.5 2.5 0 0 1 5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V14.75A2.5 2.5 0 0 1 18.75 17.25H17.25",
@@ -181481,8 +182501,17 @@
       "section": "D · The rest, by audit rank",
       "category": "Charts & Data",
       "base": null,
-      "note": null,
-      "status": "review"
+      "note": "approved 2026-09-26",
+      "status": "done"
+    },
+    {
+      "n": 98,
+      "name": "presentation-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "presentation",
+      "note": "Screen, easel legs, trend line · approved 2026-09-26",
+      "status": "done"
     },
     {
       "n": 99,

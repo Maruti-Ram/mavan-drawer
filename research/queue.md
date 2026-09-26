@@ -386,7 +386,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 97. `pin-4` · UI & Layout · variant of `pin` — Leaning, curved flare · approved 2026-09-26
 - [x] 97. `pin-5` · UI & Layout · variant of `pin` — Leaning, long needle · approved 2026-09-26
 - [x] 97. `pin-6` · UI & Layout · variant of `pin` — Leaning tack, no cap · approved 2026-09-26
-- [~] 98. `presentation` · Charts & Data
+- [x] 98. `presentation` · Charts & Data — approved 2026-09-26
+- [x] 98. `presentation-2` · Charts & Data · variant of `presentation` — Screen, easel legs, trend line · approved 2026-09-26
 - [~] 99. `sparkle` · Status & Feedback
 - [ ] 100. `wand` · Editing & Text
 - [ ] 101. `bug` · Development & Infra
