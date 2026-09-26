@@ -346,7 +346,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 87. `chevrons-up-down` · Arrows & Direction
 - [ ] 88. `compose` · Communication
 - [ ] 89. `files` · Files & Folders
-- [~] 90. `gauge` · Charts & Data
+- [x] 90. `gauge` · Charts & Data — approved 2026-09-26
 - [ ] 91. `images` · Files & Folders
 - [ ] 92. `language` · Communication
 - [ ] 93. `layout-footer` · UI & Layout
