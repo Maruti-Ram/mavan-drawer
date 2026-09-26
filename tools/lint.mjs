@@ -127,6 +127,24 @@ export function parseAnchorNote(src) {
     ? { name: m[1], raw: m[1] } : { raw: m[1], bad: true };
 }
 
+// C19 is declared per file as `<!-- glyph: KIND -->`. Two kinds:
+//   dot      one character with a detached dot (info's i, help's ?, alert's !): the {dot, body}
+//            pair and the character's own opening floor at GLYPH_GAP (§5, §5b), and so does
+//            what a knockout leaves between two parts of itself (§5c)
+//   numeral  numerals drawn inside an icon (list-ordered's 1 and 2, 2026-09-26): a numeral's
+//            own opening - the mouth of a 2 between its entry terminal and its neck - floors at
+//            GLYPH_GAP (§5b) and nothing else does; numeral-to-numeral and numeral-to-line are
+//            separate paths and keep MIN_GAP
+// Until 2026-09-26 any other value was silently read as no note at all; now it is an ERROR,
+// like the other notes, so a misspelt kind can never leave a drawing held to the wrong floor.
+// Returns null (no note), {kind, raw}, or {raw, bad: true}.
+export const GLYPH_KINDS = ['dot', 'numeral'];
+export function parseGlyphNote(src) {
+  const m = src.match(/<!--\s*glyph:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  return GLYPH_KINDS.includes(m[1]) ? { kind: m[1], raw: m[1] } : { raw: m[1], bad: true };
+}
+
 // Path text compared as written, bar whitespace (runs collapse; none is kept beside a command
 // letter or a comma): "identical" means the same drawing, not the same shape reached another way.
 const normPath = (d) => d.replace(/\s*([A-Za-z,])\s*/g, '$1').replace(/\s+/g, ' ').trim();
@@ -219,6 +237,15 @@ export function lintSource(canvas, file, src) {
   }
   const GAP = gap ? gap.n : MIN_GAP;
   const measured = [];   // every edge gap the note governs, for the "is it still needed" check
+
+  // --- 0b'. the glyph note (C19; §5, §5b and §5c read it) -------------------
+  let glyph = parseGlyphNote(src);
+  if (glyph?.bad) {
+    errors.push(`glyph note "${glyph.raw}" is not a kind lint knows — write <!-- glyph: dot --> (a character with a detached dot) or <!-- glyph: numeral --> (numerals inside the icon) (C19)`);
+    glyph = null;
+  }
+  const isGlyph = glyph?.kind === 'dot';
+  const isNumeral = glyph?.kind === 'numeral';
 
   // --- 0c. the anchor note (C28; held to its anchor in checkAnchors) --------
   // A note that is not usable is an error and is then ignored, so §4 asks the drawing to be
@@ -348,8 +375,9 @@ export function lintSource(canvas, file, src) {
   // in a file that declares `<!-- glyph: dot -->`, the pair {dot, body} is the inside
   // of one character and floors at GLYPH_GAP instead. The dot's clearance to the
   // silhouette (the path spanning the whole ink box) is not that pair, and keeps MIN_GAP.
+  // (`glyph: numeral` does not reach this loop: a numeral's clearance to the next numeral and
+  // to its list line is between separate paths, and keeps MIN_GAP.)
   const sampled = ds.map(samplePath);
-  const isGlyph = /<!--\s*glyph:\s*dot\s*-->/.test(src);
   const spans = ds.map((d) => bbox([d]));
   const whole = ds.length ? bbox(ds) : null;
   const isShell = (b) => whole && ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(b[k] - whole[k]) < 0.01);
@@ -381,16 +409,23 @@ export function lintSource(canvas, file, src) {
   // one-stroke floor was written for parallel runs and repeated elements; applied
   // inside a letter it hollows it out. The container ring is not part of the
   // character and keeps MIN_GAP (it is a closed circle, so it has no mouth anyway).
+  // Extended 2026-09-26 to `<!-- glyph: numeral -->`: a numeral's own opening (the mouth of
+  // a 2 between its entry terminal and its neck) floors at GLYPH_GAP too. At 16 a 2 is about
+  // four strokes tall, and holding that mouth at 1.5 laid its diagonal down to 25-30 degrees.
+  // Every path in the file is read this way, the silhouette included - a numeral drawn on its
+  // own IS the silhouette, and the lines beside one are straight, so they have no opening.
   // `selfGap` is handed this file's own stroke, so it reads edge-to-edge at any master.
+  let numeralMin = Infinity;   // the tightest opening the numeral note governs, for 5e
   for (let i = 0; i < ds.length; i++) {
     if (isDot(ds[i])) continue;
     const self = selfGap(ds[i], STROKE);
     if (!self) continue;
-    const inGlyph = isGlyph && !isShell(spans[i]);
+    const inGlyph = (isGlyph && !isShell(spans[i])) || isNumeral;
     const floor = inGlyph ? GLYPH_GAP : GAP;
     if (!inGlyph) measured.push(self.gap);
+    if (isNumeral) numeralMin = Math.min(numeralMin, self.gap);
     if (self.gap < floor - 0.01)
-      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (it turns ${self.span}°)`);
+      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (it turns ${self.span}°)`);
   }
 
   // --- 5c. advisory: a knockout that leaves too little standing ---------------
@@ -408,6 +443,8 @@ export function lintSource(canvas, file, src) {
   // 1.25 shifted the outlines 0.125 under cut-outs that were deliberately left as
   // approved, and an unchanged `help-4-filled` began to warn. The floor is the one the
   // outline's own mouth gets in 5b: GLYPH_GAP inside a declared glyph, else MIN_GAP.
+  // `glyph: numeral` does not reach here: numerals stay strokes in the filled twin, so
+  // their openings are read by 5b; no numeral has been knocked out of a shape yet.
   if (areas.length && ds.length === 0) {
     const left = materialGap(areas);
     const floor = isGlyph ? GLYPH_GAP : MIN_GAP;
@@ -430,6 +467,16 @@ export function lintSource(canvas, file, src) {
     else if (smallest >= gap.n - 0.01)
       notes.splice(-1, 0, `agreed gap ${gap.n} — smallest measured ${smallest}`);
   }
+
+  // --- 5e. is the numeral note doing anything here? --------------------------
+  // `glyph: numeral` is written by the board into all six files of an icon, and at 24 a
+  // numeral's opening usually clears §6 on its own, so a note with nothing under 1.5 is
+  // not an error the way a stale `gap` is: it says so in an info line, and is in force
+  // (with its reading) wherever an opening does fall below §6.
+  if (isNumeral)
+    notes.splice(-1, 0, numeralMin < MIN_GAP - 0.01
+      ? `C19 numeral opening ${numeralMin} — floor ${GLYPH_GAP}, not §6's ${MIN_GAP}`
+      : `glyph: numeral — not in use here (${Number.isFinite(numeralMin) ? `smallest opening ${numeralMin}` : 'no opening measured'}, §6's ${MIN_GAP} already holds)`);
 
   // `paths` (whitespace-normalised) lets checkAnchors count what a member shares with its anchor.
   const paths = [...ds, ...areas].map(normPath);

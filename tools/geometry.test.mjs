@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { materialGap, selfGap } from './geometry.mjs';
-import { checkAnchors, checkPairs, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGrowsNote } from './lint.mjs';
+import { checkAnchors, checkPairs, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
@@ -689,4 +689,70 @@ test('a bare id ships under its `set` name, else the concept; id=file always win
   assert.deepEqual(planArg(d, 'B'), { id: 'B', file: 'volume', from: 'concept' }, 'not in set: the concept');
   assert.deepEqual(planArg(d, 'A2=volume-low'), { id: 'A2', file: 'volume-low', from: 'explicit' }, 'explicit wins');
   assert.deepEqual(planArg({ concept: 'user' }, 'C'), { id: 'C', file: 'user', from: 'concept' }, 'no set at all');
+});
+
+// --- C19 extended to numerals: `<!-- glyph: numeral -->` (2026-09-26) ------------------
+// A numeral's own opening (the mouth of a 2, terminal to neck) floors at GLYPH_GAP; nothing
+// else in the file does. Fixture: list-ordered's first 16 draft (1, 2, three lines), with the
+// 2's entry terminal moved to set its mouth. The shipped 2 enters 30° above 9 o'clock (1.53);
+// 15° above gives 1.23; below 9 o'clock it closes to 0.58.
+const ROOT16 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">';
+const TWO16 = (entry) => `M${entry}A1.375 1.375 0 0 1 4 9.375A1.375 1.375 0 0 1 5.375 10.75A1.797 1.797 0 0 1 4.477 12.306L2.625 13.375H5.375`;
+const LIST16 = (entry, notes = ['keyline: mark']) => [ROOT16, ...notes.map((n) => `  <!-- ${n} -->`),
+  ...['M3.125 3.25L4.375 2.625V6.625', TWO16(entry), 'M8.375 4.5H13.375', 'M8.375 8H13.375', 'M8.375 11.5H13.375'].map((d) => `  <path d="${d}"/>`), '</svg>', ''].join('\n');
+const lintList = (entry, notes) => lintSource(16, 'list-ordered.svg', LIST16(entry, notes));
+const selfWarn = (r) => r.warnings.filter((w) => /of itself/.test(w));
+
+test('parseGlyphNote reads dot and numeral and refuses anything else', () => {
+  assert.deepEqual(parseGlyphNote('<!-- glyph: dot -->'), { kind: 'dot', raw: 'dot' });
+  assert.deepEqual(parseGlyphNote('<!--glyph:numeral-->'), { kind: 'numeral', raw: 'numeral' });
+  assert.equal(parseGlyphNote('<!-- gap: 1 -->'), null);
+  assert.ok(parseGlyphNote('<!-- glyph: numerals -->').bad);
+  assert.ok(parseGlyphNote('<!-- glyph: dot numeral -->').bad);
+});
+
+test('a 2 with a 1.23 mouth warns under §6 and passes with `glyph: numeral`', () => {
+  const bare = lintList('2.65 10.5');
+  assert.equal(selfWarn(bare).length, 1, bare.warnings.join(' | '));
+  assert.match(selfWarn(bare)[0], /path 2 comes within 1\.23 of itself .* — §6 needs 1\.5/);
+  const noted = lintList('2.65 10.5', ['keyline: mark', 'glyph: numeral']);
+  assert.deepEqual(noted.errors, []);
+  assert.deepEqual(selfWarn(noted), []);
+  assert.ok(noted.notes.includes('C19 numeral opening 1.23 — floor 1, not §6\'s 1.5'), noted.notes.join(' | '));
+  assert.match(noted.notes.at(-1), /declared mark/, 'the headline stays last');
+});
+
+test('the numeral floor keeps its teeth: a 0.58 mouth still warns, against GLYPH_GAP', () => {
+  const r = lintList('2.708 11.22', ['keyline: mark', 'glyph: numeral']);
+  assert.equal(selfWarn(r).length, 1);
+  assert.match(selfWarn(r)[0], /within 0\.58 of itself .* — C19 numeral gap needs 1 /);
+});
+
+test('`glyph: numeral` relaxes no pair gap: numeral-to-line keeps §6', () => {
+  // the bottom line moved onto the 2's foot row and 0.5 left: 1.25 of air from the foot's cap
+  const src = LIST16('2.809 10.063', ['keyline: mark', 'glyph: numeral']).replace('M8.375 11.5H13.375', 'M7.875 13.375H13.375');
+  const r = lintSource(16, 'list-ordered.svg', src);
+  assert.ok(r.warnings.some((w) => /paths 2\/5 are .* — §6 needs/.test(w)), r.warnings.join(' | '));
+});
+
+test('a numeral note with nothing under §6 is an info line, not an error (the board writes it into all six files)', () => {
+  const r = lintList('2.809 10.063', ['keyline: mark', 'glyph: numeral']);
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(selfWarn(r), []);
+  assert.ok(r.notes.some((n) => /^glyph: numeral — not in use here \(smallest opening 1\.53, §6's 1\.5 already holds\)$/.test(n)), r.notes.join(' | '));
+});
+
+test('a glyph note lint cannot read is an ERROR, and the drawing is held to §6', () => {
+  const r = lintList('2.65 10.5', ['keyline: mark', 'glyph: numerals']);
+  assert.ok(r.errors.some((e) => /glyph note "numerals" is not a kind lint knows/.test(e)), r.errors.join(' | '));
+  assert.equal(selfWarn(r).length, 1);
+});
+
+test('draft-svg writes a candidate\'s `glyph: numeral` into all six files', () => {
+  const two = TWO16('2.65 10.5');
+  const f = { fill: [], stroke: [two] };
+  const c = { id: 'A', label: 'numerals', glyph: 'numeral', masters: { 24: [two], 20: [two], 16: [two] }, filled: { 24: f, 20: f, 16: f } };
+  const out = candidateFiles({ keyline: 'mark' }, c, 'list-ordered');
+  assert.equal(out.length, 6);
+  assert.ok(out.every((f) => f.src.includes('<!-- glyph: numeral -->')));
 });

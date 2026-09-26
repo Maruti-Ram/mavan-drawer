@@ -169,7 +169,8 @@ git commit -m "Add <name>" -m "<one line: the choice and its numbers>"   # end w
 Commit on the current branch without asking. Don't push.
 
 If the approval agreed a **deviation** from a rule for this icon, teach lint that decision in the
-same piece of work — a note the file declares and lint verifies (`box`, `keyline: mark`, `glyph`) —
+same piece of work — a note the file declares and lint verifies (`box`, `keyline: mark`, `glyph: dot`,
+`glyph: numeral` for numerals inside an icon, whose own opening floors at 1 — C19) —
 so the deviation is held to its own number instead of leaving a warning that buries real ones.
 
 If the approval also settled a **rule** (a new size step, a naming convention, a weight):

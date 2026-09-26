@@ -10,6 +10,11 @@
 //   box: WxH        the agreed ink size for this master when the icon keeps a box of its own
 //   glyph: dot      one character with a detached dot (i, ?, !); its dot-to-body gap floors at
 //                   GLYPH_GAP rather than MIN_GAP (C19)
+//   glyph: numeral  numerals drawn inside the icon (list-ordered's 1, 2); each numeral's own
+//                   opening (the mouth of a 2) floors at GLYPH_GAP, every gap between separate
+//                   paths keeps MIN_GAP (C19, 2026-09-26). A candidate or the board writes
+//                   `glyph: 'numeral'`, written into all six files; where no opening falls under
+//                   1.5 (usually at 24) lint says the note is not in use, as an info line
 //   optical: dx dy  the ink is deliberately moved off the box centre (C14)
 //   grows: L R T B  FILLED FILES ONLY — how far the filled ink is agreed to stand proud of its
 //                   outline twin's box on each side, in that master's units. C17's repeated
@@ -23,7 +28,8 @@
 //                   (NAME-filled's for the filled file). A candidate writes `anchor: 'volume'`,
 //                   written into both files; the full member has no anchor. A candidate's
 //                   `anchor: null` opts out of a board-level one
-// Lint reads all of them; a note the drawing does not measure is an error, not a warning.
+// Lint reads all of them; a note the drawing does not measure is an error, not a warning
+// (bar `glyph: numeral`, which is written for every master and so says "not in use" instead).
 import { MASTERS, strokeOf } from './masters.mjs';
 
 export const masters = Object.keys(MASTERS).map(Number).sort((a, b) => b - a);

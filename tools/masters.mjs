@@ -97,4 +97,10 @@ export const gridName = (master) => gridNameFor(strokeOf(master));
 // between two parts of the same character (the mouth of a filled `?`, info-3's
 // flag-to-bar strip, 1.25 at 16) is that same space seen from the other side, and
 // floors here too. Lint measures it on the filled drawing (`materialGap`).
+// Extended 2026-09-26 to NUMERALS drawn inside an icon (list-ordered's 1 and 2),
+// declared `<!-- glyph: numeral -->`: a numeral's own opening - the mouth of a 2,
+// between its entry terminal and its neck - floors here, and nothing else in the
+// file does (numeral to numeral and numeral to line keep MIN_GAP). At 16 a 2 is
+// about four strokes tall; holding its mouth at 1.5 laid the diagonal down to
+// 25-30 degrees (40 at 24), and the 2 read slanted and crooked.
 export const GLYPH_GAP = 1;

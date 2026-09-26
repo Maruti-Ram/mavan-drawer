@@ -320,6 +320,12 @@ master.** At 24 and 20 that is also one stroke width, since the stroke there
 is 1.5; at 16 the stroke is 1.25 (C7), so the floor is wider than the stroke
 by design, not "one stroke width" any more.
 
+One carve-out, declared per file and checked by lint: **C19's glyph gap of 1 unit**
+for the inside of one character — a dot to its body (`<!-- glyph: dot -->`), a `?`'s
+mouth, and a numeral's own opening such as the mouth of a 2 (`<!-- glyph: numeral -->`,
+2026-09-26). The gap between a character and anything else stays 1.5
+(`07-character.md` C19).
+
 The same at every master, and at the 16 master that is 1.5px — the smallest gap
 that still reads as a gap rather than a smudge. Anything
 tighter fills in, and an icon that fills in at 16px is a broken icon no matter
