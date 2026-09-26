@@ -360,7 +360,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 89. `files-4` · Files & Folders · variant of `files` — Full-size front, side peek · approved 2026-09-26
 - [x] 89. `files-5` · Files & Folders · variant of `files` — Text lines · approved 2026-09-26
 - [x] 90. `gauge` · Charts & Data — approved 2026-09-26
-- [~] 91. `images` · Files & Folders
+- [x] 91. `images` · Files & Folders — approved 2026-09-26
+- [x] 91. `images-2` · Files & Folders · variant of `images` — Up-right · approved 2026-09-26
+- [x] 91. `images-3` · Files & Folders · variant of `images` — Up-left · approved 2026-09-26
+- [x] 91. `images-4` · Files & Folders · variant of `images` — Full-size front, side peek · approved 2026-09-26
 - [~] 92. `language` · Communication
 - [~] 93. `layout-footer` · UI & Layout
 - [x] 94. `lightbulb` · Status & Feedback — approved 2026-09-26
