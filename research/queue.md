@@ -376,11 +376,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 94. `lightbulb-2` · Status & Feedback · variant of `lightbulb` — Dome, two lines · approved 2026-09-26
 - [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-26
 - [x] 94. `lightbulb-4` · Status & Feedback · variant of `lightbulb` — Open neck · approved 2026-09-26
-- [ ] 95. `list-ordered` · Editing & Text
-- [ ] 96. `megaphone` · Communication
-- [ ] 97. `pin` · UI & Layout
-- [ ] 98. `presentation` · Charts & Data
-- [ ] 99. `sparkle` · Status & Feedback
+- [~] 95. `list-ordered` · Editing & Text
+- [~] 96. `megaphone` · Communication
+- [~] 97. `pin` · UI & Layout
+- [~] 98. `presentation` · Charts & Data
+- [~] 99. `sparkle` · Status & Feedback
 - [ ] 100. `wand` · Editing & Text
 - [ ] 101. `bug` · Development & Infra
 - [ ] 102. `building` · Commerce & Payments
