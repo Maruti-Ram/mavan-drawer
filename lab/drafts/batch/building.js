@@ -1,13 +1,14 @@
 // building - an office building: company, organisation, business account (Commerce & Payments). It sits in the
 // same menus as home, so it must never read as a house: every candidate has a flat roof and no gable, and all are
-// on 0/45/90 at the set's weights. Ten constructions across the real choices: a single tower on the portrait
+// on 0/45/90 at the set's weights. Eleven constructions across the real choices: a single tower on the portrait
 // keyline (16x20 · 12x16 · 10x14) or a tower with a low wing on the circle keyline; windows as dots, as short
 // dashes, or none; a door (home's, same width and radius) or not; a ground line or not; round or hard corners.
 // Windows are C17 repeated elements, at least 1.5 apart and off every wall; where 16 (or 20) cannot hold a column
 // with that air, the column goes rather than the gap. Generated from a spec per master by a throwaway script
 // (scratchpad building/gen.mjs): the filled outer edge is the exact outward offset of the outline (radius +half
 // the stroke), windows knocked out at their ink size, the door at its clear opening as home-filled.
-// Checked with tools/draft-check.mjs: 10 clean, no warnings.
+// K (added on review) is F with wing windows at every master; F and K fill tower and wing as two solids split
+// by a 1.5 cut on the shared wall. Checked with tools/draft-check.mjs: 11 clean, no warnings.
 export default {
   "concept": "building",
   "context": "Company, organisation, office, business account, workplace",
@@ -354,7 +355,7 @@ export default {
         "dots",
         "ground"
       ],
-      "note": "Circle keyline (20x20 · 16x16 · 14x14). A ground line the full ink width; tower and wing stand on it, running 1 short of its ends at every master; tower 11.5 · 9 · 8 wide of ink, wing to the right sharing its wall, the wing 13 · 10.5 · 9 tall of ink with the line (65 · 66 · 64% of the whole). Top corners r1.5 · 1.25 · 1, walls meeting the line square. No door. Dots d 2 · 2 · 1.5: 24 tower 2x4 on x 7 / 10.5, rows 6.25 / 10 / 13.75 / 17.5, and the wing one column on x 17 on the tower's two lower rows (1.5 off every wall, 1.75 down); 20 and 16 one column of three in the tower (x 7.5 · 6), wing plain, since neither master's tower can hold two columns with the wing beside it. Filled: tower and wing one solid down to the line's centreline, windows knocked out; the ground line stays a line at 1.5 · 1.5 · 1.25",
+      "note": "Circle keyline (20x20 · 16x16 · 14x14). A ground line the full ink width; tower and wing stand on it, running 1 short of its ends at every master; tower 11.5 · 9 · 8 wide of ink, wing to the right sharing its wall, the wing 13 · 10.5 · 9 tall of ink with the line (65 · 66 · 64% of the whole). Top corners r1.5 · 1.25 · 1, walls meeting the line square. No door. Dots d 2 · 2 · 1.5: 24 tower 2x4 on x 7 / 10.5, rows 6.25 / 10 / 13.75 / 17.5, and the wing one column on x 17 on the tower's two lower rows (1.5 off every wall, 1.75 down); 20 and 16 one column of three in the tower (x 7.5 · 6), wing plain, since neither master's tower can hold two columns with the wing beside it (K is this with wing windows). Filled: tower and wing are two solids, split by a 1.5 knockout centred on the shared wall's centreline (x 13-14.5 · 10.5-12 · 8.625-10.125) from the wing roof's top edge down to the ground line; the wing's top-left corner stays square at the cut, and above the wing the tower keeps its full outer wall, so the silhouette is the outline's everywhere but the cut. Material from the knocked-out windows to the cut: 1.5 · 2 · 1.875. The ground line stays a line at 1.5 · 1.5 · 1.25",
       "masters": {
         "16": [
           "M2.625 14.375V2.625A1 1 0 0 1 3.625 1.625H8.375A1 1 0 0 1 9.375 2.625V6.625H12.375A1 1 0 0 1 13.375 7.625V14.375",
@@ -391,7 +392,8 @@ export default {
       "filled": {
         "16": {
           "fill": [
-            "M2 14.375V2.625A1.625 1.625 0 0 1 3.625 1H8.375A1.625 1.625 0 0 1 10 2.625V6H12.375A1.625 1.625 0 0 1 14 7.625V14.375H2ZM5.25 4.75A0.75 0.75 0 1 0 6.75 4.75A0.75 0.75 0 1 0 5.25 4.75ZM5.25 8A0.75 0.75 0 1 0 6.75 8A0.75 0.75 0 1 0 5.25 8ZM5.25 11.25A0.75 0.75 0 1 0 6.75 11.25A0.75 0.75 0 1 0 5.25 11.25Z"
+            "M2 14.375V2.625A1.625 1.625 0 0 1 3.625 1H8.375A1.625 1.625 0 0 1 10 2.625V6H8.625V14.375H2ZM5.25 4.75A0.75 0.75 0 1 0 6.75 4.75A0.75 0.75 0 1 0 5.25 4.75ZM5.25 8A0.75 0.75 0 1 0 6.75 8A0.75 0.75 0 1 0 5.25 8ZM5.25 11.25A0.75 0.75 0 1 0 6.75 11.25A0.75 0.75 0 1 0 5.25 11.25Z",
+            "M10.125 14.375V6H12.375A1.625 1.625 0 0 1 14 7.625V14.375H10.125Z"
           ],
           "stroke": [
             "M1.625 14.375H14.375"
@@ -399,7 +401,8 @@ export default {
         },
         "20": {
           "fill": [
-            "M3 17.25V4A2 2 0 0 1 5 2H10A2 2 0 0 1 12 4V7.5H15A2 2 0 0 1 17 9.5V17.25H3ZM6.5 6.25A1 1 0 1 0 8.5 6.25A1 1 0 1 0 6.5 6.25ZM6.5 10A1 1 0 1 0 8.5 10A1 1 0 1 0 6.5 10ZM6.5 13.75A1 1 0 1 0 8.5 13.75A1 1 0 1 0 6.5 13.75Z"
+            "M3 17.25V4A2 2 0 0 1 5 2H10A2 2 0 0 1 12 4V7.5H10.5V17.25H3ZM6.5 6.25A1 1 0 1 0 8.5 6.25A1 1 0 1 0 6.5 6.25ZM6.5 10A1 1 0 1 0 8.5 10A1 1 0 1 0 6.5 10ZM6.5 13.75A1 1 0 1 0 8.5 13.75A1 1 0 1 0 6.5 13.75Z",
+            "M12 17.25V7.5H15A2 2 0 0 1 17 9.5V17.25H12Z"
           ],
           "stroke": [
             "M2.75 17.25H17.25"
@@ -407,7 +410,8 @@ export default {
         },
         "24": {
           "fill": [
-            "M3 21.25V4.25A2.25 2.25 0 0 1 5.25 2H12.25A2.25 2.25 0 0 1 14.5 4.25V9H18.75A2.25 2.25 0 0 1 21 11.25V21.25H3ZM6 6.25A1 1 0 1 0 8 6.25A1 1 0 1 0 6 6.25ZM9.5 6.25A1 1 0 1 0 11.5 6.25A1 1 0 1 0 9.5 6.25ZM6 10A1 1 0 1 0 8 10A1 1 0 1 0 6 10ZM9.5 10A1 1 0 1 0 11.5 10A1 1 0 1 0 9.5 10ZM6 13.75A1 1 0 1 0 8 13.75A1 1 0 1 0 6 13.75ZM9.5 13.75A1 1 0 1 0 11.5 13.75A1 1 0 1 0 9.5 13.75ZM6 17.5A1 1 0 1 0 8 17.5A1 1 0 1 0 6 17.5ZM9.5 17.5A1 1 0 1 0 11.5 17.5A1 1 0 1 0 9.5 17.5ZM16 13.75A1 1 0 1 0 18 13.75A1 1 0 1 0 16 13.75ZM16 17.5A1 1 0 1 0 18 17.5A1 1 0 1 0 16 17.5Z"
+            "M3 21.25V4.25A2.25 2.25 0 0 1 5.25 2H12.25A2.25 2.25 0 0 1 14.5 4.25V9H13V21.25H3ZM6 6.25A1 1 0 1 0 8 6.25A1 1 0 1 0 6 6.25ZM9.5 6.25A1 1 0 1 0 11.5 6.25A1 1 0 1 0 9.5 6.25ZM6 10A1 1 0 1 0 8 10A1 1 0 1 0 6 10ZM9.5 10A1 1 0 1 0 11.5 10A1 1 0 1 0 9.5 10ZM6 13.75A1 1 0 1 0 8 13.75A1 1 0 1 0 6 13.75ZM9.5 13.75A1 1 0 1 0 11.5 13.75A1 1 0 1 0 9.5 13.75ZM6 17.5A1 1 0 1 0 8 17.5A1 1 0 1 0 6 17.5ZM9.5 17.5A1 1 0 1 0 11.5 17.5A1 1 0 1 0 9.5 17.5Z",
+            "M14.5 21.25V9H18.75A2.25 2.25 0 0 1 21 11.25V21.25H14.5ZM16 13.75A1 1 0 1 0 18 13.75A1 1 0 1 0 16 13.75ZM16 17.5A1 1 0 1 0 18 17.5A1 1 0 1 0 16 17.5Z"
           ],
           "stroke": [
             "M2.75 21.25H21.25"
@@ -657,6 +661,87 @@ export default {
         "24": {
           "fill": [
             "M4 21.25V4.25A2.25 2.25 0 0 1 6.25 2H17.75A2.25 2.25 0 0 1 20 4.25V21.25H4ZM10.5 21.25V17A0.75 0.75 0 0 1 11.25 16.25H12.75A0.75 0.75 0 0 1 13.5 17V21.25ZM8.25 6.75A1 1 0 1 0 10.25 6.75A1 1 0 1 0 8.25 6.75ZM13.75 6.75A1 1 0 1 0 15.75 6.75A1 1 0 1 0 13.75 6.75ZM8.25 11A1 1 0 1 0 10.25 11A1 1 0 1 0 8.25 11ZM13.75 11A1 1 0 1 0 15.75 11A1 1 0 1 0 13.75 11Z"
+          ],
+          "stroke": [
+            "M2.75 21.25H21.25"
+          ]
+        }
+      }
+    },
+    {
+      "id": "K",
+      "label": "Tower and wing on a ground line, wing windows",
+      "tags": [
+        "office",
+        "company",
+        "organization",
+        "business",
+        "tower",
+        "wing",
+        "dots",
+        "ground"
+      ],
+      "note": "F with windows in the wing at every master, and F's filled cut (1.5, centred on the shared wall, wing roof to ground). 24 is F's 24 unchanged. A window needs its diameter plus 1.5 of air each side, so at 20 and 16 tower and wing each need about 5 · 4.625 of interior; with three walls that is more than F's 1-unit overhang at both ends leaves (14 · 12), so at 20 and 16 the overhang stays only on the wing's side: the tower's left wall stands on the ground line's end (x 2 · 1; F 3 · 2) and the line still runs 1 past the wing. 20: tower 8 wide of ink (F 9), interior 5 (F 6), shared wall x 11.25 to 9.25; wing 7 beyond the tower (F 5), interior 5.5 (F 3.5), roof y 8.25 to 6.75, so it is 12 of 16 tall with the line (75%; F 66%); dots d2 as F, tower x 6 rows 6.25 / 10 / 13.75 (F's rows), wing x 12.75 rows 10 / 13.75 (1.5 · 1.75 off the walls, 1.5 · 1.75 of material to the cut). 16: tower 7.125 wide (F 8), interior 4.625 (F 5.5), shared wall x 9.375 to 7.5 (an interior wall; every outer edge stays on a whole pixel, x 1 / 14 / 15, tops y 1 / 5); wing 5.875 beyond the tower (F 4), interior 4.625 (F 2.75), roof y 6.625 to 5.625, 10 of 14 tall (71%; F 64%); dots d1.5, tower x 4.5 rows 5.5 / 8.5 / 11.5 (F 4.75 / 8 / 11.25, moved down so the wing's two rows line up with the tower's under a whole-pixel roof), wing x 10.5 rows 8.5 / 11.5 (1.5 or more off every wall; the cut, 0.125 wider than the 1.25 wall on each side, leaves 1.5 of material both sides). The tower stays the larger block by height (20 · 16 · 14 tall against the wing's 13 · 12 · 10) more than by width at 20 and 16. Filled: two solids on the ground line as F, windows knocked out at their ink size",
+      "masters": {
+        "16": [
+          "M1.625 14.375V2.625A1 1 0 0 1 2.625 1.625H6.5A1 1 0 0 1 7.5 2.625V5.625H12.375A1 1 0 0 1 13.375 6.625V14.375",
+          "M7.5 5.625V14.375",
+          "M1.625 14.375H14.375",
+          "M4.375 5.5A0.125 0.125 0 1 0 4.625 5.5A0.125 0.125 0 1 0 4.375 5.5Z",
+          "M4.375 8.5A0.125 0.125 0 1 0 4.625 8.5A0.125 0.125 0 1 0 4.375 8.5Z",
+          "M4.375 11.5A0.125 0.125 0 1 0 4.625 11.5A0.125 0.125 0 1 0 4.375 11.5Z",
+          "M10.375 8.5A0.125 0.125 0 1 0 10.625 8.5A0.125 0.125 0 1 0 10.375 8.5Z",
+          "M10.375 11.5A0.125 0.125 0 1 0 10.625 11.5A0.125 0.125 0 1 0 10.375 11.5Z"
+        ],
+        "20": [
+          "M2.75 17.25V4A1.25 1.25 0 0 1 4 2.75H8A1.25 1.25 0 0 1 9.25 4V6.75H15A1.25 1.25 0 0 1 16.25 8V17.25",
+          "M9.25 6.75V17.25",
+          "M2.75 17.25H17.25",
+          "M5.75 6.25A0.25 0.25 0 1 0 6.25 6.25A0.25 0.25 0 1 0 5.75 6.25Z",
+          "M5.75 10A0.25 0.25 0 1 0 6.25 10A0.25 0.25 0 1 0 5.75 10Z",
+          "M5.75 13.75A0.25 0.25 0 1 0 6.25 13.75A0.25 0.25 0 1 0 5.75 13.75Z",
+          "M12.5 10A0.25 0.25 0 1 0 13 10A0.25 0.25 0 1 0 12.5 10Z",
+          "M12.5 13.75A0.25 0.25 0 1 0 13 13.75A0.25 0.25 0 1 0 12.5 13.75Z"
+        ],
+        "24": [
+          "M3.75 21.25V4.25A1.5 1.5 0 0 1 5.25 2.75H12.25A1.5 1.5 0 0 1 13.75 4.25V9.75H18.75A1.5 1.5 0 0 1 20.25 11.25V21.25",
+          "M13.75 9.75V21.25",
+          "M2.75 21.25H21.25",
+          "M6.75 6.25A0.25 0.25 0 1 0 7.25 6.25A0.25 0.25 0 1 0 6.75 6.25Z",
+          "M10.25 6.25A0.25 0.25 0 1 0 10.75 6.25A0.25 0.25 0 1 0 10.25 6.25Z",
+          "M6.75 10A0.25 0.25 0 1 0 7.25 10A0.25 0.25 0 1 0 6.75 10Z",
+          "M10.25 10A0.25 0.25 0 1 0 10.75 10A0.25 0.25 0 1 0 10.25 10Z",
+          "M6.75 13.75A0.25 0.25 0 1 0 7.25 13.75A0.25 0.25 0 1 0 6.75 13.75Z",
+          "M10.25 13.75A0.25 0.25 0 1 0 10.75 13.75A0.25 0.25 0 1 0 10.25 13.75Z",
+          "M6.75 17.5A0.25 0.25 0 1 0 7.25 17.5A0.25 0.25 0 1 0 6.75 17.5Z",
+          "M10.25 17.5A0.25 0.25 0 1 0 10.75 17.5A0.25 0.25 0 1 0 10.25 17.5Z",
+          "M16.75 13.75A0.25 0.25 0 1 0 17.25 13.75A0.25 0.25 0 1 0 16.75 13.75Z",
+          "M16.75 17.5A0.25 0.25 0 1 0 17.25 17.5A0.25 0.25 0 1 0 16.75 17.5Z"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M1 14.375V2.625A1.625 1.625 0 0 1 2.625 1H6.5A1.625 1.625 0 0 1 8.125 2.625V5H6.75V14.375H1ZM3.75 5.5A0.75 0.75 0 1 0 5.25 5.5A0.75 0.75 0 1 0 3.75 5.5ZM3.75 8.5A0.75 0.75 0 1 0 5.25 8.5A0.75 0.75 0 1 0 3.75 8.5ZM3.75 11.5A0.75 0.75 0 1 0 5.25 11.5A0.75 0.75 0 1 0 3.75 11.5Z",
+            "M8.25 14.375V5H12.375A1.625 1.625 0 0 1 14 6.625V14.375H8.25ZM9.75 8.5A0.75 0.75 0 1 0 11.25 8.5A0.75 0.75 0 1 0 9.75 8.5ZM9.75 11.5A0.75 0.75 0 1 0 11.25 11.5A0.75 0.75 0 1 0 9.75 11.5Z"
+          ],
+          "stroke": [
+            "M1.625 14.375H14.375"
+          ]
+        },
+        "20": {
+          "fill": [
+            "M2 17.25V4A2 2 0 0 1 4 2H8A2 2 0 0 1 10 4V6H8.5V17.25H2ZM5 6.25A1 1 0 1 0 7 6.25A1 1 0 1 0 5 6.25ZM5 10A1 1 0 1 0 7 10A1 1 0 1 0 5 10ZM5 13.75A1 1 0 1 0 7 13.75A1 1 0 1 0 5 13.75Z",
+            "M10 17.25V6H15A2 2 0 0 1 17 8V17.25H10ZM11.75 10A1 1 0 1 0 13.75 10A1 1 0 1 0 11.75 10ZM11.75 13.75A1 1 0 1 0 13.75 13.75A1 1 0 1 0 11.75 13.75Z"
+          ],
+          "stroke": [
+            "M2.75 17.25H17.25"
+          ]
+        },
+        "24": {
+          "fill": [
+            "M3 21.25V4.25A2.25 2.25 0 0 1 5.25 2H12.25A2.25 2.25 0 0 1 14.5 4.25V9H13V21.25H3ZM6 6.25A1 1 0 1 0 8 6.25A1 1 0 1 0 6 6.25ZM9.5 6.25A1 1 0 1 0 11.5 6.25A1 1 0 1 0 9.5 6.25ZM6 10A1 1 0 1 0 8 10A1 1 0 1 0 6 10ZM9.5 10A1 1 0 1 0 11.5 10A1 1 0 1 0 9.5 10ZM6 13.75A1 1 0 1 0 8 13.75A1 1 0 1 0 6 13.75ZM9.5 13.75A1 1 0 1 0 11.5 13.75A1 1 0 1 0 9.5 13.75ZM6 17.5A1 1 0 1 0 8 17.5A1 1 0 1 0 6 17.5ZM9.5 17.5A1 1 0 1 0 11.5 17.5A1 1 0 1 0 9.5 17.5Z",
+            "M14.5 21.25V9H18.75A2.25 2.25 0 0 1 21 11.25V21.25H14.5ZM16 13.75A1 1 0 1 0 18 13.75A1 1 0 1 0 16 13.75ZM16 17.5A1 1 0 1 0 18 17.5A1 1 0 1 0 16 17.5Z"
           ],
           "stroke": [
             "M2.75 21.25H21.25"
