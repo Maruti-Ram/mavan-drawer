@@ -649,10 +649,14 @@
     "volume-filled",
     "volume-low",
     "volume-low-filled",
+    "volume-minus",
+    "volume-minus-filled",
     "volume-none",
     "volume-none-filled",
     "volume-off",
     "volume-off-filled",
+    "volume-plus",
+    "volume-plus-filled",
     "volume-x",
     "volume-x-filled",
     "watch",
@@ -38082,6 +38086,125 @@
       "ratio": null,
       "gap": null
     },
+    "volume-minus": {
+      "paths": [
+        "M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z",
+        "M14.75 12H21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z\"/> <path d=\"M14.75 12H21.25\"/>",
+      "mark": false,
+      "tags": [
+        "speaker",
+        "sound",
+        "volume down",
+        "quieter",
+        "minus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.13,
+          "optical": 2.1
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.01
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.63,
+          "optical": 4.47
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.63,
+          "optical": 4.47
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "volume-minus-filled": {
+      "paths": [
+        "M14.75 12H21.25"
+      ],
+      "areas": [
+        "M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z\"/> <path d=\"M14.75 12H21.25\"/>",
+      "mark": false,
+      "tags": [
+        "speaker",
+        "sound",
+        "volume down",
+        "quieter",
+        "minus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "volume-none": {
       "paths": [
         "M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z"
@@ -38315,6 +38438,127 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "volume-plus": {
+      "paths": [
+        "M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z",
+        "M14.75 12H21.25",
+        "M18 8.75V15.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z\"/> <path d=\"M14.75 12H21.25\"/> <path d=\"M18 8.75V15.25\"/>",
+      "mark": false,
+      "tags": [
+        "speaker",
+        "sound",
+        "volume up",
+        "louder",
+        "plus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.13,
+          "optical": 2.1
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.01
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.63,
+          "optical": 4.47
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.63,
+          "optical": 4.47
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "volume-plus-filled": {
+      "paths": [
+        "M14.75 12H21.25",
+        "M18 8.75V15.25"
+      ],
+      "areas": [
+        "M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z\"/> <path d=\"M14.75 12H21.25\"/> <path d=\"M18 8.75V15.25\"/>",
+      "mark": false,
+      "tags": [
+        "speaker",
+        "sound",
+        "volume up",
+        "louder",
+        "plus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
         }
       },
       "container": null,
@@ -40020,10 +40264,14 @@
         "volume-filled",
         "volume-low",
         "volume-low-filled",
+        "volume-minus",
+        "volume-minus-filled",
         "volume-none",
         "volume-none-filled",
         "volume-off",
         "volume-off-filled",
+        "volume-plus",
+        "volume-plus-filled",
         "volume-x",
         "volume-x-filled",
         "watch",
@@ -77423,6 +77671,125 @@
           "ratio": null,
           "gap": null
         },
+        "volume-minus": {
+          "paths": [
+            "M1.625 9.375V6.625A1 1 0 0 1 2.625 5.625H4.232A0.625 0.625 0 0 0 4.675 5.441L6.308 3.808A0.625 0.625 0 0 1 7.375 4.25V11.75A0.625 0.625 0 0 1 6.308 12.192L4.675 10.559A0.625 0.625 0 0 0 4.232 10.375H2.625A1 1 0 0 1 1.625 9.375Z",
+            "M10.625 8H14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 9.375V6.625A1 1 0 0 1 2.625 5.625H4.232A0.625 0.625 0 0 0 4.675 5.441L6.308 3.808A0.625 0.625 0 0 1 7.375 4.25V11.75A0.625 0.625 0 0 1 6.308 12.192L4.675 10.559A0.625 0.625 0 0 0 4.232 10.375H2.625A1 1 0 0 1 1.625 9.375Z\"/> <path d=\"M10.625 8H14.375\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume down",
+            "quieter",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.11,
+              "optical": 1.08
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.52,
+              "optical": 3.39
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.52,
+              "optical": 3.39
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-minus-filled": {
+          "paths": [
+            "M10.625 8H14.375"
+          ],
+          "areas": [
+            "M1 9.375V6.625A1.625 1.625 0 0 1 2.625 5H4.232L5.866 3.366A1.25 1.25 0 0 1 8 4.25V11.75A1.25 1.25 0 0 1 5.866 12.634L4.232 11H2.625A1.625 1.625 0 0 1 1 9.375Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 9.375V6.625A1.625 1.625 0 0 1 2.625 5H4.232L5.866 3.366A1.25 1.25 0 0 1 8 4.25V11.75A1.25 1.25 0 0 1 5.866 12.634L4.232 11H2.625A1.625 1.625 0 0 1 1 9.375Z\"/> <path d=\"M10.625 8H14.375\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume down",
+            "quieter",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "volume-none": {
           "paths": [
             "M1.625 9.375V6.625A1 1 0 0 1 2.625 5.625H4.232A0.625 0.625 0 0 0 4.675 5.441L6.308 3.808A0.625 0.625 0 0 1 7.375 4.25V11.75A0.625 0.625 0 0 1 6.308 12.192L4.675 10.559A0.625 0.625 0 0 0 4.232 10.375H2.625A1 1 0 0 1 1.625 9.375Z"
@@ -77656,6 +78023,127 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-plus": {
+          "paths": [
+            "M1.625 9.375V6.625A1 1 0 0 1 2.625 5.625H4.232A0.625 0.625 0 0 0 4.675 5.441L6.308 3.808A0.625 0.625 0 0 1 7.375 4.25V11.75A0.625 0.625 0 0 1 6.308 12.192L4.675 10.559A0.625 0.625 0 0 0 4.232 10.375H2.625A1 1 0 0 1 1.625 9.375Z",
+            "M10.625 8H14.375",
+            "M12.5 6.125V9.875"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 9.375V6.625A1 1 0 0 1 2.625 5.625H4.232A0.625 0.625 0 0 0 4.675 5.441L6.308 3.808A0.625 0.625 0 0 1 7.375 4.25V11.75A0.625 0.625 0 0 1 6.308 12.192L4.675 10.559A0.625 0.625 0 0 0 4.232 10.375H2.625A1 1 0 0 1 1.625 9.375Z\"/> <path d=\"M10.625 8H14.375\"/> <path d=\"M12.5 6.125V9.875\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume up",
+            "louder",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.11,
+              "optical": 1.08
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.52,
+              "optical": 3.39
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.52,
+              "optical": 3.39
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-plus-filled": {
+          "paths": [
+            "M10.625 8H14.375",
+            "M12.5 6.125V9.875"
+          ],
+          "areas": [
+            "M1 9.375V6.625A1.625 1.625 0 0 1 2.625 5H4.232L5.866 3.366A1.25 1.25 0 0 1 8 4.25V11.75A1.25 1.25 0 0 1 5.866 12.634L4.232 11H2.625A1.625 1.625 0 0 1 1 9.375Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 9.375V6.625A1.625 1.625 0 0 1 2.625 5H4.232L5.866 3.366A1.25 1.25 0 0 1 8 4.25V11.75A1.25 1.25 0 0 1 5.866 12.634L4.232 11H2.625A1.625 1.625 0 0 1 1 9.375Z\"/> <path d=\"M10.625 8H14.375\"/> <path d=\"M12.5 6.125V9.875\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume up",
+            "louder",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -79359,10 +79847,14 @@
         "volume-filled",
         "volume-low",
         "volume-low-filled",
+        "volume-minus",
+        "volume-minus-filled",
         "volume-none",
         "volume-none-filled",
         "volume-off",
         "volume-off-filled",
+        "volume-plus",
+        "volume-plus-filled",
         "volume-x",
         "volume-x-filled",
         "watch",
@@ -116786,6 +117278,125 @@
           "ratio": null,
           "gap": null
         },
+        "volume-minus": {
+          "paths": [
+            "M2.75 12V8A1.25 1.25 0 0 1 4 6.75H5.87A0.75 0.75 0 0 0 6.41 6.53L7.97 4.97A0.75 0.75 0 0 1 9.25 5.5V14.5A0.75 0.75 0 0 1 7.97 15.03L6.41 13.47A0.75 0.75 0 0 0 5.87 13.25H4A1.25 1.25 0 0 1 2.75 12Z",
+            "M12.75 10H17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12V8A1.25 1.25 0 0 1 4 6.75H5.87A0.75 0.75 0 0 0 6.41 6.53L7.97 4.97A0.75 0.75 0 0 1 9.25 5.5V14.5A0.75 0.75 0 0 1 7.97 15.03L6.41 13.47A0.75 0.75 0 0 0 5.87 13.25H4A1.25 1.25 0 0 1 2.75 12Z\"/> <path d=\"M12.75 10H17.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume down",
+            "quieter",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.11
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.6,
+              "optical": 4.45
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.6,
+              "optical": 4.45
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-minus-filled": {
+          "paths": [
+            "M12.75 10H17.25"
+          ],
+          "areas": [
+            "M2 12V8A2 2 0 0 1 4 6H5.88L7.44 4.44A1.5 1.5 0 0 1 10 5.5V14.5A1.5 1.5 0 0 1 7.44 15.56L5.88 14H4A2 2 0 0 1 2 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12V8A2 2 0 0 1 4 6H5.88L7.44 4.44A1.5 1.5 0 0 1 10 5.5V14.5A1.5 1.5 0 0 1 7.44 15.56L5.88 14H4A2 2 0 0 1 2 12Z\"/> <path d=\"M12.75 10H17.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume down",
+            "quieter",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "volume-none": {
           "paths": [
             "M2.75 12V8A1.25 1.25 0 0 1 4 6.75H5.87A0.75 0.75 0 0 0 6.41 6.53L7.97 4.97A0.75 0.75 0 0 1 9.25 5.5V14.5A0.75 0.75 0 0 1 7.97 15.03L6.41 13.47A0.75 0.75 0 0 0 5.87 13.25H4A1.25 1.25 0 0 1 2.75 12Z"
@@ -117019,6 +117630,127 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-plus": {
+          "paths": [
+            "M2.75 12V8A1.25 1.25 0 0 1 4 6.75H5.87A0.75 0.75 0 0 0 6.41 6.53L7.97 4.97A0.75 0.75 0 0 1 9.25 5.5V14.5A0.75 0.75 0 0 1 7.97 15.03L6.41 13.47A0.75 0.75 0 0 0 5.87 13.25H4A1.25 1.25 0 0 1 2.75 12Z",
+            "M12.75 10H17.25",
+            "M15 7.75V12.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12V8A1.25 1.25 0 0 1 4 6.75H5.87A0.75 0.75 0 0 0 6.41 6.53L7.97 4.97A0.75 0.75 0 0 1 9.25 5.5V14.5A0.75 0.75 0 0 1 7.97 15.03L6.41 13.47A0.75 0.75 0 0 0 5.87 13.25H4A1.25 1.25 0 0 1 2.75 12Z\"/> <path d=\"M12.75 10H17.25\"/> <path d=\"M15 7.75V12.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume up",
+            "louder",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.11
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.6,
+              "optical": 4.45
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.6,
+              "optical": 4.45
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-plus-filled": {
+          "paths": [
+            "M12.75 10H17.25",
+            "M15 7.75V12.25"
+          ],
+          "areas": [
+            "M2 12V8A2 2 0 0 1 4 6H5.88L7.44 4.44A1.5 1.5 0 0 1 10 5.5V14.5A1.5 1.5 0 0 1 7.44 15.56L5.88 14H4A2 2 0 0 1 2 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12V8A2 2 0 0 1 4 6H5.88L7.44 4.44A1.5 1.5 0 0 1 10 5.5V14.5A1.5 1.5 0 0 1 7.44 15.56L5.88 14H4A2 2 0 0 1 2 12Z\"/> <path d=\"M12.75 10H17.25\"/> <path d=\"M15 7.75V12.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume up",
+            "louder",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
             }
           },
           "container": null,
@@ -118724,10 +119456,14 @@
         "volume-filled",
         "volume-low",
         "volume-low-filled",
+        "volume-minus",
+        "volume-minus-filled",
         "volume-none",
         "volume-none-filled",
         "volume-off",
         "volume-off-filled",
+        "volume-plus",
+        "volume-plus-filled",
         "volume-x",
         "volume-x-filled",
         "watch",
@@ -156157,6 +156893,125 @@
           "ratio": null,
           "gap": null
         },
+        "volume-minus": {
+          "paths": [
+            "M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z",
+            "M14.75 12H21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z\"/> <path d=\"M14.75 12H21.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume down",
+            "quieter",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.01
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.63,
+              "optical": 4.47
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.63,
+              "optical": 4.47
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-minus-filled": {
+          "paths": [
+            "M14.75 12H21.25"
+          ],
+          "areas": [
+            "M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z\"/> <path d=\"M14.75 12H21.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume down",
+            "quieter",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "volume-none": {
           "paths": [
             "M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z"
@@ -156390,6 +157245,127 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-plus": {
+          "paths": [
+            "M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z",
+            "M14.75 12H21.25",
+            "M18 8.75V15.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 14.75V9.25A1.5 1.5 0 0 1 4.25 7.75H6.87A0.75 0.75 0 0 0 7.41 7.53L9.97 4.97A0.75 0.75 0 0 1 11.25 5.5V18.5A0.75 0.75 0 0 1 9.97 19.03L7.41 16.47A0.75 0.75 0 0 0 6.87 16.25H4.25A1.5 1.5 0 0 1 2.75 14.75Z\"/> <path d=\"M14.75 12H21.25\"/> <path d=\"M18 8.75V15.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume up",
+            "louder",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.01
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.63,
+              "optical": 4.47
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.63,
+              "optical": 4.47
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "volume-plus-filled": {
+          "paths": [
+            "M14.75 12H21.25",
+            "M18 8.75V15.25"
+          ],
+          "areas": [
+            "M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 14.75V9.25A2.25 2.25 0 0 1 4.25 7H6.88L9.44 4.44A1.5 1.5 0 0 1 12 5.5V18.5A1.5 1.5 0 0 1 9.44 19.56L6.88 17H4.25A2.25 2.25 0 0 1 2 14.75Z\"/> <path d=\"M14.75 12H21.25\"/> <path d=\"M18 8.75V15.25\"/>",
+          "mark": false,
+          "tags": [
+            "speaker",
+            "sound",
+            "volume up",
+            "louder",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
             }
           },
           "container": null,
@@ -160344,7 +161320,7 @@
       "category": "Communication",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 89,
@@ -160353,7 +161329,7 @@
       "category": "Files & Folders",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 90,
@@ -160371,7 +161347,7 @@
       "category": "Files & Folders",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 92,
@@ -160380,7 +161356,7 @@
       "category": "Communication",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 93,
@@ -160389,7 +161365,7 @@
       "category": "UI & Layout",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 94,
@@ -163980,6 +164956,24 @@
       "category": null,
       "base": null,
       "note": "added 2026-09-18 · approved 2026-09-18",
+      "status": "done"
+    },
+    {
+      "n": 491,
+      "name": "volume-minus",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-09-26 · approved 2026-09-26",
+      "status": "done"
+    },
+    {
+      "n": 492,
+      "name": "volume-plus",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-09-26 · approved 2026-09-26",
       "status": "done"
     }
   ]

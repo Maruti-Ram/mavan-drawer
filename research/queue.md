@@ -350,12 +350,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 87. `chevrons-up-down-2` · Arrows & Direction · variant of `chevrons-up-down` — Classic small, open · approved 2026-09-26
 - [x] 87. `chevrons-up-down-3` · Arrows & Direction · variant of `chevrons-up-down` — Flat small, open · approved 2026-09-26
 - [x] 87. `chevrons-up-down-4` · Arrows & Direction · variant of `chevrons-up-down` — Flat small, medium · approved 2026-09-26
-- [ ] 88. `compose` · Communication
-- [ ] 89. `files` · Files & Folders
+- [~] 88. `compose` · Communication
+- [~] 89. `files` · Files & Folders
 - [x] 90. `gauge` · Charts & Data — approved 2026-09-26
-- [ ] 91. `images` · Files & Folders
-- [ ] 92. `language` · Communication
-- [ ] 93. `layout-footer` · UI & Layout
+- [~] 91. `images` · Files & Folders
+- [~] 92. `language` · Communication
+- [~] 93. `layout-footer` · UI & Layout
 - [x] 94. `lightbulb` · Status & Feedback — approved 2026-09-26
 - [x] 94. `lightbulb-2` · Status & Feedback · variant of `lightbulb` — Dome, two lines · approved 2026-09-26
 - [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-26
@@ -760,3 +760,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 488. `info-2` — added 2026-09-17 · approved 2026-09-18
 - [x] 489. `info-3` — added 2026-09-17 · approved 2026-09-18
 - [x] 490. `help-4` — added 2026-09-18 · approved 2026-09-18
+- [x] 491. `volume-minus` — added 2026-09-26 · approved 2026-09-26
+- [x] 492. `volume-plus` — added 2026-09-26 · approved 2026-09-26
