@@ -334,7 +334,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 82. `map-pin-3` · Maps & Location · variant of `map-pin` — On a ground ellipse · approved 2026-09-26
 - [x] 82. `map-pin-4` · Maps & Location · variant of `map-pin` — Round, 45 degree sides · approved 2026-09-26
 - [x] 82. `map-pin-5` · Maps & Location · variant of `map-pin` — Pushpin on the plane · approved 2026-09-26
-- [~] 83. `package` · Commerce & Payments
+- [x] 83. `package` · Commerce & Payments — approved 2026-09-26
+- [x] 83. `package-2` · Commerce & Payments · variant of `package` — Isometric cube, 2:1 · approved 2026-09-26
+- [x] 83. `package-3` · Commerce & Payments · variant of `package` — Isometric, taped top · approved 2026-09-26
 - [~] 84. `printer` · Devices & Hardware
 - [ ] 85. `volume` · Media & Playback
 - [ ] 86. `watch` · Devices & Hardware
