@@ -329,7 +329,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 81. `desktop-4` · Devices & Hardware · variant of `desktop` — Wide screen · approved 2026-09-26
 - [x] 81. `desktop-5` · Devices & Hardware · variant of `desktop` — Card screen · approved 2026-09-26
 - [x] 81. `desktop-6` · Devices & Hardware · variant of `desktop` — Flared stand · approved 2026-09-26
-- [~] 82. `map-pin` · Maps & Location
+- [x] 82. `map-pin` · Maps & Location — approved 2026-09-26
+- [x] 82. `map-pin-2` · Maps & Location · variant of `map-pin` — Drop, curved sides · approved 2026-09-26
+- [x] 82. `map-pin-3` · Maps & Location · variant of `map-pin` — On a ground ellipse · approved 2026-09-26
+- [x] 82. `map-pin-4` · Maps & Location · variant of `map-pin` — Round, 45 degree sides · approved 2026-09-26
+- [x] 82. `map-pin-5` · Maps & Location · variant of `map-pin` — Pushpin on the plane · approved 2026-09-26
 - [~] 83. `package` · Commerce & Payments
 - [~] 84. `printer` · Devices & Hardware
 - [ ] 85. `volume` · Media & Playback
