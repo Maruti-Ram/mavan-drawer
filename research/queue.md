@@ -329,9 +329,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 81. `desktop-4` · Devices & Hardware · variant of `desktop` — Wide screen · approved 2026-09-26
 - [x] 81. `desktop-5` · Devices & Hardware · variant of `desktop` — Card screen · approved 2026-09-26
 - [x] 81. `desktop-6` · Devices & Hardware · variant of `desktop` — Flared stand · approved 2026-09-26
-- [ ] 82. `map-pin` · Maps & Location
-- [ ] 83. `package` · Commerce & Payments
-- [ ] 84. `printer` · Devices & Hardware
+- [~] 82. `map-pin` · Maps & Location
+- [~] 83. `package` · Commerce & Payments
+- [~] 84. `printer` · Devices & Hardware
 - [ ] 85. `volume` · Media & Playback
 - [ ] 86. `watch` · Devices & Hardware
 - [ ] 87. `chevrons-up-down` · Arrows & Direction
