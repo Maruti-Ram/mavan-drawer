@@ -354,7 +354,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 88. `compose-2` · Communication · variant of `compose` — Square, pencil on its corner · approved 2026-09-26
 - [x] 88. `compose-3` · Communication · variant of `compose` — Sharp pencil · approved 2026-09-26
 - [x] 88. `compose-4` · Communication · variant of `compose` — Round-end pencil · approved 2026-09-26
-- [~] 89. `files` · Files & Folders
+- [x] 89. `files` · Files & Folders — approved 2026-09-26
+- [x] 89. `files-2` · Files & Folders · variant of `files` — Up-right · approved 2026-09-26
+- [x] 89. `files-3` · Files & Folders · variant of `files` — Up-left · approved 2026-09-26
+- [x] 89. `files-4` · Files & Folders · variant of `files` — Full-size front, side peek · approved 2026-09-26
+- [x] 89. `files-5` · Files & Folders · variant of `files` — Text lines · approved 2026-09-26
 - [x] 90. `gauge` · Charts & Data — approved 2026-09-26
 - [~] 91. `images` · Files & Folders
 - [~] 92. `language` · Communication
