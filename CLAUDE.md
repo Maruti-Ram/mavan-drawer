@@ -189,6 +189,7 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Masters | **24 · 20 · 16** — three drawn masters (user direction, 2026-09-16; supersedes "drop 20") |
 | Business model | sold to many customers → we do not control render size |
 | Naming (C9) | `<object>[-<modifier>][-<n>][-<size>][-filled]`; shape variants are numbered (`check-2`), their style word is a **tag** (`<!-- tags: long sweep -->`, candidate `tags: [...]` on the board) that the build and Library search read. Numbers never change. **Figure families (C27):** the number names the figure and travels with the object — `user-2` ↔ `users-2`, later `user-2-plus`; other arrangements take a word after it (`users-level`, `users-2-behind`). |
+| Level families (C28) | an amount going down keeps **one body identical and in place** in every member; the full member is centred, the others keep its canvas position and lean toward the body. Waves drop outside-in and the rest keep their coordinates. Levels are **words**: `volume` (3 waves) · `volume-medium` · `volume-low` · `volume-none` · `volume-x` · `volume-off` (C21 bar). Members declare `<!-- anchor: volume -->`; lint holds their ink inside the full member's box (user decision 2026-09-26) |
 | Mark bends (C10) | a bent mark's corner is an arc of radius **half the weight** — outline 0.75 · 0.75 · 0.625 (24 · 20 · 16), filled 1.25 · 1 · 1 (`bendMin`) — the tightest even-width bend; lint warns below it. At 16 the ink box is still held exactly and the leg angle gives instead (classic chevron 45° → 45.5°, largest shift 1.87° on `check-circle-small`; measured by `tools/convert-16.mjs`, 2026-09-20) |
 | Sizes (C8, C13, C18) | ship only the sizes with a use case (`check`: default + small); every shipped style then gets all of them — styles × sizes is a full grid. **Containers** (`check-circle-small`) keep the container and shrink only the inner mark |
 | Optical placement (C14) | open pointing marks move toward their point by a per-shape anchor picked by eye at default 24 (chevron down: classic 0.5 · steep 0.61 · flat 0.55; up/left/right, same drawings flipped or turned: classic 0.5 · steep 0.65 · flat 0.4 up, 0.55 left/right; checks stay box-centred — audited 2026-09-17), scaled by ink height for other sizes/masters; declared as `<!-- optical: dx dy -->`, checked by lint, written to metrics as `shift`. Symmetric marks stay on the box centre. |
@@ -280,6 +281,18 @@ depending on the icon.
   and the knockout check are untouched). Lint prints it as an info line while the drawing holds
   it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
   the drawing no longer needs. Today: `attachment-4-filled` at 24 and 20 (`gap: 1`)
+- `<!-- anchor: NAME -->` marks a member of a level family (C28; first `volume-medium`, `-low`,
+  `-none`, `-x`, `-off` → `volume`). It declares membership, so every member but the full one
+  carries it. Lint then does not ask the member to be centred or to match a keyline; it holds its
+  ink inside NAME's box **and on NAME's left or right edge** (the body stays in place), at the
+  same master and style (`NAME-filled.svg` for a filled file), as an error, and prints how many
+  paths it shares with NAME. It errors on a note it cannot read, one naming its own file, a
+  missing, inkless or itself-anchored anchor, ink outside NAME's box, ink on neither edge, and
+  `anchor` with `box` or `keyline: mark`. Drafts write it with `anchor: 'volume'`; a board-level
+  `set: { id: name }` names what each bare id ships as, in both `draft-check` and `approve`
+  (an explicit `id=file` wins). Approve the full member with its members in one command, or
+  after it has shipped; `approve` refuses, before writing anything, a member whose anchor is in
+  neither place
 - One icon per commit
 - **An icon is never reviewed alone** — only in a grid at 16px next to twenty others
 

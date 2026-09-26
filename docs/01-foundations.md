@@ -129,6 +129,14 @@ new keyline; a file may declare `box` or `keyline: mark`, never both. First used
 1.25 → 1.33 → 1.4 wide-to-tall as the masters shrank and the folder read squashed at
 20 and 16, where the agreed box holds 1.11 · 1.14 · 1.17.
 
+**A level family (C28).** Every member of a family that shows an amount going down
+keeps the full member's canvas position, so only the full member (`volume`) is centred
+on a keyline; the others (`volume-low`, `volume-none`…) declare `<!-- anchor: volume -->`.
+Lint then holds their ink inside the full member's box, sharing its left or right edge
+(the body has not moved) — same master, same style, as an error — instead of asking them
+to be centred or to match a keyline; the margin, grid and gaps still apply, and `anchor`
+goes with neither `box` nor `keyline: mark`.
+
 **These are outer dimensions — they include the stroke.** At 24, a stroked
 circle that should hit the ⌀20 keyline has a *centreline* radius of 9.25,
 because the 1.5-unit stroke adds 0.75 on each side. At 16, the same logic on

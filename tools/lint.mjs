@@ -109,6 +109,28 @@ export function parseGapNote(src) {
   return v && +m[1] > 0 ? { n: +m[1], raw: m[1] } : { raw: m[1], bad: true };
 }
 
+// A member of a level family (C28) declares `<!-- anchor: NAME -->`: NAME is the family's
+// full member (`volume`), and this file keeps that member's canvas position instead of being
+// centred on a keyline — the body never moves, so the fewer waves, the more it leans toward
+// the body. The note names the outline; a filled file is held to `NAME-filled.svg`. Checked in
+// `checkAnchors` below, which reads the whole map because a file cannot see its anchor. Same
+// spirit as `box:`, `grows:` and `gap:` — it can never hide a mistake: a note lint cannot read,
+// one naming its own file, one whose anchor is missing, inkless or itself anchored, ink outside
+// the anchor's box, and ink that shares neither its left nor its right edge (the body moved)
+// are all ERRORS. Unlike those notes it is a declaration of membership, not a
+// licence, so lint never asks for it to be removed.
+// Returns null (no note), {name, raw}, or {raw, bad: true}.
+export function parseAnchorNote(src) {
+  const m = src.match(/<!--\s*anchor:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(m[1]) && !/-filled$/.test(m[1])
+    ? { name: m[1], raw: m[1] } : { raw: m[1], bad: true };
+}
+
+// Path text compared as written, bar whitespace (runs collapse; none is kept beside a command
+// letter or a comma): "identical" means the same drawing, not the same shape reached another way.
+const normPath = (d) => d.replace(/\s*([A-Za-z,])\s*/g, '$1').replace(/\s+/g, ' ').trim();
+
 const SIDES = { l: 'left', r: 'right', t: 'top', b: 'bottom' };
 const growsText = (g) => `${g.l} ${g.r} ${g.t} ${g.b}`;
 const signed = (n) => (n > 0 ? `+${r3(n)}` : `${r3(n)}`);
@@ -198,6 +220,19 @@ export function lintSource(canvas, file, src) {
   const GAP = gap ? gap.n : MIN_GAP;
   const measured = [];   // every edge gap the note governs, for the "is it still needed" check
 
+  // --- 0c. the anchor note (C28; held to its anchor in checkAnchors) --------
+  // A note that is not usable is an error and is then ignored, so §4 asks the drawing to be
+  // centred on a keyline exactly as it would without it.
+  let anchor = parseAnchorNote(src);
+  const selfName = file.replace(/\.svg$/, '').replace(/-filled$/, '');
+  if (anchor?.bad) {
+    errors.push(`anchor note "${anchor.raw}" is not an icon name — write <!-- anchor: NAME --> with the full member's outline name, e.g. <!-- anchor: volume -->`);
+    anchor = null;
+  } else if (anchor && anchor.name === selfName) {
+    errors.push(`declares itself as its anchor — the full member of a level family is centred like any icon and carries no note; only the other members declare <!-- anchor: ${selfName} --> (C28)`);
+    anchor = null;
+  }
+
   // --- 1. root attributes -------------------------------------------------
   const root = src.match(/<svg\b([^>]*)>/);
   if (!root) return { file, errors: ['no <svg> root'], warnings, notes };
@@ -261,6 +296,10 @@ export function lintSource(canvas, file, src) {
     const box = parseBoxNote(src);
     if (box?.bad) errors.push(`box note "${box.raw}" is not a size — write <!-- box: WxH -->, e.g. <!-- box: 20x18 -->`);
     if (box && isMark) errors.push('declares both `keyline: mark` and `box:` — a mark is held to the mark ceiling, an agreed box to its own size; pick one');
+    if (anchor && (isMark || box)) {
+      errors.push(`declares both \`anchor:\` and \`${isMark ? 'keyline: mark' : 'box:'}\` — an anchored member is held to its full member's box (C28), ${isMark ? 'a mark to the mark ceiling' : 'an agreed box to its own size'}; pick one`);
+      anchor = null;
+    }
     // A container's first path is the container; the rest is its inner mark (measured on the outline file).
     if (!isMark && !areas.length && ds.length > 1) {
       const b = bbox(ds.slice(1));
@@ -275,10 +314,15 @@ export function lintSource(canvas, file, src) {
         errors.push(`declares box ${box.w}x${box.h} but the ink is ${w}×${h} — the agreed size and the drawing disagree`);
     } else {
       const key = KEYLINES.find(([, kw, kh]) => Math.abs(w - kw) <= 0.5 && Math.abs(h - kh) <= 0.5);
-      notes.push(`${w}×${h}  ${key ? `fits ${key[0]} keyline` : 'no keyline match'}  centre ${cx},${cy}`);
-      if (!key) warnings.push(`${w}×${h} matches no keyline (§2) — if this is a directional mark, declare <!-- keyline: mark -->`);
+      notes.push(`${w}×${h}  ${anchor ? `anchored to ${anchor.name}` : key ? `fits ${key[0]} keyline` : 'no keyline match'}  centre ${cx},${cy}`);
+      // An anchored member keeps its full member's position (C28), so this warning and the
+      // off-centre one below are held back, not dropped: checkAnchors puts them back if the
+      // anchor cannot be found, and reads an empty list as "it would pass without the note".
+      // (A usable anchor only ever reaches this branch: with a mark or a box it was cleared.)
+      if (anchor) anchor.held = [];
+      if (!key) (anchor?.held ?? warnings).push(`${w}×${h} matches no keyline (§2) — if this is a directional mark, declare <!-- keyline: mark -->`);
     }
-    if (Math.abs(cx - mid) > 0.5 || Math.abs(cy - mid) > 0.5) warnings.push(`off-centre at ${cx},${cy}`);
+    if (Math.abs(cx - mid) > 0.5 || Math.abs(cy - mid) > 0.5) (anchor?.held ?? warnings).push(`off-centre at ${cx},${cy}`);
   }
 
   // --- 4b. advisory: bends tighter than half the stroke (C10) --------------
@@ -387,7 +431,9 @@ export function lintSource(canvas, file, src) {
       notes.splice(-1, 0, `agreed gap ${gap.n} — smallest measured ${smallest}`);
   }
 
-  return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap };
+  // `paths` (whitespace-normalised) lets checkAnchors count what a member shares with its anchor.
+  const paths = [...ds, ...areas].map(normPath);
+  return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, paths };
 }
 
 // --- 6. size families (C8): a mark's large and small sit one SIZE_STEP from the default;
@@ -418,6 +464,63 @@ export function checkFamilies(results) {
   return results;
 }
 
+// --- 8. level families (C28): an anchored member stays inside its full member's box ---
+// Like `checkPairs`, it reads the whole map — `${master}/${file}.svg` → what `lintSource`
+// returned — so the anchor is looked up in whatever set of files is being linted: src/icons
+// for `npm run check`, the candidate plus its anchor for tools/draft-check.mjs. Same master,
+// same style: `volume-low.svg` is held to `volume.svg`, `volume-low-filled.svg` to
+// `volume-filled.svg`. Adds to the results in place.
+const fmtBox = (b) => `${r3(b.x0)},${r3(b.y0)} → ${r3(b.x1)},${r3(b.y1)}`;
+export function checkAnchors(results) {
+  for (const [key, r] of results) {
+    if (!r.anchor) continue;
+    const [m, f] = key.split('/');
+    const { name, held = [] } = r.anchor;
+    const anchorFile = `${name}${f.endsWith('-filled.svg') ? '-filled' : ''}.svg`;
+    const a = results.get(`${m}/${anchorFile}`);
+    if (!a) {
+      r.errors.push(`anchored to ${name}, but there is no \`${anchorFile}\` at ${m} to hold it to — the full member ships before its levels, or with them (C28)`);
+      r.warnings.push(...held);   // unanchored after all: it answers to §2 and the centre like any icon
+      continue;
+    }
+    if (a.anchor) {
+      r.errors.push(`anchored to ${name}, which is itself anchored to ${a.anchor.name} — anchor every member to the full member (C28)`);
+      r.warnings.push(...held);
+      continue;
+    }
+    if (!a.ink) {
+      r.errors.push(`anchored to ${name}, but \`${anchorFile}\` at ${m} has no ink to hold it to (C28)`);
+      r.warnings.push(...held);
+      continue;
+    }
+    if (!r.ink) { r.warnings.push(...held); continue; }   // lintSource has already said "no <path> found"
+    const out = {   // outward on every side: + is member ink standing outside the anchor's box
+      l: a.ink.x0 - r.ink.x0, r: r.ink.x1 - a.ink.x1, t: a.ink.y0 - r.ink.y0, b: r.ink.y1 - a.ink.y1 };
+    const over = Object.keys(SIDES).filter((k) => out[k] > 0.01);
+    if (over.length) {
+      r.errors.push(`ink ${fmtBox(r.ink)} runs outside ${name}'s ${fmtBox(a.ink)} on the ${over.map((k) => `${SIDES[k]} by ${r3(out[k])}`).join(', ')} — a level family's members stay inside the full member's box (C28)`);
+      continue;
+    }
+    // Inside the box is not enough: a member re-centred inside it has moved its body. The body
+    // (the speaker) runs to one side of the full member's ink and stays there, so the member
+    // shares that side exactly. Not path identity: `volume-off`'s C21 bar may cut the speaker
+    // and share no path, yet its speaker still starts at volume's left edge.
+    if (Math.abs(r.ink.x0 - a.ink.x0) > 0.01 && Math.abs(r.ink.x1 - a.ink.x1) > 0.01) {
+      r.errors.push(`ink x ${r3(r.ink.x0)} → ${r3(r.ink.x1)} shares neither side of ${name}'s ${r3(a.ink.x0)} → ${r3(a.ink.x1)} — the body moves; a level family keeps it in place (C28)`);
+      continue;
+    }
+    // The note declares family membership (C28: every member but the full one carries it),
+    // not a licence for a deviation — so unlike `gap`, a member that happens to fill the full
+    // member's own box (a × in the waves' place) is never told to drop it.
+    const own = Object.values(out).every((v) => Math.abs(v) <= 0.01);
+    const mine = new Set(a.paths ?? []);
+    const same = (r.paths ?? []).filter((d) => mine.has(d)).length;
+    r.notes.splice(-1, 0, own ? `anchored to ${name}: ink is ${name}'s own box (${fmtBox(r.ink)})` : `anchored to ${name}: ink ${fmtBox(r.ink)} inside ${fmtBox(a.ink)}`,
+      `${same} of ${r.paths?.length ?? 0} paths identical to ${name}'s`);
+  }
+  return results;
+}
+
 // --- the run over src/icons ---------------------------------------------
 // Everything below is the command; `lintSource` above is the whole check, so a test
 // can hand it one file's text without a drawing on disk (tools/geometry.test.mjs).
@@ -438,6 +541,9 @@ checkFamilies(results);
 
 // --- 7. the pair: every icon ships as outline + filled, in the same ink box ---
 checkPairs(results);
+
+// --- 8. level families (C28): anchored members inside the full member's box ---
+checkAnchors(results);
 
 for (const [m, f] of jobs) {
   const { errors, warnings, notes } = results.get(`${m}/${f}`);

@@ -5,7 +5,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { materialGap, selfGap } from './geometry.mjs';
-import { checkPairs, comparePair, lintSource, parseBoxNote, parseGapNote, parseGrowsNote } from './lint.mjs';
+import { checkAnchors, checkPairs, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGrowsNote } from './lint.mjs';
+import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
   gridFor, gridNameFor, gridOf, strokeOf, weightOf,
@@ -555,4 +556,137 @@ test('a gap note on a drawing with nothing to measure is an ERROR too', () => {
   const r = lintSource(24, 'minus.svg', shipped(24, 'minus.svg').replace(/(<!--)/, '<!-- gap: 1 -->\n  $1'));
   assert.ok(r.errors.some((e) => /the note is not needed/.test(e)), r.errors.join(' | '));
   assert.ok(!/smallest measured/.test(r.errors.find((e) => /not needed/.test(e))), 'nothing measured, so no number is invented');
+});
+
+// --- level families (C28): `<!-- anchor: NAME -->` ------------------------------------
+// A member keeps its full member's canvas position, so it is neither centred nor on a
+// keyline; the note swaps those two warnings for "inside the full member's box". Fixture:
+// a speaker and two straight "waves" at 24. The full member spans 2,4 → 22,20 — the 20×16
+// landscape keyline, centred on 12,12. The one-wave member drops the outer wave and keeps
+// the rest in place: 15×16, centre 9.5,12.
+const ROOT24 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">';
+const SPEAKER = 'M2.75 8.75H7.25L11.25 4.75V19.25L7.25 15.25H2.75Z';
+const WAVE1 = 'M16.25 9.25V14.75', WAVE2 = 'M21.25 6.75V17.25';
+const icon = (ds, notes = []) => [ROOT24, ...notes.map((n) => `  <!-- ${n} -->`), ...ds.map((d) => `  <path d="${d}"/>`), '</svg>', ''].join('\n');
+const FULL = icon([SPEAKER, WAVE1, WAVE2]);
+const LOW = icon([SPEAKER, WAVE1], ['anchor: volume']);
+const family = (files) => checkAnchors(new Map(Object.entries(files).map(([f, src]) => [`24/${f}`, lintSource(24, f, src)])));
+const placement = (r) => r.warnings.filter((w) => /keyline|off-centre/.test(w));
+
+test('parseAnchorNote reads an icon name and refuses anything else', () => {
+  assert.deepEqual(parseAnchorNote('<!-- anchor: volume -->'), { name: 'volume', raw: 'volume' });
+  assert.equal(parseAnchorNote('<!--anchor:volume-2-->').name, 'volume-2');
+  assert.equal(parseAnchorNote('<!-- box: 20x18 -->'), null);
+  assert.ok(parseAnchorNote('<!-- anchor: Volume -->').bad);
+  assert.ok(parseAnchorNote('<!-- anchor: volume low -->').bad);
+  assert.ok(parseAnchorNote('<!-- anchor: volume-filled -->').bad, 'the note names the outline; a filled file finds NAME-filled itself');
+});
+
+test('the fixture: the full member is clean, the member without the note warns twice', () => {
+  const r = family({ 'volume.svg': FULL, 'volume-low.svg': LOW.replace('  <!-- anchor: volume -->\n', '') });
+  assert.deepEqual(r.get('24/volume.svg').warnings, []);
+  assert.match(r.get('24/volume.svg').notes.at(-1), /20×16  fits landscape keyline  centre 12,12/);
+  assert.deepEqual(placement(r.get('24/volume-low.svg')), ['15×16 matches no keyline (§2) — if this is a directional mark, declare <!-- keyline: mark -->', 'off-centre at 9.5,12']);
+});
+
+test('an anchored member inside its full member: no keyline or centre warning, an info line instead', () => {
+  const r = family({ 'volume.svg': FULL, 'volume-low.svg': LOW }).get('24/volume-low.svg');
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(r.warnings, []);
+  assert.ok(r.notes.includes('anchored to volume: ink 2,4 → 17,20 inside 2,4 → 22,20'), r.notes.join(' | '));
+  assert.ok(r.notes.includes("2 of 2 paths identical to volume's"), r.notes.join(' | '));
+  assert.equal(r.notes.at(-1), '15×16  anchored to volume  centre 9.5,12', 'the headline stays last');
+  // whitespace is not a difference; a moved point is
+  const spaced = LOW.replace(WAVE1, 'M16.25  9.25 V14.75');
+  assert.ok(family({ 'volume.svg': FULL, 'volume-low.svg': spaced }).get('24/volume-low.svg').notes.includes("2 of 2 paths identical to volume's"));
+  const moved = LOW.replace(WAVE1, 'M16.25 9.5V14.5');
+  assert.ok(family({ 'volume.svg': FULL, 'volume-low.svg': moved }).get('24/volume-low.svg').notes.includes("1 of 2 paths identical to volume's"));
+});
+
+test('ink outside the full member\'s box is an ERROR', () => {
+  const r = family({ 'volume.svg': FULL, 'volume-low.svg': LOW.replace(WAVE1, 'M16.25 3.75V14.75') }).get('24/volume-low.svg');
+  assert.equal(r.errors.length, 1, r.errors.join(' | '));
+  assert.match(r.errors[0], /^ink 2,3 → 17,20 runs outside volume's 2,4 → 22,20 on the top by 1 — a level family's members stay inside the full member's box \(C28\)$/);
+  // 0.01 is the tolerance, not a free quarter
+  const r2 = family({ 'volume.svg': FULL, 'volume-low.svg': LOW.replace(WAVE1, 'M16.25 4.5V14.75') }).get('24/volume-low.svg');
+  assert.match(r2.errors[0] ?? '', /on the top by 0\.25/);
+});
+
+test('a member re-centred inside the full member\'s box is an ERROR: the body moved', () => {
+  // the one-wave member slid 2.5 right: 4.5 → 19.5, centred on 12 and still inside 2 → 22
+  const shift = (d) => d.replace(/([MHL])([\d.]+)/g, (_, c, x) => `${c}${+x + 2.5}`);
+  const r = family({ 'volume.svg': FULL, 'volume-low.svg': icon([shift(SPEAKER), shift(WAVE1)], ['anchor: volume']) }).get('24/volume-low.svg');
+  assert.deepEqual(r.errors, ["ink x 4.5 → 19.5 shares neither side of volume's 2 → 22 — the body moves; a level family keeps it in place (C28)"]);
+  // sharing the right side instead is allowed (a body drawn on the right, waves to its left)
+  const right = (d) => d.replace(/([MHL])([\d.]+)/g, (_, c, x) => `${c}${+x + 5}`);
+  assert.deepEqual(family({ 'volume.svg': FULL, 'volume-low.svg': icon([right(SPEAKER), right(WAVE1)], ['anchor: volume']) }).get('24/volume-low.svg').errors, []);
+});
+
+test('an anchor that is itself anchored, or has no ink, is an ERROR and the placement warnings come back', () => {
+  const chained = family({ 'volume.svg': FULL, 'volume-medium.svg': LOW, 'volume-low.svg': icon([SPEAKER], ['anchor: volume-medium']) }).get('24/volume-low.svg');
+  assert.equal(placement(chained).length, 2, chained.warnings.join(' | '));
+  const inkless = family({ 'volume.svg': icon([]), 'volume-low.svg': LOW }).get('24/volume-low.svg');
+  assert.deepEqual(inkless.errors, ["anchored to volume, but `volume.svg` at 24 has no ink to hold it to (C28)"]);
+  assert.equal(placement(inkless).length, 2);
+});
+
+test('an anchor file that is not there is an ERROR, and the placement warnings come back', () => {
+  const r = family({ 'volume-low.svg': LOW }).get('24/volume-low.svg');
+  assert.deepEqual(r.errors, ["anchored to volume, but there is no `volume.svg` at 24 to hold it to — the full member ships before its levels, or with them (C28)"]);
+  assert.equal(placement(r).length, 2);
+  // same master, same style: a filled member is held to `volume-filled.svg`, not to the outline
+  const f = family({ 'volume.svg': FULL, 'volume-low-filled.svg': LOW }).get('24/volume-low-filled.svg');
+  assert.ok(f.errors.some((e) => e.includes('no `volume-filled.svg` at 24')), f.errors.join(' | '));
+});
+
+test('a member that fills the full member\'s own box keeps its note: membership, not a licence', () => {
+  // C28: every member but the full one declares the anchor, so lint never asks for it off
+  // (volume-x's × may span exactly the waves' box).
+  const r = family({ 'volume.svg': FULL, 'volume-x.svg': icon([SPEAKER, WAVE1, WAVE2], ['anchor: volume']) }).get('24/volume-x.svg');
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(r.warnings, []);
+  assert.ok(r.notes.includes("anchored to volume: ink is volume's own box (2,4 → 22,20)"), r.notes.join(' | '));
+  assert.ok(r.notes.includes("3 of 3 paths identical to volume's"), r.notes.join(' | '));
+});
+
+test('anchor with a box or a mark is an ERROR, and the anchor is dropped', () => {
+  const r = lintSource(24, 'volume-low.svg', icon([SPEAKER, WAVE1], ['anchor: volume', 'box: 15x16']));
+  assert.ok(r.errors.some((e) => /declares both `anchor:` and `box:`/.test(e)), r.errors.join(' | '));
+  assert.equal(r.anchor, null);
+  assert.ok(placement(r).some((w) => /off-centre/.test(w)), 'judged as if there were no anchor');
+  const m = lintSource(24, 'volume-low.svg', icon([SPEAKER, WAVE1], ['keyline: mark', 'anchor: volume']));
+  assert.ok(m.errors.some((e) => /declares both `anchor:` and `keyline: mark`/.test(e)), m.errors.join(' | '));
+});
+
+test('an anchor note lint cannot read, or one naming its own file, is an ERROR', () => {
+  const bad = lintSource(24, 'volume-low.svg', icon([SPEAKER, WAVE1], ['anchor: the speaker']));
+  assert.ok(bad.errors.some((e) => /anchor note "the speaker" is not an icon name/.test(e)), bad.errors.join(' | '));
+  assert.equal(placement(bad).length, 2, 'an unreadable note is dropped, not half-believed');
+  const self = lintSource(24, 'volume-filled.svg', icon([SPEAKER, WAVE1, WAVE2], ['anchor: volume']));
+  assert.ok(self.errors.some((e) => /declares itself as its anchor/.test(e)), self.errors.join(' | '));
+});
+
+test('a member anchored to another member, not the full one, is an ERROR', () => {
+  const mid = icon([SPEAKER, WAVE1], ['anchor: volume']);
+  const r = family({ 'volume.svg': FULL, 'volume-medium.svg': mid, 'volume-low.svg': icon([SPEAKER], ['anchor: volume-medium']) });
+  assert.ok(r.get('24/volume-low.svg').errors.some((e) => /is itself anchored to volume/.test(e)));
+});
+
+test('draft-svg writes a candidate\'s anchor into both files; `anchor: null` opts out of the board\'s', () => {
+  const c = { id: 'A1', label: 'one wave', anchor: 'volume', masters: { 24: [SPEAKER], 20: [SPEAKER], 16: [SPEAKER] },
+    filled: { 24: { fill: [], stroke: [SPEAKER] }, 20: { fill: [], stroke: [SPEAKER] }, 16: { fill: [], stroke: [SPEAKER] } } };
+  const out = candidateFiles({}, c, 'volume-low');
+  assert.equal(out.length, 6);
+  assert.ok(out.every((f) => f.src.includes('<!-- anchor: volume -->')));
+  assert.ok(candidateFiles({ anchor: 'volume' }, { ...c, anchor: undefined }, 'volume-low').every((f) => f.src.includes('<!-- anchor: volume -->')), 'board-level');
+  assert.ok(candidateFiles({ anchor: 'volume' }, { ...c, anchor: null }, 'volume').every((f) => !f.src.includes('anchor:')), 'the full member opts out');
+});
+
+test('a bare id ships under its `set` name, else the concept; id=file always wins (approve and draft-check share it)', () => {
+  const d = { concept: 'volume', set: { A3: 'volume', A2: 'volume-medium', Ax: 'volume-x' } };
+  assert.deepEqual(planArg(d, 'A2'), { id: 'A2', file: 'volume-medium', from: 'set' });
+  assert.deepEqual(planArg(d, 'A3'), { id: 'A3', file: 'volume', from: 'set' });
+  assert.deepEqual(planArg(d, 'B'), { id: 'B', file: 'volume', from: 'concept' }, 'not in set: the concept');
+  assert.deepEqual(planArg(d, 'A2=volume-low'), { id: 'A2', file: 'volume-low', from: 'explicit' }, 'explicit wins');
+  assert.deepEqual(planArg({ concept: 'user' }, 'C'), { id: 'C', file: 'user', from: 'concept' }, 'no set at all');
 });

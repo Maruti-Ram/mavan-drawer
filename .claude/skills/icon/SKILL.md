@@ -83,6 +83,21 @@ export default {
   closer to itself than 1.5 (`attachment-4-filled`: 1.04 at 24, 1.0 at 20). Round it down to what
   the drawing really holds; lint errors on a note it cannot read, one that is not below 1.5, and
   one the drawing no longer needs.
+- **Level family (C28).** Each member other than the full one carries `anchor: 'volume'` (on the
+  candidate; a board-level `anchor` works too, and a candidate's `anchor: null` opts out). It is
+  written into both files as `<!-- anchor: volume -->`, and lint holds that member's ink inside the
+  full member's box at the same master and style, sharing its left or right edge (the body stays
+  in place), instead of asking it to be centred on a keyline.
+  Name what each candidate ships as with a board-level `set: { A3: 'volume', A2: 'volume-medium' }`:
+  a bare id in `draft-check` and in `approve` ships under its `set` name (an explicit `id=file`
+  wins), and `draft-check` lints the anchor candidate beside each member (else the shipped
+  `volume`). Approve the full member and its members in one command
+  (`approve --icon volume A3 A2 A1 …`), or after the full member has shipped — `approve` refuses,
+  before writing anything, a member whose anchor is neither in the command nor shipped, and its
+  `--dry-run` takes the anchor from the same two places. Lint errors on a note it cannot read, one
+  naming its own file, a missing, inkless or itself-anchored anchor, ink outside the anchor's box,
+  ink that shares neither its left nor its right edge, and `anchor` with `box` or `keyline: mark`. The note declares
+  membership, so it stays even when a member fills the full member's own box (info line).
 - **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge.
 - **Consistency.** Check against approved relatives first (`src/icons/24/`, `node tools/queue.mjs show <name>`). Reuse their lengths, radii and weights unless the question is about changing them.
 

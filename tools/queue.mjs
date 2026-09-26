@@ -14,7 +14,8 @@
 //   node tools/queue.mjs approve <id>=<file> [<id>=<file>…]
 //                                             write the board's candidates to src/icons,
 //                                             lint, tick the sheet. `approve B` alone
-//                                             writes candidate B as the concept name.
+//                                             writes candidate B under the name the draft's
+//                                             `set` gives it, else as the concept name.
 //
 // A BATCH: when Maruti wants to review several icons together, up to five sit in
 // lab/drafts/batch/<name>.js beside the board, and lab/icon.html opens one with
@@ -35,7 +36,8 @@ import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync, mkdir
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { MASTERS, sizeBase, sizeOf } from './masters.mjs';
-import { candidateFiles } from './draft-svg.mjs';
+import { candidateFiles, planArg } from './draft-svg.mjs';
+import { parseAnchorNote } from './lint.mjs';
 
 const QUEUE = 'research/queue.md';
 const ADDED = 'E · Added on request';
@@ -233,22 +235,34 @@ async function approve(args) {
   const concepts = d.concepts ?? [d.concept];
   const conceptOf = (file) => concepts.find((k) => sizeBase(file) === sizeBase(k) || file.startsWith(`${k}-`));
   const plan = args.map((a) => {
-    const [id, file = d.concept] = a.split('=');
+    const { id, file } = planArg(d, a);   // bare id → the draft's `set` name, else the concept
     const c = d.candidates.find((x) => x.id === id) ?? die(`No candidate "${id}" in ${path} (have: ${d.candidates.map((x) => x.id).join(', ')}).`);
     const concept = conceptOf(file) ?? die(`${file} is not a variant of ${concepts.join(' / ')}.`);
     return { c, file, concept };
   });
+  const twice = plan.map((p) => p.file).filter((f, i, all) => all.indexOf(f) !== i);
+  if (twice.length) die(`Two candidates would ship as ${[...new Set(twice)].join(', ')} — name each file once.`);
 
   if (dry) return dryRun(path, plan, icon);
 
-  const written = [];
+  // Build every file before writing any, so a candidate that cannot ship, or a level-family
+  // member (C28) whose anchor would be missing, stops the approval with nothing written.
+  const built = [];
   for (const { c, file } of plan) {
-    let out;
-    try { out = candidateFiles(d, c, file); } catch (e) { die(e.message); }
-    for (const { master, file: f, src } of out) {
-      writeFileSync(`src/icons/${master}/${f}`, src);
-      written.push(`src/icons/${master}/${f}`);
-    }
+    try { built.push(...candidateFiles(d, c, file)); } catch (e) { die(e.message); }
+  }
+  const planned = new Set(plan.map((p) => p.file));
+  const shipped = (n) => masters.every((m) => [n, `${n}-filled`].every((f) => existsSync(`src/icons/${m}/${f}.svg`)));
+  for (const { file } of plan) {
+    const anchor = parseAnchorNote(built.find((b) => b.name === file)?.src ?? '')?.name;
+    if (anchor && !planned.has(anchor) && !shipped(anchor))
+      die(`${file} is anchored to ${anchor}, which is neither in this approval nor shipped — approve ${anchor} in the same command, or first (C28). Nothing was written.`);
+  }
+
+  const written = [];
+  for (const { master, file: f, src } of built) {
+    writeFileSync(`src/icons/${master}/${f}`, src);
+    written.push(`src/icons/${master}/${f}`);
   }
 
   const check = spawnSync('npm', ['run', 'check', '--silent'], { encoding: 'utf8' });
@@ -306,7 +320,9 @@ async function approve(args) {
 function dryRun(path, plan, icon) {
   const args = plan.map(({ c, file }) => `${c.id}=${file}`);
   console.log(`Dry run · ${path} · nothing will be written\n`);
-  const check = spawnSync('node', ['tools/draft-check.mjs', path, ...args], { stdio: 'inherit' });
+  // --approve: the anchor of a level-family member comes only from this plan or src/icons,
+  // as it will on the real approve — never from an unapproved candidate in the draft's `set`.
+  const check = spawnSync('node', ['tools/draft-check.mjs', path, '--approve', ...args], { stdio: 'inherit' });
   const q = readQueue();
   console.log('\nOn a real approve this would write:');
   for (const { file } of plan) for (const m of masters) console.log(`  src/icons/${m}/${file}.svg  src/icons/${m}/${file}-filled.svg`);

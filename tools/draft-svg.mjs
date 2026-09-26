@@ -18,6 +18,11 @@
 //                   units; it replaces §6's MIN_GAP in this file's proximity checks (C19 glyph
 //                   pairs are untouched). A candidate writes `gap: { 24: 1, 20: 1 }` for both
 //                   files, or `gap: { filled: { 24: 1, 20: 1 } }` to scope it to one style
+//   anchor: NAME    a member of a level family (C28) keeps the full member NAME's canvas position
+//                   instead of being centred on a keyline; lint holds its ink inside NAME's box
+//                   (NAME-filled's for the filled file). A candidate writes `anchor: 'volume'`,
+//                   written into both files; the full member has no anchor. A candidate's
+//                   `anchor: null` opts out of a board-level one
 // Lint reads all of them; a note the drawing does not measure is an error, not a warning.
 import { MASTERS, strokeOf } from './masters.mjs';
 
@@ -33,11 +38,12 @@ export const gapFor = (gap, m, filled) => {
   return (scoped ? gap[filled ? 'filled' : 'outline'] : gap)?.[m] ?? null;
 };
 
-export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null) => [
+export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
   ...(box ? [`  <!-- box: ${box[0]}x${box[1]} -->`] : []),
+  ...(anchor ? [`  <!-- anchor: ${anchor} -->`] : []),
   ...(grows ? [`  <!-- grows: ${grows.join(' ')} -->`] : []),
   ...(gap ? [`  <!-- gap: ${gap} -->`] : []),
   ...(glyph ? [`  <!-- glyph: ${glyph} -->`] : []),
@@ -48,9 +54,21 @@ export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical =
   '</svg>', '',
 ].join('\n');
 
+// One command-line argument → which candidate, shipped under which name. Shared by
+// `queue.mjs approve` and `draft-check.mjs` so the two can never name a file differently:
+// `B=user-small` names it outright; a bare `B` takes the name the draft's `set` gives it
+// (`set: { A3: 'volume', A2: 'volume-medium' }`, C28's level families), else the concept's.
+// `from` says which: 'explicit' · 'set' · 'concept' — draft-check only lets a name that was
+// asked for (explicit) stand in as an anchor, never one a candidate fell back to.
+export function planArg(draft, arg) {
+  const [id, file] = arg.split('=');
+  if (file) return { id, file, from: 'explicit' };
+  return draft.set?.[id] ? { id, file: draft.set[id], from: 'set' } : { id, file: draft.concept, from: 'concept' };
+}
+
 // One candidate → the six files it ships as, newest master first:
 //   { master, name, file, filled, src }   file is `<name>.svg` / `<name>-filled.svg`
-// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, box).
+// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, box, anchor).
 // Throws on a candidate that cannot ship; the caller decides how to report it.
 export function candidateFiles(draft, c, name) {
   const keyline = c.keyline ?? draft.keyline ?? null;
@@ -59,6 +77,7 @@ export function candidateFiles(draft, c, name) {
   const box = c.box ?? draft.box ?? null;              // { 24: [w, h], 20: […], 16: […] }
   const grows = c.grows ?? draft.grows ?? null;        // { 24: [l, r, t, b], … } — filled files only
   const gap = c.gap ?? draft.gap ?? null;              // { 24: n, … } or { filled: { 24: n, … }, outline: … }
+  const anchor = c.anchor !== undefined ? c.anchor : draft.anchor ?? null;   // 'volume' — both files, every master
   const out = [];
   for (const m of masters) {
     const o = c.masters?.[m];
@@ -72,11 +91,11 @@ export function candidateFiles(draft, c, name) {
     const sw = strokeOf(m);
     const fw = f.weight ?? sw;
     out.push({ master: m, name, file: `${name}.svg`, filled: false,
-      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph, box?.[m], null, gapFor(gap, m, false)) });
+      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph, box?.[m], null, gapFor(gap, m, false), anchor) });
     out.push({ master: m, name: `${name}-filled`, file: `${name}-filled.svg`, filled: true,
       src: svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline`),
-        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m], gapFor(gap, m, true)) });
+        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m], gapFor(gap, m, true), anchor) });
   }
   return out;
 }
