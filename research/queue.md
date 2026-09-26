@@ -782,4 +782,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 490. `help-4` — added 2026-09-18 · approved 2026-09-18
 - [x] 491. `volume-minus` — added 2026-09-26 · approved 2026-09-26
 - [x] 492. `volume-plus` — added 2026-09-26 · approved 2026-09-26
-- [~] 493. `layout-sidebar` — added 2026-09-26
+- [x] 493. `layout-sidebar` — added 2026-09-26 · approved 2026-09-26
+- [x] 493. `layout-sidebar-2` · variant of `layout-sidebar` — Third, solid sidebar · approved 2026-09-26
+- [x] 493. `layout-sidebar-3` · variant of `layout-sidebar` — Third, solid sidebar, two links at 24 · approved 2026-09-26
+- [x] 493. `layout-sidebar-4` · variant of `layout-sidebar` — Third, solid page · approved 2026-09-26
+- [x] 493. `layout-sidebar-5` · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
