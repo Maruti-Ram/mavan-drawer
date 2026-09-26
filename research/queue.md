@@ -339,16 +339,16 @@ Bases before their variants; within that, highest evidence first.
 - [x] 83. `package-3` · Commerce & Payments · variant of `package` — Isometric, taped top · approved 2026-09-26
 - [x] 84. `printer` · Devices & Hardware — approved 2026-09-26
 - [x] 84. `printer-2` · Devices & Hardware · variant of `printer` — Slot and status dot · approved 2026-09-26
-- [ ] 85. `volume` · Media & Playback
-- [ ] 86. `watch` · Devices & Hardware
-- [ ] 87. `chevrons-up-down` · Arrows & Direction
+- [~] 85. `volume` · Media & Playback
+- [~] 86. `watch` · Devices & Hardware
+- [~] 87. `chevrons-up-down` · Arrows & Direction
 - [ ] 88. `compose` · Communication
 - [ ] 89. `files` · Files & Folders
-- [ ] 90. `gauge` · Charts & Data
+- [~] 90. `gauge` · Charts & Data
 - [ ] 91. `images` · Files & Folders
 - [ ] 92. `language` · Communication
 - [ ] 93. `layout-footer` · UI & Layout
-- [ ] 94. `lightbulb` · Status & Feedback
+- [~] 94. `lightbulb` · Status & Feedback
 - [ ] 95. `list-ordered` · Editing & Text
 - [ ] 96. `megaphone` · Communication
 - [ ] 97. `pin` · UI & Layout
