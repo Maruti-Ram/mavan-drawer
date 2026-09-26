@@ -350,7 +350,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 87. `chevrons-up-down-2` · Arrows & Direction · variant of `chevrons-up-down` — Classic small, open · approved 2026-09-26
 - [x] 87. `chevrons-up-down-3` · Arrows & Direction · variant of `chevrons-up-down` — Flat small, open · approved 2026-09-26
 - [x] 87. `chevrons-up-down-4` · Arrows & Direction · variant of `chevrons-up-down` — Flat small, medium · approved 2026-09-26
-- [~] 88. `compose` · Communication
+- [x] 88. `compose` · Communication — approved 2026-09-26
+- [x] 88. `compose-2` · Communication · variant of `compose` — Square, pencil on its corner · approved 2026-09-26
+- [x] 88. `compose-3` · Communication · variant of `compose` — Sharp pencil · approved 2026-09-26
+- [x] 88. `compose-4` · Communication · variant of `compose` — Round-end pencil · approved 2026-09-26
 - [~] 89. `files` · Files & Folders
 - [x] 90. `gauge` · Charts & Data — approved 2026-09-26
 - [~] 91. `images` · Files & Folders
