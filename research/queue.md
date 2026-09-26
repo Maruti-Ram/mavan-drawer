@@ -434,7 +434,11 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 150. `chart-line` · Charts & Data
 - [ ] 151. `form` · UI & Layout
 - [ ] 152. `import` · Files & Folders
-- [~] 153. `layout-header` · UI & Layout
+- [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
+- [x] 153. `layout-header-2` · UI & Layout · variant of `layout-header` — Third, solid header · approved 2026-09-26
+- [x] 153. `layout-header-3` · UI & Layout · variant of `layout-header` — Third, solid header, two links at 24 · approved 2026-09-26
+- [x] 153. `layout-header-4` · UI & Layout · variant of `layout-header` — Third, solid page · approved 2026-09-26
+- [x] 153. `layout-header-5` · UI & Layout · variant of `layout-header` — Detached header box · approved 2026-09-26
 - [ ] 154. `merge` · Arrows & Direction
 - [ ] 155. `note` · Files & Folders
 - [ ] 156. `quote` · Editing & Text
