@@ -339,7 +339,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 83. `package-3` · Commerce & Payments · variant of `package` — Isometric, taped top · approved 2026-09-26
 - [x] 84. `printer` · Devices & Hardware — approved 2026-09-26
 - [x] 84. `printer-2` · Devices & Hardware · variant of `printer` — Slot and status dot · approved 2026-09-26
-- [~] 85. `volume` · Media & Playback
+- [x] 85. `volume` · Media & Playback — approved 2026-09-26
+- [x] 85. `volume-low` · Media & Playback · variant of `volume` — volume-low · approved 2026-09-26
+- [x] 85. `volume-none` · Media & Playback · variant of `volume` — volume-none · approved 2026-09-26
+- [x] 85. `volume-x` · Media & Playback · variant of `volume` — volume-x · approved 2026-09-26
 - [x] 86. `watch` · Devices & Hardware — approved 2026-09-26
 - [x] 86. `watch-2` · Devices & Hardware · variant of `watch` — Smartwatch, crown · approved 2026-09-26
 - [x] 86. `watch-3` · Devices & Hardware · variant of `watch` — Smartwatch, tapered, hands · approved 2026-09-26
@@ -678,7 +681,6 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 413. `x-square` · UI & Layout · variant of `x`
 - [ ] 414. `zap-off` · Status & Feedback · variant of `zap`
 - [ ] 415. `battery-charging` · Devices & Hardware · variant of `battery`
-- [ ] 416. `volume-high` · Media & Playback · variant of `volume`
 - [ ] 417. `activity-square` · Charts & Data · variant of `activity`
 - [ ] 418. `bell-plus` · Communication · variant of `bell`
 - [ ] 419. `book-bookmark` · Files & Folders · variant of `book`
@@ -745,7 +747,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 480. `video-off` · Files & Folders · variant of `video`
 - [ ] 481. `camera-off` · Media & Playback · variant of `camera`
 - [ ] 482. `cloud-off` · Development & Infra · variant of `cloud`
-- [ ] 483. `volume-off` · Media & Playback · variant of `volume`
+- [x] 483. `volume-off` · Media & Playback · variant of `volume` — approved 2026-09-26
 - [ ] 484. `wifi-off` · Devices & Hardware · variant of `wifi`
 - [ ] 485. `phone-forwarded` · Communication · variant of `phone`
 - [ ] 486. `phone-missed` · Communication · variant of `phone`
