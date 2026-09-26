@@ -380,7 +380,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 96. `megaphone` · Communication — approved 2026-09-26
 - [x] 96. `megaphone-2` · Communication · variant of `megaphone` — Horn and strap · approved 2026-09-26
 - [x] 96. `megaphone-3` · Communication · variant of `megaphone` — Horn, grip and sound · approved 2026-09-26
-- [~] 97. `pin` · UI & Layout
+- [x] 97. `pin` · UI & Layout — approved 2026-09-26
+- [x] 97. `pin-2` · UI & Layout · variant of `pin` — Upright, curved flare · approved 2026-09-26
+- [x] 97. `pin-3` · UI & Layout · variant of `pin` — Upright, long needle · approved 2026-09-26
+- [x] 97. `pin-4` · UI & Layout · variant of `pin` — Leaning, curved flare · approved 2026-09-26
+- [x] 97. `pin-5` · UI & Layout · variant of `pin` — Leaning, long needle · approved 2026-09-26
+- [x] 97. `pin-6` · UI & Layout · variant of `pin` — Leaning tack, no cap · approved 2026-09-26
 - [~] 98. `presentation` · Charts & Data
 - [~] 99. `sparkle` · Status & Feedback
 - [ ] 100. `wand` · Editing & Text
