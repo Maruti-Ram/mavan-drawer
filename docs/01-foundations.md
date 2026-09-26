@@ -131,7 +131,9 @@ new keyline; a file may declare `box` or `keyline: mark`, never both. First used
 
 **A level family (C28).** Every member of a family that shows an amount going down
 keeps the full member's canvas position, so only the full member (`volume`) is centred
-on a keyline; the others (`volume-low`, `volume-none`…) declare `<!-- anchor: volume -->`.
+on a keyline; the levels and `volume-x` (`volume-low`, `volume-none`, `volume-x`) declare
+`<!-- anchor: volume -->`. `volume-off` is a state, not a level: it is centred like any icon and
+carries no note.
 Lint then holds their ink inside the full member's box, sharing its left or right edge
 (the body has not moved) — same master, same style, as an error — instead of asking them
 to be centred or to match a keyline; the margin, grid and gaps still apply, and `anchor`
