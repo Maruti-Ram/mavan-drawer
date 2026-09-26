@@ -388,7 +388,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 97. `pin-6` · UI & Layout · variant of `pin` — Leaning tack, no cap · approved 2026-09-26
 - [x] 98. `presentation` · Charts & Data — approved 2026-09-26
 - [x] 98. `presentation-2` · Charts & Data · variant of `presentation` — Screen, easel legs, trend line · approved 2026-09-26
-- [~] 99. `sparkle` · Status & Feedback
+- [x] 99. `sparkle` · Status & Feedback — approved 2026-09-26
+- [x] 99. `sparkle-2` · Status & Feedback · variant of `sparkle` — With a small sparkle · approved 2026-09-26
+- [x] 99. `sparkle-3` · Status & Feedback · variant of `sparkle` — With two small sparkles · approved 2026-09-26
+- [x] 99. `sparkle-4` · Status & Feedback · variant of `sparkle` — With a small sparkle and a dot · approved 2026-09-26
 - [ ] 100. `wand` · Editing & Text
 - [ ] 101. `bug` · Development & Infra
 - [ ] 102. `building` · Commerce & Payments
