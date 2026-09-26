@@ -392,11 +392,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 99. `sparkle-2` · Status & Feedback · variant of `sparkle` — With a small sparkle · approved 2026-09-26
 - [x] 99. `sparkle-3` · Status & Feedback · variant of `sparkle` — With two small sparkles · approved 2026-09-26
 - [x] 99. `sparkle-4` · Status & Feedback · variant of `sparkle` — With a small sparkle and a dot · approved 2026-09-26
-- [ ] 100. `wand` · Editing & Text
-- [ ] 101. `bug` · Development & Infra
-- [ ] 102. `building` · Commerce & Payments
-- [ ] 103. `cash` · Commerce & Payments
-- [ ] 104. `keyboard` · Devices & Hardware
+- [~] 100. `wand` · Editing & Text
+- [~] 101. `bug` · Development & Infra
+- [~] 102. `building` · Commerce & Payments
+- [~] 103. `cash` · Commerce & Payments
+- [~] 104. `keyboard` · Devices & Hardware
 - [ ] 105. `paintbrush` · Design Tools
 - [ ] 106. `plug` · Devices & Hardware
 - [ ] 107. `puzzle` · Development & Infra
