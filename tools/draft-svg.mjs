@@ -57,7 +57,7 @@ export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical =
 // One command-line argument → which candidate, shipped under which name. Shared by
 // `queue.mjs approve` and `draft-check.mjs` so the two can never name a file differently:
 // `B=user-small` names it outright; a bare `B` takes the name the draft's `set` gives it
-// (`set: { A3: 'volume', A2: 'volume-medium' }`, C28's level families), else the concept's.
+// (`set: { V2: 'volume', V1: 'volume-low' }`, C28's level families), else the concept's.
 // `from` says which: 'explicit' · 'set' · 'concept' — draft-check only lets a name that was
 // asked for (explicit) stand in as an anchor, never one a candidate fell back to.
 export function planArg(draft, arg) {

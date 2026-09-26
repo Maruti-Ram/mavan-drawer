@@ -88,11 +88,11 @@ export default {
   written into both files as `<!-- anchor: volume -->`, and lint holds that member's ink inside the
   full member's box at the same master and style, sharing its left or right edge (the body stays
   in place), instead of asking it to be centred on a keyline.
-  Name what each candidate ships as with a board-level `set: { A3: 'volume', A2: 'volume-medium' }`:
+  Name what each candidate ships as with a board-level `set: { V2: 'volume', V1: 'volume-low' }`:
   a bare id in `draft-check` and in `approve` ships under its `set` name (an explicit `id=file`
   wins), and `draft-check` lints the anchor candidate beside each member (else the shipped
   `volume`). Approve the full member and its members in one command
-  (`approve --icon volume A3 A2 A1 …`), or after the full member has shipped — `approve` refuses,
+  (`approve --icon volume V2 V1 V0 …`), or after the full member has shipped — `approve` refuses,
   before writing anything, a member whose anchor is neither in the command nor shipped, and its
   `--dry-run` takes the anchor from the same two places. Lint errors on a note it cannot read, one
   naming its own file, a missing, inkless or itself-anchored anchor, ink outside the anchor's box,

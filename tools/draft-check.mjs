@@ -20,7 +20,7 @@
 // to the concept name never stands in. With `--approve` (what `queue.mjs approve --dry-run`
 // passes) the `set` step is skipped: an approval writes only its own plan, so the anchor must
 // be in that plan or already shipped, exactly as the real approve will find it. A bare id is
-// named by the draft's `set` when it lists that id (`set: { A3: 'volume', A2: 'volume-medium' }`),
+// named by the draft's `set` when it lists that id (`set: { V2: 'volume', V1: 'volume-low' }`),
 // else by the concept — so `draft-check volume.js` checks each member under the name it ships as.
 //
 // Nothing in the repo is touched, so it is safe while an icon is on the board.
