@@ -434,7 +434,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 150. `chart-line` · Charts & Data
 - [ ] 151. `form` · UI & Layout
 - [ ] 152. `import` · Files & Folders
-- [ ] 153. `layout-header` · UI & Layout
+- [~] 153. `layout-header` · UI & Layout
 - [ ] 154. `merge` · Arrows & Direction
 - [ ] 155. `note` · Files & Folders
 - [ ] 156. `quote` · Editing & Text
@@ -778,3 +778,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 490. `help-4` — added 2026-09-18 · approved 2026-09-18
 - [x] 491. `volume-minus` — added 2026-09-26 · approved 2026-09-26
 - [x] 492. `volume-plus` — added 2026-09-26 · approved 2026-09-26
+- [~] 493. `layout-sidebar` — added 2026-09-26
