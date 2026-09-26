@@ -348,7 +348,10 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 91. `images` · Files & Folders
 - [ ] 92. `language` · Communication
 - [ ] 93. `layout-footer` · UI & Layout
-- [~] 94. `lightbulb` · Status & Feedback
+- [x] 94. `lightbulb` · Status & Feedback — approved 2026-09-26
+- [x] 94. `lightbulb-2` · Status & Feedback · variant of `lightbulb` — Dome, two lines · approved 2026-09-26
+- [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-26
+- [x] 94. `lightbulb-4` · Status & Feedback · variant of `lightbulb` — Open neck · approved 2026-09-26
 - [ ] 95. `list-ordered` · Editing & Text
 - [ ] 96. `megaphone` · Communication
 - [ ] 97. `pin` · UI & Layout
