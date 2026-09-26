@@ -377,7 +377,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-26
 - [x] 94. `lightbulb-4` · Status & Feedback · variant of `lightbulb` — Open neck · approved 2026-09-26
 - [~] 95. `list-ordered` · Editing & Text
-- [~] 96. `megaphone` · Communication
+- [x] 96. `megaphone` · Communication — approved 2026-09-26
+- [x] 96. `megaphone-2` · Communication · variant of `megaphone` — Horn and strap · approved 2026-09-26
+- [x] 96. `megaphone-3` · Communication · variant of `megaphone` — Horn, grip and sound · approved 2026-09-26
 - [~] 97. `pin` · UI & Layout
 - [~] 98. `presentation` · Charts & Data
 - [~] 99. `sparkle` · Status & Feedback
