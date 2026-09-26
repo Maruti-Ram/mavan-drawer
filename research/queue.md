@@ -367,7 +367,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 92. `language` · Communication — approved 2026-09-26
 - [x] 92. `language-2` · Communication · variant of `language` — Globe · approved 2026-09-26
 - [x] 92. `language-3` · Communication · variant of `language` — Tilted globe · approved 2026-09-26
-- [~] 93. `layout-footer` · UI & Layout
+- [x] 93. `layout-footer` · UI & Layout — approved 2026-09-26
+- [x] 93. `layout-footer-2` · UI & Layout · variant of `layout-footer` — Third, solid footer · approved 2026-09-26
+- [x] 93. `layout-footer-3` · UI & Layout · variant of `layout-footer` — Third, solid footer, two links at 24 · approved 2026-09-26
+- [x] 93. `layout-footer-4` · UI & Layout · variant of `layout-footer` — Third, solid page · approved 2026-09-26
+- [x] 93. `layout-footer-5` · UI & Layout · variant of `layout-footer` — Detached footer box · approved 2026-09-26
 - [x] 94. `lightbulb` · Status & Feedback — approved 2026-09-26
 - [x] 94. `lightbulb-2` · Status & Feedback · variant of `lightbulb` — Dome, two lines · approved 2026-09-26
 - [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-26

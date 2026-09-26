@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: footer, page, panel bottom, layout, highlight -->
+  <!-- Third, solid footer: Outline is A's (divider y 14.25 · 11.5 · 9.375, footer counter 4.5 · 3.25 · 2.75). Frame is checkbox's square (18 · 14 · 12, container radius 2.5 · 2 · 1.5, outer 3.25 · 2.75 · 2.125), the frame grid-2 and grid-6 already ship on. Filled: the footer region solid and the page left as a line - the Polaris / Fluent "highlighted region": footer and divider one band from the divider's top edge (13.5 · 10.75 · 8.75) to the frame's outer bottom, 7.5 · 6.25 · 5.25 tall, bottom corners on the outline's (3.25 · 2.75 · 2.125); the page is a line at 1.5 · 1.5 · 1.25 whose ends tuck 0.75 · 0.75 · 0.625 into the band. Rasterised at 16: page counter clear, band five solid rows (9-13). The filled icon points at the footer instead of slicing the page in two, so filled layout-header / layout-sidebar would each be a different solid region on the same outlined page - the cost is that it breaks from grid-6's shipped filled cut -->
+  <path d="M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z"/>
+  <path d="M3.75 11.5H16.25"/>
+</svg>
