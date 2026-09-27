@@ -394,7 +394,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 99. `sparkle-4` · Status & Feedback · variant of `sparkle` — With a small sparkle and a dot · approved 2026-09-26
 - [~] 100. `wand` · Editing & Text
 - [~] 101. `bug` · Development & Infra
-- [~] 102. `building` · Commerce & Payments
+- [x] 102. `building` · Commerce & Payments — approved 2026-09-27
+- [x] 102. `building-2` · Commerce & Payments · variant of `building` — Tower, dash windows, door · approved 2026-09-27
+- [x] 102. `building-3` · Commerce & Payments · variant of `building` — Tower and wing on a ground line · approved 2026-09-27
+- [x] 102. `building-4` · Commerce & Payments · variant of `building` — Tower and wing, filled wing behind · approved 2026-09-27
 - [~] 103. `cash` · Commerce & Payments
 - [~] 104. `keyboard` · Devices & Hardware
 - [ ] 105. `paintbrush` · Design Tools
