@@ -431,8 +431,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 111. `hash` · Communication — approved 2026-09-28
 - [x] 111. `hash-2` · Communication · variant of `hash` — Slanted 9.5° · approved 2026-09-28
 - [x] 111. `hash-3` · Communication · variant of `hash` — Slanted 9.5°, sheared · approved 2026-09-28
-- [~] 112. `compass` · Maps & Location
+- [x] 112. `compass` · Maps & Location — approved 2026-09-28
 - [x] 112. `compass-2` · Maps & Location · variant of `compass` — Diagonal, small · approved 2026-09-28
+- [x] 112. `compass-3` · Maps & Location · variant of `compass` — North solid, south outlined · approved 2026-09-28
 - [x] 113. `rotate-ccw` · Arrows & Direction — approved 2026-09-28
 - [x] 113. `rotate-ccw-2` · Arrows & Direction · variant of `rotate-ccw` — Three-quarter arc · approved 2026-09-28
 - [x] 113. `rotate-ccw-3` · Arrows & Direction · variant of `rotate-ccw` — Five-eighths arc · approved 2026-09-28
