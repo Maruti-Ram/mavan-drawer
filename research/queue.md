@@ -442,7 +442,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 113. `rotate-ccw-6` · Arrows & Direction · variant of `rotate-ccw` — Bent arrow over a rectangle · approved 2026-09-28
 - [x] 113. `rotate-ccw-7` · Arrows & Direction · variant of `rotate-ccw` — Quarter turn alone · approved 2026-09-28
 - [ ] 114. `sidebar` · UI & Layout
-- [~] 115. `play` · Media & Playback
+- [x] 115. `play` · Media & Playback — approved 2026-09-28
+- [x] 115. `play-2` · Media & Playback · variant of `play` — play-2 · container corners · approved 2026-09-28
+- [x] 115. `play-3` · Media & Playback · variant of `play` — play-3 · smaller · approved 2026-09-28
 - [ ] 116. `wrench` · Development & Infra
 - [ ] 117. `sort` · UI & Layout
 - [ ] 118. `shield` · Users & Access
