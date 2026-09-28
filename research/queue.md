@@ -392,7 +392,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 99. `sparkle-2` · Status & Feedback · variant of `sparkle` — With a small sparkle · approved 2026-09-26
 - [x] 99. `sparkle-3` · Status & Feedback · variant of `sparkle` — With two small sparkles · approved 2026-09-26
 - [x] 99. `sparkle-4` · Status & Feedback · variant of `sparkle` — With a small sparkle and a dot · approved 2026-09-26
-- [~] 100. `wand` · Editing & Text
+- [x] 100. `wand` · Editing & Text — approved 2026-09-28
 - [x] 101. `bug` · Development & Infra — approved 2026-09-28
 - [x] 101. `bug-2` · Development & Infra · variant of `bug` — Curled legs · approved 2026-09-28
 - [x] 102. `building` · Commerce & Payments — approved 2026-09-27
@@ -400,16 +400,34 @@ Bases before their variants; within that, highest evidence first.
 - [x] 102. `building-3` · Commerce & Payments · variant of `building` — Tower and wing on a ground line · approved 2026-09-27
 - [x] 102. `building-4` · Commerce & Payments · variant of `building` — Tower and wing, filled wing behind · approved 2026-09-27
 - [x] 103. `cash` · Commerce & Payments — approved 2026-09-28
-- [~] 104. `keyboard` · Devices & Hardware
-- [~] 105. `paintbrush` · Design Tools
-- [~] 106. `plug` · Devices & Hardware
-- [~] 107. `puzzle` · Development & Infra
-- [~] 108. `store` · Commerce & Payments
-- [~] 109. `wallet` · Commerce & Payments
-- [~] 110. `book` · Files & Folders
-- [~] 111. `hash` · Communication
+- [x] 104. `keyboard` · Devices & Hardware — approved 2026-09-28
+- [x] 104. `keyboard-2` · Devices & Hardware · variant of `keyboard` — Wired keyboard · approved 2026-09-28
+- [x] 105. `paintbrush` · Design Tools — approved 2026-09-28
+- [x] 106. `plug` · Devices & Hardware — approved 2026-09-28
+- [x] 106. `plug-2` · Devices & Hardware · variant of `plug` — Squared body · approved 2026-09-28
+- [x] 106. `plug-3` · Devices & Hardware · variant of `plug` — Flange · approved 2026-09-28
+- [x] 106. `plug-4` · Devices & Hardware · variant of `plug` — No cord · approved 2026-09-28
+- [x] 106. `plug-5` · Devices & Hardware · variant of `plug` — Sideways · approved 2026-09-28
+- [x] 106. `plug-6` · Devices & Hardware · variant of `plug` — Angled 45° · approved 2026-09-28
+- [x] 106. `plug-7` · Devices & Hardware · variant of `plug` — Cord turns aside · approved 2026-09-28
+- [x] 107. `puzzle` · Development & Infra — approved 2026-09-28
+- [x] 107. `puzzle-2` · Development & Infra · variant of `puzzle` — Two knobs and a socket · approved 2026-09-28
+- [x] 108. `store` · Commerce & Payments — approved 2026-09-28
+- [x] 108. `store-2` · Commerce & Payments · variant of `store` — Striped awning over building's walls · approved 2026-09-28
+- [x] 109. `wallet` · Commerce & Payments — approved 2026-09-28
+- [x] 109. `wallet-2` · Commerce & Payments · variant of `wallet` — Snap tab · approved 2026-09-28
+- [x] 109. `wallet-3` · Commerce & Payments · variant of `wallet` — Back panel, snap · approved 2026-09-28
+- [x] 110. `book` · Files & Folders — approved 2026-09-28
+- [x] 110. `book-2` · Files & Folders · variant of `book` — Page curl, ribbon · approved 2026-09-28
+- [x] 110. `book-3` · Files & Folders · variant of `book` — Page curl, title · approved 2026-09-28
+- [x] 110. `book-4` · Files & Folders · variant of `book` — Spine band, title · approved 2026-09-28
+- [x] 111. `hash` · Communication — approved 2026-09-28
+- [x] 111. `hash-2` · Communication · variant of `hash` — Slanted 9.5° · approved 2026-09-28
+- [x] 111. `hash-3` · Communication · variant of `hash` — Slanted 9.5°, sheared · approved 2026-09-28
 - [~] 112. `compass` · Maps & Location
-- [~] 113. `rotate-ccw` · Arrows & Direction
+- [x] 113. `rotate-ccw` · Arrows & Direction — approved 2026-09-28
+- [x] 113. `rotate-ccw-2` · Arrows & Direction · variant of `rotate-ccw` — Three-quarter arc · approved 2026-09-28
+- [x] 113. `rotate-ccw-3` · Arrows & Direction · variant of `rotate-ccw` — Five-eighths arc · approved 2026-09-28
 - [ ] 114. `sidebar` · UI & Layout
 - [~] 115. `play` · Media & Playback
 - [ ] 116. `wrench` · Development & Infra
