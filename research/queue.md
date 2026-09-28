@@ -437,6 +437,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 113. `rotate-ccw` · Arrows & Direction — approved 2026-09-28
 - [x] 113. `rotate-ccw-2` · Arrows & Direction · variant of `rotate-ccw` — Three-quarter arc · approved 2026-09-28
 - [x] 113. `rotate-ccw-3` · Arrows & Direction · variant of `rotate-ccw` — Five-eighths arc · approved 2026-09-28
+- [x] 113. `rotate-ccw-4` · Arrows & Direction · variant of `rotate-ccw` — Object under the arc · approved 2026-09-28
+- [x] 113. `rotate-ccw-5` · Arrows & Direction · variant of `rotate-ccw` — Frame, head on the top edge · approved 2026-09-28
+- [x] 113. `rotate-ccw-6` · Arrows & Direction · variant of `rotate-ccw` — Bent arrow over a rectangle · approved 2026-09-28
+- [x] 113. `rotate-ccw-7` · Arrows & Direction · variant of `rotate-ccw` — Quarter turn alone · approved 2026-09-28
 - [ ] 114. `sidebar` · UI & Layout
 - [~] 115. `play` · Media & Playback
 - [ ] 116. `wrench` · Development & Infra
