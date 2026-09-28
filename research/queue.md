@@ -399,7 +399,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 102. `building-2` · Commerce & Payments · variant of `building` — Tower, dash windows, door · approved 2026-09-27
 - [x] 102. `building-3` · Commerce & Payments · variant of `building` — Tower and wing on a ground line · approved 2026-09-27
 - [x] 102. `building-4` · Commerce & Payments · variant of `building` — Tower and wing, filled wing behind · approved 2026-09-27
-- [~] 103. `cash` · Commerce & Payments
+- [x] 103. `cash` · Commerce & Payments — approved 2026-09-28
 - [~] 104. `keyboard` · Devices & Hardware
 - [~] 105. `paintbrush` · Design Tools
 - [~] 106. `plug` · Devices & Hardware

@@ -131,6 +131,8 @@
     "cart-5",
     "cart-5-filled",
     "cart-filled",
+    "cash",
+    "cash-filled",
     "chart-bar",
     "chart-bar-2",
     "chart-bar-2-filled",
@@ -7879,6 +7881,120 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "cash": {
+      "paths": [
+        "M5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V10.25A2.5 2.5 0 0 1 5.25 7.75Z",
+        "M5.25 4.75H18.75",
+        "M9.25 13.5A2.75 2.75 0 1 0 14.75 13.5A2.75 2.75 0 1 0 9.25 13.5Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V10.25A2.5 2.5 0 0 1 5.25 7.75Z\"/> <path d=\"M5.25 4.75H18.75\"/> <path d=\"M9.25 13.5A2.75 2.75 0 1 0 14.75 13.5A2.75 2.75 0 1 0 9.25 13.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "stack",
+        "banknote"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.46,
+          "optical": 2.35
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.46,
+          "optical": 2.35
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.02,
+          "optical": 4.02
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "cash-filled": {
+      "paths": [
+        "M5.25 4.75H18.75"
+      ],
+      "areas": [
+        "M5.25 7H18.75A3.25 3.25 0 0 1 22 10.25V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V10.25A3.25 3.25 0 0 1 5.25 7ZM8.5 13.5A3.5 3.5 0 1 0 15.5 13.5A3.5 3.5 0 1 0 8.5 13.5ZM10 13.5A2 2 0 1 0 14 13.5A2 2 0 1 0 10 13.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 7H18.75A3.25 3.25 0 0 1 22 10.25V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V10.25A3.25 3.25 0 0 1 5.25 7ZM8.5 13.5A3.5 3.5 0 1 0 15.5 13.5A3.5 3.5 0 1 0 8.5 13.5ZM10 13.5A2 2 0 1 0 14 13.5A2 2 0 1 0 10 13.5Z\"/> <path d=\"M5.25 4.75H18.75\"/>",
+      "mark": false,
+      "tags": [
+        "stack",
+        "banknote"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
         }
       },
       "container": null,
@@ -46428,6 +46544,8 @@
         "cart-5",
         "cart-5-filled",
         "cart-filled",
+        "cash",
+        "cash-filled",
         "chart-bar",
         "chart-bar-2",
         "chart-bar-2-filled",
@@ -54151,6 +54269,120 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cash": {
+          "paths": [
+            "M3.125 6.375H12.875A1.5 1.5 0 0 1 14.375 7.875V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V7.875A1.5 1.5 0 0 1 3.125 6.375Z",
+            "M3.125 3.625H12.875",
+            "M7.75 9.375A0.25 0.25 0 1 0 8.25 9.375A0.25 0.25 0 1 0 7.75 9.375Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.125 6.375H12.875A1.5 1.5 0 0 1 14.375 7.875V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V7.875A1.5 1.5 0 0 1 3.125 6.375Z\"/> <path d=\"M3.125 3.625H12.875\"/> <path d=\"M7.75 9.375A0.25 0.25 0 1 0 8.25 9.375A0.25 0.25 0 1 0 7.75 9.375Z\"/>",
+          "mark": false,
+          "tags": [
+            "stack",
+            "banknote"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.45,
+              "optical": 1.34
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.45,
+              "optical": 1.34
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cash-filled": {
+          "paths": [
+            "M3.125 3.625H12.875"
+          ],
+          "areas": [
+            "M3.125 5.75H12.875A2.125 2.125 0 0 1 15 7.875V10.875A2.125 2.125 0 0 1 12.875 13H3.125A2.125 2.125 0 0 1 1 10.875V7.875A2.125 2.125 0 0 1 3.125 5.75ZM7.125 9.375A0.875 0.875 0 1 0 8.875 9.375A0.875 0.875 0 1 0 7.125 9.375Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.125 5.75H12.875A2.125 2.125 0 0 1 15 7.875V10.875A2.125 2.125 0 0 1 12.875 13H3.125A2.125 2.125 0 0 1 1 10.875V7.875A2.125 2.125 0 0 1 3.125 5.75ZM7.125 9.375A0.875 0.875 0 1 0 8.875 9.375A0.875 0.875 0 1 0 7.125 9.375Z\"/> <path d=\"M3.125 3.625H12.875\"/>",
+          "mark": false,
+          "tags": [
+            "stack",
+            "banknote"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -92656,6 +92888,8 @@
         "cart-5",
         "cart-5-filled",
         "cart-filled",
+        "cash",
+        "cash-filled",
         "chart-bar",
         "chart-bar-2",
         "chart-bar-2-filled",
@@ -100381,6 +100615,120 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cash": {
+          "paths": [
+            "M4.75 7.75H15.25A2 2 0 0 1 17.25 9.75V13.25A2 2 0 0 1 15.25 15.25H4.75A2 2 0 0 1 2.75 13.25V9.75A2 2 0 0 1 4.75 7.75Z",
+            "M4.75 4.75H15.25",
+            "M9.25 11.5A0.75 0.75 0 1 0 10.75 11.5A0.75 0.75 0 1 0 9.25 11.5Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 7.75H15.25A2 2 0 0 1 17.25 9.75V13.25A2 2 0 0 1 15.25 15.25H4.75A2 2 0 0 1 2.75 13.25V9.75A2 2 0 0 1 4.75 7.75Z\"/> <path d=\"M4.75 4.75H15.25\"/> <path d=\"M9.25 11.5A0.75 0.75 0 1 0 10.75 11.5A0.75 0.75 0 1 0 9.25 11.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "stack",
+            "banknote"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.55,
+              "optical": 2.41
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.55,
+              "optical": 2.41
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.03,
+              "optical": 4.02
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cash-filled": {
+          "paths": [
+            "M4.75 4.75H15.25"
+          ],
+          "areas": [
+            "M4.75 7H15.25A2.75 2.75 0 0 1 18 9.75V13.25A2.75 2.75 0 0 1 15.25 16H4.75A2.75 2.75 0 0 1 2 13.25V9.75A2.75 2.75 0 0 1 4.75 7ZM8.5 11.5A1.5 1.5 0 1 0 11.5 11.5A1.5 1.5 0 1 0 8.5 11.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 7H15.25A2.75 2.75 0 0 1 18 9.75V13.25A2.75 2.75 0 0 1 15.25 16H4.75A2.75 2.75 0 0 1 2 13.25V9.75A2.75 2.75 0 0 1 4.75 7ZM8.5 11.5A1.5 1.5 0 1 0 11.5 11.5A1.5 1.5 0 1 0 8.5 11.5Z\"/> <path d=\"M4.75 4.75H15.25\"/>",
+          "mark": false,
+          "tags": [
+            "stack",
+            "banknote"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
             }
           },
           "container": null,
@@ -138914,6 +139262,8 @@
         "cart-5",
         "cart-5-filled",
         "cart-filled",
+        "cash",
+        "cash-filled",
         "chart-bar",
         "chart-bar-2",
         "chart-bar-2-filled",
@@ -146662,6 +147012,120 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cash": {
+          "paths": [
+            "M5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V10.25A2.5 2.5 0 0 1 5.25 7.75Z",
+            "M5.25 4.75H18.75",
+            "M9.25 13.5A2.75 2.75 0 1 0 14.75 13.5A2.75 2.75 0 1 0 9.25 13.5Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V10.25A2.5 2.5 0 0 1 5.25 7.75Z\"/> <path d=\"M5.25 4.75H18.75\"/> <path d=\"M9.25 13.5A2.75 2.75 0 1 0 14.75 13.5A2.75 2.75 0 1 0 9.25 13.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "stack",
+            "banknote"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.46,
+              "optical": 2.35
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.46,
+              "optical": 2.35
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.02,
+              "optical": 4.02
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cash-filled": {
+          "paths": [
+            "M5.25 4.75H18.75"
+          ],
+          "areas": [
+            "M5.25 7H18.75A3.25 3.25 0 0 1 22 10.25V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V10.25A3.25 3.25 0 0 1 5.25 7ZM8.5 13.5A3.5 3.5 0 1 0 15.5 13.5A3.5 3.5 0 1 0 8.5 13.5ZM10 13.5A2 2 0 1 0 14 13.5A2 2 0 1 0 10 13.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 7H18.75A3.25 3.25 0 0 1 22 10.25V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V10.25A3.25 3.25 0 0 1 5.25 7ZM8.5 13.5A3.5 3.5 0 1 0 15.5 13.5A3.5 3.5 0 1 0 8.5 13.5ZM10 13.5A2 2 0 1 0 14 13.5A2 2 0 1 0 10 13.5Z\"/> <path d=\"M5.25 4.75H18.75\"/>",
+          "mark": false,
+          "tags": [
+            "stack",
+            "banknote"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
             }
           },
           "container": null,
@@ -188418,8 +188882,8 @@
       "section": "D · The rest, by audit rank",
       "category": "Commerce & Payments",
       "base": null,
-      "note": null,
-      "status": "review"
+      "note": "approved 2026-09-28",
+      "status": "done"
     },
     {
       "n": 104,
