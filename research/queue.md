@@ -393,6 +393,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 99. `sparkle-3` · Status & Feedback · variant of `sparkle` — With two small sparkles · approved 2026-09-26
 - [x] 99. `sparkle-4` · Status & Feedback · variant of `sparkle` — With a small sparkle and a dot · approved 2026-09-26
 - [x] 100. `wand` · Editing & Text — approved 2026-09-28
+- [x] 100. `wand-2` · Editing & Text · variant of `wand` — Solid star · approved 2026-09-28
+- [x] 100. `wand-3` · Editing & Text · variant of `wand` — Slim stick, solid star · approved 2026-09-28
 - [x] 101. `bug` · Development & Infra — approved 2026-09-28
 - [x] 101. `bug-2` · Development & Infra · variant of `bug` — Curled legs · approved 2026-09-28
 - [x] 102. `building` · Commerce & Payments — approved 2026-09-27
