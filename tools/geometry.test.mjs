@@ -874,3 +874,49 @@ test('facingGap: no false gap where one shape overlaps another, or in a collapse
   // help-4-filled 16: its cut carries self-crossing loops 0.1 across, left from an offset
   assert.deepEqual(facingGap([], 1.25, ["M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7 10.75A1 1 0 1 0 9 10.75A1 1 0 1 0 7 10.75ZM7.13 5.75L7 5.88L9 5.88L8.88 5.75L8.88 5.94L8.91 5.85L7.38 7.38A0.88 0.88 0 0 0 8.62 8.62L10.15 7.09A1.63 1.63 0 0 0 10.63 5.94L10.63 5.75A1.63 1.63 0 0 0 9 4.13L7 4.13A1.63 1.63 0 0 0 5.38 5.75A0.88 0.88 0 0 0 7.13 5.75Z"]).area.filter((x) => x.gap < 1.49), []);
 });
+
+// Found 2026-09-28, fixed 2026-09-29: two rounds bulging toward each other were not read.
+const PUZZLE24 = 'M2.75 9.75A2.5 2.5 0 0 1 5.25 7.25H7.15A1 1 0 0 0 8.02 5.75A2 2 0 0 1 9.75 2.75A2 2 0 0 1 11.48 5.75A1 1 0 0 0 12.35 7.25H14.25A2.5 2.5 0 0 1 16.75 9.75V11.65A1 1 0 0 0 18.25 12.52A2 2 0 0 1 21.25 14.25A2 2 0 0 1 18.25 15.98A1 1 0 0 0 16.75 16.85V18.75A2.5 2.5 0 0 1 14.25 21.25H5.25A2.5 2.5 0 0 1 2.75 18.75Z';
+
+test('facingGap reads the neck between two knob feet (puzzle 24 as shipped 2026-09-28, 1.692 by dense sampling)', () => {
+  // the feet bulge into the neck at radius 1.75; offset square to each 1 deg piece, the
+  // outside of a curve left a slit between every two pieces and the rays slipped through
+  const { self } = facingGap([PUZZLE24], 1.5);
+  assert.equal(self.length, 1);
+  near(self[0].gap, 1.692, 0.02);
+});
+
+const rounded = (x0, y0, x1, y1, r) => `M${x0 + r} ${y0}H${x1 - r}A${r} ${r} 0 0 1 ${x1} ${y0 + r}V${y1 - r}A${r} ${r} 0 0 1 ${x1 - r} ${y1}H${x0 + r}A${r} ${r} 0 0 1 ${x0} ${y1 - r}V${y0 + r}A${r} ${r} 0 0 1 ${x0 + r} ${y0}Z`;
+
+test('facingGap reads two small rounds facing each other at their true distance', () => {
+  // two filled squares, corners of radius 0.25, set corner to corner: the rays off one
+  // corner arrive at the other up to 4 deg off square-on, past ARRIVE
+  const truth = Math.SQRT2 * 1.5 - 0.5;   // 1.621: centres 1.5 apart each way, less two radii
+  const area = facingGap([], 1.5, [rounded(2, 2, 6, 6, 0.25), rounded(7, 7, 11, 11, 0.25)]).area;
+  assert.equal(area[0].kind, 'separation');
+  near(area[0].gap, truth, 0.02);
+  // the same between two subpaths of one stroked path (bend radius 0.75, edge radius 1.5)
+  const self = facingGap([rounded(2, 2, 6, 6, 0.75) + rounded(7.5, 7, 12, 12, 0.75)], 1.5).self;
+  near(self[0].gap, Math.hypot(3, 2.5) - 1.5 - 1.5, 0.02);
+  // and two round caps of one open path pointing at each other
+  near(facingGap(['M10 5.5V4H4V12H10V8.7'], 1.5).self[0].gap, 1.7, 0.01);
+});
+
+test('facingGap: two strokes that touch and curve apart leave a sliver that is not a neck (paintbrush-4 24)', () => {
+  // the ferrule's two sides lie 1.5 apart (touching) and end in rounds bulging toward each
+  // other; the air where they part is a bend's inside, not a gap. Read at a flat 10 deg of
+  // arrival it came out 0.02
+  const d = 'M4.83 20.17A0.75 0.75 0 0 1 4.5 20.25A0.75 0.75 0 0 1 3.75 19.5A7 7 0 0 1 3.75 19.5A7 7 0 0 1 5.45 14.93A2.75 2.75 0 0 1 7.53 13.97A2.75 2.75 0 0 1 8.3 14.08A0.75 0.75 0 0 0 8.51 14.11A0.75 0.75 0 0 0 9.04 13.89L10.97 11.97L12.03 13.03L10.23 14.83A0.75 0.75 0 0 0 10.01 15.36A0.75 0.75 0 0 0 10.07 15.66A2.75 2.75 0 0 1 10.28 16.72A2.75 2.75 0 0 1 7.63 19.47A7 7 0 0 0 4.83 20.17Z';
+  assert.deepEqual(facingGap([d, 'M11.5 12.5L20.25 3.75'], 1.5).self, []);
+});
+
+// Found by the fresh review of the fix (2026-09-29): what the bulge slack must never read.
+test('facingGap: a corner\'s turn is not curve - a notch or a wedge beside a sharp corner reads nothing', () => {
+  assert.deepEqual(facingGap([], 1.5, ['M2 2H14V7.81L10.894 8L14 8.19V14H2Z']).area, []);          // walls open at 7 deg
+  assert.deepEqual(facingGap(['M2 2H30V15.06L14.6311 16L30 16.94V30H2Z'], 1.5).self, []);
+  assert.deepEqual(facingGap([], 1.5, ['M8 8L12 8L12 12L8 12L8 8Z', 'M12.046 7.924L16.033 8.253L15.704 12.24L11.717 11.911L12.046 7.924Z']).area, []);
+});
+
+test('facingGap: two shapes crossing in a narrow wedge, tiny rounds at its mouth, read nothing', () => {
+  assert.deepEqual(facingGap([], 1.5, ['M8.1 8L11.9 8A0.1 0.1 0 0 1 12 8.1L12 11.9A0.1 0.1 0 0 1 11.9 12L8.1 12A0.1 0.1 0 0 1 8 11.9L8 8.1A0.1 0.1 0 0 1 8.1 8Z', 'M12.374 7.843L15.856 8.2A0.25 0.25 0 0 1 16.079 8.474L15.722 11.956A0.25 0.25 0 0 1 15.448 12.179L11.966 11.822A0.25 0.25 0 0 1 11.743 11.548L12.1 8.066A0.25 0.25 0 0 1 12.374 7.843Z']).area, []);
+});

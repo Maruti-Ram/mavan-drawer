@@ -492,10 +492,26 @@ export function materialGap(areas) {
 // one. Two ends on one shape's boundary closer than NEIGHBOUR along it are not read, as in
 // `materialGap` (an offset's collapsed fillet leaves self-crossing hairline loops).
 //
+// Two rounds that BULGE into the air toward each other (the feet of a jigsaw knob, the
+// rounded corners of two shapes) are the one place ARRIVE is too strict. The rays leave a
+// round 1 deg apart, and a ray that leaves it d off the line joining the two rounds' centres
+// meets the far one about d x (1 + (r1 + gap) / r2) off square-on: two corners of radius
+// 0.25 across 1.6 of air turn half a degree into 4, and the neck between them was never read
+// (found 2026-09-28). Between two bulges a ray may arrive as far off square-on as that
+// cutting can put it (x 1.5, never past BULGE); everywhere else ARRIVE holds. That only
+// nominates the pair: the reading is then taken exactly, between the two rounds' circles on
+// the line joining their centres, and kept only where both ends of that line land on a wall
+// of the drawing square-on (`exact`). So it cannot read a bend short: a wedge where two
+// shapes cross puts the far end on a flat, side-on; a sliver where two bulges meet side by
+// side (paintbrush-4's ferrule, whose two strokes touch and then curve apart) arrives far
+// more side-on than the cutting allows; and a piece beside a sharp corner is flat, not a
+// bulge (the corner's turn is a JOIN, not curve).
+//
 // Blind sides: a wedge of air whose walls open by more than about 2 x ARRIVE is read as the
 // inside of a corner, so a triangular counter (C23) is still the drawer's to measure by its
-// largest inscribed circle; two sharp corners pointing straight at each other are not read;
-// air under 0.02 across is ignored.
+// largest inscribed circle; two sharp corners pointing straight at each other are not read
+// (a sharp corner facing a round or a flat is: its fan of rays finds it, and a round is read
+// exactly as above); air under 0.02 across is ignored.
 //
 // Pairs between two DIFFERENT stroked paths are not reported: lint §5 already measures
 // them by plain distance. What comes back is, per stroked path, the narrowest air
@@ -507,6 +523,7 @@ export function materialGap(areas) {
 const WALL = 0.1;          // edge sampling step
 const JOIN = 5;            // a vertex turning more than this (deg) gets a round-join fan
 const ARRIVE = 3;          // deg: how far off square-on a span may meet its far wall
+const BULGE = FACING;      // deg: the most it may be, between two bulges (see above)
 
 const r3 = (n) => Math.round(n * 1000) / 1000;   // a span's two ends, for boards that draw it
 const dist2 = (a, b) => (b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2;
@@ -580,34 +597,93 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
   const walls = [];
   // (a shape's walls also carry where they sit along their ring and the ring's length, so
   // two ends closer than NEIGHBOUR along one boundary are not read, as in `materialGap`)
-  const wall = (ax, ay, bx, by, nx, ny, tag, run = -1, round = 0) => {
+  // `bend`: on a piece of a round that bulges into the air, how far the edge turns at each of
+  // its two ends (radians); stored as [curvature, the larger turn, length] for BULGE below
+  // (`fx, fy`: where its ray starts, when not its middle)
+  const wall = (ax, ay, bx, by, nx, ny, tag, run = -1, round = 0, ta = -1, tb = -1, fx = NaN, fy = NaN) => {
     const mx = (ax + bx) / 2, my = (ay + by) / 2;
-    if (!ink(mx + nx * 0.02, my + ny * 0.02)) walls.push([ax, ay, bx, by, nx, ny, tag, run, round]);
+    if (ink(mx + nx * 0.02, my + ny * 0.02)) return;
+    const L = ta < 0 ? 0 : Math.hypot(bx - ax, by - ay);
+    const bulge = L > 1e-9 ? [(ta + tb) / 2 / L, Math.max(ta, tb), L] : null;
+    walls.push([ax, ay, bx, by, nx, ny, tag, run, round, bulge, fx === fx ? fx : mx, fy === fy ? fy : my]);
   };
-  // a round join or cap: an arc of the pen's circle about (cx, cy), in pieces of 5 deg
+  // a round join or cap: an arc of the pen's circle about (cx, cy), in pieces of 1 deg; the
+  // pen's circle always bulges into the air
   const fan = (cx, cy, a0, sweep, tag) => {
     const n = Math.max(1, Math.ceil(Math.abs(sweep) / (Math.PI / 180)));
     for (let i = 0; i < n; i++) {
       const s = a0 + (sweep * i) / n, e = a0 + (sweep * (i + 1)) / n, m = (s + e) / 2;
-      wall(cx + Math.cos(s) * half, cy + Math.sin(s) * half, cx + Math.cos(e) * half, cy + Math.sin(e) * half, Math.cos(m), Math.sin(m), tag);
+      wall(cx + Math.cos(s) * half, cy + Math.sin(s) * half, cx + Math.cos(e) * half, cy + Math.sin(e) * half, Math.cos(m), Math.sin(m), tag, -1, 0, Math.abs(sweep) / n, Math.abs(sweep) / n);
     }
   };
+  // How a boundary turns at each vertex (signed, radians; 0 at an open end).
+  const turnsOf = (dir, closed) => dir.map((_, k) => {
+    if (!closed && k === 0) return 0;
+    const a = dir[(k - 1 + dir.length) % dir.length], b = dir[k];
+    if (a === null || b === null) return 0;
+    let dt = b - a; while (dt > Math.PI) dt -= TAU; while (dt < -Math.PI) dt += TAU;
+    return dt;
+  });
+  // Does the piece between vertices k and k+1 bulge toward side `s` (+1 left of travel)? Yes
+  // when the boundary turns away from that side at one of its ends and toward it at neither.
+  // Its walls then carry how far it turns at each end.
+  // A turn of JOIN or more is a corner, not curve: it says nothing about the pieces either
+  // side of it, which are flat (a notch's mouth read 0.38 as two "bulges" of radius 0.001).
+  const EPS = (0.05 * Math.PI) / 180, soft = (t) => Math.abs(t ?? 0) < (JOIN * Math.PI) / 180 ? (t ?? 0) : 0;
+  const bulges = (turn, k, s) => {
+    const a = -s * soft(turn[k]), b = -s * soft(turn[(k + 1) % turn.length]);
+    return (a > EPS || b > EPS) && a > -EPS && b > -EPS;
+  };
+  const turnAt = (turn, k, s) => Math.max(0, -s * soft(turn[k % turn.length]));
   lines.forEach((subs, owner) => subs.forEach(({ pts, closed }) => {
     const tag = `p${owner}`;
     if (pts.length === 1) { fan(pts[0][0], pts[0][1], 0, TAU, tag); return; }
-    const m = closed ? pts.length : pts.length - 1, dir = [];
+    const m = closed ? pts.length : pts.length - 1, dir = [], nor = [];
     for (let k = 0; k < m; k++) {
       const a = pts[k], b = pts[(k + 1) % pts.length], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
-      const nx = -(b[1] - a[1]) / L, ny = (b[0] - a[0]) / L;
+      nor.push([-(b[1] - a[1]) / L, (b[0] - a[0]) / L]);
       dir.push(Math.atan2(b[1] - a[1], b[0] - a[0]));
-      for (const s of [1, -1])
-        wall(a[0] + s * nx * half, a[1] + s * ny * half, b[0] + s * nx * half, b[1] + s * ny * half, s * nx, s * ny, tag);
+    }
+    // turn[k]: at vertex k, from segment k-1 into segment k (an open path's last vertex is
+    // pushed on the end, with no turn)
+    const turn = turnsOf(dir, closed);
+    if (!closed) turn.push(0);
+    const sharp = (v) => Math.abs(turn[v]) >= (JOIN * Math.PI) / 180;
+    // Where the edge of one segment meets the next. At a sharp vertex a round join's fan
+    // bridges the two, so each keeps its own offset. Anywhere else the two offsets meet on
+    // the bisector (the mitre, at most 0.1% longer than half a stroke under JOIN): offset
+    // square to each segment, the outside of a curve leaves a slit of half a stroke x its
+    // turn between every two pieces (0.013 on a 1 deg piece at 24), wider than the pieces'
+    // own slack, and a ray aimed through it met nothing - `puzzle` at 24 read no neck
+    // between its two knob feet (2026-09-29).
+    // the mitre at each vertex (left side; the right is its negative), or null where a fan
+    // bridges the two offsets or the path ends
+    const mitre = pts.map((p, v) => {
+      if ((!closed && (v === 0 || v === m)) || sharp(v)) return null;
+      const na = nor[(v - 1 + m) % m], nb = nor[v % m], bx = na[0] + nb[0], by = na[1] + nb[1];
+      const c = (bx * nb[0] + by * nb[1]) || 1;   // |bisector| x cos(half the turn)
+      return [(bx * half) / c, (by * half) / c];
+    });
+    for (let k = 0; k < m; k++) {
+      const v1 = closed ? (k + 1) % m : k + 1, a = pts[k], b = pts[v1 % pts.length];
+      const ox = nor[k][0] * half, oy = nor[k][1] * half, ma = mitre[k], mb = mitre[v1];
+      const oax = ma ? ma[0] : ox, oay = ma ? ma[1] : oy, obx = mb ? mb[0] : ox, oby = mb ? mb[1] : oy;
+      for (let s = 1; s >= -1; s -= 2) {
+        const ax = a[0] + s * oax, ay = a[1] + s * oay, bx = b[0] + s * obx, by = b[1] + s * oby;
+        // inside a curve tighter than the pen the mitred piece shrinks to a point and turns
+        // back on itself: that edge is swallowed by the ink and is no wall
+        if ((bx - ax) * (b[0] - a[0]) + (by - ay) * (b[1] - a[1]) <= 1e-12) continue;
+        // the ray leaves from the middle of the segment's own offset, square to it, whatever
+        // the mitres did to the piece's ends
+        const bend = bulges(turn, k, s);
+        wall(ax, ay, bx, by, s * nor[k][0], s * nor[k][1], tag, -1, 0, bend ? turnAt(turn, k, s) : -1, bend ? turnAt(turn, k + 1, s) : -1,
+          (a[0] + b[0]) / 2 + s * ox, (a[1] + b[1]) / 2 + s * oy);
+      }
     }
     // round joins: a fan on both sides of a sharp vertex (the inner one is ink and drops out)
     for (let k = closed ? 0 : 1; k < m; k++) {
-      const a0 = dir[(k - 1 + m) % m];
-      let dt = dir[k] - a0; while (dt > Math.PI) dt -= TAU; while (dt < -Math.PI) dt += TAU;
-      if (Math.abs(dt) < (JOIN * Math.PI) / 180) continue;
+      const a0 = dir[(k - 1 + m) % m], dt = turn[k];
+      if (!sharp(k)) continue;
       fan(pts[k][0], pts[k][1], a0 + Math.PI / 2, dt, tag);
       fan(pts[k][0], pts[k][1], a0 - Math.PI / 2, dt, tag);
     }
@@ -623,13 +699,20 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
     const ring = refine(coarse, WALL), n = ring.length, tag = `a${ai}.${s}`;
     const len = (r) => r.reduce((t, a, k) => t + Math.hypot(r[(k + 1) % r.length][0] - a[0], r[(k + 1) % r.length][1] - a[1]), 0);
     const round = len(coarse);
+    const turn = turnsOf(ring.map((a, k) => {
+      const b = ring[(k + 1) % n];
+      return Math.hypot(b[0] - a[0], b[1] - a[1]) < 1e-9 ? null : Math.atan2(b[1] - a[1], b[0] - a[0]);
+    }), true);
     for (let k = 0, run = 0; k < n; k++) {
       const a = ring[k], b = ring[(k + 1) % n], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
       if (L < 1e-9) continue;
       const nx = -(b[1] - a[1]) / L, ny = (b[0] - a[0]) / L, mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
       // the side with no paint is the way into air; a wall painted on both sides is no wall
-      if (inArea(mx - nx * 0.02, my - ny * 0.02)) wall(a[0], a[1], b[0], b[1], nx, ny, tag, run + L / 2, round);
-      else if (inArea(mx + nx * 0.02, my + ny * 0.02)) wall(a[0], a[1], b[0], b[1], -nx, -ny, tag, run + L / 2, round);
+      const side = inArea(mx - nx * 0.02, my - ny * 0.02) ? 1 : inArea(mx + nx * 0.02, my + ny * 0.02) ? -1 : 0;
+      if (side) {
+        const bend = bulges(turn, k, side);
+        wall(a[0], a[1], b[0], b[1], side * nx, side * ny, tag, run + L / 2, round, bend ? turnAt(turn, k, side) : -1, bend ? turnAt(turn, k + 1, side) : -1);
+      }
       run += L;
     }
     // A sharp corner of a shape has no wall that faces anything square-on, so rays are also
@@ -664,7 +747,7 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
       const n = Math.ceil(Math.abs(dt) / (Math.PI / 180));
       for (let j = 0; j <= n; j++) {
         const t = airs[p] + (dt * j) / n, nx = Math.cos(t), ny = Math.sin(t);
-        if (!ink(x + nx * 0.02, y + ny * 0.02)) corners.push([x, y, nx, ny, tag, run, round]);
+        if (!ink(x + nx * 0.02, y + ny * 0.02)) corners.push([x, y, nx, ny, tag, run, round, [Infinity, Math.abs(dt) / n, 0]]);
       }
     }
   }));
@@ -696,34 +779,86 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
   // height, where a span taken at an angle cuts the corner and reads short (users-wide 16's
   // body read 1.48 inside a 1.5 counter at 10 deg). It is also what keeps the inside of a
   // bend out: every ray across a 90 deg corner arrives side-on. The walls are cut at 1 deg
-  // of curve so that two round caps facing each other always have a pair within ARRIVE.
-  const COS_IN = Math.cos((ARRIVE * Math.PI) / 180);
+  // of curve so that two round caps facing each other always have a pair within ARRIVE, and
+  // between two bulges the cutting's own error is allowed for (see the note at the top).
+  const ARRIVE_RAD = (ARRIVE * Math.PI) / 180, COS_IN = Math.cos(ARRIVE_RAD), COS_BULGE = Math.cos((BULGE * Math.PI) / 180);
   // the rays: one from the middle of every wall, and the corner fans, filed by cell so the
   // nine cells round each are looked up once
   const rays = new Map();
-  const ray = (px, py, nx, ny, tag, run = -1, round = 0) => {
+  const ray = (px, py, nx, ny, tag, run = -1, round = 0, bulge = null) => {
     const k = key(Math.floor(px / cap), Math.floor(py / cap));
-    if (!rays.has(k)) rays.set(k, []); rays.get(k).push([px, py, nx, ny, tag, run, round]);
+    if (!rays.has(k)) rays.set(k, []); rays.get(k).push([px, py, nx, ny, tag, run, round, bulge]);
   };
-  for (const w of walls) ray((w[0] + w[2]) / 2, (w[1] + w[3]) / 2, w[4], w[5], w[6], w[7], w[8]);
+  for (const w of walls) ray(w[10], w[11], w[4], w[5], w[6], w[7], w[8], w[9]);
+  // Is there a wall of `tag` through (x, y), square-on (within ARRIVE) to (ux, uy)?
+  const faces = (x, y, ux, uy, tag) => {
+    const ci = Math.floor(x / cap), cj = Math.floor(y / cap), b = bin(ux, uy);
+    for (let di = -1; di <= 1; di++) for (let dj = -1; dj <= 1; dj++) {
+      const c = grid.get(key(ci + di, cj + dj));
+      if (c) for (let db = -1; db <= 1; db++) for (const j of c[(b + db + BINS) % BINS]) {
+        const w = walls[j];
+        if (w[6] !== tag || w[4] * ux + w[5] * uy < COS_IN) continue;
+        const ex = w[2] - w[0], ey = w[3] - w[1], L = ex * ex + ey * ey;
+        const t = L ? Math.max(0, Math.min(1, ((x - w[0]) * ex + (y - w[1]) * ey) / L)) : 0;
+        if (Math.hypot(x - w[0] - t * ex, y - w[1] - t * ey) < 0.01) return true;
+      }
+    }
+    return false;
+  };
+  // A pair of bulges nominated past ARRIVE is read exactly: each piece stands for its round
+  // (the circle through it at its own curvature; a shape's sharp corner is a round of radius
+  // 0), and two rounds come closest on the line joining their centres. The reading counts
+  // only if both of those points are on the drawing - a wall of the same edge lies there,
+  // square-on to that line. Where two shapes cross in a narrow wedge, the far round's
+  // closest point falls past its end, on the flat that forms the wedge, which faces the
+  // line side-on (two rounded squares crossing at 6 deg read 0.1 without this).
+  const exact = (px, py, nx, ny, tag, bulge, v) => {
+    const r1 = Number.isFinite(bulge[0]) ? 1 / bulge[0] : 0, rf = 1 / v[9][0];
+    const c1 = [px - nx * r1, py - ny * r1];
+    const c2 = [(v[0] + v[2]) / 2 - v[4] * rf, (v[1] + v[3]) / 2 - v[5] * rf];
+    const d = Math.hypot(c2[0] - c1[0], c2[1] - c1[1]), gap = d - r1 - rf;
+    if (!(gap > 0.02)) return null;
+    const ux = (c2[0] - c1[0]) / d, uy = (c2[1] - c1[1]) / d;
+    const p = [c1[0] + ux * r1, c1[1] + uy * r1], q = [c2[0] - ux * rf, c2[1] - uy * rf];
+    // a corner has no wall: the line must leave it inside its fan (within one ray's step)
+    const near = r1 ? faces(p[0], p[1], ux, uy, tag) : ux * nx + uy * ny >= Math.cos(bulge[1] + 1e-9);
+    return near && faces(q[0], q[1], -ux, -uy, v[6]) ? [p, q, gap] : null;
+  };
   for (const c of corners) ray(...c);
   for (const [k, here] of rays) {
     const ci = Math.floor(k / 1024) - 512, cj = (k % 1024) - 512, around = [];
     for (let di = -1; di <= 1; di++) for (let dj = -1; dj <= 1; dj++) { const c = grid.get(key(ci + di, cj + dj)); if (c) around.push(c); }
-    for (const [px, py, nx, ny, tag, run, round] of here) {
+    for (const [px, py, nx, ny, tag, run, round, bulge] of here) {
       const pl = tag[0] === 'p', back = bin(-nx, -ny);
-      let hit = Infinity, by = null;
+      let hit = Infinity, by = null, loose = false;
       for (const c of around) for (let db = -1; db <= 1; db++) for (const j of c[(back + db + BINS) % BINS]) {
         const v = walls[j];
-        if (-(v[4] * nx + v[5] * ny) < COS_IN) continue;
+        const cosA = -(v[4] * nx + v[5] * ny);
+        if (cosA < COS_IN && (cosA < COS_BULGE || !bulge || !v[9])) continue;
         // ray (px, py) + t (nx, ny) against the segment v, with a hair of slack at its ends
         // so a ray cannot slip between two pieces of one wall
         const ex = v[2] - v[0], ey = v[3] - v[1], den = nx * ey - ny * ex;
         if (Math.abs(den) < 1e-12) continue;
         const ax = v[0] - px, ay = v[1] - py, t = (ax * ey - ay * ex) / den, u = (ax * ny - ay * nx) / den;
-        if (t > 0.02 && t < hit && u >= -0.01 && u <= 1.01) { hit = t; by = v; }
+        if (!(t > 0.02 && t < hit && u >= -0.01 && u <= 1.01)) continue;
+        if (cosA < COS_IN) {
+          // past ARRIVE: only from one bulge into another, and only as far off square-on as
+          // cutting the two rounds into pieces can put it (see BULGE) - which only nominates
+          // the pair; `exact` below takes the reading or throws it out
+          const rf = 1 / v[9][0], miss = (bulge[2] + (t + rf) * bulge[1]) / 2;
+          const slack = 1.5 * (Math.asin(Math.min(1, miss / rf)) + v[9][1] / 2);
+          if (Math.acos(Math.min(1, cosA)) > Math.max(ARRIVE_RAD, slack)) continue;
+        }
+        hit = t; by = v; loose = cosA < COS_IN;
       }
-      if (!by || hit >= cap) continue;
+      if (!by) continue;
+      let P = [px, py], Q = [px + nx * hit, py + ny * hit], len = hit;
+      if (loose) {
+        const e = exact(px, py, nx, ny, tag, bulge, by);
+        if (!e) continue;
+        [P, Q, len] = e;
+      }
+      if (len >= cap) continue;
       if (run >= 0 && by[6] === tag) {
         const along = Math.abs(by[7] - run);
         if (Math.min(along, round - along) < NEIGHBOUR) continue;
@@ -731,10 +866,9 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
       const ql = by[6][0] === 'p';
       if (pl && ql && tag !== by[6]) continue;   // two stroked paths: lint §5's business
       const kind = pl && ql ? tag : airKind(tag, by[6], depth);
-      if (hit >= (best.get(kind)?.raw ?? Infinity)) continue;
-      const q = [px + nx * hit, py + ny * hit];
-      if (!clear([px, py], q, hit)) continue;
-      best.set(kind, { raw: hit, gap: r2(hit), at: [r2((px + q[0]) / 2), r2((py + q[1]) / 2)], span: [[px, py], q].map(([x, y]) => [r3(x), r3(y)]) });
+      if (len >= (best.get(kind)?.raw ?? Infinity)) continue;
+      if (!clear(P, Q, len)) continue;
+      best.set(kind, { raw: len, gap: r2(len), at: [r2((P[0] + Q[0]) / 2), r2((P[1] + Q[1]) / 2)], span: [P, Q].map(([x, y]) => [r3(x), r3(y)]) });
     }
   }
   const self = [], area = [];
