@@ -67,6 +67,9 @@ export default {
     (2026-09-20).
   - Keep a gap of at least 1.5 between stroke edges, at every master — a literal 1.5, not "one
     stroke-width" (the 16 stroke is 1.25). If a detail can't keep that gap, remove the detail.
+    **Filled drawings too:** a line punched out of a shape, a band between two filled parts, a notch
+    and a shape-to-line gap hold 1.5 of white at every master — at 16 wider than the 1.25 line
+    (2026-09-28, C22). Lint §5f checks it, and the air inside a closed path.
   - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
     on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
     pixels — with at most 3 decimal places. Comment every decimal that corrects something.

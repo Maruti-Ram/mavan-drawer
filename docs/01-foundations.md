@@ -320,6 +320,12 @@ master.** At 24 and 20 that is also one stroke width, since the stroke there
 is 1.5; at 16 the stroke is 1.25 (C7), so the floor is wider than the stroke
 by design, not "one stroke width" any more.
 
+**In a filled drawing, white is a gap too** (2026-09-28): a line or detail punched out of a
+filled shape, a band separating two filled parts, a notch in the outline and the space between
+a shape and a line all hold 1.5 of white at every master — at 16 that is wider than the 1.25 line
+it replaces, because a white line reads thinner than a drawn one (C18, C22). Lint §5f measures
+these and the air inside a closed path; an agreed exception is declared with `<!-- gap: N -->`.
+
 One carve-out, declared per file and checked by lint: **C19's glyph gap of 1 unit**
 for the inside of one character — a dot to its body (`<!-- glyph: dot -->`), a `?`'s
 mouth, and a numeral's own opening such as the mouth of a 2 (`<!-- glyph: numeral -->`,
