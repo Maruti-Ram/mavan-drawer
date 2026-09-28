@@ -423,7 +423,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 107. `puzzle-2` · Development & Infra · variant of `puzzle` — Two knobs and a socket · approved 2026-09-29
 - [x] 107. `puzzle-3` · Development & Infra · variant of `puzzle` — Classic piece: two knobs, two sockets · approved 2026-09-29
 - [x] 107. `puzzle-4` · Development & Infra · variant of `puzzle` — Two pieces joined · approved 2026-09-28
-- [x] 107. `puzzle-5` · Development & Infra · variant of `puzzle` — Tilted classic piece · approved 2026-09-28
+- [x] 107. `puzzle-5` · Development & Infra · variant of `puzzle` — Tilted classic piece · approved 2026-09-29
 - [x] 108. `store` · Commerce & Payments — approved 2026-09-28
 - [x] 108. `store-2` · Commerce & Payments · variant of `store` — Striped awning over building's walls · approved 2026-09-28
 - [x] 109. `wallet` · Commerce & Payments — approved 2026-09-28
