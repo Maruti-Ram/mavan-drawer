@@ -277,6 +277,8 @@
     "clipboard-filled",
     "clock",
     "clock-filled",
+    "compass-2",
+    "compass-2-filled",
     "compose",
     "compose-2",
     "compose-2-filled",
@@ -16106,6 +16108,135 @@
       "mark": false,
       "tags": [
         "45"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "compass-2": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M15.53 9.43L14.02 13.58A0.75 0.75 0 0 1 13.58 14.02L9.43 15.53A0.75 0.75 0 0 1 8.47 14.57L9.98 10.42A0.75 0.75 0 0 1 10.42 9.98L14.57 8.47A0.75 0.75 0 0 1 15.53 9.43Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M15.53 9.43L14.02 13.58A0.75 0.75 0 0 1 13.58 14.02L9.43 15.53A0.75 0.75 0 0 1 8.47 14.57L9.98 10.42A0.75 0.75 0 0 1 10.42 9.98L14.57 8.47A0.75 0.75 0 0 1 15.53 9.43Z\"/>",
+      "mark": false,
+      "tags": [
+        "compass",
+        "navigation",
+        "explore",
+        "direction",
+        "diagonal",
+        "diamond",
+        "small needle"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 8.65,
+        "h": 8.65
+      },
+      "ratio": {
+        "w": 0.43,
+        "h": 0.43
+      },
+      "gap": null
+    },
+    "compass-2-filled": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z"
+      ],
+      "areas": [
+        "M16.24 9.68L14.73 13.83A1.5 1.5 0 0 1 13.83 14.73L9.68 16.24A1.5 1.5 0 0 1 7.76 14.32L9.27 10.17A1.5 1.5 0 0 1 10.17 9.27L14.32 7.76A1.5 1.5 0 0 1 16.24 9.68Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16.24 9.68L14.73 13.83A1.5 1.5 0 0 1 13.83 14.73L9.68 16.24A1.5 1.5 0 0 1 7.76 14.32L9.27 10.17A1.5 1.5 0 0 1 10.17 9.27L14.32 7.76A1.5 1.5 0 0 1 16.24 9.68Z\"/> <path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "compass",
+        "navigation",
+        "explore",
+        "direction",
+        "diagonal",
+        "diamond",
+        "small needle"
       ],
       "shift": [
         0,
@@ -50228,6 +50359,8 @@
         "clipboard-filled",
         "clock",
         "clock-filled",
+        "compass-2",
+        "compass-2-filled",
         "compose",
         "compose-2",
         "compose-2-filled",
@@ -66028,6 +66161,135 @@
           "mark": false,
           "tags": [
             "45"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-2": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M10.002 6.8L9.247 8.873A0.625 0.625 0 0 1 8.873 9.247L6.8 10.002A0.625 0.625 0 0 1 5.998 9.2L6.753 7.127A0.625 0.625 0 0 1 7.127 6.753L9.2 5.998A0.625 0.625 0 0 1 10.002 6.8Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M10.002 6.8L9.247 8.873A0.625 0.625 0 0 1 8.873 9.247L6.8 10.002A0.625 0.625 0 0 1 5.998 9.2L6.753 7.127A0.625 0.625 0 0 1 7.127 6.753L9.2 5.998A0.625 0.625 0 0 1 10.002 6.8Z\"/>",
+          "mark": false,
+          "tags": [
+            "compass",
+            "navigation",
+            "explore",
+            "direction",
+            "diagonal",
+            "diamond",
+            "small needle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 5.33,
+            "h": 5.33
+          },
+          "ratio": {
+            "w": 0.38,
+            "h": 0.38
+          },
+          "gap": null
+        },
+        "compass-2-filled": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z"
+          ],
+          "areas": [
+            "M10.589 7.013L9.834 9.087A1.25 1.25 0 0 1 9.087 9.834L7.013 10.589A1.25 1.25 0 0 1 5.411 8.987L6.166 6.913A1.25 1.25 0 0 1 6.913 6.166L8.987 5.411A1.25 1.25 0 0 1 10.589 7.013Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.589 7.013L9.834 9.087A1.25 1.25 0 0 1 9.087 9.834L7.013 10.589A1.25 1.25 0 0 1 5.411 8.987L6.166 6.913A1.25 1.25 0 0 1 6.913 6.166L8.987 5.411A1.25 1.25 0 0 1 10.589 7.013Z\"/> <path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "compass",
+            "navigation",
+            "explore",
+            "direction",
+            "diagonal",
+            "diamond",
+            "small needle"
           ],
           "shift": [
             0,
@@ -100102,6 +100364,8 @@
         "clipboard-filled",
         "clock",
         "clock-filled",
+        "compass-2",
+        "compass-2-filled",
         "compose",
         "compose-2",
         "compose-2-filled",
@@ -115908,6 +116172,135 @@
           "mark": false,
           "tags": [
             "45"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-2": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M12.3 8.67L11.45 11A0.75 0.75 0 0 1 11 11.45L8.67 12.3A0.75 0.75 0 0 1 7.7 11.33L8.55 9A0.75 0.75 0 0 1 9 8.55L11.33 7.7A0.75 0.75 0 0 1 12.3 8.67Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M12.3 8.67L11.45 11A0.75 0.75 0 0 1 11 11.45L8.67 12.3A0.75 0.75 0 0 1 7.7 11.33L8.55 9A0.75 0.75 0 0 1 9 8.55L11.33 7.7A0.75 0.75 0 0 1 12.3 8.67Z\"/>",
+          "mark": false,
+          "tags": [
+            "compass",
+            "navigation",
+            "explore",
+            "direction",
+            "diagonal",
+            "diamond",
+            "small needle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 6.2,
+            "h": 6.2
+          },
+          "ratio": {
+            "w": 0.39,
+            "h": 0.39
+          },
+          "gap": null
+        },
+        "compass-2-filled": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z"
+          ],
+          "areas": [
+            "M13 8.92L12.15 11.25A1.5 1.5 0 0 1 11.25 12.15L8.92 13A1.5 1.5 0 0 1 7 11.08L7.85 8.75A1.5 1.5 0 0 1 8.75 7.85L11.08 7A1.5 1.5 0 0 1 13 8.92Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 8.92L12.15 11.25A1.5 1.5 0 0 1 11.25 12.15L8.92 13A1.5 1.5 0 0 1 7 11.08L7.85 8.75A1.5 1.5 0 0 1 8.75 7.85L11.08 7A1.5 1.5 0 0 1 13 8.92Z\"/> <path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "compass",
+            "navigation",
+            "explore",
+            "direction",
+            "diagonal",
+            "diamond",
+            "small needle"
           ],
           "shift": [
             0,
@@ -150007,6 +150400,8 @@
         "clipboard-filled",
         "clock",
         "clock-filled",
+        "compass-2",
+        "compass-2-filled",
         "compose",
         "compose-2",
         "compose-2-filled",
@@ -165836,6 +166231,135 @@
           "mark": false,
           "tags": [
             "45"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-2": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M15.53 9.43L14.02 13.58A0.75 0.75 0 0 1 13.58 14.02L9.43 15.53A0.75 0.75 0 0 1 8.47 14.57L9.98 10.42A0.75 0.75 0 0 1 10.42 9.98L14.57 8.47A0.75 0.75 0 0 1 15.53 9.43Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M15.53 9.43L14.02 13.58A0.75 0.75 0 0 1 13.58 14.02L9.43 15.53A0.75 0.75 0 0 1 8.47 14.57L9.98 10.42A0.75 0.75 0 0 1 10.42 9.98L14.57 8.47A0.75 0.75 0 0 1 15.53 9.43Z\"/>",
+          "mark": false,
+          "tags": [
+            "compass",
+            "navigation",
+            "explore",
+            "direction",
+            "diagonal",
+            "diamond",
+            "small needle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 8.65,
+            "h": 8.65
+          },
+          "ratio": {
+            "w": 0.43,
+            "h": 0.43
+          },
+          "gap": null
+        },
+        "compass-2-filled": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z"
+          ],
+          "areas": [
+            "M16.24 9.68L14.73 13.83A1.5 1.5 0 0 1 13.83 14.73L9.68 16.24A1.5 1.5 0 0 1 7.76 14.32L9.27 10.17A1.5 1.5 0 0 1 10.17 9.27L14.32 7.76A1.5 1.5 0 0 1 16.24 9.68Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16.24 9.68L14.73 13.83A1.5 1.5 0 0 1 13.83 14.73L9.68 16.24A1.5 1.5 0 0 1 7.76 14.32L9.27 10.17A1.5 1.5 0 0 1 10.17 9.27L14.32 7.76A1.5 1.5 0 0 1 16.24 9.68Z\"/> <path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "compass",
+            "navigation",
+            "explore",
+            "direction",
+            "diagonal",
+            "diamond",
+            "small needle"
           ],
           "shift": [
             0,
@@ -203246,6 +203770,15 @@
       "base": null,
       "note": null,
       "status": "review"
+    },
+    {
+      "n": 112,
+      "name": "compass-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Maps & Location",
+      "base": "compass",
+      "note": "Diagonal, small · approved 2026-09-28",
+      "status": "done"
     },
     {
       "n": 113,
