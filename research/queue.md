@@ -374,7 +374,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 93. `layout-footer-5` · UI & Layout · variant of `layout-footer` — Detached footer box · approved 2026-09-26
 - [x] 94. `lightbulb` · Status & Feedback — approved 2026-09-26
 - [x] 94. `lightbulb-2` · Status & Feedback · variant of `lightbulb` — Dome, two lines · approved 2026-09-26
-- [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-26
+- [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-28
 - [x] 94. `lightbulb-4` · Status & Feedback · variant of `lightbulb` — Open neck · approved 2026-09-26
 - [x] 95. `list-ordered` · Editing & Text — approved 2026-09-27
 - [x] 96. `megaphone` · Communication — approved 2026-09-26
