@@ -1,6 +1,6 @@
 # Plan: lint reads the air inside one path, and a filled drawing's air
 
-Status: **§5f committed (warnings) and every question ruled; only the redraws remain (card 5).** Written 2026-09-28.
+Status: **landed** — §5f committed (e027857), every question ruled (2146fcf), every redraw shipped. Written and closed 2026-09-28.
 
 - [x] Q1 — keep §5f as a permanent warning and commit it (Maruti, 2026-09-28)
 - [x] Q4 group A — redraws shipped by the main session 2026-09-28: `paintbrush` C (collar 1.5, ba32df6),
@@ -15,7 +15,11 @@ Status: **§5f committed (warnings) and every question ruled; only the redraws r
       than a drawn one; about 61 icons already cut 1.5). Recorded as dated notes in doc 07 C22 / C23 / C24.
       The eight 1.25 icons (book-3, building-2, home-3, keyboard, keyboard-2, lightbulb-3, compass-3,
       puzzle-4 seam) get their filled 16 redrawn — boards with the main session
-- [ ] Card 5 (redraws, gap notes) — **with the main icon session**
+- [x] Card 5 (redraws, gap notes) — done by the main icon session: gap notes on volume-off-filled and
+      database-2-filled (20f3534); the eight filled-16 cuts and bands widened to 1.5 (93126ef … 390f3ce);
+      paintbrush round 3 (Maruti's ask for more character): D is the new default, B → paintbrush-6,
+      J → paintbrush-7, the round head from ba32df6 kept as paintbrush-8 (db46c18). Lint after: 2,640
+      drawings, 2 warned (trash's old pair), 0 failed
 
 **Start here (fresh session):** §5f is in `tools/geometry.mjs` (`facingGap`) and `tools/lint.mjs`, with
 13 tests in `tools/geometry.test.mjs`. It only warns. The open items are the unticked boxes above.
@@ -114,7 +118,7 @@ Maruti is choosing the direction: 1.5 (redraw the 9) or 1.25 (redraw about 61).
 | 2 | lint §5f: warnings only. It reads closed paths (with or without Z) and multi-subpath `d`s; open single strokes stay 5b's, and a neck 5b already warned on is not warned twice. Air touching a shape is labelled cut / notch / separation / line. It uses the same floors and `gap:` note as 5b | `tools/lint.mjs` | old vs new lint on all 2,586: only the 23 warnings differ | strongest | [x] |
 | 3 | Tests: known cases; the three must-nots (a bend, a ring read short, a rounded end read as a neck); blocked spans; pairs left to §5; the four kinds; lint wiring; and the review's four finds (a sharp corner, a doubled warning, a path closed without Z, an overlap or hairline loop read as a gap) | `tools/geometry.test.mjs` | `node --test` 90/90 | strongest | [x] |
 | 4 | Docs: docs/08 §6.5 (which holes are now closed), CLAUDE.md Tools / gap-note / plans notes, lint's gap-note comment; doc 07 C22 / C23 / C24 dated notes once Q2 / Q3 are answered | docs | a fresh doc sweep finds no stale statement | Sonnet sweep | [x] |
-| 5 | Redraws per Q2–Q4 and the agreed gap notes: icon commits, one per icon, through the icon skill | `src/icons/` (main session) | lint clean on them; real pixels at 16 | strongest | [~] group A shipped; the rest with the main session |
+| 5 | Redraws per Q2–Q4 and the agreed gap notes: icon commits, one per icon, through the icon skill | `src/icons/` (main session) | lint clean on them; real pixels at 16 | strongest | [x] |
 
 ## Known blind sides (recorded, not fixed)
 

@@ -88,9 +88,10 @@ lint overhaul, a docs rewrite, a new lab surface — starts with a plan document
 ## Picking up
 
 **Open builds live in `plans/`.** Before starting or approving any icon, read every plan there whose
-Status has unticked boxes — it says what is in flight and what is on hold (2026-09-28: `plans/facing-gap.md`
-is open — lint §5f is in and every question is ruled, the redraws are with the icon loop; `plans/stroke-16.md` is closed —
-the 16 master draws at 1.25 (C7) and the plan records how the 114 were converted and what was decided on the way).
+Status has unticked boxes — it says what is in flight and what is on hold (2026-09-28: none open;
+`plans/facing-gap.md` is closed — lint §5f measures the air inside one path and in filled drawings, and white
+cut out of a filled shape holds 1.5 at 16; `plans/stroke-16.md` is closed — the 16 master draws at 1.25 (C7) and
+the plan records how the 114 were converted and what was decided on the way).
 `docs/09-rule-audit.md` is the open agenda for the rules themselves.
 
 **Resume point = the sheet + the board, never a note.** `research/queue.md` is the sheet (status per icon;
