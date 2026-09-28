@@ -44,8 +44,11 @@ const SAMPLES = 64;    // points per arc
 const STEP = 0.25;     // sampling interval along straight segments
 
 /** Sample points along the path. Arcs are sampled exactly; Bezier curves use
- *  control points (conservative — the true curve is inside the hull). */
-export function samplePath(d) {
+ *  control points (conservative — the true curve is inside the hull). `arcStep`
+ *  (degrees) asks for at least one sample per that much of every arc's sweep, on
+ *  top of the fixed SAMPLES — `facingGap` needs its walls' normals within a degree.
+ *  An options object, not a number, so `ds.map(samplePath)` cannot pass an index in. */
+export function samplePath(d, { arcStep = 0 } = {}) {
   const pts = [];
   let cx = 0, cy = 0, sx = 0, sy = 0;
   const push = (x, y) => pts.push([x, y]);
@@ -84,7 +87,7 @@ export function samplePath(d) {
       } else if (up === 'A') {
         const [rx, ry, rot, fa, fs] = a;
         const [ex, ey] = rel ? [cx + a[5], cy + a[6]] : [a[5], a[6]];
-        sampleArc(cx, cy, rx, ry, rot, fa, fs, ex, ey).forEach(([x, y]) => push(x, y));
+        sampleArc(cx, cy, rx, ry, rot, fa, fs, ex, ey, arcStep).forEach(([x, y]) => push(x, y));
         cx = ex; cy = ey;
       }
     }
@@ -93,7 +96,7 @@ export function samplePath(d) {
 }
 
 /** Endpoint -> centre parameterization (SVG spec F.6.5), then sample. */
-function sampleArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2) {
+function sampleArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2, arcStep = 0) {
   if (!rx || !ry) return [[x2, y2]];
   rx = Math.abs(rx); ry = Math.abs(ry);
   const phi = (rotDeg * Math.PI) / 180, cos = Math.cos(phi), sin = Math.sin(phi);
@@ -121,9 +124,9 @@ function sampleArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2) {
   if (!fS && dt > 0) dt -= 2 * Math.PI;
   if (fS && dt < 0) dt += 2 * Math.PI;
 
-  const pts = [];
-  for (let i = 1; i <= SAMPLES; i++) {
-    const t = t1 + (dt * i) / SAMPLES;
+  const pts = [], n = arcStep ? Math.max(SAMPLES, Math.ceil(Math.abs(dt) * 180 / Math.PI / arcStep)) : SAMPLES;
+  for (let i = 1; i <= n; i++) {
+    const t = t1 + (dt * i) / n;
     const px = Math.cos(t) * rx, py = Math.sin(t) * ry;
     pts.push([cos * px - sin * py + cx, sin * px + cos * py + cy]);
   }
@@ -358,7 +361,7 @@ export function selfGap(d, stroke = 0, turn = 170) {
 const FACING = 10;
 const FINE = 0.05;
 
-const subpathsOf = (d) => d.trim().split(/(?=[Mm])/).filter((x) => x.trim());
+export const subpathsOf = (d) => d.trim().split(/(?=[Mm])/).filter((x) => x.trim());
 
 /** `ring` with extra points along its edges so that none is longer than `step`. */
 const refine = (ring, step) => ring.flatMap(([x, y], i) => {
@@ -367,8 +370,8 @@ const refine = (ring, step) => ring.flatMap(([x, y], i) => {
 });
 
 /** A subpath as a closed ring of distinct points (no repeated closing point). */
-function ringOf(d) {
-  const pts = samplePath(d).filter((p, i, a) => i === 0 || Math.hypot(p[0] - a[i - 1][0], p[1] - a[i - 1][1]) > 1e-9);
+function ringOf(d, opts) {
+  const pts = samplePath(d, opts).filter((p, i, a) => i === 0 || Math.hypot(p[0] - a[i - 1][0], p[1] - a[i - 1][1]) > 1e-9);
   if (pts.length > 1 && Math.hypot(pts.at(-1)[0] - pts[0][0], pts.at(-1)[1] - pts[0][1]) < 1e-9) pts.pop();
   return pts;
 }
@@ -459,3 +462,300 @@ export function materialGap(areas) {
   }));
   return found ? { gap: r2(min), ...found } : null;
 }
+
+// ── facingGap ──────────────────────────────────────────────────────────────
+// The air between two ink edges that FACE each other, wherever the rest of lint
+// cannot see it (docs/08 §6.5). Two holes remain after `selfGap` and `materialGap`:
+//   · a CLOSED stroked path is never judged against itself (`selfGap` bows out, since
+//     its turn gate reads a ring's diameter as a counter), so the inside of a collar,
+//     the neck of a jigsaw knob or a pinched waist can close up unseen — `paintbrush`
+//     shipped 1.22 of air inside its collar at 16;
+//   · a shape-filled drawing's AIR — the width of a cut, a notch in the outer edge,
+//     the space between a shape and the line beside it — is not measured at all
+//     (`materialGap` reads only the material a cut leaves standing).
+//
+// It works on the ink's edges, not the centrelines: every stroke is offset half its
+// width to both sides (with its round joins and round caps), every area contributes
+// its boundary, and each piece of edge carries the direction that leads into air. From
+// every piece a ray goes straight out into air, and from every SHARP corner of a shape a
+// fan of rays (no piece of wall faces anything square-on at a point); the first wall a
+// ray meets that faces back within ARRIVE degrees ends the span. Square-on at both ends
+// is what makes a span a neck:
+//   · a bend is never read: across the inside of a 90 deg corner every ray arrives
+//     side-on, and the inner edge of a C10 bend at the minimum radius is a single point;
+//   · a ring's hole reads at its full diameter, and a rounded end over a flat at its true
+//     height — a span taken at an angle cuts the corner and reads short (users-wide 16's
+//     1.5 counter read 1.48 at 10 deg), which would warn on a set drawn AT the floor;
+//   · a dot, whose hole is ink, has no inner edge to measure.
+// No turn gate is needed, so a closed path is judged like any other. The span must be
+// air all the way across: a stroke or a shape lying between two walls makes two gaps, not
+// one. Two ends on one shape's boundary closer than NEIGHBOUR along it are not read, as in
+// `materialGap` (an offset's collapsed fillet leaves self-crossing hairline loops).
+//
+// Blind sides: a wedge of air whose walls open by more than about 2 x ARRIVE is read as the
+// inside of a corner, so a triangular counter (C23) is still the drawer's to measure by its
+// largest inscribed circle; two sharp corners pointing straight at each other are not read;
+// air under 0.02 across is ignored.
+//
+// Pairs between two DIFFERENT stroked paths are not reported: lint §5 already measures
+// them by plain distance. What comes back is, per stroked path, the narrowest air
+// between two edges of that path (subpaths of one `d` count as one path — the pair
+// loop compares `d`s, so two subpaths inside one were checked by nothing); and, when
+// the drawing has areas, the narrowest air with a shape's edge on at least one side,
+// once per kind (`airKind`), so a ruling on one kind cannot hide another.
+// Only readings under `cap` are looked for; anything wider is not a gap question.
+const WALL = 0.1;          // edge sampling step
+const JOIN = 5;            // a vertex turning more than this (deg) gets a round-join fan
+const ARRIVE = 3;          // deg: how far off square-on a span may meet its far wall
+
+const r3 = (n) => Math.round(n * 1000) / 1000;   // a span's two ends, for boards that draw it
+const dist2 = (a, b) => (b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2;
+/** An open polyline with extra points so that no step is longer than `step`. */
+const refineOpen = (pts, step) => [...refine(pts, step).slice(0, -Math.max(1, Math.ceil(Math.hypot(
+  pts[0][0] - pts.at(-1)[0], pts[0][1] - pts.at(-1)[1]) / step))), pts.at(-1)];
+
+export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
+  const half = stroke / 2, key = (i, j) => (i + 512) * 1024 + j + 512;
+  // centreline segments of every stroked path, for "is this point ink?"
+  const segs = [];
+  const lines = ds.map((d) => subpathsOf(d).map((sub) => {
+    let pts = samplePath(sub, { arcStep: 1 }).filter((p, i, a) => i === 0 || Math.hypot(p[0] - a[i - 1][0], p[1] - a[i - 1][1]) > 1e-9);
+    const closed = pts.length > 2 && Math.hypot(pts.at(-1)[0] - pts[0][0], pts.at(-1)[1] - pts[0][1]) < 0.01;
+    if (closed) pts.pop();
+    if (pts.length > 1) pts = closed ? refine(pts, WALL) : refineOpen(pts, WALL);
+    const m = closed ? pts.length : pts.length - 1;
+    for (let k = 0; k < m; k++) segs.push([pts[k], pts[(k + 1) % pts.length]]);
+    if (pts.length === 1) segs.push([pts[0], pts[0]]);
+    return { pts, closed };
+  }));
+
+  // spatial hash of the centreline segments (cells of 1 unit)
+  const segGrid = new Map();
+  segs.forEach(([a, b], s) => {
+    for (let i = Math.floor(Math.min(a[0], b[0]) - half); i <= Math.floor(Math.max(a[0], b[0]) + half); i++)
+      for (let j = Math.floor(Math.min(a[1], b[1]) - half); j <= Math.floor(Math.max(a[1], b[1]) + half); j++) {
+        const k = key(i, j); if (!segGrid.has(k)) segGrid.set(k, []); segGrid.get(k).push(s);
+      }
+  });
+  const R2 = (half - 1e-4) ** 2;
+  const nearLine = (x, y) => {
+    const list = segGrid.get(key(Math.floor(x), Math.floor(y)));
+    if (list) for (const s of list) {
+      const [a, b] = segs[s], ex = b[0] - a[0], ey = b[1] - a[1], L = ex * ex + ey * ey;
+      const u = L ? Math.max(0, Math.min(1, ((x - a[0]) * ex + (y - a[1]) * ey) / L)) : 0;
+      const fx = x - a[0] - u * ex, fy = y - a[1] - u * ey;
+      if (fx * fx + fy * fy < R2) return true;
+    }
+    return false;
+  };
+  const rings = areas.map((d) => subpathsOf(d).map((sub) => ringOf(sub, { arcStep: 1 })));
+  // evenodd per area, so a point is paint when a ray from it crosses an area's edges an odd
+  // number of times (all its subpaths together); the edges are filed by height in bands of
+  // BAND, so a test only walks the few that span it — the same answer as `inside`, faster
+  const BAND = 0.25;
+  const banded = rings.map((rs) => {
+    const bands = new Map();
+    for (const r of rs) if (r.length > 2) r.forEach((a, i) => {
+      const b = r[(i + 1) % r.length];
+      for (let k = Math.floor(Math.min(a[1], b[1]) / BAND); k <= Math.floor(Math.max(a[1], b[1]) / BAND); k++) {
+        if (!bands.has(k)) bands.set(k, []); bands.get(k).push([a[0], a[1], b[0], b[1]]);
+      }
+    });
+    return bands;
+  });
+  const inArea = (x, y) => banded.some((bands) => {
+    let odd = false;
+    for (const [xi, yi, xj, yj] of bands.get(Math.floor(y / BAND)) ?? [])
+      if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) odd = !odd;
+    return odd;
+  });
+  const ink = (x, y) => nearLine(x, y) || inArea(x, y);
+  // how many of its own area's other subpaths each ring sits inside: 0 the shape's outer
+  // edge, odd a cut-out (a hole), even an island inside a hole
+  const depth = rings.map((rs) => rs.map((r) => r.length > 2
+    ? rs.filter((o) => o !== r && o.length > 2 && inside(o, r[0][0], r[0][1])).length : 0));
+
+  // walls: short straight pieces of the ink's edge, [ax, ay, bx, by, nx, ny, tag], (nx, ny)
+  // the way into air; kept only where a hair past the middle really is air
+  const walls = [];
+  // (a shape's walls also carry where they sit along their ring and the ring's length, so
+  // two ends closer than NEIGHBOUR along one boundary are not read, as in `materialGap`)
+  const wall = (ax, ay, bx, by, nx, ny, tag, run = -1, round = 0) => {
+    const mx = (ax + bx) / 2, my = (ay + by) / 2;
+    if (!ink(mx + nx * 0.02, my + ny * 0.02)) walls.push([ax, ay, bx, by, nx, ny, tag, run, round]);
+  };
+  // a round join or cap: an arc of the pen's circle about (cx, cy), in pieces of 5 deg
+  const fan = (cx, cy, a0, sweep, tag) => {
+    const n = Math.max(1, Math.ceil(Math.abs(sweep) / (Math.PI / 180)));
+    for (let i = 0; i < n; i++) {
+      const s = a0 + (sweep * i) / n, e = a0 + (sweep * (i + 1)) / n, m = (s + e) / 2;
+      wall(cx + Math.cos(s) * half, cy + Math.sin(s) * half, cx + Math.cos(e) * half, cy + Math.sin(e) * half, Math.cos(m), Math.sin(m), tag);
+    }
+  };
+  lines.forEach((subs, owner) => subs.forEach(({ pts, closed }) => {
+    const tag = `p${owner}`;
+    if (pts.length === 1) { fan(pts[0][0], pts[0][1], 0, TAU, tag); return; }
+    const m = closed ? pts.length : pts.length - 1, dir = [];
+    for (let k = 0; k < m; k++) {
+      const a = pts[k], b = pts[(k + 1) % pts.length], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      const nx = -(b[1] - a[1]) / L, ny = (b[0] - a[0]) / L;
+      dir.push(Math.atan2(b[1] - a[1], b[0] - a[0]));
+      for (const s of [1, -1])
+        wall(a[0] + s * nx * half, a[1] + s * ny * half, b[0] + s * nx * half, b[1] + s * ny * half, s * nx, s * ny, tag);
+    }
+    // round joins: a fan on both sides of a sharp vertex (the inner one is ink and drops out)
+    for (let k = closed ? 0 : 1; k < m; k++) {
+      const a0 = dir[(k - 1 + m) % m];
+      let dt = dir[k] - a0; while (dt > Math.PI) dt -= TAU; while (dt < -Math.PI) dt += TAU;
+      if (Math.abs(dt) < (JOIN * Math.PI) / 180) continue;
+      fan(pts[k][0], pts[k][1], a0 + Math.PI / 2, dt, tag);
+      fan(pts[k][0], pts[k][1], a0 - Math.PI / 2, dt, tag);
+    }
+    // round caps at the open ends
+    if (!closed) {
+      fan(pts[0][0], pts[0][1], dir[0] + Math.PI / 2, Math.PI, tag);
+      fan(pts.at(-1)[0], pts.at(-1)[1], dir.at(-1) - Math.PI / 2, Math.PI, tag);
+    }
+  }));
+  const corners = [];        // [x, y, nx, ny, tag]: rays out of a shape's sharp corners
+  rings.forEach((rs, ai) => rs.forEach((coarse, s) => {
+    if (coarse.length < 3) return;
+    const ring = refine(coarse, WALL), n = ring.length, tag = `a${ai}.${s}`;
+    const len = (r) => r.reduce((t, a, k) => t + Math.hypot(r[(k + 1) % r.length][0] - a[0], r[(k + 1) % r.length][1] - a[1]), 0);
+    const round = len(coarse);
+    for (let k = 0, run = 0; k < n; k++) {
+      const a = ring[k], b = ring[(k + 1) % n], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
+      if (L < 1e-9) continue;
+      const nx = -(b[1] - a[1]) / L, ny = (b[0] - a[0]) / L, mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+      // the side with no paint is the way into air; a wall painted on both sides is no wall
+      if (inArea(mx - nx * 0.02, my - ny * 0.02)) wall(a[0], a[1], b[0], b[1], nx, ny, tag, run + L / 2, round);
+      else if (inArea(mx + nx * 0.02, my + ny * 0.02)) wall(a[0], a[1], b[0], b[1], -nx, -ny, tag, run + L / 2, round);
+      run += L;
+    }
+    // A sharp corner of a shape has no wall that faces anything square-on, so rays are also
+    // cast out of the corner itself, fanned 1 deg apart between its two edges' normals —
+    // a stroke's corners are round (its joins and caps are fans already). Found by review,
+    // 2026-09-28: a fillet overshooting into puzzle-4-filled's seam leaves a spur 0.84 from
+    // the other piece at 16, and nothing read it.
+    // A corner is where the outline itself turns sharply (not where the paint test flips: an
+    // edge half-covered by another area is no corner — desktop-6-filled's stand, 2026-09-28).
+    // Its fan runs from the incoming edge's way into air through the same turn. Which side is
+    // air comes from the ring's winding and depth, not a paint test, so it holds on a sliver
+    // thinner than the test's reach (puzzle-4-filled's spur is a hair wide at its tip).
+    const m = coarse.length, dirs = [];
+    for (let k = 0; k < m; k++) {
+      const a = coarse[k], b = coarse[(k + 1) % m];
+      dirs.push(Math.hypot(b[0] - a[0], b[1] - a[1]) < 1e-9 ? null : Math.atan2(b[1] - a[1], b[0] - a[0]));
+    }
+    // the side a ring's inside lies on (left of travel = +1), read off its longest edge
+    let longest = 0;
+    for (let k = 1; k < m; k++) if (dist2(coarse[k], coarse[(k + 1) % m]) > dist2(coarse[longest], coarse[(longest + 1) % m])) longest = k;
+    const [la, lb] = [coarse[longest], coarse[(longest + 1) % m]], lL = Math.sqrt(dist2(la, lb));
+    const inLeft = inside(coarse, (la[0] + lb[0]) / 2 - ((lb[1] - la[1]) / lL) * 1e-3, (la[1] + lb[1]) / 2 + ((lb[0] - la[0]) / lL) * 1e-3) ? 1 : -1;
+    // air is outside a shape or an island (even depth) and inside a hole (odd)
+    const airLeft = depth[ai][s] % 2 === 1 ? inLeft : -inLeft;
+    const airs = dirs.map((d) => d === null ? null : d + (airLeft * Math.PI) / 2);
+    for (let k = 0, run = 0; k < m; k++) {
+      const p = (k - 1 + m) % m, [x, y] = coarse[k];
+      if (k) run += Math.hypot(x - coarse[k - 1][0], y - coarse[k - 1][1]);
+      if (dirs[p] === null || dirs[k] === null || airs[p] === null) continue;
+      let dt = dirs[k] - dirs[p]; while (dt > Math.PI) dt -= TAU; while (dt < -Math.PI) dt += TAU;
+      if (Math.abs(dt) < (JOIN * Math.PI) / 180) continue;
+      const n = Math.ceil(Math.abs(dt) / (Math.PI / 180));
+      for (let j = 0; j <= n; j++) {
+        const t = airs[p] + (dt * j) / n, nx = Math.cos(t), ny = Math.sin(t);
+        if (!ink(x + nx * 0.02, y + ny * 0.02)) corners.push([x, y, nx, ny, tag, run, round]);
+      }
+    }
+  }));
+
+  // filed by place (cells of `cap`) and by the way they face (bins of 10 deg): a wall only
+  // ever meets walls facing back at it, so it looks in the three bins opposite its own
+  const BINS = 36, bin = (nx, ny) => ((Math.round((Math.atan2(ny, nx) / TAU) * BINS) % BINS) + BINS) % BINS;
+  const grid = new Map();   // cell -> BINS lists of wall indices
+  walls.forEach((w, i) => {
+    const k = key(Math.floor((w[0] + w[2]) / 2 / cap), Math.floor((w[1] + w[3]) / 2 / cap));
+    if (!grid.has(k)) grid.set(k, Array.from({ length: BINS }, () => []));
+    grid.get(k)[bin(w[4], w[5])].push(i);
+  });
+  const best = new Map();   // "p<i>" for a stroked path against itself, "area" for any span touching a shape
+  // air all the way across, walked in steps of 0.1 from the middle out (whatever blocks a
+  // span is usually a stroke lying between the walls, and no stroke is narrower than 1.25)
+  const clear = (p, q, dist) => {
+    const steps = Math.max(2, Math.ceil(dist / 0.1));
+    const at = (m) => ink(p[0] + ((q[0] - p[0]) * m) / steps, p[1] + ((q[1] - p[1]) * m) / steps);
+    for (let o = 0; o < steps / 2; o++) {
+      const lo = Math.floor(steps / 2) - o, hi = Math.ceil(steps / 2) + o;
+      if ((lo > 0 && at(lo)) || (hi < steps && at(hi))) return false;
+    }
+    return true;
+  };
+  // From the middle of every wall, straight out along its normal: the first wall it meets
+  // that faces back, within ARRIVE, ends the span. Square-on at both ends is what makes it a
+  // neck: a ring's hole reads at its full diameter and a rounded end over a flat at its true
+  // height, where a span taken at an angle cuts the corner and reads short (users-wide 16's
+  // body read 1.48 inside a 1.5 counter at 10 deg). It is also what keeps the inside of a
+  // bend out: every ray across a 90 deg corner arrives side-on. The walls are cut at 1 deg
+  // of curve so that two round caps facing each other always have a pair within ARRIVE.
+  const COS_IN = Math.cos((ARRIVE * Math.PI) / 180);
+  // the rays: one from the middle of every wall, and the corner fans, filed by cell so the
+  // nine cells round each are looked up once
+  const rays = new Map();
+  const ray = (px, py, nx, ny, tag, run = -1, round = 0) => {
+    const k = key(Math.floor(px / cap), Math.floor(py / cap));
+    if (!rays.has(k)) rays.set(k, []); rays.get(k).push([px, py, nx, ny, tag, run, round]);
+  };
+  for (const w of walls) ray((w[0] + w[2]) / 2, (w[1] + w[3]) / 2, w[4], w[5], w[6], w[7], w[8]);
+  for (const c of corners) ray(...c);
+  for (const [k, here] of rays) {
+    const ci = Math.floor(k / 1024) - 512, cj = (k % 1024) - 512, around = [];
+    for (let di = -1; di <= 1; di++) for (let dj = -1; dj <= 1; dj++) { const c = grid.get(key(ci + di, cj + dj)); if (c) around.push(c); }
+    for (const [px, py, nx, ny, tag, run, round] of here) {
+      const pl = tag[0] === 'p', back = bin(-nx, -ny);
+      let hit = Infinity, by = null;
+      for (const c of around) for (let db = -1; db <= 1; db++) for (const j of c[(back + db + BINS) % BINS]) {
+        const v = walls[j];
+        if (-(v[4] * nx + v[5] * ny) < COS_IN) continue;
+        // ray (px, py) + t (nx, ny) against the segment v, with a hair of slack at its ends
+        // so a ray cannot slip between two pieces of one wall
+        const ex = v[2] - v[0], ey = v[3] - v[1], den = nx * ey - ny * ex;
+        if (Math.abs(den) < 1e-12) continue;
+        const ax = v[0] - px, ay = v[1] - py, t = (ax * ey - ay * ex) / den, u = (ax * ny - ay * nx) / den;
+        if (t > 0.02 && t < hit && u >= -0.01 && u <= 1.01) { hit = t; by = v; }
+      }
+      if (!by || hit >= cap) continue;
+      if (run >= 0 && by[6] === tag) {
+        const along = Math.abs(by[7] - run);
+        if (Math.min(along, round - along) < NEIGHBOUR) continue;
+      }
+      const ql = by[6][0] === 'p';
+      if (pl && ql && tag !== by[6]) continue;   // two stroked paths: lint §5's business
+      const kind = pl && ql ? tag : airKind(tag, by[6], depth);
+      if (hit >= (best.get(kind)?.raw ?? Infinity)) continue;
+      const q = [px + nx * hit, py + ny * hit];
+      if (!clear([px, py], q, hit)) continue;
+      best.set(kind, { raw: hit, gap: r2(hit), at: [r2((px + q[0]) / 2), r2((py + q[1]) / 2)], span: [[px, py], q].map(([x, y]) => [r3(x), r3(y)]) });
+    }
+  }
+  const self = [], area = [];
+  for (const [k, v] of best) {
+    if (k[0] === 'p') self.push({ path: Number(k.slice(1)), gap: v.gap, at: v.at, span: v.span });
+    else area.push({ kind: k, gap: v.gap, at: v.at, span: v.span });
+  }
+  self.sort((a, b) => a.path - b.path);
+  area.sort((a, b) => a.gap - b.gap);
+  return { self, area };
+}
+
+// What a span of air touching a shape runs across, from the tags of its two walls:
+//   cut         both walls are one cut-out's — the width of a punched line or counter (C22)
+//   notch       both walls are one shape's outer edge (or one island's) — a bay in its outline
+//   separation  two different edges — the band between a hole and the island it leaves,
+//               or between two filled parts (C23's flap)
+//   line        a shape's edge and a stroked line
+const airKind = (a, b, depth) => {
+  if (a[0] === 'p' || b[0] === 'p') return 'line';
+  if (a !== b) return 'separation';
+  const [ai, s] = a.slice(1).split('.').map(Number);
+  return depth[ai][s] % 2 === 1 ? 'cut' : 'notch';
+};

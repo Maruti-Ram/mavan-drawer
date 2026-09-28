@@ -153,8 +153,9 @@ with no argument builds its reference rows).
 
 **Refinement assessment (2026-09-18)** — `docs/08-refinement.md`: why our marks read less refined than the
 references, every number that was measured, what C19 settled, and the **open agenda** — the undecided 13%
-mark/container drift from 24 to 16, the two unenforced §6 corollaries, the gap rule's holes (counters inside
-one path and *all* shape-filled files go unchecked), and the Fluent items worth inheriting. Read it before
+mark/container drift from 24 to 16, the two unenforced §6 corollaries, the gap rule's holes (closed on
+2026-09-28 by lint §5f, `facingGap`: the air inside one closed path and every gap in a shape-filled file are now
+measured, as warnings — see `plans/facing-gap.md`), and the Fluent items worth inheriting. Read it before
 reopening stroke weight, `MIN_GAP` or the optical machinery — §8 lists what was already ruled out and why.
 
 **Audit** — done: `docs/06-audit.md`, `research/ranked.md`. The user has **not** yet ruled on
@@ -249,7 +250,7 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | File | Does |
 |---|---|
 | `tools/lint.mjs` | enforces `docs/01-foundations.md`; exits 1 |
-| `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity |
+| `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity; `selfGap` (an open path's own counter), `materialGap` (what a knockout leaves), `facingGap` (air between two ink edges that face each other square-on — a closed path's inside, a filled file's cuts, notches, bands and shape-to-line gaps; lint §5f) |
 | `tools/optical.mjs` | optical side bearings computed from the outline |
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
 | `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `batch` · `approve` |
@@ -277,8 +278,8 @@ depending on the icon.
   measure is an error. The 33 that differ today are C17 repeated elements and `minus` — all
   agreed, none yet noted (2026-09-20 census)
 - `<!-- gap: N -->` declares the agreed minimum gap between stroke edges for that one file, in
-  that master's units; it replaces §6's 1.5 in that file's two proximity checks (C19 glyph pairs
-  and the knockout check are untouched). Lint prints it as an info line while the drawing holds
+  that master's units; it replaces §6's 1.5 in that file's proximity checks — §5, §5b and §5f (C19
+  glyph pairs and the knockout check are untouched). Lint prints it as an info line while the drawing holds
   it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
   the drawing no longer needs. Today: `attachment-4-filled` at 24 and 20 (`gap: 1`)
 - `<!-- anchor: NAME -->` marks a member of a level family (C28; first `volume-low`, `-none`,

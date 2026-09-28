@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { materialGap, selfGap } from './geometry.mjs';
+import { facingGap, materialGap, selfGap } from './geometry.mjs';
 import { checkAnchors, checkPairs, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -755,4 +755,122 @@ test('draft-svg writes a candidate\'s `glyph: numeral` into all six files', () =
   const out = candidateFiles({ keyline: 'mark' }, c, 'list-ordered');
   assert.equal(out.length, 6);
   assert.ok(out.every((f) => f.src.includes('<!-- glyph: numeral -->')));
+});
+
+// ── facingGap (lint §5f; plans/facing-gap.md) ───────────────────────────────
+// Fixtures are shipped drawings as they stood on 2026-09-28, inlined so a redraw after
+// Maruti's ruling does not move the tests. The three things it must never do: read a
+// bend's inside as a gap, read a ring's hole short (the set is drawn AT 1.5), and read a
+// rounded end converging on a flat as a neck.
+const COLLAR16 = 'M3.25 13.375A0.625 0.625 0 0 1 2.625 12.75L2.625 11.375A2 2 0 0 1 4.618 9.375A0.625 0.625 0 0 0 5.058 9.192L7.058 7.192A0.625 0.625 0 0 1 7.5 7.009A0.625 0.625 0 0 1 7.942 7.192L8.808 8.058A0.625 0.625 0 0 1 8.991 8.5A0.625 0.625 0 0 1 8.808 8.942L6.808 10.942A0.625 0.625 0 0 0 6.625 11.382A2 2 0 0 1 4.625 13.375Z';
+
+test('facingGap reads the air inside a closed path: paintbrush 16 collar, 1.22', () => {
+  assert.equal(selfGap(COLLAR16, 1.25), null, 'selfGap does not judge a closed path - the hole this closes');
+  const { self } = facingGap([COLLAR16, 'M8.375 7.625L13.375 2.625'], 1.25);
+  assert.equal(self.length, 1);
+  assert.equal(self[0].path, 0);
+  near(self[0].gap, 1.22, 0.01);
+});
+
+test('facingGap: a bend, a sharp corner and a straight run have no gap', () => {
+  assert.deepEqual(facingGap(['M4 8L4 5A0.75 0.75 0 0 1 4.75 4.25L8 4.25'], 1.5).self, []);   // C10 at the minimum
+  assert.deepEqual(facingGap(['M4 8L4 4.25L8 4.25'], 1.5).self, []);
+  assert.deepEqual(facingGap(['M3.75 12h16.5'], 1.5).self, []);
+});
+
+test('facingGap reads a ring\'s hole at its full diameter, never a chord short of it', () => {
+  // r 1.5 at stroke 1.5 leaves exactly 1.5: a reading of 1.48 here would warn on the set
+  assert.equal(facingGap(['M12 10.5A1.5 1.5 0 0 1 12 13.5A1.5 1.5 0 0 1 12 10.5Z'], 1.5).self[0].gap, 1.5);
+  near(facingGap(['M12 11A1 1 0 0 1 12 13A1 1 0 0 1 12 11Z'], 1.5).self[0].gap, 0.5, 0.01);
+});
+
+test('facingGap: a rounded end converging on a flat is not a neck (users-wide 16 body, 1.5 inside)', () => {
+  const body = 'M1.625 11.5A1.875 1.875 0 0 1 3.5 9.625H6.5A1.875 1.875 0 0 1 8.375 11.5A0.875 0.875 0 0 1 7.5 12.375H2.5A0.875 0.875 0 0 1 1.625 11.5Z';
+  assert.ok(facingGap([body], 1.25).self[0].gap >= 1.49);
+});
+
+test('facingGap agrees with selfGap on an open mouth (help-4 16 as first drawn)', () => {
+  const d = 'M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8';
+  near(facingGap([d], 1.5).self[0].gap, selfGap(d, 1.5).gap, 0.02);
+});
+
+test('facingGap leaves two separate stroked paths to lint §5, and a span blocked by ink is no gap', () => {
+  assert.deepEqual(facingGap(['M3 3H10', 'M3 5H10'], 1.5), { self: [], area: [] });
+  // a closed box 3 tall inside, split by a line through its middle: two 0.75 gaps, both
+  // between separate paths - nothing for the box against itself
+  assert.deepEqual(facingGap(['M3 3H13V7.5H3Z', 'M4 5.25H12'], 1.5).self, []);
+});
+
+test('facingGap reads a filled drawing\'s air and says what kind it is', () => {
+  // compass-3-filled 16: the band round the knocked-out needle
+  const compass = 'M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM11.296 6.306L10.164 9.417A1.25 1.25 0 0 1 9.417 10.164L6.306 11.296A1.25 1.25 0 0 1 4.704 9.694L5.836 6.583A1.25 1.25 0 0 1 6.583 5.836L9.694 4.704A1.25 1.25 0 0 1 11.296 6.306ZM5.879 10.121L8.989 8.989L7.011 7.011L5.879 10.121Z';
+  const c = facingGap([], 1.25, [compass]).area;
+  assert.equal(c[0].kind, 'separation');
+  near(c[0].gap, 1.25, 0.01);
+  // book-3-filled 16: the title label punched at the outline's 1.25 (C22's true size)
+  const book = 'M4.625 1H11.375A1.625 1.625 0 0 1 13 2.625V13.375A1.625 1.625 0 0 1 11.375 15H5.125A2.125 2.125 0 0 1 3 12.875V2.625A1.625 1.625 0 0 1 4.625 1ZM5.125 12H11.375A0.375 0.375 0 0 1 11.75 12.375V13.375A0.375 0.375 0 0 1 11.375 13.75H5.125A0.875 0.875 0 0 1 4.25 12.875A0.875 0.875 0 0 1 5.125 12ZM6.625 4H9.375A0.625 0.625 0 0 1 10 4.625A0.625 0.625 0 0 1 9.375 5.25H6.625A0.625 0.625 0 0 1 6 4.625A0.625 0.625 0 0 1 6.625 4Z';
+  const b = facingGap([], 1.25, [book]).area;
+  assert.equal(b[0].kind, 'cut');
+  near(b[0].gap, 1.25, 0.01);
+  // external-link-filled 24: the arrow's cap in a notch whose arc sits 0.23 off it
+  const box = 'M6.25 6L13.6 6A0.5 0.5 0 0 1 13.96 6.85L8.91 11.91A2.26 2.26 0 0 0 12.09 15.09L17.15 10.04A0.5 0.5 0 0 1 18 10.4L18 17.75A3.25 3.25 0 0 1 14.75 21L6.25 21A3.25 3.25 0 0 1 3 17.75L3 9.25A3.25 3.25 0 0 1 6.25 6Z';
+  const e = facingGap(['M14.25 3.75L19.5 3.75A0.75 0.75 0 0 1 20.25 4.5L20.25 9.75', 'M20.03 3.97L10.5 13.5'], 1.5, [box]).area;
+  assert.equal(e[0].kind, 'line');
+  near(e[0].gap, 1.28, 0.01);
+  // a solid disc has no air to read
+  assert.deepEqual(facingGap([], 1.5, ['M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z']).area, []);
+});
+
+const PAINTBRUSH16 = (collar) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+  <!-- off-grid tangent points -->
+  <path d="${collar}"/>
+  <path d="M8.375 7.625L13.375 2.625"/>
+</svg>`;
+
+test('lint §5f warns on a closed path facing itself under §6, and stays quiet on an open one 5b reads', () => {
+  const r = lintSource(16, 'paintbrush.svg', PAINTBRUSH16(COLLAR16));
+  assert.equal(r.errors.length, 0);
+  assert.ok(r.warnings.some((w) => w.includes('faces itself across 1.22')), r.warnings.join('\n'));
+  // help-4 16 as first drawn: one open stroke, so 5b's warning and not a second one from 5f
+  const help = lintSource(16, 'help-4.svg', PAINTBRUSH16('M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8').replace('<path d="M8.375 7.625L13.375 2.625"/>', ''));
+  assert.equal(help.warnings.filter((w) => w.includes('faces itself')).length, 0);
+});
+
+// Found by the fresh review of this change (2026-09-28).
+test('facingGap reads air off a SHARP corner of a shape (no wall there faces square-on)', () => {
+  const diamond = facingGap([], 1.5, ['M2 2H22V22H2ZM5 5H19V19H5ZM12 6L18 12L12 18L6 12Z']).area;
+  assert.equal(diamond[0].kind, 'separation');
+  near(diamond[0].gap, 1, 0.01);
+  const corner = facingGap(['M11.85 11.85L20 20'], 1.5, ['M3 3H11V11H3Z']).area;
+  assert.equal(corner[0].kind, 'line');
+  near(corner[0].gap, 0.45, 0.01);
+});
+
+const lint24 = (d) => lintSource(24, 't.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- fixture -->
+  <path d="${d}"/>
+</svg>`).warnings;
+
+test('lint §5f does not warn twice on a neck 5b already read inside a many-subpath path', () => {
+  const w = lint24('M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8M3 13H13');
+  assert.equal(w.filter((x) => x.includes('of itself')).length, 1);
+  assert.equal(w.filter((x) => x.includes('faces itself')).length, 0);
+});
+
+test('lint §5f reads a path that closes without a Z (5b takes it for a closed path and skips it)', () => {
+  const w = lint24('M5 10H19V12.5H5V10');
+  assert.ok(w.some((x) => x.includes('faces itself across 1 ')), w.join('\n'));
+});
+
+test('facingGap: a sliver of ink at a fillet that overshoots (puzzle-4-filled 16) reads from its tip', () => {
+  // the knob's fillet runs to x 8.01, past the piece's edge at 7.5, and the path doubles back
+  const a = facingGap([], 1.25, ["M1 6.375A2.125 2.125 0 0 1 3.125 4.25H3.24A0.25 0.25 0 0 0 3.479 3.925A2.25 2.25 0 0 1 5.625 1A2.25 2.25 0 0 1 7.771 3.925A0.25 0.25 0 0 0 8.01 4.25H7A0.5 0.5 0 0 1 7.5 4.75V7.334A1.5 1.5 0 0 0 9.6 8.708A1 1 0 0 1 11 9.625A1 1 0 0 1 9.6 10.542A1.5 1.5 0 0 0 7.5 11.916V14.5A0.5 0.5 0 0 1 7 15H3.125A2.125 2.125 0 0 1 1 12.875Z", "M8.75 4.75A0.5 0.5 0 0 1 9.25 4.25H12.875A2.125 2.125 0 0 1 15 6.375V12.875A2.125 2.125 0 0 1 12.875 15H9.25A0.5 0.5 0 0 1 8.75 14.5V11.916A0.25 0.25 0 0 1 9.1 11.687A2.25 2.25 0 0 0 12.25 9.625A2.25 2.25 0 0 0 9.1 7.563A0.25 0.25 0 0 1 8.75 7.334Z"]).area;
+  near(a.find((x) => x.kind === 'separation').gap, 0.84, 0.01);
+});
+
+test('facingGap: no false gap where one shape overlaps another, or in a collapsed fillet\'s hairline loop', () => {
+  // desktop-6-filled 16: the stand overlaps the screen's bottom edge
+  assert.deepEqual(facingGap([], 1.25, ["M3.125 2H12.875A2.125 2.125 0 0 1 15 4.125V8.875A2.125 2.125 0 0 1 12.875 11H3.125A2.125 2.125 0 0 1 1 8.875V4.125A2.125 2.125 0 0 1 3.125 2Z", "M6 10.375V12.375A0.375 0.375 0 0 1 5.625 12.75H4.625A0.625 0.625 0 0 0 4.625 14H11.375A0.625 0.625 0 0 0 11.375 12.75H10.375A0.375 0.375 0 0 1 10 12.375V10.375Z"]).area.filter((x) => x.gap < 1.49), []);
+  // help-4-filled 16: its cut carries self-crossing loops 0.1 across, left from an offset
+  assert.deepEqual(facingGap([], 1.25, ["M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7 10.75A1 1 0 1 0 9 10.75A1 1 0 1 0 7 10.75ZM7.13 5.75L7 5.88L9 5.88L8.88 5.75L8.88 5.94L8.91 5.85L7.38 7.38A0.88 0.88 0 0 0 8.62 8.62L10.15 7.09A1.63 1.63 0 0 0 10.63 5.94L10.63 5.75A1.63 1.63 0 0 0 9 4.13L7 4.13A1.63 1.63 0 0 0 5.38 5.75A0.88 0.88 0 0 0 7.13 5.75Z"]).area.filter((x) => x.gap < 1.49), []);
 });

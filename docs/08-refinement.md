@@ -341,6 +341,17 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   glyph's terminal to its dot — 0.92 in `help-4-filled` at 16, measured 2026-09-20), a hole to the
   shape's outer edge, a wedge of material tapering by more than 20° (read as the inside of a bend,
   the same blind side as `selfGap`'s 170° gate), and shape-filled files that also carry strokes.
+- **Dated note, 2026-09-28 — the first two holes are closed, as warnings.** Lint §5f (`facingGap` in
+  `tools/geometry.mjs`, `plans/facing-gap.md`) measures air between two ink edges that face each other
+  square-on (within 3°), wherever §5 and §5b cannot: inside a closed stroked path (and between subpaths of
+  one `d`), and every gap in a shape-filled file — a cut's own width, a notch in the outer edge, a band
+  between two filled parts, a shape to a line. Square-on at both ends is what keeps a bend's inside, a
+  ring's hole and a rounded end from reading as gaps. First run over 2,586 drawings: 23 warnings on 21,
+  every one re-measured by a fresh reviewer; `paintbrush`'s collar (1.22 at 16), `external-link`'s notch
+  (1.28, a rounding slip) and `puzzle-4-filled`'s fillet sliver (0.84) were redrawn the same day.
+  **Still uncovered:** a wedge of air opening wider than ~6° (C23's triangular counters stay the drawer's),
+  two sharp corners pointing at each other, air under 0.02, and §5c's material check on filled files that
+  also carry strokes (one reading in 354, `cash-filled` 3.92).
 - Touching paths are skipped (`min > 0.1`), which is why C18's flag-to-bar exception was
   invisible.
 

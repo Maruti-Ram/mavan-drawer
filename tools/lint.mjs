@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap, materialGap } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap, materialGap, facingGap, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -93,8 +93,9 @@ export function parseGrowsNote(src) {
 
 // An icon may declare its own agreed minimum gap: `<!-- gap: N -->`, that master's
 // units, between any two stroke edges in THIS file. It replaces §6's MIN_GAP for the
-// two proximity checks below (path-vs-path in §5, path-vs-itself in §5b) and for that
-// file alone; C19's glyph pairs keep GLYPH_GAP, and the knockout check keeps MIN_GAP.
+// proximity checks below (path-vs-path in §5, path-vs-itself in §5b, facing walls in §5f)
+// and for that file alone; C19's glyph pairs keep GLYPH_GAP, and the knockout check keeps
+// MIN_GAP.
 // Agreed by eye at approval (attachment-4-filled, 2026-09-20: the filled clip keeps all
 // four legs, so the path passes within 1.04 of itself at 24 and 1.0 at 20).
 // Same spirit as `box:` and `grows:` — a declared deviation is held to its own number
@@ -416,9 +417,11 @@ export function lintSource(canvas, file, src) {
   // own IS the silhouette, and the lines beside one are straight, so they have no opening.
   // `selfGap` is handed this file's own stroke, so it reads edge-to-edge at any master.
   let numeralMin = Infinity;   // the tightest opening the numeral note governs, for 5e
+  const read5b = [];           // what 5b measured per path, so 5f does not warn on the same neck twice
   for (let i = 0; i < ds.length; i++) {
     if (isDot(ds[i])) continue;
     const self = selfGap(ds[i], STROKE);
+    read5b[i] = self;
     if (!self) continue;
     const inGlyph = (isGlyph && !isShell(spans[i])) || isNumeral;
     const floor = inGlyph ? GLYPH_GAP : GAP;
@@ -453,6 +456,41 @@ export function lintSource(canvas, file, src) {
     if (left) notes.splice(-1, 0, `knockout leaves ${left.gap} at ${left.at.join(',')}`);
     if (left && left.gap < floor - 0.01)
       warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : '§6'} needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
+  }
+
+  // --- 5f. advisory: walls facing each other across air, where 5–5c cannot see ---
+  // (docs/08 §6.5; plans/facing-gap.md.) Two holes were left. A CLOSED stroked path is not
+  // judged against itself by 5b (its turn gate would read a ring's diameter as a counter),
+  // so the inside of a collar or a knob's neck could close up unseen — `paintbrush` shipped
+  // 1.22 of air inside its collar at 16. And a shape-filled drawing's AIR — a cut's own
+  // width, a notch, the band between a hole and its island, a shape to a line — was not
+  // measured at all (5c reads only the material a cut leaves). `facingGap` reads both on
+  // the ink's edges: a span counts when it is square-on to both walls, which is what keeps
+  // a bend's inside from reading as a gap. An open single stroke stays 5b's (a path that
+  // ends where it starts is closed, Z or not); two different stroked paths stay §5's; a neck
+  // 5b already read inside a path of several subpaths is not warned twice. A path's own air
+  // floors as in 5b: GLYPH_GAP inside a declared glyph, else this file's agreed gap, else
+  // MIN_GAP. Air touching a shape floors at the agreed gap, else MIN_GAP: a filled glyph's
+  // own openings are material, not air, and 5c reads them. WARNINGS (plan, 2026-09-28).
+  {
+    const air = facingGap(ds, STROKE, areas);
+    const shut = (sub) => { const p = samplePath(sub); return p.length > 2 && Math.hypot(p.at(-1)[0] - p[0][0], p.at(-1)[1] - p[0][1]) < 0.01; };
+    for (const { path, gap: g, at } of air.self) {
+      const d = ds[path], subs = subpathsOf(d);
+      if (isDot(d) || (subs.length === 1 && !shut(subs[0]))) continue;  // 5b reads it
+      if (read5b[path] && read5b[path].gap <= g + 0.02) continue;        // 5b read this neck
+      const inGlyph = (isGlyph && !isShell(spans[path])) || isNumeral;
+      const floor = inGlyph ? GLYPH_GAP : GAP;
+      if (!inGlyph) measured.push(g);
+      if (g < floor - 0.01)
+        warnings.push(`path ${path + 1} faces itself across ${g} of air at ${at.join(',')} — ${inGlyph ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+    }
+    const AIR = { cut: 'across one cut-out', notch: 'in a notch of the outer edge', separation: 'between two filled edges', line: 'between a shape and a line' };
+    for (const { kind, gap: g, at } of air.area) {
+      measured.push(g);
+      if (g < GAP - 0.01)
+        warnings.push(`${g} of air ${AIR[kind]} at ${at.join(',')} — ${gap ? `agreed gap ${gap.n}` : '§6'} needs ${GAP}`);
+    }
   }
 
   // --- 5d. is the agreed gap still doing anything? ------------------------
