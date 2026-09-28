@@ -420,7 +420,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 106. `plug-6` · Devices & Hardware · variant of `plug` — Angled 45° · approved 2026-09-28
 - [x] 106. `plug-7` · Devices & Hardware · variant of `plug` — Cord turns aside · approved 2026-09-28
 - [x] 107. `puzzle` · Development & Infra — approved 2026-09-29
-- [x] 107. `puzzle-2` · Development & Infra · variant of `puzzle` — Two knobs and a socket · approved 2026-09-28
+- [x] 107. `puzzle-2` · Development & Infra · variant of `puzzle` — Two knobs and a socket · approved 2026-09-29
 - [x] 107. `puzzle-3` · Development & Infra · variant of `puzzle` — Classic piece: two knobs, two sockets · approved 2026-09-28
 - [x] 107. `puzzle-4` · Development & Infra · variant of `puzzle` — Two pieces joined · approved 2026-09-28
 - [x] 107. `puzzle-5` · Development & Infra · variant of `puzzle` — Tilted classic piece · approved 2026-09-28
