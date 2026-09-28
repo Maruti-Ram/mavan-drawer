@@ -91,6 +91,10 @@
     "book-open-filled",
     "briefcase",
     "briefcase-filled",
+    "bug",
+    "bug-2",
+    "bug-2-filled",
+    "bug-filled",
     "building",
     "building-2",
     "building-2-filled",
@@ -5425,6 +5429,270 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "bug": {
+      "paths": [
+        "M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z",
+        "M9 6.25A3 3 0 0 1 15 6.25",
+        "M12 9.25V21.25",
+        "M6.75 9.75L2.75 5.75",
+        "M17.25 9.75L21.25 5.75",
+        "M6.75 13.25H2.75",
+        "M17.25 13.25H21.25",
+        "M6.87 17.13L2.75 21.25",
+        "M17.13 17.13L21.25 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z\"/> <path d=\"M9 6.25A3 3 0 0 1 15 6.25\"/> <path d=\"M12 9.25V21.25\"/> <path d=\"M6.75 9.75L2.75 5.75\"/> <path d=\"M17.25 9.75L21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13L2.75 21.25\"/> <path d=\"M17.13 17.13L21.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "insect",
+        "beetle",
+        "debug",
+        "straight legs",
+        "seam"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2.5,
+        "w": 20,
+        "h": 19.5
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2.5,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.44,
+          "optical": 2.33
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.44,
+          "optical": 2.33
+        },
+        "top": {
+          "geometric": 2.5,
+          "recession": 1.19,
+          "optical": 3.39
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.84,
+          "optical": 2.63
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "bug-2": {
+      "paths": [
+        "M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z",
+        "M9 6.25A3 3 0 0 1 15 6.25",
+        "M12 9.25V21.25",
+        "M6.75 9.75A4 4 0 0 1 2.75 5.75",
+        "M17.25 9.75A4 4 0 0 0 21.25 5.75",
+        "M6.75 13.25H2.75",
+        "M17.25 13.25H21.25",
+        "M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25",
+        "M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z\"/> <path d=\"M9 6.25A3 3 0 0 1 15 6.25\"/> <path d=\"M12 9.25V21.25\"/> <path d=\"M6.75 9.75A4 4 0 0 1 2.75 5.75\"/> <path d=\"M17.25 9.75A4 4 0 0 0 21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25\"/> <path d=\"M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "insect",
+        "beetle",
+        "debug",
+        "curled legs",
+        "seam"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2.5,
+        "w": 20,
+        "h": 19.5
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2.5,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.32,
+          "optical": 2.24
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.33,
+          "optical": 2.25
+        },
+        "top": {
+          "geometric": 2.5,
+          "recession": 1.19,
+          "optical": 3.39
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.88,
+          "optical": 2.66
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "bug-2-filled": {
+      "paths": [
+        "M6.75 9.75A4 4 0 0 1 2.75 5.75",
+        "M17.25 9.75A4 4 0 0 0 21.25 5.75",
+        "M6.75 13.25H2.75",
+        "M17.25 13.25H21.25",
+        "M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25",
+        "M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25"
+      ],
+      "areas": [
+        "M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z",
+        "M9 4A3.75 3.75 0 0 1 15 4Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 4A3.75 3.75 0 0 1 15 4Z\"/> <path d=\"M6.75 9.75A4 4 0 0 1 2.75 5.75\"/> <path d=\"M17.25 9.75A4 4 0 0 0 21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25\"/> <path d=\"M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "insect",
+        "beetle",
+        "debug",
+        "curled legs",
+        "seam"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2.5,
+        "w": 20,
+        "h": 19.5
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2.5,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2.5,
+          "recession": 0,
+          "optical": 2.5
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "bug-filled": {
+      "paths": [
+        "M6.75 9.75L2.75 5.75",
+        "M17.25 9.75L21.25 5.75",
+        "M6.75 13.25H2.75",
+        "M17.25 13.25H21.25",
+        "M6.87 17.13L2.75 21.25",
+        "M17.13 17.13L21.25 21.25"
+      ],
+      "areas": [
+        "M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z",
+        "M9 4A3.75 3.75 0 0 1 15 4Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 4A3.75 3.75 0 0 1 15 4Z\"/> <path d=\"M6.75 9.75L2.75 5.75\"/> <path d=\"M17.25 9.75L21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13L2.75 21.25\"/> <path d=\"M17.13 17.13L21.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "insect",
+        "beetle",
+        "debug",
+        "straight legs",
+        "seam"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2.5,
+        "w": 20,
+        "h": 19.5
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2.5,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2.5,
+          "recession": 0,
+          "optical": 2.5
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -46120,6 +46388,10 @@
         "book-open-filled",
         "briefcase",
         "briefcase-filled",
+        "bug",
+        "bug-2",
+        "bug-2-filled",
+        "bug-filled",
         "building",
         "building-2",
         "building-2-filled",
@@ -51454,6 +51726,270 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug": {
+          "paths": [
+            "M5.875 4.625H10.125A1.25 1.25 0 0 1 11.375 5.875V11A3.375 3.375 0 0 1 4.625 11V5.875A1.25 1.25 0 0 1 5.875 4.625Z",
+            "M6.375 4.625V3.25A1.625 1.625 0 0 1 9.625 3.25V4.625",
+            "M8 7.375V14.375",
+            "M4.625 6.875L1.625 3.875",
+            "M11.375 6.875L14.375 3.875",
+            "M4.625 9.625H1.625",
+            "M11.375 9.625H14.375",
+            "M4.918 12.375L2.918 14.375",
+            "M11.082 12.375L13.082 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.875 4.625H10.125A1.25 1.25 0 0 1 11.375 5.875V11A3.375 3.375 0 0 1 4.625 11V5.875A1.25 1.25 0 0 1 5.875 4.625Z\"/> <path d=\"M6.375 4.625V3.25A1.625 1.625 0 0 1 9.625 3.25V4.625\"/> <path d=\"M8 7.375V14.375\"/> <path d=\"M4.625 6.875L1.625 3.875\"/> <path d=\"M11.375 6.875L14.375 3.875\"/> <path d=\"M4.625 9.625H1.625\"/> <path d=\"M11.375 9.625H14.375\"/> <path d=\"M4.918 12.375L2.918 14.375\"/> <path d=\"M11.082 12.375L13.082 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "straight legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.37,
+              "optical": 1.28
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.37,
+              "optical": 1.28
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 1,
+              "optical": 1.75
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.39,
+              "optical": 1.3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-2": {
+          "paths": [
+            "M5.875 4.625H10.125A1.25 1.25 0 0 1 11.375 5.875V11A3.375 3.375 0 0 1 4.625 11V5.875A1.25 1.25 0 0 1 5.875 4.625Z",
+            "M6.375 4.625V3.25A1.625 1.625 0 0 1 9.625 3.25V4.625",
+            "M8 7.375V14.375",
+            "M4.625 6.875A3 3 0 0 1 1.625 3.875",
+            "M11.375 6.875A3 3 0 0 0 14.375 3.875",
+            "M4.625 9.625H1.625",
+            "M11.375 9.625H14.375",
+            "M4.918 12.375A2 2 0 0 0 2.918 14.375",
+            "M11.082 12.375A2 2 0 0 1 13.082 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.875 4.625H10.125A1.25 1.25 0 0 1 11.375 5.875V11A3.375 3.375 0 0 1 4.625 11V5.875A1.25 1.25 0 0 1 5.875 4.625Z\"/> <path d=\"M6.375 4.625V3.25A1.625 1.625 0 0 1 9.625 3.25V4.625\"/> <path d=\"M8 7.375V14.375\"/> <path d=\"M4.625 6.875A3 3 0 0 1 1.625 3.875\"/> <path d=\"M11.375 6.875A3 3 0 0 0 14.375 3.875\"/> <path d=\"M4.625 9.625H1.625\"/> <path d=\"M11.375 9.625H14.375\"/> <path d=\"M4.918 12.375A2 2 0 0 0 2.918 14.375\"/> <path d=\"M11.082 12.375A2 2 0 0 1 13.082 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "curled legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.27,
+              "optical": 1.21
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.28,
+              "optical": 1.21
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 1,
+              "optical": 1.75
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.44,
+              "optical": 1.33
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-2-filled": {
+          "paths": [
+            "M4.625 6.875A3 3 0 0 1 1.625 3.875",
+            "M11.375 6.875A3 3 0 0 0 14.375 3.875",
+            "M4.625 9.625H1.625",
+            "M11.375 9.625H14.375",
+            "M4.918 12.375A2 2 0 0 0 2.918 14.375",
+            "M11.082 12.375A2 2 0 0 1 13.082 14.375"
+          ],
+          "areas": [
+            "M4 11V5.875A1.875 1.875 0 0 1 5.875 4H10.125A1.875 1.875 0 0 1 12 5.875V11A4 4 0 0 1 8.75 14.929V7.5A0.75 0.75 0 0 0 7.25 7.5V14.929A4 4 0 0 1 4 11Z",
+            "M5.879 2.5A2.25 2.25 0 0 1 10.121 2.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 11V5.875A1.875 1.875 0 0 1 5.875 4H10.125A1.875 1.875 0 0 1 12 5.875V11A4 4 0 0 1 8.75 14.929V7.5A0.75 0.75 0 0 0 7.25 7.5V14.929A4 4 0 0 1 4 11Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.879 2.5A2.25 2.25 0 0 1 10.121 2.5Z\"/> <path d=\"M4.625 6.875A3 3 0 0 1 1.625 3.875\"/> <path d=\"M11.375 6.875A3 3 0 0 0 14.375 3.875\"/> <path d=\"M4.625 9.625H1.625\"/> <path d=\"M11.375 9.625H14.375\"/> <path d=\"M4.918 12.375A2 2 0 0 0 2.918 14.375\"/> <path d=\"M11.082 12.375A2 2 0 0 1 13.082 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "curled legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-filled": {
+          "paths": [
+            "M4.625 6.875L1.625 3.875",
+            "M11.375 6.875L14.375 3.875",
+            "M4.625 9.625H1.625",
+            "M11.375 9.625H14.375",
+            "M4.918 12.375L2.918 14.375",
+            "M11.082 12.375L13.082 14.375"
+          ],
+          "areas": [
+            "M4 11V5.875A1.875 1.875 0 0 1 5.875 4H10.125A1.875 1.875 0 0 1 12 5.875V11A4 4 0 0 1 8.75 14.929V7.5A0.75 0.75 0 0 0 7.25 7.5V14.929A4 4 0 0 1 4 11Z",
+            "M5.879 2.5A2.25 2.25 0 0 1 10.121 2.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 11V5.875A1.875 1.875 0 0 1 5.875 4H10.125A1.875 1.875 0 0 1 12 5.875V11A4 4 0 0 1 8.75 14.929V7.5A0.75 0.75 0 0 0 7.25 7.5V14.929A4 4 0 0 1 4 11Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.879 2.5A2.25 2.25 0 0 1 10.121 2.5Z\"/> <path d=\"M4.625 6.875L1.625 3.875\"/> <path d=\"M11.375 6.875L14.375 3.875\"/> <path d=\"M4.625 9.625H1.625\"/> <path d=\"M11.375 9.625H14.375\"/> <path d=\"M4.918 12.375L2.918 14.375\"/> <path d=\"M11.082 12.375L13.082 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "straight legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -92080,6 +92616,10 @@
         "book-open-filled",
         "briefcase",
         "briefcase-filled",
+        "bug",
+        "bug-2",
+        "bug-2-filled",
+        "bug-filled",
         "building",
         "building-2",
         "building-2-filled",
@@ -97414,6 +97954,270 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug": {
+          "paths": [
+            "M7.25 5.75H12.75A1.5 1.5 0 0 1 14.25 7.25V13A4.25 4.25 0 0 1 5.75 13V7.25A1.5 1.5 0 0 1 7.25 5.75Z",
+            "M7.5 5.75V5.25A2.5 2.5 0 0 1 12.5 5.25V5.75",
+            "M10 8.75V17.25",
+            "M5.75 8.25L2.75 5.25",
+            "M14.25 8.25L17.25 5.25",
+            "M5.75 11.25H2.75",
+            "M14.25 11.25H17.25",
+            "M5.94 14.25L2.94 17.25",
+            "M14.06 14.25L17.06 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 5.75H12.75A1.5 1.5 0 0 1 14.25 7.25V13A4.25 4.25 0 0 1 5.75 13V7.25A1.5 1.5 0 0 1 7.25 5.75Z\"/> <path d=\"M7.5 5.75V5.25A2.5 2.5 0 0 1 12.5 5.25V5.75\"/> <path d=\"M10 8.75V17.25\"/> <path d=\"M5.75 8.25L2.75 5.25\"/> <path d=\"M14.25 8.25L17.25 5.25\"/> <path d=\"M5.75 11.25H2.75\"/> <path d=\"M14.25 11.25H17.25\"/> <path d=\"M5.94 14.25L2.94 17.25\"/> <path d=\"M14.06 14.25L17.06 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "straight legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.39,
+              "optical": 2.29
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.39,
+              "optical": 2.29
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.14,
+              "optical": 2.86
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.68,
+              "optical": 2.51
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-2": {
+          "paths": [
+            "M7.25 5.75H12.75A1.5 1.5 0 0 1 14.25 7.25V13A4.25 4.25 0 0 1 5.75 13V7.25A1.5 1.5 0 0 1 7.25 5.75Z",
+            "M7.5 5.75V5.25A2.5 2.5 0 0 1 12.5 5.25V5.75",
+            "M10 8.75V17.25",
+            "M5.75 8.25A3 3 0 0 1 2.75 5.25",
+            "M14.25 8.25A3 3 0 0 0 17.25 5.25",
+            "M5.75 11.25H2.75",
+            "M14.25 11.25H17.25",
+            "M5.94 14.25A3 3 0 0 0 2.94 17.25",
+            "M14.06 14.25A3 3 0 0 1 17.06 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 5.75H12.75A1.5 1.5 0 0 1 14.25 7.25V13A4.25 4.25 0 0 1 5.75 13V7.25A1.5 1.5 0 0 1 7.25 5.75Z\"/> <path d=\"M7.5 5.75V5.25A2.5 2.5 0 0 1 12.5 5.25V5.75\"/> <path d=\"M10 8.75V17.25\"/> <path d=\"M5.75 8.25A3 3 0 0 1 2.75 5.25\"/> <path d=\"M14.25 8.25A3 3 0 0 0 17.25 5.25\"/> <path d=\"M5.75 11.25H2.75\"/> <path d=\"M14.25 11.25H17.25\"/> <path d=\"M5.94 14.25A3 3 0 0 0 2.94 17.25\"/> <path d=\"M14.06 14.25A3 3 0 0 1 17.06 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "curled legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.3,
+              "optical": 2.22
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.3,
+              "optical": 2.22
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.14,
+              "optical": 2.86
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.75,
+              "optical": 2.56
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-2-filled": {
+          "paths": [
+            "M5.75 8.25A3 3 0 0 1 2.75 5.25",
+            "M14.25 8.25A3 3 0 0 0 17.25 5.25",
+            "M5.75 11.25H2.75",
+            "M14.25 11.25H17.25",
+            "M5.94 14.25A3 3 0 0 0 2.94 17.25",
+            "M14.06 14.25A3 3 0 0 1 17.06 17.25"
+          ],
+          "areas": [
+            "M5 13V7.25A2.25 2.25 0 0 1 7.25 5H12.75A2.25 2.25 0 0 1 15 7.25V13A5 5 0 0 1 10.75 17.94V8.75A0.75 0.75 0 0 0 9.25 8.75V17.94A5 5 0 0 1 5 13Z",
+            "M7.26 3.5A3.25 3.25 0 0 1 12.74 3.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 13V7.25A2.25 2.25 0 0 1 7.25 5H12.75A2.25 2.25 0 0 1 15 7.25V13A5 5 0 0 1 10.75 17.94V8.75A0.75 0.75 0 0 0 9.25 8.75V17.94A5 5 0 0 1 5 13Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.26 3.5A3.25 3.25 0 0 1 12.74 3.5Z\"/> <path d=\"M5.75 8.25A3 3 0 0 1 2.75 5.25\"/> <path d=\"M14.25 8.25A3 3 0 0 0 17.25 5.25\"/> <path d=\"M5.75 11.25H2.75\"/> <path d=\"M14.25 11.25H17.25\"/> <path d=\"M5.94 14.25A3 3 0 0 0 2.94 17.25\"/> <path d=\"M14.06 14.25A3 3 0 0 1 17.06 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "curled legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-filled": {
+          "paths": [
+            "M5.75 8.25L2.75 5.25",
+            "M14.25 8.25L17.25 5.25",
+            "M5.75 11.25H2.75",
+            "M14.25 11.25H17.25",
+            "M5.94 14.25L2.94 17.25",
+            "M14.06 14.25L17.06 17.25"
+          ],
+          "areas": [
+            "M5 13V7.25A2.25 2.25 0 0 1 7.25 5H12.75A2.25 2.25 0 0 1 15 7.25V13A5 5 0 0 1 10.75 17.94V8.75A0.75 0.75 0 0 0 9.25 8.75V17.94A5 5 0 0 1 5 13Z",
+            "M7.26 3.5A3.25 3.25 0 0 1 12.74 3.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 13V7.25A2.25 2.25 0 0 1 7.25 5H12.75A2.25 2.25 0 0 1 15 7.25V13A5 5 0 0 1 10.75 17.94V8.75A0.75 0.75 0 0 0 9.25 8.75V17.94A5 5 0 0 1 5 13Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.26 3.5A3.25 3.25 0 0 1 12.74 3.5Z\"/> <path d=\"M5.75 8.25L2.75 5.25\"/> <path d=\"M14.25 8.25L17.25 5.25\"/> <path d=\"M5.75 11.25H2.75\"/> <path d=\"M14.25 11.25H17.25\"/> <path d=\"M5.94 14.25L2.94 17.25\"/> <path d=\"M14.06 14.25L17.06 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "straight legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -138070,6 +138874,10 @@
         "book-open-filled",
         "briefcase",
         "briefcase-filled",
+        "bug",
+        "bug-2",
+        "bug-2-filled",
+        "bug-filled",
         "building",
         "building-2",
         "building-2-filled",
@@ -143404,6 +144212,270 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug": {
+          "paths": [
+            "M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z",
+            "M9 6.25A3 3 0 0 1 15 6.25",
+            "M12 9.25V21.25",
+            "M6.75 9.75L2.75 5.75",
+            "M17.25 9.75L21.25 5.75",
+            "M6.75 13.25H2.75",
+            "M17.25 13.25H21.25",
+            "M6.87 17.13L2.75 21.25",
+            "M17.13 17.13L21.25 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z\"/> <path d=\"M9 6.25A3 3 0 0 1 15 6.25\"/> <path d=\"M12 9.25V21.25\"/> <path d=\"M6.75 9.75L2.75 5.75\"/> <path d=\"M17.25 9.75L21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13L2.75 21.25\"/> <path d=\"M17.13 17.13L21.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "straight legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2.5,
+            "w": 20,
+            "h": 19.5
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2.5,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.44,
+              "optical": 2.33
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.44,
+              "optical": 2.33
+            },
+            "top": {
+              "geometric": 2.5,
+              "recession": 1.19,
+              "optical": 3.39
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.84,
+              "optical": 2.63
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-2": {
+          "paths": [
+            "M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z",
+            "M9 6.25A3 3 0 0 1 15 6.25",
+            "M12 9.25V21.25",
+            "M6.75 9.75A4 4 0 0 1 2.75 5.75",
+            "M17.25 9.75A4 4 0 0 0 21.25 5.75",
+            "M6.75 13.25H2.75",
+            "M17.25 13.25H21.25",
+            "M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25",
+            "M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z\"/> <path d=\"M9 6.25A3 3 0 0 1 15 6.25\"/> <path d=\"M12 9.25V21.25\"/> <path d=\"M6.75 9.75A4 4 0 0 1 2.75 5.75\"/> <path d=\"M17.25 9.75A4 4 0 0 0 21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25\"/> <path d=\"M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "curled legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2.5,
+            "w": 20,
+            "h": 19.5
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2.5,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.32,
+              "optical": 2.24
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "top": {
+              "geometric": 2.5,
+              "recession": 1.19,
+              "optical": 3.39
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.88,
+              "optical": 2.66
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-2-filled": {
+          "paths": [
+            "M6.75 9.75A4 4 0 0 1 2.75 5.75",
+            "M17.25 9.75A4 4 0 0 0 21.25 5.75",
+            "M6.75 13.25H2.75",
+            "M17.25 13.25H21.25",
+            "M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25",
+            "M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25"
+          ],
+          "areas": [
+            "M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z",
+            "M9 4A3.75 3.75 0 0 1 15 4Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 4A3.75 3.75 0 0 1 15 4Z\"/> <path d=\"M6.75 9.75A4 4 0 0 1 2.75 5.75\"/> <path d=\"M17.25 9.75A4 4 0 0 0 21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13A4.12 4.12 0 0 0 2.75 21.25\"/> <path d=\"M17.13 17.13A4.12 4.12 0 0 1 21.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "curled legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2.5,
+            "w": 20,
+            "h": 19.5
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2.5,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2.5,
+              "recession": 0,
+              "optical": 2.5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bug-filled": {
+          "paths": [
+            "M6.75 9.75L2.75 5.75",
+            "M17.25 9.75L21.25 5.75",
+            "M6.75 13.25H2.75",
+            "M17.25 13.25H21.25",
+            "M6.87 17.13L2.75 21.25",
+            "M17.13 17.13L21.25 21.25"
+          ],
+          "areas": [
+            "M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z",
+            "M9 4A3.75 3.75 0 0 1 15 4Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 16V8.25A2.75 2.75 0 0 1 8.75 5.5H15.25A2.75 2.75 0 0 1 18 8.25V16A6 6 0 0 1 12.75 21.95V9.25A0.75 0.75 0 0 0 11.25 9.25V21.95A6 6 0 0 1 6 16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 4A3.75 3.75 0 0 1 15 4Z\"/> <path d=\"M6.75 9.75L2.75 5.75\"/> <path d=\"M17.25 9.75L21.25 5.75\"/> <path d=\"M6.75 13.25H2.75\"/> <path d=\"M17.25 13.25H21.25\"/> <path d=\"M6.87 17.13L2.75 21.25\"/> <path d=\"M17.13 17.13L21.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "insect",
+            "beetle",
+            "debug",
+            "straight legs",
+            "seam"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2.5,
+            "w": 20,
+            "h": 19.5
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2.5,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2.5,
+              "recession": 0,
+              "optical": 2.5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -187292,8 +188364,17 @@
       "section": "D · The rest, by audit rank",
       "category": "Development & Infra",
       "base": null,
-      "note": null,
-      "status": "review"
+      "note": "approved 2026-09-28",
+      "status": "done"
+    },
+    {
+      "n": 101,
+      "name": "bug-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Development & Infra",
+      "base": "bug",
+      "note": "Curled legs · approved 2026-09-28",
+      "status": "done"
     },
     {
       "n": 102,
@@ -187356,7 +188437,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 106,
@@ -187365,7 +188446,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 107,
@@ -187374,7 +188455,7 @@
       "category": "Development & Infra",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 108,
@@ -187383,7 +188464,7 @@
       "category": "Commerce & Payments",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 109,
@@ -187392,7 +188473,7 @@
       "category": "Commerce & Payments",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 110,
@@ -187401,7 +188482,7 @@
       "category": "Files & Folders",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 111,
@@ -187410,7 +188491,7 @@
       "category": "Communication",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 112,
@@ -187419,7 +188500,7 @@
       "category": "Maps & Location",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 113,
@@ -187428,7 +188509,7 @@
       "category": "Arrows & Direction",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 114,
@@ -187446,7 +188527,7 @@
       "category": "Media & Playback",
       "base": null,
       "note": null,
-      "status": "todo"
+      "status": "review"
     },
     {
       "n": 116,

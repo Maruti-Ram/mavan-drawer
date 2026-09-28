@@ -393,24 +393,25 @@ Bases before their variants; within that, highest evidence first.
 - [x] 99. `sparkle-3` · Status & Feedback · variant of `sparkle` — With two small sparkles · approved 2026-09-26
 - [x] 99. `sparkle-4` · Status & Feedback · variant of `sparkle` — With a small sparkle and a dot · approved 2026-09-26
 - [~] 100. `wand` · Editing & Text
-- [~] 101. `bug` · Development & Infra
+- [x] 101. `bug` · Development & Infra — approved 2026-09-28
+- [x] 101. `bug-2` · Development & Infra · variant of `bug` — Curled legs · approved 2026-09-28
 - [x] 102. `building` · Commerce & Payments — approved 2026-09-27
 - [x] 102. `building-2` · Commerce & Payments · variant of `building` — Tower, dash windows, door · approved 2026-09-27
 - [x] 102. `building-3` · Commerce & Payments · variant of `building` — Tower and wing on a ground line · approved 2026-09-27
 - [x] 102. `building-4` · Commerce & Payments · variant of `building` — Tower and wing, filled wing behind · approved 2026-09-27
 - [~] 103. `cash` · Commerce & Payments
 - [~] 104. `keyboard` · Devices & Hardware
-- [ ] 105. `paintbrush` · Design Tools
-- [ ] 106. `plug` · Devices & Hardware
-- [ ] 107. `puzzle` · Development & Infra
-- [ ] 108. `store` · Commerce & Payments
-- [ ] 109. `wallet` · Commerce & Payments
-- [ ] 110. `book` · Files & Folders
-- [ ] 111. `hash` · Communication
-- [ ] 112. `compass` · Maps & Location
-- [ ] 113. `rotate-ccw` · Arrows & Direction
+- [~] 105. `paintbrush` · Design Tools
+- [~] 106. `plug` · Devices & Hardware
+- [~] 107. `puzzle` · Development & Infra
+- [~] 108. `store` · Commerce & Payments
+- [~] 109. `wallet` · Commerce & Payments
+- [~] 110. `book` · Files & Folders
+- [~] 111. `hash` · Communication
+- [~] 112. `compass` · Maps & Location
+- [~] 113. `rotate-ccw` · Arrows & Direction
 - [ ] 114. `sidebar` · UI & Layout
-- [ ] 115. `play` · Media & Playback
+- [~] 115. `play` · Media & Playback
 - [ ] 116. `wrench` · Development & Infra
 - [ ] 117. `sort` · UI & Layout
 - [ ] 118. `shield` · Users & Access
