@@ -403,6 +403,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 104. `keyboard` · Devices & Hardware — approved 2026-09-28
 - [x] 104. `keyboard-2` · Devices & Hardware · variant of `keyboard` — Wired keyboard · approved 2026-09-28
 - [x] 105. `paintbrush` · Design Tools — approved 2026-09-28
+- [x] 105. `paintbrush-2` · Design Tools · variant of `paintbrush` — Round head, solid band · approved 2026-09-28
+- [x] 105. `paintbrush-3` · Design Tools · variant of `paintbrush` — Round head, stroke · approved 2026-09-28
+- [x] 105. `paintbrush-4` · Design Tools · variant of `paintbrush` — Swept tip, solid band · approved 2026-09-28
+- [x] 105. `paintbrush-5` · Design Tools · variant of `paintbrush` — Round head, spindle handle · approved 2026-09-28
 - [x] 106. `plug` · Devices & Hardware — approved 2026-09-28
 - [x] 106. `plug-2` · Devices & Hardware · variant of `plug` — Squared body · approved 2026-09-28
 - [x] 106. `plug-3` · Devices & Hardware · variant of `plug` — Flange · approved 2026-09-28
