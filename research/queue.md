@@ -461,7 +461,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 118. `shield` · Users & Access — approved 2026-09-29
 - [x] 118. `shield-2` · Users & Access · variant of `shield` — Crowned top · approved 2026-09-29
 - [x] 119. `export` · Files & Folders — approved 2026-09-29
-- [~] 120. `arrow-up-right` · Arrows & Direction
+- [x] 120. `arrow-up-right` · Arrows & Direction — approved 2026-09-29
+- [x] 120. `arrow-up-right-2` · Arrows & Direction · variant of `arrow-up-right` — Turned wide · approved 2026-09-29
+- [x] 120. `arrow-up-right-3` · Arrows & Direction · variant of `arrow-up-right` — Turned flat · approved 2026-09-29
 - [x] 121. `bold` · Editing & Text — approved 2026-09-29
 - [x] 122. `chart-pie` · Charts & Data — approved 2026-09-29
 - [x] 122. `chart-pie-2` · Charts & Data · variant of `chart-pie` — Exploded · approved 2026-09-29
