@@ -456,7 +456,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 115. `play-3` · Media & Playback · variant of `play` — play-3 · smaller · approved 2026-09-28
 - [~] 116. `wrench` · Development & Infra
 - [~] 117. `sort` · UI & Layout
-- [~] 118. `shield` · Users & Access
+- [x] 118. `shield` · Users & Access — approved 2026-09-29
+- [x] 118. `shield-2` · Users & Access · variant of `shield` — Crowned top · approved 2026-09-29
 - [x] 119. `export` · Files & Folders — approved 2026-09-29
 - [~] 120. `arrow-up-right` · Arrows & Direction
 - [x] 121. `bold` · Editing & Text — approved 2026-09-29
