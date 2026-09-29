@@ -454,15 +454,15 @@ Bases before their variants; within that, highest evidence first.
 - [x] 115. `play` · Media & Playback — approved 2026-09-28
 - [x] 115. `play-2` · Media & Playback · variant of `play` — play-2 · container corners · approved 2026-09-28
 - [x] 115. `play-3` · Media & Playback · variant of `play` — play-3 · smaller · approved 2026-09-28
-- [ ] 116. `wrench` · Development & Infra
-- [ ] 117. `sort` · UI & Layout
-- [ ] 118. `shield` · Users & Access
-- [ ] 119. `export` · Files & Folders
-- [ ] 120. `arrow-up-right` · Arrows & Direction
-- [ ] 121. `bold` · Editing & Text
-- [ ] 122. `chart-pie` · Charts & Data
-- [ ] 123. `code` · Editing & Text
-- [ ] 124. `copy` · Files & Folders
+- [~] 116. `wrench` · Development & Infra
+- [~] 117. `sort` · UI & Layout
+- [~] 118. `shield` · Users & Access
+- [x] 119. `export` · Files & Folders — approved 2026-09-29
+- [~] 120. `arrow-up-right` · Arrows & Direction
+- [~] 121. `bold` · Editing & Text
+- [~] 122. `chart-pie` · Charts & Data
+- [~] 123. `code` · Editing & Text
+- [~] 124. `copy` · Files & Folders
 - [ ] 125. `face-neutral` · Communication
 - [ ] 126. `face-sad` · Communication
 - [ ] 127. `italic` · Editing & Text
