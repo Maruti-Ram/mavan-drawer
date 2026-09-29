@@ -461,7 +461,8 @@ Bases before their variants; within that, highest evidence first.
 - [~] 120. `arrow-up-right` · Arrows & Direction
 - [x] 121. `bold` · Editing & Text — approved 2026-09-29
 - [~] 122. `chart-pie` · Charts & Data
-- [~] 123. `code` · Editing & Text
+- [x] 123. `code` · Editing & Text — approved 2026-09-29
+- [x] 123. `code-2` · Editing & Text · variant of `code` — Two chevrons, open · approved 2026-09-29
 - [x] 124. `copy` · Files & Folders — approved 2026-09-29
 - [x] 124. `copy-2` · Files & Folders · variant of `copy` — Portrait panels · approved 2026-09-29
 - [x] 124. `copy-3` · Files & Folders · variant of `copy` — Slightly wider, every master · approved 2026-09-29

@@ -191,6 +191,15 @@ error, not design intent.
 Angles default to **0°, 45°, 90°**. 30° and 60° are allowed when the subject
 demands it (a hexagon, a chart line) and must be justified in the source file.
 
+**`code`'s slash is a per-icon exception** (C30), not a third entry on this
+list. Its two ends sit on the grid and span its mark box, so the angle is
+whatever falls out — 73.14° · 72.26° · 73.18°, from a run × rise of 5 × 16.5 ·
+4 × 12.5 · 3.25 × 10.75 — and the source file justifies it with **the run and
+rise, not a degree figure**, because a fixed degree would push the endpoints off
+the grid. **No corollary is drawn from it:** the next drawn character — `italic`,
+a numeral, another letterform — is its own decision on its own evidence. Lint
+does not check angles at all.
+
 ---
 
 ## 4. The stroke system
