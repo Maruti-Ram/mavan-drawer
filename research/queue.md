@@ -462,7 +462,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 121. `bold` · Editing & Text — approved 2026-09-29
 - [~] 122. `chart-pie` · Charts & Data
 - [~] 123. `code` · Editing & Text
-- [~] 124. `copy` · Files & Folders
+- [x] 124. `copy` · Files & Folders — approved 2026-09-29
+- [x] 124. `copy-2` · Files & Folders · variant of `copy` — Portrait panels · approved 2026-09-29
+- [x] 124. `copy-3` · Files & Folders · variant of `copy` — Slightly wider, every master · approved 2026-09-29
 - [ ] 125. `face-neutral` · Communication
 - [ ] 126. `face-sad` · Communication
 - [ ] 127. `italic` · Editing & Text
