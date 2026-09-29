@@ -459,7 +459,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 118. `shield` · Users & Access
 - [x] 119. `export` · Files & Folders — approved 2026-09-29
 - [~] 120. `arrow-up-right` · Arrows & Direction
-- [~] 121. `bold` · Editing & Text
+- [x] 121. `bold` · Editing & Text — approved 2026-09-29
 - [~] 122. `chart-pie` · Charts & Data
 - [~] 123. `code` · Editing & Text
 - [~] 124. `copy` · Files & Folders
