@@ -153,6 +153,12 @@
     "chart-bar-5",
     "chart-bar-5-filled",
     "chart-bar-filled",
+    "chart-pie",
+    "chart-pie-2",
+    "chart-pie-2-filled",
+    "chart-pie-3",
+    "chart-pie-3-filled",
+    "chart-pie-filled",
     "check",
     "check-2",
     "check-2-filled",
@@ -9381,6 +9387,387 @@
           "geometric": 3,
           "recession": 0.39,
           "optical": 3.29
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-pie": {
+      "paths": [
+        "M20.74 15.02A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 8.98 3.26",
+        "M12 2.75A9.25 9.25 0 0 1 21.25 12L12 12Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M20.74 15.02A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 8.98 3.26\"/> <path d=\"M12 2.75A9.25 9.25 0 0 1 21.25 12L12 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "pie",
+        "chart",
+        "share",
+        "proportion",
+        "breakdown",
+        "analytics",
+        "report",
+        "slice"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.9,
+          "optical": 2.67
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.48,
+          "optical": 2.36
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.48,
+          "optical": 2.36
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.9,
+          "optical": 2.67
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-pie-2": {
+      "paths": [
+        "M18.25 13.5A7.75 7.75 0 0 1 10.5 21.25A7.75 7.75 0 0 1 2.75 13.5A7.75 7.75 0 0 1 10.5 5.75L10.5 13.5Z",
+        "M13.5 2.75A7.75 7.75 0 0 1 21.25 10.5L13.5 10.5Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M18.25 13.5A7.75 7.75 0 0 1 10.5 21.25A7.75 7.75 0 0 1 2.75 13.5A7.75 7.75 0 0 1 10.5 5.75L10.5 13.5Z\"/> <path d=\"M13.5 2.75A7.75 7.75 0 0 1 21.25 10.5L13.5 10.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "pie",
+        "chart",
+        "share",
+        "proportion",
+        "breakdown",
+        "analytics",
+        "report",
+        "slice"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.76,
+          "optical": 2.57
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.39,
+          "optical": 2.29
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.39,
+          "optical": 2.29
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.76,
+          "optical": 2.57
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-pie-2-filled": {
+      "paths": [],
+      "areas": [
+        "M12 12.75L18.25 12.75A0.75 0.75 0 0 1 19 13.5A8.5 8.5 0 0 1 10.5 22A8.5 8.5 0 0 1 2 13.5A8.5 8.5 0 0 1 10.5 5A0.75 0.75 0 0 1 11.25 5.75L11.25 12A0.75 0.75 0 0 0 12 12.75Z",
+        "M12.75 10.5L12.75 2.75A0.75 0.75 0 0 1 13.5 2A8.5 8.5 0 0 1 22 10.5A0.75 0.75 0 0 1 21.25 11.25L13.5 11.25A0.75 0.75 0 0 1 12.75 10.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 12.75L18.25 12.75A0.75 0.75 0 0 1 19 13.5A8.5 8.5 0 0 1 10.5 22A8.5 8.5 0 0 1 2 13.5A8.5 8.5 0 0 1 10.5 5A0.75 0.75 0 0 1 11.25 5.75L11.25 12A0.75 0.75 0 0 0 12 12.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 10.5L12.75 2.75A0.75 0.75 0 0 1 13.5 2A8.5 8.5 0 0 1 22 10.5A0.75 0.75 0 0 1 21.25 11.25L13.5 11.25A0.75 0.75 0 0 1 12.75 10.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "pie",
+        "chart",
+        "share",
+        "proportion",
+        "breakdown",
+        "analytics",
+        "report",
+        "slice"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-pie-3": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M12 12L12 2.75",
+        "M12 12L21.25 12",
+        "M12 12L12 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M12 12L12 2.75\"/> <path d=\"M12 12L21.25 12\"/> <path d=\"M12 12L12 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "pie",
+        "chart",
+        "share",
+        "proportion",
+        "breakdown",
+        "analytics",
+        "report",
+        "slice"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 10.75,
+        "h": 20
+      },
+      "ratio": {
+        "w": 0.54,
+        "h": 1
+      },
+      "gap": null
+    },
+    "chart-pie-3-filled": {
+      "paths": [],
+      "areas": [
+        "M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z",
+        "M12.75 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12.26 22A0.25 0.25 0 0 1 12 21.75L12 14.25A0.75 0.75 0 0 1 12.75 13.5Z",
+        "M10.5 12L10.5 20.97A0.75 0.75 0 0 1 9.57 21.7A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12A0.75 0.75 0 0 1 10.5 12Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12.26 22A0.25 0.25 0 0 1 12 21.75L12 14.25A0.75 0.75 0 0 1 12.75 13.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.5 12L10.5 20.97A0.75 0.75 0 0 1 9.57 21.7A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12A0.75 0.75 0 0 1 10.5 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "pie",
+        "chart",
+        "share",
+        "proportion",
+        "breakdown",
+        "analytics",
+        "report",
+        "slice"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-pie-filled": {
+      "paths": [],
+      "areas": [
+        "M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z",
+        "M11.25 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12.75A0.75 0.75 0 0 0 11.25 13.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.25 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12.75A0.75 0.75 0 0 0 11.25 13.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "pie",
+        "chart",
+        "share",
+        "proportion",
+        "breakdown",
+        "analytics",
+        "report",
+        "slice"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -54849,6 +55236,12 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-pie",
+        "chart-pie-2",
+        "chart-pie-2-filled",
+        "chart-pie-3",
+        "chart-pie-3-filled",
+        "chart-pie-filled",
         "check",
         "check-2",
         "check-2-filled",
@@ -64048,6 +64441,387 @@
               "geometric": 2,
               "recession": 0.33,
               "optical": 2.25
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie": {
+          "paths": [
+            "M13.742 10.77A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 1.625 8A6.375 6.375 0 0 1 5.23 2.258",
+            "M8 1.625A6.375 6.375 0 0 1 14.375 8L8 8Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M13.742 10.77A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 1.625 8A6.375 6.375 0 0 1 5.23 2.258\"/> <path d=\"M8 1.625A6.375 6.375 0 0 1 14.375 8L8 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.69,
+              "optical": 1.52
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.37,
+              "optical": 1.28
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.37,
+              "optical": 1.28
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.69,
+              "optical": 1.52
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-2": {
+          "paths": [
+            "M11.625 9.375A5 5 0 0 1 6.625 14.375A5 5 0 0 1 1.625 9.375A5 5 0 0 1 6.625 4.375L6.625 9.375Z",
+            "M9.375 1.625A5 5 0 0 1 14.375 6.625L9.375 6.625Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.625 9.375A5 5 0 0 1 6.625 14.375A5 5 0 0 1 1.625 9.375A5 5 0 0 1 6.625 4.375L6.625 9.375Z\"/> <path d=\"M9.375 1.625A5 5 0 0 1 14.375 6.625L9.375 6.625Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.54,
+              "optical": 1.41
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.28,
+              "optical": 1.21
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.28,
+              "optical": 1.21
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.54,
+              "optical": 1.41
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-2-filled": {
+          "paths": [],
+          "areas": [
+            "M7.875 8.75L11.625 8.75A0.625 0.625 0 0 1 12.25 9.375A5.625 5.625 0 0 1 6.625 15A5.625 5.625 0 0 1 1 9.375A5.625 5.625 0 0 1 6.625 3.75A0.625 0.625 0 0 1 7.25 4.375L7.25 8.125A0.625 0.625 0 0 0 7.875 8.75Z",
+            "M8.75 6.625L8.75 1.625A0.625 0.625 0 0 1 9.375 1A5.625 5.625 0 0 1 15 6.625A0.625 0.625 0 0 1 14.375 7.25L9.375 7.25A0.625 0.625 0 0 1 8.75 6.625Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.875 8.75L11.625 8.75A0.625 0.625 0 0 1 12.25 9.375A5.625 5.625 0 0 1 6.625 15A5.625 5.625 0 0 1 1 9.375A5.625 5.625 0 0 1 6.625 3.75A0.625 0.625 0 0 1 7.25 4.375L7.25 8.125A0.625 0.625 0 0 0 7.875 8.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.75 6.625L8.75 1.625A0.625 0.625 0 0 1 9.375 1A5.625 5.625 0 0 1 15 6.625A0.625 0.625 0 0 1 14.375 7.25L9.375 7.25A0.625 0.625 0 0 1 8.75 6.625Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-3": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M8 8L8 1.625",
+            "M8 8L14.375 8",
+            "M8 8L8 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M8 8L8 1.625\"/> <path d=\"M8 8L14.375 8\"/> <path d=\"M8 8L8 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 7.63,
+            "h": 14
+          },
+          "ratio": {
+            "w": 0.55,
+            "h": 1
+          },
+          "gap": null
+        },
+        "chart-pie-3-filled": {
+          "paths": [],
+          "areas": [
+            "M8 7.375L8 1.126A0.125 0.125 0 0 1 8.127 1.001A7 7 0 0 1 14.999 7.873A0.125 0.125 0 0 1 14.874 8L8.625 8A0.625 0.625 0 0 1 8 7.375Z",
+            "M8.625 9.5L14.01 9.5A0.625 0.625 0 0 1 14.6 10.333A7 7 0 0 1 8.127 14.999A0.125 0.125 0 0 1 8 14.874L8 10.125A0.625 0.625 0 0 1 8.625 9.5Z",
+            "M6.5 8L6.5 14.01A0.625 0.625 0 0 1 5.667 14.6A7 7 0 0 1 1 8A7 7 0 0 1 5.667 1.4A0.625 0.625 0 0 1 6.5 1.99L6.5 8A0.625 0.625 0 0 1 6.5 8Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 7.375L8 1.126A0.125 0.125 0 0 1 8.127 1.001A7 7 0 0 1 14.999 7.873A0.125 0.125 0 0 1 14.874 8L8.625 8A0.625 0.625 0 0 1 8 7.375Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.625 9.5L14.01 9.5A0.625 0.625 0 0 1 14.6 10.333A7 7 0 0 1 8.127 14.999A0.125 0.125 0 0 1 8 14.874L8 10.125A0.625 0.625 0 0 1 8.625 9.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.5 8L6.5 14.01A0.625 0.625 0 0 1 5.667 14.6A7 7 0 0 1 1 8A7 7 0 0 1 5.667 1.4A0.625 0.625 0 0 1 6.5 1.99L6.5 8A0.625 0.625 0 0 1 6.5 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-filled": {
+          "paths": [],
+          "areas": [
+            "M8 7.375L8 1.126A0.125 0.125 0 0 1 8.127 1.001A7 7 0 0 1 14.999 7.873A0.125 0.125 0 0 1 14.874 8L8.625 8A0.625 0.625 0 0 1 8 7.375Z",
+            "M7.125 9.5L14.01 9.5A0.625 0.625 0 0 1 14.6 10.333A7 7 0 0 1 8 15A7 7 0 0 1 1 8A7 7 0 0 1 5.667 1.4A0.625 0.625 0 0 1 6.5 1.99L6.5 8.875A0.625 0.625 0 0 0 7.125 9.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 7.375L8 1.126A0.125 0.125 0 0 1 8.127 1.001A7 7 0 0 1 14.999 7.873A0.125 0.125 0 0 1 14.874 8L8.625 8A0.625 0.625 0 0 1 8 7.375Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.125 9.5L14.01 9.5A0.625 0.625 0 0 1 14.6 10.333A7 7 0 0 1 8 15A7 7 0 0 1 1 8A7 7 0 0 1 5.667 1.4A0.625 0.625 0 0 1 6.5 1.99L6.5 8.875A0.625 0.625 0 0 0 7.125 9.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -109466,6 +110240,12 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-pie",
+        "chart-pie-2",
+        "chart-pie-2-filled",
+        "chart-pie-3",
+        "chart-pie-3-filled",
+        "chart-pie-filled",
         "check",
         "check-2",
         "check-2-filled",
@@ -118671,6 +119451,387 @@
               "geometric": 3,
               "recession": 0.33,
               "optical": 3.25
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie": {
+          "paths": [
+            "M16.59 13.02A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 2.75 10A7.25 7.25 0 0 1 6.98 3.41",
+            "M10 2.75A7.25 7.25 0 0 1 17.25 10L10 10Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M16.59 13.02A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 2.75 10A7.25 7.25 0 0 1 6.98 3.41\"/> <path d=\"M10 2.75A7.25 7.25 0 0 1 17.25 10L10 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.84,
+              "optical": 2.63
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.46,
+              "optical": 2.34
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.45,
+              "optical": 2.34
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.82,
+              "optical": 2.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-2": {
+          "paths": [
+            "M14.25 11.5A5.75 5.75 0 0 1 8.5 17.25A5.75 5.75 0 0 1 2.75 11.5A5.75 5.75 0 0 1 8.5 5.75L8.5 11.5Z",
+            "M11.5 2.75A5.75 5.75 0 0 1 17.25 8.5L11.5 8.5Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M14.25 11.5A5.75 5.75 0 0 1 8.5 17.25A5.75 5.75 0 0 1 2.75 11.5A5.75 5.75 0 0 1 8.5 5.75L8.5 11.5Z\"/> <path d=\"M11.5 2.75A5.75 5.75 0 0 1 17.25 8.5L11.5 8.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.65,
+              "optical": 2.49
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.34,
+              "optical": 2.26
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.34,
+              "optical": 2.26
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.65,
+              "optical": 2.49
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-2-filled": {
+          "paths": [],
+          "areas": [
+            "M10 10.75L14.25 10.75A0.75 0.75 0 0 1 15 11.5A6.5 6.5 0 0 1 8.5 18A6.5 6.5 0 0 1 2 11.5A6.5 6.5 0 0 1 8.5 5A0.75 0.75 0 0 1 9.25 5.75L9.25 10A0.75 0.75 0 0 0 10 10.75Z",
+            "M10.75 8.5L10.75 2.75A0.75 0.75 0 0 1 11.5 2A6.5 6.5 0 0 1 18 8.5A0.75 0.75 0 0 1 17.25 9.25L11.5 9.25A0.75 0.75 0 0 1 10.75 8.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10 10.75L14.25 10.75A0.75 0.75 0 0 1 15 11.5A6.5 6.5 0 0 1 8.5 18A6.5 6.5 0 0 1 2 11.5A6.5 6.5 0 0 1 8.5 5A0.75 0.75 0 0 1 9.25 5.75L9.25 10A0.75 0.75 0 0 0 10 10.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.75 8.5L10.75 2.75A0.75 0.75 0 0 1 11.5 2A6.5 6.5 0 0 1 18 8.5A0.75 0.75 0 0 1 17.25 9.25L11.5 9.25A0.75 0.75 0 0 1 10.75 8.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-3": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M10 10L10 2.75",
+            "M10 10L17.25 10",
+            "M10 10L10 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M10 10L10 2.75\"/> <path d=\"M10 10L17.25 10\"/> <path d=\"M10 10L10 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 8.75,
+            "h": 16
+          },
+          "ratio": {
+            "w": 0.55,
+            "h": 1
+          },
+          "gap": null
+        },
+        "chart-pie-3-filled": {
+          "paths": [],
+          "areas": [
+            "M10 9.25L10 2.25A0.25 0.25 0 0 1 10.26 2A8 8 0 0 1 18 9.74A0.25 0.25 0 0 1 17.75 10L10.75 10A0.75 0.75 0 0 1 10 9.25Z",
+            "M10.75 11.5L16.89 11.5A0.75 0.75 0 0 1 17.6 12.48A8 8 0 0 1 10.26 18A0.25 0.25 0 0 1 10 17.75L10 12.25A0.75 0.75 0 0 1 10.75 11.5Z",
+            "M8.5 10L8.5 16.89A0.75 0.75 0 0 1 7.52 17.6A8 8 0 0 1 2 10A8 8 0 0 1 7.52 2.4A0.75 0.75 0 0 1 8.5 3.11L8.5 10A0.75 0.75 0 0 1 8.5 10Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10 9.25L10 2.25A0.25 0.25 0 0 1 10.26 2A8 8 0 0 1 18 9.74A0.25 0.25 0 0 1 17.75 10L10.75 10A0.75 0.75 0 0 1 10 9.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.75 11.5L16.89 11.5A0.75 0.75 0 0 1 17.6 12.48A8 8 0 0 1 10.26 18A0.25 0.25 0 0 1 10 17.75L10 12.25A0.75 0.75 0 0 1 10.75 11.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.5 10L8.5 16.89A0.75 0.75 0 0 1 7.52 17.6A8 8 0 0 1 2 10A8 8 0 0 1 7.52 2.4A0.75 0.75 0 0 1 8.5 3.11L8.5 10A0.75 0.75 0 0 1 8.5 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-filled": {
+          "paths": [],
+          "areas": [
+            "M10 9.25L10 2.25A0.25 0.25 0 0 1 10.26 2A8 8 0 0 1 18 9.74A0.25 0.25 0 0 1 17.75 10L10.75 10A0.75 0.75 0 0 1 10 9.25Z",
+            "M9.25 11.5L16.89 11.5A0.75 0.75 0 0 1 17.6 12.48A8 8 0 0 1 10 18A8 8 0 0 1 2 10A8 8 0 0 1 7.52 2.4A0.75 0.75 0 0 1 8.5 3.11L8.5 10.75A0.75 0.75 0 0 0 9.25 11.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10 9.25L10 2.25A0.25 0.25 0 0 1 10.26 2A8 8 0 0 1 18 9.74A0.25 0.25 0 0 1 17.75 10L10.75 10A0.75 0.75 0 0 1 10 9.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.25 11.5L16.89 11.5A0.75 0.75 0 0 1 17.6 12.48A8 8 0 0 1 10 18A8 8 0 0 1 2 10A8 8 0 0 1 7.52 2.4A0.75 0.75 0 0 1 8.5 3.11L8.5 10.75A0.75 0.75 0 0 0 9.25 11.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -164116,6 +165277,12 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-pie",
+        "chart-pie-2",
+        "chart-pie-2-filled",
+        "chart-pie-3",
+        "chart-pie-3-filled",
+        "chart-pie-filled",
         "check",
         "check-2",
         "check-2-filled",
@@ -173344,6 +174511,387 @@
               "geometric": 3,
               "recession": 0.39,
               "optical": 3.29
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie": {
+          "paths": [
+            "M20.74 15.02A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 8.98 3.26",
+            "M12 2.75A9.25 9.25 0 0 1 21.25 12L12 12Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M20.74 15.02A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 8.98 3.26\"/> <path d=\"M12 2.75A9.25 9.25 0 0 1 21.25 12L12 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.9,
+              "optical": 2.67
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.9,
+              "optical": 2.67
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-2": {
+          "paths": [
+            "M18.25 13.5A7.75 7.75 0 0 1 10.5 21.25A7.75 7.75 0 0 1 2.75 13.5A7.75 7.75 0 0 1 10.5 5.75L10.5 13.5Z",
+            "M13.5 2.75A7.75 7.75 0 0 1 21.25 10.5L13.5 10.5Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M18.25 13.5A7.75 7.75 0 0 1 10.5 21.25A7.75 7.75 0 0 1 2.75 13.5A7.75 7.75 0 0 1 10.5 5.75L10.5 13.5Z\"/> <path d=\"M13.5 2.75A7.75 7.75 0 0 1 21.25 10.5L13.5 10.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.76,
+              "optical": 2.57
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.39,
+              "optical": 2.29
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.39,
+              "optical": 2.29
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.76,
+              "optical": 2.57
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-2-filled": {
+          "paths": [],
+          "areas": [
+            "M12 12.75L18.25 12.75A0.75 0.75 0 0 1 19 13.5A8.5 8.5 0 0 1 10.5 22A8.5 8.5 0 0 1 2 13.5A8.5 8.5 0 0 1 10.5 5A0.75 0.75 0 0 1 11.25 5.75L11.25 12A0.75 0.75 0 0 0 12 12.75Z",
+            "M12.75 10.5L12.75 2.75A0.75 0.75 0 0 1 13.5 2A8.5 8.5 0 0 1 22 10.5A0.75 0.75 0 0 1 21.25 11.25L13.5 11.25A0.75 0.75 0 0 1 12.75 10.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 12.75L18.25 12.75A0.75 0.75 0 0 1 19 13.5A8.5 8.5 0 0 1 10.5 22A8.5 8.5 0 0 1 2 13.5A8.5 8.5 0 0 1 10.5 5A0.75 0.75 0 0 1 11.25 5.75L11.25 12A0.75 0.75 0 0 0 12 12.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 10.5L12.75 2.75A0.75 0.75 0 0 1 13.5 2A8.5 8.5 0 0 1 22 10.5A0.75 0.75 0 0 1 21.25 11.25L13.5 11.25A0.75 0.75 0 0 1 12.75 10.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-3": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M12 12L12 2.75",
+            "M12 12L21.25 12",
+            "M12 12L12 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M12 12L12 2.75\"/> <path d=\"M12 12L21.25 12\"/> <path d=\"M12 12L12 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 10.75,
+            "h": 20
+          },
+          "ratio": {
+            "w": 0.54,
+            "h": 1
+          },
+          "gap": null
+        },
+        "chart-pie-3-filled": {
+          "paths": [],
+          "areas": [
+            "M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z",
+            "M12.75 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12.26 22A0.25 0.25 0 0 1 12 21.75L12 14.25A0.75 0.75 0 0 1 12.75 13.5Z",
+            "M10.5 12L10.5 20.97A0.75 0.75 0 0 1 9.57 21.7A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12A0.75 0.75 0 0 1 10.5 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12.26 22A0.25 0.25 0 0 1 12 21.75L12 14.25A0.75 0.75 0 0 1 12.75 13.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.5 12L10.5 20.97A0.75 0.75 0 0 1 9.57 21.7A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12A0.75 0.75 0 0 1 10.5 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-pie-filled": {
+          "paths": [],
+          "areas": [
+            "M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z",
+            "M11.25 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12.75A0.75 0.75 0 0 0 11.25 13.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 11.25L12 2.25A0.25 0.25 0 0 1 12.26 2A10 10 0 0 1 22 11.74A0.25 0.25 0 0 1 21.75 12L12.75 12A0.75 0.75 0 0 1 12 11.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.25 13.5L20.97 13.5A0.75 0.75 0 0 1 21.7 14.43A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 9.57 2.3A0.75 0.75 0 0 1 10.5 3.03L10.5 12.75A0.75 0.75 0 0 0 11.25 13.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "pie",
+            "chart",
+            "share",
+            "proportion",
+            "breakdown",
+            "analytics",
+            "report",
+            "slice"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -222573,8 +224121,26 @@
       "section": "D · The rest, by audit rank",
       "category": "Charts & Data",
       "base": null,
-      "note": null,
-      "status": "review"
+      "note": "approved 2026-09-29",
+      "status": "done"
+    },
+    {
+      "n": 122,
+      "name": "chart-pie-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "chart-pie",
+      "note": "Exploded · approved 2026-09-29",
+      "status": "done"
+    },
+    {
+      "n": 122,
+      "name": "chart-pie-3",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "chart-pie",
+      "note": "Three slices · approved 2026-09-29",
+      "status": "done"
     },
     {
       "n": 123,
