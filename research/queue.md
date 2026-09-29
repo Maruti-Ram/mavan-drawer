@@ -712,7 +712,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 355. `clipboard-check` · Files & Folders · variant of `clipboard`
 - [ ] 356. `shield-check` · Users & Access · variant of `shield`
 - [ ] 357. `sidebar-right` · UI & Layout · variant of `sidebar`
-- [~] 358. `sort-descending` · UI & Layout · variant of `sort`
+- [x] 358. `sort-descending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [ ] 359. `image-sparkle` · Files & Folders · variant of `image`
 - [ ] 360. `folder-minus` · Files & Folders · variant of `folder`
 - [ ] 361. `folder-plus` · Files & Folders · variant of `folder`
