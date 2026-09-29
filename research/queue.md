@@ -454,7 +454,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 115. `play` · Media & Playback — approved 2026-09-28
 - [x] 115. `play-2` · Media & Playback · variant of `play` — play-2 · container corners · approved 2026-09-28
 - [x] 115. `play-3` · Media & Playback · variant of `play` — play-3 · smaller · approved 2026-09-28
-- [~] 116. `wrench` · Development & Infra
+- [x] 116. `wrench` · Development & Infra — approved 2026-09-29
+- [x] 116. `wrench-2` · Development & Infra · variant of `wrench` — Shorter handle · approved 2026-09-29
+- [x] 116. `wrench-3` · Development & Infra · variant of `wrench` — Round horns · approved 2026-09-29
 - [~] 117. `sort` · UI & Layout
 - [x] 118. `shield` · Users & Access — approved 2026-09-29
 - [x] 118. `shield-2` · Users & Access · variant of `shield` — Crowned top · approved 2026-09-29
