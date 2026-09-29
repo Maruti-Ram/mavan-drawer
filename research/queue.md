@@ -465,6 +465,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 120. `arrow-up-right-2` · Arrows & Direction · variant of `arrow-up-right` — Turned wide · approved 2026-09-29
 - [x] 120. `arrow-up-right-3` · Arrows & Direction · variant of `arrow-up-right` — Turned flat · approved 2026-09-29
 - [x] 120. `arrow-up-right-5` · Arrows & Direction · variant of `arrow-up-right` — One step down · approved 2026-09-29
+- [x] 120. `arrow-up-right-4` · Arrows & Direction · variant of `arrow-up-right` — Closed head · approved 2026-09-29
 - [x] 121. `bold` · Editing & Text — approved 2026-09-29
 - [x] 122. `chart-pie` · Charts & Data — approved 2026-09-29
 - [x] 122. `chart-pie-2` · Charts & Data · variant of `chart-pie` — Exploded · approved 2026-09-29
@@ -711,7 +712,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 355. `clipboard-check` · Files & Folders · variant of `clipboard`
 - [ ] 356. `shield-check` · Users & Access · variant of `shield`
 - [ ] 357. `sidebar-right` · UI & Layout · variant of `sidebar`
-- [ ] 358. `sort-descending` · UI & Layout · variant of `sort`
+- [~] 358. `sort-descending` · UI & Layout · variant of `sort`
 - [ ] 359. `image-sparkle` · Files & Folders · variant of `image`
 - [ ] 360. `folder-minus` · Files & Folders · variant of `folder`
 - [ ] 361. `folder-plus` · Files & Folders · variant of `folder`
@@ -755,7 +756,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 399. `folder-up` · Files & Folders · variant of `folder`
 - [ ] 400. `message-alert` · Communication · variant of `message`
 - [ ] 401. `note-plus` · Files & Folders · variant of `note`
-- [ ] 402. `sort-ascending` · UI & Layout · variant of `sort`
+- [~] 402. `sort-ascending` · UI & Layout · variant of `sort`
 - [ ] 403. `camera-flip` · Media & Playback · variant of `camera`
 - [ ] 404. `credit-card-x` · Commerce & Payments · variant of `credit-card`
 - [ ] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard`
