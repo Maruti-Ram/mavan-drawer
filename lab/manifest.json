@@ -797,6 +797,8 @@
     "sliders-5",
     "sliders-5-filled",
     "sliders-filled",
+    "sort-ascending",
+    "sort-ascending-filled",
     "sparkle",
     "sparkle-2",
     "sparkle-2-filled",
@@ -47505,6 +47507,134 @@
       "ratio": null,
       "gap": null
     },
+    "sort-ascending": {
+      "paths": [
+        "M5.25 8H7",
+        "M5.25 12.5H9",
+        "M5.25 17H11",
+        "M10.25 9.19L13.97 5.47A0.75 0.75 0 0 1 15.03 5.47L18.75 9.19",
+        "M14.5 5.25V18.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.25 8H7\"/> <path d=\"M5.25 12.5H9\"/> <path d=\"M5.25 17H11\"/> <path d=\"M10.25 9.19L13.97 5.47A0.75 0.75 0 0 1 15.03 5.47L18.75 9.19\"/> <path d=\"M14.5 5.25V18.75\"/>",
+      "mark": true,
+      "tags": [
+        "sort",
+        "ascending",
+        "order",
+        "arrow",
+        "arrow up",
+        "sort by",
+        "low to high"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4.5,
+        "y": 4.5,
+        "w": 15,
+        "h": 15
+      },
+      "bearing": {
+        "left": 4.5,
+        "top": 4.5,
+        "right": 4.5,
+        "bottom": 4.5
+      },
+      "optical": {
+        "left": {
+          "geometric": 4.5,
+          "recession": 0.03,
+          "optical": 4.52
+        },
+        "right": {
+          "geometric": 4.5,
+          "recession": 0.38,
+          "optical": 4.78
+        },
+        "top": {
+          "geometric": 4.5,
+          "recession": 0.75,
+          "optical": 5.06
+        },
+        "bottom": {
+          "geometric": 4.5,
+          "recession": 0.03,
+          "optical": 4.52
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "sort-ascending-filled": {
+      "paths": [
+        "M5.75 8H6.5",
+        "M5.75 12.5H8.5",
+        "M5.75 17H10.5",
+        "M10.75 8.98L13.62 6.11A1.25 1.25 0 0 1 15.38 6.11L18.25 8.98",
+        "M14.5 5.75V18.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.75 8H6.5\"/> <path d=\"M5.75 12.5H8.5\"/> <path d=\"M5.75 17H10.5\"/> <path d=\"M10.75 8.98L13.62 6.11A1.25 1.25 0 0 1 15.38 6.11L18.25 8.98\"/> <path d=\"M14.5 5.75V18.25\"/>",
+      "mark": true,
+      "tags": [
+        "sort",
+        "ascending",
+        "order",
+        "arrow",
+        "arrow up",
+        "sort by",
+        "low to high"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 4.5,
+        "y": 4.5,
+        "w": 15,
+        "h": 15
+      },
+      "bearing": {
+        "left": 4.5,
+        "top": 4.5,
+        "right": 4.5,
+        "bottom": 4.5
+      },
+      "optical": {
+        "left": {
+          "geometric": 4.5,
+          "recession": 0.05,
+          "optical": 4.54
+        },
+        "right": {
+          "geometric": 4.5,
+          "recession": 0.48,
+          "optical": 4.86
+        },
+        "top": {
+          "geometric": 4.5,
+          "recession": 0.95,
+          "optical": 5.21
+        },
+        "bottom": {
+          "geometric": 4.5,
+          "recession": 0.07,
+          "optical": 4.55
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "sparkle": {
       "paths": [
         "M11.28 3.29A0.75 0.75 0 0 1 12.72 3.29L13.68 7.35A4 4 0 0 0 16.65 10.32L20.71 11.28A0.75 0.75 0 0 1 20.71 12.72L16.65 13.68A4 4 0 0 0 13.68 16.65L12.72 20.71A0.75 0.75 0 0 1 11.28 20.71L10.32 16.65A4 4 0 0 0 7.35 13.68L3.29 12.72A0.75 0.75 0 0 1 3.29 11.28L7.35 10.32A4 4 0 0 0 10.32 7.35L11.28 3.29Z"
@@ -56462,6 +56592,8 @@
         "sliders-5",
         "sliders-5-filled",
         "sliders-filled",
+        "sort-ascending",
+        "sort-ascending-filled",
         "sparkle",
         "sparkle-2",
         "sparkle-2-filled",
@@ -103102,6 +103234,134 @@
           "ratio": null,
           "gap": null
         },
+        "sort-ascending": {
+          "paths": [
+            "M2.625 4H3.875",
+            "M2.625 8.5H5.375",
+            "M2.625 13H6.875",
+            "M6.625 5.815L9.553 2.814A0.625 0.625 0 0 1 10.447 2.814L13.375 5.815",
+            "M10 2.625V13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 4H3.875\"/> <path d=\"M2.625 8.5H5.375\"/> <path d=\"M2.625 13H6.875\"/> <path d=\"M6.625 5.815L9.553 2.814A0.625 0.625 0 0 1 10.447 2.814L13.375 5.815\"/> <path d=\"M10 2.625V13.375\"/>",
+          "mark": true,
+          "tags": [
+            "sort",
+            "ascending",
+            "order",
+            "arrow",
+            "arrow up",
+            "sort by",
+            "low to high"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.32,
+              "optical": 2.24
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.62,
+              "optical": 2.46
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "sort-ascending-filled": {
+          "paths": [
+            "M3 4H3.5",
+            "M3 8.5H5",
+            "M3 13H6.5",
+            "M7 5.59L9.29 3.3A1 1 0 0 1 10.71 3.3L13 5.59",
+            "M10 3V13"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 4H3.5\"/> <path d=\"M3 8.5H5\"/> <path d=\"M3 13H6.5\"/> <path d=\"M7 5.59L9.29 3.3A1 1 0 0 1 10.71 3.3L13 5.59\"/> <path d=\"M10 3V13\"/>",
+          "mark": true,
+          "tags": [
+            "sort",
+            "ascending",
+            "order",
+            "arrow",
+            "arrow up",
+            "sort by",
+            "low to high"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.4,
+              "optical": 2.3
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.77,
+              "optical": 2.58
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "sparkle": {
           "paths": [
             "M7.394 2.097A0.625 0.625 0 0 1 8.606 2.097L9.233 4.729A2.75 2.75 0 0 0 11.271 6.767L13.903 7.394A0.625 0.625 0 0 1 13.903 8.606L11.271 9.233A2.75 2.75 0 0 0 9.233 11.271L8.606 13.903A0.625 0.625 0 0 1 7.394 13.903L6.767 11.271A2.75 2.75 0 0 0 4.729 9.233L2.097 8.606A0.625 0.625 0 0 1 2.097 7.394L4.729 6.767A2.75 2.75 0 0 0 6.767 4.729L7.394 2.097Z"
@@ -112048,6 +112308,8 @@
         "sliders-5",
         "sliders-5-filled",
         "sliders-filled",
+        "sort-ascending",
+        "sort-ascending-filled",
         "sparkle",
         "sparkle-2",
         "sparkle-2-filled",
@@ -158715,6 +158977,134 @@
           "ratio": null,
           "gap": null
         },
+        "sort-ascending": {
+          "paths": [
+            "M4 6H5.5",
+            "M4 10.5H7.25",
+            "M4 15H9",
+            "M8.5 7.44L11.72 4.22A0.75 0.75 0 0 1 12.78 4.22L16 7.44",
+            "M12.25 4V16"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4 6H5.5\"/> <path d=\"M4 10.5H7.25\"/> <path d=\"M4 15H9\"/> <path d=\"M8.5 7.44L11.72 4.22A0.75 0.75 0 0 1 12.78 4.22L16 7.44\"/> <path d=\"M12.25 4V16\"/>",
+          "mark": true,
+          "tags": [
+            "sort",
+            "ascending",
+            "order",
+            "arrow",
+            "arrow up",
+            "sort by",
+            "low to high"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3.25,
+            "y": 3.25,
+            "w": 13.5,
+            "h": 13.5
+          },
+          "bearing": {
+            "left": 3.25,
+            "top": 3.25,
+            "right": 3.25,
+            "bottom": 3.25
+          },
+          "optical": {
+            "left": {
+              "geometric": 3.25,
+              "recession": 0.04,
+              "optical": 3.28
+            },
+            "right": {
+              "geometric": 3.25,
+              "recession": 0.36,
+              "optical": 3.52
+            },
+            "top": {
+              "geometric": 3.25,
+              "recession": 0.72,
+              "optical": 3.79
+            },
+            "bottom": {
+              "geometric": 3.25,
+              "recession": 0.04,
+              "optical": 3.28
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "sort-ascending-filled": {
+          "paths": [
+            "M4.25 6H5.25",
+            "M4.25 10.5H7",
+            "M4.25 15H8.75",
+            "M8.75 7.34L11.54 4.55A1 1 0 0 1 12.96 4.55L15.75 7.34",
+            "M12.25 4.25V15.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 6H5.25\"/> <path d=\"M4.25 10.5H7\"/> <path d=\"M4.25 15H8.75\"/> <path d=\"M8.75 7.34L11.54 4.55A1 1 0 0 1 12.96 4.55L15.75 7.34\"/> <path d=\"M12.25 4.25V15.75\"/>",
+          "mark": true,
+          "tags": [
+            "sort",
+            "ascending",
+            "order",
+            "arrow",
+            "arrow up",
+            "sort by",
+            "low to high"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3.25,
+            "y": 3.25,
+            "w": 13.5,
+            "h": 13.5
+          },
+          "bearing": {
+            "left": 3.25,
+            "top": 3.25,
+            "right": 3.25,
+            "bottom": 3.25
+          },
+          "optical": {
+            "left": {
+              "geometric": 3.25,
+              "recession": 0.05,
+              "optical": 3.29
+            },
+            "right": {
+              "geometric": 3.25,
+              "recession": 0.43,
+              "optical": 3.57
+            },
+            "top": {
+              "geometric": 3.25,
+              "recession": 0.83,
+              "optical": 3.87
+            },
+            "bottom": {
+              "geometric": 3.25,
+              "recession": 0.05,
+              "optical": 3.29
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "sparkle": {
           "paths": [
             "M9.28 3.29A0.75 0.75 0 0 1 10.72 3.29L11.32 6.16A3.25 3.25 0 0 0 13.84 8.68L16.71 9.28A0.75 0.75 0 0 1 16.71 10.72L13.84 11.32A3.25 3.25 0 0 0 11.32 13.84L10.72 16.71A0.75 0.75 0 0 1 9.28 16.71L8.68 13.84A3.25 3.25 0 0 0 6.16 11.32L3.29 10.72A0.75 0.75 0 0 1 3.29 9.28L6.16 8.68A3.25 3.25 0 0 0 8.68 6.16L9.28 3.29Z"
@@ -167667,6 +168057,8 @@
         "sliders-5",
         "sliders-5-filled",
         "sliders-filled",
+        "sort-ascending",
+        "sort-ascending-filled",
         "sparkle",
         "sparkle-2",
         "sparkle-2-filled",
@@ -214375,6 +214767,134 @@
           "ratio": null,
           "gap": null
         },
+        "sort-ascending": {
+          "paths": [
+            "M5.25 8H7",
+            "M5.25 12.5H9",
+            "M5.25 17H11",
+            "M10.25 9.19L13.97 5.47A0.75 0.75 0 0 1 15.03 5.47L18.75 9.19",
+            "M14.5 5.25V18.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 8H7\"/> <path d=\"M5.25 12.5H9\"/> <path d=\"M5.25 17H11\"/> <path d=\"M10.25 9.19L13.97 5.47A0.75 0.75 0 0 1 15.03 5.47L18.75 9.19\"/> <path d=\"M14.5 5.25V18.75\"/>",
+          "mark": true,
+          "tags": [
+            "sort",
+            "ascending",
+            "order",
+            "arrow",
+            "arrow up",
+            "sort by",
+            "low to high"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.5,
+            "y": 4.5,
+            "w": 15,
+            "h": 15
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 4.5,
+            "right": 4.5,
+            "bottom": 4.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 0.03,
+              "optical": 4.52
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 0.38,
+              "optical": 4.78
+            },
+            "top": {
+              "geometric": 4.5,
+              "recession": 0.75,
+              "optical": 5.06
+            },
+            "bottom": {
+              "geometric": 4.5,
+              "recession": 0.03,
+              "optical": 4.52
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "sort-ascending-filled": {
+          "paths": [
+            "M5.75 8H6.5",
+            "M5.75 12.5H8.5",
+            "M5.75 17H10.5",
+            "M10.75 8.98L13.62 6.11A1.25 1.25 0 0 1 15.38 6.11L18.25 8.98",
+            "M14.5 5.75V18.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 8H6.5\"/> <path d=\"M5.75 12.5H8.5\"/> <path d=\"M5.75 17H10.5\"/> <path d=\"M10.75 8.98L13.62 6.11A1.25 1.25 0 0 1 15.38 6.11L18.25 8.98\"/> <path d=\"M14.5 5.75V18.25\"/>",
+          "mark": true,
+          "tags": [
+            "sort",
+            "ascending",
+            "order",
+            "arrow",
+            "arrow up",
+            "sort by",
+            "low to high"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 4.5,
+            "y": 4.5,
+            "w": 15,
+            "h": 15
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 4.5,
+            "right": 4.5,
+            "bottom": 4.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 0.05,
+              "optical": 4.54
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 0.48,
+              "optical": 4.86
+            },
+            "top": {
+              "geometric": 4.5,
+              "recession": 0.95,
+              "optical": 5.21
+            },
+            "bottom": {
+              "geometric": 4.5,
+              "recession": 0.07,
+              "optical": 4.55
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "sparkle": {
           "paths": [
             "M11.28 3.29A0.75 0.75 0 0 1 12.72 3.29L13.68 7.35A4 4 0 0 0 16.65 10.32L20.71 11.28A0.75 0.75 0 0 1 20.71 12.72L16.65 13.68A4 4 0 0 0 13.68 16.65L12.72 20.71A0.75 0.75 0 0 1 11.28 20.71L10.32 16.65A4 4 0 0 0 7.35 13.68L3.29 12.72A0.75 0.75 0 0 1 3.29 11.28L7.35 10.32A4 4 0 0 0 10.32 7.35L11.28 3.29Z"
@@ -229086,8 +229606,8 @@
       "section": "D · The rest, by audit rank",
       "category": "UI & Layout",
       "base": "sort",
-      "note": null,
-      "status": "review"
+      "note": "approved 2026-09-29",
+      "status": "done"
     },
     {
       "n": 403,

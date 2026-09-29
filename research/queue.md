@@ -756,7 +756,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 399. `folder-up` · Files & Folders · variant of `folder`
 - [ ] 400. `message-alert` · Communication · variant of `message`
 - [ ] 401. `note-plus` · Files & Folders · variant of `note`
-- [~] 402. `sort-ascending` · UI & Layout · variant of `sort`
+- [x] 402. `sort-ascending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [ ] 403. `camera-flip` · Media & Playback · variant of `camera`
 - [ ] 404. `credit-card-x` · Commerce & Payments · variant of `credit-card`
 - [ ] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard`
