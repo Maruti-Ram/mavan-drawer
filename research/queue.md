@@ -457,7 +457,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 116. `wrench` · Development & Infra — approved 2026-09-29
 - [x] 116. `wrench-2` · Development & Infra · variant of `wrench` — Shorter handle · approved 2026-09-29
 - [x] 116. `wrench-3` · Development & Infra · variant of `wrench` — Round horns · approved 2026-09-29
-- [~] 117. `sort` · UI & Layout
+- [x] 117. `sort` · UI & Layout — approved 2026-09-29
+- [x] 117. `sort-2` · UI & Layout · variant of `sort` — Cut and staggered · approved 2026-09-29
 - [x] 118. `shield` · Users & Access — approved 2026-09-29
 - [x] 118. `shield-2` · Users & Access · variant of `shield` — Crowned top · approved 2026-09-29
 - [x] 119. `export` · Files & Folders — approved 2026-09-29
