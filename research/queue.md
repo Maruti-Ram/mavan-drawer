@@ -787,7 +787,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 430. `link-off` · Editing & Text · variant of `link`
 - [ ] 431. `mail-open` · Communication · variant of `mail`
 - [ ] 432. `scan-face` · Users & Access · variant of `scan`
-- [ ] 433. `sort-alpha-descending` · UI & Layout · variant of `sort`
+- [x] 433. `sort-alpha-descending` · UI & Layout · variant of `sort` — approved 2026-10-03
 - [ ] 434. `user-search` · Users & Access · variant of `user`
 - [ ] 435. `battery-full` · Devices & Hardware · variant of `battery`
 - [ ] 436. `battery-low` · Devices & Hardware · variant of `battery`
@@ -858,3 +858,6 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 493. `layout-sidebar-4` · variant of `layout-sidebar` — Third, solid page · approved 2026-09-26
 - [x] 493. `layout-sidebar-5` · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
 - [x] 495. `sort-3` — added 2026-10-03 · approved 2026-10-03
+- [x] 496. `sort-alpha-ascending` — added 2026-10-03 · approved 2026-10-03
+- [x] 497. `sort-numeric-ascending` — added 2026-10-03 · approved 2026-10-03
+- [x] 498. `sort-numeric-descending` — added 2026-10-03 · approved 2026-10-03
