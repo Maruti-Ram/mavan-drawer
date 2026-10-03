@@ -359,6 +359,8 @@
     "external-link-filled",
     "eye",
     "eye-filled",
+    "face-neutral",
+    "face-neutral-filled",
     "face-smile",
     "face-smile-filled",
     "file",
@@ -21128,6 +21130,133 @@
           "geometric": 4,
           "recession": 0,
           "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "face-neutral": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M9.75 9V10.5",
+        "M14.25 9V10.5",
+        "M8.25 15.75H15.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M9.75 9V10.5\"/> <path d=\"M14.25 9V10.5\"/> <path d=\"M8.25 15.75H15.75\"/>",
+      "mark": false,
+      "tags": [
+        "dash eyes",
+        "flat mouth",
+        "neutral",
+        "meh",
+        "indifferent",
+        "expression"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 9,
+        "h": 8.25
+      },
+      "ratio": {
+        "w": 0.45,
+        "h": 0.41
+      },
+      "gap": null
+    },
+    "face-neutral-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM13.25 9L13.25 10.5A1 1 0 0 0 15.25 10.5L15.25 9A1 1 0 0 0 13.25 9ZM8.25 14.75L15.75 14.75A1 1 0 0 1 15.75 16.75L8.25 16.75A1 1 0 0 1 8.25 14.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM13.25 9L13.25 10.5A1 1 0 0 0 15.25 10.5L15.25 9A1 1 0 0 0 13.25 9ZM8.25 14.75L15.75 14.75A1 1 0 0 1 15.75 16.75L8.25 16.75A1 1 0 0 1 8.25 14.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "dash eyes",
+        "flat mouth",
+        "neutral",
+        "meh",
+        "indifferent",
+        "expression"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -58354,6 +58483,8 @@
         "external-link-filled",
         "eye",
         "eye-filled",
+        "face-neutral",
+        "face-neutral-filled",
         "face-smile",
         "face-smile-filled",
         "file",
@@ -79090,6 +79221,133 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "face-neutral": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M6.375 5.875V7.125",
+            "M9.625 5.875V7.125",
+            "M5.625 10.625H10.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M6.375 5.875V7.125\"/> <path d=\"M9.625 5.875V7.125\"/> <path d=\"M5.625 10.625H10.375\"/>",
+          "mark": false,
+          "tags": [
+            "dash eyes",
+            "flat mouth",
+            "neutral",
+            "meh",
+            "indifferent",
+            "expression"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 6,
+            "h": 6
+          },
+          "ratio": {
+            "w": 0.43,
+            "h": 0.43
+          },
+          "gap": null
+        },
+        "face-neutral-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5.5 5.875L5.5 7.125A0.875 0.875 0 0 0 7.25 7.125L7.25 5.875A0.875 0.875 0 0 0 5.5 5.875ZM8.75 5.875L8.75 7.125A0.875 0.875 0 0 0 10.5 7.125L10.5 5.875A0.875 0.875 0 0 0 8.75 5.875ZM5.625 9.75L10.375 9.75A0.875 0.875 0 0 1 10.375 11.5L5.625 11.5A0.875 0.875 0 0 1 5.625 9.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5.5 5.875L5.5 7.125A0.875 0.875 0 0 0 7.25 7.125L7.25 5.875A0.875 0.875 0 0 0 5.5 5.875ZM8.75 5.875L8.75 7.125A0.875 0.875 0 0 0 10.5 7.125L10.5 5.875A0.875 0.875 0 0 0 8.75 5.875ZM5.625 9.75L10.375 9.75A0.875 0.875 0 0 1 10.375 11.5L5.625 11.5A0.875 0.875 0 0 1 5.625 9.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "dash eyes",
+            "flat mouth",
+            "neutral",
+            "meh",
+            "indifferent",
+            "expression"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -116276,6 +116534,8 @@
         "external-link-filled",
         "eye",
         "eye-filled",
+        "face-neutral",
+        "face-neutral-filled",
         "face-smile",
         "face-smile-filled",
         "file",
@@ -137020,6 +137280,133 @@
               "geometric": 4,
               "recession": 0,
               "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "face-neutral": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M8.25 7.5V8.75",
+            "M11.75 7.5V8.75",
+            "M7.25 13H12.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M8.25 7.5V8.75\"/> <path d=\"M11.75 7.5V8.75\"/> <path d=\"M7.25 13H12.75\"/>",
+          "mark": false,
+          "tags": [
+            "dash eyes",
+            "flat mouth",
+            "neutral",
+            "meh",
+            "indifferent",
+            "expression"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 7,
+            "h": 7
+          },
+          "ratio": {
+            "w": 0.44,
+            "h": 0.44
+          },
+          "gap": null
+        },
+        "face-neutral-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7.37 7.5L7.37 8.75A0.88 0.88 0 0 0 9.13 8.75L9.13 7.5A0.88 0.88 0 0 0 7.37 7.5ZM10.87 7.5L10.87 8.75A0.88 0.88 0 0 0 12.63 8.75L12.63 7.5A0.88 0.88 0 0 0 10.87 7.5ZM7.25 12.12L12.75 12.12A0.88 0.88 0 0 1 12.75 13.88L7.25 13.88A0.88 0.88 0 0 1 7.25 12.12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7.37 7.5L7.37 8.75A0.88 0.88 0 0 0 9.13 8.75L9.13 7.5A0.88 0.88 0 0 0 7.37 7.5ZM10.87 7.5L10.87 8.75A0.88 0.88 0 0 0 12.63 8.75L12.63 7.5A0.88 0.88 0 0 0 10.87 7.5ZM7.25 12.12L12.75 12.12A0.88 0.88 0 0 1 12.75 13.88L7.25 13.88A0.88 0.88 0 0 1 7.25 12.12Z\"/>",
+          "mark": false,
+          "tags": [
+            "dash eyes",
+            "flat mouth",
+            "neutral",
+            "meh",
+            "indifferent",
+            "expression"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -174231,6 +174618,8 @@
         "external-link-filled",
         "eye",
         "eye-filled",
+        "face-neutral",
+        "face-neutral-filled",
         "face-smile",
         "face-smile-filled",
         "file",
@@ -195000,6 +195389,133 @@
               "geometric": 4,
               "recession": 0,
               "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "face-neutral": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M9.75 9V10.5",
+            "M14.25 9V10.5",
+            "M8.25 15.75H15.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M9.75 9V10.5\"/> <path d=\"M14.25 9V10.5\"/> <path d=\"M8.25 15.75H15.75\"/>",
+          "mark": false,
+          "tags": [
+            "dash eyes",
+            "flat mouth",
+            "neutral",
+            "meh",
+            "indifferent",
+            "expression"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 9,
+            "h": 8.25
+          },
+          "ratio": {
+            "w": 0.45,
+            "h": 0.41
+          },
+          "gap": null
+        },
+        "face-neutral-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM13.25 9L13.25 10.5A1 1 0 0 0 15.25 10.5L15.25 9A1 1 0 0 0 13.25 9ZM8.25 14.75L15.75 14.75A1 1 0 0 1 15.75 16.75L8.25 16.75A1 1 0 0 1 8.25 14.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM13.25 9L13.25 10.5A1 1 0 0 0 15.25 10.5L15.25 9A1 1 0 0 0 13.25 9ZM8.25 14.75L15.75 14.75A1 1 0 0 1 15.75 16.75L8.25 16.75A1 1 0 0 1 8.25 14.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "dash eyes",
+            "flat mouth",
+            "neutral",
+            "meh",
+            "indifferent",
+            "expression"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -235880,8 +236396,8 @@
       "section": "D · The rest, by audit rank",
       "category": "Communication",
       "base": null,
-      "note": null,
-      "status": "todo"
+      "note": "approved 2026-10-04",
+      "status": "done"
     },
     {
       "n": 126,
