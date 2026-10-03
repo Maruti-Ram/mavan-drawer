@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Glyph sheet</title>
+<style>
+/* A contact sheet for the four letterform studies (glyph-a · glyph-z · glyph-0 · glyph-9).
+   One cell per candidate, 25 to a board, six across, so the whole study is scannable in one
+   scroll. Each cell carries three reads of the same drawing:
+
+     1. the MAGNIFIED 16 raster — the character rendered into a 16x16 canvas and blown up with
+        smoothing off, so every pixel and its grey value is visible. This is the diagnostic:
+        a counter that has closed, a hollow middle or a soft centre line only shows up here;
+     2. ACTUAL SIZE at 24 · 20 · 16, unscaled — the reality check the magnified view cannot give;
+     3. IN CONTEXT — the glyph at true 16 in a 28px button and inline in 13px text, the pairing
+        lab/icon.html uses for the 16 master, so weight and cap height read against type.
+
+   RECOMMENDATIONS ride on the cell, so the shortlist is visible while scanning the 25. A draft
+   may carry an optional named export beside its default:
+
+       export const recommend = [{ id: 'I', why: 'one line' }, { id: 'R', rank: 1, why: '…' }];
+
+   Every listed candidate gets the SAME "recommended" tag — it says this one works, not what
+   place it came; the set is whatever size the board earned. `rank` is optional and only orders
+   the shortlist when the filter is on; unranked members hold the board's own A–Y order, and it
+   is never printed on the cell. With no export, a candidate whose own `note` carries the words
+   "(recommended)" is picked up instead, and that sentence becomes its `why`. With neither, the
+   sheet renders exactly as before and the filter button is simply inert.
+
+   LOCKED. A draft may also carry `locked: 'S'` on its default export: the candidate Maruti chose,
+   which closes the study. That cell gets a "Locked" pill (same place and shape as "recommended",
+   in its own colour) and a matching border, replaces the recommended pill if it was one, stays
+   on the sheet even when the filter is on Recommended, and is named in the header. A draft
+   without `locked` renders exactly as before.
+
+   Reads lab/drafts/batch/glyph-<x>.js. ?glyph=a (also ?glyph=0, ?icon=glyph-a); default a.
+   The a · z · 0 · 9 and Outline | Filled switches re-render in place — no reload, no reflow. */
+/* --lock / --lock-bg are the "locked" pill: amber where --rec is green, so the two never read as one. */
+/* --rec / --rec-bg are lab/optical-shift.html's "recommended" pill, unchanged, so the word
+   means the same thing and looks the same wherever a sheet says it. */
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--hover:rgba(0,0,0,.04);--px-grid:rgba(0,0,0,.14);--rec:#15803d;--rec-bg:#dcfce7;--lock:#b45309;--lock-bg:#fef3c7}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--hover:rgba(255,255,255,.05);--px-grid:rgba(255,255,255,.16);--rec:#4ade80;--rec-bg:#14532d;--lock:#fbbf24;--lock-bg:#78350f}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--hover:rgba(255,255,255,.05);--px-grid:rgba(255,255,255,.16);--rec:#4ade80;--rec-bg:#14532d;--lock:#fbbf24;--lock-bg:#78350f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--muted);font:11px system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* header */
+.bar{position:sticky;top:0;z-index:5;display:flex;gap:12px 20px;align-items:center;flex-wrap:wrap;
+     justify-content:space-between;padding:12px 40px;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .head{display:flex;gap:10px;align-items:baseline;min-width:0;flex:1 1 320px}
+.bar b{color:var(--ink);font-size:13px;font-weight:600;white-space:nowrap}
+.bar .q{color:var(--muted);line-height:1.45;min-width:0;
+        display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ctrls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.bar .sep{width:1px;height:18px;background:var(--line)}
+.bar .cap{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.grp{display:flex;gap:4px;align-items:center}
+button{font:inherit;border:1px solid var(--line);background:var(--panel);color:var(--muted);
+       border-radius:6px;padding:4px 10px;cursor:pointer;min-width:30px}
+button:hover{background:var(--hover)}
+button.on{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+button:disabled{opacity:.4;cursor:default;background:var(--panel)}
+button b{font-variant-numeric:tabular-nums;font-weight:600}
+kbd{font:10px ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid var(--line);border-radius:3px;
+    padding:0 3px;color:var(--faint)}
+
+/* the sheet */
+#sheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--cw),1fr));
+       gap:20px;padding:20px 40px 60px;align-items:start}
+.cell{background:var(--panel);border:1px solid var(--line);border-radius:8px;
+      padding:12px;display:flex;flex-direction:column;align-items:center;gap:10px}
+/* A recommended cell: the sheet's own border turns, and the pill says the word. Quiet enough
+   to sit in a grid of 25, findable enough to catch the eye on a scroll-past. */
+.cell.rec{border-color:var(--rec);background:color-mix(in srgb,var(--rec) 6%,var(--panel))}
+.cell.lock{border-color:var(--lock);background:color-mix(in srgb,var(--lock) 6%,var(--panel))}
+.tag{font-size:9.5px;font-weight:600;padding:1px 7px;border-radius:99px;letter-spacing:.02em;
+     background:var(--rec-bg);color:var(--rec)}
+.tag.lock{background:var(--lock-bg);color:var(--lock)}
+.cell.lock .why{color:var(--lock)}
+.why{width:100%;text-align:center;color:var(--rec);font-size:10px;line-height:1.4;
+     display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 1 — the magnified 16 raster */
+.px{position:relative;width:var(--pw);height:var(--pw);flex:none;background:var(--inset);
+    border:1px solid var(--line);border-radius:3px}
+.px canvas{display:block;width:100%;height:100%;image-rendering:pixelated;border-radius:2px}
+.px .net{position:absolute;inset:0;pointer-events:none;border-radius:2px;
+  background:repeating-linear-gradient(to right,var(--px-grid) 0 1px,transparent 1px var(--z)),
+             repeating-linear-gradient(to bottom,var(--px-grid) 0 1px,transparent 1px var(--z))}
+body:not(.net) .px .net{display:none}
+
+/* the label */
+.lab{width:100%;text-align:center;line-height:1.35}
+.lab b{color:var(--ink);font-size:12px;font-weight:600}
+.lab span{color:var(--muted);display:block;font-size:10.5px;
+          overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* 2 — actual size, all three masters */
+.real{display:flex;gap:12px;align-items:flex-end;justify-content:center;color:var(--ink);
+      width:100%;padding:8px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.real figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.real figcaption{color:var(--faint);font-size:9.5px;letter-spacing:.04em}
+.real svg{outline:1px solid var(--line)}
+
+/* 3 — in context, at the 16 master's own pairing (icon.html: 13px text, 28px control) */
+.ctx{display:flex;gap:8px;align-items:center;justify-content:center;width:100%;color:var(--ink);
+     font-size:13px;white-space:nowrap}
+.ctx .sq{display:inline-grid;place-items:center;width:28px;height:28px;flex:none;
+         border-radius:6px;background:var(--hover)}
+.ctx .inl{display:inline-flex;align-items:center;gap:5px;min-width:0;overflow:hidden}
+.ctx .inl svg{flex:none;vertical-align:-.15em}
+
+.gone{display:grid;place-items:center;color:var(--faint);font-size:10px;
+      border:1px dashed var(--line);border-radius:3px}
+svg{display:block;flex:none}
+.fail{max-width:540px;margin:14vh auto;padding:0 24px;font:14px/1.6 system-ui,sans-serif;color:var(--muted)}
+.fail b{color:var(--ink)}
+</style></head><body>
+
+<div class="bar">
+  <span class="head"><b id="title">Glyph sheet</b><span class="q" id="question"></span></span>
+  <span class="ctrls">
+  <span class="cap">Glyph</span><span class="grp" id="glyphs"></span>
+  <span class="sep"></span>
+  <span class="cap">Style</span><span class="grp" id="styles">
+    <button data-style="outline">Outline</button><button data-style="filled">Filled</button></span>
+  <span class="sep"></span>
+  <span class="cap">Zoom</span><span class="grp" id="zooms"></span>
+  <span class="sep"></span>
+  <span class="cap">Show</span><span class="grp" id="filter">
+    <button data-only="0">All <b id="nAll">0</b></button>
+    <button data-only="1">Recommended <b id="nRec">0</b></button></span>
+  <span class="sep"></span>
+  <button id="net">Pixel grid</button>
+  <button id="theme">Dark</button>
+  <span class="cap"><kbd>F</kbd> filled · <kbd>,</kbd><kbd>.</kbd> glyph</span>
+  </span>
+</div>
+<div id="sheet"></div>
+
+<script type="module">
+// Cache-buster: the lab is a dev page and these modules are edited constantly.
+const { strokeOf } = await import(`../tools/masters.mjs?v=${Date.now()}`);
+
+const GLYPHS = ['a', 'z', '0', '9'];
+const MASTERS = [24, 20, 16];
+const RASTER = 16;                       // the master the contact sheet rasterises — the hard one
+const ZOOMS = [6, 8, 10];
+
+const q = new URLSearchParams(location.search);
+const wanted = (q.get('glyph') ?? q.get('icon') ?? 'a').trim().toLowerCase().replace(/^glyph-/, '');
+let glyph = GLYPHS.includes(wanted) ? wanted : 'a';
+let style = 'outline';
+let zoom = 8;
+let only = false;                        // show only the recommended shortlist
+let gen = 0;                             // rasterising is async; a stale pass must not paint
+
+const drafts = new Map();
+async function load(g) {
+  if (!drafts.has(g)) drafts.set(g, await import(`./drafts/batch/glyph-${g}.js?${Date.now()}`));
+  return drafts.get(g);                  // the whole module: `default` is the board, `recommend` optional
+}
+
+/* ───────── the recommendations ─────────
+   Preferred: the draft's own `export const recommend = [{ id, rank?, why }]`. Fallback, until the
+   boards carry one: a candidate whose note says "(recommended)", with that sentence as the why.
+   Either way every member is tagged the same — the mark says this one works, not what place it
+   came — and `rank` only orders the shortlist. Returns a Map id -> { why, rank }. */
+function recommended(mod, candidates) {
+  const out = new Map();
+  const listed = Array.isArray(mod?.recommend) ? mod.recommend : null;
+  if (listed) {
+    for (const r of listed) {
+      if (!r?.id || !candidates.some((c) => c.id === r.id)) continue;   // a stale id is skipped, not drawn
+      out.set(r.id, { why: (r.why ?? '').trim(), rank: Number.isFinite(r.rank) ? r.rank : null });
+    }
+    return out;
+  }
+  for (const c of candidates) {
+    const note = c.note ?? '';
+    if (!/\(recommended\)/i.test(note)) continue;
+    // The sentence the marker sits in, minus the marker, is the closest thing to a stated why.
+    // Some notes park "(recommended)" as a sentence of its own, which cleans to nothing — then
+    // the sentence before it is the one that gave the reason.
+    const parts = note.split(/(?<=[.!?])\s+/);
+    const i = parts.findIndex((s) => /\(recommended\)/i.test(s));
+    const clean = (s) => (s ?? '').replace(/\(recommended\)/ig, '').replace(/\s+/g, ' ').trim();
+    out.set(c.id, { why: clean(parts[i]) || clean(parts[i - 1]), rank: null });
+  }
+  return out;
+}
+// Ranked members first, in rank order; everyone else holds the board's own A–Y order.
+const shortlist = (candidates, recs, locked) => candidates.filter((c) => recs.has(c.id) || c.id === locked)
+  .sort((a, b) => (recs.get(a.id)?.rank ?? 1e9) - (recs.get(b.id)?.rank ?? 1e9));
+
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+
+/* ───────── drawing, exactly as lab/icon.html reads a draft ───────── */
+// masters: { 24: [stroke d…] } is the outline, at that master's own weight (1.5 · 1.5 · 1.25).
+// filled:  { 24: { fill: [d…], stroke: [d…], weight } } | 'outline'.
+function drawing(c, s, m) {
+  const o = c.masters?.[m];
+  if (s === 'outline') return o?.length ? { stroke: o, fill: [], sw: strokeOf(m) } : null;
+  if (c.filled === 'outline') return o?.length ? { stroke: o, fill: [], sw: strokeOf(m) } : null;
+  const d = c.filled?.[m];
+  if (!d || !(d.fill?.length || d.stroke?.length)) return null;
+  return { stroke: d.stroke ?? [], fill: d.fill ?? [], sw: d.weight ?? strokeOf(m) };
+}
+const paint = (dr) => dr.fill.map((d) => `<path fill="currentColor" fill-rule="evenodd" d="${d}"/>`).join('')
+  + (dr.stroke.length ? `<g fill="none" stroke="currentColor" stroke-width="${dr.sw}" stroke-linecap="round" stroke-linejoin="round">${
+      dr.stroke.map((d) => `<path d="${d}"/>`).join('')}</g>` : '');
+const svg = (m, px, body) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}">${body}</svg>`;
+// A master this candidate was not drawn at is said plainly, never left as a hole.
+const gone = (px, what = 'not drawn') => `<span class="gone" style="width:${px}px;height:${px}px">${px >= 40 ? what : '—'}</span>`;
+const at = (c, m, px = m) => { const dr = drawing(c, style, m); return dr ? svg(m, px, paint(dr)) : gone(px); };
+
+/* ───────── the magnified raster ─────────
+   Honest: the path is rendered into a 16x16 canvas — one unit, one pixel — and that bitmap is
+   blown up with smoothing off. Nothing here scales the vector. A standalone data: URL inherits
+   no colour, so currentColor would come out black; bake the theme's own ink in, as icon.html does. */
+async function rasterise(cv, c, mine) {
+  const dr = drawing(c, style, RASTER);
+  const ctx = cv.getContext('2d');
+  const dpr = Math.max(1, Math.round(devicePixelRatio || 1));
+  cv.width = RASTER * zoom * dpr; cv.height = RASTER * zoom * dpr;
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  if (!dr) return;
+  const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000';
+  const src = `<svg xmlns="http://www.w3.org/2000/svg" width="${RASTER}" height="${RASTER}" viewBox="0 0 ${RASTER} ${RASTER}">${
+    paint(dr).replaceAll('currentColor', ink)}</svg>`;
+  const img = new Image();
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`;
+  try { await img.decode(); } catch { return; }
+  if (mine !== gen) return;                                  // the sheet moved on
+  const off = document.createElement('canvas'); off.width = off.height = RASTER;
+  off.getContext('2d').drawImage(img, 0, 0, RASTER, RASTER); // the honest 16px bitmap
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(off, 0, 0, RASTER, RASTER, 0, 0, cv.width, cv.height);
+}
+
+/* ───────── the sheet ───────── */
+const CONTEXT_TEXT = { a: 'Sort by name', z: 'Sort by name', 0: 'Sort by number', 9: 'Sort by number' };
+
+async function render() {
+  const mine = ++gen;
+  let mod;
+  try { mod = await load(glyph); } catch { mod = null; }
+  if (mine !== gen) return;
+  const draft = mod?.default;
+  const sheet = document.getElementById('sheet');
+  const nAll = document.getElementById('nAll'), nRec = document.getElementById('nRec');
+  if (!draft?.candidates?.length) {
+    document.getElementById('question').textContent = '';
+    nAll.textContent = nRec.textContent = '0';
+    sheet.innerHTML = `<div class="fail"><b>No draft at ./drafts/batch/glyph-${esc(glyph)}.js</b><br>
+      Nothing to lay out. Start the board, then reload.</div>`;
+    return;
+  }
+  const recs = recommended(mod, draft.candidates);
+  const locked = typeof draft.locked === 'string' && draft.locked.trim() ? draft.locked.trim() : null;
+  nAll.textContent = draft.candidates.length;
+  nRec.textContent = recs.size;
+  // The shortlist button says its own size, so he sees how many there are before filtering.
+  // With none it is inert rather than hidden, so the header never changes shape between glyphs.
+  const recBtn = document.querySelector('[data-only="1"]');
+  recBtn.disabled = recs.size === 0;
+  recBtn.title = recs.size ? '' : 'This board carries no recommendations yet';
+  if (!recs.size) only = false;
+  markOn('[data-only]', (b) => (b.dataset.only === '1') === only);
+
+  document.getElementById('title').textContent =
+    `${draft.concept} · ${draft.candidates.length} candidates · ${style === 'filled' ? 'Filled' : 'Outline'}${locked ? ` · locked ${locked}` : ''}`;
+  document.getElementById('question').textContent = draft.question ?? '';
+  const verb = draft.context ?? CONTEXT_TEXT[glyph] ?? 'Sort by name';
+
+  // The locked candidate is never filtered out, recommended or not.
+  const list = only ? shortlist(draft.candidates, recs, locked) : draft.candidates;
+  sheet.innerHTML = list.map((c) => {
+    const r = recs.get(c.id), isLock = c.id === locked;
+    return `<div class="cell${isLock ? ' lock' : r ? ' rec' : ''}">
+      <div class="px"><canvas></canvas><div class="net"></div></div>
+      ${isLock ? '<span class="tag lock">Locked</span>' : r ? '<span class="tag">Recommended</span>' : ''}
+      <div class="lab"><b>${esc(c.id)}</b><span title="${esc(c.label)}">${esc(c.label)}</span></div>
+      ${r?.why ? `<div class="why" title="${esc(r.why)}">${esc(r.why)}</div>` : ''}
+      <div class="real">${MASTERS.map((m) => `<figure>${at(c, m)}<figcaption>${m}</figcaption></figure>`).join('')}</div>
+      <div class="ctx"><span class="sq">${at(c, 16)}</span><span class="inl">${at(c, 16)}${esc(verb)}</span></div>
+    </div>`;
+  }).join('');
+
+  const cvs = sheet.querySelectorAll('.px canvas');
+  list.forEach((c, i) => { if (cvs[i]) rasterise(cvs[i], c, mine); });
+}
+
+/* ───────── controls — each re-renders in place; cell geometry never depends on the state ───────── */
+function sizes() {
+  const r = document.documentElement.style;
+  r.setProperty('--z', `${zoom}px`);                       // one source pixel, in CSS px
+  r.setProperty('--pw', `${RASTER * zoom}px`);
+  r.setProperty('--cw', `${RASTER * zoom + 44}px`);        // cell padding + border, so 6 fit a desktop
+}
+const markOn = (sel, pred) => document.querySelectorAll(sel).forEach((b) => b.classList.toggle('on', pred(b)));
+
+document.getElementById('glyphs').innerHTML = GLYPHS.map((g) => `<button data-glyph="${g}">${g}</button>`).join('');
+document.getElementById('zooms').innerHTML = ZOOMS.map((z) => `<button data-zoom="${z}">${z}×</button>`).join('');
+
+function setGlyph(g) {
+  glyph = g; markOn('[data-glyph]', (b) => b.dataset.glyph === g);
+  history.replaceState(null, '', `?glyph=${g}`);
+  render();
+}
+document.getElementById('glyphs').onclick = (e) => { const b = e.target.closest('button'); if (b) setGlyph(b.dataset.glyph); };
+document.getElementById('styles').onclick = (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  style = b.dataset.style; markOn('[data-style]', (x) => x.dataset.style === style); render();
+};
+document.getElementById('zooms').onclick = (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  zoom = Number(b.dataset.zoom); markOn('[data-zoom]', (x) => Number(x.dataset.zoom) === zoom); sizes(); render();
+};
+document.getElementById('filter').onclick = (e) => {
+  const b = e.target.closest('button'); if (!b || b.disabled) return;
+  only = b.dataset.only === '1'; markOn('[data-only]', (x) => (x.dataset.only === '1') === only); render();
+};
+const nb = document.getElementById('net');
+nb.onclick = () => { nb.classList.toggle('on'); document.body.classList.toggle('net', nb.classList.contains('on')); };
+
+const tb = document.getElementById('theme');
+const setTheme = (t) => { document.documentElement.dataset.theme = t; tb.textContent = t === 'dark' ? 'Light' : 'Dark'; render(); };
+tb.onclick = () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.('input,textarea,select')) return;
+  if (e.key === 'f' || e.key === 'F') { style = style === 'filled' ? 'outline' : 'filled'; markOn('[data-style]', (x) => x.dataset.style === style); render(); }
+  else if (e.key === ',' || e.key === '.') {
+    const i = GLYPHS.indexOf(glyph) + (e.key === '.' ? 1 : GLYPHS.length - 1);
+    setGlyph(GLYPHS[i % GLYPHS.length]);
+  }
+});
+
+sizes();
+markOn('[data-glyph]', (b) => b.dataset.glyph === glyph);
+markOn('[data-style]', (b) => b.dataset.style === style);
+markOn('[data-zoom]', (b) => Number(b.dataset.zoom) === zoom);
+markOn('[data-only]', (b) => (b.dataset.only === '1') === only);
+setTheme(matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+</script>
+</body></html>

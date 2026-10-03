@@ -116,7 +116,7 @@ the board, and "more iterations" means adding candidates there. A sticky header 
 Stroke, Overlay and theme controls. The Construction panel is a grid: **sizes run down (24/20/16), styles across (Outline | Filled)**,
 so each outline sits beside its filled twin. Draft format: `masters: {24: [stroke d…]}` is the outline;
 `filled: {24: {fill: [d…], stroke: [d…]}}` (each fill entry is one evenodd shape with its holes) or
-`filled: 'outline'` for line-only icons. In context has a **Filled switch (F)** that swaps the style in place on the same rows; Compare has a Style dropdown (Outline / Filled / Both). The boards have a
+a line-only icon still needs a real filled twin at `FILLED_WEIGHT` — `filled: 'outline'` is **retired** and `draft-svg.mjs` throws on it. In context has a **Filled switch (F)** that swaps the style in place on the same rows; Compare has a Style dropdown (Outline / Filled / Both). The boards have a
 Layers menu (each guide and keyline switched separately), True size / Fit, and **Inspect**
 (rulers, Figma-style distances, click to pin, ink box, mass centre). Nothing may shift when
 Inspect toggles: the stats block has a fixed 2×2 + one-line shape. Then come the In context
