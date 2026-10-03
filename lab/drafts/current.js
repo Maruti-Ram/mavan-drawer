@@ -1,18 +1,18 @@
-// sort-3 — the symbol the sort board reserved this name for: a list and its control in one
-// mark (G's reading, Maruti 2026-10-03), with ONE change — the bars are LEVEL, because nothing
-// has been sorted yet. The directional siblings step them.
+// sort-3 — settled 2026-10-03. A list and its control in one mark, in the state where nothing
+// has been sorted: the lines sit at three different widths in an order no sorted list can
+// produce, and the set's own chevron pair says the column can be sorted.
 //
-// Everything here is G's own drawing. The bars keep its left flush, its three rows and its three
-// lengths; the caret pair and both filled treatments are taken verbatim, so the clearances G
-// measured still hold and this board only asks its one question.
+// Two decisions, both Maruti's, both made on boards of their own:
+//   the LINES   medium, long, short. sort-ascending and sort-descending are wedges; this is a
+//               bulge, so it cannot be misread as either. Of the six orders three distinct
+//               lengths allow, two are those wedges and this is one of the remaining four.
+//   the CHEVRON 45 degrees — what chevron-up and chevron-down actually ship at. The first
+//               drawing used 52.6, which is chevron-up-3, the steep variant; nothing chose it.
 //
-// THE QUESTION. B and C put the direction in the bars alone and never touch the mark. D and E say
-// it twice — stepped bars AND a single caret. B/C keep one mark across all three states, which is
-// what makes a toggling table header sit still; D/E are louder and unmistakable at 16, and are
-// what the shipped sort-ascending already does with its arrow.
-//
-// NOT this board's question: open carets (G) against solid triangles (H). Every candidate here is
-// drawn on G's open pair so that choice stays separate; it is the next one to make.
+// Dropped on the way: a reading where the mark changed with the direction (it measured as
+// sort-ascending redrawn — same elements, same bar order, only different numbers) and a
+// double-headed arrow (its two heads cannot hold §6's 1.5 at this width without the icon
+// growing taller than the family).
 
 export default {
   concept: "sort-3",
@@ -20,387 +20,84 @@ export default {
     "sort",
     "order",
     "arrange",
+    "unsorted",
     "table header",
     "list",
-    "caret",
-    "ascending",
-    "descending"
+    "chevron",
+    "caret"
   ],
-  set: {
-    A: "sort-3",
-    B: "sort-ascending-2",
-    C: "sort-descending-2",
-    D: "sort-ascending-2",
-    E: "sort-descending-2"
+  box: {
+    16: [
+      14,
+      9
+    ],
+    20: [
+      16,
+      11.02
+    ],
+    24: [
+      18,
+      11.52
+    ]
   },
-  question: "When the list is sorted, what shows the direction — the bars alone, or the bars and the mark together?",
+  question: "Settled 2026-10-03: the lines medium, long, short — out of order, because nothing has been sorted — beside the set’s own chevron at 45 degrees.",
   candidates: [
     {
-      id: "A",
-      label: "sort-3 · level",
-      note: "THE SHARED BASE, and the icon this board is named for. G with its three bars levelled to the longest — 8.5 · 7.5 · 6.5 of ink — because nothing has been sorted yet. The caret pair and the bars are G's own drawing, so the clearance G measured is held unchanged: bar ink ends at 11.5 · 10 · 7.5 and the caret pair starts at 13 · 11 · 9, which is 1.5 · 1 · 1.5 of air. [needs measuring: the 20 clearance, which G sized on the filled drawing]. Levelling costs the one thing the stepped stack gave for free — three equal lines read as `menu` until the carets are seen. (recommended as the base; the question is what B–E do with it)",
-      box: {
-        16: [
-          14,
-          9.736
-        ],
-        20: [
-          16,
-          11.57
-        ],
-        24: [
-          18,
-          13.54
-        ]
-      },
-      masters: {
-        16: [
-          "M1.625 4.5H6.875",
-          "M1.625 8H6.875",
-          "M1.625 11.5H6.875",
-          "M9.625 6.375L11.51 3.994A0.625 0.625 0 0 1 12.49 3.994L14.375 6.375",
-          "M9.625 9.625L11.51 12.006A0.625 0.625 0 0 0 12.49 12.006L14.375 9.625"
-        ],
-        20: [
-          "M2.75 5.5H8.75",
-          "M2.75 10H8.75",
-          "M2.75 14.5H8.75",
-          "M11.75 8L13.91 5.25A0.75 0.75 0 0 1 15.09 5.25L17.25 8",
-          "M11.75 12L13.91 14.75A0.75 0.75 0 0 0 15.09 14.75L17.25 12"
-        ],
-        24: [
-          "M3.75 7.5H10.75",
-          "M3.75 12H10.75",
-          "M3.75 16.5H10.75",
-          "M13.75 9.75L16.4 6.28A0.75 0.75 0 0 1 17.6 6.28L20.25 9.75",
-          "M13.75 14.25L16.4 17.72A0.75 0.75 0 0 0 17.6 17.72L20.25 14.25"
-        ]
-      },
-      filled: {
-        16: {
-          weight: 2,
-          stroke: [
-            "M2 4.5H6.5",
-            "M2 8H6.5",
-            "M2 11.5H6.5",
-            "M10 6L11.148 4.545A1.085 1.085 0 0 1 12.852 4.545L14 6",
-            "M10 10L11.148 11.455A1.085 1.085 0 0 0 12.852 11.455L14 10"
-          ]
-        },
-        20: {
-          weight: 2,
-          stroke: [
-            "M3 5.5H8.5",
-            "M3 10H8.5",
-            "M3 14.5H8.5",
-            "M12 7.75L13.3 5.85A1.45 1.45 0 0 1 15.7 5.85L17 7.75",
-            "M12 12.25L13.3 14.15A1.45 1.45 0 0 0 15.7 14.15L17 12.25"
-          ]
-        },
-        24: {
-          weight: 2.5,
-          stroke: [
-            "M4.25 7.5H10.25",
-            "M4.25 12H10.25",
-            "M4.25 16.5H10.25",
-            "M14.25 9.25L15.71 7.16A1.57 1.57 0 0 1 18.29 7.16L19.75 9.25",
-            "M14.25 14.75L15.71 16.84A1.57 1.57 0 0 0 18.29 16.84L19.75 14.75"
-          ]
-        }
-      }
-    },
-    {
       id: "B",
-      label: "ascending · bars alone",
-      note: "The bars carry the direction and the mark never changes: short at the top growing down, the way a sorted list reads from its first row — the same order the shipped `sort-ascending` uses. The caret pair is G's, untouched. Against E this is the cheaper family: one mark, three states, and a header that toggles only moves the bars.",
-      box: {
-        16: [
-          14,
-          9.736
-        ],
-        20: [
-          16,
-          11.57
-        ],
-        24: [
-          18,
-          13.54
-        ]
-      },
+      label: "classic 45° — the set’s own chevron",
+      note: "A list and its control in one mark, in the state where nothing has been sorted yet. THE LINES carry G's three lengths — 4.75 / 7 / 2.5 of centreline at 24, 4 / 6 / 2 at 20, 3.5 / 5.25 / 1.75 at 16 — in the order medium, long, short. That is one of the four orders a sorted list cannot produce: sort-ascending and sort-descending are both wedges, growing or shrinking all the way down, and this is a bulge. THE CHEVRONS are the set's own, at the angle chevron-up and chevron-down actually ship (44.95 · 45 · 45.5, the 16 leaning half a degree the way every 16 master in this set leans) — not chevron-up-3's 52, which is what the first drawing of this icon inherited without anything choosing it. Channel between the two carets 4.14 · 4.64 · 3.45, which is the tightest that keeps the pair taller than the bar stack in the FILLED style, where the bars thicken in place (C17) and would otherwise set the ink box. Each caret's apex is the circle of radius half a stroke inscribed in the vertex, the construction G's own carets measure to within 0.003. The filled twin keeps the leg angle, pulls both ends in by half the added weight and re-solves the apex radius so the tip lands on the outline's own ink extreme — which is what holds the ink box identical in both styles, 18x11.52 · 16x11.02 · 14x9. BOX: 18x11.52 · 16x11.02 · 14x9 is wider than §2's mark keyline at 20 and 16, exactly as shipped `sort` is — it declares 16x13.5 · 14x12 for the same reason: two elements side by side need the width the family already agreed. (recommended)",
       masters: {
         16: [
-          "M1.625 4.5H3.375",
-          "M1.625 8H5.125",
-          "M1.625 11.5H6.875",
-          "M9.625 6.375L11.51 3.994A0.625 0.625 0 0 1 12.49 3.994L14.375 6.375",
-          "M9.625 9.625L11.51 12.006A0.625 0.625 0 0 0 12.49 12.006L14.375 9.625"
-        ],
-        20: [
-          "M2.75 5.5H4.75",
-          "M2.75 10H6.75",
-          "M2.75 14.5H8.75",
-          "M11.75 8L13.91 5.25A0.75 0.75 0 0 1 15.09 5.25L17.25 8",
-          "M11.75 12L13.91 14.75A0.75 0.75 0 0 0 15.09 14.75L17.25 12"
-        ],
-        24: [
-          "M3.75 7.5H6.25",
-          "M3.75 12H8.5",
-          "M3.75 16.5H10.75",
-          "M13.75 9.75L16.4 6.28A0.75 0.75 0 0 1 17.6 6.28L20.25 9.75",
-          "M13.75 14.25L16.4 17.72A0.75 0.75 0 0 0 17.6 17.72L20.25 14.25"
-        ]
-      },
-      filled: {
-        16: {
-          weight: 2,
-          stroke: [
-            "M2 4.5H3",
-            "M2 8H4.75",
-            "M2 11.5H6.5",
-            "M10 6L11.148 4.545A1.085 1.085 0 0 1 12.852 4.545L14 6",
-            "M10 10L11.148 11.455A1.085 1.085 0 0 0 12.852 11.455L14 10"
-          ]
-        },
-        20: {
-          weight: 2,
-          stroke: [
-            "M3 5.5H4.5",
-            "M3 10H6.5",
-            "M3 14.5H8.5",
-            "M12 7.75L13.3 5.85A1.45 1.45 0 0 1 15.7 5.85L17 7.75",
-            "M12 12.25L13.3 14.15A1.45 1.45 0 0 0 15.7 14.15L17 12.25"
-          ]
-        },
-        24: {
-          weight: 2.5,
-          stroke: [
-            "M4.25 7.5H5.75",
-            "M4.25 12H8",
-            "M4.25 16.5H10.25",
-            "M14.25 9.25L15.71 7.16A1.57 1.57 0 0 1 18.29 7.16L19.75 9.25",
-            "M14.25 14.75L15.71 16.84A1.57 1.57 0 0 0 18.29 16.84L19.75 14.75"
-          ]
-        }
-      }
-    },
-    {
-      id: "C",
-      label: "descending · bars alone",
-      note: "The mirror of B, and G's own bar order: long at the top shrinking down. Pair untouched. The risk this board exists to test is here — B and C differ only in the bars, so at 16 the whole distinction rests on a 2 · 2 · 1.75 unit difference in the top and bottom line.",
-      box: {
-        16: [
-          14,
-          9.736
-        ],
-        20: [
-          16,
-          11.57
-        ],
-        24: [
-          18,
-          13.54
-        ]
-      },
-      masters: {
-        16: [
-          "M1.625 4.5H6.875",
-          "M1.625 8H5.125",
+          "M1.625 4.5H5.125",
+          "M1.625 8H6.875",
           "M1.625 11.5H3.375",
-          "M9.625 6.375L11.51 3.994A0.625 0.625 0 0 1 12.49 3.994L14.375 6.375",
-          "M9.625 9.625L11.51 12.006A0.625 0.625 0 0 0 12.49 12.006L14.375 9.625"
+          "M9.625 6.275L11.554 4.312A0.625 0.625 0 0 1 12.446 4.312L14.375 6.275",
+          "M9.625 9.725L11.554 11.688A0.625 0.625 0 0 0 12.446 11.688L14.375 9.725"
         ],
         20: [
-          "M2.75 5.5H8.75",
-          "M2.75 10H6.75",
+          "M2.75 5.5H6.75",
+          "M2.75 10H8.75",
           "M2.75 14.5H4.75",
-          "M11.75 8L13.91 5.25A0.75 0.75 0 0 1 15.09 5.25L17.25 8",
-          "M11.75 12L13.91 14.75A0.75 0.75 0 0 0 15.09 14.75L17.25 12"
+          "M11.75 7.68L13.97 5.46A0.75 0.75 0 0 1 15.03 5.46L17.25 7.68",
+          "M11.75 12.32L13.97 14.54A0.75 0.75 0 0 0 15.03 14.54L17.25 12.32"
         ],
         24: [
-          "M3.75 7.5H10.75",
-          "M3.75 12H8.5",
+          "M3.75 7.5H8.5",
+          "M3.75 12H10.75",
           "M3.75 16.5H6.25",
-          "M13.75 9.75L16.4 6.28A0.75 0.75 0 0 1 17.6 6.28L20.25 9.75",
-          "M13.75 14.25L16.4 17.72A0.75 0.75 0 0 0 17.6 17.72L20.25 14.25"
+          "M13.75 9.93L16.47 7.21A0.75 0.75 0 0 1 17.53 7.21L20.25 9.93",
+          "M13.75 14.07L16.47 16.79A0.75 0.75 0 0 0 17.53 16.79L20.25 14.07"
         ]
       },
       filled: {
         16: {
           weight: 2,
           stroke: [
-            "M2 4.5H6.5",
-            "M2 8H4.75",
+            "M2 4.5H4.75",
+            "M2 8H6.5",
             "M2 11.5H3",
-            "M10 6L11.148 4.545A1.085 1.085 0 0 1 12.852 4.545L14 6",
-            "M10 10L11.148 11.455A1.085 1.085 0 0 0 12.852 11.455L14 10"
+            "M10 5.9L10.937 4.946A1.49 1.49 0 0 1 13.063 4.946L14 5.9",
+            "M10 10.1L10.937 11.054A1.49 1.49 0 0 0 13.063 11.054L14 10.1"
           ]
         },
         20: {
           weight: 2,
           stroke: [
-            "M3 5.5H8.5",
-            "M3 10H6.5",
+            "M3 5.5H6.5",
+            "M3 10H8.5",
             "M3 14.5H4.5",
-            "M12 7.75L13.3 5.85A1.45 1.45 0 0 1 15.7 5.85L17 7.75",
-            "M12 12.25L13.3 14.15A1.45 1.45 0 0 0 15.7 14.15L17 12.25"
+            "M12 7.43L13.55 5.88A1.35 1.35 0 0 1 15.45 5.88L17 7.43",
+            "M12 12.57L13.55 14.12A1.35 1.35 0 0 0 15.45 14.12L17 12.57"
           ]
         },
         24: {
           weight: 2.5,
           stroke: [
-            "M4.25 7.5H10.25",
-            "M4.25 12H8",
+            "M4.25 7.5H8",
+            "M4.25 12H10.25",
             "M4.25 16.5H5.75",
-            "M14.25 9.25L15.71 7.16A1.57 1.57 0 0 1 18.29 7.16L19.75 9.25",
-            "M14.25 14.75L15.71 16.84A1.57 1.57 0 0 0 18.29 16.84L19.75 14.75"
-          ]
-        }
-      }
-    },
-    {
-      id: "D",
-      label: "ascending · mark too",
-      note: "The bars step as in B AND the pair drops to a single up caret, moved so its ink sits on the canvas centre. The direction is then said twice, which is what the shipped `sort-ascending` does with its arrow. Costs the pair — the mark no longer says \"this column is sortable\", only \"it is sorted this way\".",
-      box: {
-        16: [
-          14,
-          9.736
-        ],
-        20: [
-          16,
-          11.57
-        ],
-        24: [
-          18,
-          13.54
-        ]
-      },
-      masters: {
-        16: [
-          "M1.625 4.5H3.375",
-          "M1.625 8H5.125",
-          "M1.625 11.5H6.875",
-          "M9.625 6.375L11.51 3.994A0.625 0.625 0 0 1 12.49 3.994L14.375 6.375",
-          "M12 3.757V12.243"
-        ],
-        20: [
-          "M2.75 5.5H4.75",
-          "M2.75 10H6.75",
-          "M2.75 14.5H8.75",
-          "M11.75 8L13.91 5.25A0.75 0.75 0 0 1 15.09 5.25L17.25 8",
-          "M14.5 4.97V15.03"
-        ],
-        24: [
-          "M3.75 7.5H6.25",
-          "M3.75 12H8.5",
-          "M3.75 16.5H10.75",
-          "M13.75 9.75L16.4 6.28A0.75 0.75 0 0 1 17.6 6.28L20.25 9.75",
-          "M17 5.98V18.02"
-        ]
-      },
-      filled: {
-        16: {
-          weight: 2,
-          stroke: [
-            "M2 4.5H3",
-            "M2 8H4.75",
-            "M2 11.5H6.5",
-            "M10 6L11.148 4.545A1.085 1.085 0 0 1 12.852 4.545L14 6",
-            "M12 4.132V11.868"
-          ]
-        },
-        20: {
-          weight: 2,
-          stroke: [
-            "M3 5.5H4.5",
-            "M3 10H6.5",
-            "M3 14.5H8.5",
-            "M12 7.75L13.3 5.85A1.45 1.45 0 0 1 15.7 5.85L17 7.75",
-            "M14.5 5.22V14.78"
-          ]
-        },
-        24: {
-          weight: 2.5,
-          stroke: [
-            "M4.25 7.5H5.75",
-            "M4.25 12H8",
-            "M4.25 16.5H10.25",
-            "M14.25 9.25L15.71 7.16A1.57 1.57 0 0 1 18.29 7.16L19.75 9.25",
-            "M17 6.48V17.52"
-          ]
-        }
-      }
-    },
-    {
-      id: "E",
-      label: "descending · mark too",
-      note: "The mirror of D: bars long to short, the same stem, the head pointing down. Read D and E side by side against B and C at 16 — that is the whole question.",
-      box: {
-        16: [
-          14,
-          9.736
-        ],
-        20: [
-          16,
-          11.57
-        ],
-        24: [
-          18,
-          13.54
-        ]
-      },
-      masters: {
-        16: [
-          "M1.625 4.5H6.875",
-          "M1.625 8H5.125",
-          "M1.625 11.5H3.375",
-          "M9.625 9.625L11.51 12.006A0.625 0.625 0 0 0 12.49 12.006L14.375 9.625",
-          "M12 3.757V12.243"
-        ],
-        20: [
-          "M2.75 5.5H8.75",
-          "M2.75 10H6.75",
-          "M2.75 14.5H4.75",
-          "M11.75 12L13.91 14.75A0.75 0.75 0 0 0 15.09 14.75L17.25 12",
-          "M14.5 4.97V15.03"
-        ],
-        24: [
-          "M3.75 7.5H10.75",
-          "M3.75 12H8.5",
-          "M3.75 16.5H6.25",
-          "M13.75 14.25L16.4 17.72A0.75 0.75 0 0 0 17.6 17.72L20.25 14.25",
-          "M17 5.98V18.02"
-        ]
-      },
-      filled: {
-        16: {
-          weight: 2,
-          stroke: [
-            "M2 4.5H6.5",
-            "M2 8H4.75",
-            "M2 11.5H3",
-            "M10 10L11.148 11.455A1.085 1.085 0 0 0 12.852 11.455L14 10",
-            "M12 4.132V11.868"
-          ]
-        },
-        20: {
-          weight: 2,
-          stroke: [
-            "M3 5.5H8.5",
-            "M3 10H6.5",
-            "M3 14.5H4.5",
-            "M12 12.25L13.3 14.15A1.45 1.45 0 0 0 15.7 14.15L17 12.25",
-            "M14.5 5.22V14.78"
-          ]
-        },
-        24: {
-          weight: 2.5,
-          stroke: [
-            "M4.25 7.5H10.25",
-            "M4.25 12H8",
-            "M4.25 16.5H5.75",
-            "M14.25 14.75L15.71 16.84A1.57 1.57 0 0 0 18.29 16.84L19.75 14.75",
-            "M17 6.48V17.52"
+            "M14.25 9.43L15.64 8.05A1.93 1.93 0 0 1 18.36 8.05L19.75 9.43",
+            "M14.25 14.57L15.64 15.95A1.93 1.93 0 0 0 18.36 15.95L19.75 14.57"
           ]
         }
       }

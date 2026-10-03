@@ -857,4 +857,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 493. `layout-sidebar-3` · variant of `layout-sidebar` — Third, solid sidebar, two links at 24 · approved 2026-09-26
 - [x] 493. `layout-sidebar-4` · variant of `layout-sidebar` — Third, solid page · approved 2026-09-26
 - [x] 493. `layout-sidebar-5` · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
-- [~] 495. `sort-3` — added 2026-10-03
+- [x] 495. `sort-3` — added 2026-10-03 · approved 2026-10-03
