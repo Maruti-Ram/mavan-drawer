@@ -1,0 +1,29 @@
+// glyph-z-15 — card 2 of plans/sort-family.md. The capital Z re-solved for the sort family's
+// box: the family stands in the box shipped `sort` declares (18×15 · 16×13.5 · 14×12), and two
+// letters stacked with 1.5 of air inside it leave 6.75 · 6.0 · 5.25 of ink per letter, not the
+// 8.25 · 6.25 · 5.25 the locked study was drawn to. So 24 and 20 are re-solved and 16 ships the
+// locked drawing untouched.
+//
+// This is NOT a new study. The locked candidate is V, "Widens as it shrinks", from
+// lab/drafts/archive/glyph-z.js, locked by Maruti on 2026-10-03. Its logic is held: one
+// diagonal angle per master, each as steep as that master can hold, the letter widening as it
+// shrinks, and the counter air kept clear of §6's 1.5.
+//
+// Measured, not recalled: the counter air is the perpendicular distance from a bar's far end
+// to the diagonal's centreline less one stroke — the measure the locked note uses, which
+// reproduces its 2.64 · 1.67 · 1.58 exactly — and it is cross-checked against the repo's own
+// selfGap and facingGap. Break angles are measured against the circle SVG infers for each arc.
+export default {
+  concept: "glyph-z-15",
+  keyline: 'mark',
+  tags: ['glyph', 'letter', 'capital z', 'alphabetical', 'sort', 'study'],
+  question: "Is 52.70° at 24 and 46.64° at 20 the right steepness now the letter is shorter — and is the 20 master, which the 1.5 gap floor forces 1.54° shallower than the locked, still of a piece with the other two?",
+  candidates: [
+  {
+    id: 'A', label: "V re-solved for the 15 box",
+    note: "The locked V, re-solved for the sort family's box, with its logic intact: one diagonal angle per master, each as steep as that master can hold, and the letter widening as it shrinks. THE 16 MASTER IS THE LOCKED DRAWING BYTE FOR BYTE — 5.25 was already the new target. It lints clean in both styles at all three masters. INK, outline and filled, 24 · 20 · 16: 5.5×6.75 · 5.75×6 · 5.25×5.25 — exact, and the filled box equals the outline's not just to 2 dp but to the last digit, because every extreme of every round cap is an explicit waypoint on its arc. Centre 12, 12.13 at 24 and 10.13, 10 at 20: the 0.125 is the locked drawing's own, and it is what keeps the bars on the quarter grid at an odd quarter of width. WIDTH OVER HEIGHT 0.815 · 0.958 · 1.000, against the locked's 0.818 · 0.920 · 1.000. Still widening as it shrinks. DIAGONAL 52.70° from the horizontal at 24 and 46.64° at 20; the locked reads 52.13° and 48.18°, and 16 keeps its 45.0° as drawn. At 24 the proportion sets the angle: holding w/h at the locked 0.818 while the height drops from 8.25 to 6.75 leaves a 4.0 run against a 5.25 rise, which is 0.57° STEEPER than the locked — the 1.5 stroke takes a larger share of a smaller width, so the run shrinks 23.8% while the rise shrinks only 22.2%. At 20 the proportion is not what sets it: the gap floor is. 6 of height at the locked proportion means 5.5 of ink, the nearest quarter, and that leaves 1.49 of air in the counter — a warning, by 0.01. So the 20 master keeps the locked's own 5.75 of width and its diagonal lies 1.54° SHALLOWER than the locked, at 46.64°. The three angles still fall 52.70 · 46.64 · 45.0, steepest at the largest master. COUNTER measured the way the locked note measures it — the perpendicular distance from the far end of a bar to the diagonal's centreline, less one stroke, which is the narrowest air in the wedge a bar and the diagonal make: 1.68 at 24 · 1.59 at 20 · 1.58 at 16, against the locked's 2.64 · 1.67 · 1.58. Every master clears §6's 1.5, with the least room at 20, and 20 is the master that was solved against the floor rather than against the proportion. SMALLEST AIR in the drawing is that same counter: 1.68 · 1.59 · 1.58. There is nothing else to measure — the two bars are 4.5 apart at 20 and 5.25 at 24, centreline to centreline. The repo's own machinery agrees that there is no question to ask: selfGap finds nothing in the outline and facingGap finds no span under its 1.75 cap that faces itself square-on, in either style, at any master. FILLED: a real solid letterform, one closed outline and no hole. Its outer edge is the outline's own outer edge point for point — the top bar's top edge, a round cap at each bar end, the diagonal's two edges and the bottom bar's bottom edge — and each inner corner is cut back to where the diagonal's edge meets the bar's edge, which is what stops the corner welding into a blob. Where a diagonal edge leaves a round cap it breaks by 0.472° at 24 and 0.530° at 20 (the locked: 0.130° and 0.307°). That is the 2-dp grid's angular resolution on a 0.75 radius, 0.006 of deviation, and it is paid at the joint on purpose: the edge stays exactly on the outline's offset line instead of being bent to hide the break, so the filled edge and the stroked edge are the same line.",
+    masters: { 24: ["M10 9.5H14L10 14.75H14"], 20: ["M8 7.75H12.25L8 12.25H12.25"], 16: ["M6 5.625H10L6 9.625H10"] },
+    filled: { 24: { fill: ["M10 8.75L14 8.75A0.75 0.75 0 0 1 14.75 9.5A0.75 0.75 0 0 1 14.6 9.95L11.51 14L14 14A0.75 0.75 0 0 1 14.75 14.75A0.75 0.75 0 0 1 14 15.5L10 15.5A0.75 0.75 0 0 1 9.25 14.75A0.75 0.75 0 0 1 9.4 14.3L12.49 10.25L10 10.25A0.75 0.75 0 0 1 9.25 9.5A0.75 0.75 0 0 1 10 8.75Z"] }, 20: { fill: ["M8 7L12.25 7A0.75 0.75 0 0 1 13 7.75A0.75 0.75 0 0 1 12.8 8.26L9.74 11.5L12.25 11.5A0.75 0.75 0 0 1 13 12.25A0.75 0.75 0 0 1 12.25 13L8 13A0.75 0.75 0 0 1 7.25 12.25A0.75 0.75 0 0 1 7.45 11.74L10.51 8.5L8 8.5A0.75 0.75 0 0 1 7.25 7.75A0.75 0.75 0 0 1 8 7Z"] }, 16: { fill: ["M6 5L10 5A0.625 0.625 0 0 1 10.577 5.386A0.625 0.625 0 0 1 10.442 6.067L6.442 10.067L7.509 9L10 9A0.625 0.625 0 0 1 10.625 9.625A0.625 0.625 0 0 1 10 10.25L6 10.25A0.625 0.625 0 0 1 5.423 9.864A0.625 0.625 0 0 1 5.558 9.183L9.558 5.183L8.491 6.25L6 6.25A0.625 0.625 0 0 1 5.375 5.625A0.625 0.625 0 0 1 6 5Z"] } },
+  },
+  ],
+};
