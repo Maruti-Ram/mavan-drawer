@@ -254,7 +254,7 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity; `selfGap` (an open path's own counter), `materialGap` (what a knockout leaves), `facingGap` (air between two ink edges that face each other square-on — a closed path's inside, a filled file's cuts, notches, bands and shape-to-line gaps; lint §5f) |
 | `tools/optical.mjs` | optical side bearings computed from the outline |
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
-| `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `batch` · `approve` |
+| `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `batch` · `approve` · `drop` (retire a name: delete its files, remove its row) · `rename <old>=<new>…` (renumber: move the files, rewrite the row keeping its status and date, re-point the relatives' comments) · `clear` |
 | `tools/draft-svg.mjs` | one candidate → the six SVG texts it ships as; shared by `queue.mjs` and `draft-check.mjs` so a check and an approval cannot drift |
 | `tools/draft-check.mjs` | `node tools/draft-check.mjs <draft.js> [id…]` — lints a draft's candidates in a temp directory with the whole of `npm run check` (root weight, grid, keyline, gaps, C8 family, the filled-vs-outline ink box) and prints both ink boxes per master. Writes nothing |
 | `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
