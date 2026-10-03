@@ -11,6 +11,8 @@
 //                                             anything else at the end, in "E · Added on request")
 //   node tools/queue.mjs drop <name>…        retire a name: delete its files (every master, both
 //                                             styles) and remove its row from the sheet
+//   node tools/queue.mjs rename <old>=<new>…  renumber a name: move its files, rewrite its row and
+//                                             every mention of it in the other drawings' comments
 //   node tools/queue.mjs approve <id>=<file> [<id>=<file>…]
 //                                             write the board's candidates to src/icons,
 //                                             lint, tick the sheet. `approve B` alone
@@ -32,7 +34,7 @@
 //                                             the batch draft and its references are deleted
 //   node tools/queue.mjs approve --dry-run …  lint the same six files per candidate in a temp
 //                                             directory (tools/draft-check.mjs) and write nothing
-import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync, mkdirSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, unlinkSync, renameSync, readdirSync, mkdirSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { MASTERS, sizeBase, sizeOf } from './masters.mjs';
@@ -357,6 +359,57 @@ function drop(names) {
   console.log(`Commit: ${[...gone, QUEUE, 'lab/manifest.json'].join(' ')}`);
 }
 
+
+// ─── rename ────────────────────────────────────────────────────────────────
+// Renumber a name — usually to close the gap a `drop` left. It moves the six
+// files, rewrites the sheet row (status, date and note kept), re-points any
+// variant that named it as its base, and rewrites every mention of it in the
+// other drawings' comments, since those cite each other by name.
+//
+// Pairs are applied in the order given, so a shuffle is written lowest-first
+// (`-4=-3 -5=-4`); a target that already exists is refused before anything moves.
+// C9 keeps numbers stable for whoever is using them — this is for before that,
+// while nothing has shipped.
+const mentions = (name) => new RegExp(`(?<![-\\w])${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![-\\w])`, 'g');
+
+function rename(pairs) {
+  const q = readQueue();
+  const moved = [];
+  for (const pair of pairs) {
+    const [old, neu] = pair.split('=');
+    if (!old || !neu) die(`rename takes <old>=<new>, got "${pair}".`);
+    const r = find(q, old) ?? die(`${old} is not in the queue.`);
+    if (find(q, neu)) die(`${neu} is already on the sheet.`);
+    for (const m of masters) for (const f of [`${neu}.svg`, `${neu}-filled.svg`])
+      if (existsSync(`src/icons/${m}/${f}`)) die(`src/icons/${m}/${f} already exists.`);
+
+    for (const m of masters) for (const [a, b] of [[`${old}.svg`, `${neu}.svg`], [`${old}-filled.svg`, `${neu}-filled.svg`]]) {
+      const from = `src/icons/${m}/${a}`, to = `src/icons/${m}/${b}`;
+      if (existsSync(from)) { renameSync(from, to); moved.push(to); }
+    }
+    r.name = neu;
+    q.lines[r.i] = format(r);
+    for (const x of q.rows) if (x.base === old) { x.base = neu; q.lines[x.i] = format(x); }
+
+    // every drawing cites its relatives by name in its comment
+    const re = mentions(old);
+    let touched = 0;
+    for (const m of masters) for (const f of readdirSync(`src/icons/${m}`)) {
+      const file = `src/icons/${m}/${f}`;
+      const src = readFileSync(file, 'utf8');
+      if (!re.test(src)) continue;
+      re.lastIndex = 0;
+      writeFileSync(file, src.replace(re, neu));
+      if (!moved.includes(file)) moved.push(file);
+      touched += 1;
+    }
+    console.log(`${old} → ${neu}${touched ? `  (${touched} drawing comment${touched > 1 ? 's' : ''} re-pointed)` : ''}`);
+  }
+  save(q);
+  spawnSync('npm', ['run', 'build', '--silent'], { stdio: 'ignore' });
+  console.log(`\nCommit: ${[...new Set(moved)].join(' ')} ${QUEUE} lab/manifest.json`);
+}
+
 // ─── dispatch ──────────────────────────────────────────────────────────────
 const [cmd, ...rest] = process.argv.slice(2);
 if (cmd === 'status' || !cmd) await status();
@@ -366,5 +419,6 @@ else if (cmd === 'start') await start(rest.find((a) => !a.startsWith('--')) ?? d
 else if (cmd === 'batch') await rebuildIndex();
 else if (cmd === 'clear') await clear();
 else if (cmd === 'drop') drop(rest.length ? rest : die('drop <name>…'));
+else if (cmd === 'rename') rename(rest.length ? rest : die('rename <old>=<new>…'));
 else if (cmd === 'approve') await approve(rest);
-else die(`Unknown command ${cmd}. Use status | next | show | start | batch | approve | drop.`);
+else die(`Unknown command ${cmd}. Use status | next | show | start | batch | approve | drop | rename.`);
