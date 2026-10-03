@@ -369,8 +369,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 92. `language-3` · Communication · variant of `language` — Tilted globe · approved 2026-09-26
 - [x] 93. `layout-footer` · UI & Layout — approved 2026-09-26
 - [x] 93. `layout-footer-2` · UI & Layout · variant of `layout-footer` — Third, solid footer · approved 2026-09-26
-- [x] 93. `layout-footer-4` · UI & Layout · variant of `layout-footer` — Third, solid page · approved 2026-09-26
-- [x] 93. `layout-footer-5` · UI & Layout · variant of `layout-footer` — Detached footer box · approved 2026-09-26
+- [x] 93. `layout-footer-3` · UI & Layout · variant of `layout-footer` — Third, solid page · approved 2026-09-26
+- [x] 93. `layout-footer-4` · UI & Layout · variant of `layout-footer` — Detached footer box · approved 2026-09-26
 - [x] 94. `lightbulb` · Status & Feedback — approved 2026-09-26
 - [x] 94. `lightbulb-2` · Status & Feedback · variant of `lightbulb` — Dome, two lines · approved 2026-09-26
 - [x] 94. `lightbulb-3` · Status & Feedback · variant of `lightbulb` — Open neck, filament · approved 2026-09-28
@@ -504,8 +504,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 152. `import` · Files & Folders
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
 - [x] 153. `layout-header-2` · UI & Layout · variant of `layout-header` — Third, solid header · approved 2026-09-26
-- [x] 153. `layout-header-4` · UI & Layout · variant of `layout-header` — Third, solid page · approved 2026-09-26
-- [x] 153. `layout-header-5` · UI & Layout · variant of `layout-header` — Detached header box · approved 2026-09-26
+- [x] 153. `layout-header-3` · UI & Layout · variant of `layout-header` — Third, solid page · approved 2026-09-26
+- [x] 153. `layout-header-4` · UI & Layout · variant of `layout-header` — Detached header box · approved 2026-09-26
 - [ ] 154. `merge` · Arrows & Direction
 - [ ] 155. `note` · Files & Folders
 - [ ] 156. `quote` · Editing & Text
@@ -852,8 +852,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 492. `volume-plus` — added 2026-09-26 · approved 2026-09-26
 - [x] 493. `layout-sidebar` — added 2026-09-26 · approved 2026-09-26
 - [x] 493. `layout-sidebar-2` · variant of `layout-sidebar` — Third, solid sidebar · approved 2026-09-26
-- [x] 493. `layout-sidebar-4` · variant of `layout-sidebar` — Third, solid page · approved 2026-09-26
-- [x] 493. `layout-sidebar-5` · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
+- [x] 493. `layout-sidebar-3` · variant of `layout-sidebar` — Third, solid page · approved 2026-09-26
+- [x] 493. `layout-sidebar-4` · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
 - [x] 495. `sort-3` — added 2026-10-03 · approved 2026-10-03
 - [x] 496. `sort-alpha-ascending` — added 2026-10-03 · approved 2026-10-03
 - [x] 496. `sort-alpha-ascending-3` · variant of `sort-alpha-ascending` — characters left, lines right · approved 2026-10-03
@@ -866,5 +866,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 499. `sort-alpha-ascending-2` — added 2026-10-03 · approved 2026-10-03
 - [x] 500. `layout-sidebar-right` — added 2026-10-03 · approved 2026-10-03
 - [x] 500. `layout-sidebar-right-2` · variant of `layout-sidebar-right` — Third, solid sidebar · approved 2026-10-03
-- [x] 500. `layout-sidebar-right-4` · variant of `layout-sidebar-right` — Third, solid page · approved 2026-10-03
-- [x] 500. `layout-sidebar-right-5` · variant of `layout-sidebar-right` — Detached sidebar box · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-3` · variant of `layout-sidebar-right` — Third, solid page · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-4` · variant of `layout-sidebar-right` — Detached sidebar box · approved 2026-10-03
