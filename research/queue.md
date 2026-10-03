@@ -450,7 +450,6 @@ Bases before their variants; within that, highest evidence first.
 - [x] 113. `rotate-ccw-9` · Arrows & Direction · variant of `rotate-ccw` — Square under the leg, large sweep · approved 2026-09-28
 - [x] 113. `rotate-ccw-10` · Arrows & Direction · variant of `rotate-ccw` — Corner, large sweep · approved 2026-09-28
 - [x] 113. `rotate-ccw-11` · Arrows & Direction · variant of `rotate-ccw` — Rectangle cropped on the left · approved 2026-09-28
-- [ ] 114. `sidebar` · UI & Layout
 - [x] 115. `play` · Media & Playback — approved 2026-09-28
 - [x] 115. `play-2` · Media & Playback · variant of `play` — play-2 · container corners · approved 2026-09-28
 - [x] 115. `play-3` · Media & Playback · variant of `play` — play-3 · smaller · approved 2026-09-28
@@ -712,7 +711,6 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 354. `file-plus` · Files & Folders · variant of `file`
 - [ ] 355. `clipboard-check` · Files & Folders · variant of `clipboard`
 - [ ] 356. `shield-check` · Users & Access · variant of `shield`
-- [ ] 357. `sidebar-right` · UI & Layout · variant of `sidebar`
 - [x] 358. `sort-descending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [ ] 359. `image-sparkle` · Files & Folders · variant of `image`
 - [ ] 360. `folder-minus` · Files & Folders · variant of `folder`
@@ -869,3 +867,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 498. `sort-numeric-descending-2` · variant of `sort-numeric-descending` — lines left, characters right · approved 2026-10-03
 - [x] 498. `sort-numeric-descending-3` · variant of `sort-numeric-descending` — characters left, lines right · approved 2026-10-03
 - [x] 499. `sort-alpha-ascending-2` — added 2026-10-03 · approved 2026-10-03
+- [x] 500. `layout-sidebar-right` — added 2026-10-03 · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-2` · variant of `layout-sidebar-right` — Third, solid sidebar · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-3` · variant of `layout-sidebar-right` — Third, solid sidebar, two links at 24 · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-4` · variant of `layout-sidebar-right` — Third, solid page · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-5` · variant of `layout-sidebar-right` — Detached sidebar box · approved 2026-10-03

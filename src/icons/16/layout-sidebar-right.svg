@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: sidebar, page, panel right, navigation, layout -->
+  <!-- Third, wall to wall: The shipped `layout-sidebar` reflected about the canvas centre and nothing else: every x becomes W − x and every arc flips its sweep flag. The frame is symmetric, so it maps onto itself to the last decimal — checked in the build, not assumed — and the only thing that moves is the divider, from x 9.75 · 8.5 · 6.625 to 14.25 · 11.5 · 9.375. The counters swap sides and keep their sizes: sidebar 4.5 · 3.25 · 2.75, page 9 · 6.25 · 5.5. At 16 the divider still sits on the eighth grid (9.375), so its right edge lands on whole pixel 10. Filled: `layout-sidebar-filled` reflected, so the page and the band stay two shapes with the 1.5 cut between them. (recommended) -->
+  <path d="M11.875 2.625H4.125A1.5 1.5 0 0 0 2.625 4.125V11.875A1.5 1.5 0 0 0 4.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V4.125A1.5 1.5 0 0 0 11.875 2.625Z"/>
+  <path d="M9.375 2.625V13.375"/>
+</svg>
