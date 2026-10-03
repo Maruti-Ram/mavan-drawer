@@ -337,9 +337,17 @@ export function lintSource(canvas, file, src) {
       notes.push(`${w}×${h}  declared mark  centre ${cx},${cy}`);
       if (w > MARK_MAX || h > MARK_MAX) warnings.push(`mark is ${w}×${h} — exceeds ${MARK_MAX}×${MARK_MAX} (§2)`);
     } else if (box && !box.bad) {
-      notes.push(`${w}×${h}  agreed box  centre ${cx},${cy}`);
-      if (Math.abs(w - box.w) > 0.01 || Math.abs(h - box.h) > 0.01)
-        errors.push(`declares box ${box.w}x${box.h} but the ink is ${w}×${h} — the agreed size and the drawing disagree`);
+      // A filled file that also declares `grows` is held to the box PLUS that growth. `box:` is
+      // the agreed size of the OUTLINE; `grows:` says how far the filled ink is allowed to stand
+      // proud of it, which is the only honest way to describe a C17 repeated element — menu
+      // lines, dots, these sort bars — since those thicken in place and cannot keep the box.
+      // Checking the raw box against the filled file would leave such a pair undeclarable.
+      const gw = grows && !grows.bad ? r2(box.w + grows.l + grows.r) : box.w;
+      const gh = grows && !grows.bad ? r2(box.h + grows.t + grows.b) : box.h;
+      const withGrowth = grows && !grows.bad && (gw !== box.w || gh !== box.h);
+      notes.push(`${w}×${h}  agreed box${withGrowth ? ` + growth ${growsText(grows)}` : ''}  centre ${cx},${cy}`);
+      if (Math.abs(w - gw) > 0.01 || Math.abs(h - gh) > 0.01)
+        errors.push(`declares box ${box.w}x${box.h}${withGrowth ? ` + growth ${growsText(grows)}` : ''} but the ink is ${w}×${h} — the agreed size and the drawing disagree`);
     } else {
       const key = KEYLINES.find(([, kw, kh]) => Math.abs(w - kw) <= 0.5 && Math.abs(h - kh) <= 0.5);
       notes.push(`${w}×${h}  ${anchor ? `anchored to ${anchor.name}` : key ? `fits ${key[0]} keyline` : 'no keyline match'}  centre ${cx},${cy}`);
