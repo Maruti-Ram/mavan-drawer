@@ -31,7 +31,8 @@
    on the sheet even when the filter is on Recommended, and is named in the header. A draft
    without `locked` renders exactly as before.
 
-   Reads lab/drafts/batch/glyph-<x>.js. ?glyph=a (also ?glyph=0, ?icon=glyph-a); default a.
+   Reads lab/drafts/archive/glyph-<x>.js — the study is closed and locked, so its boards live in
+   the archive and no longer sit in the batch, where only an icon under assessment belongs. ?glyph=a (also ?glyph=0, ?icon=glyph-a); default a.
    The a · z · 0 · 9 and Outline | Filled switches re-render in place — no reload, no reflow. */
 /* --lock / --lock-bg are the "locked" pill: amber where --rec is green, so the two never read as one. */
 /* --rec / --rec-bg are lab/optical-shift.html's "recommended" pill, unchanged, so the word
@@ -155,7 +156,7 @@ let gen = 0;                             // rasterising is async; a stale pass m
 
 const drafts = new Map();
 async function load(g) {
-  if (!drafts.has(g)) drafts.set(g, await import(`./drafts/batch/glyph-${g}.js?${Date.now()}`));
+  if (!drafts.has(g)) drafts.set(g, await import(`./drafts/archive/glyph-${g}.js?${Date.now()}`));
   return drafts.get(g);                  // the whole module: `default` is the board, `recommend` optional
 }
 
@@ -250,7 +251,7 @@ async function render() {
   if (!draft?.candidates?.length) {
     document.getElementById('question').textContent = '';
     nAll.textContent = nRec.textContent = '0';
-    sheet.innerHTML = `<div class="fail"><b>No draft at ./drafts/batch/glyph-${esc(glyph)}.js</b><br>
+    sheet.innerHTML = `<div class="fail"><b>No draft at ./drafts/archive/glyph-${esc(glyph)}.js</b><br>
       Nothing to lay out. Start the board, then reload.</div>`;
     return;
   }
