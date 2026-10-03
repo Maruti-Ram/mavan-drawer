@@ -788,6 +788,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 431. `mail-open` · Communication · variant of `mail`
 - [ ] 432. `scan-face` · Users & Access · variant of `scan`
 - [x] 433. `sort-alpha-descending` · UI & Layout · variant of `sort` — approved 2026-10-03
+- [x] 433. `sort-alpha-descending-2` · UI & Layout · variant of `sort-alpha-descending` — lines left, characters right · approved 2026-10-03
+- [x] 433. `sort-alpha-descending-3` · UI & Layout · variant of `sort-alpha-descending` — characters left, lines right · approved 2026-10-03
 - [ ] 434. `user-search` · Users & Access · variant of `user`
 - [ ] 435. `battery-full` · Devices & Hardware · variant of `battery`
 - [ ] 436. `battery-low` · Devices & Hardware · variant of `battery`
