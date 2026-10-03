@@ -859,5 +859,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 493. `layout-sidebar-5` · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
 - [x] 495. `sort-3` — added 2026-10-03 · approved 2026-10-03
 - [x] 496. `sort-alpha-ascending` — added 2026-10-03 · approved 2026-10-03
+- [x] 496. `sort-alpha-ascending-3` · variant of `sort-alpha-ascending` — characters left, lines right · approved 2026-10-03
 - [x] 497. `sort-numeric-ascending` — added 2026-10-03 · approved 2026-10-03
 - [x] 498. `sort-numeric-descending` — added 2026-10-03 · approved 2026-10-03
+- [x] 499. `sort-alpha-ascending-2` — added 2026-10-03 · approved 2026-10-03
