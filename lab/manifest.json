@@ -494,8 +494,6 @@
     "layout-footer",
     "layout-footer-2",
     "layout-footer-2-filled",
-    "layout-footer-3",
-    "layout-footer-3-filled",
     "layout-footer-4",
     "layout-footer-4-filled",
     "layout-footer-5",
@@ -504,8 +502,6 @@
     "layout-header",
     "layout-header-2",
     "layout-header-2-filled",
-    "layout-header-3",
-    "layout-header-3-filled",
     "layout-header-4",
     "layout-header-4-filled",
     "layout-header-5",
@@ -514,8 +510,6 @@
     "layout-sidebar",
     "layout-sidebar-2",
     "layout-sidebar-2-filled",
-    "layout-sidebar-3",
-    "layout-sidebar-3-filled",
     "layout-sidebar-4",
     "layout-sidebar-4-filled",
     "layout-sidebar-5",
@@ -524,8 +518,6 @@
     "layout-sidebar-right",
     "layout-sidebar-right-2",
     "layout-sidebar-right-2-filled",
-    "layout-sidebar-right-3",
-    "layout-sidebar-right-3-filled",
     "layout-sidebar-right-4",
     "layout-sidebar-right-4-filled",
     "layout-sidebar-right-5",
@@ -29289,133 +29281,6 @@
       "ratio": null,
       "gap": null
     },
-    "layout-footer-3": {
-      "paths": [
-        "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
-        "M3.75 14.25H20.25",
-        "M7.75 17.25H9.75",
-        "M14.25 17.25H16.25"
-      ],
-      "areas": [],
-      "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M3.75 14.25H20.25\"/> <path d=\"M7.75 17.25H9.75\"/> <path d=\"M14.25 17.25H16.25\"/>",
-      "mark": false,
-      "tags": [
-        "footer",
-        "page",
-        "links",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        }
-      },
-      "container": 18,
-      "markBox": {
-        "w": 18,
-        "h": 4.5
-      },
-      "ratio": {
-        "w": 1,
-        "h": 0.25
-      },
-      "gap": null
-    },
-    "layout-footer-3-filled": {
-      "paths": [
-        "M3.75 14.25V6.25A2.5 2.5 0 0 1 6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V14.25"
-      ],
-      "areas": [
-        "M3 13.5H21V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V13.5ZM7.75 16.5H9.75A0.75 0.75 0 0 1 9.75 18H7.75A0.75 0.75 0 0 1 7.75 16.5ZM14.25 16.5H16.25A0.75 0.75 0 0 1 16.25 18H14.25A0.75 0.75 0 0 1 14.25 16.5Z"
-      ],
-      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 13.5H21V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V13.5ZM7.75 16.5H9.75A0.75 0.75 0 0 1 9.75 18H7.75A0.75 0.75 0 0 1 7.75 16.5ZM14.25 16.5H16.25A0.75 0.75 0 0 1 16.25 18H14.25A0.75 0.75 0 0 1 14.25 16.5Z\"/> <path d=\"M3.75 14.25V6.25A2.5 2.5 0 0 1 6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V14.25\"/>",
-      "mark": false,
-      "tags": [
-        "footer",
-        "page",
-        "links",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        }
-      },
-      "container": null,
-      "markBox": null,
-      "ratio": null,
-      "gap": null
-    },
     "layout-footer-4": {
       "paths": [
         "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
@@ -29860,135 +29725,6 @@
         "header",
         "page",
         "panel top",
-        "top bar",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        }
-      },
-      "container": null,
-      "markBox": null,
-      "ratio": null,
-      "gap": null
-    },
-    "layout-header-3": {
-      "paths": [
-        "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
-        "M3.75 9.75H20.25",
-        "M7.75 6.75H9.75",
-        "M14.25 6.75H16.25"
-      ],
-      "areas": [],
-      "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M3.75 9.75H20.25\"/> <path d=\"M7.75 6.75H9.75\"/> <path d=\"M14.25 6.75H16.25\"/>",
-      "mark": false,
-      "tags": [
-        "header",
-        "page",
-        "links",
-        "top bar",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        }
-      },
-      "container": 18,
-      "markBox": {
-        "w": 18,
-        "h": 4.5
-      },
-      "ratio": {
-        "w": 1,
-        "h": 0.25
-      },
-      "gap": null
-    },
-    "layout-header-3-filled": {
-      "paths": [
-        "M3.75 9.75V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V9.75"
-      ],
-      "areas": [
-        "M3 10.5H21V6.25A3.25 3.25 0 0 0 17.75 3H6.25A3.25 3.25 0 0 0 3 6.25V10.5ZM7.75 7.5H9.75A0.75 0.75 0 0 0 9.75 6H7.75A0.75 0.75 0 0 0 7.75 7.5ZM14.25 7.5H16.25A0.75 0.75 0 0 0 16.25 6H14.25A0.75 0.75 0 0 0 14.25 7.5Z"
-      ],
-      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 10.5H21V6.25A3.25 3.25 0 0 0 17.75 3H6.25A3.25 3.25 0 0 0 3 6.25V10.5ZM7.75 7.5H9.75A0.75 0.75 0 0 0 9.75 6H7.75A0.75 0.75 0 0 0 7.75 7.5ZM14.25 7.5H16.25A0.75 0.75 0 0 0 16.25 6H14.25A0.75 0.75 0 0 0 14.25 7.5Z\"/> <path d=\"M3.75 9.75V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V9.75\"/>",
-      "mark": false,
-      "tags": [
-        "header",
-        "page",
-        "links",
         "top bar",
         "layout",
         "highlight"
@@ -30530,135 +30266,6 @@
       "ratio": null,
       "gap": null
     },
-    "layout-sidebar-3": {
-      "paths": [
-        "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
-        "M9.75 3.75V20.25",
-        "M6.75 7.75V9.75",
-        "M6.75 14.25V16.25"
-      ],
-      "areas": [],
-      "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M9.75 3.75V20.25\"/> <path d=\"M6.75 7.75V9.75\"/> <path d=\"M6.75 14.25V16.25\"/>",
-      "mark": false,
-      "tags": [
-        "sidebar",
-        "page",
-        "links",
-        "navigation",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        }
-      },
-      "container": 18,
-      "markBox": {
-        "w": 4.5,
-        "h": 18
-      },
-      "ratio": {
-        "w": 0.25,
-        "h": 1
-      },
-      "gap": null
-    },
-    "layout-sidebar-3-filled": {
-      "paths": [
-        "M9.75 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H9.75"
-      ],
-      "areas": [
-        "M10.5 3V21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3H10.5ZM7.5 7.75V9.75A0.75 0.75 0 0 1 6 9.75V7.75A0.75 0.75 0 0 1 7.5 7.75ZM7.5 14.25V16.25A0.75 0.75 0 0 1 6 16.25V14.25A0.75 0.75 0 0 1 7.5 14.25Z"
-      ],
-      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.5 3V21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3H10.5ZM7.5 7.75V9.75A0.75 0.75 0 0 1 6 9.75V7.75A0.75 0.75 0 0 1 7.5 7.75ZM7.5 14.25V16.25A0.75 0.75 0 0 1 6 16.25V14.25A0.75 0.75 0 0 1 7.5 14.25Z\"/> <path d=\"M9.75 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H9.75\"/>",
-      "mark": false,
-      "tags": [
-        "sidebar",
-        "page",
-        "links",
-        "navigation",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        }
-      },
-      "container": null,
-      "markBox": null,
-      "ratio": null,
-      "gap": null
-    },
     "layout-sidebar-4": {
       "paths": [
         "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
@@ -31104,137 +30711,6 @@
         "sidebar",
         "page",
         "panel right",
-        "navigation",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0,
-          "optical": 3
-        }
-      },
-      "container": null,
-      "markBox": null,
-      "ratio": null,
-      "gap": null
-    },
-    "layout-sidebar-right-3": {
-      "paths": [
-        "M17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75Z",
-        "M14.25 3.75V20.25",
-        "M17.25 7.75V9.75",
-        "M17.25 14.25V16.25"
-      ],
-      "areas": [],
-      "body": "<path d=\"M17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75Z\"/> <path d=\"M14.25 3.75V20.25\"/> <path d=\"M17.25 7.75V9.75\"/> <path d=\"M17.25 14.25V16.25\"/>",
-      "mark": false,
-      "tags": [
-        "sidebar",
-        "page",
-        "panel right",
-        "links",
-        "navigation",
-        "layout",
-        "highlight"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 3,
-        "y": 3,
-        "w": 18,
-        "h": 18
-      },
-      "bearing": {
-        "left": 3,
-        "top": 3,
-        "right": 3,
-        "bottom": 3
-      },
-      "optical": {
-        "left": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "right": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "top": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        },
-        "bottom": {
-          "geometric": 3,
-          "recession": 0.24,
-          "optical": 3.18
-        }
-      },
-      "container": 18,
-      "markBox": {
-        "w": 4.5,
-        "h": 18
-      },
-      "ratio": {
-        "w": 0.25,
-        "h": 1
-      },
-      "gap": null
-    },
-    "layout-sidebar-right-3-filled": {
-      "paths": [
-        "M14.25 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H14.25"
-      ],
-      "areas": [
-        "M13.5 3V21H17.75A3.25 3.25 0 0 0 21 17.75V6.25A3.25 3.25 0 0 0 17.75 3H13.5ZM16.5 7.75V9.75A0.75 0.75 0 0 0 18 9.75V7.75A0.75 0.75 0 0 0 16.5 7.75ZM16.5 14.25V16.25A0.75 0.75 0 0 0 18 16.25V14.25A0.75 0.75 0 0 0 16.5 14.25Z"
-      ],
-      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.5 3V21H17.75A3.25 3.25 0 0 0 21 17.75V6.25A3.25 3.25 0 0 0 17.75 3H13.5ZM16.5 7.75V9.75A0.75 0.75 0 0 0 18 9.75V7.75A0.75 0.75 0 0 0 16.5 7.75ZM16.5 14.25V16.25A0.75 0.75 0 0 0 18 16.25V14.25A0.75 0.75 0 0 0 16.5 14.25Z\"/> <path d=\"M14.25 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H14.25\"/>",
-      "mark": false,
-      "tags": [
-        "sidebar",
-        "page",
-        "panel right",
-        "links",
         "navigation",
         "layout",
         "highlight"
@@ -59013,8 +58489,6 @@
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
-        "layout-footer-3",
-        "layout-footer-3-filled",
         "layout-footer-4",
         "layout-footer-4-filled",
         "layout-footer-5",
@@ -59023,8 +58497,6 @@
         "layout-header",
         "layout-header-2",
         "layout-header-2-filled",
-        "layout-header-3",
-        "layout-header-3-filled",
         "layout-header-4",
         "layout-header-4-filled",
         "layout-header-5",
@@ -59033,8 +58505,6 @@
         "layout-sidebar",
         "layout-sidebar-2",
         "layout-sidebar-2-filled",
-        "layout-sidebar-3",
-        "layout-sidebar-3-filled",
         "layout-sidebar-4",
         "layout-sidebar-4-filled",
         "layout-sidebar-5",
@@ -59043,8 +58513,6 @@
         "layout-sidebar-right",
         "layout-sidebar-right-2",
         "layout-sidebar-right-2-filled",
-        "layout-sidebar-right-3",
-        "layout-sidebar-right-3-filled",
         "layout-sidebar-right-4",
         "layout-sidebar-right-4-filled",
         "layout-sidebar-right-5",
@@ -87759,131 +87227,6 @@
           "ratio": null,
           "gap": null
         },
-        "layout-footer-3": {
-          "paths": [
-            "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
-            "M2.625 9.375H13.375"
-          ],
-          "areas": [],
-          "body": "<path d=\"M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z\"/> <path d=\"M2.625 9.375H13.375\"/>",
-          "mark": false,
-          "tags": [
-            "footer",
-            "page",
-            "links",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            }
-          },
-          "container": 12,
-          "markBox": {
-            "w": 12,
-            "h": 1.25
-          },
-          "ratio": {
-            "w": 1,
-            "h": 0.1
-          },
-          "gap": null
-        },
-        "layout-footer-3-filled": {
-          "paths": [
-            "M2.625 9.375V4.125A1.5 1.5 0 0 1 4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V9.375"
-          ],
-          "areas": [
-            "M2 8.75H14V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.75Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 8.75H14V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.75Z\"/> <path d=\"M2.625 9.375V4.125A1.5 1.5 0 0 1 4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V9.375\"/>",
-          "mark": false,
-          "tags": [
-            "footer",
-            "page",
-            "links",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "layout-footer-4": {
           "paths": [
             "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
@@ -88328,133 +87671,6 @@
             "header",
             "page",
             "panel top",
-            "top bar",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "layout-header-3": {
-          "paths": [
-            "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
-            "M2.625 6.625H13.375"
-          ],
-          "areas": [],
-          "body": "<path d=\"M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z\"/> <path d=\"M2.625 6.625H13.375\"/>",
-          "mark": false,
-          "tags": [
-            "header",
-            "page",
-            "links",
-            "top bar",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            }
-          },
-          "container": 12,
-          "markBox": {
-            "w": 12,
-            "h": 1.25
-          },
-          "ratio": {
-            "w": 1,
-            "h": 0.1
-          },
-          "gap": null
-        },
-        "layout-header-3-filled": {
-          "paths": [
-            "M2.625 6.625V11.875A1.5 1.5 0 0 0 4.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V6.625"
-          ],
-          "areas": [
-            "M2 7.25H14V4.125A2.125 2.125 0 0 0 11.875 2H4.125A2.125 2.125 0 0 0 2 4.125V7.25Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 7.25H14V4.125A2.125 2.125 0 0 0 11.875 2H4.125A2.125 2.125 0 0 0 2 4.125V7.25Z\"/> <path d=\"M2.625 6.625V11.875A1.5 1.5 0 0 0 4.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V6.625\"/>",
-          "mark": false,
-          "tags": [
-            "header",
-            "page",
-            "links",
             "top bar",
             "layout",
             "highlight"
@@ -88996,133 +88212,6 @@
           "ratio": null,
           "gap": null
         },
-        "layout-sidebar-3": {
-          "paths": [
-            "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
-            "M6.625 2.625V13.375"
-          ],
-          "areas": [],
-          "body": "<path d=\"M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z\"/> <path d=\"M6.625 2.625V13.375\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            }
-          },
-          "container": 12,
-          "markBox": {
-            "w": 1.25,
-            "h": 12
-          },
-          "ratio": {
-            "w": 0.1,
-            "h": 1
-          },
-          "gap": null
-        },
-        "layout-sidebar-3-filled": {
-          "paths": [
-            "M6.625 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H6.625"
-          ],
-          "areas": [
-            "M7.25 2V14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2H7.25Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2V14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2H7.25Z\"/> <path d=\"M6.625 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H6.625\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "layout-sidebar-4": {
           "paths": [
             "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
@@ -89568,135 +88657,6 @@
             "sidebar",
             "page",
             "panel right",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "layout-sidebar-right-3": {
-          "paths": [
-            "M11.875 2.625H4.125A1.5 1.5 0 0 0 2.625 4.125V11.875A1.5 1.5 0 0 0 4.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V4.125A1.5 1.5 0 0 0 11.875 2.625Z",
-            "M9.375 2.625V13.375"
-          ],
-          "areas": [],
-          "body": "<path d=\"M11.875 2.625H4.125A1.5 1.5 0 0 0 2.625 4.125V11.875A1.5 1.5 0 0 0 4.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V4.125A1.5 1.5 0 0 0 11.875 2.625Z\"/> <path d=\"M9.375 2.625V13.375\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "panel right",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 2,
-            "y": 2,
-            "w": 12,
-            "h": 12
-          },
-          "bearing": {
-            "left": 2,
-            "top": 2,
-            "right": 2,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "right": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0.18,
-              "optical": 2.13
-            }
-          },
-          "container": 12,
-          "markBox": {
-            "w": 1.25,
-            "h": 12
-          },
-          "ratio": {
-            "w": 0.1,
-            "h": 1
-          },
-          "gap": null
-        },
-        "layout-sidebar-right-3-filled": {
-          "paths": [
-            "M9.375 2.625H4.125A1.5 1.5 0 0 0 2.625 4.125V11.875A1.5 1.5 0 0 0 4.125 13.375H9.375"
-          ],
-          "areas": [
-            "M8.75 2V14H11.875A2.125 2.125 0 0 0 14 11.875V4.125A2.125 2.125 0 0 0 11.875 2H8.75Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.75 2V14H11.875A2.125 2.125 0 0 0 14 11.875V4.125A2.125 2.125 0 0 0 11.875 2H8.75Z\"/> <path d=\"M9.375 2.625H4.125A1.5 1.5 0 0 0 2.625 4.125V11.875A1.5 1.5 0 0 0 4.125 13.375H9.375\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "panel right",
-            "links",
             "navigation",
             "layout",
             "highlight"
@@ -117451,8 +116411,6 @@
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
-        "layout-footer-3",
-        "layout-footer-3-filled",
         "layout-footer-4",
         "layout-footer-4-filled",
         "layout-footer-5",
@@ -117461,8 +116419,6 @@
         "layout-header",
         "layout-header-2",
         "layout-header-2-filled",
-        "layout-header-3",
-        "layout-header-3-filled",
         "layout-header-4",
         "layout-header-4-filled",
         "layout-header-5",
@@ -117471,8 +116427,6 @@
         "layout-sidebar",
         "layout-sidebar-2",
         "layout-sidebar-2-filled",
-        "layout-sidebar-3",
-        "layout-sidebar-3-filled",
         "layout-sidebar-4",
         "layout-sidebar-4-filled",
         "layout-sidebar-5",
@@ -117481,8 +116435,6 @@
         "layout-sidebar-right",
         "layout-sidebar-right-2",
         "layout-sidebar-right-2-filled",
-        "layout-sidebar-right-3",
-        "layout-sidebar-right-3-filled",
         "layout-sidebar-right-4",
         "layout-sidebar-right-4-filled",
         "layout-sidebar-right-5",
@@ -146211,131 +145163,6 @@
           "ratio": null,
           "gap": null
         },
-        "layout-footer-3": {
-          "paths": [
-            "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
-            "M3.75 11.5H16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z\"/> <path d=\"M3.75 11.5H16.25\"/>",
-          "mark": false,
-          "tags": [
-            "footer",
-            "page",
-            "links",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 14,
-          "markBox": {
-            "w": 14,
-            "h": 1.5
-          },
-          "ratio": {
-            "w": 1,
-            "h": 0.11
-          },
-          "gap": null
-        },
-        "layout-footer-3-filled": {
-          "paths": [
-            "M3.75 11.5V5.75A2 2 0 0 1 5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V11.5"
-          ],
-          "areas": [
-            "M3 10.75H17V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V10.75Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 10.75H17V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V10.75Z\"/> <path d=\"M3.75 11.5V5.75A2 2 0 0 1 5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V11.5\"/>",
-          "mark": false,
-          "tags": [
-            "footer",
-            "page",
-            "links",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "layout-footer-4": {
           "paths": [
             "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
@@ -146780,133 +145607,6 @@
             "header",
             "page",
             "panel top",
-            "top bar",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "layout-header-3": {
-          "paths": [
-            "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
-            "M3.75 8.5H16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z\"/> <path d=\"M3.75 8.5H16.25\"/>",
-          "mark": false,
-          "tags": [
-            "header",
-            "page",
-            "links",
-            "top bar",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 14,
-          "markBox": {
-            "w": 14,
-            "h": 1.5
-          },
-          "ratio": {
-            "w": 1,
-            "h": 0.11
-          },
-          "gap": null
-        },
-        "layout-header-3-filled": {
-          "paths": [
-            "M3.75 8.5V14.25A2 2 0 0 0 5.75 16.25H14.25A2 2 0 0 0 16.25 14.25V8.5"
-          ],
-          "areas": [
-            "M3 9.25H17V5.75A2.75 2.75 0 0 0 14.25 3H5.75A2.75 2.75 0 0 0 3 5.75V9.25Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 9.25H17V5.75A2.75 2.75 0 0 0 14.25 3H5.75A2.75 2.75 0 0 0 3 5.75V9.25Z\"/> <path d=\"M3.75 8.5V14.25A2 2 0 0 0 5.75 16.25H14.25A2 2 0 0 0 16.25 14.25V8.5\"/>",
-          "mark": false,
-          "tags": [
-            "header",
-            "page",
-            "links",
             "top bar",
             "layout",
             "highlight"
@@ -147448,133 +146148,6 @@
           "ratio": null,
           "gap": null
         },
-        "layout-sidebar-3": {
-          "paths": [
-            "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
-            "M8.5 3.75V16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z\"/> <path d=\"M8.5 3.75V16.25\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 14,
-          "markBox": {
-            "w": 1.5,
-            "h": 14
-          },
-          "ratio": {
-            "w": 0.11,
-            "h": 1
-          },
-          "gap": null
-        },
-        "layout-sidebar-3-filled": {
-          "paths": [
-            "M8.5 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H8.5"
-          ],
-          "areas": [
-            "M9.25 3V17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3H9.25Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.25 3V17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3H9.25Z\"/> <path d=\"M8.5 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H8.5\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "layout-sidebar-4": {
           "paths": [
             "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
@@ -148020,135 +146593,6 @@
             "sidebar",
             "page",
             "panel right",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "layout-sidebar-right-3": {
-          "paths": [
-            "M14.25 3.75H5.75A2 2 0 0 0 3.75 5.75V14.25A2 2 0 0 0 5.75 16.25H14.25A2 2 0 0 0 16.25 14.25V5.75A2 2 0 0 0 14.25 3.75Z",
-            "M11.5 3.75V16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M14.25 3.75H5.75A2 2 0 0 0 3.75 5.75V14.25A2 2 0 0 0 5.75 16.25H14.25A2 2 0 0 0 16.25 14.25V5.75A2 2 0 0 0 14.25 3.75Z\"/> <path d=\"M11.5 3.75V16.25\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "panel right",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 14,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 14,
-          "markBox": {
-            "w": 1.5,
-            "h": 14
-          },
-          "ratio": {
-            "w": 0.11,
-            "h": 1
-          },
-          "gap": null
-        },
-        "layout-sidebar-right-3-filled": {
-          "paths": [
-            "M11.5 3.75H5.75A2 2 0 0 0 3.75 5.75V14.25A2 2 0 0 0 5.75 16.25H11.5"
-          ],
-          "areas": [
-            "M10.75 3V17H14.25A2.75 2.75 0 0 0 17 14.25V5.75A2.75 2.75 0 0 0 14.25 3H10.75Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.75 3V17H14.25A2.75 2.75 0 0 0 17 14.25V5.75A2.75 2.75 0 0 0 14.25 3H10.75Z\"/> <path d=\"M11.5 3.75H5.75A2 2 0 0 0 3.75 5.75V14.25A2 2 0 0 0 5.75 16.25H11.5\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "panel right",
-            "links",
             "navigation",
             "layout",
             "highlight"
@@ -175922,8 +174366,6 @@
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
-        "layout-footer-3",
-        "layout-footer-3-filled",
         "layout-footer-4",
         "layout-footer-4-filled",
         "layout-footer-5",
@@ -175932,8 +174374,6 @@
         "layout-header",
         "layout-header-2",
         "layout-header-2-filled",
-        "layout-header-3",
-        "layout-header-3-filled",
         "layout-header-4",
         "layout-header-4-filled",
         "layout-header-5",
@@ -175942,8 +174382,6 @@
         "layout-sidebar",
         "layout-sidebar-2",
         "layout-sidebar-2-filled",
-        "layout-sidebar-3",
-        "layout-sidebar-3-filled",
         "layout-sidebar-4",
         "layout-sidebar-4-filled",
         "layout-sidebar-5",
@@ -175952,8 +174390,6 @@
         "layout-sidebar-right",
         "layout-sidebar-right-2",
         "layout-sidebar-right-2-filled",
-        "layout-sidebar-right-3",
-        "layout-sidebar-right-3-filled",
         "layout-sidebar-right-4",
         "layout-sidebar-right-4-filled",
         "layout-sidebar-right-5",
@@ -204717,133 +203153,6 @@
           "ratio": null,
           "gap": null
         },
-        "layout-footer-3": {
-          "paths": [
-            "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
-            "M3.75 14.25H20.25",
-            "M7.75 17.25H9.75",
-            "M14.25 17.25H16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M3.75 14.25H20.25\"/> <path d=\"M7.75 17.25H9.75\"/> <path d=\"M14.25 17.25H16.25\"/>",
-          "mark": false,
-          "tags": [
-            "footer",
-            "page",
-            "links",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 18,
-          "markBox": {
-            "w": 18,
-            "h": 4.5
-          },
-          "ratio": {
-            "w": 1,
-            "h": 0.25
-          },
-          "gap": null
-        },
-        "layout-footer-3-filled": {
-          "paths": [
-            "M3.75 14.25V6.25A2.5 2.5 0 0 1 6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V14.25"
-          ],
-          "areas": [
-            "M3 13.5H21V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V13.5ZM7.75 16.5H9.75A0.75 0.75 0 0 1 9.75 18H7.75A0.75 0.75 0 0 1 7.75 16.5ZM14.25 16.5H16.25A0.75 0.75 0 0 1 16.25 18H14.25A0.75 0.75 0 0 1 14.25 16.5Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 13.5H21V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V13.5ZM7.75 16.5H9.75A0.75 0.75 0 0 1 9.75 18H7.75A0.75 0.75 0 0 1 7.75 16.5ZM14.25 16.5H16.25A0.75 0.75 0 0 1 16.25 18H14.25A0.75 0.75 0 0 1 14.25 16.5Z\"/> <path d=\"M3.75 14.25V6.25A2.5 2.5 0 0 1 6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V14.25\"/>",
-          "mark": false,
-          "tags": [
-            "footer",
-            "page",
-            "links",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "layout-footer-4": {
           "paths": [
             "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
@@ -205288,135 +203597,6 @@
             "header",
             "page",
             "panel top",
-            "top bar",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "layout-header-3": {
-          "paths": [
-            "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
-            "M3.75 9.75H20.25",
-            "M7.75 6.75H9.75",
-            "M14.25 6.75H16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M3.75 9.75H20.25\"/> <path d=\"M7.75 6.75H9.75\"/> <path d=\"M14.25 6.75H16.25\"/>",
-          "mark": false,
-          "tags": [
-            "header",
-            "page",
-            "links",
-            "top bar",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 18,
-          "markBox": {
-            "w": 18,
-            "h": 4.5
-          },
-          "ratio": {
-            "w": 1,
-            "h": 0.25
-          },
-          "gap": null
-        },
-        "layout-header-3-filled": {
-          "paths": [
-            "M3.75 9.75V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V9.75"
-          ],
-          "areas": [
-            "M3 10.5H21V6.25A3.25 3.25 0 0 0 17.75 3H6.25A3.25 3.25 0 0 0 3 6.25V10.5ZM7.75 7.5H9.75A0.75 0.75 0 0 0 9.75 6H7.75A0.75 0.75 0 0 0 7.75 7.5ZM14.25 7.5H16.25A0.75 0.75 0 0 0 16.25 6H14.25A0.75 0.75 0 0 0 14.25 7.5Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 10.5H21V6.25A3.25 3.25 0 0 0 17.75 3H6.25A3.25 3.25 0 0 0 3 6.25V10.5ZM7.75 7.5H9.75A0.75 0.75 0 0 0 9.75 6H7.75A0.75 0.75 0 0 0 7.75 7.5ZM14.25 7.5H16.25A0.75 0.75 0 0 0 16.25 6H14.25A0.75 0.75 0 0 0 14.25 7.5Z\"/> <path d=\"M3.75 9.75V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V9.75\"/>",
-          "mark": false,
-          "tags": [
-            "header",
-            "page",
-            "links",
             "top bar",
             "layout",
             "highlight"
@@ -205958,135 +204138,6 @@
           "ratio": null,
           "gap": null
         },
-        "layout-sidebar-3": {
-          "paths": [
-            "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
-            "M9.75 3.75V20.25",
-            "M6.75 7.75V9.75",
-            "M6.75 14.25V16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M9.75 3.75V20.25\"/> <path d=\"M6.75 7.75V9.75\"/> <path d=\"M6.75 14.25V16.25\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 18,
-          "markBox": {
-            "w": 4.5,
-            "h": 18
-          },
-          "ratio": {
-            "w": 0.25,
-            "h": 1
-          },
-          "gap": null
-        },
-        "layout-sidebar-3-filled": {
-          "paths": [
-            "M9.75 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H9.75"
-          ],
-          "areas": [
-            "M10.5 3V21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3H10.5ZM7.5 7.75V9.75A0.75 0.75 0 0 1 6 9.75V7.75A0.75 0.75 0 0 1 7.5 7.75ZM7.5 14.25V16.25A0.75 0.75 0 0 1 6 16.25V14.25A0.75 0.75 0 0 1 7.5 14.25Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.5 3V21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3H10.5ZM7.5 7.75V9.75A0.75 0.75 0 0 1 6 9.75V7.75A0.75 0.75 0 0 1 7.5 7.75ZM7.5 14.25V16.25A0.75 0.75 0 0 1 6 16.25V14.25A0.75 0.75 0 0 1 7.5 14.25Z\"/> <path d=\"M9.75 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H9.75\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "layout-sidebar-4": {
           "paths": [
             "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
@@ -206532,137 +204583,6 @@
             "sidebar",
             "page",
             "panel right",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "layout-sidebar-right-3": {
-          "paths": [
-            "M17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75Z",
-            "M14.25 3.75V20.25",
-            "M17.25 7.75V9.75",
-            "M17.25 14.25V16.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75Z\"/> <path d=\"M14.25 3.75V20.25\"/> <path d=\"M17.25 7.75V9.75\"/> <path d=\"M17.25 14.25V16.25\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "panel right",
-            "links",
-            "navigation",
-            "layout",
-            "highlight"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 3,
-            "y": 3,
-            "w": 18,
-            "h": 18
-          },
-          "bearing": {
-            "left": 3,
-            "top": 3,
-            "right": 3,
-            "bottom": 3
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "top": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            },
-            "bottom": {
-              "geometric": 3,
-              "recession": 0.24,
-              "optical": 3.18
-            }
-          },
-          "container": 18,
-          "markBox": {
-            "w": 4.5,
-            "h": 18
-          },
-          "ratio": {
-            "w": 0.25,
-            "h": 1
-          },
-          "gap": null
-        },
-        "layout-sidebar-right-3-filled": {
-          "paths": [
-            "M14.25 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H14.25"
-          ],
-          "areas": [
-            "M13.5 3V21H17.75A3.25 3.25 0 0 0 21 17.75V6.25A3.25 3.25 0 0 0 17.75 3H13.5ZM16.5 7.75V9.75A0.75 0.75 0 0 0 18 9.75V7.75A0.75 0.75 0 0 0 16.5 7.75ZM16.5 14.25V16.25A0.75 0.75 0 0 0 18 16.25V14.25A0.75 0.75 0 0 0 16.5 14.25Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.5 3V21H17.75A3.25 3.25 0 0 0 21 17.75V6.25A3.25 3.25 0 0 0 17.75 3H13.5ZM16.5 7.75V9.75A0.75 0.75 0 0 0 18 9.75V7.75A0.75 0.75 0 0 0 16.5 7.75ZM16.5 14.25V16.25A0.75 0.75 0 0 0 18 16.25V14.25A0.75 0.75 0 0 0 16.5 14.25Z\"/> <path d=\"M14.25 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H14.25\"/>",
-          "mark": false,
-          "tags": [
-            "sidebar",
-            "page",
-            "panel right",
-            "links",
             "navigation",
             "layout",
             "highlight"
@@ -237011,15 +234931,6 @@
     },
     {
       "n": 93,
-      "name": "layout-footer-3",
-      "section": "D · The rest, by audit rank",
-      "category": "UI & Layout",
-      "base": "layout-footer",
-      "note": "Third, solid footer, two links at 24 · approved 2026-09-26",
-      "status": "done"
-    },
-    {
-      "n": 93,
       "name": "layout-footer-4",
       "section": "D · The rest, by audit rank",
       "category": "UI & Layout",
@@ -238231,15 +236142,6 @@
       "category": "UI & Layout",
       "base": "layout-header",
       "note": "Third, solid header · approved 2026-09-26",
-      "status": "done"
-    },
-    {
-      "n": 153,
-      "name": "layout-header-3",
-      "section": "D · The rest, by audit rank",
-      "category": "UI & Layout",
-      "base": "layout-header",
-      "note": "Third, solid header, two links at 24 · approved 2026-09-26",
       "status": "done"
     },
     {
@@ -241331,15 +239233,6 @@
     },
     {
       "n": 493,
-      "name": "layout-sidebar-3",
-      "section": "E · Added on request",
-      "category": "variant of `layout-sidebar`",
-      "base": null,
-      "note": "Third, solid sidebar, two links at 24 · approved 2026-09-26",
-      "status": "done"
-    },
-    {
-      "n": 493,
       "name": "layout-sidebar-4",
       "section": "E · Added on request",
       "category": "variant of `layout-sidebar`",
@@ -241462,15 +239355,6 @@
       "category": "variant of `layout-sidebar-right`",
       "base": null,
       "note": "Third, solid sidebar · approved 2026-10-03",
-      "status": "done"
-    },
-    {
-      "n": 500,
-      "name": "layout-sidebar-right-3",
-      "section": "E · Added on request",
-      "category": "variant of `layout-sidebar-right`",
-      "base": null,
-      "note": "Third, solid sidebar, two links at 24 · approved 2026-10-03",
       "status": "done"
     },
     {
