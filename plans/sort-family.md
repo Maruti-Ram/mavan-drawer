@@ -16,12 +16,18 @@ a box. `sort-3` standing 11.52 was never an inconsistency to fix.
 Maruti, on seeing the character icons beside the chevron ones: *"its fine that the character and
 the number ones look bigger than the chevron."*
 
-**What the error cost, and what is still open.** The locked letterforms were re-solved from 8.25
+**What the error cost, and how it was settled.** The locked letterforms were re-solved from 8.25
 to 6.75 of ink at 24 only to fit a box that did not need to exist. The A's counter now measures
 1.24 against §6's 1.5 where the locked drawing was clear; the 9's closed from 2.5 to 1.5; the
 Z's 20 diagonal lies 1.54° shallower. Redrawing the eight character icons at the locked letter
-sizes would restore all three and make those icons 18 · 14 · 12 tall, which is what `sort-2`
-already is. Not decided.
+sizes would have restored all three and made those icons 18 · 14 · 12 tall.
+
+**CLOSED 2026-10-03.** Maruti looked at the family together in the Library and kept the drawings
+as they ship: *"the balance of how i see the icons and their sizes look good and balanced."* So
+the three numbers above stand as the drawings' own, not as defects waiting to be fixed, and the
+warnings they raise in `npm run check` are expected. Do not redraw the character icons to chase
+them. The letterforms as locked still live in `lab/drafts/archive/glyph-{a,z,0,9}.js`, and their
+re-solved versions in `glyph-{a,z,0,9}-15.js`, if the question is ever genuinely reopened.
 
 ## What changes for the customer
 
