@@ -478,7 +478,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 126. `face-sad` · Communication — approved 2026-10-04
 - [x] 127. `italic` · Editing & Text — approved 2026-10-04
 - [x] 128. `moon` · UI & Layout — approved 2026-10-04
-- [ ] 129. `sun` · UI & Layout
+- [x] 129. `sun` · UI & Layout — approved 2026-10-04
 - [ ] 130. `table` · Charts & Data
 - [ ] 131. `thumbs-down` · Communication
 - [ ] 132. `underline` · Editing & Text
