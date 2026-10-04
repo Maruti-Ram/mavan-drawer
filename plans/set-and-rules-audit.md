@@ -1,6 +1,7 @@
 # Set and rules audit
 
-Status: **waves 0, 1 and 2 done and committed. Six wave-1 cards, then waves 3–5, remain.**
+Status: **wave 0 done; waves 1 and 2 done except cards 1.10, 1.11, 1.17 and 2.6; then waves 3–5.**
+Everything done is committed.
 Nothing in the set, the rules, lint, the sheet or the board changes in this build. Audit tools and
 audit documents only, committed separately.
 
@@ -13,16 +14,23 @@ Started 2026-10-04.
 **Read this block, then the Scope section, then the open cards. Do not re-derive anything in
 "What reconnaissance already established" or in the corrections list below.**
 
-**Done and committed** (6 commits, `9ea987a`..`5098607`, on `main`, not pushed):
-the plan · 5 instruments + a rasteriser in `tools/audit/` · 5 reference extractors in
-`tools/audit/refs/` · **17 findings documents in `docs/audit/`, 12,426 lines.**
-`node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **133 pass.**
+**Done and committed** (9 commits, `9ea987a`..`02d5f36`, plus the plan update after them, on
+`main`, not pushed): the plan · 8 instruments + a rasteriser in `tools/audit/` (wave 0's five, then
+`notes.mjs`, `metrics-check.mjs`, `metrics-probe.mjs`) · 5 reference extractors in
+`tools/audit/refs/` · **20 findings documents in `docs/audit/`, 14,630 lines.**
+`node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **182 pass.**
 `git diff 5933041 HEAD` across `src/icons`, lint, geometry, masters, build, queue, `research/`,
-`lab/`, docs 01–09, `CLAUDE.md`, `README.md`, `package.json` → **empty.** The gate is unmoved.
+`lab/`, docs 01–09, `CLAUDE.md`, `README.md`, `package.json` → **empty.** The gate is unmoved:
+`node tools/lint.mjs` output is byte-identical to the pin's.
 
-**Next, in this order** (Maruti agreed the grouping, not yet the go):
-1. **1.13 exceptions ledger · 1.12 metrics truthfulness · 1.9 modifier grammar** — these three feed
-   wave 3 directly, so wave 3 written before them would be written twice.
+**Next, in this order** (Maruti agreed the grouping; the first group ran on Maruti's go, 2026-10-05):
+1. ~~**1.13 exceptions ledger · 1.12 metrics truthfulness · 1.9 modifier grammar**~~ — **done
+   2026-10-05** (`cfd52b0` tools, `02d5f36` documents). Each was re-measured by a fresh reviewer
+   that had not seen the author's scripts, corrected, and checked a second time. What they hand
+   wave 3: the ledger's rule proposals R-1..R-10 (`exceptions-ledger.md` §4); the metrics fixes
+   F1–F8, three of them waiting on rulings (`findings-metrics.md` §9, §12); the grammar proposals
+   P1–P8 (`findings-grammar.md` §5). Each card's own eye questions: ledger §6, metrics §12,
+   grammar §4.
 2. **1.11 optical · 1.10 families · 1.17 Polaris** — narrow, self-contained, none blocks wave 3.
 3. **Wave 3** (the four registers; 3.5 is already done) → **wave 4** (surfaces) → **wave 5**
    (fresh reviewer + the one ranked decision agenda).
@@ -40,6 +48,15 @@ master. Do not re-run the web research; it cost two long agent runs.
 - SF Symbols' pair count — `CLAUDE.md:308` says 2,664; the app declares 2,906, or 2,508 without
   locale and direction variants; `stale-statements.md:197` marks the same sentence as holding
 - the Fluent card's own-side figures came from its own run, not card 1.4's
+- twin box equality is measured six ways in `findings-metrics.md` §11.3 — 921 to 1,401 of 1,455,
+  by tolerance, by tuple against edge by edge, by rounding first. Reconcile the first item above
+  by naming each figure's definition, not by choosing one
+- `volume-off`'s 1.25 channel: C22's dated note says it is "noted in its file"; the ledger and the
+  grammar card both find it declared nowhere — its `gap:` note covers the bar-stub junction
+- `trash`'s two warnings: C22 and `docs/09:31` call them a lint false positive; `findings-air.md`
+  calls them genuine near-misses
+- each card of the 2026-10-05 group keeps its own list: `exceptions-ledger.md` §5,
+  `findings-metrics.md` §11, `findings-grammar.md` §6
 
 **Known instrument defects — do not trust these without the stated workaround:**
 - `raster.mjs:257` `classify` drops an area path's horizontal edges and then reuses that list for
@@ -62,6 +79,13 @@ master. Do not re-run the web research; it cost two long agent runs.
   pages `1124:9833` System icons, `11947:5` Guidelines, `11972:5` Creation tools.
 - The shared record vocabulary lives in `refs/nucleo.mjs` and is duplicated in `refs/figma.mjs`.
   It should move to `refs/common.mjs`.
+- `congruence.mjs` `congruentUpToTranslation` reports "different segment structure" for one ring
+  traversed the other way round (`layout-sidebar-right` against `checkbox`), while
+  `canonical().shape` and `classify` call them identical. **Use those for pairwise counts.** Card
+  1.9 re-ran its count on canonical `d` and missed none of 694.
+- `geometry.mjs` `bbox()` samples each arc at 64 points and can sit up to 0.0056 inside the true
+  edge (`rotate-ccw` at 24), against `CLAUDE.md`'s "exact arc bboxes". A box quoted to better than
+  0.01 needs `metrics-check.mjs`'s solved box.
 
 **Corrections made during the build — these are settled; do not reinstate them:**
 | Claimed | Actually |
@@ -81,7 +105,10 @@ master. Do not re-run the web research; it cost two long agent runs.
 
 **Three decisions that expire at launch** (C9 locks names and numbers at release), ranked by cost
 of delay, all free today: `help` → `help-circle` · `login`'s door is `logout-3`'s, not `logout`'s ·
-the badge zone, while zero composites ship.
+the badge zone, while zero composites ship. Card 1.9 measured all three: the facts are in
+`findings-grammar.md` §1.5 and §2.6; the recommendations are P1 (badge zone), P5 (`help` →
+`help-circle`, with `info` → `info-circle`) and P6 (keep `login`'s numbering and write the pairing
+rule down — which conflicts with `findings-primitives.md` item 12's renumber; listed in its §6).
 
 **Note:** `CLAUDE.md:90-95` still says "2026-09-28: none open" and does not list this plan. That is
 already an entry in `stale-statements.md`; it is not edited, per Maruti's Q4 answer. A fresh session
@@ -427,19 +454,27 @@ Each: scope · files owned · how we know it is done · model · depends on.
   *Owns:* `docs/audit/findings-air.md`. *Model:* strongest. **Maruti's headline suspicion.**
 - [x] **1.8 The filled style (F13).** Every place filled and outline disagree beyond the box.
   *Owns:* `docs/audit/findings-filled.md`. *Model:* strongest.
-- [ ] **1.9 Modifier grammar and objects (F5, F3).** Where a plus/x/check/badge sits, its size, how
+- [x] **1.9 Modifier grammar and objects (F5, F3).** Where a plus/x/check/badge sits, its size, how
   it is cut out, whether the base is cut back. Is a document, a folder, a person, an arrow one
   drawing wherever it appears. *Owns:* `docs/audit/findings-grammar.md`. *Model:* strongest.
+  **Done 2026-10-05.** 78 composites, no corner badge, at least 38 queued badge icons with no
+  grammar; the arrow-or-pencil-through-object kind holds about 1.5 of air in 13 of 18, written
+  nowhere; nine shared parts drift at one master across 30 concepts. Proposals P1–P8.
 - [ ] **1.10 Families and completeness.** Numbered, size, level, figure; styles × sizes grid.
   *Owns:* `docs/audit/findings-families.md`. *Model:* Sonnet.
 - [ ] **1.11 Optical correction as a system (F2).** 45 of 480 concepts, 94 distinct pairs. Does
   C14's scaling claim hold? Which icons *should* carry a shift and do not?
   *Owns:* `docs/audit/findings-optical.md`. *Model:* strongest.
-- [ ] **1.12 Metrics truthfulness (F12).** Verify every published bearing. The 1,014 fake recessions,
+- [x] **1.12 Metrics truthfulness (F12).** Verify every published bearing. The 1,014 fake recessions,
   the null containers, the bare-`x` container. *Owns:* `docs/audit/findings-metrics.md`. *Model:* strong builder.
-- [ ] **1.13 The exceptions ledger.** Census done. Turn it into the ledger and judge each group:
+  **Done 2026-10-05.** Ink box and geometric bearings true to 0.0101; optical bearings not — 1,026
+  shape-filled entries uncorrected, 635 on a knife-edge, `paintbrush-4` null; "13.7–16.2px" was
+  never measured. Every figure reprints from `tools/audit/metrics-probe.mjs`.
+- [x] **1.13 The exceptions ledger.** Census done. Turn it into the ledger and judge each group:
   genuine agreed exception, or a missing rule wearing a note.
-  *Owns:* `docs/audit/exceptions-ledger.md`. *Model:* strongest.
+  *Owns:* `docs/audit/exceptions-ledger.md`. *Model:* strongest. **Done 2026-10-05.** 20 groups;
+  the instrument is `tools/audit/notes.mjs`, which wave 4's exceptions sheet (4.3) reads. Proposals
+  R-1..R-10.
 - [x] **1.14 The rule register.** Every rule · every place stated · derived from how many drawings ·
   still holds at 481? · contradicts what · silent about what. Built on the rule-inventory sweep and
   **verifying docs/09 rather than repeating it**.
