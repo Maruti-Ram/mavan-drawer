@@ -475,7 +475,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 124. `copy-2` · Files & Folders · variant of `copy` — Portrait panels · approved 2026-09-29
 - [x] 124. `copy-3` · Files & Folders · variant of `copy` — Slightly wider, every master · approved 2026-09-29
 - [x] 125. `face-neutral` · Communication — approved 2026-10-04
-- [ ] 126. `face-sad` · Communication
+- [x] 126. `face-sad` · Communication — approved 2026-10-04
 - [ ] 127. `italic` · Editing & Text
 - [ ] 128. `moon` · UI & Layout
 - [ ] 129. `sun` · UI & Layout
