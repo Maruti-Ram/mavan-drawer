@@ -479,7 +479,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 127. `italic` · Editing & Text — approved 2026-10-04
 - [x] 128. `moon` · UI & Layout — approved 2026-10-04
 - [x] 129. `sun` · UI & Layout — approved 2026-10-04
-- [ ] 130. `table` · Charts & Data
+- [x] 130. `table` · Charts & Data — approved 2026-10-04
+- [x] 130. `table-2` · Charts & Data · variant of `table` — Header + 2 columns · approved 2026-10-04
 - [ ] 131. `thumbs-down` · Communication
 - [ ] 132. `underline` · Editing & Text
 - [ ] 133. `crop` · Design Tools
