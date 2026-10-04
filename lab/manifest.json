@@ -657,6 +657,8 @@
     "minus-large-filled",
     "minus-small",
     "minus-small-filled",
+    "moon",
+    "moon-filled",
     "more-horizontal",
     "more-horizontal-filled",
     "more-vertical",
@@ -39046,6 +39048,122 @@
       "ratio": null,
       "gap": null
     },
+    "moon": {
+      "paths": [
+        "M12 2.75A9.25 9.25 0 1 0 21.25 12A6.54 6.54 0 0 1 12 2.75Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M12 2.75A9.25 9.25 0 1 0 21.25 12A6.54 6.54 0 0 1 12 2.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "moon",
+        "crescent",
+        "night",
+        "dark mode",
+        "theme"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.96,
+          "optical": 2.72
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.48,
+          "optical": 2.36
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.48,
+          "optical": 2.36
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.96,
+          "optical": 2.72
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "moon-filled": {
+      "paths": [],
+      "areas": [
+        "M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 21.79 9.98A5.79 5.79 0 1 1 14.02 2.21A10 10 0 0 0 12 2Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 21.79 9.98A5.79 5.79 0 1 1 14.02 2.21A10 10 0 0 0 12 2Z\"/>",
+      "mark": false,
+      "tags": [
+        "moon",
+        "crescent",
+        "night",
+        "dark mode",
+        "theme"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "more-horizontal": {
       "paths": [
         "M5.25 12A0.75 0.75 0 1 0 6.75 12A0.75 0.75 0 1 0 5.25 12Z",
@@ -59032,6 +59150,8 @@
         "minus-large-filled",
         "minus-small",
         "minus-small-filled",
+        "moon",
+        "moon-filled",
         "more-horizontal",
         "more-horizontal-filled",
         "more-vertical",
@@ -97370,6 +97490,122 @@
           "ratio": null,
           "gap": null
         },
+        "moon": {
+          "paths": [
+            "M8 1.625A6.375 6.375 0 1 0 14.375 8A4.508 4.508 0 0 1 8 1.625Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8 1.625A6.375 6.375 0 1 0 14.375 8A4.508 4.508 0 0 1 8 1.625Z\"/>",
+          "mark": false,
+          "tags": [
+            "moon",
+            "crescent",
+            "night",
+            "dark mode",
+            "theme"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.75,
+              "optical": 1.56
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.38,
+              "optical": 1.29
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.38,
+              "optical": 1.29
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.75,
+              "optical": 1.56
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "moon-filled": {
+          "paths": [],
+          "areas": [
+            "M8 1A7 7 0 0 0 1 8A7 7 0 0 0 8 15A7 7 0 0 0 15 8A7 7 0 0 0 14.784 6.275A3.883 3.883 0 1 1 9.725 1.216A7 7 0 0 0 8 1Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 1A7 7 0 0 0 1 8A7 7 0 0 0 8 15A7 7 0 0 0 15 8A7 7 0 0 0 14.784 6.275A3.883 3.883 0 1 1 9.725 1.216A7 7 0 0 0 8 1Z\"/>",
+          "mark": false,
+          "tags": [
+            "moon",
+            "crescent",
+            "night",
+            "dark mode",
+            "theme"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "more-horizontal": {
           "paths": [
             "M2.875 8A0.575 0.575 0 1 0 4.025 8A0.575 0.575 0 1 0 2.875 8Z",
@@ -117334,6 +117570,8 @@
         "minus-large-filled",
         "minus-small",
         "minus-small-filled",
+        "moon",
+        "moon-filled",
         "more-horizontal",
         "more-horizontal-filled",
         "more-vertical",
@@ -155688,6 +155926,122 @@
           "ratio": null,
           "gap": null
         },
+        "moon": {
+          "paths": [
+            "M10 2.75A7.25 7.25 0 1 0 17.25 10A5.13 5.13 0 0 1 10 2.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10 2.75A7.25 7.25 0 1 0 17.25 10A5.13 5.13 0 0 1 10 2.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "moon",
+            "crescent",
+            "night",
+            "dark mode",
+            "theme"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.89,
+              "optical": 2.67
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.45,
+              "optical": 2.34
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.45,
+              "optical": 2.34
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.89,
+              "optical": 2.67
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "moon-filled": {
+          "paths": [],
+          "areas": [
+            "M10 2A8 8 0 0 0 2 10A8 8 0 0 0 10 18A8 8 0 0 0 18 10A8 8 0 0 0 17.72 7.91A4.38 4.38 0 1 1 12.09 2.28A8 8 0 0 0 10 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10 2A8 8 0 0 0 2 10A8 8 0 0 0 10 18A8 8 0 0 0 18 10A8 8 0 0 0 17.72 7.91A4.38 4.38 0 1 1 12.09 2.28A8 8 0 0 0 10 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "moon",
+            "crescent",
+            "night",
+            "dark mode",
+            "theme"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "more-horizontal": {
           "paths": [
             "M4 10A0.6 0.6 0 1 0 5.2 10A0.6 0.6 0 1 0 4 10Z",
@@ -175669,6 +176023,8 @@
         "minus-large-filled",
         "minus-small",
         "minus-small-filled",
+        "moon",
+        "moon-filled",
         "more-horizontal",
         "more-horizontal-filled",
         "more-vertical",
@@ -214058,6 +214414,122 @@
           "ratio": null,
           "gap": null
         },
+        "moon": {
+          "paths": [
+            "M12 2.75A9.25 9.25 0 1 0 21.25 12A6.54 6.54 0 0 1 12 2.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12 2.75A9.25 9.25 0 1 0 21.25 12A6.54 6.54 0 0 1 12 2.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "moon",
+            "crescent",
+            "night",
+            "dark mode",
+            "theme"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.96,
+              "optical": 2.72
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.96,
+              "optical": 2.72
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "moon-filled": {
+          "paths": [],
+          "areas": [
+            "M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 21.79 9.98A5.79 5.79 0 1 1 14.02 2.21A10 10 0 0 0 12 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 2A10 10 0 0 0 2 12A10 10 0 0 0 12 22A10 10 0 0 0 22 12A10 10 0 0 0 21.79 9.98A5.79 5.79 0 1 1 14.02 2.21A10 10 0 0 0 12 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "moon",
+            "crescent",
+            "night",
+            "dark mode",
+            "theme"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "more-horizontal": {
           "paths": [
             "M5.25 12A0.75 0.75 0 1 0 6.75 12A0.75 0.75 0 1 0 5.25 12Z",
@@ -237427,8 +237899,8 @@
       "section": "D · The rest, by audit rank",
       "category": "UI & Layout",
       "base": null,
-      "note": null,
-      "status": "todo"
+      "note": "approved 2026-10-04",
+      "status": "done"
     },
     {
       "n": 129,
