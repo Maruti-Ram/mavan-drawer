@@ -1,10 +1,92 @@
 # Set and rules audit
 
-Status: **scoped — four scope questions answered by Maruti 2026-10-04. Awaiting the nod to fan out.**
+Status: **waves 0, 1 and 2 done and committed. Six wave-1 cards, then waves 3–5, remain.**
 Nothing in the set, the rules, lint, the sheet or the board changes in this build. Audit tools and
 audit documents only, committed separately.
 
 Started 2026-10-04.
+
+---
+
+## RESUME HERE
+
+**Read this block, then the Scope section, then the open cards. Do not re-derive anything in
+"What reconnaissance already established" or in the corrections list below.**
+
+**Done and committed** (6 commits, `9ea987a`..`5098607`, on `main`, not pushed):
+the plan · 5 instruments + a rasteriser in `tools/audit/` · 5 reference extractors in
+`tools/audit/refs/` · **17 findings documents in `docs/audit/`, 12,426 lines.**
+`node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **133 pass.**
+`git diff 5933041 HEAD` across `src/icons`, lint, geometry, masters, build, queue, `research/`,
+`lab/`, docs 01–09, `CLAUDE.md`, `README.md`, `package.json` → **empty.** The gate is unmoved.
+
+**Next, in this order** (Maruti agreed the grouping, not yet the go):
+1. **1.13 exceptions ledger · 1.12 metrics truthfulness · 1.9 modifier grammar** — these three feed
+   wave 3 directly, so wave 3 written before them would be written twice.
+2. **1.11 optical · 1.10 families · 1.17 Polaris** — narrow, self-contained, none blocks wave 3.
+3. **Wave 3** (the four registers; 3.5 is already done) → **wave 4** (surfaces) → **wave 5**
+   (fresh reviewer + the one ranked decision agenda).
+
+**Card 2.6 is a special case:** the field research was done by two agents whose reports exist only
+in the originating session's transcript, not on disk. `docs/audit/references-field.md` must be
+written from what is summarised in this plan and in the other reference documents — the praise
+vocabulary, the ranked failure modes, and Atlassian as the counter-case to hand-drawing a small
+master. Do not re-run the web research; it cost two long agent runs.
+
+**Wave 5 must reconcile, never pick**, where two cards measured one quantity:
+- filled/outline box equality — 1,100 of 1,455 exact (card 1.8) against 96.3% (card 2.1)
+- the 16 filled-corner offset — 7 concepts/10 pairs, then 37/97, now 13 concepts/50 corners
+- container-radius share — 61.8 · 61.4 · 58.6% (card 1.2) against 61.1 · 61.1 · 58.3% (card 2.3)
+- SF Symbols' pair count — `CLAUDE.md:308` says 2,664; the app declares 2,906, or 2,508 without
+  locale and direction variants; `stale-statements.md:197` marks the same sentence as holding
+- the Fluent card's own-side figures came from its own run, not card 1.4's
+
+**Known instrument defects — do not trust these without the stated workaround:**
+- `raster.mjs:257` `classify` drops an area path's horizontal edges and then reuses that list for
+  its box-uniformity test, so `rasterise` can return 0.00 where the truth is 0.50. **Exposure: any
+  `rasterise` / `inkArea` / `inkPixels` / `density` / `census` / `halfToneShare` figure on a file
+  with an area path (342 shape-filled concepts × 3 masters). Outline and line-heavy filled figures
+  are unaffected — verified on all 2,910 files.** Fix, not applied: keep the horizontal edges in a
+  separate list used only by the straddle test. Card 1.5/1.6 bypassed it; every published figure
+  was re-verified and none moved.
+- `pixelgrid.mjs` `blurScore` is a constant **0.500** on every straight run at stroke 1.5, so it
+  cannot rank 24 or 20 at all. It discriminates only at 16.
+- `pixelgrid.mjs` `diagonalShare` restarts a fragment after every arc, so a closing `Z` goes to the
+  last arc's end. Four outlines change side of the 0.5 line.
+- `figma.mjs` `measure.ink` (Figma render bounds) is wrong on rotated or flipped nodes — 1,032
+  Central drawings flagged. **Use the path, not `measure.ink`.** Central's `cornerRadius` can also
+  live only as a node property while `d` stays sharp (23% of its radius 1–3 outlines), and its
+  concept names are not unique — key on id.
+- `figma-extract.md`'s fluent row points at the **copy** in `XewrhAKrNGVZtikkpI5am9`. The
+  authoritative file is **`rdI0uXVzp89fOZpYcQV6mo`** ("a.1. Microsoft Fluent system iconography"):
+  pages `1124:9833` System icons, `11947:5` Guidelines, `11972:5` Creation tools.
+- The shared record vocabulary lives in `refs/nucleo.mjs` and is duplicated in `refs/figma.mjs`.
+  It should move to `refs/common.mjs`.
+
+**Corrections made during the build — these are settled; do not reinstate them:**
+| Claimed | Actually |
+|---|---|
+| Fluent uses 1.5 at 12–28 (`docs/07:47`, `fluent-guidelines.md:5-8`) | Regular is **1 · 1 · 1 · 1.5 · 1.5 · 2 · 2.5**; our row is a slip across two columns. Confirmed three ways |
+| A 0.88 gap reads as clear as 1.5 (`docs/08 §3.4`) | **False.** 1.08 is clear, 0.88 is not. The sheet it rests on has no measuring code |
+| Nucleo's `stroke_max` is per-drawing weight headroom | One constant per set and grid, on 2.2% of icons, in three free sets |
+| Untitled UI holds the filled box 26 of 26 | **92.9%** at census. The 26 were the commonest concepts and none has a badge |
+| Nucleo redraws 98% / 57.5% across grids | A property of the test. Within a family: 20.8%–55.4% |
+| Near misses rise at 16 (361 → 378 → 545) | A measuring-band artefact. Held constant: 361 / 287 / 308 |
+| The radius tiers scale cleanly | **Three different laws** — tier 2 canvas-locked, tier 3 stroke-locked, tier 1 neither |
+| Four concepts draw the filled corner tighter | **None does.** No reliable set-wide statistic exists for that relation |
+| lint cites doc sections that don't exist | Its **warnings** all cite §6, which exists. `§5b`/`§5c`/`§5f` appear in **CLAUDE.md ×5, docs/01, 07, 08 and SKILL.md**, and name nothing |
+| C14's per-master shift scaling has broken down | **It holds** — 81 of 90 files within 0.05, chevrons within 0.007. A two-icon question |
+| `ban-3` vs `x-small` is shared-part drift | Coincidence. But `ban-3`'s own note is 0.177 wrong at 16 |
+| `moon`'s short arc radius is a one-off | **117–165 arcs** type an `rx` too short to span their own chord |
+
+**Three decisions that expire at launch** (C9 locks names and numbers at release), ranked by cost
+of delay, all free today: `help` → `help-circle` · `login`'s door is `logout-3`'s, not `logout`'s ·
+the badge zone, while zero composites ship.
+
+**Note:** `CLAUDE.md:90-95` still says "2026-09-28: none open" and does not list this plan. That is
+already an entry in `stale-statements.md`; it is not edited, per Maruti's Q4 answer. A fresh session
+following CLAUDE.md's own instruction — read every plan in `plans/` with unticked boxes — will
+still find this file.
 
 **Pinned tree: `5933041` ("Add table and table-2", 2026-10-04) — 485 concepts, 2,910 drawings.**
 Every number in every register cites this commit. The main session keeps adding icons; the audit
@@ -322,28 +404,28 @@ Each: scope · files owned · how we know it is done · model · depends on.
 
 ### Wave 1 — measure us (parallel)
 
-- [ ] **1.1 Shared primitives (F4, F3).** Is the circle in every `-circle` icon the same circle?
+- [x] **1.1 Shared primitives (F4, F3).** Is the circle in every `-circle` icon the same circle?
   The arrowhead, plus, chevron, dot, badge, the slash of `ban`. Congruence classes across 2,886 files.
   *Owns:* `docs/audit/findings-primitives.md`. *Model:* strongest (judging drift vs intent).
   *Depends on:* 0.2. **Closes `CLAUDE.md` open item 5.**
-- [ ] **1.2 Corners and radii (F2).** Radius census: container vs detail vs mark-bend, per master,
+- [x] **1.2 Corners and radii (F2).** Radius census: container vs detail vs mark-bend, per master,
   and how radius behaves 24→16. Nested radii. *Owns:* `docs/audit/findings-corners.md`.
   *Model:* Sonnet measure, strongest judge. *Depends on:* 0.2. **Feeds the open container-radius ruling.**
-- [ ] **1.3 Angles (F-angles).** Every deviation from 0/45/90 and what it bought.
+- [x] **1.3 Angles (F-angles).** Every deviation from 0/45/90 and what it bought.
   *Owns:* `docs/audit/findings-angles.md`. *Model:* Sonnet. *Depends on:* 0.2.
-- [ ] **1.4 Scaling 24→16 (F6).** What is held and what gives. The 13% mark/container drift
+- [x] **1.4 Scaling 24→16 (F6).** What is held and what gives. The 13% mark/container drift
   (`docs/08 §6.1`) re-measured at 481 icons. *Owns:* `docs/audit/findings-scaling.md`.
   *Model:* strongest. *Depends on:* 0.2. **Maruti's stated top axis.**
-- [ ] **1.5 Mass and silhouette (F1, F10).** Ink area spread; does every icon read with the same
+- [x] **1.5 Mass and silhouette (F1, F10).** Ink area spread; does every icon read with the same
   darkness in a 16px row. *Owns:* `docs/audit/findings-mass.md`. *Model:* Sonnet measure, eye to settle.
-- [ ] **1.6 The pixel grid at 16 (F7).** Where edges and centrelines actually land; which icons are
+- [x] **1.6 The pixel grid at 16 (F7).** Where edges and centrelines actually land; which icons are
   blurry and why. *Owns:* `docs/audit/findings-grid.md`. *Model:* Sonnet. *Depends on:* 0.2.
-- [ ] **1.7 Air and contact (F8, F9).** The gap question re-derived from first principles: what is
+- [x] **1.7 Air and contact (F8, F9).** The gap question re-derived from first principles: what is
   it protecting against, and does one constant do that job at three masters — or does it need to
   differ for parallel runs, facing edges, knockouts, and counters inside a glyph? Plus the contact
   census: where ink touches ink, and what we do there (no rule exists).
   *Owns:* `docs/audit/findings-air.md`. *Model:* strongest. **Maruti's headline suspicion.**
-- [ ] **1.8 The filled style (F13).** Every place filled and outline disagree beyond the box.
+- [x] **1.8 The filled style (F13).** Every place filled and outline disagree beyond the box.
   *Owns:* `docs/audit/findings-filled.md`. *Model:* strongest.
 - [ ] **1.9 Modifier grammar and objects (F5, F3).** Where a plus/x/check/badge sits, its size, how
   it is cut out, whether the base is cut back. Is a document, a folder, a person, an arrow one
@@ -358,29 +440,38 @@ Each: scope · files owned · how we know it is done · model · depends on.
 - [ ] **1.13 The exceptions ledger.** Census done. Turn it into the ledger and judge each group:
   genuine agreed exception, or a missing rule wearing a note.
   *Owns:* `docs/audit/exceptions-ledger.md`. *Model:* strongest.
-- [ ] **1.14 The rule register.** Every rule · every place stated · derived from how many drawings ·
+- [x] **1.14 The rule register.** Every rule · every place stated · derived from how many drawings ·
   still holds at 481? · contradicts what · silent about what. Built on the rule-inventory sweep and
   **verifying docs/09 rather than repeating it**.
   *Owns:* `docs/audit/rule-register.md`. *Model:* strongest.
-- [ ] **1.15 Stated vs enforced.** Every rule a doc states that no check enforces; every check
+- [x] **1.15 Stated vs enforced.** Every rule a doc states that no check enforces; every check
   stricter than anything we decided; where lint and the docs disagree, which one is right.
   *Owns:* `docs/audit/enforcement-gap.md`. *Model:* strongest.
-- [ ] **1.16 Stale statements (Q4).** Every statement in CLAUDE.md, the docs and the plans that no
+- [x] **1.16 Stale statements (Q4).** Every statement in CLAUDE.md, the docs and the plans that no
   longer matches the set, with the correct measured value and the exact edit — **as a list Maruti
   rules on. Nothing is edited.** Known starting set: the `grows:` / `gap:` / anchor convention
   lines, the dead Polaris node that doc 06's D23 rulings wait on, `box:` "first used by `folder`",
   the "2-unit gap" wording, the icon count, docs/08's superseded do-not-reopen entry, and lint's
   citations of `§5b` / `§5c` / `§5f` — section numbers that **do not exist** in docs/01, which has
   §1–§8 only. *Owns:* `docs/audit/stale-statements.md`. *Model:* Sonnet measure, strongest judge.
+- [ ] **1.17 Polaris, for the D23 scope rulings.** Added 2026-10-04 when Maruti supplied the live
+  source. doc 06 proposes adding `home`, `checkbox`, `save`, `chevrons-up-down`, cutting
+  `caret-left/right`, merging `close`=`x` and `copy`=`duplicate`, and names 13 open slots — all of
+  it blocked since CLAUDE.md's pointer (node `15643:27748`) died. **The live source is file
+  `XewrhAKrNGVZtikkpI5am9`, page `15721:27960` "Polarris icons" — 499 COMPONENT nodes, all 20×20.**
+  This is a scope question, not a drawing one: compare against `research/queue.md`'s 834 rows and
+  `research/ranked.md`, and re-run `tools/audit.mjs` in a scratch copy (it reproduces byte-identical,
+  verified). *Owns:* `docs/audit/references-polaris.md`. *Model:* Sonnet.
+  *Bridge note:* only one agent at a time per Figma file; pass `fileKey` and never `figma_navigate`.
 
 ### Wave 2 — measure them (parallel with wave 1)
 
-- [ ] **2.1 Fluent → the hold/give curve across sizes.** *Model:* strongest. *Depends on:* 0.3.
-- [ ] **2.2 SF Symbols → closed vocabulary, and drawn vs derived across masters.** *Model:* strongest.
+- [x] **2.1 Fluent → the hold/give curve across sizes.** *Model:* strongest. *Depends on:* 0.3.
+- [x] **2.2 SF Symbols → closed vocabulary, and drawn vs derived across masters.** *Model:* strongest.
 - [x] **2.3 Nucleo → grid discipline across five sibling families. Done.** `stroke_max` turned out not to be
   per-drawing headroom (see the table above). *Model:* Sonnet measure, strongest judge.
-- [ ] **2.4 Untitled UI → outline↔filled isolated.** *Model:* Sonnet.
-- [ ] **2.5 Central → the cost curve of a parameter change, across a sample of its component sets.** *Model:* Sonnet measure, strongest judge.
+- [x] **2.4 Untitled UI → outline↔filled isolated.** *Model:* Sonnet.
+- [x] **2.5 Central → the cost curve of a parameter change, across a sample of its component sets.** *Model:* Sonnet measure, strongest judge.
 - [ ] **2.6 The field → the vocabulary of praise and the failure modes.** *Running.* *Model:* Sonnet ×2.
   *Owns:* `docs/audit/references.md` (one document, one section per source, each with
   **take / refuse / why**, every finding passed through the transfer test).
@@ -399,7 +490,7 @@ Each: scope · files owned · how we know it is done · model · depends on.
   *Owns:* `docs/audit/parameter-map.md`. *Model:* strongest.
 - [ ] **3.4 What a new set costs.** Change the radius / the weight / add a 32 master → here is the
   work, in order. *Owns:* same file, second half. *Model:* strongest.
-- [ ] **3.5 The severity proposal (Q2).** For every rule: should it hard-stop a drawing, stay a
+- [x] **3.5 The severity proposal (Q2).** For every rule: should it hard-stop a drawing, stay a
   warning, or be a note — and why. The problem it answers: today only note syntax, root attributes,
   banned elements, decimals, margin, declared-box mismatch and anchor violations are errors.
   **Every geometric rule is advisory.** Also covers the three structural holes found in
