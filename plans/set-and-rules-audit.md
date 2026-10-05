@@ -1,6 +1,6 @@
 # Set and rules audit
 
-Status: **wave 0 done; waves 1 and 2 done except card 2.6; then waves 3–5.**
+Status: **waves 0, 1 and 2 done; next waves 3–5.**
 Everything done is committed.
 Nothing in the set, the rules, lint, the sheet or the board changes in this build. Audit tools and
 audit documents only, committed separately.
@@ -14,12 +14,13 @@ Started 2026-10-04.
 **Read this block, then the Scope section, then the open cards. Do not re-derive anything in
 "What reconnaissance already established" or in the corrections list below.**
 
-**Done and committed** (`9ea987a`..`6d3e029`, plus a plan update after each group, on `main`, not
+**Done and committed** (`9ea987a`..`b526c8f`, plus a plan update after each group, on `main`, not
 pushed): the plan · 11 instruments + a rasteriser in `tools/audit/` (wave 0's five, then
 `notes.mjs`, `metrics-check.mjs`, `metrics-probe.mjs`, then `optical-probe.mjs`, `families.mjs`,
-`polaris-scope.mjs`; `families-mutations.mjs` breaks `families.mjs` on purpose to prove its tests) ·
-5 reference extractors in `tools/audit/refs/` · **23 findings documents in `docs/audit/`, 16,779
-lines.** `node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **292 pass.**
+`polaris-scope.mjs`; `families-mutations.mjs` breaks `families.mjs` on purpose to prove its tests;
+`field-sources.mjs` recovers and checks card 2.6's sources) · 5 reference extractors in
+`tools/audit/refs/` · **24 findings documents in `docs/audit/`, 17,383 lines.**
+`node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **308 pass.**
 `git diff 5933041 HEAD` across `src/icons`, lint, geometry, masters, build, queue, `research/`,
 `lab/`, docs 01–09, `CLAUDE.md`, `README.md`, `package.json` → **empty.** The gate is unmoved:
 `node tools/lint.mjs` output is byte-identical to the pin's.
@@ -39,8 +40,13 @@ lines.** `node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **
    FM-1..FM-7 (`findings-families.md` §9), Polaris proposals PL-1..PL-9 (`references-polaris.md` §8).
    Each card's own eye questions: optical "What only Maruti's eye can settle", families §8
    (E-1..E-3), Polaris §7.
-3. **Card 2.6** (the special case below), then **wave 3** (the four registers; 3.5 is already
-   done) → **wave 4** (surfaces) → **wave 5** (fresh reviewer + the one ranked decision agenda).
+3. ~~**Card 2.6**~~ — **done 2026-10-05** (`af1e8ff` tool, `b526c8f` document): its two field
+   reports, thought lost, were recovered verbatim from the 2026-10-04 transcripts, so it is written
+   from them and their saved evidence with no web research re-run (author and reviewer Fable).
+   Proposals FD-1..FD-6 (`references-field.md` §8); eye questions §7. Its sources are fragile — see
+   the note below.
+4. **Next: wave 3** (the four registers; 3.5 is already done) → **wave 4** (surfaces) →
+   **wave 5** (fresh reviewer + the one ranked decision agenda).
 
 **How a card is run** — the method that held for 1.13, 1.12 and 1.9 (2026-10-05). Follow it for
 every remaining card; it is what caught 16 wrong figures in one card and two unmeasured ones in
@@ -79,11 +85,15 @@ another before they reached Maruti.
 7. **Close:** the gate again, then three commits — tools · documents · this plan (tick the cards,
    update this block).
 
-**Card 2.6 is a special case:** the field research was done by two agents whose reports exist only
-in the originating session's transcript, not on disk. `docs/audit/references-field.md` must be
-written from what is summarised in this plan and in the other reference documents — the praise
-vocabulary, the ranked failure modes, and Atlassian as the counter-case to hand-drawing a small
-master. Do not re-run the web research; it cost two long agent runs.
+**Card 2.6's sources are fragile.** Its two reports are the final hand-backs in the 2026-10-04
+session's transcripts (`~/.claude/projects/-Users-maruti-avantsa-Claude-Workspace-Mavan-Drawer/
+07852967-7543-4b42-af82-b9afcfb57d4e/subagents/agent-ac6f17b540b15b43e.jsonl` and
+`agent-a365eba20e75eadb3.jsonl`), which Claude Code clears after its retention period; their
+evidence (saved page text, notes, tally scripts) is in that session's scratch under `/private/tmp`,
+which clears when the Mac restarts. `field-sources.mjs extract` re-extracts the reports and checks
+their hashes while the transcripts exist. Keeping a copy under `research/references/field/`
+(gitignored) is Maruti's call — this session was told not to change `research/`. Never re-run the
+web research; it cost two long agent runs.
 
 **Wave 5 must reconcile, never pick**, where two cards measured one quantity:
 - filled/outline box equality — 1,100 of 1,455 exact (card 1.8) against 96.3% (card 2.1)
@@ -106,6 +116,8 @@ master. Do not re-run the web research; it cost two long agent runs.
   `metrics-check.mjs`'s solved box, by distance; card 1.11: 166 = 12 + 154, on the build's 2 dp box,
   by the larger axis) and "keeps one ink box" (51 of 107 runs by exact 2 dp equality, 53 within
   lint's ±0.01 — card 1.16's 53 at 24 is the second definition)
+- and card 2.6's, `references-field.md` §9 — where the field reports' 2026-10-04 statements meet
+  what the later reference cards measured from source
 
 **Known instrument defects — do not trust these without the stated workaround:**
 - `raster.mjs:257` `classify` drops an area path's horizontal edges and then reuses that list for
@@ -163,6 +175,7 @@ master. Do not re-run the web research; it cost two long agent runs.
 | Optical correction is 45 icons, not a system (reconnaissance, below) | **It is C14/C15 applied exactly where they were written:** 36 chevron concepts within 0.16 of the sheet's measure, `play` consistent with its centroid × 0.5, `alert-triangle`'s −0.5 a construction lift wearing `optical:`. None of the 154 undeclared off-centre drawings is more than 0.5 off (`findings-optical.md`) |
 | `stale-statements.md:133`: the live Polaris is file `rdI0uXVzp89fOZpYcQV6mo`, with a copy in `XewrhAKrNGVZtikkpI5am9` | **`rdI0…` is Fluent's file and has no Polaris page** — six pages, listed by the main session 2026-10-05T06:01Z. The live Polaris is `XewrhAKrNGVZtikkpI5am9`, page `15721:27960`, identical to the 2026-10-04 catalogue (`references-polaris.md` §0.4, §5; PL-9) |
 | No family in this set keeps one ink box (`plans/sort-family.md`) | True of the five families it measured; **false of about half the runs** — 51 of 107 keep one box exactly at all three masters, 53 within lint's ±0.01 (`findings-families.md` §6) |
+| Card 2.6's field reports exist only in a transcript, not on disk, so the card is written from this plan's summaries | **Both reports were on disk, whole** — each is its agent's final hand-back in the 2026-10-04 transcript; extracted verbatim by `field-sources.mjs extract`, hashes in `references-field.md` §0. The plan's "summary" was three topic names; writing from it would have meant inventing the content |
 
 **Five decisions that expire at launch** (C9 locks names and numbers at release), all free today.
 Card 1.9's three, ranked by cost of delay: `help` → `help-circle` · `login`'s door is `logout-3`'s,
@@ -583,9 +596,12 @@ Each: scope · files owned · how we know it is done · model · depends on.
   per-drawing headroom (see the table above). *Model:* Sonnet measure, strongest judge.
 - [x] **2.4 Untitled UI → outline↔filled isolated.** *Model:* Sonnet.
 - [x] **2.5 Central → the cost curve of a parameter change, across a sample of its component sets.** *Model:* Sonnet measure, strongest judge.
-- [ ] **2.6 The field → the vocabulary of praise and the failure modes.** **Next** — its field
-  research was done in an earlier session and never saved; write it up as the RESUME HERE block
-  says, without re-running it. *Model:* Sonnet ×2.
+- [x] **2.6 The field → the vocabulary of praise and the failure modes.** **Done 2026-10-05**,
+  from the two 2026-10-04 reports recovered from their transcripts. Customers judge a set as
+  consistent, crisp or generic, never optical; the failure modes rank generic 12 · blurry 11 ·
+  drifting 10 of 53 statements; consistency is credited to ownership, not the grid; Atlassian's
+  scaled 12 answers a renderer they control — its test transfers, its conclusion does not.
+  Proposals FD-1..FD-6. *Model:* Sonnet ×2 for the research; Fable for the write-up and review.
   *Owns:* `docs/audit/references-field.md` (each reference set already has its own
   `references-<source>.md`; this one holds the field, each finding with **take / refuse / why**,
   passed through the transfer test).
