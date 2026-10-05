@@ -1,6 +1,6 @@
 # Set and rules audit
 
-Status: **wave 0 done; waves 1 and 2 done except cards 1.10, 1.11, 1.17 and 2.6; then waves 3–5.**
+Status: **wave 0 done; waves 1 and 2 done except card 2.6; then waves 3–5.**
 Everything done is committed.
 Nothing in the set, the rules, lint, the sheet or the board changes in this build. Audit tools and
 audit documents only, committed separately.
@@ -14,11 +14,12 @@ Started 2026-10-04.
 **Read this block, then the Scope section, then the open cards. Do not re-derive anything in
 "What reconnaissance already established" or in the corrections list below.**
 
-**Done and committed** (9 commits, `9ea987a`..`02d5f36`, plus the plan update after them, on
-`main`, not pushed): the plan · 8 instruments + a rasteriser in `tools/audit/` (wave 0's five, then
-`notes.mjs`, `metrics-check.mjs`, `metrics-probe.mjs`) · 5 reference extractors in
-`tools/audit/refs/` · **20 findings documents in `docs/audit/`, 14,630 lines.**
-`node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **182 pass.**
+**Done and committed** (`9ea987a`..`6d3e029`, plus a plan update after each group, on `main`, not
+pushed): the plan · 11 instruments + a rasteriser in `tools/audit/` (wave 0's five, then
+`notes.mjs`, `metrics-check.mjs`, `metrics-probe.mjs`, then `optical-probe.mjs`, `families.mjs`,
+`polaris-scope.mjs`; `families-mutations.mjs` breaks `families.mjs` on purpose to prove its tests) ·
+5 reference extractors in `tools/audit/refs/` · **23 findings documents in `docs/audit/`, 16,779
+lines.** `node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **292 pass.**
 `git diff 5933041 HEAD` across `src/icons`, lint, geometry, masters, build, queue, `research/`,
 `lab/`, docs 01–09, `CLAUDE.md`, `README.md`, `package.json` → **empty.** The gate is unmoved:
 `node tools/lint.mjs` output is byte-identical to the pin's.
@@ -31,9 +32,15 @@ Started 2026-10-04.
    F1–F8, three of them waiting on rulings (`findings-metrics.md` §9, §12); the grammar proposals
    P1–P8 (`findings-grammar.md` §5). Each card's own eye questions: ledger §6, metrics §12,
    grammar §4.
-2. **1.11 optical · 1.10 families · 1.17 Polaris** — narrow, self-contained, none blocks wave 3.
-3. **Wave 3** (the four registers; 3.5 is already done) → **wave 4** (surfaces) → **wave 5**
-   (fresh reviewer + the one ranked decision agenda).
+2. ~~**1.11 optical · 1.10 families · 1.17 Polaris**~~ — **done 2026-10-05** (`13da646` tools,
+   `6d3e029` documents), in a fresh session, by the method below: authors Fable (1.11) and Sonnet
+   (1.10, 1.17), every reviewer Fable; each card corrected and closed. What they hand wave 3: optical
+   proposals OC-1..OC-7 (`findings-optical.md`, "Proposals for Maruti to rule on"), family proposals
+   FM-1..FM-7 (`findings-families.md` §9), Polaris proposals PL-1..PL-9 (`references-polaris.md` §8).
+   Each card's own eye questions: optical "What only Maruti's eye can settle", families §8
+   (E-1..E-3), Polaris §7.
+3. **Card 2.6** (the special case below), then **wave 3** (the four registers; 3.5 is already
+   done) → **wave 4** (surfaces) → **wave 5** (fresh reviewer + the one ranked decision agenda).
 
 **How a card is run** — the method that held for 1.13, 1.12 and 1.9 (2026-10-05). Follow it for
 every remaining card; it is what caught 16 wrong figures in one card and two unmeasured ones in
@@ -54,12 +61,16 @@ another before they reached Maruti.
 3. **A fresh reviewer per card** (strongest), which did none of the work: re-measures at least 40
    figures with its own scripts, not the author's; reads every citation; challenges each verdict
    against Maruti's standing views (one icon is not a rule; references are input, never values;
-   a proposal is Maruti's to rule on); asks whether a tool's tests would catch a regression.
+   a proposal is Maruti's to rule on); asks whether a tool's tests would catch a regression — by
+   breaking the tool on purpose in a scratch copy and seeing whether a test fails. In the second
+   2026-10-05 group this found an untested core function in every card.
 4. **Corrections go back to the author**, who re-measures each before changing it and disputes with
    evidence; then **the same reviewer runs a closing check** on the fixes and on every figure that
    is new since. A dispute over a single fact is settled in the main session against the file.
 5. **If the harness refuses an agent's write** to a report file ("Subagents should return findings
-   as text"), the agent returns the whole document in one ````markdown block; the main session
+   as text"), the agent returns the whole document in one ````markdown block (it happened to two
+   of three authors on 2026-10-05; their later edits to the extracted file were accepted); the
+   main session
    extracts it from the agent's transcript with a script — never reading the transcript into
    context — writes it, and diffs. Small residual fixes the main session makes itself, after
    re-running the figure.
@@ -90,6 +101,11 @@ master. Do not re-run the web research; it cost two long agent runs.
   calls them genuine near-misses
 - each card of the 2026-10-05 group keeps its own list: `exceptions-ledger.md` §5,
   `findings-metrics.md` §11, `findings-grammar.md` §6
+- and the second group's: `findings-optical.md` §7, `findings-families.md` §10,
+  `references-polaris.md` §9 — among them the off-centre count (card 1.12: 177 = 12 + 165, on
+  `metrics-check.mjs`'s solved box, by distance; card 1.11: 166 = 12 + 154, on the build's 2 dp box,
+  by the larger axis) and "keeps one ink box" (51 of 107 runs by exact 2 dp equality, 53 within
+  lint's ±0.01 — card 1.16's 53 at 24 is the second definition)
 
 **Known instrument defects — do not trust these without the stated workaround:**
 - `raster.mjs:257` `classify` drops an area path's horizontal edges and then reuses that list for
@@ -119,6 +135,15 @@ master. Do not re-run the web research; it cost two long agent runs.
 - `geometry.mjs` `bbox()` samples each arc at 64 points and can sit up to 0.0056 inside the true
   edge (`rotate-ccw` at 24), against `CLAUDE.md`'s "exact arc bboxes". A box quoted to better than
   0.01 needs `metrics-check.mjs`'s solved box.
+- `optical-sheet.mjs:134-139` `triangleOffset` puts a bend's apex on the line from the chord's
+  midpoint through the midpoint of the two end points — the arc's true midpoint only when the two
+  legs are equal. On the 48 check drawings (leg ratio 1.97–4.52) it sits 0.060–0.193 off the true
+  apex and moves 16 of 48 recommendations one 0.05 step; chevrons are untouched (0 of 216).
+  `optical-probe.mjs` `triangleOffsetTrue` measures the true apex (`findings-optical.md` §0, §3.1).
+  The sheet is the lab's and is not changed in this build.
+- `build.mjs:43` rounds a box's `x` and `w` to 2 dp separately, so a published right edge can read
+  14.01 where the ink ends at 14.0 (`list-bullet` at 16) and an edge test at 0.01 flips on float
+  noise. Compare edges with a tolerance (`optical-probe.mjs` uses 0.0151) or use the solved box.
 
 **Corrections made during the build — these are settled; do not reinstate them:**
 | Claimed | Actually |
@@ -135,13 +160,21 @@ master. Do not re-run the web research; it cost two long agent runs.
 | C14's per-master shift scaling has broken down | **It holds** — 81 of 90 files within 0.05, chevrons within 0.007. A two-icon question |
 | `ban-3` vs `x-small` is shared-part drift | Coincidence. But `ban-3`'s own note is 0.177 wrong at 16 |
 | `moon`'s short arc radius is a one-off | **117–165 arcs** type an `rx` too short to span their own chord |
+| Optical correction is 45 icons, not a system (reconnaissance, below) | **It is C14/C15 applied exactly where they were written:** 36 chevron concepts within 0.16 of the sheet's measure, `play` consistent with its centroid × 0.5, `alert-triangle`'s −0.5 a construction lift wearing `optical:`. None of the 154 undeclared off-centre drawings is more than 0.5 off (`findings-optical.md`) |
+| `stale-statements.md:133`: the live Polaris is file `rdI0uXVzp89fOZpYcQV6mo`, with a copy in `XewrhAKrNGVZtikkpI5am9` | **`rdI0…` is Fluent's file and has no Polaris page** — six pages, listed by the main session 2026-10-05T06:01Z. The live Polaris is `XewrhAKrNGVZtikkpI5am9`, page `15721:27960`, identical to the 2026-10-04 catalogue (`references-polaris.md` §0.4, §5; PL-9) |
+| No family in this set keeps one ink box (`plans/sort-family.md`) | True of the five families it measured; **false of about half the runs** — 51 of 107 keep one box exactly at all three masters, 53 within lint's ±0.01 (`findings-families.md` §6) |
 
-**Three decisions that expire at launch** (C9 locks names and numbers at release), ranked by cost
-of delay, all free today: `help` → `help-circle` · `login`'s door is `logout-3`'s, not `logout`'s ·
-the badge zone, while zero composites ship. Card 1.9 measured all three: the facts are in
+**Five decisions that expire at launch** (C9 locks names and numbers at release), all free today.
+Card 1.9's three, ranked by cost of delay: `help` → `help-circle` · `login`'s door is `logout-3`'s,
+not `logout`'s · the badge zone, while zero composites ship. The facts are in
 `findings-grammar.md` §1.5 and §2.6; the recommendations are P1 (badge zone), P5 (`help` →
 `help-circle`, with `info` → `info-circle`) and P6 (keep `login`'s numbering and write the pairing
 rule down — which conflicts with `findings-primitives.md` item 12's renumber; listed in its §6).
+Card 1.17 adds the reference facts to two of them: live Polaris says `question-circle` and bare
+`info`, and no set says `help-circle` (PL-8); it draws 29 of the 38 queued badge composites (PL-7).
+Card 1.10 adds two numbering decisions of the same kind: `checkbox-2/-3/-4` carry `check-circle`'s
+`-3/-4/-small` ticks against C9's composite clause (FM-1), and the `trash` (2–4) and `check-circle`
+(2) gaps (FM-3).
 
 **Note:** `CLAUDE.md:90-95` still says "2026-09-28: none open" and does not list this plan. That is
 already an entry in `stale-statements.md`; it is not edited, per Maruti's Q4 answer. A fresh session
@@ -493,11 +526,17 @@ Each: scope · files owned · how we know it is done · model · depends on.
   **Done 2026-10-05.** 78 composites, no corner badge, at least 38 queued badge icons with no
   grammar; the arrow-or-pencil-through-object kind holds about 1.5 of air in 13 of 18, written
   nowhere; nine shared parts drift at one master across 30 concepts. Proposals P1–P8.
-- [ ] **1.10 Families and completeness.** Numbered, size, level, figure; styles × sizes grid.
-  *Owns:* `docs/audit/findings-families.md`. *Model:* Sonnet.
-- [ ] **1.11 Optical correction as a system (F2).** 45 of 480 concepts, 94 distinct pairs. Does
+- [x] **1.10 Families and completeness.** Numbered, size, level, figure; styles × sizes grid.
+  *Owns:* `docs/audit/findings-families.md`. *Model:* Sonnet. **Done 2026-10-05.** The 19 mark
+  size families hold C8's step to 0.000 at every master and style; the 6 container families keep
+  their ring. The slips are in names: `checkbox-2/-3/-4` carry `check-circle`'s ticks, 23 concepts'
+  search words stand against C9, C27 still lists `users-heads`. Proposals FM-1..FM-7.
+- [x] **1.11 Optical correction as a system (F2).** 45 of 480 concepts, 94 distinct pairs. Does
   C14's scaling claim hold? Which icons *should* carry a shift and do not?
-  *Owns:* `docs/audit/findings-optical.md`. *Model:* strongest.
+  *Owns:* `docs/audit/findings-optical.md`. *Model:* strongest. **Done 2026-10-05.** The scaling
+  holds (card 1.14). The system is applied exactly where C14 wrote it; by C15's measure only the
+  checks would move, and Maruti ruled them centred. None of the 154 undeclared off-centre drawings
+  is more than 0.5 off; 44 state a reason, 110 nobody has judged. Proposals OC-1..OC-7.
 - [x] **1.12 Metrics truthfulness (F12).** Verify every published bearing. The 1,014 fake recessions,
   the null containers, the bare-`x` container. *Owns:* `docs/audit/findings-metrics.md`. *Model:* strong builder.
   **Done 2026-10-05.** Ink box and geometric bearings true to 0.0101; optical bearings not — 1,026
@@ -522,7 +561,11 @@ Each: scope · files owned · how we know it is done · model · depends on.
   the "2-unit gap" wording, the icon count, docs/08's superseded do-not-reopen entry, and lint's
   citations of `§5b` / `§5c` / `§5f` — section numbers that **do not exist** in docs/01, which has
   §1–§8 only. *Owns:* `docs/audit/stale-statements.md`. *Model:* Sonnet measure, strongest judge.
-- [ ] **1.17 Polaris, for the D23 scope rulings.** Added 2026-10-04 when Maruti supplied the live
+- [x] **1.17 Polaris, for the D23 scope rulings.** **Done 2026-10-05.** The live page matches
+  the 2026-10-04 catalogue; the Fluent file holds no Polaris page. The four D23 additions are
+  already drawn; re-ranked on the live names the 13 open slots go to 0; Polaris draws 29 of the 38
+  queued badge composites. Proposals PL-1..PL-9. Card text follows.
+  Added 2026-10-04 when Maruti supplied the live
   source. doc 06 proposes adding `home`, `checkbox`, `save`, `chevrons-up-down`, cutting
   `caret-left/right`, merging `close`=`x` and `copy`=`duplicate`, and names 13 open slots — all of
   it blocked since CLAUDE.md's pointer (node `15643:27748`) died. **The live source is file
@@ -540,9 +583,12 @@ Each: scope · files owned · how we know it is done · model · depends on.
   per-drawing headroom (see the table above). *Model:* Sonnet measure, strongest judge.
 - [x] **2.4 Untitled UI → outline↔filled isolated.** *Model:* Sonnet.
 - [x] **2.5 Central → the cost curve of a parameter change, across a sample of its component sets.** *Model:* Sonnet measure, strongest judge.
-- [ ] **2.6 The field → the vocabulary of praise and the failure modes.** *Running.* *Model:* Sonnet ×2.
-  *Owns:* `docs/audit/references.md` (one document, one section per source, each with
-  **take / refuse / why**, every finding passed through the transfer test).
+- [ ] **2.6 The field → the vocabulary of praise and the failure modes.** **Next** — its field
+  research was done in an earlier session and never saved; write it up as the RESUME HERE block
+  says, without re-running it. *Model:* Sonnet ×2.
+  *Owns:* `docs/audit/references-field.md` (each reference set already has its own
+  `references-<source>.md`; this one holds the field, each finding with **take / refuse / why**,
+  passed through the transfer test).
 
 ### Wave 3 — synthesise (depends on 1 + 2)
 
