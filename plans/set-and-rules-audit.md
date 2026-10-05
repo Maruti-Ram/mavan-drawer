@@ -35,6 +35,39 @@ Started 2026-10-04.
 3. **Wave 3** (the four registers; 3.5 is already done) → **wave 4** (surfaces) → **wave 5**
    (fresh reviewer + the one ranked decision agenda).
 
+**How a card is run** — the method that held for 1.13, 1.12 and 1.9 (2026-10-05). Follow it for
+every remaining card; it is what caught 16 wrong figures in one card and two unmeasured ones in
+another before they reached Maruti.
+1. **Capture the gate first:** `node tools/lint.mjs` → a scratch file (the end must be byte-identical
+   to it); `node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` (182 pass at `a748f9d`);
+   `shasum lab/manifest.json`; `git diff --quiet 5933041 HEAD -- src/icons` and `git status --short
+   src/icons` — if the working tree has moved, every agent measures from
+   `git archive 5933041 src/icons` instead.
+2. **One author agent per card, in parallel.** Model: strongest = Fable, strong builder = Opus,
+   checklists = Sonnet; a vague brief or a result that needs judging moves up a tier. The brief:
+   the card, the pin, the files it owns (new audit tools allowed under `tools/audit/`, never
+   imported by lint or build), a scratch directory, **never `npm run build` or `npm run check` in
+   the repo** (they rewrite `lab/manifest.json` and `dist/` — build the pin in scratch from
+   `git archive 5933041`), measure-never-recall, the three kinds kept apart, plain language, a "For
+   wave 5 to reconcile" section, cite earlier audit documents rather than repeat them, report in
+   under 300 words.
+3. **A fresh reviewer per card** (strongest), which did none of the work: re-measures at least 40
+   figures with its own scripts, not the author's; reads every citation; challenges each verdict
+   against Maruti's standing views (one icon is not a rule; references are input, never values;
+   a proposal is Maruti's to rule on); asks whether a tool's tests would catch a regression.
+4. **Corrections go back to the author**, who re-measures each before changing it and disputes with
+   evidence; then **the same reviewer runs a closing check** on the fixes and on every figure that
+   is new since. A dispute over a single fact is settled in the main session against the file.
+5. **If the harness refuses an agent's write** to a report file ("Subagents should return findings
+   as text"), the agent returns the whole document in one ````markdown block; the main session
+   extracts it from the agent's transcript with a script — never reading the transcript into
+   context — writes it, and diffs. Small residual fixes the main session makes itself, after
+   re-running the figure.
+6. **Every figure must reprint from a committed tool.** Scratch scripts vanish with the session;
+   fold them into the card's tool (as `metrics-probe.mjs` does) and map each section to a command.
+7. **Close:** the gate again, then three commits — tools · documents · this plan (tick the cards,
+   update this block).
+
 **Card 2.6 is a special case:** the field research was done by two agents whose reports exist only
 in the originating session's transcript, not on disk. `docs/audit/references-field.md` must be
 written from what is summarised in this plan and in the other reference documents — the praise
