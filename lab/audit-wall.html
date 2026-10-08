@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The wall</title>
+<style>
+/* The wall (audit card 4.1): every concept in lab/manifest.json at real pixels, in rows of twenty, sorted and lit by
+   the numbers in lab/audit-data/wall.json (tools/audit/wall-data.mjs, measured on the pinned tree). Tokens copied
+   from library.html and figures.html; there is no shared stylesheet. */
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--done:#1f9d55;--review:#d18a00;--sel:#0d99ff;--hover:rgba(0,0,0,.04);--tint:rgba(0,0,0,.035);--shadow:0 1px 2px rgba(0,0,0,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--tint:rgba(255,255,255,.04);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--tint:rgba(255,255,255,.04);--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+svg{display:block;overflow:visible;flex:none}
+button{font:inherit;color:inherit}
+a{color:inherit}
+code{font:12px/1 ui-monospace,SFMono-Regular,Menlo,monospace}
+kbd{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-block;min-width:18px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 4px;background:var(--panel);color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* ── app header (library.html) ── */
+.app{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.app .top{display:flex;align-items:center;gap:16px;padding:16px 24px;flex-wrap:wrap}
+.ident{display:flex;align-items:center;gap:12px;flex:1;min-width:220px}
+.glyph{width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);color:var(--ink)}
+.ident>div{min-width:0}
+.ident h1{font-size:18px;line-height:22px;margin:0;font-weight:600;letter-spacing:-.01em}
+.ident p{margin:2px 0 0;font-size:12px;line-height:18px;height:18px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.divider{width:1px;height:20px;background:var(--line);margin:0 4px}
+.back{font-size:12px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+.seg{display:inline-flex;height:28px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.seg button{font-size:12px;padding:0 9px;border:0;border-radius:5px;background:none;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--hover);color:var(--ink)}
+.tbtn{height:28px;display:inline-flex;align-items:center;gap:6px;padding:0 8px 0 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:12px;cursor:pointer;white-space:nowrap}
+.tbtn:hover,.tbtn.on{border-color:color-mix(in srgb,var(--ink) 25%,var(--line))}
+.tbtn .k{color:var(--muted)}
+.tbtn .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:left}
+.tbtn svg{color:var(--muted)}
+.tbtn[disabled]{opacity:.45;cursor:default}
+.pop{position:relative}
+.lmenu{position:absolute;right:0;top:calc(100% + 6px);width:300px;max-height:min(70vh,560px);overflow-y:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.16);padding:4px;z-index:15}
+.msec{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 8px 2px}
+.mrow{display:flex;align-items:flex-start;gap:10px;width:100%;padding:5px 8px;border:0;border-radius:6px;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-align:left}
+.mrow:hover{background:var(--hover)}
+.mrow.on{color:var(--ink)}
+.mrow[disabled]{opacity:.45;cursor:default}
+.mrow .mt{flex:1;min-width:0}
+.mrow small{display:block;font-size:11px;color:var(--faint);line-height:1.35;margin-top:1px}
+.mrow .ck{margin-left:auto;opacity:0;margin-top:3px}
+.mrow.on .ck{opacity:1}
+.msep{height:1px;background:var(--line);margin:4px 6px}
+
+/* ── layout: the wall left, the icon panel right; nothing sits below the wall, so Both can grow it ── */
+main{display:grid;grid-template-columns:minmax(0,1fr) var(--side,288px);gap:16px;align-items:start;padding:24px 24px 80px}
+@media (max-width:1200px){main{padding:16px 16px 80px}}
+/* the icon panel folds to a strip (R), as the drawing board's sidebars do; the wall does not move when it folds */
+body.side-collapsed{--side:44px}
+body.side-collapsed .side>.panel{display:none}
+.strip{display:none;flex-direction:column;align-items:center;gap:10px;padding:10px 0;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
+body.side-collapsed .strip{display:flex}
+.strip .cap{writing-mode:vertical-rl;transform:rotate(180deg)}
+.iconbtn{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer;padding:0}
+.iconbtn:hover{color:var(--ink)}
+.iconbtn.ghost{border-color:transparent;background:none}
+.iconbtn.ghost:hover{background:var(--hover)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:10px 20px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);min-height:57px}
+.pt{display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 260px}
+.pt h2{font-size:14px;line-height:21px;font-weight:600;margin:0;white-space:nowrap}
+.pt p{flex:1;margin:0;font-size:12px;line-height:18px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pa{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+/* the wall's header: two fixed rows (what you see · what you look for), so folding the panel or a narrower window never
+   re-wraps it and the wall below never moves */
+.ph.wallhead{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:28px 28px;gap:8px 16px;align-items:center;height:92px;padding:14px 20px}
+.wallhead .pa{flex-wrap:nowrap}
+.wallhead .pd{margin:0;font-size:12px;line-height:18px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pill{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--hover);color:var(--muted);font-size:11px;font-weight:500;white-space:nowrap}
+
+/* the strip that says what the highlight is and where it comes from: fixed two lines */
+.lead{display:grid;grid-template-columns:auto 1fr;gap:0 10px;align-items:center;height:56px;padding:9px 20px;border-bottom:1px solid var(--line);background:var(--inset);font-size:12px;color:var(--muted)}
+.lead .sw{grid-row:1/3;width:14px;height:3px;border-radius:2px;background:var(--line)}
+.lead.on .sw{background:var(--accent)}
+.lead b{color:var(--ink);font-weight:500}
+.lead div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:19px;height:19px}
+
+/* the wall: twenty to a row; pitch fixed for the session from the screen's pixel ratio */
+.wallscroll{overflow-x:auto}
+/* --sx / --sy: the fraction of a device pixel the layout above leaves, put back so every canvas starts on a device pixel */
+.wall{display:grid;grid-template-columns:repeat(20,var(--pitch));padding:calc(12px + var(--sy,0px)) 12px 12px calc(12px + var(--sx,0px));width:max-content}
+.c{position:relative;width:var(--pitch);height:var(--pitch);padding:0;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+body.both .c{height:calc(var(--pitch) * 2 - 8px)}
+.c canvas{display:block;image-rendering:pixelated;flex:none}
+.c canvas.f{display:none}
+body.both .c canvas.f{display:block}
+.c:hover{background:var(--hover)}
+.c.g1{background:var(--tint)}
+.c.g1:hover{background:var(--hover)}
+.c.sel{box-shadow:inset 0 0 0 2px var(--sel);border-radius:4px}
+.c .hl{position:absolute;left:50%;bottom:2px;width:12px;height:2px;margin-left:-6px;border-radius:1px;background:var(--accent);opacity:0}
+.c.lit .hl{opacity:1}
+body.fade .wall.haslist .c:not(.lit) canvas{opacity:.18}
+.c .st{position:absolute;top:3px;right:3px;width:5px;height:5px;border-radius:50%;opacity:0}
+.c.added{outline:1px dashed var(--review);outline-offset:-3px;border-radius:4px}
+.c.added .st,.c.redrawn .st{opacity:1;background:var(--review)}
+.c.flag::after{content:"";position:absolute;top:3px;left:3px;width:5px;height:5px;border-radius:1px;background:var(--sel)}
+.empty{padding:48px 20px;text-align:center;color:var(--muted);font-size:13px}
+.empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+
+/* ── the icon panel: one fixed shape whatever is selected ── */
+.side{position:sticky;top:calc(var(--head,73px) + 16px);display:flex;flex-direction:column;gap:16px;max-height:calc(100vh - var(--head,73px) - 32px);overflow-y:auto}
+.side>*{flex:none}
+.side .ph{min-height:57px;padding:0 10px 0 20px;height:57px;flex-wrap:nowrap;gap:8px}
+.side .ph .grow{flex:1}
+.side .ph b{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.prev{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);height:132px}
+.prev>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:0}
+.prev>div+div{border-left:1px solid var(--line)}
+.prev .box{display:grid;place-items:center;width:72px;height:72px}
+.prev canvas{image-rendering:pixelated;display:block}
+.prev canvas.mag{width:64px;height:64px;background:var(--inset);border:1px solid var(--line);border-radius:3px}
+.prev small,.cap{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.dsec{padding:12px 20px;border-bottom:1px solid var(--line)}
+.dsec:last-child{border-bottom:0}
+.dsec h3{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:500;margin:0 0 6px}
+.mt2{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+.mt2 th{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:right;padding:2px 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mt2 th:first-child{text-align:left;width:44%}
+.mt2 td{padding:4px 0;border-top:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:27px}
+.mt2 td:first-child{text-align:left;color:var(--muted)}
+.mt2 td.span{text-align:right}
+.inl{height:78px;overflow-y:auto;font-size:12px;color:var(--muted);line-height:1.45}
+.inl div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.inl b{color:var(--ink);font-weight:500}
+.links{display:flex;gap:8px;align-items:center;height:28px}
+.status{height:18px;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status.warn{color:var(--review)}
+.flags{height:58px;overflow-y:auto;font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);word-break:break-all}
+.keys{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--muted)}
+.keys span{display:inline-flex;align-items:center;gap:5px}
+details.about summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 20px;height:49px;font-size:14px;font-weight:600}
+details.about summary::-webkit-details-marker{display:none}
+details.about summary svg{color:var(--muted);transition:transform .15s}
+details.about[open] summary svg{transform:rotate(180deg)}
+details.about[open] summary{border-bottom:1px solid var(--line)}
+.about .dsec p{margin:0 0 6px;font-size:12px;color:var(--muted);line-height:1.5}
+.about .dsec p b{color:var(--ink);font-weight:500}
+.about ul{margin:0;padding-left:16px;font-size:12px;color:var(--muted);line-height:1.5}
+.about li{margin-bottom:5px}
+</style>
+</head>
+<body>
+<header class="app">
+  <div class="top">
+    <div class="ident">
+      <div class="glyph"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 4.75h2M8 4.75h2M13 4.75h2M3 10h2M8 10h2M13 10h2M3 15.25h2M8 15.25h2M13 15.25h2"/></svg></div>
+      <div><h1>The wall</h1><p id="subtitle">&nbsp;</p></div>
+    </div>
+    <div class="actions" id="bar">
+      <a class="back" href="library.html">Library</a>
+      <span class="divider"></span>
+      <span class="seg" id="style"></span>
+      <span class="divider"></span>
+      <span class="seg" id="theme"></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="panel" id="wallPanel">
+    <div class="ph wallhead">
+      <div class="pt"><h2>Every icon</h2><span class="pill num" id="count"></span></div>
+      <div class="pa"><div class="pop" data-pop="view"></div><span class="seg" id="pixels"></span><div class="pop" data-pop="squint"></div></div>
+      <p class="pd" id="desc"></p>
+      <div class="pa"><div class="pop" data-pop="sort"></div><div class="pop" data-pop="list"></div></div>
+    </div>
+    <div class="lead" id="lead"><i class="sw"></i><div id="lead1"></div><div id="lead2"></div></div>
+    <div class="wallscroll"><div class="wall" id="wall"></div></div>
+  </section>
+
+  <aside class="side" id="side">
+    <div class="strip"><button class="iconbtn ghost" id="stripBtn" title="Open the panel (R)" aria-label="Open the panel" aria-expanded="false"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2"/><path d="M10 2.75v10.5"/></svg></button><span class="cap">icon panel · R</span></div>
+    <section class="panel">
+      <div class="ph"><b id="dName">No icon selected</b><span class="grow"></span><span class="pill num" id="dRank">—</span>
+        <button class="iconbtn ghost" id="sideBtn" title="Fold the panel (R)" aria-label="Fold the panel" aria-expanded="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2"/><path d="M10 2.75v10.5"/></svg></button></div>
+      <div class="prev" id="prev">
+        <div><span class="box"><canvas data-k="1"></canvas></span><small>real · 1×</small></div>
+        <div><span class="box"><canvas data-k="2"></canvas></span><small>real · 2×</small></div>
+        <div><span class="box"><canvas class="mag" data-k="1"></canvas></span><small>1× enlarged</small></div>
+      </div>
+      <div class="dsec">
+        <table class="mt2"><thead><tr><th id="dView">At this view</th><th>Outline</th><th>Filled</th></tr></thead><tbody id="dNums"></tbody></table>
+      </div>
+      <div class="dsec"><h3>In the highlight lists, at this view</h3><div class="inl" id="dLists"></div></div>
+      <div class="dsec">
+        <div class="status" id="dStatus">&nbsp;</div>
+        <div class="links"><a class="tbtn" href="library.html" id="dLib" title="Open the Library — it opens on its grid; press / and type the name">Library</a><button class="tbtn" id="dCopy" disabled style="width:84px;justify-content:center">Copy name</button><button class="tbtn" id="dFlag" disabled title="Flag (X)" style="width:64px;justify-content:center">Flag</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="ph"><b>Flagged</b><span class="pill num" id="fCount">0</span></div>
+      <div class="dsec"><div class="flags" id="flags"></div>
+        <div class="links" style="margin-top:8px"><button class="tbtn" id="fCopy">Copy list</button><button class="tbtn" id="fClear">Clear</button><span class="cap" style="margin-left:auto">this browser only</span></div></div>
+      <div class="dsec"><div class="keys"><span><kbd>F</kbd> filled</span><span><kbd>S</kbd> squint</span><span><kbd>X</kbd> flag</span><span><kbd>←</kbd><kbd>→</kbd> step</span><span><kbd>Esc</kbd> clear</span><span><kbd>R</kbd> fold panel</span></div></div>
+    </section>
+
+    <details class="panel about" id="about">
+      <summary>How to read this page<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4l2.5 2.5L7.5 4"/></svg></summary>
+      <div id="aboutBody"></div>
+    </details>
+  </aside>
+</main>
+
+<script type="module">
+// ── data ───────────────────────────────────────────────────────────────────────────────────────────────
+// The drawings come from the live lab/manifest.json (what ships today); the numbers come from
+// lab/audit-data/wall.json, measured on the pinned tree by tools/audit/wall-data.mjs. A concept the pin does not
+// have is marked "added after the pin"; one whose path data no longer matches the pin's is marked "redrawn".
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage may be unavailable */ } },
+};
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const MASTERS = [24, 20, 16];
+
+const [man, wall] = await Promise.all([
+  fetch('manifest.json', { cache: 'no-store' }).then((r) => r.json()),
+  fetch('audit-data/wall.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+]);
+
+// FNV-1a over the d strings joined with "|" — tools/audit/wall-data.mjs `drawingHash`, the same on both sides.
+function fnv1a(s) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h.toString(16).padStart(8, '0');
+}
+const bodyHash = (body) => fnv1a([...body.matchAll(/<path\b[^>]*?\bd="([^"]*)"/g)].map((m) => m[1]).join('|'));
+
+/** The live set against the pin: every live concept, its pin record (or null), and what moved since. Pure. */
+function reconcile(manifest, data) {
+  const live = [...new Set(MASTERS.flatMap((m) => manifest.masters[m]?.names ?? []))].filter((n) => !n.endsWith('-filled')).sort();
+  const pin = new Map((data?.concepts ?? []).map((c) => [c.name, c]));
+  const rows = live.map((name) => {
+    const p = pin.get(name) ?? null;
+    const moved = [];
+    if (p) for (const m of MASTERS) for (const style of ['outline', 'filled']) {
+      const rec = manifest.masters[m]?.icons?.[style === 'filled' ? `${name}-filled` : name];
+      const was = p[style]?.[String(m)]?.hash ?? null;
+      const now = rec ? bodyHash(rec.body) : null;
+      if (was !== now) moved.push(`${m} ${style}`);
+    }
+    return { name, p, status: !p ? 'added' : moved.length ? 'redrawn' : 'pin', moved };
+  });
+  const liveSet = new Set(live);
+  return { rows, retired: [...pin.keys()].filter((n) => !liveSet.has(n)) };
+}
+window.wallDebug = { reconcile, bodyHash, fnv1a, snap: () => snap(), solidDots: (b, w) => solidDots(b, w) };   // for checking in the console; the page does not need it
+
+if (!wall) {
+  document.getElementById('wall').outerHTML = '<div class="empty"><b>No data yet</b>Run <code>node tools/audit/wall-data.mjs &lt;pin-dir&gt;</code> to write <code>lab/audit-data/wall.json</code>.</div>';
+  throw new Error('lab/audit-data/wall.json is missing');
+}
+const { rows: ROWS, retired } = reconcile(man, wall);
+const VIEWS = wall.views;
+const LISTS = wall.lists;
+
+// ── state ──────────────────────────────────────────────────────────────────────────────────────────────
+const state = {
+  theme: store.get('icon-theme', 'auto'),               // shared with the drawing board and the Library
+  style: store.get('wall-style', 'outline'),            // 'outline' | 'filled' | 'both'
+  view: store.get('wall-view', '16'),
+  k: store.get('wall-k', 1),                            // 1× or 2× device pixels per icon pixel
+  sort: store.get('wall-sort', 'share'),
+  reverse: store.get('wall-reverse', false),
+  list: store.get('wall-list', ''),
+  fade: store.get('wall-fade', false),
+  squint: store.get('wall-squint', 0),
+  lastSquint: 1.5,
+  flags: new Set(store.get('wall-flags', [])),
+  sel: null,
+  menu: null,
+};
+if (!VIEWS.some((v) => v.id === state.view)) state.view = '16';
+if (state.list && !LISTS.some((l) => l.id === state.list)) state.list = '';
+const view = () => VIEWS.find((v) => v.id === state.view);
+
+// ── real pixels ────────────────────────────────────────────────────────────────────────────────────────
+// An icon of `px` pixels is rasterised into a canvas of px × k backing pixels (k = 1: a standard screen; k = 2: a
+// retina screen) and shown so that each backing pixel covers a whole number of device pixels, smoothing off —
+// figures.html's method. On a 2× screen, 1× shows each icon pixel as a 2 × 2 block and 2× is one to one.
+const DPR = window.devicePixelRatio || 1;
+const perPixel = (k) => Math.max(1, Math.round(DPR / k));            // device pixels per backing pixel
+const cssSize = (px, k) => (px * k * perPixel(k)) / DPR;
+const PITCH = Math.ceil(Math.max(...VIEWS.flatMap((v) => [1, 2].map((k) => cssSize(v.px, k))))) + 8;   // 32 on a 2× screen: twenty fit beside the panel at 1024
+document.documentElement.style.setProperty('--pitch', `${PITCH}px`);
+// Exact when the browser is at 100% zoom (a whole number of device pixels per CSS pixel). On a 1× screen, 2× can only
+// be shown at twice the size.
+const exact = () => Number.isInteger(DPR);
+const enlarged = (k) => DPR < k;
+
+const rec = (name, m, style) => man.masters[m]?.icons?.[style === 'filled' ? `${name}-filled` : name] ?? null;
+
+// A stroked circle whose radius is under half its stroke — the set's dots — is, by SVG's definition of a stroke (every
+// point within half the width of the path), a solid disc of radius r + w/2. Chrome's CPU raster leaves a hole in the
+// middle of such a circle (its stroker turns the inner edge inside out: filled `more-horizontal` at 16 read centre
+// pixels 136–194 of 255), so those subpaths are drawn here as the discs SVG means. Every other subpath is drawn exactly
+// as the file has it. At the pin only closed two-arc circles have a radius under half the stroke — no other arc does.
+const NUM = /-?(?:\d+\.?\d*|\.\d+)(?:e[-+]?\d+)?/gi;
+function solidDots(body, rootStroke) {
+  return body.replace(/<path\b([^>]*)\/>/g, (tag, attrs) => {
+    if (/stroke="none"/.test(attrs) || /\bfill="(?!none)[^"]*"/.test(attrs)) return tag;
+    const w = +((attrs.match(/stroke-width="([^"]+)"/) || [])[1] ?? rootStroke);
+    const d = (attrs.match(/\bd="([^"]+)"/) || [])[1];
+    if (!d) return tag;
+    const keep = [], discs = [];
+    for (const sub of d.split(/(?=M)/)) {
+      const m = sub.trim().match(/^M([^A-Za-z]+)A([^A-Za-z]+)A([^A-Za-z]+)Z?$/);
+      if (m) {
+        const p0 = m[1].match(NUM).map(Number), a1 = m[2].match(NUM).map(Number), a2 = m[3].match(NUM).map(Number);
+        const chord = Math.hypot(a1[5] - p0[0], a1[6] - p0[1]);
+        const r = Math.max(a1[0], chord / 2);                                 // SVG scales a too-short radius up
+        const circle = a1[0] === a1[1] && a2[0] === a1[0] && a2[1] === a1[1] && Math.hypot(a2[5] - p0[0], a2[6] - p0[1]) < 1e-6;
+        if (circle && r < w / 2) {
+          const q = (v) => +v.toFixed(4);
+          const cx = (p0[0] + a1[5]) / 2, cy = (p0[1] + a1[6]) / 2, R = q(r + w / 2);
+          discs.push(`M${q(cx - R)} ${q(cy)}A${R} ${R} 0 1 0 ${q(cx + R)} ${q(cy)}A${R} ${R} 0 1 0 ${q(cx - R)} ${q(cy)}Z`);
+          continue;
+        }
+      }
+      keep.push(sub);
+    }
+    if (!discs.length) return tag;
+    return (keep.length ? tag.replace(d, keep.join('')) : '') + `<path fill="#000" stroke="none" d="${discs.join('')}"/>`;
+  });
+}
+const imgCache = new Map();
+/** A decoded image of one drawing at `px × k` backing pixels, painted black (recoloured on the canvas). */
+function imageOf(name, v, style, k) {
+  const key = `${name}|${v.id}|${style}|${k}`;
+  if (imgCache.has(key)) return imgCache.get(key);
+  const r = rec(name, v.master, style);
+  const p = r ? (async () => {
+    const n = v.px * k;
+    const img = new Image();
+    img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="${n}" height="${n}" viewBox="0 0 ${v.master} ${v.master}"><g fill="none" stroke="#000" stroke-width="${r.stroke}" stroke-linecap="round" stroke-linejoin="round">${solidDots(r.body.replaceAll('currentColor', '#000'), r.stroke)}</g></svg>`)}`;
+    await img.decode();
+    return img;
+  })().catch(() => null) : Promise.resolve(null);
+  imgCache.set(key, p);
+  return p;
+}
+const inkColour = () => getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000';
+/** Paint one canvas: size it for the view and k, draw the drawing, recolour to the theme's ink. */
+function draw(cv, img, v, k, { css = cssSize(v.px, k) } = {}) {
+  const n = v.px * k;
+  cv.width = n; cv.height = n;                                          // also clears it
+  cv.style.width = `${css}px`; cv.style.height = `${css}px`;
+  if (!img) return;
+  // willReadFrequently keeps the canvas on the CPU. A GPU-backed canvas draws small shapes with four-level coverage
+  // (0, ¼, ½, ¾, 1: outline `more-horizontal` at 16 read 8.77 px² there against 13.93 here, 2026-10-08); the CPU canvas
+  // gives full anti-aliasing, the same as the panel's "Drawn here" readout. Its one fault, the hole in a dot, is
+  // handled by `solidDots` above.
+  const ctx = cv.getContext('2d', { willReadFrequently: true });
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, n, n);
+  ctx.globalCompositeOperation = 'source-in';
+  ctx.fillStyle = inkColour();
+  ctx.fillRect(0, 0, n, n);
+  ctx.globalCompositeOperation = 'source-over';
+}
+
+// ── numbers for a concept at the view on show ─────────────────────────────────────────────────────────
+/** { share, ink (px² at the size shown), squint, strokes, paths, band, kind } from the pin, or null. */
+function nums(row, style, v = view()) {
+  const r = row.p?.[style]?.[String(v.master)];
+  if (!r) return null;
+  const forced = v.px !== v.master;                                     // the 24 master drawn at 16 px
+  return { share: r.share, ink: forced ? r.share * v.px * v.px : r.ink, squint: forced ? r.squint16 : r.squint,
+    strokes: r.strokes, paths: r.paths, band: r.band, kind: r.kind };
+}
+const sortStyle = () => (state.style === 'filled' ? 'filled' : 'outline');   // Both sorts by the outline
+
+// ── lists ─────────────────────────────────────────────────────────────────────────────────────────────
+const LIST = () => LISTS.find((l) => l.id === state.list) ?? null;
+function groupsOf(l, style, v = view()) {
+  if (!l) return [];
+  if (l.perView) return l.perView[`${v.id}/${style}`] ?? [];
+  if (l.byStyle) return l.byStyle[style] ?? [];
+  return l.groups ?? [];
+}
+/** Names lit by a list at the view on show. Both lights a cell when either style is in the list. */
+function litSet(l) {
+  const styles = state.style === 'both' ? ['outline', 'filled'] : [state.style];
+  return new Set(styles.flatMap((s) => groupsOf(l, s).flat()));
+}
+const noteOf = (l, style, name) => l?.notes?.[`${state.view}/${style}/${name}`] ?? l?.notes?.[name] ?? null;
+
+// ── order ─────────────────────────────────────────────────────────────────────────────────────────────
+const parse = (n) => {
+  let rest = n, size = 1, num = 1;
+  const sm = rest.match(/-(small|large)$/); if (sm) { size = sm[1] === 'small' ? 0 : 2; rest = rest.slice(0, -sm[0].length); }
+  const nm = rest.match(/-(\d+)$/); if (nm) { num = +nm[1]; rest = rest.slice(0, -nm[0].length); }
+  return { stem: rest, num, size };
+};
+const byName = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+const famOf = (row) => row.p?.family ?? '~ added after the pin';
+function withinFamily(a, b) {
+  const p = parse(a.name), q = parse(b.name);
+  return (p.stem < q.stem ? -1 : p.stem > q.stem ? 1 : 0) || p.num - q.num || p.size - q.size || byName(a, b);
+}
+const SORTS = {
+  share: { label: 'Ink mass', hint: 'ink ÷ canvas — card 1.5\'s measure', lo: 'lightest first', hi: 'darkest first' },
+  squint: { label: 'Squint peak', hint: 'darkest patch after a σ 1.5 px blur', lo: 'lightest first', hi: 'darkest first' },
+  strokes: { label: 'Stroke count', hint: 'subpaths — card 1.4\'s detail count', lo: 'fewest first', hi: 'most first' },
+  family: { label: 'Family', hint: 'card 1.10\'s partition, 128 stems', lo: 'a → z', hi: 'z → a' },
+  name: { label: 'Name', hint: 'alphabetical', lo: 'a → z', hi: 'z → a' },
+  list: { label: 'Highlighted list first', hint: 'its groups side by side, then the rest by ink mass', lo: 'list order', hi: 'list order' },
+};
+function ordered() {
+  const style = sortStyle(), dir = state.reverse ? -1 : 1;
+  const key = (row) => { const n = nums(row, style); return n ? n[state.sort === 'strokes' ? 'strokes' : state.sort] : null; };
+  const numeric = (a, b, k = key) => {
+    const x = k(a), y = k(b);
+    if (x == null || y == null) return (x == null) - (y == null) || byName(a, b);   // no pin numbers: last
+    return dir * (x - y) || byName(a, b);
+  };
+  const share = (row) => nums(row, style)?.share ?? null;
+  const rows = [...ROWS];
+  let groupOf = () => -1;
+  if (state.sort === 'share' || state.sort === 'squint') rows.sort(numeric);
+  else if (state.sort === 'strokes') rows.sort((a, b) => numeric(a, b) || numeric(a, b, share));
+  else if (state.sort === 'name') rows.sort((a, b) => dir * byName(a, b));
+  else if (state.sort === 'family') {
+    rows.sort((a, b) => { const f = famOf(a), g = famOf(b); return dir * (f < g ? -1 : f > g ? 1 : 0) || withinFamily(a, b); });
+    const fams = [...new Set(rows.map(famOf))];
+    groupOf = (row) => fams.indexOf(famOf(row));
+  } else if (state.sort === 'list') {
+    const gs = groupsOf(LIST(), style), at = new Map();
+    gs.forEach((g, gi) => g.forEach((n, ni) => { if (!at.has(n)) at.set(n, [gi, ni]); }));
+    rows.sort((a, b) => {
+      const p = at.get(a.name), q = at.get(b.name);
+      if (p && q) return p[0] - q[0] || p[1] - q[1];
+      if (p || q) return p ? -1 : 1;
+      return numeric(a, b, share);
+    });
+    groupOf = (row) => at.get(row.name)?.[0] ?? -1;
+  }
+  return { rows, groupOf };
+}
+
+// ── the wall ──────────────────────────────────────────────────────────────────────────────────────────
+const wallEl = document.getElementById('wall');
+const cells = new Map();                                                // name → cell element
+for (const row of ROWS) {
+  const b = document.createElement('button');
+  b.className = `c ${row.status}`;
+  b.dataset.name = row.name;
+  b.setAttribute('aria-label', row.name);                               // names stay off the wall itself (F10)
+  b.innerHTML = '<canvas class="o"></canvas><canvas class="f"></canvas><i class="hl"></i><i class="st"></i>';
+  cells.set(row.name, b);
+}
+let order = [];
+function arrange() {
+  const { rows, groupOf } = ordered();
+  order = rows.map((r) => r.name);
+  const frag = document.createDocumentFragment();
+  for (const r of rows) {
+    const c = cells.get(r.name);
+    const g = groupOf(r);
+    c.classList.toggle('g1', g >= 0 && g % 2 === 1);
+    frag.appendChild(c);
+  }
+  wallEl.appendChild(frag);
+}
+function light() {
+  const l = LIST(), lit = litSet(l);
+  wallEl.classList.toggle('haslist', !!l);
+  for (const [n, c] of cells) {
+    c.classList.toggle('lit', lit.has(n));
+    c.classList.toggle('flag', state.flags.has(n));
+    c.classList.toggle('sel', state.sel === n);
+  }
+}
+let gen = 0;
+async function paint() {
+  const run = ++gen, v = view(), k = state.k;
+  const styles = state.style === 'both' ? ['outline', 'filled'] : [state.style];
+  const jobs = [];
+  for (const [n] of cells) for (const s of styles) jobs.push(imageOf(n, v, s, k).then((img) => [n, s, img]));
+  const done = await Promise.all(jobs);
+  if (run !== gen) return;                                              // a newer paint took over
+  for (const [n, s, img] of done) {
+    const c = cells.get(n);
+    // In Outline and Filled the first canvas carries the style on show; in Both, outline above filled.
+    const cv = state.style === 'both' ? c.querySelector(s === 'filled' ? 'canvas.f' : 'canvas.o') : c.querySelector('canvas.o');
+    draw(cv, img, v, k);
+  }
+  if (state.style !== 'both') for (const c of cells.values()) { const f = c.querySelector('canvas.f'); f.width = f.height = 0; }
+  squint();
+  renderDetail();
+}
+function squint() {
+  const v = view(), css = cssSize(v.px, state.k);
+  const blur = state.squint ? `blur(${(state.squint * css / v.px).toFixed(3)}px)` : 'none';
+  for (const cv of wallEl.querySelectorAll('canvas')) cv.style.filter = blur;
+}
+
+// ── controls ──────────────────────────────────────────────────────────────────────────────────────────
+const chevron = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4l2.5 2.5L7.5 4"/></svg>';
+const check = '<svg class="ck" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.25l2.25 2.25 4.75-5"/></svg>';
+const SQUINTS = [0, 1, 1.5, 2, 2.5];
+const menuBtn = (id, k, v, width) => `<button class="tbtn${state.menu === id ? ' on' : ''}" data-menu="${id}" aria-expanded="${state.menu === id}" style="width:${width}px"><span class="k">${k}</span><span class="v">${esc(v)}</span>${chevron}</button>`;
+const row = (attrs, on, title, sub = '', disabled = false) => `<button class="mrow${on ? ' on' : ''}" ${attrs}${disabled ? ' disabled' : ''}><span class="mt">${title}${sub ? `<small>${sub}</small>` : ''}</span>${check}</button>`;
+function renderControls() {
+  const pops = Object.fromEntries([...document.querySelectorAll('[data-pop]')].map((p) => [p.dataset.pop, p]));
+  pops.view.innerHTML = menuBtn('view', 'View', view().label, 212) + (state.menu === 'view' ? `<div class="lmenu">
+    <div class="msec">Each master at its own size</div>${VIEWS.filter((v) => v.px === v.master).map((v) => row(`data-view="${v.id}"`, state.view === v.id, v.label)).join('')}
+    <div class="msec">What a customer may do</div>${VIEWS.filter((v) => v.px !== v.master).map((v) => row(`data-view="${v.id}"`, state.view === v.id, v.label, 'We do not control render size; the 24 drawn at 16 px is a 1 px line.')).join('')}</div>` : '');
+  const s = SORTS[state.sort];
+  pops.sort.innerHTML = menuBtn('sort', 'Sort', `${s.label}${state.sort === 'list' ? '' : `, ${state.reverse ? s.hi : s.lo}`}`, 232) + (state.menu === 'sort' ? `<div class="lmenu">
+    <div class="msec">Sort by</div>${Object.entries(SORTS).map(([id, x]) => row(`data-sort="${id}"`, state.sort === id, x.label, x.hint, id === 'list' && !LIST())).join('')}
+    <div class="msep"></div>${row('data-reverse', state.reverse, 'Reverse', 'darkest, most or z first')}</div>` : '');
+  const l = LIST();
+  pops.list.innerHTML = menuBtn('list', 'Highlight', l ? l.label.split(' — ')[0] : 'none', 212) + (state.menu === 'list' ? `<div class="lmenu" style="width:360px">
+    ${row('data-list=""', !l, 'None')}
+    ${[...new Set(LISTS.map((x) => x.card))].map((card) => `<div class="msec">Card ${card}</div>${LISTS.filter((x) => x.card === card).map((x) =>
+      row(`data-list="${x.id}"`, state.list === x.id, esc(x.label), esc(x.source))).join('')}`).join('')}
+    <div class="msep"></div>${row('data-fade', state.fade, 'Fade the rest', 'everything outside the list drawn faint')}</div>` : '');
+  pops.squint.innerHTML = menuBtn('squint', 'Squint', state.squint ? `${state.squint} px` : 'off', 132) + (state.menu === 'squint' ? `<div class="lmenu" style="width:240px">
+    <div class="msec">Blur, in icon pixels</div>${SQUINTS.map((x) => row(`data-squint="${x}"`, state.squint === x, x ? `${x} px` : 'Off', x === 1.5 ? 'card 1.5\'s width — the squint numbers use it' : '')).join('')}</div>` : '');
+  document.getElementById('pixels').innerHTML = [1, 2].map((k) => `<button data-k="${k}" class="${state.k === k ? 'on' : ''}" title="${k === 1 ? 'As a standard screen draws it' : 'As a retina screen draws it: twice the pixels each way'}">${k}×</button>`).join('');
+  const opt = (k, v, text, on, title = '') => `<button data-${k}="${v}" class="${on ? 'on' : ''}"${title ? ` title="${title}"` : ''}>${text}</button>`;
+  document.getElementById('style').innerHTML = opt('style', 'outline', 'Outline', state.style === 'outline') + opt('style', 'filled', 'Filled', state.style === 'filled', 'Filled (F)') + opt('style', 'both', 'Both', state.style === 'both', 'Outline above filled');
+  document.getElementById('theme').innerHTML = ['auto', 'light', 'dark'].map((t) => opt('theme', t, t[0].toUpperCase() + t.slice(1), state.theme === t)).join('');
+}
+function renderText() {
+  const v = view(), s = SORTS[state.sort], l = LIST();
+  const added = ROWS.filter((r) => r.status === 'added').length, redrawn = ROWS.filter((r) => r.status === 'redrawn').length;
+  document.getElementById('subtitle').textContent = `${ROWS.length} concepts in the Library · numbers from pin ${wall.pin.commit} (${wall.pin.concepts} concepts, measured ${wall.generated}) · ${added} added after the pin · ${redrawn} redrawn since${retired.length ? ` · ${retired.length} in the pin no longer ship` : ''}`;
+  document.getElementById('count').textContent = ROWS.length;
+  const pix = state.k === 1 ? `1× — as a standard screen draws it, ${v.px} pixels across` : `2× — as a retina screen draws it, ${v.px * 2} device pixels across`;
+  document.getElementById('desc').textContent = `${v.label} · ${s.label.toLowerCase()}${state.sort === 'list' && !l ? ' (no list: by ink mass)' : state.sort === 'list' ? '' : `, ${state.reverse ? s.hi : s.lo}`}${state.style === 'both' ? ' · Both: sorted by the outline' : ''} · ${pix}${!exact() ? ' (browser zoom is not 100%: pixels are resampled)' : enlarged(state.k) ? ' (drawn twice the size: this screen has one device pixel per CSS pixel)' : ''}`;
+  const lead = document.getElementById('lead');
+  lead.classList.toggle('on', !!l);
+  if (l) {
+    const n = litSet(l).size;
+    const only = l.byStyle && Object.keys(l.byStyle).length === 1 ? Object.keys(l.byStyle)[0] : null;   // a list measured on one style
+    document.getElementById('lead1').innerHTML = `<b>Card ${esc(l.card)} · ${esc(l.label)}</b> · ${n} lit at this view${state.style === 'both' ? ' (either style)' : ''}${only ? ` · a list of ${only} drawings` : ''}`;
+    document.getElementById('lead2').textContent = `${l.question} — ${l.source}`;
+    document.getElementById('lead2').title = `${l.question}\n${l.source}`;
+  } else {
+    document.getElementById('lead1').innerHTML = '<b>No highlight.</b> Rows of twenty, names off the wall — click an icon for its name and numbers.';
+    document.getElementById('lead2').textContent = 'The Highlight menu lights a list a card document asked the eye to look at, each labelled with its source.';
+    document.getElementById('lead2').title = '';
+  }
+}
+function render({ order: re = true, pixels = false } = {}) {
+  renderControls(); renderText();
+  if (re) arrange();
+  light();
+  document.body.classList.toggle('both', state.style === 'both');
+  document.body.classList.toggle('fade', state.fade);
+  if (pixels) paint(); else renderDetail();
+}
+function save() {
+  for (const [k, v] of Object.entries({ style: state.style, view: state.view, k: state.k, sort: state.sort, reverse: state.reverse, list: state.list, fade: state.fade, squint: state.squint })) store.set(`wall-${k}`, v);
+}
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+document.addEventListener('click', (e) => {
+  if (state.menu && !e.target.closest('.pop')) { state.menu = null; renderControls(); }
+  const t = e.target.closest('button');
+  if (!t) return;
+  const d = t.dataset;
+  if (d.menu) { state.menu = state.menu === d.menu ? null : d.menu; renderControls(); return; }
+  if (d.view) { state.view = d.view; state.menu = null; save(); return render({ pixels: true }); }
+  if (d.sort) { state.sort = d.sort; state.menu = null; save(); return render(); }
+  if ('reverse' in d) { state.reverse = !state.reverse; save(); return render(); }
+  if ('list' in d && t.closest('.lmenu')) { state.list = d.list; state.menu = null; save(); return render({ order: state.sort === 'list' }); }
+  if ('fade' in d) { state.fade = !state.fade; save(); return render({ order: false }); }
+  if (d.squint) { setSquint(+d.squint); state.menu = null; return renderControls(); }
+  if (d.k && t.closest('#pixels')) { state.k = +d.k; save(); return render({ order: false, pixels: true }); }
+  if (d.style) return setStyle(d.style);
+  if (d.theme) { state.theme = d.theme; store.set('icon-theme', state.theme); applyTheme(); renderControls(); return repaintInk(); }
+  if (t.classList.contains('c')) return select(d.name);
+});
+function setStyle(s) {
+  const sortChanges = (s === 'filled') !== (state.style === 'filled');
+  state.style = s; save();
+  render({ order: sortChanges, pixels: true });
+}
+function setSquint(x) { state.squint = x; if (x) state.lastSquint = x; save(); squint(); renderText(); }
+// The ink is baked into each canvas, so a theme change repaints from the decoded images (no re-decode).
+function repaintInk() { paint(); }
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (state.theme === 'auto') repaintInk(); });
+
+// ── the icon panel ────────────────────────────────────────────────────────────────────────────────────
+function select(name) { state.sel = name; light(); renderDetail(); }
+const pct = (v) => (v == null ? '—' : `${(v * 100).toFixed(1)}%`);
+const f2 = (v) => (v == null ? '—' : v.toFixed(2));
+async function renderDetail() {
+  const n = state.sel, row = n ? ROWS.find((r) => r.name === n) : null, v = view();
+  document.getElementById('dName').textContent = n ?? 'No icon selected';
+  document.getElementById('dRank').textContent = n ? `${order.indexOf(n) + 1} of ${order.length}` : '—';
+  document.getElementById('dView').textContent = v.label;
+  const o = row ? nums(row, 'outline') : null, fl = row ? nums(row, 'filled') : null;
+  const fam = row?.p ? row.p.family : null, famN = fam ? (wall.families[fam]?.length ?? 0) : 0;
+  const cellPair = (a, b) => `<td>${a}</td><td>${b}</td>`;
+  const span = (x) => `<td colspan="2" class="span">${x}</td>`;
+  document.getElementById('dNums').innerHTML = [
+    ['Ink mass', cellPair(pct(o?.share), pct(fl?.share))],
+    [`Ink, px² at ${v.px}`, cellPair(o ? o.ink.toFixed(1) : '—', fl ? fl.ink.toFixed(1) : '—')],
+    ['Band', cellPair(o?.band ?? '—', fl?.band ?? '—')],
+    ['Squint peak', cellPair(f2(o?.squint), f2(fl?.squint))],
+    [`Drawn here, ${state.k}×`, cellPair('<span data-drawn="outline">—</span>', '<span data-drawn="filled">—</span>')],
+    ['Strokes', cellPair(o?.strokes ?? '—', fl?.strokes ?? '—')],
+    ['Paths', cellPair(o?.paths ?? '—', fl?.paths ?? '—')],
+    ['Kind', span(o?.kind ?? '—')],
+    ['Family', span(fam ? `${esc(fam)} · ${famN} member${famN === 1 ? '' : 's'}` : '—')],
+  ].map(([k, cellsHtml]) => `<tr><td>${k}</td>${cellsHtml}</tr>`).join('');
+  // lists, at this view
+  const inl = [];
+  if (row) for (const l of LISTS) for (const s of ['outline', 'filled']) {
+    const gs = groupsOf(l, s).filter((x) => x.includes(n));
+    if (!gs.length) continue;
+    const partners = [...new Set(gs.flat())].filter((x) => x !== n);     // every group it sits in (a name can pair twice)
+    const note = noteOf(l, s, n);
+    inl.push(`<div title="${esc(`${l.label}\n${l.source}${note ? `\n${note}` : ''}`)}"><b>${esc(l.label.split(' — ')[0])}</b> · ${s}${partners.length && partners.length < 8 ? ` · with ${esc(partners.join(', '))}` : ''}${note ? ` · ${esc(note)}` : ''}</div>`);
+  }
+  document.getElementById('dLists').innerHTML = row ? (inl.join('') || '<div>In none.</div>') : '<div>Click an icon on the wall.</div>';
+  const st = document.getElementById('dStatus');
+  st.className = `status${row && row.status !== 'pin' ? ' warn' : ''}`;
+  st.textContent = !row ? ' ' : row.status === 'added' ? 'Added after the pin — no numbers yet; rerun wall-data.mjs on a newer pin'
+    : row.status === 'redrawn' ? `Redrawn since the pin (${row.moved.join(', ')}) — the numbers are the pin's drawing` : `As at pin ${wall.pin.commit}`;
+  document.getElementById('dCopy').disabled = !row;
+  const fb = document.getElementById('dFlag');
+  fb.disabled = !row; fb.textContent = row && state.flags.has(n) ? 'Unflag' : 'Flag';
+  // previews: the style on show (outline in Both), at 1×, 2× and the 1× raster enlarged
+  const style = sortStyle();
+  const [i1, i2] = row ? await Promise.all([imageOf(n, v, style, 1), imageOf(n, v, style, 2)]) : [null, null];
+  if (state.sel !== n) return;
+  const [c1, c2, cm] = document.querySelectorAll('#prev canvas');
+  draw(c1, i1, v, 1); draw(c2, i2, v, 2); draw(cm, i1, v, 1, { css: v.px * Math.floor(64 / v.px) });   // whole CSS pixels per icon pixel
+  // The browser's own raster of each style at the pixels on show, in px² of the icon: its coverage summed. The sort
+  // uses the geometry (card 1.5); this row shows how far the browser's anti-aliasing sits from it, e.g. on tiny dots.
+  if (!row) return renderFlags();
+  for (const s of ['outline', 'filled']) {
+    const el = document.querySelector(`#dNums [data-drawn="${s}"]`);
+    const img = await imageOf(n, v, s, state.k);
+    if (state.sel !== n || !el) return;
+    el.textContent = img ? drawnInk(img, v.px * state.k, state.k).toFixed(1) : '—';
+  }
+  renderFlags();
+}
+function drawnInk(img, size, k) {
+  const cv = document.createElement('canvas'); cv.width = cv.height = size;
+  const ctx = cv.getContext('2d', { willReadFrequently: true }); ctx.drawImage(img, 0, 0, size, size);
+  const d = ctx.getImageData(0, 0, size, size).data;
+  let a = 0; for (let i = 3; i < d.length; i += 4) a += d[i];
+  return a / 255 / (k * k);
+}
+document.getElementById('dCopy').addEventListener('click', async (e) => {
+  const b = e.currentTarget; if (!state.sel) return;
+  try { await navigator.clipboard.writeText(state.sel); b.textContent = 'Copied'; } catch { b.textContent = 'Blocked'; }
+  setTimeout(() => { b.textContent = 'Copy name'; }, 1200);
+});
+function toggleFlag() {
+  if (!state.sel) return;
+  if (state.flags.has(state.sel)) state.flags.delete(state.sel); else state.flags.add(state.sel);
+  store.set('wall-flags', [...state.flags]);
+  light(); renderDetail();
+}
+document.getElementById('dFlag').addEventListener('click', toggleFlag);
+function renderFlags() {
+  const list = [...state.flags].sort();
+  document.getElementById('fCount').textContent = list.length;
+  document.getElementById('flags').textContent = list.length ? list.join(', ') : 'Click an icon you cannot name, or would confuse, then Flag (X). Copy the list back into the conversation.';
+}
+document.getElementById('fCopy').addEventListener('click', async (e) => {
+  const b = e.currentTarget, text = [...state.flags].sort().join('\n');
+  try { await navigator.clipboard.writeText(text || '(none flagged)'); b.textContent = 'Copied'; } catch { b.textContent = 'Blocked'; }
+  setTimeout(() => { b.textContent = 'Copy list'; }, 1200);
+});
+document.getElementById('fClear').addEventListener('click', () => { state.flags.clear(); store.set('wall-flags', []); light(); renderDetail(); renderFlags(); });
+
+// ── how to read it ────────────────────────────────────────────────────────────────────────────────────
+document.getElementById('aboutBody').innerHTML = `
+  <div class="dsec"><h3>What you are looking at</h3>
+    <p>Every concept in <code>lab/manifest.json</code>, one representative drawing each, twenty to a row, at real pixels, smoothing off. <b>1×</b> is the icon as a standard screen draws it — 16 pixels across at the 16 view (on this ${DPR}× screen each of those pixels is a ${perPixel(1)} × ${perPixel(1)} block of device pixels). <b>2×</b> is the icon as a retina screen draws it — twice the pixels each way. Names are kept off the wall so a row reads the way a customer reads it; the panel names what you click.</p>
+    <p>A dashed cell was <b>added after the pin</b> and has no numbers; an amber dot means <b>redrawn since the pin</b> — its numbers are the pin's drawing. Blue corner: flagged by you.</p></div>
+  <div class="dsec"><h3>The numbers</h3><ul>${Object.values(wall.definitions).map((d) => `<li>${esc(d)}</li>`).join('')}
+    <li>Drawn here: this browser's own raster of the drawing at the pixels on show, its coverage summed, in px² of the icon. Not a figure from the pin — it shows where anti-aliasing sits away from the geometry the sort uses.</li></ul>
+    <p><b>How the wall is drawn.</b> Each icon is the file's own SVG, rasterised by this browser at the pixels on show, on a CPU canvas with full anti-aliasing. Two of the browser's canvas paths are wrong for this set and are not used as they come: a GPU canvas paints small shapes with four-level coverage (outline <code>more-horizontal</code> read 8.77 px² there against 13.93), and the CPU canvas punches a hole in a stroked circle whose radius is under half its stroke — the set's dots. Those circles are drawn as the solid discs SVG defines (radius + half the stroke); every other path is drawn as the file has it. <span id="dotCount"></span></p>
+    <p><b>Where the drawn pixels and the geometry part (measured 2026-10-08, Chrome, this panel's Drawn here row, 16 master).</b> Over the 485 outlines the wall's pixels carry a median 0.992 of the geometry's ink at 1× (5th–95th percentile 0.955–1.030) and 0.999 at 2× (0.978–1.016); the filled drawings 0.994 (0.964–1.015) and 0.999 (0.985–1.010). At 1× thin crosses draw lightest — <code>x</code> and <code>x-large</code> −9%, <code>x-small</code> 24.5 against 26.7 (−8%) — and a few chevrons heaviest, <code>chevron-down-2</code> +13%; at 2× every outline sits between −4% and +6%. The dots now draw what the geometry says: filled <code>more-horizontal</code> 19.6 at 1× and 21.0 at 2× against 19.8; filled <code>grid-3</code> 58.8 and 61.7 against 59.5. The sort uses the geometry.</p></div>
+  <div class="dsec"><h3>Eye questions this page hosts</h3><ul>${wall.hosted.map((h) => `<li><b>${esc(h.question)}</b> ${esc(h.how)}. <code>${esc(h.source)}</code></li>`).join('')}</ul></div>
+  <div class="dsec"><h3>Where the numbers come from</h3>
+    <p>Pin <b>${esc(wall.pin.commit)}</b> · ${wall.pin.concepts} concepts · ${wall.pin.files} files · fingerprint <code>${esc(wall.pin.fingerprint)}</code> · measured ${esc(wall.generated)}.</p>
+    <p><code>${esc(wall.pinCommand)}</code></p><p><code>${esc(wall.generator)}</code></p>
+    <p>Row medians, px²: ${Object.entries(wall.medians).map(([k, v]) => `${esc(k)} ${v}`).join(' · ')}.</p></div>`;
+
+// How many drawings carry a stroked circle under half its stroke — counted now, from the manifest on show.
+{
+  let n = 0, at16 = 0;
+  for (const m of MASTERS) for (const [name, r] of Object.entries(man.masters[m]?.icons ?? {})) {
+    if (solidDots(r.body.replaceAll('currentColor', '#000'), r.stroke) !== r.body.replaceAll('currentColor', '#000')) { n++; if (m === 16) at16++; }
+  }
+  document.getElementById('dotCount').textContent = `In the Library as it stands, ${n} drawings carry such a circle, ${at16} of them at the 16 master.`;
+}
+
+// ── keys ──────────────────────────────────────────────────────────────────────────────────────────────
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.('input,textarea,select')) return;
+  if (e.key === 'Escape') { if (state.menu) { state.menu = null; renderControls(); } else { state.sel = null; light(); renderDetail(); } return; }
+  if (e.key === 'f' || e.key === 'F') return setStyle(state.style === 'filled' ? 'outline' : 'filled');
+  if (e.key === 's' || e.key === 'S') { setSquint(state.squint ? 0 : state.lastSquint); return renderControls(); }
+  if (e.key === 'x' || e.key === 'X') return toggleFlag();
+  if (e.key === 'r' || e.key === 'R') return setSide(!document.body.classList.contains('side-collapsed'));
+  if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && state.sel) {
+    const i = order.indexOf(state.sel);
+    const next = order[(i + (e.key === 'ArrowRight' ? 1 : order.length - 1)) % order.length];
+    select(next); cells.get(next)?.scrollIntoView({ block: 'nearest' }); e.preventDefault();
+  }
+});
+
+// The panel's sticky top follows the header, whatever height it wraps to.
+const app = document.querySelector('.app');
+new ResizeObserver(() => { document.documentElement.style.setProperty('--head', `${app.offsetHeight}px`); snap(); }).observe(app);
+// Real pixels need every canvas on a device pixel: whatever fraction the layout above the wall leaves is added back
+// to the wall's own padding. Every cell size is a whole number of device pixels, so one correction holds for all.
+function snap() {
+  const pad = (v) => parseFloat(getComputedStyle(document.documentElement).getPropertyValue(v)) || 0;
+  const r = wallEl.getBoundingClientRect(), x = r.left + scrollX - pad('--sx'), y = r.top + scrollY - pad('--sy');
+  const frac = (v) => (Math.ceil(v * DPR - 1e-6) - v * DPR) / DPR;
+  document.documentElement.style.setProperty('--sx', `${frac(x)}px`);
+  document.documentElement.style.setProperty('--sy', `${frac(y)}px`);
+}
+new ResizeObserver(snap).observe(document.querySelector('#wallPanel .ph'));   // what sits above the wall; never the wall itself
+addEventListener('resize', snap);
+// The icon panel folds to a strip so the wall keeps twenty to a row on a narrow window. A per-viewer convenience.
+function setSide(collapsed) {
+  document.body.classList.toggle('side-collapsed', collapsed);
+  document.getElementById('sideBtn').setAttribute('aria-expanded', String(!collapsed));
+  document.getElementById('stripBtn').setAttribute('aria-expanded', String(!collapsed));
+  store.set('wall-side-collapsed', collapsed);
+}
+document.getElementById('sideBtn').addEventListener('click', () => setSide(true));
+document.getElementById('stripBtn').addEventListener('click', () => setSide(false));
+setSide(store.get('wall-side-collapsed', false));
+applyTheme();
+renderFlags();
+render({ pixels: true });
+requestAnimationFrame(snap);
+</script>
+</body>
+</html>
