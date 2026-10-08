@@ -303,7 +303,7 @@ export const PROSE = {
   ],
 };
 
-// A degree figure as card 1.11's angles probe reads one (tools/audit/angles-probe.mjs:165, `DECLARES`):
+// A degree figure as card 1.3's angles probe reads one (tools/audit/angles-probe.mjs, its exported `DECLARES`):
 // a number, then °, deg or degrees — the plural only. Run over the whole 24 outline file it reprints
 // findings-angles.md:372's 193. `DEGREE_SINGULAR` admits "45 degree" too; `SPELLING` is the probe's
 // line-by-line `grep -l` per spelling (angles-probe.mjs GREP), which reprints findings-angles.md:377.
@@ -577,7 +577,7 @@ export async function build(pinArg, { commit = DEFAULT_COMMIT, log = () => {} } 
     const spelt = (re) => o24.filter((f) => grepL(whole(f), re)).length;
     C.angles = [
       row('icons granted by name in docs/07:78, present in the pin', 27, L(608), named.filter((x) => x.present).length),
-      row('concepts whose 24 outline file states a degree figure', 193, `${L(612)} (findings-angles.md:372)`, states.length, 'read with the angles probe\'s own pattern (angles-probe.mjs:165), over the whole file'),
+      row('concepts whose 24 outline file states a degree figure', 193, `${L(612)} (findings-angles.md:372)`, states.length, 'read with the angles probe\'s own pattern (angles-probe.mjs DECLARES), over the whole file'),
       row('  in free-text comments only', '—', 'this sheet', freeOnly.length, `not a ledger figure: the free text misses ${missedByFree.join(', ') || 'none'} — its figure sits in a declared note`),
       row('  counting the singular "45 degree" too', '—', 'this sheet', `${states.length + singular.length} (+${singular.length})`, `not a ledger figure: ${singular.join(', ')}`),
       row('  spelt "63.43°"', 131, 'findings-angles.md:377', spelt(SPELLING.sign)),
