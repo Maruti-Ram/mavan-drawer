@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Primitive sheets</title>
+<style>
+/* Primitive sheets — card 4.2 of plans/set-and-rules-audit.md. One panel per shared primitive: every
+   instance laid on one common anchor at 24 · 20 · 16, drawn faint so one shared drawing reads as one
+   crisp line and drift reads as fuzz; beside it, each instance's icon in the figures.html row pattern.
+   Data: lab/audit-data/primitives.json (tools/audit/primitives-data.mjs, from the pin). Icons: lab/manifest.json. */
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--done:#1f9d55;--review:#d18a00;--sel:#0d99ff;--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04);--grid:rgba(0,0,0,.06);--grid4:rgba(0,0,0,.11)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none;--grid:rgba(255,255,255,.06);--grid4:rgba(255,255,255,.11)}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none;--grid:rgba(255,255,255,.06);--grid4:rgba(255,255,255,.11)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+svg{display:block;overflow:visible;flex:none}
+button{font:inherit;color:inherit}
+a{color:inherit}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
+kbd{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-block;min-width:18px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 4px;background:var(--panel);color:var(--muted)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ── header ── */
+.app{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.app .top{display:flex;align-items:center;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.ident{display:flex;align-items:center;gap:12px;flex:1;min-width:220px}
+.glyph{width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);color:var(--ink)}
+.ident h1{font-size:18px;line-height:1.2;margin:0;font-weight:600;letter-spacing:-.01em}
+.ident p{margin:2px 0 0;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.divider{width:1px;height:20px;background:var(--line);margin:0 4px}
+.seg{display:inline-flex;height:28px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.seg button{font-size:12px;padding:0 9px;border:0;border-radius:5px;background:none;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--hover);color:var(--ink)}
+.back{font-size:12px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+.iconbtn{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.iconbtn:hover{color:var(--ink)}
+.iconbtn.ghost{border-color:transparent;background:none}
+.iconbtn.ghost:hover{background:var(--hover)}
+.tbtn{height:28px;display:inline-flex;align-items:center;gap:6px;padding:0 8px 0 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:12px;cursor:pointer;white-space:nowrap}
+.tbtn:hover,.tbtn.on{border-color:color-mix(in srgb,var(--ink) 25%,var(--line))}
+.tbtn .count{color:var(--muted);display:inline-block;width:44px;text-align:left}
+.tbtn svg{color:var(--muted)}
+.pop{position:relative}
+.lmenu{position:absolute;right:0;top:calc(100% + 6px);width:230px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.16);padding:4px;z-index:15}
+.msec{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 8px 2px}
+.mrow{display:flex;align-items:center;gap:10px;width:100%;padding:4px 8px;border:0;border-radius:6px;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-align:left}
+.mrow:hover{background:var(--hover)}
+.mrow.on{color:var(--ink)}
+.mrow .ck{margin-left:auto;opacity:0}
+.mrow.on .ck{opacity:1}
+.pill{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--hover);color:var(--muted);font-size:11px;font-weight:500;white-space:nowrap}
+
+/* ── primitives sidebar: full height on the left, collapses to a strip ── */
+body{--nav:272px;padding-left:var(--nav)}
+body.nav-collapsed{--nav:60px}
+.snav{position:fixed;left:0;top:0;bottom:0;width:var(--nav);background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:12;overflow:hidden}
+.sn-top{flex:none;height:73px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px 0 20px;border-bottom:1px solid var(--line)}
+.sn-title{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.sn-title b{font-size:14px;font-weight:600}
+.secs{flex:1;min-height:0;overflow-y:auto;padding:6px 12px 12px;width:272px;display:flex;flex-direction:column;gap:2px}
+.sgrp{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding:14px 10px 4px;white-space:nowrap}
+.sec{display:grid;grid-template-columns:24px 1fr;grid-template-rows:auto auto;align-items:center;gap:0 10px;padding:7px 10px;border:0;border-radius:10px;background:none;text-align:left;cursor:pointer;color:inherit}
+.sec:hover{background:var(--hover)}
+.sec.on{background:var(--inset);box-shadow:inset 0 0 0 1px var(--line)}
+.sec .ab{grid-row:1/3;width:24px;height:24px;border-radius:6px;display:grid;place-items:center;background:var(--hover);font-size:10px;font-weight:600;color:var(--muted)}
+.sec.on .ab{background:var(--ink);color:var(--panel)}
+.sec .nm{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sec .ct{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sn-foot{flex:none;display:flex;gap:14px;height:41px;align-items:center;padding:0 20px;border-top:1px solid var(--line);white-space:nowrap}
+.keys{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);white-space:nowrap}
+body.nav-collapsed .sn-top{justify-content:center;padding:0}
+body.nav-collapsed .sn-title,body.nav-collapsed .sn-foot,body.nav-collapsed .sgrp,body.nav-collapsed .sec :not(.ab){display:none}
+body.nav-collapsed .secs{width:60px;padding:10px 8px}
+body.nav-collapsed .sec{display:flex;justify-content:center;padding:6px 0}
+@media (max-width:900px){.actions .divider{display:none}body,body.nav-collapsed{padding-left:60px}body:not(.nav-collapsed) .snav{box-shadow:8px 0 24px rgba(0,0,0,.12)}}
+
+/* ── panels ── */
+main.wrap{padding-top:24px;padding-bottom:80px;display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);min-height:57px}
+.pt{display:flex;align-items:baseline;gap:10px;min-width:0;flex-wrap:wrap}
+.pt h2{font-size:14px;font-weight:600;margin:0}
+.pt p{margin:0;font-size:12px;color:var(--muted)}
+.pa{display:flex;align-items:center;gap:8px}
+.pf{display:flex;align-items:center;gap:16px;min-height:41px;padding:10px 20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);flex-wrap:wrap}
+.pf b{color:var(--ink);font-weight:500}
+
+/* overlays */
+.ovs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ov{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 16px 14px;min-width:0}
+.ov+.ov{box-shadow:inset 1px 0 0 var(--line)}
+.ovh{display:flex;align-items:baseline;justify-content:space-between;width:var(--stage,100%);max-width:320px}
+.ovh b{font-size:12px;font-weight:600}
+.ovh span{font-size:11px;color:var(--muted)}
+/* --stage is set in whole pixels from the narrowest column, so all three stages and readouts line up exactly */
+.stage{width:var(--stage,100%);max-width:320px;aspect-ratio:1/1;background:var(--inset);border:1px solid var(--line);border-radius:10px;overflow:hidden;position:relative}
+.stage svg{width:100%;height:100%}
+.ro{width:var(--stage,100%);max-width:320px;height:38px;font-size:12px;line-height:19px}
+.ro div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ro .l1{color:var(--ink);font-weight:500}
+.ro .l2{color:var(--muted)}
+.empty{padding:48px 20px;text-align:center;color:var(--muted);font-size:13px}
+.empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+
+/* classes: masters across, outline | filled under each, one line per class — the same shape in every style */
+.cls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.cm+.cm{border-left:1px solid var(--line)}
+.cmh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--inset);border-bottom:1px solid var(--line)}
+.cmh span{padding:8px 12px}
+.cmh span+span{border-left:1px solid var(--line)}
+.cmb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.cmb>div{min-width:0}
+.cmb>div+div{border-left:1px solid var(--line)}
+.cl{display:flex;align-items:center;gap:8px;width:100%;height:28px;padding:0 12px;border:0;background:none;font-size:12px;text-align:left;cursor:pointer;color:var(--ink);white-space:nowrap;overflow:hidden}
+.cl:hover{background:var(--hover)}
+.cl.on{background:color-mix(in srgb,var(--sel) 9%,var(--panel));box-shadow:inset 2px 0 0 var(--sel)}
+.cl.dim{color:var(--faint)}
+.cl b{font-weight:600;min-width:34px;flex:none}
+.cl .sz{color:var(--muted);font-variant-numeric:tabular-nums;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.cl .n{margin-left:auto;flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
+.cl.blank{cursor:default}
+.cl.blank:hover{background:none}
+
+/* against the cards */
+.ag{width:100%;border-collapse:collapse;font-size:12px}
+.ag th{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.ag td{padding:7px 12px;border-bottom:1px solid var(--line);vertical-align:baseline}
+.ag tr:last-child td{border-bottom:0}
+.ag td.mk{width:1%;white-space:nowrap;font-weight:600}
+.ag td.mk.ok{color:var(--done)} .ag td.mk.no{color:var(--review)} .ag td.mk.nt{color:var(--faint)}
+.ag td.mv{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;max-width:340px}
+.ag td.ct{color:var(--muted);white-space:nowrap;font-size:11px}
+.ag td.nt{color:var(--muted);font-size:11.5px}
+
+/* rows — the figures.html cell, then one readout per master */
+.scroll{overflow-x:auto}
+.rows{display:grid;grid-template-columns:190px 236px repeat(3,minmax(180px,1fr));min-width:960px}
+.rows>.h{padding:9px 14px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--inset);border-bottom:1px solid var(--line);white-space:nowrap}
+.rg{grid-column:1/-1;padding:10px 14px 6px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);background:var(--panel)}
+.rg span{text-transform:none;letter-spacing:0;font-weight:400;color:var(--faint);margin-left:8px}
+.row{display:contents;cursor:pointer}
+.row>div{border-bottom:1px solid var(--line);min-width:0}
+.row:hover>div{background:var(--hover)}
+.row.on>div{background:color-mix(in srgb,var(--sel) 8%,var(--panel))}
+.rn{padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.rn b{font-size:12px;font-weight:500;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rn small{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:16px}
+.ri{padding:10px 12px;display:flex;align-items:center;gap:14px}
+.ms{display:flex;align-items:center;gap:12px;height:24px;color:var(--ink)}
+.px{display:flex;gap:10px}
+.px figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:3px}
+.px canvas{width:48px;height:48px;image-rendering:pixelated;background:var(--inset);border:1px solid var(--line);border-radius:3px;display:block}
+.px small{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.ph-box{display:block;flex:none;border:1px dashed var(--line);border-radius:3px}
+.rv{padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:2px;font-size:12px;font-variant-numeric:tabular-nums}
+.rv div{height:19px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--faint)}
+.rv div.cur{color:var(--ink)}
+.rv i{font-style:normal;display:inline-block;width:58px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.rv .k{display:inline-block;min-width:22px;font-weight:600}
+.rv .drift{color:var(--review)}
+.rv div:not(.cur) .drift{color:inherit}
+</style>
+</head>
+<body>
+<nav class="snav" aria-label="Primitives">
+  <div class="sn-top">
+    <span class="sn-title"><b>Primitives</b><span class="pill num" id="navCount"></span></span>
+    <button class="iconbtn ghost" id="navBtn" title="Collapse sidebar ([)" aria-label="Collapse sidebar" aria-expanded="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2"/><path d="M6 2.75v10.5"/></svg>
+    </button>
+  </div>
+  <div class="secs" id="secs"></div>
+  <div class="sn-foot"><span class="keys"><kbd>[</kbd> collapse</span><span class="keys"><kbd>↑</kbd><kbd>↓</kbd> step</span></div>
+</nav>
+
+<header class="app">
+  <div class="wrap top">
+    <div class="ident">
+      <div class="glyph"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="7.25" opacity=".35"/><circle cx="10" cy="10" r="7.75" opacity=".35"/><circle cx="10" cy="10" r="7.5"/></svg></div>
+      <div><h1>Primitive sheets</h1><p id="subtitle">&nbsp;</p></div>
+    </div>
+    <div class="actions" id="bar">
+      <a class="back" href="library.html">Library</a>
+      <span class="divider"></span>
+      <div class="pop" id="viewPop"></div>
+      <span class="seg" id="style"></span>
+      <span class="divider"></span>
+      <span class="seg" id="theme"></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="panel">
+    <div class="ph">
+      <div class="pt"><h2 id="ttl">&nbsp;</h2><p id="q"></p></div>
+      <div class="pa"><span class="pill" id="src"></span></div>
+    </div>
+    <div class="ovs" id="ovs"></div>
+    <div class="pf" id="anchor"></div>
+  </section>
+
+  <section class="panel" id="clsPanel">
+    <div class="ph">
+      <div class="pt"><h2>Classes</h2><p id="clsHint">Congruence classes at each master, biggest first. Click one to show only it.</p></div>
+    </div>
+    <div class="cls" id="cls"></div>
+  </section>
+
+  <section class="panel" id="agPanel">
+    <div class="ph">
+      <div class="pt"><h2>Against the cards</h2><p>Each figure the cards state, in their words, beside this page's reading of the same drawings. A difference stays here; nothing is chosen.</p></div>
+      <div class="pa"><span class="pill num" id="agCount"></span></div>
+    </div>
+    <div class="scroll"><table class="ag" id="ag"></table></div>
+  </section>
+
+  <section class="panel" id="rowPanel">
+    <div class="ph">
+      <div class="pt"><h2>Instances</h2><p id="rowHint">Hover a row to show only it in the overlay; click to keep it.</p></div>
+      <div class="pa"><span class="pill num" id="rowCount"></span></div>
+    </div>
+    <div class="scroll"><div class="rows" id="rows"></div></div>
+    <div class="pf"><span class="keys"><kbd>F</kbd> outline / filled</span><span class="keys"><kbd>Esc</kbd> show all</span><span class="keys" style="margin-left:auto">px = drawing units at a 16 px render: × 0.667 at 24, × 0.8 at 20, × 1 at 16</span></div>
+  </section>
+</main>
+
+<script type="module">
+const MASTERS = [24, 20, 16];
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage may be unavailable */ } },
+};
+const state = {
+  theme: store.get('icon-theme', 'auto'),
+  style: store.get('prim-style', 'outline'),          // outline | filled | both
+  frame: store.get('prim-frame', 'fit'),              // fit | canvas
+  draw: store.get('prim-draw', 'both'),               // both | ink | line
+  nav: store.get('prim-nav', false),
+  menu: false,
+  panel: null,
+  focus: null,     // { type: 'row', r } | { type: 'class', m, style, c }
+  pinned: null,
+};
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt = (n, p = 3) => (n == null ? '—' : String(Math.round(n * 10 ** p) / 10 ** p));
+const px16 = (u, m) => (u == null ? null : (u * 16) / m);
+
+const [data, man] = await Promise.all([
+  fetch('audit-data/primitives.json', { cache: 'no-store' }).then((r) => r.json()),
+  fetch('manifest.json', { cache: 'no-store' }).then((r) => r.json()),
+]);
+const PANELS = data.panels;
+const GROUPS = { vocabulary: 'Vocabulary · card 1.1', parts: 'Shared parts · card 1.9', fills: 'Shared outlines · card 1.1' };
+document.getElementById('subtitle').textContent = `${PANELS.length} primitives · pin ${data.pin} · ${data.panels.reduce((n, p) => n + p.against.filter((a) => a.agrees === false).length, 0)} differences from the cards, listed`;
+document.getElementById('navCount').textContent = PANELS.length;
+
+// ── nav ──
+const ab = (t) => t.replace(/[^A-Za-z0-9 ]/g, ' ').trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+function navLine(p) {
+  if (p.kind === 'empty') return 'none in the set';
+  const o = MASTERS.map((m) => p.masters[m].outline.classes.length).join(' · ');
+  return `${p.rows.length} icons · classes ${o}`;
+}
+function renderNav() {
+  let html = '', g = null;
+  for (const p of PANELS) {
+    if (p.group !== g) { g = p.group; html += `<div class="sgrp">${esc(GROUPS[g] ?? g)}</div>`; }
+    html += `<button class="sec${state.panel === p ? ' on' : ''}" data-id="${esc(p.id)}" title="${esc(p.title)}"><span class="ab">${esc(ab(p.title))}</span><span class="nm">${esc(p.title)}</span><span class="ct">${esc(navLine(p))}</span></button>`;
+  }
+  document.getElementById('secs').innerHTML = html;
+}
+document.getElementById('secs').addEventListener('click', (e) => { const b = e.target.closest('.sec'); if (b) select(b.dataset.id); });
+function applyNav() {
+  document.body.classList.toggle('nav-collapsed', state.nav);
+  const b = document.getElementById('navBtn');
+  b.setAttribute('aria-expanded', String(!state.nav));
+  b.title = state.nav ? 'Expand sidebar ([)' : 'Collapse sidebar ([)';
+}
+document.getElementById('navBtn').addEventListener('click', () => { state.nav = !state.nav; store.set('prim-nav', state.nav); applyNav(); });
+
+// ── header controls ──
+const chevron = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4l2.5 2.5L7.5 4"/></svg>';
+const check = '<svg class="ck" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.25l2.25 2.25 4.75-5"/></svg>';
+const FRAMES = { fit: 'Fit to the part', canvas: 'Whole canvas' };
+const DRAWS = { both: 'Ink and centreline', ink: 'Ink only', line: 'Centreline only' };
+function renderBar() {
+  const opt = (k, v, text, on, title = '') => `<button data-${k}="${v}" class="${on ? 'on' : ''}"${title ? ` title="${title}"` : ''}>${text}</button>`;
+  document.getElementById('style').innerHTML = opt('style', 'outline', 'Outline', state.style === 'outline')
+    + opt('style', 'filled', 'Filled', state.style === 'filled', 'Filled (F)') + opt('style', 'both', 'Both', state.style === 'both', 'Outline in ink, filled in blue, on one overlay');
+  document.getElementById('theme').innerHTML = ['auto', 'light', 'dark'].map((t) => opt('theme', t, t[0].toUpperCase() + t.slice(1), state.theme === t)).join('');
+  document.getElementById('viewPop').innerHTML =
+    `<button class="tbtn${state.menu ? ' on' : ''}" data-menu aria-expanded="${state.menu}">View <span class="count">${state.frame === 'fit' ? 'Fit' : 'Canvas'}</span>${chevron}</button>
+     <div class="lmenu"${state.menu ? '' : ' hidden'}>
+       <div class="msec">Frame</div>${Object.entries(FRAMES).map(([v, t]) => `<button class="mrow${state.frame === v ? ' on' : ''}" data-frame="${v}">${t}${check}</button>`).join('')}
+       <div class="msec">Draw each instance as</div>${Object.entries(DRAWS).map(([v, t]) => `<button class="mrow${state.draw === v ? ' on' : ''}" data-draw="${v}">${t}${check}</button>`).join('')}
+     </div>`;
+}
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+document.getElementById('bar').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.theme) { state.theme = t.dataset.theme; store.set('icon-theme', state.theme); applyTheme(); paintRows(); }
+  else if (t.dataset.style) { setStyle(t.dataset.style); return; }
+  else if (t.hasAttribute('data-menu')) state.menu = !state.menu;
+  else if (t.dataset.frame) { state.frame = t.dataset.frame; store.set('prim-frame', state.frame); paintOverlays(); }
+  else if (t.dataset.draw) { state.draw = t.dataset.draw; store.set('prim-draw', state.draw); paintOverlays(); }
+  renderBar();
+});
+document.addEventListener('click', (e) => { if (state.menu && !e.target.closest('.pop')) { state.menu = false; renderBar(); } });
+function setStyle(s) {
+  state.style = s; store.set('prim-style', s);
+  renderBar(); paintOverlays(); paintClasses(); paintRows(); paintReadouts();
+}
+const styles = () => (state.style === 'both' ? ['outline', 'filled'] : [state.style]);
+
+// ── the overlay ──
+// Every instance is its own subpath(s) as drawn in its own file, put on the panel's anchor by the
+// generator's matrix. Ink at the file's own weight (area parts filled), drawn faint, so instances that
+// are one drawing stack into one solid shape; the centreline (an area's edge) on top as a 1 px line,
+// so a near miss shows as a second line beside the first.
+const RAD = (n) => Math.max(0.12, Math.min(0.5, 0.5 / n));
+function overlaySvg(p, m) {
+  const M = p.masters[m];
+  const vb = state.frame === 'fit' ? M.frame : [0, 0, m, m];
+  const [x0, y0, w, h] = vb;
+  let grid = '';
+  for (let x = Math.ceil(x0); x <= x0 + w; x++) grid += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${y0 + h}" stroke="var(${x % 4 ? '--grid' : '--grid4'})"/>`;
+  for (let y = Math.ceil(y0); y <= y0 + h; y++) grid += `<line x1="${x0}" y1="${y}" x2="${x0 + w}" y2="${y}" stroke="var(${y % 4 ? '--grid' : '--grid4'})"/>`;
+  let ink = '', line = '';
+  for (const style of styles()) {
+    const S = M[style];
+    const colour = state.style === 'both' && style === 'filled' ? 'var(--accent)' : 'var(--ink)';
+    const shown = S.instances.filter((it) => visible(it, m, style));
+    const focus = !!state.focus;
+    const ia = focus ? 0.35 : RAD(shown.length), la = focus ? 1 : 0.6;
+    for (const it of shown) {
+      const tf = `matrix(${it.m.join(' ')})`;
+      if (state.draw !== 'line') ink += it.disc
+        ? `<circle transform="${tf}" cx="${it.disc[0]}" cy="${it.disc[1]}" r="${it.disc[2]}" fill="${colour}" fill-opacity="${ia}"/>`
+        : it.k === 'a'
+        ? `<path transform="${tf}" d="${it.d}" fill="${colour}" fill-opacity="${ia}" stroke="none"/>`
+        : `<path transform="${tf}" d="${it.d}" fill="none" stroke="${colour}" stroke-opacity="${ia}" stroke-width="${it.w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+      if (state.draw !== 'ink') line += `<path transform="${tf}" d="${it.d}" fill="none" stroke="${colour}" stroke-opacity="${la}" stroke-width="1" vector-effect="non-scaling-stroke"/>`;
+    }
+    // A focused row's reference, as a dashed centreline: what its residual is measured against.
+    const ref = focusRef(p, m, style);
+    for (const it of ref) line += `<path transform="matrix(${it.m.join(' ')})" d="${it.d}" fill="none" stroke="var(--review)" stroke-width="1.25" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/>`;
+  }
+  return `<svg viewBox="${vb.join(' ')}" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <g stroke-width="1" vector-effect="non-scaling-stroke" style="vector-effect:non-scaling-stroke">${grid.replaceAll('/>', ' vector-effect="non-scaling-stroke"/>')}</g>
+    <rect x="0" y="0" width="${m}" height="${m}" fill="none" stroke="var(--faint)" stroke-dasharray="3 3" stroke-width="1" vector-effect="non-scaling-stroke"/>
+    ${ink}${line}</svg>`;
+}
+function refRow(p, r) {
+  const row = p.rows[r];
+  const name = row.partner ?? (p.kind === 'residual' ? p.ref : null);
+  const i = name ? p.rows.findIndex((x) => x.name === name) : -1;
+  return i >= 0 && i !== r ? i : -1;
+}
+function focusRef(p, m, style) {
+  const f = state.focus;
+  if (!f || f.type !== 'row') return [];
+  const rr = refRow(p, f.r);
+  return rr < 0 ? [] : p.masters[m][style].instances.filter((i) => i.r === rr);
+}
+function visible(it, m, style) {
+  const f = state.focus;
+  if (!f) return true;
+  if (f.type === 'row') return it.r === f.r;
+  // A class: its own members where it was picked; the same icons everywhere else, so a dot size
+  // picked at 24 can be followed to 20 and 16, and an outline class shows its filled twins in Both.
+  return f.m === m && f.style === style ? it.c === f.c : f.rows.has(it.r);
+}
+function paintOverlays() {
+  const p = state.panel;
+  if (p.kind === 'empty') return;
+  for (const m of MASTERS) document.querySelector(`.ov[data-m="${m}"] .stage`).innerHTML = overlaySvg(p, m);
+}
+function measureText(p, it, m) {
+  if (it.v == null) return it.why ?? '—';
+  if (p.kind === 'diameter') return `⌀${fmt(it.v)} of ink`;
+  if (p.kind === 'bend') return `leg ${fmt(it.leg, 2)} · R ${fmt(it.R)} · ${fmt(it.turn, 2)}°`;
+  if (it.self) return p.ref && p.rows[it.r].name === p.ref ? 'the reference' : 'its own reference';
+  const ref = p.rows[it.r].partner ?? p.ref;
+  return it.v === 0 ? `identical to ${ref}` : `residual ${fmt(it.v)} u = ${fmt(px16(it.v, m))} px at 16, against ${ref}`;
+}
+function paintReadouts() {
+  const p = state.panel;
+  if (p.kind === 'empty') return;
+  for (const m of MASTERS) {
+    const el = document.querySelector(`.ov[data-m="${m}"] .ro`);
+    const f = state.focus;
+    let l1, l2;
+    if (!f) {
+      const parts = styles().map((s) => `${p.masters[m][s].instances.length} ${s}`);
+      l1 = `All instances · ${parts.join(' · ')}`;
+      l2 = styles().map((s) => `${p.masters[m][s].classes.length} class${p.masters[m][s].classes.length === 1 ? '' : 'es'} ${state.style === 'both' ? s : ''}`.trim()).join(' · ');
+    } else if (f.type === 'row') {
+      const name = p.rows[f.r].name;
+      const its = styles().flatMap((s) => p.masters[m][s].instances.filter((i) => i.r === f.r).map((i) => ({ i, s })));
+      const rr = refRow(p, f.r);
+      l1 = `${name}${its.length ? ` · class ${[...new Set(its.map(({ i, s }) => p.masters[m][s].classes[i.c].label))].join(' / ')}` : ' · not at this master'}${rr >= 0 ? ` · dashed: ${p.rows[rr].name}` : ''}`;
+      l2 = its.length ? its.map(({ i, s }) => (state.style === 'both' ? `${s}: ` : '') + measureText(p, i, m)).join(' · ') : '—';
+    } else {
+      const c = p.masters[f.m][f.style].classes[f.c];
+      if (f.m === m) { l1 = `Class ${c.label} · ${p.kind === 'bend' ? c.key : c.size} · ${c.n} instance${c.n === 1 ? '' : 's'}, ${c.rows} icon${c.rows === 1 ? '' : 's'}`; l2 = `${f.style} · first: ${p.rows[c.rep].name}`; }
+      else {
+        const here = styles().flatMap((s) => p.masters[m][s].instances.filter((i) => f.rows.has(i.r)).map((i) => p.masters[m][s].classes[i.c].label));
+        l1 = `The ${c.rows} icon${c.rows === 1 ? '' : 's'} of ${f.m}'s class ${c.label}, at ${m}`;
+        l2 = here.length ? `in class${new Set(here).size === 1 ? '' : 'es'} ${[...new Set(here)].join(', ')}` : 'not drawn as this part here';
+      }
+    }
+    el.innerHTML = `<div class="l1" title="${esc(l1)}">${esc(l1)}</div><div class="l2" title="${esc(l2)}">${esc(l2)}</div>`;
+  }
+}
+function setFocus(f, pin = false) {
+  if (pin) state.pinned = f;
+  state.focus = f ?? state.pinned;
+  paintOverlays(); paintReadouts(); paintFocus();
+}
+function paintFocus() {
+  const f = state.focus;
+  for (const el of document.querySelectorAll('.row')) el.classList.toggle('on', !!state.pinned && state.pinned.type === 'row' && +el.dataset.r === state.pinned.r);
+  for (const el of document.querySelectorAll('.cl[data-c]')) {
+    const on = f && f.type === 'class' && +el.dataset.m === f.m && el.dataset.s === f.style && +el.dataset.c === f.c;
+    el.classList.toggle('on', !!on);
+  }
+}
+
+// ── classes ──
+function paintClasses() {
+  const p = state.panel;
+  const host = document.getElementById('cls');
+  if (p.kind === 'empty') { host.innerHTML = ''; return; }
+  const max = Math.max(1, ...MASTERS.flatMap((m) => ['outline', 'filled'].map((s) => p.masters[m][s].classes.length)));
+  host.innerHTML = MASTERS.map((m) => `<div class="cm"><div class="cmh"><span>${m} · outline</span><span>${m} · filled</span></div><div class="cmb">${
+    ['outline', 'filled'].map((s) => {
+      const cs = p.masters[m][s].classes;
+      const dim = !styles().includes(s);
+      let h = '';
+      for (let i = 0; i < max; i++) {
+        const c = cs[i];
+        h += c ? `<button class="cl${dim ? ' dim' : ''}" data-m="${m}" data-s="${s}" data-c="${i}" title="${esc(`${c.label} · ${c.key ?? c.size} · first in ${p.rows[c.rep].name}`)}"><b>${esc(c.label)}</b><span class="sz">${esc(p.kind === 'bend' ? c.key.replace(/^leg /, '').replace(' · R ', ' · R').replace(/(\d+\.\d{2})\d/, '$1') : p.kind === 'diameter' ? `${c.rows} icon${c.rows === 1 ? '' : 's'}` : c.size)}</span><span class="n">×${c.n}</span></button>`
+          : '<div class="cl blank"></div>';
+      }
+      return `<div>${h}</div>`;
+    }).join('')}</div></div>`).join('');
+  paintFocus();
+}
+document.getElementById('cls').addEventListener('click', (e) => {
+  const b = e.target.closest('.cl[data-c]'); if (!b) return;
+  const f = { type: 'class', m: +b.dataset.m, style: b.dataset.s, c: +b.dataset.c };
+  f.rows = new Set(state.panel.masters[f.m][f.style].instances.filter((i) => i.c === f.c).map((i) => i.r));
+  const same = state.pinned && state.pinned.type === 'class' && state.pinned.m === f.m && state.pinned.style === f.style && state.pinned.c === f.c;
+  if (!styles().includes(f.style)) setStyle(f.style);
+  setFocus(same ? null : f, true);
+});
+
+// ── against the cards ──
+function paintAgainst() {
+  const p = state.panel;
+  const rows = p.against;
+  const diff = rows.filter((a) => a.agrees === false).length, same = rows.filter((a) => a.agrees).length;
+  const notes = rows.length - same - diff;
+  document.getElementById('agCount').textContent = `${same} agree · ${diff} differ · ${notes} note${notes === 1 ? '' : 's'}`;
+  document.getElementById('ag').innerHTML = `<tr><th></th><th>This page measures</th><th>The card says</th><th>Where</th><th>Note · this page</th></tr>` + rows.map((a) => {
+    const [cls, mk] = a.agrees == null ? ['nt', 'note'] : a.agrees ? ['ok', 'same'] : ['no', 'differs'];
+    return `<tr><td class="mk ${cls}">${mk}</td><td class="mv">${esc(a.measured)}</td><td>${esc(a.card)}</td><td class="ct">${esc(a.cite)}</td><td class="nt">${esc(a.note ?? '')}</td></tr>`;
+  }).join('');
+}
+
+// ── rows: the figures.html cell (24 · 20 · 16 at 1×, then real pixels at 16), then a readout per master ──
+const rec = (n, m, filled) => man.masters[m]?.icons?.[filled ? `${n}-filled` : n] ?? null;
+const g = (sw, inner) => `<g fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${inner}</g>`;
+const art = (n, m) => { const r = rec(n, m, state.style === 'filled'); return r ? g(r.stroke, r.body) : null; };
+const svg = (m, px, inner) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" aria-hidden="true">${inner}</svg>`;
+const blank = (px) => `<span class="ph-box" style="width:${px}px;height:${px}px"></span>`;
+function readout(p, r, m, s) {
+  const its = p.masters[m][s].instances.filter((i) => i.r === r);
+  if (!its.length) return '<span>not drawn as this part</span>';
+  const cls = p.masters[m][s].classes;
+  if (p.kind === 'diameter') {
+    const by = new Map();
+    for (const i of its) by.set(i.v, (by.get(i.v) ?? 0) + 1);
+    return [...by].map(([v, n]) => `<span class="k">⌀${fmt(v)}</span>${n > 1 ? ` ×${n}` : ''}`).join(' · ');
+  }
+  if (p.kind === 'bend') {
+    const by = new Map();
+    for (const i of its) { const k = `${cls[i.c].label}|${fmt(i.leg)}|${fmt(i.turn, 2)}`; by.set(k, (by.get(k) ?? 0) + 1); }
+    return [...by].map(([k, n]) => { const [l, leg, turn] = k.split('|'); return `<span class="k">${esc(l)}</span> leg ${leg} · ${turn}°${n > 1 ? ` ×${n}` : ''}`; }).join(' · ');
+  }
+  const i = its.reduce((a, b) => ((b.v ?? -1) > (a.v ?? -1) ? b : a));
+  const label = [...new Set(its.map((x) => cls[x.c].label))].join('/');
+  const v = i.self ? 'ref' : i.v == null ? esc(i.why ?? '—') : i.v === 0 ? '= ref' : `<span class="drift">${fmt(i.v)} u · ${fmt(px16(i.v, m))} px</span>`;
+  return `<span class="k">${esc(label)}</span> ${v}`;
+}
+function rowSub(p, row) {
+  if (row.partner) return `against ${row.partner}`;
+  if (p.ref && row.name === p.ref) return 'the reference';
+  if (p.ref) return `against ${p.ref}`;
+  if (p.kind === 'residual') return 'its own reference';
+  return '';
+}
+function renderRows() {
+  const p = state.panel;
+  const host = document.getElementById('rows');
+  document.getElementById('rowCount').textContent = `${p.rows.length} icon${p.rows.length === 1 ? '' : 's'}`;
+  if (!p.rows.length) { host.innerHTML = '<div class="empty" style="grid-column:1/-1"><b>No instances</b>The set has no corner badge: no icon puts a small glyph on the corner of an object (card 1.1 §2.8, card 1.9 §1.5). The open ruling on badges crossing 22 has nothing to look at yet.</div>'; return; }
+  const what = p.kind === 'diameter' ? 'ink ⌀' : p.kind === 'bend' ? 'class · leg · turn' : 'class · residual';
+  let html = `<div class="h">Icon</div><div class="h">24 · 20 · 16 · real 16 px 1× 2×</div>${MASTERS.map((m) => `<div class="h">${m} · ${what}</div>`).join('')}`;
+  let grp;
+  p.rows.forEach((row, r) => {
+    if (row.group !== undefined && row.group !== grp) {
+      grp = row.group;
+      const c = row.group == null ? null : p.masters[24].outline.classes.find((x) => x.label === row.group);
+      html += `<div class="rg">${row.group == null ? 'Not drawn as this part at 24' : `Class ${esc(row.group)} at 24`}${c ? `<span>${esc(c.key ?? c.size)} · ${c.rows} icon${c.rows === 1 ? '' : 's'}</span>` : ''}</div>`;
+    }
+    html += `<div class="row" data-r="${r}">
+      <div class="rn"><b title="${esc(row.name)}">${esc(row.name)}</b><small>${esc(rowSub(p, row))}</small></div>
+      <div class="ri"><div class="ms"></div><div class="px"><canvas data-dpr="1" title="16 px at 1×"></canvas><canvas data-dpr="2" title="16 px at 2×"></canvas></div></div>
+      ${MASTERS.map((m) => `<div class="rv" data-m="${m}"></div>`).join('')}
+    </div>`;
+  });
+  host.innerHTML = html;
+  paintRows();
+}
+let gen = 0;
+async function pixels(cv, inner, run) {
+  const dpr = +cv.dataset.dpr, n = 16 * dpr;
+  cv.width = n; cv.height = n;
+  if (!inner) return;
+  const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000';
+  const img = new Image();
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${n}" height="${n}" viewBox="0 0 16 16">${inner.replaceAll('currentColor', ink)}</svg>`)}`;
+  try { await img.decode(); } catch { return; }
+  if (run !== gen) return;
+  const ctx = cv.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, n, n);
+}
+function paintRows() {
+  const p = state.panel, run = ++gen;
+  for (const el of document.querySelectorAll('#rows .row')) {
+    const r = +el.dataset.r, name = p.rows[r].name;
+    el.querySelector('.ms').innerHTML = MASTERS.map((m) => { const a = art(name, m); return a ? svg(m, m, a) : blank(m); }).join('');
+    const a16 = art(name, 16);
+    for (const cv of el.querySelectorAll('canvas')) pixels(cv, a16, run);
+    for (const rv of el.querySelectorAll('.rv')) {
+      const m = +rv.dataset.m;
+      rv.innerHTML = ['outline', 'filled'].map((s) => `<div class="${styles().includes(s) ? 'cur' : ''}"><i>${s}</i>${readout(p, r, m, s)}</div>`).join('');
+    }
+  }
+  paintFocus();
+}
+const rowsEl = document.getElementById('rows');
+rowsEl.addEventListener('mouseover', (e) => { const row = e.target.closest('.row'); if (row) setFocus({ type: 'row', r: +row.dataset.r }); });
+rowsEl.addEventListener('mouseleave', () => setFocus(null));
+rowsEl.addEventListener('click', (e) => {
+  const row = e.target.closest('.row'); if (!row) return;
+  const r = +row.dataset.r;
+  const same = state.pinned && state.pinned.type === 'row' && state.pinned.r === r;
+  setFocus(same ? null : { type: 'row', r }, true);
+});
+
+// ── a panel ──
+function select(id) {
+  const p = PANELS.find((x) => x.id === id) ?? PANELS[0];
+  state.panel = p; state.focus = null; state.pinned = null;
+  if (location.hash.slice(1) !== p.id) history.replaceState(null, '', `#${p.id}`);
+  document.title = `${p.title} — Primitive sheets`;
+  document.getElementById('ttl').textContent = p.title;
+  document.getElementById('q').textContent = p.question;
+  document.getElementById('src').textContent = p.source.split(';')[0];
+  document.getElementById('src').title = p.source;
+  const ovs = document.getElementById('ovs');
+  if (p.kind === 'empty') {
+    ovs.innerHTML = `<div class="empty" style="grid-column:1/-1"><b>Zero instances</b>Not one of the 485 concepts puts a badge on an object's corner. The badge cannot drift because it does not exist; the open ruling on badges crossing 22 blocks a whole class of names (<code>calendar-plus</code>, <code>file-plus</code>, <code>user-plus</code> …) while costing nothing today.</div>`;
+  } else {
+    ovs.innerHTML = MASTERS.map((m) => `<div class="ov" data-m="${m}"><div class="ovh"><b>${m}</b><span>${m === 16 ? '1 unit = 1 px at 16' : `1 unit = ${fmt(16 / m)} px at 16`}</span></div><div class="stage"></div><div class="ro"></div></div>`).join('');
+  }
+  document.getElementById('anchor').innerHTML = p.kind === 'empty' ? `<span>${esc(p.source)}</span>`
+    : `<span><b>Anchor</b> ${esc(p.anchor)}</span><span><b>Classes</b> ${p.kind === 'diameter' ? 'by ink diameter, as card 1.1 §2.3 counts them' : p.kind === 'bend' ? 'by leg, bend radius and turn, as card 1.1 §2.6–2.7 classify bends' : 'congruence up to a move (tolerance 0.01), canonical spellings first'}</span>${p.kind === 'residual' ? '<span><b>Residual</b> the largest point distance left after congruence.mjs\'s least-squares best-fit offset — the cards\' own reading; a minimax fit reads smaller, with the same zeros</span>' : ''}<span><b>Sources</b> ${esc(p.source)}</span>`;
+  document.getElementById('clsPanel').hidden = p.kind === 'empty';
+  document.getElementById('clsHint').textContent = p.kind === 'diameter' ? 'Every dot size at each master, smallest first, with how many icons use it. Click one to show only it.'
+    : p.kind === 'bend' ? 'Bend classes (leg · bend radius · turn) at each master, biggest first. Click one to show only it.'
+    : 'Congruence classes at each master, biggest first, with their ink size. Click one to show only it.';
+  renderNav(); paintOverlays(); paintReadouts(); paintClasses(); paintAgainst(); renderRows();
+  document.querySelector('.sec.on')?.scrollIntoView({ block: 'nearest' });
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.('input,textarea,select')) return;
+  if (e.key === 'f' || e.key === 'F') setStyle(state.style === 'filled' ? 'outline' : 'filled');
+  else if (e.key === '[') { state.nav = !state.nav; store.set('prim-nav', state.nav); applyNav(); }
+  else if (e.key === 'Escape') { state.pinned = null; setFocus(null); }
+  else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    const i = PANELS.indexOf(state.panel) + (e.key === 'ArrowDown' ? 1 : -1);
+    if (i >= 0 && i < PANELS.length) { e.preventDefault(); select(PANELS[i].id); }
+  }
+});
+window.addEventListener('hashchange', () => { if (location.hash.slice(1) !== state.panel?.id) select(location.hash.slice(1)); });
+// The real-pixel canvases bake the theme's ink in, so a live scheme change in Auto repaints them — after the
+// frame in which the new colours apply, so the ink read is the new one.
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if (state.theme === 'auto') requestAnimationFrame(() => requestAnimationFrame(() => paintRows()));
+});
+
+// One stage size for all three masters, in whole pixels: the columns are fractional, and a fraction of a
+// pixel between them puts the three readouts out of line.
+const ovsEl = document.getElementById('ovs');
+new ResizeObserver(() => {
+  const cols = [...ovsEl.querySelectorAll('.ov')];
+  if (!cols.length) return;
+  const inner = Math.min(...cols.map((c) => c.getBoundingClientRect().width)) - 32;   // less .ov's side padding
+  ovsEl.style.setProperty('--stage', `${Math.max(120, Math.min(320, Math.floor(inner)))}px`);
+}).observe(ovsEl);
+
+applyTheme(); applyNav(); renderBar();
+select(location.hash.slice(1));
+</script>
+</body>
+</html>
