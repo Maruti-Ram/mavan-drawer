@@ -70,7 +70,9 @@ copies).
 | *Field survey of praised icon sets* — cited here as `[praise …]` | `ac6f17b540b15b43e` | 28,805 chars | `ffc497c2ea7544ef261d067f7e8895a6346d2ce25cd06a4adcc895506eb02823` | A bottom line · B set by set · C1 vocabulary of praise · C2 failure modes, ranked · C3 hand-tuned against scaled · C4 people · D notes for the audit |
 | *Published construction systems* — cited here as `[construction …]` | `a365eba20e75eadb3` | 46,330 chars | `2e307a292cbb130c8f99ec59e9c8e3982e74c40d26920889a86245cb74f329a8` | §1 headline findings (nine) · §2 seventeen per-system tables · §3 cross-system tables · §4 multi-size · §5 contradictions · §6 what could not be got |
 
-**Their evidence** survives, read-only, in that session's scratch directory (`/private/tmp/claude-501/…/07852967-…/scratchpad/`):
+**Durable copies (2026-10-08):** the two reports, their evidence below and the two original transcripts are kept in
+`research/references/field/` (gitignored; `reports/`, `evidence/`, `transcripts/`), because the scratch directory clears
+when the Mac restarts and Claude Code clears old transcripts. **Their evidence** survives, read-only, in that session's scratch directory (`/private/tmp/claude-501/…/07852967-…/scratchpad/`):
 `notes.txt` (the construction agent's exact wording and every measurement), `web/` (112 files: 54 saved page texts,
 52 HTML, 4 JSON, 2 Markdown), `raw/`, `rast/` and `sf/` (its downloaded sources and measuring scripts), and
 `icon-reception/` (the survey's working notes, 20 raw HN thread JSONs and 20 flattened threads — 19 `thread_*.txt`

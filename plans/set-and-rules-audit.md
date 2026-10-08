@@ -85,14 +85,11 @@ another before they reached Maruti.
 7. **Close:** the gate again, then three commits — tools · documents · this plan (tick the cards,
    update this block).
 
-**Card 2.6's sources are fragile.** Its two reports are the final hand-backs in the 2026-10-04
-session's transcripts (`~/.claude/projects/-Users-maruti-avantsa-Claude-Workspace-Mavan-Drawer/
-07852967-7543-4b42-af82-b9afcfb57d4e/subagents/agent-ac6f17b540b15b43e.jsonl` and
-`agent-a365eba20e75eadb3.jsonl`), which Claude Code clears after its retention period; their
-evidence (saved page text, notes, tally scripts) is in that session's scratch under `/private/tmp`,
-which clears when the Mac restarts. `field-sources.mjs extract` re-extracts the reports and checks
-their hashes while the transcripts exist. Keeping a copy under `research/references/field/`
-(gitignored) is Maruti's call — this session was told not to change `research/`. Never re-run the
+**Card 2.6's sources are kept in `research/references/field/`** (gitignored; copied 2026-10-08 on
+Maruti's say-so, 101 MB): `reports/` (the two reports, hashes verified against `references-field.md`
+§0), `evidence/` (`notes.txt`, `web/` saved page text, `icon-reception/` notes and tally scripts) and
+`transcripts/` (the two agents' original transcripts, which Claude Code would otherwise clear after
+its retention period). The originals in `/private/tmp` clear when the Mac restarts. Never re-run the
 web research; it cost two long agent runs.
 
 **Wave 5 must reconcile, never pick**, where two cards measured one quantity:
