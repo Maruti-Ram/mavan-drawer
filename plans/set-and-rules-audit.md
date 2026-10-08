@@ -1,6 +1,7 @@
 # Set and rules audit
 
-Status: **waves 0, 1 and 2 done; next waves 3–5.**
+Status: **waves 0–4 and card 5.2 done; 5.1 deferred by Maruti (2026-10-09). Next: Maruti rules on
+the decision agenda.**
 Everything done is committed.
 Nothing in the set, the rules, lint, the sheet or the board changes in this build. Audit tools and
 audit documents only, committed separately.
@@ -14,15 +15,16 @@ Started 2026-10-04.
 **Read this block, then the Scope section, then the open cards. Do not re-derive anything in
 "What reconnaissance already established" or in the corrections list below.**
 
-**Done and committed** (`9ea987a`..`b526c8f`, plus a plan update after each group, on `main`, not
-pushed): the plan · 11 instruments + a rasteriser in `tools/audit/` (wave 0's five, then
-`notes.mjs`, `metrics-check.mjs`, `metrics-probe.mjs`, then `optical-probe.mjs`, `families.mjs`,
-`polaris-scope.mjs`; `families-mutations.mjs` breaks `families.mjs` on purpose to prove its tests;
-`field-sources.mjs` recovers and checks card 2.6's sources) · 5 reference extractors in
-`tools/audit/refs/` · **24 findings documents in `docs/audit/`, 17,383 lines.**
-`node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **308 pass.**
+**Done and committed** (`9ea987a`..`61082f4`, plus a plan update after each group, on `main`, not
+pushed): the plan · **37 tools in `tools/audit/`** — wave 0's instruments and rasteriser, each card's
+own tool, three lab-data generators, the register checker, and 18 reprint probes that print the wave
+1–2 documents again — and the reference extractors in `tools/audit/refs/` · **30 documents in
+`docs/audit/`, 22,453 lines** · three lab pages, `lab/audit-wall.html`, `lab/audit-primitives.html`,
+`lab/audit-exceptions.html`, with their data in `lab/audit-data/`.
+`node --test tools/audit/*.test.mjs tools/audit/refs/*.test.mjs` → **789 pass** (2026-10-09, twice).
 `git diff 5933041 HEAD` across `src/icons`, lint, geometry, masters, build, queue, `research/`,
-`lab/`, docs 01–09, `CLAUDE.md`, `README.md`, `package.json` → **empty.** The gate is unmoved:
+`lab/manifest.json` and the lab's existing pages, docs 01–09, `CLAUDE.md`, `README.md`,
+`package.json` → **empty**; the lab gained only the six new audit files. The gate is unmoved:
 `node tools/lint.mjs` output is byte-identical to the pin's.
 
 **Next, in this order** (Maruti agreed the grouping; the first group ran on Maruti's go, 2026-10-05):
@@ -45,8 +47,27 @@ pushed): the plan · 11 instruments + a rasteriser in `tools/audit/` (wave 0's f
    from them and their saved evidence with no web research re-run (author and reviewer Fable).
    Proposals FD-1..FD-6 (`references-field.md` §8); eye questions §7. Its sources are fragile — see
    the note below.
-4. **Next: wave 3** (the four registers; 3.5 is already done) → **wave 4** (surfaces) →
-   **wave 5** (fresh reviewer + the one ranked decision agenda).
+4. ~~**Waves 3 and 4, card 5.2, and a reprint repair card**~~ — **done 2026-10-08/09**
+   (`c6ccacb`..`61082f4`), on Maruti's go ("Good", "Lets go"). Authors: Fable for 3.1, 3.2 and
+   3.3/3.4; Opus for 4.1–4.3. **Fable hit its usage limit on the evening of 2026-10-08**; from then
+   every judgement agent ran on Opus, the strongest model left — 3.2's review and revision, 4.4, 4.1's
+   closing check, 5.2's author and reviewer, the reprint card. Every card had a fresh reviewer.
+   - 3.1 `judging-standard.md`; 3.3/3.4 `parameter-map.md` + `parameter-reach.mjs` (`c6ccacb`, `0fa082c`).
+   - 3.2 `findings-register.md` + `register-check.mjs` (`408d5d2`, `56b928b`): 263 findings in 34 kind
+     tables, by kind (1) 38 · (2) 138 · (3) 87; the checker verifies every citation.
+   - 4.1–4.3 the wall, the primitive sheets, the exceptions sheet (`ac86fca`..`da9d788`, `e79207a`).
+   - 4.4 `eye-only.md` (`1a3e7f4`): 80 items, citing all 87 kind-(3) findings.
+   - 5.2 `decision-agenda.md` (`448afd6`): **37 decisions for Maruti** in nine sittings (A–I; A and C
+     need no page), **14 technical calls** Claude makes unless Maruti objects; nine expire at launch.
+   - **Reprint repair** (added 2026-10-08: rule 6 below had not been met — waves 1–2 had measured with
+     scratch scripts): 18 probes (`bca1cb5`) and `reprint-map.md` (`61082f4`). **164 figures did not
+     reproduce** (map §4; the ones that change what a sentence says are in §1) and **53 cannot be
+     recovered** (§5). No document was edited for them; they are corrections waiting to be weighed.
+5. **5.1 is deferred — Maruti, 2026-10-09** ("Lets not do this at this point in time"). Every document
+   had its own fresh reviewer; what is missing is the one pass across all of them, which would catch
+   two documents stating one thing two ways. When it is picked up: the reconcile list below, map §4
+   against the register and the agenda, and the agenda's figures against the lines they cite.
+6. **Next: Maruti rules on the agenda**, one sitting at a time.
 
 **How a card is run** — the method that held for 1.13, 1.12 and 1.9 (2026-10-05). Follow it for
 every remaining card; it is what caught 16 wrong figures in one card and two unmeasured ones in
@@ -56,7 +77,8 @@ another before they reached Maruti.
    `shasum lab/manifest.json`; `git diff --quiet 5933041 HEAD -- src/icons` and `git status --short
    src/icons` — if the working tree has moved, every agent measures from
    `git archive 5933041 src/icons` instead.
-2. **One author agent per card, in parallel.** Model: strongest = Fable, strong builder = Opus,
+2. **One author agent per card, in parallel.** Model: strongest = Fable (Opus when Fable is at its
+   usage limit, as from 2026-10-08), strong builder = Opus,
    checklists = Sonnet; a vague brief or a result that needs judging moves up a tier. The brief:
    the card, the pin, the files it owns (new audit tools allowed under `tools/audit/`, never
    imported by lint or build), a scratch directory, **never `npm run build` or `npm run check` in
@@ -82,6 +104,9 @@ another before they reached Maruti.
    re-running the figure.
 6. **Every figure must reprint from a committed tool.** Scratch scripts vanish with the session;
    fold them into the card's tool (as `metrics-probe.mjs` does) and map each section to a command.
+   Prove its tests with a **fresh mutation judge** whose planted bugs the builder never saw: on
+   2026-10-09 the first such judge found seven printed figures in two probes that no test guarded,
+   after every bug in the builder's own sets had been caught.
 7. **Close:** the gate again, then three commits — tools · documents · this plan (tick the cards,
    update this block).
 
@@ -94,7 +119,8 @@ web research; it cost two long agent runs.
 
 **Wave 5 must reconcile, never pick**, where two cards measured one quantity:
 - filled/outline box equality — 1,100 of 1,455 exact (card 1.8) against 96.3% (card 2.1)
-- the 16 filled-corner offset — 7 concepts/10 pairs, then 37/97, now 13 concepts/50 corners
+- the 16 filled-corner offset — 7 concepts/10 pairs, then 37/97, now 13 concepts/50 corners; the
+  reprint probe reads card 1.8's own definition as 97 corners on 41 concepts (`reprint-map.md` §1)
 - container-radius share — 61.8 · 61.4 · 58.6% (card 1.2) against 61.1 · 61.1 · 58.3% (card 2.3)
 - SF Symbols' pair count — `CLAUDE.md:308` says 2,664; the app declares 2,906, or 2,508 without
   locale and direction variants; `stale-statements.md:197` marks the same sentence as holding
@@ -115,6 +141,10 @@ web research; it cost two long agent runs.
   lint's ±0.01 — card 1.16's 53 at 24 is the second definition)
 - and card 2.6's, `references-field.md` §9 — where the field reports' 2026-10-04 statements meet
   what the later reference cards measured from source
+- shared-part residuals: `congruence.mjs` fits by least squares, card 4.2's sheets by the largest
+  miss — a definition, not a disagreement
+- `exceptions-ledger.md`'s "glyph files left out (floor 1)": `help-2` and `help-3` at 20 read 1.49
+  against 1.5, real band readings, not noise (card 4.3's review)
 
 **Known instrument defects — do not trust these without the stated workaround:**
 - `raster.mjs:257` `classify` drops an area path's horizontal edges and then reuses that list for
@@ -123,7 +153,8 @@ web research; it cost two long agent runs.
   with an area path (342 shape-filled concepts × 3 masters). Outline and line-heavy filled figures
   are unaffected — verified on all 2,910 files.** Fix, not applied: keep the horizontal edges in a
   separate list used only by the straddle test. Card 1.5/1.6 bypassed it; every published figure
-  was re-verified and none moved.
+  was re-verified and none moved. Cards 1.14 and 1.16 did not: bypassed, `plus-circle`'s punched
+  cut leaves **0** fully clear pixels at 20 and 16, not 4 (`reprint-map.md` §1).
 - `pixelgrid.mjs` `blurScore` is a constant **0.500** on every straight run at stroke 1.5, so it
   cannot rank 24 or 20 at all. It discriminates only at 16.
 - `pixelgrid.mjs` `diagonalShare` restarts a fragment after every arc, so a closing `Z` goes to the
@@ -153,6 +184,16 @@ web research; it cost two long agent runs.
 - `build.mjs:43` rounds a box's `x` and `w` to 2 dp separately, so a published right edge can read
   14.01 where the ink ends at 14.0 (`list-bullet` at 16) and an edge test at 0.01 flips on float
   noise. Compare edges with a tolerance (`optical-probe.mjs` uses 0.0151) or use the solved box.
+- `geometry.mjs` `samplePath` samples a cubic or quadratic segment by its control points, not the
+  curve. **Our set is untouched:** 0 of 2,910 files contain a `C`, `S`, `Q` or `T` command (counted
+  2026-10-09). Fluent is all curves: 37 of `references-fluent.md`'s figures move on the true curves
+  (`reprint-map.md` §6); `fluent-probe.mjs` prints every section both ways. Not fixed in this build
+  (lint's file); offered as a follow-up task.
+- Real-pixel canvases in the lab: a GPU-accelerated 2D canvas (the browser default) draws small dots
+  light; a CPU canvas (`willReadFrequently`) punches a hole in a stroked circle whose radius is under
+  half its stroke. `audit-wall.html` reads pixels on a CPU canvas and draws such circles as solid
+  discs. `figures.html`'s canvases may carry the first fault — offered as a follow-up task.
+- The wall's Library link cannot open one icon: `library.html` reads no URL parameter.
 
 **Corrections made during the build — these are settled; do not reinstate them:**
 | Claimed | Actually |
@@ -172,6 +213,9 @@ web research; it cost two long agent runs.
 | Optical correction is 45 icons, not a system (reconnaissance, below) | **It is C14/C15 applied exactly where they were written:** 36 chevron concepts within 0.16 of the sheet's measure, `play` consistent with its centroid × 0.5, `alert-triangle`'s −0.5 a construction lift wearing `optical:`. None of the 154 undeclared off-centre drawings is more than 0.5 off (`findings-optical.md`) |
 | `stale-statements.md:133`: the live Polaris is file `rdI0uXVzp89fOZpYcQV6mo`, with a copy in `XewrhAKrNGVZtikkpI5am9` | **`rdI0…` is Fluent's file and has no Polaris page** — six pages, listed by the main session 2026-10-05T06:01Z. The live Polaris is `XewrhAKrNGVZtikkpI5am9`, page `15721:27960`, identical to the 2026-10-04 catalogue (`references-polaris.md` §0.4, §5; PL-9) |
 | No family in this set keeps one ink box (`plans/sort-family.md`) | True of the five families it measured; **false of about half the runs** — 51 of 107 keep one box exactly at all three masters, 53 within lint's ±0.01 (`findings-families.md` §6) |
+| Card 1.1: 41 rings, 26 rounded squares (`findings-primitives.md`) | **40 and 24** — 41 is the wave-0 figure, repeated at `:986`; 26 does not reproduce. Its filled-dot counts (168/16 · 144/14 · 148/17) follow no single definition, and `sparkle-4` and `wand` keep ⌀2.5 at 20 — "merges" overstated (card 4.2's review) |
+| Every wave 1–2 figure reprints from the cards' work | **164 did not reproduce and 53 cannot be recovered** (`reprint-map.md` §4, §5). The ones that change a sentence are in its §1 — among them dropping the 16 master gives **1,903 clean · 37 warned**, not "1,940, all clean"; `keyboard-2`'s aspect drift is **4.2%**, not 19.0%; the scaling classes are **146 / 38**, not 155 / 29. Cite those figures from the map, never from their documents |
+| Commit `56b928b`'s message: R-F2-06 is "the keyline drawings", R-F2-07 "the container corners" | R-F2-06 is the **±0.5 keyline tolerance no document chose** (1,726 drawings checked); R-F2-07 is **lint blind to 5,512 of 10,965 corners on area paths** (1,026 drawings). The register is right; the message is loose and is not rewritten |
 | Card 2.6's field reports exist only in a transcript, not on disk, so the card is written from this plan's summaries | **Both reports were on disk, whole** — each is its agent's final hand-back in the 2026-10-04 transcript; extracted verbatim by `field-sources.mjs extract`, hashes in `references-field.md` §0. The plan's "summary" was three topic names; writing from it would have meant inventing the content |
 
 **Five decisions that expire at launch** (C9 locks names and numbers at release), all free today.
@@ -185,6 +229,8 @@ Card 1.17 adds the reference facts to two of them: live Polaris says `question-c
 Card 1.10 adds two numbering decisions of the same kind: `checkbox-2/-3/-4` carry `check-circle`'s
 `-3/-4/-small` ticks against C9's composite clause (FM-1), and the `trash` (2–4) and `check-circle`
 (2) gaps (FM-3).
+**The agenda now carries these and every other proposal** (`decision-agenda.md`): nine of its 37
+decisions expire at launch — AG-25, AG-27, AG-28, AG-30, AG-32, AG-33, AG-34, AG-35 and part of AG-22.
 
 **Note:** `CLAUDE.md:90-95` still says "2026-09-28: none open" and does not list this plan. That is
 already an entry in `stale-statements.md`; it is not edited, per Maruti's Q4 answer. A fresh session
@@ -605,17 +651,17 @@ Each: scope · files owned · how we know it is done · model · depends on.
 
 ### Wave 3 — synthesise (depends on 1 + 2)
 
-- [ ] **3.1 The judging standard.** The axes, each with what good looks like, how it is measured,
+- [x] **3.1 The judging standard.** The axes, each with what good looks like, how it is measured,
   where we stand — short enough to actually read. *Owns:* `docs/audit/judging-standard.md`. *Model:* strongest.
-- [ ] **3.2 The findings register.** Every deviation, measured, grouped by axis, icons named, tagged
+- [x] **3.2 The findings register.** Every deviation, measured, grouped by axis, icons named, tagged
   one-off or systemic. Three kinds kept strictly apart and never mixed in one line:
   (1) a drawing disagrees with a stated rule; (2) a rule disagrees with another rule or the docs;
   (3) a drawing is fine by every rule and still looks wrong, and no rule covers it.
   *Owns:* `docs/audit/findings-register.md`. *Model:* strongest.
-- [ ] **3.3 The parameter map.** Free choices vs derived values; change one → what recomputes, what
+- [x] **3.3 The parameter map.** Free choices vs derived values; change one → what recomputes, what
   is redrawn, what your eye must re-decide. Stroke-16 as the worked example.
   *Owns:* `docs/audit/parameter-map.md`. *Model:* strongest.
-- [ ] **3.4 What a new set costs.** Change the radius / the weight / add a 32 master → here is the
+- [x] **3.4 What a new set costs.** Change the radius / the weight / add a 32 master → here is the
   work, in order. *Owns:* same file, second half. *Model:* strongest.
 - [x] **3.5 The severity proposal (Q2).** For every rule: should it hard-stop a drawing, stay a
   warning, or be a note — and why. The problem it answers: today only note syntax, root attributes,
@@ -629,13 +675,13 @@ Each: scope · files owned · how we know it is done · model · depends on.
 
 Because a document cannot settle what only the eye can.
 
-- [ ] **4.1 The wall.** The whole set at real 16px, sorted by ink mass · by stroke count · by family.
+- [x] **4.1 The wall.** The whole set at real 16px, sorted by ink mass · by stroke count · by family.
   *Owns:* `lab/audit-wall.html`. Reuses the `library.html` manifest pattern.
-- [ ] **4.2 Primitive sheets.** One per shared primitive, every instance overlaid.
+- [x] **4.2 Primitive sheets.** One per shared primitive, every instance overlaid.
   *Owns:* `lab/audit-primitives.html`. Reuses the `figures.html` row pattern.
-- [ ] **4.3 The exceptions sheet.** Every note in the set, grouped, each with its drawing.
+- [x] **4.3 The exceptions sheet.** Every note in the set, grouped, each with its drawing.
   *Owns:* `lab/audit-exceptions.html`.
-- [ ] **4.4 The eye-only list.** What no tool can settle, each pointing at the surface to settle it on.
+- [x] **4.4 The eye-only list.** What no tool can settle, each pointing at the surface to settle it on.
   *Owns:* `docs/audit/eye-only.md`.
   *Model for wave 4:* strong builder; the list itself strongest.
 
@@ -643,8 +689,13 @@ Because a document cannot settle what only the eye can.
 
 - [ ] **5.1 Fresh reviewer.** An agent that did none of the work checks every finding against the
   drawing or the file it names, and every number against the tool that produced it. Failures
-  reported with evidence, never rounded up to "done".
-- [ ] **5.2 The decision agenda.** One batch, ordered by how much of the set each ruling moves, each
+  reported with evidence, never rounded up to "done". **Deferred by Maruti, 2026-10-09** — see RESUME
+  HERE, item 5.
+- [x] **Reprint repair (added 2026-10-08).** Fold waves 1–2's scratch scripts into committed probes
+  and map every figure to the command that prints it again. *Owns:* 18 `tools/audit/*-probe.mjs`,
+  `docs/audit/reprint-map.md`. *Model:* Opus (builders, reviewers, closing check, two fresh mutation
+  judges).
+- [x] **5.2 The decision agenda.** One batch, ordered by how much of the set each ruling moves, each
   with a recommendation and the sheet to look at. **Folds in docs/09's six pending rulings rather
   than competing with them.** *Owns:* `docs/audit/decision-agenda.md`. *Model:* strongest.
 
