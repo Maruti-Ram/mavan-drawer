@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exceptions sheet</title>
+<style>
+/* The exceptions sheet (audit card 4.3): every note and comment in the set, in the 20 groups of
+   docs/audit/exceptions-ledger.md, each with its drawing — so each group can be judged: a genuine
+   agreed exception, or a missing rule wearing a note? Data: lab/audit-data/exceptions.json, written
+   from the pinned tree by tools/audit/exceptions-data.mjs. Drawings: the live lab/manifest.json. */
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--done:#1f9d55;--review:#d18a00;--bad:#d1453b;--sel:#0d99ff;--hl:#e5484d;--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--bad:#ef6a5f;--sel:#2ea8ff;--hl:#ff6b6b;--hover:rgba(255,255,255,.05);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--bad:#ef6a5f;--sel:#2ea8ff;--hl:#ff6b6b;--hover:rgba(255,255,255,.05);--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+svg{display:block;overflow:visible;flex:none}
+button,input{font:inherit;color:inherit}
+a{color:inherit}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+kbd{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-block;min-width:18px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 4px;background:var(--panel);color:var(--muted)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ── app header (as library.html) ── */
+.app{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.app .top{display:flex;align-items:center;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.ident{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.ident>div:last-child{min-width:0}
+.glyph{width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);color:var(--ink)}
+.ident h1{font-size:18px;line-height:1.2;margin:0;font-weight:600;letter-spacing:-.01em}
+.ident p{margin:2px 0 0;font-size:12px;line-height:16px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app .actions{flex:none}
+.search input{width:180px}
+.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;background:var(--hover);color:var(--muted);font-size:11px;font-weight:500;white-space:nowrap}
+button.pill{border:0;cursor:pointer}
+button.pill:hover{color:var(--ink)}
+.divider{width:1px;height:20px;background:var(--line);margin:0 4px}
+.back{font-size:12px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+.iconbtn{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.iconbtn:hover{color:var(--ink)}
+.iconbtn.ghost{border-color:transparent;background:none}
+.iconbtn.ghost:hover{background:var(--hover)}
+.iconbtn:disabled{opacity:.35;cursor:default}
+.tbtn{height:28px;display:inline-flex;align-items:center;gap:6px;padding:0 8px 0 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:12px;cursor:pointer;white-space:nowrap}
+.tbtn:hover,.tbtn.on{border-color:color-mix(in srgb,var(--ink) 25%,var(--line))}
+.tbtn .count{color:var(--muted);max-width:190px;overflow:hidden;text-overflow:ellipsis}
+#showPop .tbtn{width:252px}
+#showPop .tbtn .count{flex:1;min-width:0;max-width:none;text-align:left;white-space:nowrap}
+.tbtn svg{color:var(--muted)}
+.seg{display:inline-flex;height:28px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.seg button{font-size:12px;padding:0 9px;border:0;border-radius:5px;background:none;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--hover);color:var(--ink)}
+.search{position:relative;display:flex;align-items:center}
+.search svg{position:absolute;left:9px;color:var(--faint);pointer-events:none}
+.search input{width:240px;height:28px;padding:0 30px 0 28px;border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:12px;outline:none}
+.search input:focus{border-color:color-mix(in srgb,var(--sel) 60%,var(--line));box-shadow:0 0 0 3px color-mix(in srgb,var(--sel) 15%,transparent)}
+.search kbd{position:absolute;right:6px;pointer-events:none}
+.search input:focus + kbd,.search input:not(:placeholder-shown) + kbd{display:none}
+.pop{position:relative}
+.lmenu{position:absolute;right:0;top:calc(100% + 6px);width:290px;background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.16);padding:4px;z-index:15}
+.msec{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:8px 8px 2px}
+.mrow{display:flex;align-items:center;gap:10px;width:100%;padding:4px 8px;border:0;border-radius:6px;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-align:left}
+.mrow:hover{background:var(--hover)}
+.mrow.on{color:var(--ink)}
+.mrow .ck{margin-left:auto;opacity:0;flex:none}
+.mrow.on .ck{opacity:1}
+.mrow .n{margin-left:auto;font-size:11px;color:var(--faint);font-variant-numeric:tabular-nums}
+.mrow .n + .ck{margin-left:6px}
+
+/* ── panels ── */
+main.wrap{padding-top:24px;padding-bottom:80px;display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:calc(var(--head,73px) + 16px)}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding:14px 20px;border-bottom:1px solid var(--line);min-height:57px}
+.pt{display:flex;align-items:baseline;gap:10px;min-width:0;flex-wrap:wrap}
+.pt h2{font-size:14px;font-weight:600;margin:0}
+.pt p{margin:0;font-size:12px;color:var(--muted)}
+.pa{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ph.one{flex-wrap:nowrap}
+.ph.one .pt{flex:1 1 auto;min-width:0;flex-wrap:nowrap}
+.ph.one .pt>*{flex:none}
+.ph.one .pt h2{white-space:nowrap}
+.ph.one .pt p{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph.one .pa{flex:none;flex-wrap:nowrap}
+.pf{display:flex;align-items:center;gap:16px;height:41px;white-space:nowrap;overflow:hidden;padding:0 20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.keys{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+
+/* verdict marks */
+.vd{display:inline-flex;align-items:center;gap:4px}
+.vd i{width:7px;height:7px;border-radius:50%;display:inline-block;background:var(--faint)}
+.vd i.agreed{background:var(--done)} .vd i.missing{background:var(--review)} .vd i.unverified{background:var(--accent)} .vd i.stale{background:var(--bad)} .vd i.none{background:var(--faint)}
+.tagp{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:999px;font-size:11px;font-weight:500;background:var(--hover);color:var(--muted);white-space:nowrap}
+.tagp i{width:7px;height:7px;border-radius:50%}
+.ne{color:var(--review);font-weight:600}
+
+/* ── groups sidebar (as library.html's sections rail) ── */
+body{--nav:260px;padding-left:var(--nav)}
+body.nav-collapsed{--nav:60px}
+.snav{position:fixed;left:0;top:0;bottom:0;width:var(--nav);background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:12;transition:width .2s ease;overflow:hidden}
+.sn-top{flex:none;height:var(--head,73px);display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px 0 20px;border-bottom:1px solid var(--line)}
+.sn-title{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.sn-title b{font-size:14px;font-weight:600}
+.secs{flex:1;min-height:0;overflow-y:auto;padding:10px 12px;width:260px;display:flex;flex-direction:column;gap:2px}
+.sec{display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:2px 10px;padding:7px 10px;border:0;border-radius:10px;background:none;text-align:left;cursor:pointer;color:inherit}
+.sec:hover{background:var(--hover)}
+.sec.on{background:var(--inset);box-shadow:inset 0 0 0 1px var(--line)}
+.sec .ab{grid-row:1/3;width:24px;height:24px;border-radius:6px;display:grid;place-items:center;background:var(--hover);font-size:11px;font-weight:600;color:var(--muted)}
+.sec.on .ab{background:var(--ink);color:var(--panel)}
+.sec .nm{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sec .ct{font-size:11px;color:var(--muted);min-width:44px;text-align:right}
+.sec .sub{grid-column:2/4;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--faint);white-space:nowrap;overflow:hidden;height:16px}
+.sec .sub .ne{font-weight:600}
+.sec.dim .nm{color:var(--faint)}
+.sgap{height:1px;background:var(--line);margin:8px 10px}
+.sn-foot{flex:none;display:flex;gap:14px;height:41px;align-items:center;padding:0 20px;border-top:1px solid var(--line);white-space:nowrap}
+body.nav-collapsed .sn-top{justify-content:center;padding:0}
+body.nav-collapsed .sn-title,body.nav-collapsed .sn-foot,body.nav-collapsed .sec :not(.ab),body.nav-collapsed .sgap{display:none}
+body.nav-collapsed .secs{width:60px;padding:10px 8px}
+body.nav-collapsed .sec{display:flex;justify-content:center;padding:6px 0}
+
+/* ── group head ── */
+.headp{container-type:inline-size}
+.ghead{display:grid;grid-template-columns:1fr}
+.ghead>div{padding:16px 20px;min-width:0;height:288px}
+.ghead>div:first-child{overflow-y:auto}
+.ghead>div+div{display:flex;flex-direction:column}
+.ghead>div+div{border-top:1px solid var(--line)}
+@container (min-width:1040px){.ghead{grid-template-columns:minmax(0,4fr) minmax(0,6fr)}.ghead>div+div{border-top:0;border-left:1px solid var(--line)}}
+.cwrap{flex:1;min-height:0;overflow:auto}
+.facts{display:grid;grid-template-columns:96px 1fr;gap:6px 14px;margin:0;font-size:12px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.facts .prop{display:block;margin-bottom:4px}
+.facts .prop b{font-weight:600;margin-right:6px}
+.facts .prop small{color:var(--faint)}
+.h3{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:500;margin:0 0 8px}
+.ct{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
+.ct th{position:sticky;top:0;background:var(--panel);font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:left;padding:0 8px 6px 0;z-index:1}
+.ct td{padding:5px 8px 5px 0;border-top:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.ct td small{display:block;font-size:10.5px;color:var(--faint);line-height:1.35;margin-top:1px}
+.ct col.q{width:46%} .ct col.v{width:20%} .ct col.s{width:14%}
+.ct .ok{color:var(--done)} .ct .no{color:var(--review);font-weight:600} .ct .na{color:var(--faint)}
+.ct tr.diff td{background:color-mix(in srgb,var(--review) 8%,transparent)}
+.ct .ind{padding-left:12px}
+
+/* ── items ── */
+.pager{display:inline-flex;align-items:center;gap:4px}
+.pager span{min-width:118px;text-align:center;font-size:12px;color:var(--muted)}
+.items{min-height:120px}
+.hintrow{height:34px;line-height:33px;padding:0 20px;font-size:12px;color:var(--muted);border-bottom:1px solid var(--line);background:var(--inset);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr))}
+.card{position:relative;display:grid;grid-template-columns:140px minmax(0,1fr);gap:4px 16px;padding:14px 16px;box-shadow:1px 0 0 var(--line),0 1px 0 var(--line);cursor:pointer;min-width:0;background:none;border:0;text-align:left;color:inherit}
+.card:hover{background:var(--hover)}
+.card.on{background:color-mix(in srgb,var(--sel) 7%,var(--panel));box-shadow:1px 0 0 var(--line),0 1px 0 var(--line),inset 0 0 0 2px var(--sel)}
+.card .nm{grid-column:1/3;display:flex;align-items:center;gap:8px;height:18px;min-width:0}
+.card .nm b{font:500 12px ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .nm .since{margin-left:auto;font-size:11px;color:var(--review);white-space:nowrap}
+.card .art{display:flex;flex-direction:column;gap:8px}
+.ms{display:flex;align-items:center;gap:10px;height:24px;color:var(--ink)}
+.px{display:flex;gap:8px}
+.px figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:2px}
+.px canvas{width:64px;height:64px;image-rendering:pixelated;background:var(--inset);border:1px solid var(--line);border-radius:3px;display:block}
+.px small,.cap{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.lines{display:grid;grid-template-columns:22px minmax(0,1fr);gap:3px 8px;align-content:start;font-size:12px;min-width:0}
+.lines .m{color:var(--faint);font-size:11px;font-variant-numeric:tabular-nums;line-height:18px}
+.lines .t{min-width:0;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lines .t code{font-size:11.5px}
+.lines .t .lt{color:var(--muted)}
+.lines .t.absent{color:var(--faint)}
+.lines .o{grid-column:1/3;color:var(--muted);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:18px}
+.lines .p{grid-column:1/3;color:var(--muted);font-size:12px;line-height:17px;height:51px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.ph-box{display:block;flex:none;border:1px dashed var(--line);border-radius:3px}
+.dw{display:block;flex:none}
+.dw.off{opacity:.25}
+.sub-h{grid-column:1/-1;padding:12px 16px 6px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);box-shadow:0 1px 0 var(--line);background:var(--inset)}
+.sub-h code{text-transform:none;letter-spacing:0;font-weight:500}
+
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:64px 230px minmax(0,1fr);gap:14px;align-items:center;height:80px;padding:0 16px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer;color:inherit;min-width:0}
+.row:hover{background:var(--hover)}
+.row.on{background:color-mix(in srgb,var(--sel) 7%,var(--panel));box-shadow:inset 3px 0 0 var(--sel)}
+.row .cell{width:56px;height:56px;display:grid;place-items:center;background:var(--inset);border-radius:6px;color:var(--ink)}
+.row .who{min-width:0;display:flex;flex-direction:column;gap:1px}
+.row .who b{font:500 12px ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .who small{font-size:11px;color:var(--muted);white-space:nowrap}
+.row .who .since{color:var(--review)}
+.row .txt{font-size:12px;line-height:17px;max-height:68px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;color:var(--ink);min-width:0;overflow-wrap:anywhere}
+.row .txt code{font-size:11.5px}
+.row .eff{font-size:11px;line-height:15px;color:var(--muted);max-height:30px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;margin-top:2px}
+.row .eff b{color:var(--ink);font-weight:500}
+.empty{padding:48px 20px;text-align:center;color:var(--muted);font-size:13px}
+.empty b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+mark{background:color-mix(in srgb,var(--sel) 22%,transparent);color:inherit;border-radius:2px}
+
+/* ── detail: docked on the right, fixed shape ── */
+.side{position:fixed;top:0;right:0;bottom:0;width:360px;background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;z-index:20;transform:translateX(100%);transition:transform .2s ease}
+body.detail-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.08)}
+@media (min-width:1280px){body{padding-right:360px}.side{transform:none;transition:none}body.detail-open .side{box-shadow:none}#dClose{visibility:hidden}}
+.side header{display:flex;align-items:center;gap:8px;padding:0 14px 0 20px;height:var(--head,73px);border-bottom:1px solid var(--line);flex:none;min-width:0}
+.side header b{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.side header .pill{margin-right:auto;flex:none}
+.dart{flex:none;height:232px;border-bottom:1px solid var(--line);padding:12px 16px;display:grid;grid-template-columns:52px repeat(3,1fr);grid-template-rows:56px 56px 1fr;align-items:center;gap:4px 8px;background:var(--inset)}
+.dart .lab{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.dart .c{display:grid;place-items:center;height:56px}
+.dart .pxrow{grid-column:1/5;display:flex;gap:10px;justify-content:center;align-self:end}
+.dsec{flex:none;padding:12px 20px;border-bottom:1px solid var(--line)}
+.dsec.grow{flex:1;min-height:0;display:flex;flex-direction:column}
+.dsec h3{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:500;margin:0 0 6px;display:flex;justify-content:space-between;white-space:nowrap;gap:8px}
+.dscroll{overflow-y:auto;font-size:12px;line-height:1.45;min-height:0}
+.dsec.notes{flex:3 1 0;min-height:0;display:flex;flex-direction:column}
+.dsec.grow{flex:2 1 0}
+.dsec.notes .dscroll,.dsec.grow .dscroll{flex:1}
+.fhead{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 3px;display:flex;gap:6px;align-items:center}
+.fhead:first-child{margin-top:0}
+.fhead.cur{color:var(--sel)}
+.cm{margin:0 0 5px;padding:5px 8px;border-radius:6px;background:var(--inset);font:11.5px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.cm small{display:block;font:11px/1.4 ui-sans-serif,-apple-system,system-ui,sans-serif;color:var(--muted);margin-top:3px;white-space:normal}
+.cm small b{font-weight:600;color:var(--ink)}
+.cm.hi{box-shadow:inset 2px 0 0 var(--sel)}
+.ll{font:11px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}
+.ll .w{color:var(--review)} .ll .e{color:var(--bad)} .ll .h{color:var(--ink)}
+.since-box{font-size:12px;line-height:17px;color:var(--muted);height:51px;overflow:auto}
+.since-box b{color:var(--ink);font-weight:500}
+
+/* ledger dialog */
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);padding:0;width:min(820px,92vw);max-height:84vh;box-shadow:0 24px 64px rgba(0,0,0,.25)}
+dialog::backdrop{background:rgba(0,0,0,.28)}
+dialog header{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}
+dialog header b{font-size:13px}
+dialog header .pill{margin-right:auto}
+dialog .md{padding:14px 20px 20px;overflow:auto;max-height:calc(84vh - 56px);font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+dialog .md code{background:var(--hover);padding:0 3px;border-radius:3px}
+dialog .md .mdt{border-collapse:collapse;font-size:12px;margin:2px 0 10px;white-space:normal;width:100%;overflow-wrap:normal}
+dialog .md .mdt code{white-space:nowrap}
+dialog .md .mdt th,dialog .md .mdt td{border:1px solid var(--line);padding:4px 7px;text-align:left;vertical-align:top}
+dialog .md .mdt th{background:var(--inset);font-weight:600}
+</style>
+</head>
+<body>
+<nav class="snav" aria-label="Groups">
+  <div class="sn-top">
+    <span class="sn-title"><b>Groups</b><span class="pill num">20</span></span>
+    <button class="iconbtn ghost" id="navBtn" title="Collapse sidebar ([)" aria-label="Collapse sidebar" aria-expanded="true">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="2"/><path d="M6 2.75v10.5"/></svg>
+    </button>
+  </div>
+  <div class="secs" id="secs"></div>
+  <div class="sn-foot"><span class="keys"><kbd>[</kbd> collapse</span><span class="keys"><kbd>,</kbd><kbd>.</kbd> group</span><a class="keys" href="library.html" style="margin-left:auto">Library</a></div>
+</nav>
+
+<header class="app">
+  <div class="wrap top">
+    <div class="ident">
+      <div class="glyph"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.75 2.75h10.5a2 2 0 0 1 2 2v10.5a2 2 0 0 1-2 2H4.75a2 2 0 0 1-2-2V4.75a2 2 0 0 1 2-2Z"/><path d="M6.75 7.25h6.5M6.75 10h6.5M6.75 12.75h3.5"/></svg></div>
+      <div><h1>Exceptions</h1><p id="subtitle">&nbsp;</p></div>
+    </div>
+    <div class="actions" id="bar">
+      <label class="search"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="6" cy="6" r="4.25"/><path d="M9.25 9.25l3 3"/></svg>
+        <input id="q" type="search" placeholder="Search names and note text" autocomplete="off" spellcheck="false" aria-label="Search names and note text"><kbd>/</kbd></label>
+      <span class="divider"></span>
+      <span class="seg" id="style"></span>
+      <span class="divider"></span>
+      <span class="seg" id="theme"></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="panel" id="first">
+    <div class="ph"><div class="pt"><h2>Asked of this sheet first</h2><p>Does <code>volume-off-filled</code>'s bar read as broken at 16? 0.39 of white at each junction; the raster reads the junction pixel at 0.637 (<code>findings-air.md:454</code>). Maruti kept it from the numbers on 2026-09-28; it has not been judged by eye. Ledger §6, line 777.</p></div>
+      <div class="pa"><button class="tbtn" data-first>Show it in real pixels</button></div></div>
+  </section>
+  <section class="panel headp">
+    <div class="ph one">
+      <div class="pt"><button class="pill" id="gSec" title="Read this section of the ledger"></button><h2 id="gTitle"></h2><p id="gSub"></p></div>
+      <div class="pa" id="gTags"></div>
+    </div>
+    <div class="ghead">
+      <div><dl class="facts" id="gFacts"></dl></div>
+      <div><p class="h3" id="gCountsH">The ledger's counts, beside this data's</p><div class="cwrap"><table class="ct" id="gCounts"></table></div></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="ph one">
+      <div class="pt"><h2 id="iTitle"></h2><span class="pill num" id="iCount"></span></div>
+      <div class="pa"><div class="pop" id="showPop"></div>
+        <span class="pager" id="pager"><button class="iconbtn" data-page="-1" aria-label="Previous page"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.25 2.5L3.75 5l2.5 2.5"/></svg></button><span class="num" id="pageText"></span><button class="iconbtn" data-page="1" aria-label="Next page"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 2.5L6.25 5l-2.5 2.5"/></svg></button></span>
+      </div>
+    </div>
+    <div class="hintrow" id="iHint"></div>
+    <div class="items" id="items"></div>
+    <div class="pf"><span class="keys"><kbd>F</kbd> outline / filled on the cards</span><span class="keys"><kbd>←</kbd><kbd>→</kbd> page</span><span class="keys"><kbd>Esc</kbd> close</span><span style="margin-left:auto" id="pfNote">Click a card or a row for every file of that icon</span></div>
+  </section>
+</main>
+
+<aside class="side" id="side" aria-label="Detail">
+  <header><b id="dName">—</b><span class="pill" id="dPill">nothing selected</span>
+    <button class="iconbtn" id="dClose" aria-label="Close detail"><svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"/></svg></button>
+  </header>
+  <div class="dart" id="dArt"></div>
+  <div class="dsec notes"><h3><span>Every comment, as written</span><span id="dNotesN"></span></h3><div class="dscroll" id="dNotes"></div></div>
+  <div class="dsec grow"><h3><span>Lint at the pin</span><span id="dLintN"></span></h3><div class="dscroll" id="dLint"></div></div>
+  <div class="dsec"><h3><span>Since the pin</span></h3><div class="since-box" id="dSince">&nbsp;</div></div>
+</aside>
+
+<dialog id="ledger"><header><b id="lgTitle"></b><span class="pill" id="lgWhere"></span><a class="back" id="lgOpen" href="#" target="_blank" rel="noopener">open the file</a><button class="iconbtn" id="lgClose" aria-label="Close"><svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"/></svg></button></header><div class="md" id="lgBody"></div></dialog>
+
+<script type="module">
+const MASTERS = [24, 20, 16];
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage may be unavailable */ } },
+};
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const n0 = (v) => (typeof v === 'number' ? v.toLocaleString('en-US') : v);
+const chevron = '<svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4l2.5 2.5L7.5 4"/></svg>';
+const check = '<svg class="ck" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.25l2.25 2.25 4.75-5"/></svg>';
+
+const state = {
+  theme: store.get('icon-theme', 'auto'),               // shared with the library and the board
+  filled: store.get('exc-filled', false),
+  group: store.get('exc-group', 'text'),
+  show: store.get('exc-show', {}),                      // group → { key: option }
+  q: '', page: 0, menu: false, sel: null,               // sel = { c: concept, f: file index or null }
+};
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+applyTheme();
+
+// ── data ──────────────────────────────────────────────────────────────────────────────────
+let man, data;
+try {
+  [man, data] = await Promise.all([
+    fetch('manifest.json', { cache: 'no-store' }).then((r) => r.json()),
+    fetch('audit-data/exceptions.json', { cache: 'no-store' }).then((r) => { if (!r.ok) throw new Error(`audit-data/exceptions.json: ${r.status}`); return r.json(); }),
+  ]);
+} catch (err) {
+  document.getElementById('main').innerHTML = `<section class="panel"><div class="empty"><b>No exceptions data</b>${esc(err.message)}. Build the pin in scratch and run <code>node tools/audit/exceptions-data.mjs &lt;pin-dir&gt;</code>.</div></section>`;
+  throw err;
+}
+const F = data.files;
+F.forEach((f, i) => { f.i = i; f.style = f.s === 'f' ? 'filled' : 'outline'; });
+const G = Object.fromEntries(data.groups.map((g) => [g.id, g]));
+const why = (k) => (k == null ? '' : data.whys[k]);
+
+// The live manifest is what is drawn; the notes are the pin's. FNV-1a over the same string the
+// generator hashes (tools/audit/exceptions-data.mjs `fnv`) says whether a drawing moved since.
+function fnv(s) { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16).padStart(8, '0'); }
+const live = (m, name) => man.masters?.[m]?.icons?.[name] ?? null;
+for (const f of F) { const r = live(f.m, f.n); f.since = !r ? 'gone' : fnv(`${r.stroke}|${r.body}`) === f.h ? 'same' : 'changed'; }
+const pinConcepts = new Set(F.map((f) => f.c));
+const liveConcepts = new Set(MASTERS.flatMap((m) => man.masters?.[m]?.names ?? []).map((n) => n.replace(/-filled$/, '')));
+const added = [...liveConcepts].filter((c) => !pinConcepts.has(c)).sort();
+const moved = F.filter((f) => f.since !== 'same');
+const SINCE = { changed: 'drawn again since the pin', gone: 'not in the live manifest' };
+
+const slots = new Map();                                 // concept → Map('24/o' → file)
+for (const f of F) { if (!slots.has(f.c)) slots.set(f.c, new Map()); slots.get(f.c).set(`${f.m}/${f.s}`, f); }
+const fileOf = (c, m, s) => slots.get(c)?.get(`${m}/${s}`) ?? null;
+const cur = () => (state.filled ? 'f' : 'o');
+
+// ── what each group lists ───────────────────────────────────────────────────────────────────
+const NOTE_CARDS = ['keyline', 'box', 'optical', 'glyph', 'grows', 'anchor', 'gap'];
+const PROSE = ['angles', 'radii', 'cuts'];
+const KEY_OF = { keyline: 'keyline', box: 'box', optical: 'optical', glyph: 'glyph', grows: 'grows', anchor: 'anchor', gap: 'gap' };
+// The lint line that says what lint did with each kind of note, picked from that file's run.
+const LINT_LINE = {
+  keyline: (f) => f.L.h, box: (f) => f.L.h, optical: (f) => f.L.n.find((s) => /^optical shift/.test(s)) ?? f.L.h,
+  grows: (f) => f.L.n.find((s) => /growth/.test(s)) ?? f.L.e.find((s) => /growth/.test(s)) ?? '', anchor: (f) => f.L.n.find((s) => /^anchored to/.test(s)) ?? f.L.h,
+  gap: (f) => f.L.n.find((s) => /agreed gap/.test(s)) ?? f.L.w.find((s) => /agreed gap/.test(s)) ?? '',
+  glyph: (f) => f.L.n.find((s) => /C19|glyph: numeral/.test(s)) ?? f.L.w.find((s) => /C19/.test(s)) ?? 'nothing under §6 here — lint prints no C19 line',
+};
+const STYLE = { key: 'style', sec: 'Files', opts: [['both', 'Outline and filled'], ['o', 'Outline files'], ['f', 'Filled files']] };
+const ORDER = { key: 'order', sec: 'Order', opts: [['value', 'By note value, commonest first'], ['name', 'By name']] };
+const SHOW = {
+  text: [{ key: 'which', sec: 'Comments', opts: [['all', 'Every free-text comment'], ['og', 'On a drawing with off-grid values'], ['proxy', '…that names a value or uses a construction word'], ['bare', '…with neither, and no declared note but tags:']] }, STYLE],
+  tags: [{ key: 'which', sec: 'Files', opts: [['all', 'Carrying tags:'], ['missing', 'Without tags: (C9 says every file)']] }, STYLE],
+  keyline: [{ key: 'order', sec: 'Order', opts: [['value', 'By longest side at 24, commonest first'], ['name', 'By name']] }], box: [ORDER], optical: [ORDER], glyph: [ORDER], grows: [ORDER], anchor: [ORDER], gap: [ORDER],
+  sort: [STYLE], trash: [STYLE], identical: [], knockout: [STYLE],
+  centre: [{ key: 'which', sec: 'Off centre by', opts: [['0.01', 'More than 0.01'], ['0.1', 'More than 0.10'], ['0.25', 'More than 0.25'], ['0.5', 'Exactly 0.50']] }, STYLE],
+  contact: [{ key: 'which', sec: 'Pairs', opts: [['all', 'Touching or crossing'], ['t', 'Touching — within 0.1, read as joined'], ['x', 'Crossing']] }, STYLE],
+  slack: [{ key: 'which', sec: 'Readings', opts: [['ledger', 'In the band against §6, glyph files left out — as the ledger counts'], ['band', 'In the band — prints under its floor, any file'], ['noise', 'Prints 1.5 against 1.5 — rounding, not air'], ['all', 'Every reading the slack passes']] }, STYLE],
+  angles: [], radii: [], cuts: [], gt: [], ungrouped: [], after: [],
+};
+const opt = (gid, key) => state.show[gid]?.[key] ?? SHOW[gid]?.find((s) => s.key === key)?.opts[0][0];
+
+const og = (f) => f.og;
+const proxy = (f) => f.og && (f.og.nm > 0 || f.og.kw);
+const declared = (f) => f.k.some((c) => c.t === 'n' && c.k !== 'tags');
+const cache = new Map();
+function baseItems(gid) {
+  if (cache.has(gid)) return cache.get(gid);
+  const g = G[gid];
+  let items = [];
+  if (gid === 'text' || gid === 'tags' || gid === 'gt' || gid === 'ungrouped') {
+    const refs = gid === 'ungrouped' ? data.ungrouped : g.refs;
+    items = refs.map(([fi, ci]) => { const f = F[fi]; return { kind: 'row', key: `${fi}:${ci}`, f, ci, hay: `${f.n} ${f.k[ci].x}` }; });
+    if (gid === 'tags') items.push(...F.filter((f) => !f.k.some((c) => c.g === 'tags')).map((f) => ({ kind: 'row', key: `${f.i}:none`, f, ci: null, missing: true, hay: f.n })));
+  } else if (NOTE_CARDS.includes(gid)) {
+    const by = new Map();
+    for (const [fi, ci] of g.refs) {
+      const f = F[fi];
+      if (!by.has(f.c)) by.set(f.c, { kind: 'card', key: f.c, c: f.c, notes: new Map(), hay: f.c });
+      const it = by.get(f.c);
+      it.notes.set(`${f.m}/${f.s}`, f.k[ci]);
+      it.hay += ` ${f.k[ci].x}`;
+    }
+    items = [...by.values()];
+    for (const it of items) it.sig = MASTERS.map((m) => it.notes.get(`${m}/o`)?.v ?? it.notes.get(`${m}/f`)?.v ?? '—').join(' · ');
+    // A mark's note is the same word everywhere; what R-2 asks about is its size, so marks cluster by
+    // the longest side lint printed for the 24 outline.
+    if (gid === 'keyline') for (const it of items) { const m = fileOf(it.c, 24, 'o')?.L.h.match(/^([\d.]+)×([\d.]+)/); it.sig = m ? `longest side at 24: ${Math.max(+m[1], +m[2])}` : 'longest side at 24: —'; }
+  } else if (PROSE.includes(gid)) {
+    items = g.refs.map((r) => ({ kind: 'prose', key: `${r.c}|${r.cite}`, c: r.c, cite: r.cite, why: r.why, present: r.present, hay: `${r.c} ${r.cite} ${r.why} ${fileOf(r.c, 24, 'o')?.k.filter((k) => k.t === 't').map((k) => k.x).join(' ') ?? ''}` }));
+  } else if (gid === 'after') {
+    items = [...added.map((c) => ({ kind: 'prose', key: `added|${c}`, c, cite: 'added after the pin', why: 'in the live manifest, not in this census — its notes are not on this sheet', present: false, live: true, hay: c })),
+      ...moved.map((f) => ({ kind: 'row', key: `${f.i}:moved`, f, ci: null, moved: true, hay: f.n }))];
+  } else {
+    items = g.refs.map((r, k) => { const f = F[r.f]; return { kind: 'row', key: `${r.f}:${k}`, f, r, hay: `${f.n} ${f.L.w.join(' ')} ${r.w ?? ''}` }; });
+  }
+  cache.set(gid, items);
+  return items;
+}
+const words = () => state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+const matches = (it, ws) => { if (!ws.length) return true; const h = it.hay.toLowerCase(); return ws.every((w) => h.includes(w)); };
+function itemsOf(gid, defaults = false, search = true) {
+  const ws = search ? words() : [];
+  let items = baseItems(gid).filter((it) => matches(it, ws));
+  const o = (key) => (defaults ? SHOW[gid]?.find((s) => s.key === key)?.opts[0][0] : opt(gid, key));
+  const which = o('which'), style = o('style'), order = o('order');
+  if (style && style !== 'both') items = items.filter((it) => !it.f || it.f.s === style);
+  if (gid === 'text') items = items.filter((it) => which === 'all' || (which === 'og' ? og(it.f) : which === 'proxy' ? proxy(it.f) : og(it.f) && !proxy(it.f) && !declared(it.f)));
+  if (gid === 'tags') items = items.filter((it) => (which === 'missing') === !!it.missing);
+  if (gid === 'centre') items = items.filter((it) => (which === '0.5' ? Math.abs(it.r.off - 0.5) < 1e-9 : it.r.off > +which + 1e-9)).sort((a, b) => b.r.off - a.r.off || a.f.n.localeCompare(b.f.n) || a.f.m - b.f.m);
+  if (gid === 'contact' && which !== 'all') items = items.filter((it) => it.r.p.some((p) => p[2] === which));
+  if (gid === 'slack' && which !== 'all') items = items.filter((it) => (which === 'noise' ? !it.r.band
+    : it.r.band && (which === 'band' || (!it.f.k.some((c) => c.g === 'glyph') && it.r.floorKind === '§6' && it.r.floor === 1.5))));
+  if (order === 'value') {
+    const n = new Map(); for (const it of items) n.set(it.sig, (n.get(it.sig) ?? 0) + 1);
+    items = [...items].sort((a, b) => n.get(b.sig) - n.get(a.sig) || a.sig.localeCompare(b.sig, 'en', { numeric: true }) || a.c.localeCompare(b.c, 'en', { numeric: true }));
+  }
+  else if (order === 'name') items = [...items].sort((a, b) => a.c.localeCompare(b.c, 'en', { numeric: true }));
+  return items;
+}
+
+// ── drawing ──────────────────────────────────────────────────────────────────────────────
+// One file's record → SVG children: the shapes, then the lines at the file's own weight. `hl`
+// colours stroked paths by lint's 1-based index; `at` rings a point lint named; `centre` draws the
+// canvas centre and the ink box (group 16).
+function art(rec, m, o = {}) {
+  if (!rec) return null;
+  const u = m / 24;
+  let s = (rec.areas ?? []).map((d) => `<path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`).join('');
+  s += `<g fill="none" stroke="currentColor" stroke-width="${rec.stroke}" stroke-linecap="round" stroke-linejoin="round">${(rec.paths ?? []).map((d, k) =>
+    `<path d="${d}"${o.hl?.has(k + 1) ? ' style="stroke:var(--hl)"' : ''}/>`).join('')}</g>`;
+  if (o.at) s += `<circle cx="${o.at[0]}" cy="${o.at[1]}" r="${1.4 * u}" fill="none" style="stroke:var(--hl)" stroke-width="1" vector-effect="non-scaling-stroke"/>`;
+  if (o.centre && rec.ink) {
+    const { x, y, w, h } = rec.ink;
+    s += `<g fill="none" stroke-width="1" vector-effect="non-scaling-stroke" style="stroke:var(--sel)"><path d="M${m / 2} 0V${m}M0 ${m / 2}H${m}" stroke-dasharray="2 2" vector-effect="non-scaling-stroke" opacity=".6"/><rect x="${x}" y="${y}" width="${w}" height="${h}" stroke-dasharray="1.5 1.5" vector-effect="non-scaling-stroke"/></g><circle cx="${x + w / 2}" cy="${y + h / 2}" r="${0.6 * u}" style="fill:var(--hl)"/>`;
+  }
+  return s;
+}
+const svg = (m, px, inner) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" aria-hidden="true">${inner}</svg>`;
+const blank = (px) => `<span class="ph-box" style="width:${px}px;height:${px}px"></span>`;
+// A placeholder the painter fills: data-c + data-m (+ data-st: o, f or cur) names a slot of a
+// concept; data-f names one file, drawn in its own style.
+const dw = (attrs, cls = '') => `<span class="dw${cls ? ` ${cls}` : ''}" ${attrs}></span>`;
+const recOf = (el) => {
+  if (el.dataset.f != null) { const f = F[+el.dataset.f]; return { rec: live(f.m, f.n), m: f.m }; }
+  const m = +el.dataset.m, st = el.dataset.st === 'cur' ? cur() : el.dataset.st;
+  return { rec: live(m, st === 'f' ? `${el.dataset.c}-filled` : el.dataset.c), m };
+};
+// Each canvas keeps a token for its latest paint, so a slower decode never draws over a newer one.
+async function raster(cv, inner) {
+  const dpr = +cv.dataset.dpr, n = 16 * dpr, run = {};
+  cv._run = run;
+  cv.width = n; cv.height = n;
+  if (!inner) return;
+  const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000';
+  const img = new Image();
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${n}" height="${n}" viewBox="0 0 16 16">${inner.replaceAll('currentColor', ink)}</svg>`)}`;
+  try { await img.decode(); } catch { return; }
+  if (cv._run !== run) return;
+  const ctx = cv.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, n, n);
+}
+function paint(root = document) {
+  for (const el of root.querySelectorAll('.dw')) {
+    const { rec, m } = recOf(el), px = +el.dataset.px || m;
+    const o = {};
+    if (el.dataset.hl) o.hl = new Set(el.dataset.hl.split(',').map(Number));
+    if (el.dataset.at) o.at = el.dataset.at.split(',').map(Number);
+    if (el.dataset.centre) o.centre = true;
+    const a = art(rec, m, o);
+    el.innerHTML = a ? svg(m, px, a) : blank(px);
+  }
+  for (const cv of root.querySelectorAll('canvas.rp')) {
+    const { rec } = recOf(cv);
+    raster(cv, art(rec, 16));
+  }
+}
+
+// ── the group head ──────────────────────────────────────────────────────────────────────────
+const VERDICT = { agreed: 'agreed', missing: 'missing rule', unverified: 'unverified', stale: 'stale', none: 'not an escape' };
+const dots = (tags) => `<span class="vd">${tags.map((t) => `<i class="${t}" title="${VERDICT[t]}"></i>`).join('')}</span>`;
+const differs = (g) => (g?.counts ?? []).filter((c) => c.match === false).length;
+const META = {
+  ungrouped: { n: '–', title: 'Ungrouped notes', sub: 'every note lands in one group, or here', tags: ['none'], counts: [{ label: 'notes no group claims', ledger: '0', cite: 'exceptions-ledger.md:105-112 (zero-counts)', data: n0(data.ungrouped.length), match: data.ungrouped.length === 0 },
+    { label: 'warned drawings no group claims (not the sort family, not trash)', ledger: '0', cite: 'exceptions-ledger.md:94-95', data: n0(data.ungroupedWarned.length), match: data.ungroupedWarned.length === 0 }] },
+  after: { n: '+', title: 'After the pin', sub: 'what the live manifest has that this census does not', tags: ['none'], counts: [
+    { label: 'concepts in the live manifest, not at the pin', ledger: '—', cite: 'the pin has ' + n0(data.pin.concepts), data: n0(added.length), match: null },
+    { label: 'pin drawings drawn again since (body differs)', ledger: '—', cite: 'FNV-1a of each body', data: n0(moved.filter((f) => f.since === 'changed').length), match: null },
+    { label: 'pin drawings missing from the live manifest', ledger: '—', cite: '', data: n0(moved.filter((f) => f.since === 'gone').length), match: null }] },
+};
+const metaOf = (gid) => G[gid] ?? META[gid];
+function renderHead() {
+  const gid = state.group, g = metaOf(gid), real = !!G[gid];
+  document.getElementById('gSec').textContent = real ? `§${g.section}` : gid === 'after' ? 'pin' : 'rule';
+  document.getElementById('gSec').disabled = !real;
+  document.getElementById('gTitle').textContent = real ? `${g.n} · ${g.title}` : g.title;
+  document.getElementById('gSub').textContent = g.sub;
+  document.getElementById('gSub').title = g.sub;
+  const d = differs(g);
+  document.getElementById('gTags').innerHTML = g.tags.map((t) => `<span class="tagp"><i class="vd"><i class="${t}"></i></i>${VERDICT[t]}</span>`).join('')
+    + (real ? `<span class="tagp">kind ${esc(g.kind)}</span>` : '')
+    + `<span class="tagp${d ? ' ne' : ''}" title="counts that differ from the ledger">${d ? `${d} differ${d === 1 ? 's' : ''}` : 'counts agree'}</span>`;
+  const props = real ? (g.proposals.length ? g.proposals.map((p) => `<span class="prop"><b>${p.id}</b>${esc(p.text)} <small>ledger:${p.line}</small></span>`).join('') : esc(g.other ?? '—')) : '';
+  document.getElementById('gFacts').innerHTML = real ? `
+    <dt>Verdict</dt><dd>${dots(g.tags)} ${esc(g.verdict)}</dd>
+    <dt>Kind</dt><dd>${esc(g.kind)} <span style="color:var(--faint)">— (1) a drawing against a stated rule · (2) a rule against a rule or the code · (3) nothing covers it</span></dd>
+    <dt>Axis</dt><dd>${esc(g.axis)}</dd>
+    <dt>What lint does</dt><dd>${esc(g.lintDoes)}</dd>
+    <dt>Agreed where</dt><dd>${esc(g.agreed)}</dd>
+    <dt>Answered by</dt><dd>${props}</dd>
+    ${g.eye?.length ? `<dt>For the eye</dt><dd>${g.eye.map((e) => `<span class="prop">${esc(e.q)} <small>ledger:${e.line} · ${esc(e.where)}</small>${e.show.length ? `<br>${e.show.map((c) => `<button class="pill" data-show-c="${esc(c)}"${e.filled ? ' data-filled="1"' : ''}>${esc(c)}${e.filled ? ' · filled' : ''}</button>`).join(' ')}` : ''}</span>`).join('')}</dd>` : ''}
+    <dt>In the ledger</dt><dd><button class="pill" data-ledger>read §${esc(g.section)} here</button> <code>${esc(data.ledger)}</code>, from line ${g.line}; its §1 row is line ${g.row}</dd>`
+    : gid === 'ungrouped' ? `<dt>Rule</dt><dd>${data.groupingRule.map((r, i) => `${i + 1}. ${esc(r)}`).join('<br>')}</dd>`
+    : `<dt>Pin</dt><dd><code>${esc(data.pin.commit)}</code> · ${n0(data.pin.concepts)} concepts · ${n0(data.pin.drawings)} drawings</dd><dt>Lint at the pin</dt><dd>${esc(data.pin.lint)}</dd><dt>Data</dt><dd><code>${esc(data.recipe)}</code></dd><dt>Live</dt><dd>${n0(liveConcepts.size)} concepts in <code>lab/manifest.json</code></dd><dt>Why</dt><dd>The notes on this sheet are the pin's; the drawings are live. A concept added later is listed here and nowhere else; a drawing changed since is marked on its card.</dd>`;
+  const rows = g.counts ?? [];
+  document.getElementById('gCounts').innerHTML = rows.length ? `<colgroup><col class="q"><col class="v"><col class="v"><col class="s"></colgroup>
+    <tr><th>Quantity</th><th>Ledger says</th><th>This data</th><th></th></tr>${rows.map((c) => `<tr class="${c.match === false ? 'diff' : ''}">
+      <td class="${c.label.startsWith('  ') ? 'ind' : ''}">${esc(c.label.trim())}<small>${esc(String(c.cite).replace(`${data.ledger}:`, 'ledger:'))}${c.note ? ` — ${esc(c.note)}` : ''}</small></td>
+      <td>${esc(c.ledger)}</td>
+      <td>${c.data == null ? '<span class="na">not measured here</span>' : esc(c.data)}</td>
+      <td>${c.match === true ? '<span class="ok">✓ same</span>' : c.match === false ? '<span class="no">≠ differs</span>' : '<span class="na">—</span>'}</td></tr>`).join('')}`
+    : '<tr><td class="na">No count for this group.</td></tr>';
+}
+
+// ── the items ─────────────────────────────────────────────────────────────────────────────
+const PAGE = { card: 30, row: 40, prose: 30 };
+const ITEMS_TITLE = { text: 'Free-text comments', tags: 'tags: notes', gt: 'Notes with ">" in the value', ungrouped: 'Ungrouped notes', after: 'After the pin' };
+const HINT = {
+  text: 'One row per comment, the file\'s own drawing. Lint reads none of it; its presence alone silences the off-grid warning.',
+  keyline: 'One card per icon, grouped by the longest side at 24 (R-2 asks whether it should be 18 or 15). Each master\'s note as in the file, beside the line lint printed for it.',
+  box: 'One card per icon, ordered by the declared box so the shared boxes sit together.',
+  optical: 'One card per icon: the declared shift at each master, and lint\'s reading of it.',
+  glyph: 'One card per icon: the note, and the C19 reading lint printed where one was under §6.',
+  grows: 'One card per icon. The note lives in the filled file; F shows it.',
+  anchor: 'One card per member: the note and what lint holds it to.',
+  gap: 'One card per icon; a gap note is per file, so masters without one read "no note".',
+  tags: 'One row per file. Not an escape; listed so the census is complete.',
+  sort: 'One row per warned drawing, every warning line lint printed, the paths it names in colour.',
+  trash: 'The two warnings, the paths they name in colour.',
+  identical: 'Filled files whose body equals the outline\'s once comments are set aside.',
+  angles: 'The icons the C-rows grant by name, with the 24 outline file\'s own words. Lint reads none of it.',
+  radii: 'The icons C26 and findings-corners.md §4.2 name, with the 24 outline file\'s own words.',
+  cuts: 'The icons the filled-cut C-rows name, with the 24 outline file\'s own words.',
+  centre: 'Non-anchored drawings whose headline centre sits off the canvas centre; dashed: canvas centre and ink box.',
+  knockout: 'Shape-filled files that keep a stroke, so §5c never measures their knockout.',
+  contact: 'Files with a pair lint skips; the pair in colour.',
+  slack: 'Each row is a warning lint would print without its 0.01, and does not. The paths or point it names in colour.',
+  gt: 'Lint would silently read no note at all.',
+  ungrouped: 'Notes lint rejects or ignores, and second notes of a key.',
+  after: 'Concepts added since the pin, then pin drawings that changed.',
+};
+function renderItems() {
+  const gid = state.group, all = itemsOf(gid);
+  const kind = all[0]?.kind ?? (NOTE_CARDS.includes(gid) ? 'card' : PROSE.includes(gid) ? 'prose' : 'row');
+  const size = PAGE[kind];
+  const pages = Math.max(1, Math.ceil(all.length / size));
+  state.page = Math.min(Math.max(0, state.page), pages - 1);
+  const list = all.slice(state.page * size, state.page * size + size);
+  const base = itemsOf(gid, false, false).length;   // under the same Show options, before the search
+  const unit = kind === 'card' ? 'icons' : kind === 'prose' ? 'named' : gid === 'text' ? 'comments'
+    : gid === 'tags' ? (opt(gid, 'which') === 'missing' ? 'files' : 'notes') : gid === 'gt' || gid === 'ungrouped' ? 'notes' : gid === 'slack' ? 'readings' : 'files';
+  document.getElementById('iTitle').textContent = ITEMS_TITLE[gid] ?? (kind === 'card' ? 'The notes' : kind === 'prose' ? 'The drawings it names' : 'The drawings');
+  document.getElementById('iCount').textContent = all.length === base ? `${n0(all.length)} ${unit}` : `${n0(all.length)} of ${n0(base)} ${unit}`;
+  document.getElementById('iHint').textContent = HINT[gid] ?? '';
+  document.getElementById('iHint').title = HINT[gid] ?? '';
+  document.getElementById('pageText').textContent = all.length ? `${n0(state.page * size + 1)}–${n0(state.page * size + list.length)} of ${n0(all.length)}` : '0 of 0';
+  document.querySelector('[data-page="-1"]').disabled = state.page === 0;
+  document.querySelector('[data-page="1"]').disabled = state.page >= pages - 1;
+  const box = document.getElementById('items');
+  if (!list.length) {
+    box.innerHTML = `<div class="empty"><b>${baseItems(gid).length ? 'Nothing matches' : 'Empty at the pin'}</b>${baseItems(gid).length ? 'Clear the search or change Show.' : esc(emptyText(gid))}</div>`;
+    return;
+  }
+  if (kind === 'row') box.innerHTML = `<div class="rows">${list.map((it) => rowHTML(gid, it)).join('')}</div>`;
+  else {
+    let last = null, out = '';
+    for (const it of list) {
+      if (kind === 'card' && opt(gid, 'order') === 'value' && ['keyline', 'box', 'grows', 'glyph', 'gap', 'anchor'].includes(gid) && it.sig !== last) {
+        const same = all.filter((x) => x.sig === it.sig).length;
+        out += `<div class="sub-h"><code>${esc(it.sig)}</code> · ${same} icon${same === 1 ? '' : 's'}</div>`;
+        last = it.sig;
+      }
+      out += kind === 'card' ? cardHTML(gid, it) : proseHTML(it);
+    }
+    box.innerHTML = `<div class="cards">${out}</div>`;
+  }
+  markSel();
+  paint(box);
+}
+function emptyText(gid) {
+  return gid === 'gt' ? 'No note in the set has a ">" in its value (ledger §2.15). notes.mjs reports one as soon as it appears.'
+    : gid === 'ungrouped' ? 'Every note at the pin lands in one of the 20 groups.'
+    : gid === 'after' ? `The live manifest has the pin's ${n0(data.pin.concepts)} concepts and every drawing is unchanged since the pin.` : 'Nothing here.';
+}
+const art3 = (c, st = 'cur', off = () => false) => `<div class="ms">${MASTERS.map((m) => dw(`data-c="${esc(c)}" data-m="${m}" data-st="${st}"`, off(m) ? 'off' : '')).join('')}</div>`;
+const px2 = (attrs) => `<div class="px"><figure><canvas class="rp" data-dpr="1" ${attrs}></canvas><small>16 · 1×</small></figure><figure><canvas class="rp" data-dpr="2" ${attrs}></canvas><small>16 · 2×</small></figure></div>`;
+const sinceOf = (c) => { const fs = [...(slots.get(c)?.values() ?? [])]; const ch = fs.filter((f) => f.since !== 'same'); return ch.length ? `${ch.length} file${ch.length === 1 ? '' : 's'} ${ch.some((f) => f.since === 'gone') ? 'gone or ' : ''}drawn again since the pin` : ''; };
+function cardHTML(gid, it) {
+  const st = cur(), other = st === 'o' ? 'f' : 'o', key = KEY_OF[gid];
+  const line = (m) => {
+    const n = it.notes.get(`${m}/${st}`), f = fileOf(it.c, m, st);
+    if (!f) return `<span class="m">${m}</span><span class="t absent">no ${st === 'f' ? 'filled' : 'outline'} file at the pin</span>`;
+    if (!n) return `<span class="m">${m}</span><span class="t absent">no note in this file${gid === 'grows' && st === 'o' ? ' — grows: is filled-only' : ''}</span>`;
+    const l = LINT_LINE[key](f);
+    return `<span class="m">${m}</span><span class="t" title="${esc(`${n.x}\nlint: ${l}`)}"><code>${esc(n.x)}</code> <span class="lt">· ${esc(l)}</span></span>`;
+  };
+  const otherVals = MASTERS.map((m) => it.notes.get(`${m}/${other}`)?.v ?? '—');
+  const sameVals = MASTERS.every((m) => (it.notes.get(`${m}/${other}`)?.x ?? null) === (it.notes.get(`${m}/${st}`)?.x ?? null));
+  const otherLine = `${other === 'f' ? 'Filled' : 'Outline'}: ${otherVals.every((v) => v === '—') ? 'no note' : sameVals ? 'the same notes' : esc(otherVals.join(' · '))}`;
+  const since = sinceOf(it.c);
+  return `<button class="card" data-c="${esc(it.c)}">
+    <span class="nm"><b>${esc(it.c)}</b>${since ? `<span class="since">${esc(since)}</span>` : ''}</span>
+    <span class="art">${art3(it.c, 'cur', (m) => !it.notes.get(`${m}/${st}`))}${px2(`data-c="${esc(it.c)}" data-m="16" data-st="cur"`)}</span>
+    <span class="lines">${MASTERS.map(line).join('')}<span class="o">${otherLine}</span></span></button>`;
+}
+function proseHTML(it) {
+  const f = fileOf(it.c, 24, 'o');
+  const prose = f ? f.k.filter((k) => k.t === 't').map((k) => k.x).join(' ') : '';
+  const since = it.live ? 'added after the pin' : sinceOf(it.c);
+  return `<button class="card" data-c="${esc(it.c)}">
+    <span class="nm"><b>${esc(it.c)}</b>${since ? `<span class="since">${esc(since)}</span>` : ''}${!it.present && !it.live ? '<span class="since">not in the pin</span>' : ''}</span>
+    <span class="art">${art3(it.c)}${px2(`data-c="${esc(it.c)}" data-m="16" data-st="cur"`)}</span>
+    <span class="lines"><span class="o" style="color:var(--ink)">${esc(it.why)}</span><span class="o"><code>${esc(it.cite)}</code></span><span class="p">${esc(prose) || (it.live ? 'Not in this census.' : '—')}</span></span></button>`;
+}
+const styleWord = (f) => (f.s === 'f' ? 'filled' : 'outline');
+const pxOf = (m) => m * 2;
+function rowHTML(gid, it) {
+  const f = it.f, r = it.r ?? {};
+  let draw = `data-f="${f.i}" data-px="${pxOf(f.m) > 48 ? 48 : pxOf(f.m)}"`, txt = '', eff = '';
+  const lintCm = (c) => (c.t === 'n' ? `lint: ${why(c.w)}` : '');
+  if (gid === 'text' || gid === 'tags' || gid === 'gt' || gid === 'ungrouped') {
+    if (it.missing) { txt = '<span style="color:var(--faint)">no tags: note in this file</span>'; eff = 'C9: "written into every file"'; }
+    else {
+      const c = f.k[it.ci];
+      txt = `<code>${esc(c.x)}</code>`;
+      eff = gid === 'text' ? (f.og ? `<b>silences ${n0(f.og.t)} off-grid value${f.og.t === 1 ? '' : 's'}</b> (${f.og.st} on straight commands)${proxy(f) ? ' · names one or uses a construction word' : ''}` : 'nothing to silence: no off-grid value')
+        : esc(lintCm(c));
+    }
+  } else if (gid === 'after') {
+    txt = esc(SINCE[f.since]); eff = 'the notes shown on this sheet are the pin\'s';
+  } else if (gid === 'sort' || gid === 'trash') {
+    const hl = new Set(), ats = [];
+    for (const w of f.L.w) { const m = w.match(/^paths? (\d+)(?:\/(\d+))?/); if (m) { hl.add(+m[1]); if (m[2]) hl.add(+m[2]); } const a = w.match(/ at (-?[\d.]+),(-?[\d.]+)/); if (a) ats.push(`${a[1]},${a[2]}`); }
+    draw += `${hl.size ? ` data-hl="${[...hl].join(',')}"` : ''}${ats.length ? ` data-at="${ats[0]}"` : ''}`;
+    txt = f.L.w.map((w) => esc(w)).join('<br>');
+    eff = `<b>${f.L.w.length} warning line${f.L.w.length === 1 ? '' : 's'}</b> · blocks nothing`;
+  } else if (gid === 'identical') {
+    txt = `body identical to <code>${esc(F[r.o].n)}</code> at ${f.m}; only the root stroke-width differs`;
+    eff = esc(f.L.n.find((s) => /growth/.test(s)) ?? '');
+  } else if (gid === 'centre') {
+    draw += ' data-centre="1"';
+    txt = `centre <b>${r.cx},${r.cy}</b> against ${f.m / 2},${f.m / 2} — off by x ${r.dx} · y ${r.dy}`;
+    eff = `<b>${r.off.toFixed(2)}</b> off; lint passes up to 0.5 · <code>${esc(f.L.h)}</code>`;
+  } else if (gid === 'knockout') {
+    txt = `${f.ar} filled shape${f.ar === 1 ? '' : 's'} beside ${f.sk} stroked line${f.sk === 1 ? '' : 's'} — §5c measures nothing here`;
+    eff = esc(f.L.h);
+  } else if (gid === 'contact') {
+    const hl = new Set(r.p.flatMap((p) => [p[0], p[1]]));
+    draw += ` data-hl="${[...hl].join(',')}"`;
+    txt = r.p.map((p) => `paths ${p[0]} & ${p[1]} ${p[2] === 'x' ? 'cross' : `touch (${p[3]} apart)`}`).join(' · ');
+    eff = `<b>${r.p.length} pair${r.p.length === 1 ? '' : 's'}</b> skipped by the gap check`;
+  } else if (gid === 'slack') {
+    if (r.paths?.length) draw += ` data-hl="${r.paths.join(',')}"`;
+    if (r.at) draw += ` data-at="${r.at.join(',')}"`;
+    txt = esc(r.w);
+    eff = `${r.band ? '<b>in the band</b>' : 'prints 1.5 — rounding, not air'} · ${esc(r.check)} ${esc(r.kind)} · read ${r.reading} against ${r.floor}${f.k.some((c) => c.g === 'glyph') ? ' · glyph file' : ''}`;
+  }
+  const since = f.since !== 'same' ? `<span class="since"> · ${esc(SINCE[f.since])}</span>` : '';
+  return `<button class="row" data-c="${esc(f.c)}" data-f="${f.i}"><span class="cell">${dw(draw)}</span>
+    <span class="who"><b>${esc(f.n)}</b><small>${f.m} · ${styleWord(f)}${since}</small><span class="eff">${eff}</span></span>
+    <span class="txt">${txt}</span></button>`;
+}
+
+// ── nav ───────────────────────────────────────────────────────────────────────────────────
+const NAV = [...data.groups.map((g) => g.id), '|', 'ungrouped', 'after'];
+function renderNav() {
+  const ws = words();
+  document.getElementById('secs').innerHTML = NAV.map((gid) => {
+    if (gid === '|') return '<div class="sgap"></div>';
+    const g = metaOf(gid);
+    const n = itemsOf(gid, true).length;   // what the group lists by default, under the search
+    const d = differs(g);
+    return `<button class="sec${state.group === gid ? ' on' : ''}${ws.length && !n ? ' dim' : ''}" data-g="${gid}" title="${esc(`${g.title} — ${g.verdict ?? g.sub}`)}">
+      <span class="ab">${g.n}</span><span class="nm">${esc(g.title)}</span><span class="ct num">${n0(n)}</span>
+      <span class="sub">${dots(g.tags)}<span>${esc(G[gid] ? `§${g.section}` : g.sub)}</span>${d ? `<span class="ne" title="${d} count${d === 1 ? '' : 's'} differ from the ledger">≠ ${d}</span>` : ''}</span></button>`;
+  }).join('');
+}
+document.getElementById('secs').addEventListener('click', (e) => { const t = e.target.closest('.sec'); if (t) setGroup(t.dataset.g); });
+function setGroup(gid) {
+  if (!metaOf(gid)) gid = 'text';
+  state.group = gid; state.page = 0; state.menu = false; store.set('exc-group', gid);
+  renderNav(); renderHead(); renderShow(); renderItems();
+  document.querySelector(`.sec[data-g="${gid}"]`)?.scrollIntoView({ block: 'nearest' });
+}
+
+// ── header controls ─────────────────────────────────────────────────────────────────────────
+function renderBar() {
+  const b = (k, v, text, on, title = '') => `<button data-${k}="${v}" class="${on ? 'on' : ''}"${title ? ` title="${title}"` : ''}>${text}</button>`;
+  document.getElementById('style').innerHTML = b('style', 'o', 'Outline', !state.filled) + b('style', 'f', 'Filled', state.filled, 'Filled (F)');
+  document.getElementById('theme').innerHTML = ['auto', 'light', 'dark'].map((t) => b('theme', t, t[0].toUpperCase() + t.slice(1), state.theme === t)).join('');
+}
+document.getElementById('bar').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.theme) { state.theme = t.dataset.theme; store.set('icon-theme', state.theme); applyTheme(); renderBar(); paint(); }
+  else if (t.dataset.style) setFilled(t.dataset.style === 'f');
+});
+function setFilled(v) {
+  state.filled = v; store.set('exc-filled', v); renderBar();
+  // In place: the cards keep their slots and only their drawings and note lines change.
+  const gid = state.group;
+  if (NOTE_CARDS.includes(gid)) {
+    const items = new Map(itemsOf(gid).map((it) => [it.c, it]));
+    for (const el of document.querySelectorAll('#items .card')) {
+      const it = items.get(el.dataset.c); if (!it) continue;
+      const tmp = document.createElement('div'); tmp.innerHTML = cardHTML(gid, it);
+      const fresh = tmp.firstElementChild;
+      el.querySelector('.lines').replaceWith(fresh.querySelector('.lines'));
+      el.querySelectorAll('.ms .dw').forEach((d, k) => d.classList.toggle('off', fresh.querySelectorAll('.ms .dw')[k].classList.contains('off')));
+    }
+  }
+  paint(document.getElementById('items'));
+  renderDetailArt();
+}
+function renderShow() {
+  const gid = state.group, secs = SHOW[gid] ?? [];
+  const pop = document.getElementById('showPop');
+  if (!secs.length) { pop.innerHTML = `<button class="tbtn" disabled style="opacity:.45;cursor:default">Show <span class="count">everything</span>${chevron}</button>`; return; }
+  const label = secs.map((s) => s.opts.find(([v]) => v === opt(gid, s.key))?.[1]).filter(Boolean).join(' · ');
+  pop.innerHTML = `<button class="tbtn${state.menu ? ' on' : ''}" data-menu aria-expanded="${state.menu}" title="${esc(label)}">Show <span class="count">${esc(label)}</span>${chevron}</button>
+    <div class="lmenu"${state.menu ? '' : ' hidden'}>${secs.map((s) => `<div class="msec">${esc(s.sec)}</div>${s.opts.map(([v, t]) =>
+      `<button class="mrow${opt(gid, s.key) === v ? ' on' : ''}" data-key="${s.key}" data-val="${esc(v)}">${esc(t)}${check}</button>`).join('')}`).join('')}</div>`;
+}
+document.getElementById('showPop').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t || t.disabled) return;
+  if (t.hasAttribute('data-menu')) { state.menu = !state.menu; renderShow(); return; }
+  if (t.dataset.key) {
+    const gid = state.group;
+    state.show = { ...state.show, [gid]: { ...(state.show[gid] ?? {}), [t.dataset.key]: t.dataset.val } };
+    store.set('exc-show', state.show); state.page = 0; state.menu = false;
+    renderShow(); renderItems();
+  }
+});
+document.addEventListener('click', (e) => { if (state.menu && !e.target.closest('.pop')) { state.menu = false; renderShow(); } });
+document.getElementById('pager').addEventListener('click', (e) => { const t = e.target.closest('[data-page]'); if (t && !t.disabled) turn(+t.dataset.page); });
+function turn(d) { state.page += d; renderItems(); document.getElementById('items').closest('.panel').scrollIntoView({ block: 'nearest' }); }
+const qEl = document.getElementById('q');
+qEl.addEventListener('input', () => { state.q = qEl.value; state.page = 0; renderNav(); renderItems(); });
+
+// ── detail ────────────────────────────────────────────────────────────────────────────────
+function select(c, fi = null) {
+  state.sel = { c, f: fi };
+  document.body.classList.add('detail-open');
+  markSel(); renderDetail();
+}
+function markSel() {
+  for (const el of document.querySelectorAll('#items .card, #items .row'))
+    el.classList.toggle('on', !!state.sel && el.dataset.c === state.sel.c && (el.dataset.f == null || state.sel.f == null || +el.dataset.f === state.sel.f));
+}
+document.getElementById('items').addEventListener('click', (e) => { const t = e.target.closest('.card, .row'); if (t) select(t.dataset.c, t.dataset.f != null ? +t.dataset.f : null); });
+function renderDetailArt() {
+  const s = state.sel, box = document.getElementById('dArt');
+  const cell = (st, m) => `<span class="c">${s ? dw(`data-c="${esc(s.c)}" data-m="${m}" data-st="${st}" data-px="${m * 2}"`) : blank(m * 2)}</span>`;
+  box.innerHTML = ['o', 'f'].map((st) => `<span class="lab">${st === 'o' ? 'Outline' : 'Filled'}</span>${MASTERS.map((m) => cell(st, m)).join('')}`).join('')
+    + `<div class="pxrow">${['o', 'f'].map((st) => [1, 2].map((d) => `<figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:2px"><canvas class="rp" data-dpr="${d}" ${s ? `data-c="${esc(s.c)}" data-m="16" data-st="${st}"` : ''} style="width:64px;height:64px;image-rendering:pixelated;background:var(--panel);border:1px solid var(--line);border-radius:3px"></canvas><small class="cap">${st === 'o' ? 'out' : 'fill'} · 16 · ${d}×</small></figure>`).join('')).join('')}</div>`;
+  if (s) paint(box); else for (const cv of box.querySelectorAll('canvas')) { cv.width = 16; cv.height = 16; }
+}
+function renderDetail() {
+  const s = state.sel;
+  document.getElementById('dName').textContent = s ? s.c : '—';
+  const fs = s ? MASTERS.flatMap((m) => ['o', 'f'].map((st) => fileOf(s.c, m, st))).filter(Boolean) : [];
+  document.getElementById('dPill').textContent = s ? (fs.length ? `${fs.length} files at the pin` : 'not in the pin') : 'nothing selected';
+  renderDetailArt();
+  const gname = (g) => (G[g] ? `${G[g].n} · ${G[g].title}` : g);
+  document.getElementById('dNotesN').textContent = s ? `${fs.reduce((n, f) => n + f.k.length, 0)} comments` : '';
+  document.getElementById('dNotes').innerHTML = !s ? '<span class="mute" style="color:var(--faint)">Click a card or a row.</span>' : !fs.length ? 'Added after the pin: not in this census.'
+    : fs.map((f) => `<div class="fhead${s.f === f.i ? ' cur' : ''}">${f.m} · ${styleWord(f)} · <code>${esc(f.n)}.svg</code></div>${f.k.map((c) =>
+      `<div class="cm${c.g === state.group ? ' hi' : ''}">${esc(c.x)}<small>group <b>${esc(gname(c.g))}</b>${c.t === 'n' ? ` · lint: ${esc(why(c.w))}` : f.og ? ` · its presence turns ${n0(f.og.t)} off-grid value${f.og.t === 1 ? '' : 's'} into a note: <code>${esc(f.og.d.split(' ').slice(0, 8).join(', '))}${f.og.d.split(' ').length > 8 ? ' …' : ''}</code>` : ' · nothing off the grid to silence'}</small></div>`).join('')}`).join('');
+  document.getElementById('dLintN').textContent = s && fs.length ? `${fs.filter((f) => f.L.w.length).length} warned · ${fs.filter((f) => f.L.e.length).length} failed` : '';
+  document.getElementById('dLint').innerHTML = !s || !fs.length ? '' : fs.map((f) => `<div class="fhead${s.f === f.i ? ' cur' : ''}">${f.m} · ${styleWord(f)}</div><div class="ll"><span class="h">${esc(f.L.h)}</span>${f.L.n.map((n) => `\n· ${esc(n)}`).join('')}${f.L.w.map((w) => `\n<span class="w">warn  ${esc(w)}</span>`).join('')}${f.L.e.map((x) => `\n<span class="e">error ${esc(x)}</span>`).join('')}</div>`).join('');
+  const moved_ = fs.filter((f) => f.since !== 'same');
+  document.getElementById('dSince').innerHTML = !s ? '&nbsp;' : !fs.length ? '<b>Added after the pin</b> — drawn from the live manifest; no notes on this sheet.'
+    : moved_.length ? `<b>${moved_.length} of ${fs.length} files changed</b>: ${moved_.map((f) => `${f.m}/${f.n} ${SINCE[f.since]}`).map(esc).join(' · ')}. The drawings above are live; the notes and lint lines are the pin's.`
+    : `<b>Unchanged</b> — all ${fs.length} live drawings are byte-identical to the pin's.`;
+  if (s?.f != null) document.querySelector('#dNotes .fhead.cur')?.scrollIntoView({ block: 'nearest' });
+}
+function closeDetail() { state.sel = null; document.body.classList.remove('detail-open'); markSel(); renderDetail(); }
+document.getElementById('dClose').addEventListener('click', closeDetail);
+
+// ── the ledger, in place ───────────────────────────────────────────────────────────────────
+let ledgerText = null;
+const dlg = document.getElementById('ledger');
+async function openLedger() {
+  const g = G[state.group]; if (!g) return;
+  if (ledgerText == null) ledgerText = await fetch(`../${data.ledger}`, { cache: 'no-store' }).then((r) => (r.ok ? r.text() : '')).catch(() => '');
+  const lines = ledgerText.split('\n');
+  let end = g.line;
+  while (end < lines.length && !/^#{2,3} /.test(lines[end])) end++;
+  const body = lines.slice(g.line - 1, end).join('\n').trim();
+  document.getElementById('lgTitle').textContent = `§${g.section} — ${g.title}`;
+  document.getElementById('lgWhere').textContent = `${data.ledger}:${g.line}–${end}`;
+  document.getElementById('lgOpen').href = `../${data.ledger}`;
+  document.getElementById('lgBody').innerHTML = body ? mdLite(body) : 'Could not read the ledger from the lab server.';
+  dlg.showModal();
+}
+// Just enough Markdown to read a ledger section: inline code, bold, italics and pipe tables.
+const inline = (t) => esc(t).replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>').replace(/(^|[\s(])\*([^*\s][^*]*?)\*(?=[\s).,;:]|$)/g, '$1<i>$2</i>');
+function mdLite(text) {
+  const out = [], lines = text.split('\n');
+  for (let i = 0; i < lines.length;) {
+    if (/^\|/.test(lines[i])) {
+      const rows = [];
+      while (i < lines.length && /^\|/.test(lines[i])) rows.push(lines[i++]);
+      const cells = (r) => r.replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+      const body = rows.filter((r, k) => !(k === 1 && /^\|[\s|:-]+\|?$/.test(r)));
+      out.push(`<table class="mdt">${body.map((r, k) => `<tr>${cells(r).map((c) => (k === 0 ? `<th>${inline(c)}</th>` : `<td>${inline(c)}</td>`)).join('')}</tr>`).join('')}</table>`);
+    } else out.push(`${inline(lines[i++])}\n`);
+  }
+  return out.join('');
+}
+document.getElementById('gSec').addEventListener('click', openLedger);
+document.getElementById('gFacts').addEventListener('click', (e) => {
+  if (e.target.closest('[data-ledger]')) return openLedger();
+  const b = e.target.closest('[data-show-c]');
+  if (b) { if (b.dataset.filled && !state.filled) setFilled(true); select(b.dataset.showC, null); }
+});
+// The ledger asks this sheet to show one thing first (§6): volume-off filled at 16, in real pixels.
+document.getElementById('first').addEventListener('click', (e) => {
+  if (!e.target.closest('[data-first]')) return;
+  if (state.group !== 'gap') setGroup('gap');
+  if (!state.filled) setFilled(true);
+  select('volume-off', null);
+});
+document.getElementById('lgClose').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+// ── keys, sidebar, start ───────────────────────────────────────────────────────────────────
+function setNav(collapsed) {
+  document.body.classList.toggle('nav-collapsed', collapsed);
+  const b = document.getElementById('navBtn');
+  b.title = collapsed ? 'Expand sidebar ([)' : 'Collapse sidebar ([)';
+  b.setAttribute('aria-expanded', !collapsed);
+  store.set('exc-nav-collapsed', collapsed);
+}
+document.getElementById('navBtn').addEventListener('click', () => setNav(!document.body.classList.contains('nav-collapsed')));
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || dlg.open) return;
+  const typing = e.target.closest?.('input,textarea,select');
+  if (e.key === 'Escape') { if (typing) { e.target.blur(); return; } if (state.menu) { state.menu = false; renderShow(); } else closeDetail(); return; }
+  if (typing) return;
+  if (e.key === '/') { qEl.focus(); e.preventDefault(); }
+  else if (e.key === '[') setNav(!document.body.classList.contains('nav-collapsed'));
+  else if (e.key === 'f' || e.key === 'F') setFilled(!state.filled);
+  else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    const b = document.querySelector(`[data-page="${e.key === 'ArrowLeft' ? -1 : 1}"]`);
+    if (b && !b.disabled) { turn(e.key === 'ArrowLeft' ? -1 : 1); e.preventDefault(); }
+  } else if (e.key === ',' || e.key === '.') {
+    const list = NAV.filter((x) => x !== '|'), i = list.indexOf(state.group);
+    setGroup(list[(i + (e.key === '.' ? 1 : list.length - 1)) % list.length]);
+  }
+});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (state.theme === 'auto') paint(); });
+const app = document.querySelector('.app');
+const setHead = () => document.documentElement.style.setProperty('--head', `${app.offsetHeight}px`);
+new ResizeObserver(setHead).observe(app);
+setHead();   // at once too: a tab opened in the background runs no observer callbacks until shown
+
+{
+  const sub = document.getElementById('subtitle');
+  sub.textContent = `pin ${data.pin.commit} · ${n0(data.pin.concepts)} concepts · ${n0(data.pin.drawings)} drawings · ${added.length || moved.length ? `since the pin: ${added.length} added, ${moved.length} changed` : 'live drawings unchanged since the pin'}`;
+  sub.title = `${sub.textContent} · lint at the pin: ${data.pin.lint}`;
+}
+setNav(store.get('exc-nav-collapsed', false));
+renderBar();
+setGroup(state.group);
+renderDetail();
+</script>
+</body>
+</html>
