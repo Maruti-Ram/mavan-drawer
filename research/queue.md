@@ -479,7 +479,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 129. `sun` · UI & Layout — approved 2026-10-04
 - [x] 130. `table` · Charts & Data — approved 2026-10-04
 - [x] 130. `table-2` · Charts & Data · variant of `table` — Header + 2 columns · approved 2026-10-04
-- [~] 131. `thumbs-down` · Communication
+- [x] 131. `thumbs-down` · Communication — approved 2026-10-17
+- [x] 131. `thumbs-down-2` · Communication · variant of `thumbs-down` — Turned · thumbs-down-2 · approved 2026-10-17
 - [ ] 132. `underline` · Editing & Text
 - [ ] 133. `crop` · Design Tools
 - [ ] 134. `mobile` · Devices & Hardware
