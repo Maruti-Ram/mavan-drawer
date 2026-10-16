@@ -15,7 +15,7 @@ import {
 const near = (got, want, tol = 0.06) =>
   assert.ok(Math.abs(got - want) <= tol, `expected ~${want}, got ${got}`);
 
-test('catches a closed mouth: help-4 16 as first drawn', () => {
+test('catches a closed mouth: help-circle-4 16 as first drawn', () => {
   const d = 'M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8';
   const got = selfGap(d, 1.5).gap;
   near(got, 0.30);
@@ -24,7 +24,7 @@ test('catches a closed mouth: help-4 16 as first drawn', () => {
   assert.ok(got < 1.0, 'must fail even at GLYPH_GAP');
 });
 
-test('passes the same mark once the mouth is opened (shipped help-4 16)', () => {
+test('passes the same mark once the mouth is opened (shipped help-circle-4 16)', () => {
   const d = 'M6.25 5.75A0.75 0.75 0 0 1 7 5L9 5A0.75 0.75 0 0 1 9.75 5.75L9.75 5.94A0.75 0.75 0 0 1 9.53 6.47L8 8';
   assert.ok(selfGap(d, 1.5).gap >= 1.3);
 });
@@ -69,7 +69,7 @@ test('an S unwinds: reversing curvature is not doubling back', () => {
 });
 
 test('a half-circle bowl is judged, though the grid rounds its sweep under 180', () => {
-  // help-3's proposed 16: bowl r1.5 centred (7.75, 6.25) swept 180 deg, then a
+  // help-circle-3's proposed 16: bowl r1.5 centred (7.75, 6.25) swept 180 deg, then a
   // straight 45 deg tangent tail. Its ends sit on the diagonal, where 2 dp turns
   // 1.0607 into 1.06 and the sweep into 175.96 - so a 180 gate never judged it and
   // the mark passed lint with its counter, its mouth and its knockout all unseen.
@@ -174,7 +174,7 @@ test('the eighth grid only ever widens the quarter grid', () => {
 const DISC16 = 'M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8Z';
 const PLATE = 'M0 0H14V14H0Z';
 
-test('help-4-filled at 16 reads its own mouth: 1.13, whatever the outline does', () => {
+test('help-circle-4-filled at 16 reads its own mouth: 1.13, whatever the outline does', () => {
   // The shipped knockout, unchanged since it was approved. Exact geometry: the start cap
   // is A0.88 over a 1.75 chord, so its centre sits 0.094 above the chord at (6.255, 5.656),
   // 2.014 from the diagonal's inner edge (x + y = 14.76) - 1.134 of material. The old
@@ -257,11 +257,11 @@ test('a tapering tongue is read at its tip, to within one fine step', () => {
   assert.equal(materialGap(tongue(0.45, 0.45 + 6 * Math.tan(Math.PI / 12))), null);
 });
 
-test('help-3-filled at 16 reads the island inside its bowl: 1.23', () => {
+test('help-circle-3-filled at 16 reads the island inside its bowl: 1.23', () => {
   // The tightest reading against the facing gate in the set: the span joins two corners
   // of the r0.63 inner arc, 6 deg off-normal at one end because 2 dp leaves small kinks
   // at the arc's joins. Pinned so a change to FACING cannot turn it into a silent null.
-  const d = readFileSync(new URL('../src/icons/16/help-3-filled.svg', import.meta.url), 'utf8').match(/ d="([^"]+)"/)[1];
+  const d = readFileSync(new URL('../src/icons/16/help-circle-3-filled.svg', import.meta.url), 'utf8').match(/ d="([^"]+)"/)[1];
   near(materialGap(d).gap, 1.23, 0.02);
 });
 
@@ -789,7 +789,7 @@ test('facingGap: a rounded end converging on a flat is not a neck (users-wide 16
   assert.ok(facingGap([body], 1.25).self[0].gap >= 1.49);
 });
 
-test('facingGap agrees with selfGap on an open mouth (help-4 16 as first drawn)', () => {
+test('facingGap agrees with selfGap on an open mouth (help-circle-4 16 as first drawn)', () => {
   const d = 'M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8';
   near(facingGap([d], 1.5).self[0].gap, selfGap(d, 1.5).gap, 0.02);
 });
@@ -831,8 +831,8 @@ test('lint §5f warns on a closed path facing itself under §6, and stays quiet 
   const r = lintSource(16, 'paintbrush.svg', PAINTBRUSH16(COLLAR16));
   assert.equal(r.errors.length, 0);
   assert.ok(r.warnings.some((w) => w.includes('faces itself across 1.22')), r.warnings.join('\n'));
-  // help-4 16 as first drawn: one open stroke, so 5b's warning and not a second one from 5f
-  const help = lintSource(16, 'help-4.svg', PAINTBRUSH16('M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8').replace('<path d="M8.375 7.625L13.375 2.625"/>', ''));
+  // help-circle-4 16 as first drawn: one open stroke, so 5b's warning and not a second one from 5f
+  const help = lintSource(16, 'help-circle-4.svg', PAINTBRUSH16('M6.5 7L6.5 6A1 1 0 0 1 7.5 5L8.5 5A1 1 0 0 1 9.5 6L9.5 6.09A1 1 0 0 1 9.21 6.79L8 8').replace('<path d="M8.375 7.625L13.375 2.625"/>', ''));
   assert.equal(help.warnings.filter((w) => w.includes('faces itself')).length, 0);
 });
 
@@ -871,7 +871,7 @@ test('facingGap: a sliver of ink at a fillet that overshoots (puzzle-4-filled 16
 test('facingGap: no false gap where one shape overlaps another, or in a collapsed fillet\'s hairline loop', () => {
   // desktop-6-filled 16: the stand overlaps the screen's bottom edge
   assert.deepEqual(facingGap([], 1.25, ["M3.125 2H12.875A2.125 2.125 0 0 1 15 4.125V8.875A2.125 2.125 0 0 1 12.875 11H3.125A2.125 2.125 0 0 1 1 8.875V4.125A2.125 2.125 0 0 1 3.125 2Z", "M6 10.375V12.375A0.375 0.375 0 0 1 5.625 12.75H4.625A0.625 0.625 0 0 0 4.625 14H11.375A0.625 0.625 0 0 0 11.375 12.75H10.375A0.375 0.375 0 0 1 10 12.375V10.375Z"]).area.filter((x) => x.gap < 1.49), []);
-  // help-4-filled 16: its cut carries self-crossing loops 0.1 across, left from an offset
+  // help-circle-4-filled 16: its cut carries self-crossing loops 0.1 across, left from an offset
   assert.deepEqual(facingGap([], 1.25, ["M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7 10.75A1 1 0 1 0 9 10.75A1 1 0 1 0 7 10.75ZM7.13 5.75L7 5.88L9 5.88L8.88 5.75L8.88 5.94L8.91 5.85L7.38 7.38A0.88 0.88 0 0 0 8.62 8.62L10.15 7.09A1.63 1.63 0 0 0 10.63 5.94L10.63 5.75A1.63 1.63 0 0 0 9 4.13L7 4.13A1.63 1.63 0 0 0 5.38 5.75A0.88 0.88 0 0 0 7.13 5.75Z"]).area.filter((x) => x.gap < 1.49), []);
 });
 

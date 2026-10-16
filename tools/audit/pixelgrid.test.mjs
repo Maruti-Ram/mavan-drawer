@@ -61,8 +61,8 @@ test('peakCoverage respects the canvas, so a 24 drawing shown at 16px is a diffe
 
 test('peakCoverage requires px — a coverage figure without a render size is meaningless', () => {
   assert.throws(() => peakCoverage('M8 0V16', undefined, { weight: 1.25 }), /px is required/);
-  assert.throws(() => edgeLanding('src/icons/16/help.svg'), /px is required/);
-  assert.throws(() => blurScore('src/icons/16/help.svg'), /px is required/);
+  assert.throws(() => edgeLanding('src/icons/16/help-circle.svg'), /px is required/);
+  assert.throws(() => blurScore('src/icons/16/help-circle.svg'), /px is required/);
 });
 
 // ── edgeLanding ───────────────────────────────────────────────────────────
@@ -165,7 +165,7 @@ test('blurScore reports the render size it was taken at, and changes with it', (
 });
 
 test('blurScore keeps halfToneShare separate, and says why it is not the score', () => {
-  const b = blurScore('src/icons/16/help.svg', 16, { rate: 64 });
+  const b = blurScore('src/icons/16/help-circle.svg', 16, { rate: 64 });
   near(b.halfToneShare, 1, 1e-6, 'every inked pixel of a 1.25 ring is partial — this cannot rank anything');
   assert.ok(b.blur < 0.4, 'while the landing measure separates it from a blurry icon');
   assert.ok(typeof b.definition === 'string' && b.definition.includes('whole-pixel boundary'));
@@ -233,7 +233,7 @@ test("docs/08 3.4's 0.88 gap: clear in the render, 3% inked in the drawing", () 
 });
 
 test('rowProfile without a window is honest but useless for a gap', () => {
-  const p = rowProfile('src/icons/16/help.svg', 16, { rate: 32 });
+  const p = rowProfile('src/icons/16/help-circle.svg', 16, { rate: 32 });
   assert.deepEqual(p.window, [0, 16]);
   assert.ok(p.rows.filter((r) => r.hasClearPixel).length > 10, 'almost every row has a clear pixel — the canvas has corners');
   assert.ok(typeof p.note === 'string');
@@ -245,7 +245,7 @@ test('census ranks blurriest first, names the reason, and flags the undecidable'
   const c = census([
     'src/icons/16/plus.svg',
     'src/icons/16/calendar.svg',
-    'src/icons/16/help.svg',
+    'src/icons/16/help-circle.svg',
     'src/icons/16/chevron-down.svg',
   ], 16, { rate: 16 });
   assert.equal(c.px, 16);
@@ -258,9 +258,9 @@ test('census ranks blurriest first, names the reason, and flags the undecidable'
 });
 
 test('census survives a bad file when asked, and refuses to default px', () => {
-  const c = census(['src/icons/16/help.svg', 'src/icons/16/nope.svg'], 16, { rate: 8, onError: 'collect' });
+  const c = census(['src/icons/16/help-circle.svg', 'src/icons/16/nope.svg'], 16, { rate: 8, onError: 'collect' });
   assert.equal(c.failed.length, 1);
-  assert.throws(() => census(['src/icons/16/help.svg'], undefined, {}), /px is required/);
+  assert.throws(() => census(['src/icons/16/help-circle.svg'], undefined, {}), /px is required/);
 });
 
 test('probe builds a region from paths that are not a shipped file', () => {

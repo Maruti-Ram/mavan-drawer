@@ -21,7 +21,7 @@ function buildMaster(canvas) {
     const areas = els.filter((m) => /\bfill="currentColor"/.test(m[1])).map((m) => m[2]);
     const paths = els.filter((m) => !/\bfill="currentColor"/.test(m[1])).map((m) => m[2]);
     const mark = /<!--\s*keyline:\s*mark\s*-->/.test(src);
-    // Search words kept beside the name: <!-- tags: long sweep --> on check-2.
+    // Search words kept beside the name: <!-- tags: long sweep --> on check-4.
     // Declared optical shift (C14): how far the ink sits off the box centre on purpose.
     const shift = (src.match(/<!--\s*optical:\s*([-\d.]+)\s+([-\d.]+)\s*-->/)?.slice(1) ?? [0, 0]).map(Number);
     const tags = src.match(/<!--\s*tags:\s*([^>]*?)\s*-->/)?.[1].split(',').map((t) => t.trim()).filter(Boolean) ?? [];

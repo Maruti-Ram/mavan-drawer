@@ -18,6 +18,7 @@ Read CLAUDE.md's geometry and "Settled" table before drawing. Those decisions ar
 ## 1. Pick the icon
 
 - **The user names an icon** ("let's do bell"): use that name, object-first (`calendar-plus`, never `add-calendar`).
+- **Numbering (C9):** a new shape of an object takes the next free number; its style word goes in `tags`. A composite that uses a numbered shape takes that shape's number (`check-circle-2` uses `check-2`, `checkbox-3` uses `check-3`); a number with no shipped shape stays unused. `login-n` / `logout-n` pair by arrow direction and door depth (C31). Containers name their ring (`help-circle`, `alert-circle`) unless the ring is the object (`ban`, `clock`, `globe`).
 - **"next icon", "continue", "carry on"**: if the board holds an icon that isn't approved yet, **resume it**. Show the board and restate its open question. Otherwise take `node tools/queue.mjs next`.
 - **Several icons at once**: do them one after another, in the order given — unless Maruti asks to review them **together**, which is the batch (up to five).
 

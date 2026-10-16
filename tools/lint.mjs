@@ -129,7 +129,7 @@ export function parseAnchorNote(src) {
 }
 
 // C19 is declared per file as `<!-- glyph: KIND -->`. Two kinds:
-//   dot      one character with a detached dot (info's i, help's ?, alert's !): the {dot, body}
+//   dot      one character with a detached dot (info-circle's i, help-circle's ?, alert's !): the {dot, body}
 //            pair and the character's own opening floor at GLYPH_GAP (§5, §5b), and so does
 //            what a knockout leaves between two parts of itself (§5c)
 //   numeral  numerals drawn inside an icon (list-ordered's 1 and 2, 2026-09-26): a numeral's

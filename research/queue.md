@@ -26,12 +26,12 @@ Shared strokes every other icon reuses: terminal lengths, mark keyline, the modi
 - [x] 3. `x-small` · UI & Layout · variant of `x` — Small · approved 2026-09-17
 - [x] 4. `check` · UI & Layout — approved 2026-09-17
 - [x] 4. `check-small` · UI & Layout · variant of `check` — check-small · classic · approved 2026-09-17
-- [x] 4. `check-2` · UI & Layout · variant of `check` — check-2 · long sweep · approved 2026-09-17
-- [x] 4. `check-2-small` · UI & Layout · variant of `check` — check-2-small · long sweep · approved 2026-09-17
-- [x] 4. `check-3` · UI & Layout · variant of `check` — check-3 · steep · approved 2026-09-17
-- [x] 4. `check-3-small` · UI & Layout · variant of `check` — check-3-small · steep · approved 2026-09-17
-- [x] 4. `check-4` · UI & Layout · variant of `check` — check-4 · lean · approved 2026-09-17
-- [x] 4. `check-4-small` · UI & Layout · variant of `check` — check-4-small · lean · approved 2026-09-17
+- [x] 4. `check-4` · UI & Layout · variant of `check` — long sweep · approved 2026-09-17
+- [x] 4. `check-4-small` · UI & Layout · variant of `check` — long sweep, small · approved 2026-09-17
+- [x] 4. `check-2` · UI & Layout · variant of `check` — steep · approved 2026-09-17
+- [x] 4. `check-2-small` · UI & Layout · variant of `check` — steep, small · approved 2026-09-17
+- [x] 4. `check-3` · UI & Layout · variant of `check` — lean · approved 2026-09-17
+- [x] 4. `check-3-small` · UI & Layout · variant of `check` — lean, small · approved 2026-09-17
 - [x] 5. `chevron-down` · Arrows & Direction — approved 2026-09-17
 - [x] 5. `chevron-down-small` · Arrows & Direction · variant of `chevron-down` — chevron-down-small · classic · approved 2026-09-17
 - [x] 5. `chevron-down-large` · Arrows & Direction · variant of `chevron-down` — chevron-down-large · classic · approved 2026-09-17
@@ -99,20 +99,20 @@ The ⌀20 keyline and what sits inside it.
 
 - [x] 16. `check-circle` · Status & Feedback — classic · approved 2026-09-17
 - [x] 16. `check-circle-small` · Status & Feedback · variant of `check-circle` — classic, small check · approved 2026-09-17
-- [x] 16. `check-circle-3` · Status & Feedback · variant of `check-circle` — steep (check-3) · approved 2026-09-17
-- [x] 16. `check-circle-3-small` · Status & Feedback · variant of `check-circle` — steep, small check · approved 2026-09-17
-- [x] 16. `check-circle-4` · Status & Feedback · variant of `check-circle` — lean (check-4) · approved 2026-09-17
-- [x] 16. `check-circle-4-small` · Status & Feedback · variant of `check-circle` — lean, small check · approved 2026-09-17
+- [x] 16. `check-circle-2` · Status & Feedback · variant of `check-circle` — steep (check-2) · approved 2026-09-17
+- [x] 16. `check-circle-2-small` · Status & Feedback · variant of `check-circle` — steep, small check · approved 2026-09-17
+- [x] 16. `check-circle-3` · Status & Feedback · variant of `check-circle` — lean (check-3) · approved 2026-09-17
+- [x] 16. `check-circle-3-small` · Status & Feedback · variant of `check-circle` — lean, small check · approved 2026-09-17
 - [x] 17. `x-circle` · Status & Feedback — approved 2026-09-17
 - [x] 17. `x-circle-small` · Status & Feedback · variant of `x-circle` — Small X · approved 2026-09-17
 - [x] 18. `plus-circle` · UI & Layout — approved 2026-09-17
 - [x] 18. `plus-circle-small` · UI & Layout · variant of `plus-circle` — C · small · approved 2026-09-17
 - [x] 19. `minus-circle` · UI & Layout — approved 2026-09-17
 - [x] 19. `minus-circle-small` · UI & Layout · variant of `minus-circle` — Heavy · run kept · plus width · small · approved 2026-09-17
-- [x] 20. `info` · Status & Feedback — approved 2026-09-18
-- [x] 21. `help` · Status & Feedback — approved 2026-09-18
-- [x] 21. `help-2` · Status & Feedback · variant of `help` — Coil · approved 2026-09-18
-- [x] 21. `help-3` · Status & Feedback · variant of `help` — Hook · approved 2026-09-18
+- [x] 20. `info-circle` · Status & Feedback — approved 2026-09-18
+- [x] 21. `help-circle` · Status & Feedback — approved 2026-09-18
+- [x] 21. `help-circle-2` · Status & Feedback · variant of `help-circle` — Coil · approved 2026-09-18
+- [x] 21. `help-circle-3` · Status & Feedback · variant of `help-circle` — Hook · approved 2026-09-18
 - [x] 22. `alert-circle` · Status & Feedback — approved 2026-09-18
 - [x] 22. `alert-circle-2` · Status & Feedback · variant of `alert-circle` — Wedge · approved 2026-09-18
 - [x] 22. `alert-circle-3` · Status & Feedback · variant of `alert-circle` — Dash mid · approved 2026-09-18
@@ -131,8 +131,8 @@ The ⌀20 keyline and what sits inside it.
 
 Square, portrait and landscape keylines; the icons every screen has.
 
-- [x] 27. `trash` · Files & Folders — trash family C4: trash, trash-2, trash-3, trash-4 · approved 2026-09-19
-- [x] 27. `trash-5` · Files & Folders · variant of `trash` — Detached lid (Nucleo / Central) · approved 2026-09-19
+- [x] 27. `trash` · Files & Folders — trash family C4, interiors withdrawn; the gap closed 2026-10-17 · approved 2026-09-19
+- [x] 27. `trash-2` · Files & Folders · variant of `trash` — Detached lid (Nucleo / Central) · approved 2026-09-19
 - [x] 28. `file` · Files & Folders — approved 2026-09-19
 - [x] 29. `file-text` · Files & Folders — approved 2026-09-19
 - [x] 29. `file-text-2` · Files & Folders · variant of `file-text` — Short first line — paragraph, ragged · approved 2026-09-19
@@ -230,9 +230,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 50. `chart-bar-4` · Charts & Data · variant of `chart-bar` — Joined columns · approved 2026-09-20
 - [x] 50. `chart-bar-5` · Charts & Data · variant of `chart-bar` — Framed · approved 2026-09-20
 - [x] 51. `checkbox` · UI & Layout — approved 2026-09-23
-- [x] 51. `checkbox-2` · UI & Layout · variant of `checkbox` — Steep tick (check-3) · approved 2026-09-23
-- [x] 51. `checkbox-3` · UI & Layout · variant of `checkbox` — Lean tick (check-4) · approved 2026-09-23
-- [x] 51. `checkbox-4` · UI & Layout · variant of `checkbox` — Quieter tick · approved 2026-09-23
+- [x] 51. `checkbox-2` · UI & Layout · variant of `checkbox` — Steep tick (check-2) · approved 2026-09-23
+- [x] 51. `checkbox-3` · UI & Layout · variant of `checkbox` — Lean tick (check-3) · approved 2026-09-23
+- [x] 51. `checkbox-small` · UI & Layout · variant of `checkbox` — Quieter tick · approved 2026-09-23
 - [x] 52. `cursor` · UI & Layout — approved 2026-09-23
 - [x] 52. `cursor-2` · UI & Layout · variant of `cursor` — Blunter point, 60 degrees · approved 2026-09-23
 - [x] 52. `cursor-3` · UI & Layout · variant of `cursor` — Dart, no tail · approved 2026-09-23
@@ -365,8 +365,6 @@ Bases before their variants; within that, highest evidence first.
 - [x] 91. `images-3` · Files & Folders · variant of `images` — Up-left · approved 2026-09-26
 - [x] 91. `images-4` · Files & Folders · variant of `images` — Full-size front, side peek · approved 2026-09-26
 - [x] 92. `language` · Communication — approved 2026-09-26
-- [x] 92. `language-2` · Communication · variant of `language` — Globe · approved 2026-09-26
-- [x] 92. `language-3` · Communication · variant of `language` — Tilted globe · approved 2026-09-26
 - [x] 93. `layout-footer` · UI & Layout — approved 2026-09-26
 - [x] 93. `layout-footer-2` · UI & Layout · variant of `layout-footer` — Third, solid footer · approved 2026-09-26
 - [x] 93. `layout-footer-3` · UI & Layout · variant of `layout-footer` — Third, solid page · approved 2026-09-26
@@ -481,7 +479,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 129. `sun` · UI & Layout — approved 2026-10-04
 - [x] 130. `table` · Charts & Data — approved 2026-10-04
 - [x] 130. `table-2` · Charts & Data · variant of `table` — Header + 2 columns · approved 2026-10-04
-- [ ] 131. `thumbs-down` · Communication
+- [~] 131. `thumbs-down` · Communication
 - [ ] 132. `underline` · Editing & Text
 - [ ] 133. `crop` · Design Tools
 - [ ] 134. `mobile` · Devices & Hardware
@@ -808,8 +806,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 452. `clipboard-off` · Files & Folders · variant of `clipboard`
 - [ ] 453. `crosshair-off` · Status & Feedback · variant of `crosshair`
 - [ ] 454. `hash-circle` · Communication · variant of `hash`
-- [ ] 455. `help-square` · Status & Feedback · variant of `help`
-- [ ] 456. `info-square` · Status & Feedback · variant of `info`
+- [ ] 455. `help-square` · Status & Feedback · variant of `help-circle`
+- [ ] 456. `info-square` · Status & Feedback · variant of `info-circle`
 - [ ] 457. `message-pen` · Communication · variant of `message`
 - [ ] 458. `message-smile` · Communication · variant of `message`
 - [ ] 459. `message-user` · Communication · variant of `message`
@@ -846,9 +844,9 @@ Bases before their variants; within that, highest evidence first.
 
 Icons asked for while drawing, in the order they were asked. Not in the audit ranking.
 
-- [x] 488. `info-2` — added 2026-09-17 · approved 2026-09-18
-- [x] 489. `info-3` — added 2026-09-17 · approved 2026-09-18
-- [x] 490. `help-4` — added 2026-09-18 · approved 2026-09-18
+- [x] 488. `info-circle-2` — added 2026-09-17 · approved 2026-09-18
+- [x] 489. `info-circle-3` — added 2026-09-17 · approved 2026-09-18
+- [x] 490. `help-circle-4` — added 2026-09-18 · approved 2026-09-18
 - [x] 491. `volume-minus` — added 2026-09-26 · approved 2026-09-26
 - [x] 492. `volume-plus` — added 2026-09-26 · approved 2026-09-26
 - [x] 493. `layout-sidebar` — added 2026-09-26 · approved 2026-09-26

@@ -303,6 +303,6 @@ test('shipped: every file agrees with lintSource, field by field (tools/lint.mjs
     chk(L.notes.some((x) => /agreed box/.test(x)) === (N.notes.box?.lint.reads === true), where, 'box');
     chk(L.errors.length === 0, where, `lint errors: ${L.errors.join('; ')}`);
   }
-  assert.ok(n >= 2910, `read ${n} files`);
+  assert.ok(n >= 2898, `read ${n} files`);
   assert.deepEqual(bad, [], `${bad.length} disagreement(s) with lintSource:\n${bad.slice(0, 20).join('\n')}`);
 });

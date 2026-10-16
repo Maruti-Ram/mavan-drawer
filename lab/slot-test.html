@@ -48,7 +48,7 @@ let draft = { candidates: [] };
 try { draft = (await import(`${PICK ? `./drafts/batch/${PICK}.js` : './drafts/current.js'}?${Date.now()}`)).default; } catch {}
 
 // The slot: status icons that share the ring, plus every info style, plus board candidates.
-const SHIPPED = ['check-circle', 'x-circle', 'plus-circle', 'minus-circle', 'info', 'info-2', 'info-3'];
+const SHIPPED = ['check-circle', 'x-circle', 'plus-circle', 'minus-circle', 'info-circle', 'info-circle-2', 'info-circle-3'];
 const CAND = draft.candidates.filter((c) => /^(P|S)/.test(c.id));
 const MASTERS = [24, 20, 16];
 // Weight per master, never one global stroke: the outline is 1.5 · 1.5 · 1.25

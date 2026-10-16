@@ -77,9 +77,9 @@ const DOME = 'M8.75 6.25a3.25 3.25 0 0 1 6.5 0';
 const TAB = 'M9.25 6.25v-1a1.5 1.5 0 0 1 1.5-1.5h2.5a1.5 1.5 0 0 1 1.5 1.5v1';
 export const TRASH = [
   { name: 'trash ✓', note: 'ribs · tab handle', paths: [LID, TAB, BODY, 'M10 11v4', 'M14 11v4'] },
-  { name: 'trash-2 ✓', note: 'rim band · tab handle', paths: [LID, TAB, BODY, 'M5.55 10.25h12.9'] },
-  { name: 'trash-3 ✓', note: 'slot · tab handle', paths: [LID, TAB, BODY, 'M10.25 13.25h3.5'] },
-  { name: 'trash-4 ✓', note: 'two dots · tab handle', paths: [LID, TAB, BODY, 'M10 13h.01', 'M14 13h.01'] },
+  { name: 'rim band (C4, withdrawn)', note: 'rim band · tab handle', paths: [LID, TAB, BODY, 'M5.55 10.25h12.9'] },
+  { name: 'slot (C4, withdrawn)', note: 'slot · tab handle', paths: [LID, TAB, BODY, 'M10.25 13.25h3.5'] },
+  { name: 'two dots (C4, withdrawn)', note: 'two dots · tab handle', paths: [LID, TAB, BODY, 'M10 13h.01', 'M14 13h.01'] },
   // explored, not chosen
   { name: 'Two short ribs', note: 'ribs 4 long, lower-middle', paths: [LID, DOME, BODY, 'M10 11v4', 'M14 11v4'] },
   { name: 'One rib', note: 'single centred rib', paths: [LID, DOME, BODY, 'M12 11v4'] },

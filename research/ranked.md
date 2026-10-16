@@ -66,24 +66,24 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 351 | **collapse** | 2 | `··L +p` |  |
 | 355 | **caret-down** | 1 | `P··` |  |
 | 356 | **caret-up** | 1 | `P··` |  |
-| 403 | airplay | 1 | `··Lf` |  |
-| 404 | arrow-down-left | 1 | `··Lf` |  |
-| 405 | arrow-down-right | 1 | `··Lf` |  |
-| 406 | arrow-up-left | 1 | `··Lf` |  |
-| 408 | shuffle | 1 | `··Lf` |  |
-| 419 | chevrons-down | 1 | `··Lf` |  |
-| 420 | chevrons-left | 1 | `··Lf` |  |
-| 421 | chevrons-right | 1 | `··Lf` |  |
-| 422 | chevrons-up | 1 | `··Lf` |  |
-| 423 | corner-down-right | 1 | `··Lf` |  |
-| 424 | corner-left-down | 1 | `··Lf` |  |
-| 425 | corner-left-up | 1 | `··Lf` |  |
-| 426 | corner-right-down | 1 | `··Lf` |  |
-| 427 | corner-right-up | 1 | `··Lf` |  |
-| 428 | corner-up-left | 1 | `··Lf` |  |
-| 429 | corner-up-right | 1 | `··Lf` |  |
-| 430 | move | 1 | `··Lf` |  |
-| 431 | rewind | 1 | `··Lf` |  |
+| 405 | airplay | 1 | `··Lf` |  |
+| 406 | arrow-down-left | 1 | `··Lf` |  |
+| 407 | arrow-down-right | 1 | `··Lf` |  |
+| 408 | arrow-up-left | 1 | `··Lf` |  |
+| 410 | shuffle | 1 | `··Lf` |  |
+| 421 | chevrons-down | 1 | `··Lf` |  |
+| 422 | chevrons-left | 1 | `··Lf` |  |
+| 423 | chevrons-right | 1 | `··Lf` |  |
+| 424 | chevrons-up | 1 | `··Lf` |  |
+| 425 | corner-down-right | 1 | `··Lf` |  |
+| 426 | corner-left-down | 1 | `··Lf` |  |
+| 427 | corner-left-up | 1 | `··Lf` |  |
+| 428 | corner-right-down | 1 | `··Lf` |  |
+| 429 | corner-right-up | 1 | `··Lf` |  |
+| 430 | corner-up-left | 1 | `··Lf` |  |
+| 431 | corner-up-right | 1 | `··Lf` |  |
+| 432 | move | 1 | `··Lf` |  |
+| 433 | rewind | 1 | `··Lf` |  |
 | 460 | *rotate-ccw-dotted* | 1 | `·N·` |  |
 | 487 | *refresh-ccw* | 1 | `··Lf` |  |
 
@@ -146,8 +146,8 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 366 | viewport-short | 1 | `P··` |  |
 | 367 | viewport-tall | 1 | `P··` |  |
 | 368 | viewport-wide | 1 | `P··` |  |
-| 393 | toggles | 1 | `·N·` |  |
-| 407 | command | 1 | `··Lf` |  |
+| 395 | toggles | 1 | `·N·` |  |
+| 409 | command | 1 | `··Lf` |  |
 | 461 | *search-empty* | 1 | `·N·` |  |
 
 ## Files & Folders — 45
@@ -197,7 +197,7 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 358 | categories | 1 | `P··` |  |
 | 379 | *file-attachment* | 1 | `P··` |  |
 | 388 | bookmarks | 1 | `·N·` |  |
-| 452 | *clipboard-off* | 1 | `·N·` |  |
+| 454 | *clipboard-off* | 1 | `·N·` |  |
 | 480 | *video-off* | 1 | `··Lf` |  |
 
 ## Users & Access — 33
@@ -277,8 +277,8 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 361 | newsletter | 1 | `P··` |  |
 | 364 | translate | 1 | `P··` |  |
 | 380 | *mail-follow-up* | 1 | `P··` |  |
-| 432 | rss | 1 | `··Lf` |  |
-| 454 | *hash-circle* | 1 | `·N·` |  |
+| 434 | rss | 1 | `··Lf` |  |
+| 456 | *hash-circle* | 1 | `·N·` |  |
 | 457 | *message-pen* | 1 | `·N·` |  |
 | 458 | *message-smile* | 1 | `·N·` |  |
 | 459 | *message-user* | 1 | `·N·` |  |
@@ -299,7 +299,7 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 280 | **hourglass** | 2 | `·NL` |  |
 | 286 | **timer** | 2 | `·NL` |  |
 | 327 | **calendar-days** | 2 | `·NL` |  |
-| 392 | **stopwatch** | 1 | `·N·` |  |
+| 394 | **stopwatch** | 1 | `·N·` |  |
 
 ## Status & Feedback — 35
 
@@ -310,8 +310,8 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 6 | ban | 3 | `PNLf` |  |
 | 26 | **flag** | 3 | `PNLf` |  |
 | 30 | **heart** | 3 | `PNLf` |  |
-| 31 | **help** | 3 | `PNLf` |  |
-| 34 | **info** | 3 | `PNLf` |  |
+| 31 | **help-circle** | 3 | `PNLf` |  |
+| 34 | **info-circle** | 3 | `PNLf` |  |
 | 55 | **star** | 3 | `PNLf` |  |
 | 56 | target | 3 | `PNLf` |  |
 | 83 | lightbulb | 3 | `PNL` |  |
@@ -333,12 +333,12 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 335 | *heart-hand* | 2 | `·NL` |  |
 | 363 | status | 1 | `P··` |  |
 | 387 | alert-square | 1 | `·N·` |  |
-| 389 | progress-bar | 1 | `·N·` |  |
-| 390 | saved-items | 1 | `·N·` |  |
-| 451 | *award-certificate* | 1 | `·N·` |  |
-| 453 | *crosshair-off* | 1 | `·N·` |  |
-| 455 | *help-square* | 1 | `·N·` |  |
-| 456 | *info-square* | 1 | `·N·` |  |
+| 389 | help-square | 1 | `·N·` |  |
+| 390 | info-square | 1 | `·N·` |  |
+| 391 | progress-bar | 1 | `·N·` |  |
+| 392 | saved-items | 1 | `·N·` |  |
+| 453 | *award-certificate* | 1 | `·N·` |  |
+| 455 | *crosshair-off* | 1 | `·N·` |  |
 | 462 | *star-sparkle* | 1 | `·N·` |  |
 
 ## Editing & Text — 28
@@ -371,7 +371,7 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 336 | **link-off** | 2 | `·NL` | link-break |
 | 353 | blog | 1 | `P··` |  |
 | 377 | *code-plus* | 1 | `P··` |  |
-| 391 | scribble | 1 | `·N·` |  |
+| 393 | scribble | 1 | `·N·` |  |
 | 477 | *text-align-justify* | 1 | `··Lf` |  |
 
 ## Charts & Data — 18
@@ -393,8 +393,8 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 328 | *chart-bar-trend* | 2 | `·NL` |  |
 | 346 | **activity** | 2 | `··Lf +n` |  |
 | 359 | chart-funnel | 1 | `P··` |  |
-| 433 | **trending-down** | 1 | `··Lf` |  |
-| 434 | **trending-up** | 1 | `··Lf` |  |
+| 435 | **trending-down** | 1 | `··Lf` |  |
+| 436 | **trending-up** | 1 | `··Lf` |  |
 | 465 | *window-chart* | 1 | `·N·` |  |
 
 ## Commerce & Payments — 37
@@ -435,9 +435,9 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 384 | *credit-card-percent* | 1 | `P··` |  |
 | 385 | *currency-convert* | 1 | `P··` |  |
 | 386 | *receipt-refund* | 1 | `P··` |  |
-| 398 | label | 1 | `·N·` |  |
-| 402 | subscription | 1 | `·N·` |  |
-| 439 | dollar-sign | 1 | `··Lf` |  |
+| 400 | label | 1 | `·N·` |  |
+| 404 | subscription | 1 | `·N·` |  |
+| 441 | dollar-sign | 1 | `··Lf` |  |
 
 ## Media & Playback — 25
 
@@ -458,13 +458,13 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 357 | live | 1 | `P··` |  |
 | 372 | replay | 1 | `P··` |  |
 | 373 | reset | 1 | `P··` |  |
-| 409 | aperture | 1 | `··Lf` |  |
-| 411 | music | 1 | `··Lf` |  |
-| 413 | radio | 1 | `··Lf` |  |
-| 415 | speaker | 1 | `··Lf` |  |
-| 440 | fast-forward | 1 | `··Lf` |  |
-| 447 | skip-back | 1 | `··Lf` |  |
-| 448 | skip-forward | 1 | `··Lf` |  |
+| 411 | aperture | 1 | `··Lf` |  |
+| 413 | music | 1 | `··Lf` |  |
+| 415 | radio | 1 | `··Lf` |  |
+| 417 | speaker | 1 | `··Lf` |  |
+| 442 | fast-forward | 1 | `··Lf` |  |
+| 449 | skip-back | 1 | `··Lf` |  |
+| 450 | skip-forward | 1 | `··Lf` |  |
 | 471 | *play-circle-dotted* | 1 | `·N·` |  |
 | 481 | *camera-off* | 1 | `··Lf` |  |
 | 483 | *volume-off* | 1 | `··Lf` |  |
@@ -480,8 +480,8 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 245 | *map-pin-off* | 2 | `P·L` |  |
 | 263 | anchor | 2 | `·NLf` |  |
 | 269 | map | 2 | `·NLf` |  |
-| 399 | roadmap | 1 | `·N·` |  |
-| 412 | navigation | 1 | `··Lf` |  |
+| 401 | roadmap | 1 | `·N·` |  |
+| 414 | navigation | 1 | `··Lf` |  |
 | 467 | *globe-pointer* | 1 | `·N·` |  |
 
 ## Devices & Hardware — 28
@@ -509,12 +509,12 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 342 | *battery-low* | 2 | `·NL` |  |
 | 345 | *desktop-download* | 2 | `·NL` |  |
 | 350 | scan | 2 | `··L +n` |  |
-| 410 | hard-drive | 1 | `··Lf` |  |
-| 417 | tv | 1 | `··Lf` |  |
-| 418 | voicemail | 1 | `··Lf` |  |
-| 435 | bluetooth | 1 | `··Lf` |  |
-| 438 | disc | 1 | `··Lf` |  |
-| 446 | power | 1 | `··Lf` |  |
+| 412 | hard-drive | 1 | `··Lf` |  |
+| 419 | tv | 1 | `··Lf` |  |
+| 420 | voicemail | 1 | `··Lf` |  |
+| 437 | bluetooth | 1 | `··Lf` |  |
+| 440 | disc | 1 | `··Lf` |  |
+| 448 | power | 1 | `··Lf` |  |
 | 484 | *wifi-off* | 1 | `··Lf` |  |
 
 ## Development & Infra — 23
@@ -532,15 +532,15 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 343 | *bug-off* | 2 | `·NL` |  |
 | 370 | channels | 1 | `P··` |  |
 | 375 | sandbox | 1 | `P··` |  |
-| 394 | blueprint | 1 | `·N·` |  |
-| 395 | decision-process | 1 | `·N·` |  |
-| 400 | squares-connected | 1 | `·N·` |  |
-| 414 | server | 1 | `··Lf` |  |
-| 416 | terminal | 1 | `··Lf` |  |
-| 437 | cpu | 1 | `··Lf` |  |
-| 441 | git-branch | 1 | `··Lf` |  |
-| 442 | git-merge | 1 | `··Lf` |  |
-| 443 | git-pull-request | 1 | `··Lf` |  |
+| 396 | blueprint | 1 | `·N·` |  |
+| 397 | decision-process | 1 | `·N·` |  |
+| 402 | squares-connected | 1 | `·N·` |  |
+| 416 | server | 1 | `··Lf` |  |
+| 418 | terminal | 1 | `··Lf` |  |
+| 439 | cpu | 1 | `··Lf` |  |
+| 443 | git-branch | 1 | `··Lf` |  |
+| 444 | git-merge | 1 | `··Lf` |  |
+| 445 | git-pull-request | 1 | `··Lf` |  |
 | 466 | *gear-nodes* | 1 | `·N·` |  |
 | 475 | *wrench-screwdriver* | 1 | `·N·` |  |
 | 482 | *cloud-off* | 1 | `··Lf` |  |
@@ -573,14 +573,14 @@ Evidence-backed concepts: **487** — **13 slots open** (see the end).
 | 307 | shapes | 2 | `·NL` |  |
 | 312 | vector | 2 | `·NL` |  |
 | 344 | *compass-drafting* | 2 | `·NL` |  |
-| 396 | dotted-arrow-bottom-right-square | 1 | `·N·` |  |
-| 397 | filters | 1 | `·N·` |  |
-| 401 | stack-perspective | 1 | `·N·` |  |
-| 436 | circle | 1 | `··Lf` |  |
-| 444 | hexagon | 1 | `··Lf` |  |
-| 445 | octagon | 1 | `··Lf` |  |
-| 449 | square | 1 | `··Lf` |  |
-| 450 | triangle | 1 | `··Lf` |  |
+| 398 | dotted-arrow-bottom-right-square | 1 | `·N·` |  |
+| 399 | filters | 1 | `·N·` |  |
+| 403 | stack-perspective | 1 | `·N·` |  |
+| 438 | circle | 1 | `··Lf` |  |
+| 446 | hexagon | 1 | `··Lf` |  |
+| 447 | octagon | 1 | `··Lf` |  |
+| 451 | square | 1 | `··Lf` |  |
+| 452 | triangle | 1 | `··Lf` |  |
 | 468 | *grid-circle-plus* | 1 | `·N·` |  |
 | 469 | *image-binary* | 1 | `·N·` |  |
 | 470 | *image-depth* | 1 | `·N·` |  |

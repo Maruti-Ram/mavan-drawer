@@ -113,8 +113,8 @@ test('ink area does not depend on the tile it is rendered into', () => {
   // was reading only the grid cell under a box's centre, which is unsound as
   // soon as a pixel is bigger than a cell — a 24 master shown at 16px gives a
   // 1.5-unit pixel — so ink in the next cell was being called empty.
-  for (const [f, canvas] of [['src/icons/24/help.svg', 24], ['src/icons/20/help.svg', 20],
-    ['src/icons/16/help.svg', 16], ['src/icons/24/help-filled.svg', 24]]) {
+  for (const [f, canvas] of [['src/icons/24/help-circle.svg', 24], ['src/icons/20/help-circle.svg', 20],
+    ['src/icons/16/help-circle.svg', 16], ['src/icons/24/help-circle-filled.svg', 24]]) {
     const a = inkArea(f, { rate: 64 }).area;
     for (const px of [16, 24, 32, 48]) {
       const cov = inkPixels(f, px, { rate: 64 }).coverage;
@@ -126,7 +126,7 @@ test('ink area does not depend on the tile it is rendered into', () => {
 });
 
 test('every result carries its rate and its flattening tolerance', () => {
-  const f = 'src/icons/16/help.svg';
+  const f = 'src/icons/16/help-circle.svg';
   assert.equal(inkArea(f, { rate: 32 }).rate, 32);
   assert.equal(inkPixels(f, 16, { rate: 32 }).rate, 32);
   assert.equal(density(f, { rate: 32 }).rate, 32);
@@ -189,7 +189,7 @@ test('a filled path that also strokes is counted as both', () => {
 // ── the shipped API ────────────────────────────────────────────────────────
 
 test('inkPixels bands the tile, and states the threshold for every count', () => {
-  const p = inkPixels('src/icons/16/help.svg', 16, { rate: 64 });
+  const p = inkPixels('src/icons/16/help-circle.svg', 16, { rate: 64 });
   assert.equal(p.tile, 256);
   assert.equal(p.full + p.partial + p.clear, 256);
   assert.equal(p.px16Solid + p.px16HalfTone, 256);
@@ -224,13 +224,13 @@ test('density: both ratios, and a solid canvas scores 1 on each', () => {
 });
 
 test('density of a filled icon beats its outline twin', () => {
-  const o = density('src/icons/16/help.svg', { rate: 32 });
-  const f = density('src/icons/16/help-filled.svg', { rate: 32 });
+  const o = density('src/icons/16/help-circle.svg', { rate: 32 });
+  const f = density('src/icons/16/help-circle-filled.svg', { rate: 32 });
   assert.ok(f.area > o.area * 1.5, `filled help should carry far more ink (outline ${o.area}, filled ${f.area})`);
 });
 
 test('inkBox finds where ink stops, not where the centreline does', () => {
-  const reg = regionOf(readIcon('src/icons/16/help.svg'));
+  const reg = regionOf(readIcon('src/icons/16/help-circle.svg'));
   const b = inkBox(reg, { rate: 64 });
   near(b.x0, 1, 0.02, 'ink starts at 1 (centreline 1.625 minus half of 1.25)');
   near(b.x1, 15, 0.02, 'ink stops at 15');
@@ -238,18 +238,18 @@ test('inkBox finds where ink stops, not where the centreline does', () => {
 });
 
 test('census ranks, reports its rate, and names both ends', () => {
-  const files = ['src/icons/16/minus.svg', 'src/icons/16/help.svg', 'src/icons/16/help-filled.svg'];
+  const files = ['src/icons/16/minus.svg', 'src/icons/16/help-circle.svg', 'src/icons/16/help-circle-filled.svg'];
   const c = census(files, { rate: 16 });
   assert.equal(c.n, 3);
   assert.equal(c.rate, 16);
   assert.equal(c.rows[0].name, 'minus', 'minus must be the lightest of these three');
-  assert.equal(c.rows.at(-1).name, 'help-filled', 'the filled disc must be the heaviest');
+  assert.equal(c.rows.at(-1).name, 'help-circle-filled', 'the filled disc must be the heaviest');
   assert.ok(c.stats.spread > 1, 'spread is max/min and must exceed 1');
   assert.ok(c.lightest.length && c.heaviest.length);
 });
 
 test('census survives a bad file when asked to, and says which', () => {
-  const c = census(['src/icons/16/help.svg', 'src/icons/16/does-not-exist.svg'], { rate: 8, onError: 'collect' });
+  const c = census(['src/icons/16/help-circle.svg', 'src/icons/16/does-not-exist.svg'], { rate: 8, onError: 'collect' });
   assert.equal(c.n, 1);
   assert.equal(c.failed.length, 1);
 });
@@ -287,7 +287,7 @@ test('help at 16 carries the ink its geometry says it does: 64.46', () => {
   const exact = ring + dot + bowl;
   near(exact, 64.4638, 0.001, 'the closed form itself');
 
-  const measured = inkArea('src/icons/16/help.svg', { rate: 128 }).area;
+  const measured = inkArea('src/icons/16/help-circle.svg', { rate: 128 }).area;
   near(measured, exact, 0.02, 'help 16 ink area against the closed form');
 
   // The 60.9 on record is Chromium's 16x16 render of this same drawing, 5.5%

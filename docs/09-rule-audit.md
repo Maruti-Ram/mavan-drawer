@@ -23,7 +23,7 @@ still open.
 | Three radii only, 2.5 / 1.5 / 0 (doc 01 §5) | a dozen radii in the census | **Mostly not a break.** Rings, lenses, bowls and dots are shapes, not corners. Real corners at 24 use 0.75 · 1.5 · 2.5. Reword as a *corner* vocabulary per master. One real break: `trash` (container) uses 1.5 where the rule says 2.5 — defensible on a narrow tapered bottom, but the rule must say when a container takes the tighter corner. Container radius is still listed open in doc 07. |
 | ≤ 3 parallel strokes (doc 01 §6) | `trash` 24 and `file-text-2` have 4 if walls count | **Break fine, rule vague.** Drawings already shed detail by master (ribs 2·2·1, lines 3·2·2). Reword: *at most 3 interior marks between walls*. Keep it — at 24 the gap rule alone allows 5–6. Not in lint. |
 | Angles 0/45/90 | 44 names leave it | **Rule sound.** Every *default* obeys it; leaving it is what makes a numbered variant. Two default exceptions: `trash`'s 4° taper and `code`'s 73° slash (C30) — both user picks. **Unenforced:** lint does not check angles, so every figure here was measured by hand. |
-| Name the drawing, not the use (doc 03) | `search`, `menu`, `ban`, `more-horizontal` | **Break right** — market names, tags cover the rest. One inconsistency to fix before release: `alert-circle` / `check-circle` / `x-circle` name their ring, `help` does not (`help-circle`). |
+| Name the drawing, not the use (doc 03) | `search`, `menu`, `ban`, `more-horizontal` | **Break right** — market names, tags cover the rest. The one inconsistency closed 2026-10-17 (AG-28): `help` → `help-circle`, `info` → `info-circle`; `ban`, `clock`, `globe` keep their names because the ring is the object. |
 | Line-heavy filled: ink box identical | `minus-filled` is 1 · 0.5 · 0.5 taller | **Unavoidable** — a lone bar cannot thicken without growing. Rule text overstates: length holds, thickness grows. |
 | Every decimal carries a comment | no file does; lint passes on *any* comment | **Break right** — declared `optical:` / `glyph:` comments replaced it. Drop the literal rule; stop lint treating any comment as a pass. |
 | One icon per commit | commits cover families | **Break right** — a family is one decision. The working rule is one board per commit. |
@@ -54,7 +54,7 @@ still open.
 
 **Noise worth removing:** optical shifts carried to 0.01 across 36 files (one value per shape, quarter-snapped at 16, would look identical); the unused `diagonal` keyline; open item "relax the `<path>`-only rule" (files are generated now — close it); C24 is a record of one icon, not a rule.
 
-**Risks to the goal of a consistent set:** variant numbers mean different things per family (`check-3` steep, `arrow-3` flat, `chevron-2` flat) and nothing says which go together; 32 concepts became 114 names / 684 files — at that ratio the queue reaches ~10,000 drawings; `ban` and `ban-2` ship identical outline files.
+**Risks to the goal of a consistent set:** variant numbers mean different things per family (`check-2` steep, `arrow-3` flat, `chevron-2` flat) and nothing says which go together; 32 concepts became 114 names / 684 files — at that ratio the queue reaches ~10,000 drawings; `ban` and `ban-2` ship identical outline files.
 
 ## 4. The main gap
 

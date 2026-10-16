@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // plans/stroke-16.md, card 4 — the scripted batch. Moves the 16 master's OUTLINE drawings from a
 // 1.5 stroke to 1.25 while every icon keeps the ink box it has today.
+// Names in this closed, one-shot script are as they were on 2026-09-20; on 2026-10-17 `help*` became
+// `help-circle*`, `info*` `info-circle*` and `trash-5` `trash-2` (doc 07, C9 dated note). Not re-pointed.
 //
 //   node tools/convert-16.mjs [--out <dir>] [--src <dir>] [--hand <paths.json>] [--hand-notes <notes.json>] [--apply]
 //

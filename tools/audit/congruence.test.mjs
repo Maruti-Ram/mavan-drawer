@@ -392,7 +392,7 @@ test('(d) the container ring across masters — and why "congruent up to scale" 
       }
       return null;
     };
-    for (const n of ['plus-circle', 'x-circle', 'alert-circle', 'check-circle', 'ban', 'info', 'help']) {
+    for (const n of ['plus-circle', 'x-circle', 'alert-circle', 'check-circle', 'ban', 'info-circle', 'help-circle']) {
       const a = ringOf(24, n), b = ringOf(16, n);
       assert.ok(a && b, `${n}: no all-arc ring at both masters`);
       const r = congruentUpToScale(a, b);
@@ -417,7 +417,7 @@ test('(d) the container ring across masters — and why "congruent up to scale" 
     // same ring, residual 0. That is the real shared-primitive result.
     for (const m of [24, 20, 16]) {
       const base = ringOf(m, 'plus-circle');
-      for (const n of ['x-circle', 'alert-circle', 'check-circle', 'ban', 'info', 'help']) {
+      for (const n of ['x-circle', 'alert-circle', 'check-circle', 'ban', 'info-circle', 'help-circle']) {
         const r = congruentUpToTranslation(base, ringOf(m, n));
         assert.equal(r.same, true, `${m} ${n}: ring differs from plus-circle's`);
         assert.deepEqual(r.offset, [0, 0], `${m} ${n}: ring is in a different place`);
@@ -437,5 +437,5 @@ test('the whole set parses — nothing is refused', { skip: !haveSet }, () => {
     }
   }
   assert.deepEqual(refused, []);
-  assert.equal(paths, 7500, 'path count at 5933041');
+  assert.equal(paths, 7476, 'path count at 5933041');
 });

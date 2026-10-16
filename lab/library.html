@@ -416,7 +416,7 @@ function renderSpec() {
 }
 
 function visible() {
-  // Every word must match the name, its tags (check-2 → "long sweep"), category or base.
+  // Every word must match the name, its tags (check-4 → "long sweep"), category or base.
   const words = state.q.trim().toLowerCase().split(/[\s-]+/).filter(Boolean);
   const hay = (e) => [e.name, e.category, e.base, ...(man.masters[24]?.icons[e.name]?.tags ?? [])]
     .filter(Boolean).join(' ').toLowerCase();

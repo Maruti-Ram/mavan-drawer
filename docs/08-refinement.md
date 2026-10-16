@@ -3,6 +3,8 @@
 Why our marks read less refined than the references, what was measured, what was
 decided, and what is still open. Written to be picked up cold in a new session.
 
+**Names are as they were on 2026-09-18.** On 2026-10-17 `help*` became `help-circle*`, `info*` `info-circle*`, `trash-5` `trash-2`, and the check family was renumbered (doc 07, C9 dated note); the backticked names below were re-pointed, prose was not.
+
 Everything below is measured from this repo or from a named reference file, not
 recalled. Where a number came from a reference it says so; references are input, never
 rules (`research/references/` is gitignored — licensed, never committed or shipped).
@@ -11,7 +13,7 @@ rules (`research/references/` is gitignored — licensed, never committed or shi
 
 ## 1. How this came about
 
-`help` (#21, a `?` in the info circle) was drawn badly twice before it was drawn well.
+`help-circle` (#21, a `?` in the info circle) was drawn badly twice before it was drawn well.
 Both bad passes **lint clean** with centred ink boxes. Both were caught by eye in
 seconds by the user:
 
@@ -35,9 +37,9 @@ inter-path gaps — and none of them can see either fault.
 | commit | what |
 |---|---|
 | `3c7f883` | **C19: the glyph gap** — rule + lint + `queue.mjs` declaration |
-| `2f154f8` | `help` (Polaris bowl) |
-| `ec9e827` | `help-2` (coil) |
-| `fc3fc03` | `help-3` (hook) |
+| `2f154f8` | `help-circle` (Polaris bowl) |
+| `ec9e827` | `help-circle-2` (coil) |
+| `fc3fc03` | `help-circle-3` (hook) |
 | `af0cdae` | **Re-cut the info family onto the C19 glyph gap** |
 | `9bf26d7` | **Ratio and void metrics, and real pixels on the board** |
 
@@ -54,8 +56,8 @@ Total ink, rasterised at exactly 16×16 (`lab/refs/px16.html`):
 
 | | total ink | ring wall |
 |---|---|---|
-| **ours · `help` 16 master** | **71.2 px** | 2.25 px |
-| ours · `help` 24 master scaled to 16 | 48.4 px | 1.00 px |
+| **ours · `help-circle` 16 master** | **71.2 px** | 2.25 px |
+| ours · `help-circle` 24 master scaled to 16 | 48.4 px | 1.00 px |
 | central · `questionmark-circle` | 47.2 px | 1.46 px |
 | central · `questionmark-circle-2` | 41.4 px | 1.50 px |
 
@@ -82,7 +84,7 @@ True for our stroke too (`minus` 24 at 24px, `lab/refs/ctr.html`):
 | y=12.5 | 25% / 100% / 25% | 100% | 1 |
 
 **109 runs across 26 concepts** sit on the centre axis: `plus`, `minus`, all 16 arrows,
-`menu`, `menu-2`, `menu-arrow-*`, `plus-circle`, `minus-circle`, `info`, `info-3`.
+`menu`, `menu-2`, `menu-arrow-*`, `plus-circle`, `minus-circle`, `info-circle`, `info-circle-3`.
 
 ### 3.3 Marks shrink relative to their ring as the master shrinks
 
@@ -94,8 +96,8 @@ Mark ink width ÷ container ink diameter:
 | `minus-circle` | 0.53 | 0.50 | 0.46 | **−13%** |
 | `x-circle` | 0.45 | 0.41 | 0.39 | **−13%** |
 | `check-circle` | 0.51 | 0.49 | 0.47 | −8% |
-| `info` (height) | 0.57 | 0.56 | 0.54 | −5% |
-| `help` (height) | 0.60 | 0.63 | 0.57 | −5% |
+| `info-circle` (height) | 0.57 | 0.56 | 0.54 | −5% |
+| `help-circle` (height) | 0.60 | 0.63 | 0.57 | −5% |
 
 Nobody decided this. C18 sizes inner marks "by eye to the check"; C8's step rule governs
 *size variants*, not masters. Nothing held the ratio across 24 → 16, so it drifted.
@@ -125,7 +127,7 @@ carve-out for glyphs costs the other 127 nothing.
 
 ### C19 — the glyph gap (`docs/07-character.md`, commit `3c7f883`)
 
-A mark that is **one character with a detached dot** (`info`'s i, `help`'s ?, later
+A mark that is **one character with a detached dot** (`info-circle`'s i, `help-circle`'s ?, later
 `alert-*`'s !) floors its **dot-to-body** space at **1 unit** (`GLYPH_GAP` in
 `tools/masters.mjs`), not §6's one stroke width. Declared per file as
 `<!-- glyph: dot -->`, written by `queue.mjs approve` from a candidate's `glyph`.
@@ -143,7 +145,7 @@ requires the path to close.
 
 C18 had set the dot 2 · 1.75 · 1.75 above the stem, chosen as *"more than the 1.5
 minimum, so the dot reads as a dot, not a broken line"*. Measured, that void was
-0.80–0.91 of the dot's own size against `help`'s 0.41–0.54 — two conventions in one
+0.80–0.91 of the dot's own size against `help-circle`'s 0.41–0.54 — two conventions in one
 section, with four `alert-*` icons behind them.
 
 All three re-cut to a 1 gap. Void/dot **0.80 → 0.40** at 24, **0.88 → 0.50** at 20 and
@@ -151,26 +153,26 @@ All three re-cut to a 1 gap. Void/dot **0.80 → 0.40** at 24, **0.88 → 0.50**
 
 **Dot, body foot and every ink box untouched**, so all three optical declarations
 validate exactly as approved. Two knock-ons recorded in doc 07:
-- `info-3`'s 16 flag-to-bar gap returns to 1.5, withdrawing a C18 exception lint could
+- `info-circle-3`'s 16 flag-to-bar gap returns to 1.5, withdrawing a C18 exception lint could
   never see (it skips touching paths).
-- **`info-3`'s optical lift is now justified by a stale mass measurement.** The declared
+- **`info-circle-3`'s optical lift is now justified by a stale mass measurement.** The declared
   shift still validates because the ink box did not move, but raising the flag raised the
   mass the lift was correcting for. Wants re-deriving on a C15 sheet, by eye. *Not done.*
 
-### `help` · `help-2` · `help-3` (commits `2f154f8` … `fc3fc03`)
+### `help-circle` · `help-circle-2` · `help-circle-3` (commits `2f154f8` … `fc3fc03`)
 
 All three share: circle, glyph box **12 · 10 · 8**, dot 2.5 · 2 · 2, terminal on the
 axis with the dot directly below, counter never under one stroke. They differ only in
 the tail (Polaris tuck / coil / straight 45°).
 
-**They no longer all share one 16 — settled 2026-09-18.** `help-3` took its own (commit
-`657fddf`); `help` and `help-2` keep the shared bowl. The two rulings were made on different
+**They no longer all share one 16 — settled 2026-09-18.** `help-circle-3` took its own (commit
+`657fddf`); `help-circle` and `help-circle-2` keep the shared bowl. The two rulings were made on different
 grounds, and both are recorded below.
 
 **Corrected 2026-09-18.** This was first recorded as *"a C10-legal tuck would need a 0.57
 radius; there is exactly one legal 16 drawing"*. Both halves are wrong. The 0.57 came from
 forcing the **mark's** ink box onto the canvas centre; lint centres the whole ink box, which
-on a container icon is the ring — shipped `help`'s 16 mark sits at **8.08**. Searched properly,
+on a container icon is the ring — shipped `help-circle`'s 16 mark sits at **8.08**. Searched properly,
 **31 legal 16 drawings exist**, including tucks at r1 – r1.5 and a straight 45° tail 1.15 long.
 
 What actually forces the shared 16 is a different pair of rules. C19 makes the **dot** hold
@@ -184,7 +186,7 @@ The trap worth remembering: the first search constrained the glyph against the r
 the dot. It produced a drawing that measured well on every reported number and failed lint on
 the one gap nobody had measured.
 
-**`help-3` took the trade (user, 2026-09-18).** Its 24 and 20 are a bowl into a straight 45°
+**`help-circle-3` took the trade (user, 2026-09-18).** Its 24 and 20 are a bowl into a straight 45°
 tangent tail, and its 16 had no tail at all — at the size where it is most likely to be read,
 the hook had no hook and the three were one icon. Its 16 is now its own construction: bowl
 r1.5 centred (7.75, 6.25) swept 180°, straight tangent tail 1.15 long onto the axis at
@@ -194,7 +196,7 @@ counter. Filled at C18's medium cut 1.75, leaving 1.24 — legal only because C1
 inside of a character; under MIN_GAP only a 1.5 cut fitted, which would have been a
 deviation.
 
-**`help-2` cannot take it: its 16 has no legal drawing at all (measured 2026-09-18).** The
+**`help-circle-2` cannot take it: its 16 has no legal drawing at all (measured 2026-09-18).** The
 coil is 240° of bowl into a reverse arc of the *same radius* turning 60°, which is what makes
 it a coil rather than a hook. At 16:
 
@@ -212,7 +214,7 @@ the best of them (r1.5, 210° bowl, 30° curl) passes `npm run check` clean and 
 mark at x 6.9, margins **2.9 against 5.1**. Lint centres the whole ink box — the ring on a
 container icon — so it cannot see a mark hanging 1.1 off centre.
 
-So `help-2`'s shared 16 is no longer an accident of an unexamined claim. At 16 a coil closes
+So `help-circle-2`'s shared 16 is no longer an accident of an unexamined claim. At 16 a coil closes
 its own mouth, and what survives of it is invisible.
 
 ---
@@ -299,18 +301,18 @@ diameter, which is a radius, not a counter.
 
 **The gate is 170°, not 180° — corrected 2026-09-18.** At 180 the measure missed the very
 shape it was built for. A half-circle bowl ends on a 45° diagonal, where the 2 dp grid rule
-rounds 1.0607 to 1.06 and the sweep comes out at **175.96°**; `help-3`'s proposed 16 — an
+rounds 1.0607 to 1.06 and the sweep comes out at **175.96°**; `help-circle-3`'s proposed 16 — an
 r1.5 bowl plus a straight tangent tail — therefore turned *under* the gate, and its counter,
 its mouth and its filled knockout were all unjudged while lint printed it clean. Two fixes
 went in together: the polyline's chord directions lag the true tangents by half a segment
-at each end, which was costing every measured sweep a few degrees (`help` 16 read 241°,
+at each end, which was costing every measured sweep a few degrees (`help-circle` 16 read 241°,
 not 245°), and the gate dropped to 170 — 35° of margin over the widest legal bend, 6° under
 the tightest half-bowl. Judging a pair 170° apart reads their chord rather than the full
 diameter, so a counter can read ~0.01 tight, inside lint's existing tolerance. The 576 stay
-clean, and an over-cut `help-3` knockout fires as it should.
+clean, and an over-cut `help-circle-3` knockout fires as it should.
 
 Across all 576 drawings it reported four, all question marks at the 16 master and nothing
-else — which settled **C19's extension to the glyph mouth** (doc 07). `help-4`'s first 16
+else — which settled **C19's extension to the glyph mouth** (doc 07). `help-circle-4`'s first 16
 measured 0.30 there and had shipped lint-clean that morning.
 
 **The second corollary — no more than 3 parallel strokes in one run — is still not in code.**
@@ -327,18 +329,18 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   so the loop has nothing to iterate. Every filled circle icon gets no gap check at all.
   **Dated note, 2026-09-20 — one part of this is covered, and now measured properly.** Lint §5c
   checks what a knockout leaves standing between two parts of itself (the mouth of a filled `?`,
-  `info-3`'s flag-to-bar, the panels a globe's cut leaves as islands), against the same floor the
+  `info-circle-3`'s flag-to-bar, the panels a globe's cut leaves as islands), against the same floor the
   outline's mouth gets. It first inferred that from the outline twin — cut width = twice the
   furthest the knockout strays from the outline's centreline — which is only true while the cut is
   centred on the outline; when the 16 outlines moved 0.125 under cut-outs that were left as
-  approved (C7), an unchanged `help-4-filled` read 0.91 and warned. `materialGap`
+  approved (C7), an unchanged `help-circle-4-filled` read 0.91 and warned. `materialGap`
   (`tools/geometry.mjs`) now measures the filled drawing alone, and lint prints the reading.
   The glyph floor for these strips is C19's, extended to the filled twin on 2026-09-20 (doc 07).
-  Measured at 16: `help-4-filled` leaves **1.13**, `help` / `help-2` / `help-3` 1.23, `info-3` 1.25
-  (all against C19's 1); `globe-2` 1.97 and `globe` 2.82 (against 1.5). For the `help` family at 24
-  and 20, where nothing moved, old and new agree to 0.01–0.08; `info-3` and the globes had no
+  Measured at 16: `help-circle-4-filled` leaves **1.13**, `help-circle` / `help-circle-2` / `help-circle-3` 1.23, `info-circle-3` 1.25
+  (all against C19's 1); `globe-2` 1.97 and `globe` 2.82 (against 1.5). For the `help-circle` family at 24
+  and 20, where nothing moved, old and new agree to 0.01–0.08; `info-circle-3` and the globes had no
   reading at all before. **Still uncovered:** the material between two *different* holes (a filled
-  glyph's terminal to its dot — 0.92 in `help-4-filled` at 16, measured 2026-09-20), a hole to the
+  glyph's terminal to its dot — 0.92 in `help-circle-4-filled` at 16, measured 2026-09-20), a hole to the
   shape's outer edge, a wedge of material tapering by more than 20° (read as the inside of a bend,
   the same blind side as `selfGap`'s 170° gate), and shape-filled files that also carry strokes.
 - **Dated note, 2026-09-28 — the first two holes are closed, as warnings.** Lint §5f (`facingGap` in
@@ -379,7 +381,7 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   canvas is perfectly crisp** (two solid pixels), which is why Fluent's 2px rule says
   whole numbers.
 - **More optical-shift machinery** — C14/C15 and the shift sheet are elaborate and were
-  not the problem. `help`'s off-axis dot looked like a shift question; the fix was to
+  not the problem. `help-circle`'s off-axis dot looked like a shift question; the fix was to
   change the tail so the terminal landed on the axis. Construction, not placement.
 - **More candidates per icon** — five were put on the board twice; three were picked from
   both times, and the winners came from measuring a reference, not from breadth.
@@ -395,7 +397,7 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   `questionmark-circle-2`: the squared construction — flat top, tight corners, straight
   diagonal, short vertical stem, terminal on the axis at (12, 13.25), dot at (12, 16),
   **gap 1.0**. Lightest icon in the comparison at 41.4 px of ink. **A candidate for
-  `help-4`; the user flagged this shape as one they liked.**
+  `help-circle-4`; the user flagged this shape as one they liked.**
 - `research/references/fluent-guidelines.md` — read off the Figma desktop bridge from
   `rdI0uXVzp89fOZpYcQV6mo`, page "Guidelines". Stroke table, the per-stroke-width grid
   rule, centre lines, cut-outs, filled rules, the balance and blur tests, off-states,
@@ -429,7 +431,7 @@ sheet already does it).
 
 ## 10. Process lessons
 
-1. **Measure a reference's ratios before drawing, not after.** The second `help` pass
+1. **Measure a reference's ratios before drawing, not after.** The second `help-circle` pass
    worked because Polaris' bowl⌀/circle⌀ = 0.393 was computed first.
 2. **Look at real pixels at the master's own size.** Every fault caught by eye this
    session was invisible in the vector view and obvious in a magnified raster.
@@ -443,7 +445,7 @@ sheet already does it).
 
 ## 11. Immediate next step
 
-**#22 `alert-circle`** — the same body-plus-detached-dot glyph as `info` and `help`, so
+**#22 `alert-circle`** — the same body-plus-detached-dot glyph as `info-circle` and `help-circle`, so
 it inherits C19 directly, and it is the first of four (`alert-circle` #22,
 `alert-triangle` #46, `alert-octagon` #140, `alert-square` #284).
 

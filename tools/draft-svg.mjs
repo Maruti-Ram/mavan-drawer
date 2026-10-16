@@ -6,7 +6,7 @@
 //
 // The comment notes a file may carry:
 //   keyline: mark   the icon is a directional mark, held to the mark ceiling, not a keyline
-//   tags:           search words kept beside the name (check-2 → "long sweep"); build.mjs reads them
+//   tags:           search words kept beside the name (check-4 → "long sweep"); build.mjs reads them
 //   box: WxH        the agreed ink size for this master when the icon keeps a box of its own
 //   glyph: dot      one character with a detached dot (i, ?, !); its dot-to-body gap floors at
 //                   GLYPH_GAP rather than MIN_GAP (C19)

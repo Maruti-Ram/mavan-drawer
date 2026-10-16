@@ -110,8 +110,8 @@ test('a full circle has no corners — and neither has a dot or a ring', () => {
   assert.equal(cornersOf('M11.5 16.75A0.5 0.5 0 1 0 12.5 16.75A0.5 0.5 0 1 0 11.5 16.75Z').length, 0);
   // the real case: `help-3` is a ring, a bowl with a tail, and a dot — three
   // shapes and no corners, which is `docs/09:23`'s own distinction
-  assert.equal(radiiOf(icon(24, 'help-3')).corners.length, 0);
-  assert.equal(radiiOf(icon(24, 'info')).corners.length, 0);
+  assert.equal(radiiOf(icon(24, 'help-circle-3')).corners.length, 0);
+  assert.equal(radiiOf(icon(24, 'info-circle')).corners.length, 0);
   // a half-round slot end is a 180° turn, not a corner
   assert.equal(cornersOf('M0 0H10A2 2 0 0 1 10 4H0').length, 0);
 });

@@ -327,9 +327,9 @@ export const CONCEPTS = {
     alert-circle            circle-alert warning-circle
     alert-square            warning-square
     alert-octagon           octagon-alert alert-diamond
-    info                    info-circle alert-info
+    info-circle             info alert-info
     info-square
-    help                    question-circle help-circle question-mark-circle alert-question circle-help
+    help-circle             help question-circle question-mark-circle alert-question circle-help
     help-square             question-square
     ban                     disabled slash-circle feather:slash
     star
@@ -802,7 +802,7 @@ export const D23 = {
   users: 'user users user-circle login logout key lock unlock shield eye eye-off badge',
   comms: 'mail mail-open message chat:messages bell bell-off send phone share at:at-sign megaphone inbox',
   time: 'calendar calendar-days clock timer history stopwatch hourglass alarm:alarm-clock repeat schedule:calendar-clock',
-  status: 'check-circle x-circle alert-triangle alert-circle info help loading:loader star heart flag bookmark sparkle',
+  status: 'check-circle x-circle alert-triangle alert-circle info-circle help-circle loading:loader star heart flag bookmark sparkle',
   editing: 'pencil duplicate:copy cut:scissors bold italic underline code quote list-ordered list-bullet align-left:text-align-left align-center:text-align-center align-right:text-align-right link-break:link-off',
   data: 'bar-chart:chart-bar line-chart:chart-line pie-chart:chart-pie table database trending-up trending-down activity filter-data:list-filter report:file-chart',
 };

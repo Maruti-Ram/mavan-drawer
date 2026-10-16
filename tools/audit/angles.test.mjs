@@ -152,11 +152,11 @@ test("check-circle-small is C10's largest leg-angle shift at 16: 1.87°", () => 
 });
 
 test("help-3's tail: plans/stroke-16.md says 46.9° at 16, was 45°", () => {
-  const tail = anglesOf(icon(16, 'help-3')).segments;
+  const tail = anglesOf(icon(16, 'help-circle-3')).segments;
   assert.equal(tail.length, 1);
-  close(tail[0].fromVertical, 46.9, 0.05, 'help-3 tail at 16');
+  close(tail[0].fromVertical, 46.9, 0.05, 'help-circle-3 tail at 16');
   const was = segmentsOf('M6.69 5.19A1.5 1.5 0 0 1 8.81 7.31L8 8.12');
-  close(was[0].fromVertical, 45, 0.001, 'pre-C7 help-3 tail');
+  close(was[0].fromVertical, 45, 0.001, 'pre-C7 help-circle-3 tail');
 });
 
 // ── the file reader and the census ─────────────────────────────────────────

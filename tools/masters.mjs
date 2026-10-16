@@ -83,7 +83,7 @@ export const gridOf = (master) => gridFor(strokeOf(master));
 export const decimalsOf = (master) => decimalsFor(strokeOf(master));
 export const gridName = (master) => gridNameFor(strokeOf(master));
 
-// C19. One exception: a glyph mark's detached dot (info's i, help's ?, alert's !)
+// C19. One exception: a glyph mark's detached dot (info-circle's i, help-circle's ?, alert's !)
 // is one character, not two elements, so the space between dot and body is a
 // counter, not clearance. It floors at GLYPH_GAP — one whole unit, which is one
 // pixel at every master's own size, the smallest gap that still holds a clear
