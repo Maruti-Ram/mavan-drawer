@@ -703,7 +703,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 325. `corner-up-left-2` · Arrows & Direction · variant of `corner-up-left` — corner-up-left-2 · approved 2026-10-17
 - [x] 326. `corner-up-right` · Arrows & Direction — approved 2026-10-17
 - [x] 326. `corner-up-right-2` · Arrows & Direction · variant of `corner-up-right` — corner-up-right-2 · approved 2026-10-17
-- [~] 327. `move` · Arrows & Direction
+- [x] 327. `move` · Arrows & Direction — approved 2026-10-17
+- [x] 327. `move-2` · Arrows & Direction · variant of `move` — Four arrows · approved 2026-10-17
 - [x] 328. `rewind` · Arrows & Direction — approved 2026-10-17
 - [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-17
 - [ ] 329. `rss` · Communication
