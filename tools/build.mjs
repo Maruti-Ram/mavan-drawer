@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { bbox, anatomy } from './geometry.mjs';
 import { opticalBearings } from './optical.mjs';
 import { MASTERS, STROKES, FILLED_WEIGHT, strokeOf, weightOf } from './masters.mjs';
+import { parseSheet } from './queue.mjs';
 
 const r2 = (n) => Math.round(n * 100) / 100;
 
@@ -61,16 +62,13 @@ function buildMaster(canvas) {
 const built = Object.fromEntries(Object.keys(MASTERS).map((m) => [m, buildMaster(Number(m))]));
 
 // The drawing order, so the Library can show progress against it.
-//   - [x] 12. `arrow-right` · Arrows & Direction · variant of `arrow`
-const queue = [];
-let section = '';
-for (const line of readFileSync('research/queue.md', 'utf8').split('\n')) {
-  const h = line.match(/^## (.+)/);
-  if (h) { section = h[1].trim(); continue; }
-  const q = line.match(/^- \[([ x~])\] (\d+)\. `([^`]+)`(?: · ([^·]+?))?(?: · variant of `([^`]+)`)?(?: — (.+))?\s*$/);
-  if (q) queue.push({ n: +q[2], name: q[3], section, category: q[4]?.trim() ?? null, base: q[5] ?? null, note: q[6] ?? null,
-    status: { ' ': 'todo', '~': 'review', x: 'done' }[q[1]] });
-}
+//   - [x] 12. `arrow-right` · Arrows & Direction · variant of `arrow` — mvp · approved 2026-09-17
+// Parsed by tools/queue.mjs's own parser, so the manifest and the commands cannot read the
+// sheet differently. `mvp` is the MVP mark (a token at the start of the note, kept out of
+// `note`); `date` is the `approved YYYY-MM-DD` in the note, else null.
+const queue = parseSheet(readFileSync('research/queue.md', 'utf8')).rows.map((r) => ({
+  n: r.n, name: r.name, section: r.section, category: r.category, base: r.base, note: r.note,
+  status: r.status, mvp: r.mvp, date: r.date }));
 
 mkdirSync('lab', { recursive: true });
 mkdirSync('dist', { recursive: true });

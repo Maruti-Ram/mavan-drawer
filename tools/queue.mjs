@@ -3,9 +3,16 @@
 // one stopped. research/queue.md is the sheet; lab/drafts/current.js is the
 // icon on the board. Nothing else holds state.
 //
-//   node tools/queue.mjs status               what is approved, what is on the board, what is next
-//   node tools/queue.mjs next                 the next icon to draw (first not approved)
+//   node tools/queue.mjs status               icons (concepts) drawn / left, the MVP drawn / left,
+//                                             rows approved, what is on the board, what is next
+//   node tools/queue.mjs next                 the next icon to draw: the first undrawn MVP icon,
+//                                             else the first undrawn icon (variants never count)
 //   node tools/queue.mjs show <name>          one queue row, and which files exist for it
+//   node tools/queue.mjs add <name>…          put names on the sheet and nothing else (no board,
+//                                             no refs): a size under its default, anything else
+//                                             at the end, in "E · Added on request"
+//   node tools/queue.mjs mvp <name>… on|off   mark icons as MVP or clear the mark. The mark is a
+//                                             token at the start of the row's note: `— mvp · …`
 //   node tools/queue.mjs start <name>         mark it in review and load its references; a name
 //                                             not on the sheet is added (a size under its default,
 //                                             anything else at the end, in "E · Added on request")
@@ -34,9 +41,17 @@
 //                                             the batch draft and its references are deleted
 //   node tools/queue.mjs approve --dry-run …  lint the same six files per candidate in a temp
 //                                             directory (tools/draft-check.mjs) and write nothing
+//
+// AN ICON IS A CONCEPT: a row with no `variant of`. Its sizes, numbered shapes and filled
+// twins belong to it and are never counted on their own (Maruti, 2026-10-17). `status`
+// counts icons first and gives the row count only as rows.
+//
+// A ROW: - [x] 12. `name` · Category · variant of `base` — mvp · note · approved 2026-09-17
+// Every part after the name is optional. `mvp` is the first token of the note when present.
+// tools/build.mjs imports parseSheet from here, so the manifest and the commands read one grammar.
 import { readFileSync, writeFileSync, existsSync, unlinkSync, renameSync, readdirSync, mkdirSync, rmSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, fileURLToPath } from 'node:url';
 import { MASTERS, sizeBase, sizeOf } from './masters.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import { parseAnchorNote } from './lint.mjs';
@@ -48,26 +63,44 @@ const BATCH_DIR = 'lab/drafts/batch';
 const BATCH_INDEX = `${BATCH_DIR}/index.json`;
 const batchDraft = (name) => `${BATCH_DIR}/${name}.js`;
 const batchRefs = (name) => `lab/refs/batch/${name}.js`;
-const ROW = /^- \[([ x~])\] (\d+)\. `([^`]+)`(?: · ([^·—]+?))?(?: · variant of `([^`]+)`)?(?: — (.+))?\s*$/;
+// The category may not begin "variant of `": a variant row with no category (`layout-sidebar-2`)
+// once had its base swallowed as the category and counted as an icon of its own (fixed 2026-10-17).
+const ROW = /^- \[([ x~])\] (\d+)\. `([^`]+)`(?: · (?!variant of `)([^·—]+?))?(?: · variant of `([^`]+)`)?(?: — (.+))?\s*$/;
 const MARK = { todo: ' ', review: '~', done: 'x' };
 const STATUS = { ' ': 'todo', '~': 'review', x: 'done' };
 const today = () => new Date().toLocaleDateString('en-CA');   // YYYY-MM-DD, local
 const masters = Object.keys(MASTERS).map(Number).sort((a, b) => b - a);
 
-function readQueue() {
-  const lines = readFileSync(QUEUE, 'utf8').split('\n');
+// The MVP mark: `mvp` alone, or `mvp · ` before the rest of the note. It is read from the
+// note after a row has matched ROW, so it can never change which lines count as rows.
+const MVP = /^mvp(?: · (.+))?$/;
+const APPROVED = /approved (\d{4}-\d{2}-\d{2})/;
+
+// The sheet's text → its lines and rows. Pure: the commands, tools/build.mjs and the
+// tests all read the sheet through this one function.
+export function parseSheet(text) {
+  const lines = text.split('\n');
   const rows = [];
   let section = '';
   lines.forEach((line, i) => {
     const h = line.match(/^## (.+)/);
     if (h) { section = h[1].trim(); return; }
     const m = line.match(ROW);
-    if (m) rows.push({ i, status: STATUS[m[1]], n: +m[2], name: m[3], category: m[4]?.trim() ?? null, base: m[5] ?? null, note: m[6] ?? null, section });
+    if (!m) return;
+    const flag = m[6]?.match(MVP);
+    const note = flag ? flag[1] ?? null : m[6] ?? null;
+    rows.push({ i, status: STATUS[m[1]], n: +m[2], name: m[3], category: m[4]?.trim() ?? null, base: m[5] ?? null,
+      mvp: !!flag, note, date: note?.match(APPROVED)?.[1] ?? null, section });
   });
   return { lines, rows };
 }
-const format = (r) => `- [${MARK[r.status]}] ${r.n}. \`${r.name}\``
-  + (r.category ? ` · ${r.category}` : '') + (r.base ? ` · variant of \`${r.base}\`` : '') + (r.note ? ` — ${r.note}` : '');
+const readQueue = () => parseSheet(readFileSync(QUEUE, 'utf8'));
+export const format = (r) => `- [${MARK[r.status]}] ${r.n}. \`${r.name}\``
+  + (r.category ? ` · ${r.category}` : '') + (r.base ? ` · variant of \`${r.base}\`` : '')
+  + ((r.mvp || r.note) ? ` — ${[r.mvp ? 'mvp' : null, r.note].filter(Boolean).join(' · ')}` : '');
+// A note re-stamped on approval: any earlier `approved DATE` goes, the new one goes last.
+// The MVP mark is not part of the note, so it survives untouched.
+export const stamped = (note, stamp) => [note?.replace(/\s*·?\s*approved \d{4}-\d{2}-\d{2}/, '').trim(), stamp].filter(Boolean).join(' · ');
 const save = (q) => writeFileSync(QUEUE, q.lines.join('\n'));
 const find = (q, name) => q.rows.find((r) => r.name === name);
 
@@ -117,7 +150,18 @@ async function rebuildIndex(quiet = false) {
   return index;
 }
 const files = (name) => masters.flatMap((m) => [name, `${name}-filled`].map((f) => `src/icons/${m}/${f}.svg`)).filter(existsSync);
-const next = (q) => q.rows.find((r) => r.status !== 'done' && !r.base) ?? null;
+// The next icon: the first undrawn MVP icon, else the first undrawn icon, in sheet order.
+// `skip` leaves out the one on the board (status's "Next after that").
+export const next = (q, skip = null) => {
+  const open = (r) => r.status !== 'done' && !r.base && r.name !== skip;
+  return q.rows.find((r) => open(r) && r.mvp) ?? q.rows.find(open) ?? null;
+};
+// Icons are concepts (rows without a base); the MVP is the icons marked mvp.
+export function counts(q) {
+  const icons = q.rows.filter((r) => !r.base);
+  const tally = (rs) => ({ drawn: rs.filter((r) => r.status === 'done').length, left: rs.filter((r) => r.status !== 'done').length, total: rs.length });
+  return { icons: tally(icons), mvp: tally(icons.filter((r) => r.mvp)), rows: tally(q.rows) };
+}
 const label = (r) => `#${r.n} ${r.name}`;
 const die = (msg) => { console.error(msg); process.exit(1); };
 
@@ -140,12 +184,15 @@ async function status() {
   const done = q.rows.filter((r) => r.status === 'done');
   const d = await draft();
   const board = d && find(q, d.concept);
-  const after = q.rows.find((r) => r.status !== 'done' && !r.base && r.name !== d?.concept);
+  const after = next(q, d?.concept ?? null);
+  const c = counts(q);
   const dirty = spawnSync('git', ['status', '--porcelain', '--', 'src/icons', QUEUE], { encoding: 'utf8' }).stdout.trim();
 
   const out = [
     'Mavan Drawer · icon queue (research/queue.md is the sheet; Library → Sheet shows it)',
-    `Approved ${done.length} of ${q.rows.length}` + (done.length ? ` · latest: ${done.slice(-3).map((r) => r.name).join(', ')}` : ''),
+    `Icons ${c.icons.drawn} drawn · ${c.icons.left} left (${c.icons.total})`,
+    `MVP ${c.mvp.drawn} drawn · ${c.mvp.left} left (${c.mvp.total})`,
+    `Rows ${done.length} approved of ${q.rows.length}` + (done.length ? ` · latest: ${done.slice(-3).map((r) => r.name).join(', ')}` : ''),
   ];
   if (d) {
     out.push(`On the board (lab/drafts/current.js): ${board ? label(board) : d.concept} · ${board?.status ?? 'not in queue'}`
@@ -159,7 +206,7 @@ async function status() {
     out.push(`  Batch (${batchDraft(name)}): ${row ? label(row) : name} · ${row?.status ?? 'not in queue'}`
       + ` · candidates ${bd?.candidates?.map((c) => c.id).join(', ') ?? 'none'} · /lab/icon.html?icon=${name}`);
   }
-  out.push(after ? `Next after that: ${label(after)} (${after.section})` : 'Queue complete after the board.');
+  out.push(after ? `Next after that: ${label(after)}${after.mvp ? ' · MVP' : ''} (${after.section})` : 'Queue complete after the board.');
   if (dirty) out.push(`Uncommitted sheet/icon changes:\n${dirty.split('\n').map((l) => `  ${l}`).join('\n')}`);
   out.push('Workflow: the `icon` skill (.claude/skills/icon). "next icon" or "let\'s do <name>" starts one; an approval is written, ticked and committed without being asked.');
   console.log(out.join('\n'));
@@ -180,6 +227,11 @@ function show(name) {
 // A name the sheet does not have yet. A size of an existing icon goes under
 // its default; anything else goes at the end, numbered after the last row.
 function add(q, name) {
+  const where = place(q, name);
+  console.log(`${name} was not on the sheet — added ${where}.`);
+  return readQueue();
+}
+function place(q, name) {
   const base = sizeOf(name) && find(q, sizeBase(name));
   const row = { status: 'todo', name, note: `added ${today()}` };
   if (base) {
@@ -194,8 +246,48 @@ function add(q, name) {
     q.lines.push(format({ ...row, n }), '');
   }
   save(q);
-  console.log(`${name} was not on the sheet — added ${base ? `under ${base.name}` : `at the end (${ADDED})`}.`);
-  return readQueue();
+  return base ? `under ${base.name}` : `at the end (${ADDED})`;
+}
+
+// ─── add / mvp ─────────────────────────────────────────────────────────────
+// `add` is `start` without the board: the rows go on the sheet, nothing else is touched.
+// Every name is checked before any is written, so a bad one leaves the sheet as it was.
+const NAME = /^[a-z0-9-]+$/;
+function addNames(names) {
+  const q = readQueue();
+  for (const name of names) {
+    if (!NAME.test(name)) die(`"${name}" is not a name (lower-case letters, digits and hyphens only). Nothing was added.`);
+    const r = find(q, name);
+    if (r) die(`${name} is already on the sheet (${label(r)}, ${r.section}). Nothing was added.`);
+  }
+  const twice = names.filter((n, i) => names.indexOf(n) !== i);
+  if (twice.length) die(`${[...new Set(twice)].join(', ')} given twice. Nothing was added.`);
+  for (const name of names) {
+    const where = place(readQueue(), name);
+    console.log(`${label(find(readQueue(), name))} added ${where}`);
+  }
+}
+
+// The flag lives on icons (concepts); a variant is refused and its icon named instead,
+// since every count and the Plan view fold variants into their icon.
+function mvp(args) {
+  const on = args.at(-1);
+  if (on !== 'on' && on !== 'off') die('mvp <name>… on|off');
+  const names = args.slice(0, -1);
+  if (!names.length) die('mvp <name>… on|off');
+  const q = readQueue();
+  const rows = names.map((name) => {
+    const r = find(q, name) ?? die(`${name} is not on the sheet. Nothing was changed.`);
+    if (r.base) die(`${name} is a variant of ${r.base}; the MVP mark goes on the icon — mvp ${r.base} ${on}. Nothing was changed.`);
+    return r;
+  });
+  for (const r of rows) {
+    const was = r.mvp;
+    r.mvp = on === 'on';
+    q.lines[r.i] = format(r);
+    console.log(`${label(r)} · MVP ${r.mvp ? 'on' : 'off'}${was === r.mvp ? ' (already)' : ''}`);
+  }
+  save(q);
 }
 
 // `--batch` puts the icon beside the board instead of on it: the sheet is marked the same
@@ -275,12 +367,11 @@ async function approve(args) {
   // Tick the sheet: update rows that exist, then add a row for each new
   // size/variant file directly under the concept and its earlier variants.
   const stamp = `approved ${today()}`;
-  const stamped = (note) => [note?.replace(/\s*·?\s*approved \d{4}-\d{2}-\d{2}/, '').trim(), stamp].filter(Boolean).join(' · ');
   const q = readQueue();
   for (const k of new Set(plan.map((p) => p.concept))) if (!find(q, k)) die(`${k} is not in the queue.`);
   for (const { file } of plan) {
     const r = find(q, file);
-    if (r) { r.status = 'done'; r.note = stamped(r.note); q.lines[r.i] = format(r); }
+    if (r) { r.status = 'done'; r.note = stamped(r.note, stamp); q.lines[r.i] = format(r); }
   }
   // New size/variant rows go under their concept and its earlier variants; later concepts first,
   // so inserting lines never moves a concept still to be handled.
@@ -289,7 +380,7 @@ async function approve(args) {
     const base = find(q, k);
     // Only size rows sit under the concept; other variants (minus-square) keep their own place.
     const last = Math.max(base.i, ...q.rows.filter((r) => r.base === k && sizeBase(r.name).replace(/-\d+$/, '') === k).map((r) => r.i));
-    q.lines.splice(last + 1, 0, ...ps.map(({ c, file }) => format({ status: 'done', name: file, base: k, note: stamped(c.label), n: base.n, category: base.category })));
+    q.lines.splice(last + 1, 0, ...ps.map(({ c, file }) => format({ status: 'done', name: file, base: k, note: stamped(c.label, stamp), n: base.n, category: base.category })));
   }
   save(q);
   spawnSync('npm', ['run', 'build', '--silent'], { stdio: 'ignore' });
@@ -411,14 +502,19 @@ function rename(pairs) {
 }
 
 // ─── dispatch ──────────────────────────────────────────────────────────────
-const [cmd, ...rest] = process.argv.slice(2);
-if (cmd === 'status' || !cmd) await status();
-else if (cmd === 'next') { const r = next(readQueue()); console.log(r ? `${r.name}\t#${r.n}\t${r.section}` : ''); }
-else if (cmd === 'show') show(rest[0] ?? die('show <name>'));
-else if (cmd === 'start') await start(rest.find((a) => !a.startsWith('--')) ?? die('start <name> [--batch]'), rest.includes('--batch'));
-else if (cmd === 'batch') await rebuildIndex();
-else if (cmd === 'clear') await clear();
-else if (cmd === 'drop') drop(rest.length ? rest : die('drop <name>…'));
-else if (cmd === 'rename') rename(rest.length ? rest : die('rename <old>=<new>…'));
-else if (cmd === 'approve') await approve(rest);
-else die(`Unknown command ${cmd}. Use status | next | show | start | batch | approve | drop | rename.`);
+// Only when run as a command: tools/build.mjs and the tests import the parser.
+if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
+  const [cmd, ...rest] = process.argv.slice(2);
+  if (cmd === 'status' || !cmd) await status();
+  else if (cmd === 'next') { const r = next(readQueue()); console.log(r ? `${r.name}\t#${r.n}\t${r.section}${r.mvp ? '\tMVP' : ''}` : ''); }
+  else if (cmd === 'show') show(rest[0] ?? die('show <name>'));
+  else if (cmd === 'add') addNames(rest.length ? rest : die('add <name>…'));
+  else if (cmd === 'mvp') mvp(rest);
+  else if (cmd === 'start') await start(rest.find((a) => !a.startsWith('--')) ?? die('start <name> [--batch]'), rest.includes('--batch'));
+  else if (cmd === 'batch') await rebuildIndex();
+  else if (cmd === 'clear') await clear();
+  else if (cmd === 'drop') drop(rest.length ? rest : die('drop <name>…'));
+  else if (cmd === 'rename') rename(rest.length ? rest : die('rename <old>=<new>…'));
+  else if (cmd === 'approve') await approve(rest);
+  else die(`Unknown command ${cmd}. Use status | next | show | add | mvp | start | batch | approve | drop | rename.`);
+}
