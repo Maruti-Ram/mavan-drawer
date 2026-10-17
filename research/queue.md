@@ -677,17 +677,24 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 313. `terminal` · Development & Infra
 - [ ] 314. `tv` · Devices & Hardware
 - [ ] 315. `voicemail` · Devices & Hardware
-- [ ] 316. `chevrons-down` · Arrows & Direction
+- [~] 316. `chevrons-down` · Arrows & Direction
 - [ ] 317. `chevrons-left` · Arrows & Direction
 - [ ] 318. `chevrons-right` · Arrows & Direction
 - [ ] 319. `chevrons-up` · Arrows & Direction
 - [x] 320. `corner-down-right` · Arrows & Direction — approved 2026-10-17
+- [x] 320. `corner-down-right-2` · Arrows & Direction · variant of `corner-down-right` — corner-down-right-2 · approved 2026-10-17
 - [x] 321. `corner-left-down` · Arrows & Direction — approved 2026-10-17
+- [x] 321. `corner-left-down-2` · Arrows & Direction · variant of `corner-left-down` — corner-left-down-2 · approved 2026-10-17
 - [x] 322. `corner-left-up` · Arrows & Direction — approved 2026-10-17
+- [x] 322. `corner-left-up-2` · Arrows & Direction · variant of `corner-left-up` — corner-left-up-2 · approved 2026-10-17
 - [x] 323. `corner-right-down` · Arrows & Direction — approved 2026-10-17
+- [x] 323. `corner-right-down-2` · Arrows & Direction · variant of `corner-right-down` — corner-right-down-2 · approved 2026-10-17
 - [x] 324. `corner-right-up` · Arrows & Direction — approved 2026-10-17
+- [x] 324. `corner-right-up-2` · Arrows & Direction · variant of `corner-right-up` — corner-right-up-2 · approved 2026-10-17
 - [x] 325. `corner-up-left` · Arrows & Direction — approved 2026-10-17
+- [x] 325. `corner-up-left-2` · Arrows & Direction · variant of `corner-up-left` — corner-up-left-2 · approved 2026-10-17
 - [x] 326. `corner-up-right` · Arrows & Direction — approved 2026-10-17
+- [x] 326. `corner-up-right-2` · Arrows & Direction · variant of `corner-up-right` — corner-up-right-2 · approved 2026-10-17
 - [ ] 327. `move` · Arrows & Direction
 - [ ] 328. `rewind` · Arrows & Direction
 - [ ] 329. `rss` · Communication
