@@ -575,7 +575,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 212. `shopping-bag` · Commerce & Payments
 - [ ] 213. `tag` · Commerce & Payments
 - [ ] 214. `accessibility` · Users & Access
-- [~] 215. `alarm-clock` · Time & Calendar — mvp
+- [x] 215. `alarm-clock` · Time & Calendar — mvp · approved 2026-10-17
+- [x] 215. `alarm-clock-2` · Time & Calendar · variant of `alarm-clock` — Curved caps, floating · approved 2026-10-17
 - [ ] 216. `contrast` · UI & Layout
 - [ ] 217. `fingerprint` · Users & Access
 - [ ] 218. `hand` · UI & Layout
@@ -589,7 +590,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 224. `password` · UI & Layout
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
-- [~] 227. `timer` · Time & Calendar — mvp
+- [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
 - [ ] 228. `vault` · Users & Access
 - [ ] 229. `align-object-bottom` · Design Tools
 - [ ] 230. `align-object-center-h` · Design Tools
@@ -655,7 +656,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 286. `progress-bar` · Status & Feedback
 - [ ] 287. `saved-items` · Status & Feedback
 - [ ] 288. `scribble` · Editing & Text
-- [~] 289. `stopwatch` · Time & Calendar — mvp
+- [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
+- [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
 - [ ] 290. `toggles` · UI & Layout
 - [ ] 291. `blueprint` · Development & Infra
 - [ ] 292. `decision-process` · Development & Infra
