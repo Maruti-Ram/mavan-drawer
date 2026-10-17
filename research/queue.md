@@ -680,13 +680,13 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 317. `chevrons-left` · Arrows & Direction
 - [ ] 318. `chevrons-right` · Arrows & Direction
 - [ ] 319. `chevrons-up` · Arrows & Direction
-- [ ] 320. `corner-down-right` · Arrows & Direction
+- [x] 320. `corner-down-right` · Arrows & Direction — approved 2026-10-17
 - [ ] 321. `corner-left-down` · Arrows & Direction
 - [ ] 322. `corner-left-up` · Arrows & Direction
 - [ ] 323. `corner-right-down` · Arrows & Direction
 - [ ] 324. `corner-right-up` · Arrows & Direction
-- [ ] 325. `corner-up-left` · Arrows & Direction
-- [ ] 326. `corner-up-right` · Arrows & Direction
+- [x] 325. `corner-up-left` · Arrows & Direction — approved 2026-10-17
+- [x] 326. `corner-up-right` · Arrows & Direction — approved 2026-10-17
 - [ ] 327. `move` · Arrows & Direction
 - [ ] 328. `rewind` · Arrows & Direction
 - [ ] 329. `rss` · Communication
