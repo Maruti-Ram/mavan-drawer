@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <!-- tags: stopwatch, crown, side button, floating, hand, 45 -->
-  <!-- box: 13.5x16 -->
-  <!-- Floating cap at 1:30: Nucleo’s button: a short bar square to the 1:30 radius, not touching the case — 2.83 · 2.12 · 1.41 long (ink 4.3 · 3.6 · 2.7), its near edge 1.5 · 1.74 · 1.62 of air off the ring (centre point 7.25 · 6 · 5.125 out on each axis). It stands past the ring’s width, so the ink box widens to 17 · 13.5 · 11.25 and, box-centred, the whole case moves left 0.5 · 0.75 · 0.625 of timer’s — centre (11.5,14) · (9.25,12) · (7.375,10); at 16 the ring’s outer edges leave the whole pixel (2.375, 11.75). A second floating piece beside the crown; at 16 it is a 2.7 dash hanging in air -->
-  <path d="M4 12A5.25 5.25 0 1 0 14.5 12A5.25 5.25 0 1 0 4 12Z"/>
-  <path d="M7.75 2.75H10.75"/>
-  <path d="M9.25 2.75V6.75"/>
-  <path d="M14.5 5.25L16 6.75"/>
-  <path d="M9.25 12L7.75 10.5"/>
+  <!-- box: 14.5x16 -->
+  <!-- Floating cap at 1:30: timer B’s case with the shipped stopwatch-2’s cap: a short bar square to the 1:30 radius, 2.83 · 2.12 · 1.41 long on the centreline (as shipped), its centre point 7.75 · 6.5 · 5.625 out on each axis, so its near edge is 1.71 · 1.94 · 1.83 of air off the ring (floor 1.5; the quarter and eighth grids set the exact values). It stands past the ring’s width, so the ink box is 18×20 · 14.5×16 · 12.25×14 and, box-centred, the whole case moves left 0.5 · 0.75 · 0.625 of timer’s — centre (11.5,13.5) · (9.25,11.5) · (7.375,9.5); the ring’s outer edges then sit at 3 → 20 · 2.75 → 15.75 · 1.875 → 12.875. Hand and slot shifted with the case -->
+  <path d="M3.5 11.5A5.75 5.75 0 1 0 15 11.5A5.75 5.75 0 1 0 3.5 11.5Z"/>
+  <path d="M7 2.75H11.5"/>
+  <path d="M9.25 2.75V5.75"/>
+  <path d="M15 4.25L16.5 5.75"/>
+  <path d="M9.25 11.5L7.5 9.75"/>
 </svg>

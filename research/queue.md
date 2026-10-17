@@ -901,3 +901,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 500. `layout-sidebar-right-3` · variant of `layout-sidebar-right` — Third, solid page · approved 2026-10-03
 - [x] 500. `layout-sidebar-right-4` · variant of `layout-sidebar-right` — Detached sidebar box · approved 2026-10-03
 - [~] 501. `repeat-once` · Arrows & Direction · variant of `repeat` — added 2026-10-17
+- [~] 502. `calendar-repeat` — added 2026-10-17
