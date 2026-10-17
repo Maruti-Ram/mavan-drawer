@@ -1,11 +1,18 @@
 {
   "generated": "2026-10-17",
-  "board": {
-    "name": "arrow-down-left",
-    "candidates": 3,
-    "status": "review"
-  },
+  "board": null,
   "icons": [
+    {
+      "name": "corner-down-left",
+      "concept": "corner-down-left",
+      "candidates": 3,
+      "ids": [
+        "S",
+        "L",
+        "U"
+      ],
+      "status": "done"
+    },
     {
       "name": "rotate-cw",
       "concept": "rotate-cw",
@@ -14,6 +21,21 @@
         "CW"
       ],
       "status": "review"
+    },
+    {
+      "name": "corner-up-right",
+      "concept": "corner-up-right",
+      "candidates": 7,
+      "ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7"
+      ],
+      "status": "todo"
     }
   ]
 }
