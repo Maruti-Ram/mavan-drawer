@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Icon library</title>
 <style>
-:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--done:#1f9d55;--review:#d18a00;--sel:#0d99ff;--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}}
-:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--done:#1f9d55;--review:#d18a00;--bad:#c93a3a;--sel:#0d99ff;--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--bad:#ff6f6f;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--done:#3fbf78;--review:#e6a52e;--bad:#ff6f6f;--sel:#2ea8ff;--hover:rgba(255,255,255,.05);--shadow:none}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;transition:padding .2s ease}
 [hidden]{display:none!important}
@@ -160,6 +160,39 @@ body.nav-collapsed .sec{display:flex;justify-content:center;padding:8px 0}
 .mz span.ok{background:color-mix(in srgb,var(--done) 16%,transparent);color:var(--done)}
 .mz span.half{background:color-mix(in srgb,var(--review) 16%,transparent);color:var(--review)}
 
+/* plan — one tile per icon (a concept; its variants fold into it), the MVP star, the add box (plans/plan-view.md) */
+.pstrip>div{cursor:default}
+.pstrip .v span.w{margin-left:0;display:block;margin-top:4px}
+.pstrip .k abbr{text-decoration:underline dotted;text-decoration-color:var(--faint);cursor:help}
+.ptools{display:flex;align-items:flex-start;justify-content:space-between;gap:10px 20px;flex-wrap:wrap;padding:12px 20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);min-height:71px}
+.ptools .seg{flex:none}
+.ptools .seg .count{color:var(--faint);margin-left:5px}
+.padd{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1 1 300px;max-width:480px}
+.padd .search input{width:100%;padding-right:12px}
+.pmsg{margin:0;min-height:18px;font-size:12px;color:var(--muted);white-space:pre-wrap;word-break:break-word}
+.pmsg.err{color:var(--bad)}
+.pgrp{padding:16px 20px 2px;display:flex;align-items:baseline;gap:8px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pgrp .num{font-weight:400;color:var(--faint)}
+.ptiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:8px;padding:8px 20px 16px}
+.tile{position:relative;height:84px;border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:10px 12px 8px;min-width:0;cursor:pointer;text-align:center;outline:none}
+.tile:hover,.tile:focus-visible{background:var(--hover)}
+.tile.todo{border-style:dashed;cursor:default}
+.tile.todo:hover{background:none}
+.tile.todo .nm{color:var(--muted)}
+.tile.on{border-color:var(--sel);background:color-mix(in srgb,var(--sel) 7%,var(--panel))}
+.tile{transition:box-shadow .8s ease}
+.tile.new{box-shadow:0 0 0 2px var(--sel);transition:none}
+.tile .ms{display:grid;place-items:center;height:16px}
+.tile .nm{font-size:12px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tile .vc{position:absolute;top:6px;left:9px;font-size:10px;color:var(--faint)}
+.star{position:absolute;top:3px;right:3px;width:24px;height:24px;display:grid;place-items:center;border:0;border-radius:6px;background:none;color:var(--faint);cursor:pointer;padding:0;opacity:.55}
+.tile:hover .star,.star:focus-visible,.star.on{opacity:1}
+.star:hover{color:var(--ink);background:var(--hover)}
+.star.on{color:var(--ink)}
+.star.on svg{fill:currentColor}
+.star[disabled]{cursor:progress;opacity:.4}
+.plan .empty{border-top:0}
+
 /* detail sidebar */
 .side{position:fixed;top:0;right:0;bottom:0;width:360px;background:var(--panel);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .2s ease;display:flex;flex-direction:column;z-index:20}
 body.detail-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
@@ -247,7 +280,19 @@ body.detail-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
     </div>
     <div class="grid" id="grid"></div>
     <div class="sheet" id="sheet" hidden></div>
-    <div class="pf"><span class="keys"><kbd>F</kbd> filled</span><span class="keys"><kbd>←</kbd><kbd>→</kbd> step</span><span class="keys"><kbd>Esc</kbd> close metrics</span><span style="margin-left:auto">Click an icon for its metrics</span></div>
+    <div class="plan" id="plan" hidden>
+      <div class="prog pstrip" id="pstrip"></div>
+      <div class="ptools">
+        <span class="seg" id="pfilter"></span>
+        <form class="padd" id="padd" autocomplete="off">
+          <label class="search"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M7 2.75v8.5M2.75 7h8.5"/></svg>
+            <input id="paddName" type="text" placeholder="Add an icon — bell-off, then Enter" spellcheck="false" aria-label="Add an icon to the sheet"></label>
+          <p class="pmsg" id="pmsg" aria-live="polite"></p>
+        </form>
+      </div>
+      <div id="ptiles"></div>
+    </div>
+    <div class="pf"><span class="keys"><kbd>F</kbd> filled</span><span class="keys"><kbd>P</kbd> plan</span><span class="keys"><kbd>←</kbd><kbd>→</kbd> step</span><span class="keys"><kbd>Esc</kbd> close metrics</span><span style="margin-left:auto">Click an icon for its metrics</span></div>
   </section>
 </main>
 
@@ -261,7 +306,8 @@ body.detail-open .side{transform:none;box-shadow:-8px 0 24px rgba(0,0,0,.06)}
 <script type="module">
 // Every approved icon, read from lab/manifest.json (npm run build). The masters
 // shown are the files in src/icons/{24,20,16}; `<name>-filled` is the filled twin.
-const man = await (await fetch('manifest.json', { cache: 'no-store' })).json();
+const fetchManifest = () => fetch(`manifest.json?t=${Date.now()}`, { cache: 'no-store' }).then((r) => r.json());
+let man = await fetchManifest();
 const MASTERS = [24, 20, 16];
 const store = {
   get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
@@ -271,7 +317,8 @@ const state = {
   theme: store.get('icon-theme', 'auto'),                 // shared with the drawing board
   filled: store.get('lib-filled', false),
   show: store.get('lib-show', 'drawn'),                   // 'drawn' | 'queue'
-  view: store.get('lib-view', 'grid'),                    // 'grid' | 'sheet'
+  view: store.get('lib-view', 'grid'),                    // 'grid' | 'sheet' | 'plan'
+  plan: store.get('lib-plan', 'all'),                     // the Plan view's filter: 'all' | 'mvp' | 'left'
   sec: store.get('lib-sec', 'all'),
   q: '',
   sel: null,
@@ -294,29 +341,43 @@ const icon = (n, m, px = m, filled = state.filled) => { const r = file(n, m, fil
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const f = (n) => String(+(+n).toFixed(2));
 
-// An icon exists once any outline master is on disk. The queue gives it order and a section.
-const drawnNames = [...new Set(MASTERS.flatMap((m) => man.masters[m]?.names ?? []))]
-  .filter((n) => !n.endsWith('-filled')).sort();
-const byName = new Map(man.queue.map((q) => [q.name, q]));
-const SECTIONS = [...new Set(man.queue.map((q) => q.section))];
+// Everything read off the manifest lives here, so the Plan view can re-read it after the
+// sheet changes (a star, an added name) and every panel sees the same rows.
+let drawnNames, byName, SECTIONS, entries, twinsOf, concepts, variantsOf;
 const abbr = (s) => s.split(' · ')[0];
 const label = (s) => s.split(' · ').slice(1).join(' · ') || s;
 const status = (n) => (drawnNames.includes(n) ? 'done' : byName.get(n)?.status ?? 'todo');
-const entries = [
-  ...man.queue.map((q) => ({ ...q, status: status(q.name) })),
-  ...drawnNames.filter((n) => !byName.has(n)).map((n) => ({ n: null, name: n, section: 'Unqueued', status: 'done' })),
-];
+function derive() {
+  // An icon exists once any outline master is on disk. The queue gives it order and a section.
+  drawnNames = [...new Set(MASTERS.flatMap((m) => man.masters[m]?.names ?? []))]
+    .filter((n) => !n.endsWith('-filled')).sort();
+  byName = new Map(man.queue.map((q) => [q.name, q]));
+  SECTIONS = [...new Set(man.queue.map((q) => q.section))];
+  entries = [
+    ...man.queue.map((q) => ({ ...q, status: status(q.name) })),
+    ...drawnNames.filter((n) => !byName.has(n)).map((n) => ({ n: null, name: n, section: 'Unqueued', status: 'done' })),
+  ];
 
-// ── Filled twins (C21) ─────────────────────────────────────────────────────────
-// An icon in this set is a pair, not a drawing, so two icons may share one outline
-// and differ only filled — `ban` keeps the ring, `ban-2` keeps the disc whole. In
-// OUTLINE mode they are the same picture, so showing both puts identical cards in
-// the grid; they merge onto the representative there and the card says how many
-// filled styles sit behind it. In FILLED mode they are different drawings and every
-// one stands on its own — nothing a customer can pick is ever hidden.
-const outlineSig = (n) => MASTERS.map((m) => file(n, m, false)?.body ?? '').join('|');
-const twinsOf = new Map();                                   // name → every name sharing its outline
-{
+  // ── Icons are concepts (plans/plan-view.md, settled 2026-10-17) ───────────────
+  // A row with no `variant of` is an icon; its sizes, numbered shapes and filled twins
+  // are variants that fold into it and are never counted on their own. A variant may
+  // hang off another variant (`sort-alpha-descending-2` → `sort-alpha-descending` →
+  // `sort-alpha`), so the fold follows `base` to the root. Status is the sheet's own,
+  // so the counts here equal `node tools/queue.mjs status`.
+  const rootOf = (r) => { let x = r, guard = 0; while (x?.base && byName.has(x.base) && guard++ < 20) x = byName.get(x.base); return x?.name ?? r.name; };
+  concepts = man.queue.filter((r) => !r.base);
+  variantsOf = new Map(concepts.map((c) => [c.name, []]));
+  for (const r of man.queue) if (r.base) variantsOf.get(rootOf(r))?.push(r.name);
+
+  // ── Filled twins (C21) ─────────────────────────────────────────────────────────
+  // An icon in this set is a pair, not a drawing, so two icons may share one outline
+  // and differ only filled — `ban` keeps the ring, `ban-2` keeps the disc whole. In
+  // OUTLINE mode they are the same picture, so showing both puts identical cards in
+  // the grid; they merge onto the representative there and the card says how many
+  // filled styles sit behind it. In FILLED mode they are different drawings and every
+  // one stands on its own — nothing a customer can pick is ever hidden.
+  const outlineSig = (n) => MASTERS.map((m) => file(n, m, false)?.body ?? '').join('|');
+  twinsOf = new Map();                                       // name → every name sharing its outline
   const groups = new Map();
   for (const n of drawnNames) {
     const sig = outlineSig(n);
@@ -331,6 +392,13 @@ const twinsOf = new Map();                                   // name → every n
       || ((byName.get(a)?.n ?? 1e9) - (byName.get(b)?.n ?? 1e9)) || a.localeCompare(b));
     for (const n of g) twinsOf.set(n, g);
   }
+}
+derive();
+// After the server has run queue.mjs and rebuilt the manifest: read it again and redraw everything.
+async function reload() {
+  man = await fetchManifest();
+  derive();
+  renderSections(); renderSpec(); renderGrid(); renderDetail();
 }
 const repOf = (n) => twinsOf.get(n)?.[0] ?? n;
 // Outline mode collapses a twin set onto its representative; filled mode shows them all.
@@ -393,7 +461,7 @@ function renderSections() {
   // Stroke is per master (1.5 · 1.5 · 1.25), listed in the masters' own order.
   const sw = MASTERS.map((m) => man.strokes?.[m] ?? man.stroke).join(' · ');
   document.getElementById('subtitle').textContent =
-    `${all.done} of ${all.all} approved · outline + filled · masters 24 · 20 · 16 · stroke ${sw}`;
+    `${planFigures().icons.drawn} of ${planFigures().icons.total} icons drawn (${all.done} of ${all.all} rows) · outline + filled · masters 24 · 20 · 16 · stroke ${sw}`;
 
   const next = q.find((e) => e.status !== 'done');
   document.getElementById('next').innerHTML = next
@@ -435,21 +503,27 @@ function cell(e) {
     <span class="ms">${ms}</span><span class="nm">${esc(e.name)}</span></${tag}>`;
 }
 
+const VIEWS = { grid: 'Grid', sheet: 'Sheet', plan: 'Plan' };
+const HINTS = {
+  grid: 'The 24 master stands for each icon. Click one for every size and property.',
+  sheet: 'research/queue.md as a table — ticked by node tools/queue.mjs approve. Click a drawn row for its metrics.',
+  plan: 'One tile per icon; its variants fold into it and are never counted. A star marks the MVP and is saved to research/queue.md through queue.mjs.',
+};
 function renderGrid() {
   const list = visible();
-  const sheet = state.view === 'sheet';
+  const sheet = state.view === 'sheet', plan = state.view === 'plan';
   const shown = sheet ? list : merged(list);        // the Sheet is research/queue.md — every row stays
-  document.getElementById('grid').hidden = sheet;
+  document.getElementById('grid').hidden = sheet || plan;
   document.getElementById('sheet').hidden = !sheet;
-  document.getElementById('view').innerHTML = ['grid', 'sheet'].map((v) =>
-    `<button data-view="${v}" class="${state.view === v ? 'on' : ''}">${v === 'grid' ? 'Grid' : 'Sheet'}</button>`).join('');
-  document.getElementById('gridHint').textContent = sheet
-    ? 'research/queue.md as a table — ticked by node tools/queue.mjs approve. Click a drawn row for its metrics.'
-    : 'The 24 master stands for each icon. Click one for every size and property.';
+  document.getElementById('plan').hidden = !plan;
+  document.getElementById('view').innerHTML = Object.entries(VIEWS).map(([v, t]) =>
+    `<button data-view="${v}" class="${state.view === v ? 'on' : ''}"${v === 'plan' ? ' title="Plan (P)"' : ''}>${t}</button>`).join('');
+  document.getElementById('gridHint').textContent = HINTS[state.view];
+  document.getElementById('gridStyle').textContent = state.filled ? 'Filled' : 'Outline';
+  if (plan) return renderPlan();
   const title = state.sec === 'all' ? (state.show === 'queue' ? 'Queue' : 'Icons') : label(state.sec);
   document.getElementById('gridTitle').textContent = title;
   document.getElementById('gridCount').textContent = state.show === 'queue' ? `${counts(shown).done} / ${shown.length}` : shown.length;
-  document.getElementById('gridStyle').textContent = state.filled ? 'Filled' : 'Outline';
   if (sheet) return renderSheet(list);
   const el = document.getElementById('grid');
   if (!shown.length) {
@@ -501,9 +575,154 @@ document.getElementById('sheet').addEventListener('click', (e) => {
   for (const r of document.querySelectorAll('.sheet tr.on')) r.classList.remove('on');
   t.classList.add('on');
 });
+function setView(v) { state.view = v; store.set('lib-view', v); renderGrid(); }
 document.getElementById('view').addEventListener('click', (e) => {
-  const t = e.target.closest('button[data-view]'); if (!t) return;
-  state.view = t.dataset.view; store.set('lib-view', state.view); renderGrid();
+  const t = e.target.closest('button[data-view]'); if (t) setView(t.dataset.view);
+});
+
+/* ───────── plan — plans/plan-view.md card 2.2 ───────── */
+
+// Every number here counts concepts (rows with no `variant of`), with the sheet's own status,
+// so the strip equals `node tools/queue.mjs status`. The estimate: concepts approved per
+// distinct approval date, median of those days, applied to what is left.
+const median = (xs) => { const s = [...xs].sort((a, b) => a - b), m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : 0; };
+function planFigures() {
+  const tally = (rs) => ({ drawn: rs.filter((r) => r.status === 'done').length, left: rs.filter((r) => r.status !== 'done').length, total: rs.length });
+  const perDay = new Map();
+  for (const r of concepts) if (r.status === 'done' && r.date) perDay.set(r.date, (perDay.get(r.date) ?? 0) + 1);
+  const days = [...perDay.entries()].sort(([a], [b]) => a.localeCompare(b));
+  const rate = median([...perDay.values()]);
+  return { icons: tally(concepts), mvp: tally(concepts.filter((r) => r.mvp)), days, rate };
+}
+const PLAN_FILTER = { all: 'All', mvp: 'MVP', left: 'Left' };
+const starSvg = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true"><path d="M6 1.3l1.45 2.95 3.25.5-2.35 2.3.55 3.25L6 8.75 3.1 10.3l.55-3.25L1.3 4.75l3.25-.5z"/></svg>';
+const fmtDays = (n) => (n == null ? '—' : n < 1 && n > 0 ? '<1' : String(Math.round(n)));
+
+function renderPlan() {
+  const fig = planFigures();
+  const { icons, mvp, days, rate } = fig;
+  const est = (left) => (rate ? left / rate : null);
+  const method = rate
+    ? `Method: concepts approved per distinct approval date on the sheet, then the median of those days.\n`
+      + `${days.length} drawing days:\n${days.map(([d, n]) => `  ${d}  ${n}`).join('\n')}\n`
+      + `Sorted: ${days.map(([, n]) => n).sort((a, b) => a - b).join(' · ')} → median ${rate} a day.\n`
+      + `Icons left ${icons.left} ÷ ${rate} = ${(icons.left / rate).toFixed(1)} days · MVP left ${mvp.left} ÷ ${rate} = ${(mvp.left / rate).toFixed(1)} days.`
+    : 'No approval dates on the sheet yet, so there is nothing to estimate from.';
+  document.getElementById('pstrip').innerHTML = `
+    <div title="Icons are concepts: rows with no ‘variant of’. ${icons.drawn} drawn · ${icons.left} left · ${icons.total} in all.">
+      <span class="k">Icons</span>
+      <span class="v num">${icons.drawn}<span>drawn · ${icons.left} left (${icons.total})</span></span>
+      <span class="bar">${bar({ all: icons.total || 1, done: icons.drawn, review: 0 })}</span></div>
+    <div title="${mvp.total ? `The icons starred as MVP: ${mvp.drawn} drawn · ${mvp.left} left · ${mvp.total} in all.` : 'No icon is starred yet. Star a tile to build the MVP.'}">
+      <span class="k">MVP</span>
+      <span class="v num">${mvp.drawn}<span>drawn · ${mvp.left} left (${mvp.total})</span></span>
+      <span class="bar">${bar({ all: mvp.total || 1, done: mvp.drawn, review: 0 })}</span></div>
+    <div title="${esc(method)}">
+      <span class="k"><abbr title="${esc(method)}">Drawing days left</abbr></span>
+      <span class="v num">${fmtDays(est(icons.left))}<span>for the set · ${mvp.total ? `${fmtDays(est(mvp.left))} for the MVP` : 'no MVP yet'}</span></span>
+      <span class="mute num">${rate ? `median ${rate} icons a day over ${days.length} drawing days` : 'no approval dates yet'}</span></div>`;
+
+  document.getElementById('pfilter').innerHTML = Object.entries(PLAN_FILTER).map(([v, t]) => {
+    const n = v === 'all' ? icons.total : v === 'mvp' ? mvp.total : icons.left;
+    return `<button data-plan="${v}" class="${state.plan === v ? 'on' : ''}">${t}<span class="count num">${n}</span></button>`;
+  }).join('');
+
+  // Tiles: the section rail and the search apply as everywhere else; the filter is this view's own.
+  const words = state.q.trim().toLowerCase().split(/[\s-]+/).filter(Boolean);
+  const hay = (r) => [r.name, r.category, ...(man.masters[24]?.icons[r.name]?.tags ?? []), ...(variantsOf.get(r.name) ?? [])].filter(Boolean).join(' ').toLowerCase();
+  const keep = (r) => (state.plan === 'all' || (state.plan === 'mvp' ? r.mvp : r.status !== 'done'))
+    && (state.sec === 'all' || r.section === state.sec) && (!words.length || words.every((w) => hay(r).includes(w)));
+  const groupOf = (r) => r.category ?? label(r.section);
+  const groups = new Map();                       // category (else section) → its concepts, in sheet order
+  for (const r of concepts) { const g = groupOf(r); if (!groups.has(g)) groups.set(g, []); groups.get(g).push(r); }
+  const scoped = concepts.filter((r) => state.sec === 'all' || r.section === state.sec);
+  document.getElementById('gridTitle').textContent = state.sec === 'all' ? 'Plan' : `Plan · ${label(state.sec)}`;
+  document.getElementById('gridCount').textContent = `${scoped.filter((r) => r.status === 'done').length} / ${scoped.length}`;
+
+  let html = '', shown = 0;
+  for (const [g, rs] of groups) {
+    const vis = rs.filter(keep); if (!vis.length) continue;
+    shown += vis.length;
+    const done = rs.filter((r) => r.status === 'done').length;
+    html += `<div class="pgrp">${esc(g)}<span class="num">${done} / ${rs.length}</span></div><div class="ptiles">${vis.map(tile).join('')}</div>`;
+  }
+  document.getElementById('ptiles').innerHTML = shown ? html : `<div class="empty"><b>${state.q
+    ? `No icons match “${esc(state.q)}”` : state.plan === 'mvp' ? 'No icon is starred yet' : state.plan === 'left' ? 'Nothing left to draw' : 'Nothing on the sheet'}</b>${state.plan === 'mvp' && !state.q ? 'Star a tile under All to build the MVP.' : ''}</div>`;
+}
+function tile(r) {
+  const drawn = r.status === 'done';
+  const vs = variantsOf.get(r.name) ?? [];
+  const badge = drawn && vs.length ? `<span class="vc num" title="${vs.length} variant${vs.length === 1 ? '' : 's'}: ${esc(vs.join(', '))}">+${vs.length}</span>` : '';
+  return `<div class="tile${drawn ? '' : ' todo'}${state.sel === r.name ? ' on' : ''}" data-name="${esc(r.name)}"${drawn ? ' tabindex="0" role="button"' : ''} title="#${r.n} ${esc(r.name)}${r.category ? ` · ${esc(r.category)}` : ''}${drawn ? '' : ' · not drawn yet'}">
+    ${badge}<button class="star${r.mvp ? ' on' : ''}" data-star="${esc(r.name)}" aria-pressed="${r.mvp}" title="${r.mvp ? 'In the MVP — click to take it out' : 'Star: put it in the MVP'}" aria-label="MVP">${starSvg}</button>
+    <span class="ms">${drawn ? icon(r.name, 16) : ''}</span><span class="nm">${esc(r.name)}</span></div>`;
+}
+
+// The two write routes (tools/serve.mjs): the server runs queue.mjs, rebuilds the manifest
+// and answers {ok, stdout, stderr}. Anything that is not a clean 200 is shown as it came.
+async function postQueue(route, body) {
+  try {
+    const res = await fetch(`/api/queue/${route}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const j = await res.json().catch(() => ({}));
+    return { ok: res.ok && j.ok === true, stdout: j.stdout ?? '', stderr: j.stderr ?? j.error ?? (res.ok ? '' : `${res.status} ${res.statusText}`) };
+  } catch (err) {
+    return { ok: false, stdout: '', stderr: `Could not reach the lab server (${err.message}). Is npm run lab running?` };
+  }
+}
+function say(text, err = false) {
+  const el = document.getElementById('pmsg');
+  el.textContent = text; el.classList.toggle('err', err);
+}
+let busy = false;
+document.getElementById('plan').addEventListener('click', async (e) => {
+  const f = e.target.closest('button[data-plan]');
+  if (f) { state.plan = f.dataset.plan; store.set('lib-plan', state.plan); return renderPlan(); }
+  const s = e.target.closest('button[data-star]');
+  if (s) {
+    if (busy) return;
+    const name = s.dataset.star, on = !byName.get(name)?.mvp;
+    busy = true; s.disabled = true;
+    say(`${on ? 'Starring' : 'Unstarring'} ${name}…`);
+    const r = await postQueue('mvp', { name, on });
+    busy = false;
+    if (!r.ok) { s.disabled = false; return say(`Could not change ${name}.\n${[r.stderr, r.stdout].filter(Boolean).join('\n').trim()}`, true); }
+    say(r.stdout.trim());
+    return reload();
+  }
+  const t = e.target.closest('.tile[data-name]:not(.todo)');
+  if (t) open(t.dataset.name);
+});
+document.getElementById('plan').addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const t = e.target.closest?.('.tile[data-name]:not(.todo)');
+  if (t && e.target === t) { open(t.dataset.name); e.preventDefault(); }
+});
+document.getElementById('padd').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (busy) return;
+  const input = document.getElementById('paddName');
+  const name = input.value.trim();
+  if (!name) return;
+  if (!/^[a-z0-9-]+$/.test(name)) return say(`“${name}” is not a name: lower-case letters, digits and hyphens only, object first (calendar-plus).`, true);
+  if (byName.has(name)) return say(`${name} is already on the sheet (#${byName.get(name).n}).`, true);
+  busy = true; input.disabled = true;
+  say(`Adding ${name}…`);
+  const r = await postQueue('add', { name });
+  busy = false; input.disabled = false;
+  if (!r.ok) { say(`Not added.\n${[r.stderr, r.stdout].filter(Boolean).join('\n').trim()}`, true); input.focus(); return; }
+  input.value = '';
+  say(r.stdout.trim());
+  await reload();
+  // The new row lands in section E, undrawn: make sure the filter, rail and search let it show.
+  let el = document.querySelector(`.tile[data-name="${CSS.escape(name)}"]`);
+  if (!el) {
+    state.plan = 'all'; store.set('lib-plan', 'all'); state.sec = 'all'; store.set('lib-sec', 'all');
+    state.q = ''; document.getElementById('q').value = '';
+    renderSections(); renderGrid();
+    el = document.querySelector(`.tile[data-name="${CSS.escape(name)}"]`);
+  }
+  input.focus({ preventScroll: true });
+  if (el) { el.classList.add('new'); el.scrollIntoView({ block: 'center' }); setTimeout(() => el.classList.remove('new'), 1600); }
 });
 document.getElementById('grid').addEventListener('click', (e) => {
   const t = e.target.closest('.cell[data-name]'); if (t) open(t.dataset.name);
@@ -515,14 +734,14 @@ document.getElementById('q').addEventListener('input', (e) => { state.q = e.targ
 function open(name) {
   state.sel = name;
   document.body.classList.add('detail-open');
-  for (const c of document.querySelectorAll('.cell.on')) c.classList.remove('on');
-  document.querySelector(`.cell[data-name="${CSS.escape(name)}"]`)?.classList.add('on');
+  for (const c of document.querySelectorAll('.cell.on,.tile.on')) c.classList.remove('on');
+  for (const c of document.querySelectorAll(`.cell[data-name="${CSS.escape(name)}"],.tile[data-name="${CSS.escape(name)}"]`)) c.classList.add('on');
   renderDetail();
 }
 function close() {
   state.sel = null;
   document.body.classList.remove('detail-open');
-  for (const c of document.querySelectorAll('.cell.on')) c.classList.remove('on');
+  for (const c of document.querySelectorAll('.cell.on,.tile.on')) c.classList.remove('on');
 }
 document.getElementById('dClose').addEventListener('click', close);
 
@@ -614,6 +833,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === '/') { document.getElementById('q').focus(); e.preventDefault(); }
   else if (e.key === '[') setNav(!document.body.classList.contains('nav-collapsed'));
   else if (e.key === 'f' || e.key === 'F') setFilled(!state.filled);
+  else if (e.key === 'p' || e.key === 'P') setView(state.view === 'plan' ? 'grid' : 'plan');
   else if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && state.sel) {
     const names = merged(visible()).filter((x) => x.status === 'done').map((x) => x.name);
     const i = names.indexOf(state.sel); if (i < 0 || !names.length) return;
