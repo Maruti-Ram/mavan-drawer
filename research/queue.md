@@ -704,7 +704,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 326. `corner-up-right` · Arrows & Direction — approved 2026-10-17
 - [x] 326. `corner-up-right-2` · Arrows & Direction · variant of `corner-up-right` — corner-up-right-2 · approved 2026-10-17
 - [~] 327. `move` · Arrows & Direction
-- [~] 328. `rewind` · Arrows & Direction
+- [x] 328. `rewind` · Arrows & Direction — approved 2026-10-17
+- [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-17
 - [ ] 329. `rss` · Communication
 - [ ] 330. `trending-down` · Charts & Data — mvp
 - [ ] 331. `trending-up` · Charts & Data — mvp
