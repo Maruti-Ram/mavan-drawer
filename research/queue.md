@@ -511,9 +511,11 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 156. `quote` · Editing & Text — mvp
 - [x] 157. `redo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 157. `redo-2` · Arrows & Direction · variant of `redo` — U-turn · redo · approved 2026-10-17
+- [x] 157. `redo-3` · Arrows & Direction · variant of `redo` — Squared return · redo · approved 2026-10-17
 - [ ] 158. `spell-check` · Editing & Text
 - [x] 159. `undo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 159. `undo-2` · Arrows & Direction · variant of `undo` — U-turn · undo · approved 2026-10-17
+- [x] 159. `undo-3` · Arrows & Direction · variant of `undo` — Squared return · undo · approved 2026-10-17
 - [ ] 160. `barcode` · Devices & Hardware
 - [ ] 161. `card-reader` · Commerce & Payments
 - [ ] 162. `coins` · Commerce & Payments
