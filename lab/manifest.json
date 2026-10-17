@@ -537,6 +537,12 @@
     "home-3",
     "home-3-filled",
     "home-filled",
+    "hourglass",
+    "hourglass-2",
+    "hourglass-2-filled",
+    "hourglass-3",
+    "hourglass-3-filled",
+    "hourglass-filled",
     "image",
     "image-2",
     "image-2-filled",
@@ -31797,6 +31803,343 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hourglass": {
+      "paths": [
+        "M4.75 2.75H19.25",
+        "M4.75 21.25H19.25",
+        "M5.5 2.75V6.63A1.5 1.5 0 0 0 5.94 7.69L10.25 12L5.94 16.31A1.5 1.5 0 0 0 5.5 17.37V21.25",
+        "M18.5 2.75V6.63A1.5 1.5 0 0 1 18.06 7.69L13.75 12L18.06 16.31A1.5 1.5 0 0 1 18.5 17.37V21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 2.75H19.25\"/> <path d=\"M4.75 21.25H19.25\"/> <path d=\"M5.5 2.75V6.63A1.5 1.5 0 0 0 5.94 7.69L10.25 12L5.94 16.31A1.5 1.5 0 0 0 5.5 17.37V21.25\"/> <path d=\"M18.5 2.75V6.63A1.5 1.5 0 0 1 18.06 7.69L13.75 12L18.06 16.31A1.5 1.5 0 0 1 18.5 17.37V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "funnel",
+        "lucide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.98,
+          "optical": 4.74
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.98,
+          "optical": 4.74
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hourglass-2": {
+      "paths": [
+        "M4.75 2.75H19.25",
+        "M4.75 21.25H19.25",
+        "M5.5 2.75A11.38 11.38 0 0 0 10.25 12A11.38 11.38 0 0 0 5.5 21.25",
+        "M18.5 2.75A11.38 11.38 0 0 1 13.75 12A11.38 11.38 0 0 1 18.5 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 2.75H19.25\"/> <path d=\"M4.75 21.25H19.25\"/> <path d=\"M5.5 2.75A11.38 11.38 0 0 0 10.25 12A11.38 11.38 0 0 0 5.5 21.25\"/> <path d=\"M18.5 2.75A11.38 11.38 0 0 1 13.75 12A11.38 11.38 0 0 1 18.5 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "bulb"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 1.15,
+          "optical": 4.86
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 1.15,
+          "optical": 4.86
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hourglass-2-filled": {
+      "paths": [],
+      "areas": [
+        "M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.23A12.13 12.13 0 0 1 14.97 12A12.13 12.13 0 0 1 19.23 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.77A12.13 12.13 0 0 1 9.03 12A12.13 12.13 0 0 1 4.77 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.23A12.13 12.13 0 0 1 14.97 12A12.13 12.13 0 0 1 19.23 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.77A12.13 12.13 0 0 1 9.03 12A12.13 12.13 0 0 1 4.77 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+      "mark": false,
+      "tags": [
+        "bulb"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hourglass-3": {
+      "paths": [
+        "M4.75 2.75H19.25",
+        "M4.75 21.25H19.25",
+        "M5.5 2.75A6.32 6.32 0 0 0 10.25 12A6.32 6.32 0 0 0 5.5 21.25",
+        "M18.5 2.75A6.32 6.32 0 0 1 13.75 12A6.32 6.32 0 0 1 18.5 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 2.75H19.25\"/> <path d=\"M4.75 21.25H19.25\"/> <path d=\"M5.5 2.75A6.32 6.32 0 0 0 10.25 12A6.32 6.32 0 0 0 5.5 21.25\"/> <path d=\"M18.5 2.75A6.32 6.32 0 0 1 13.75 12A6.32 6.32 0 0 1 18.5 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "bulb",
+        "full"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.55,
+          "optical": 4.41
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.55,
+          "optical": 4.41
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hourglass-3-filled": {
+      "paths": [],
+      "areas": [
+        "M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.64A7.07 7.07 0 0 1 16.2 12A7.07 7.07 0 0 1 19.64 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.36A7.07 7.07 0 0 1 7.8 12A7.07 7.07 0 0 1 4.36 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.64A7.07 7.07 0 0 1 16.2 12A7.07 7.07 0 0 1 19.64 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.36A7.07 7.07 0 0 1 7.8 12A7.07 7.07 0 0 1 4.36 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+      "mark": false,
+      "tags": [
+        "bulb",
+        "full"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hourglass-filled": {
+      "paths": [],
+      "areas": [
+        "M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.25L19.25 6.63A2.25 2.25 0 0 1 18.59 8.22L14.81 12L18.59 15.78A2.25 2.25 0 0 1 19.25 17.37L19.25 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.75L4.75 17.37A2.25 2.25 0 0 1 5.41 15.78L9.19 12L5.41 8.22A2.25 2.25 0 0 1 4.75 6.63L4.75 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.25L19.25 6.63A2.25 2.25 0 0 1 18.59 8.22L14.81 12L18.59 15.78A2.25 2.25 0 0 1 19.25 17.37L19.25 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.75L4.75 17.37A2.25 2.25 0 0 1 5.41 15.78L9.19 12L5.41 8.22A2.25 2.25 0 0 1 4.75 6.63L4.75 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+      "mark": false,
+      "tags": [
+        "funnel",
+        "lucide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -66600,6 +66943,12 @@
         "home-3",
         "home-3-filled",
         "home-filled",
+        "hourglass",
+        "hourglass-2",
+        "hourglass-2-filled",
+        "hourglass-3",
+        "hourglass-3-filled",
+        "hourglass-filled",
         "image",
         "image-2",
         "image-2-filled",
@@ -97817,6 +98166,343 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass": {
+          "paths": [
+            "M3.625 1.625H12.375",
+            "M3.625 14.375H12.375",
+            "M4.125 1.625V5.336A1 1 0 0 0 4.418 6.043L6.375 8L4.418 9.957A1 1 0 0 0 4.125 10.664V14.375",
+            "M11.875 1.625V5.336A1 1 0 0 1 11.582 6.043L9.625 8L11.582 9.957A1 1 0 0 1 11.875 10.664V14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 1.625H12.375\"/> <path d=\"M3.625 14.375H12.375\"/> <path d=\"M4.125 1.625V5.336A1 1 0 0 0 4.418 6.043L6.375 8L4.418 9.957A1 1 0 0 0 4.125 10.664V14.375\"/> <path d=\"M11.875 1.625V5.336A1 1 0 0 1 11.582 6.043L9.625 8L11.582 9.957A1 1 0 0 1 11.875 10.664V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.46
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.46
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-2": {
+          "paths": [
+            "M3.625 1.625H12.375",
+            "M3.625 14.375H12.375",
+            "M4.125 1.625A10.156 10.156 0 0 0 6.375 8A10.156 10.156 0 0 0 4.125 14.375",
+            "M11.875 1.625A10.156 10.156 0 0 1 9.625 8A10.156 10.156 0 0 1 11.875 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 1.625H12.375\"/> <path d=\"M3.625 14.375H12.375\"/> <path d=\"M4.125 1.625A10.156 10.156 0 0 0 6.375 8A10.156 10.156 0 0 0 4.125 14.375\"/> <path d=\"M11.875 1.625A10.156 10.156 0 0 1 9.625 8A10.156 10.156 0 0 1 11.875 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "bulb"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-2-filled": {
+          "paths": [],
+          "areas": [
+            "M3.625 1H12.375A0.625 0.625 0 0 1 12.375 2.25H12.482A10.781 10.781 0 0 1 10.413 8A10.781 10.781 0 0 1 12.482 13.75H12.375A0.625 0.625 0 0 1 12.375 15H3.625A0.625 0.625 0 0 1 3.625 13.75H3.518A10.781 10.781 0 0 1 5.587 8A10.781 10.781 0 0 1 3.518 2.25H3.625A0.625 0.625 0 0 1 3.625 1Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.625 1H12.375A0.625 0.625 0 0 1 12.375 2.25H12.482A10.781 10.781 0 0 1 10.413 8A10.781 10.781 0 0 1 12.482 13.75H12.375A0.625 0.625 0 0 1 12.375 15H3.625A0.625 0.625 0 0 1 3.625 13.75H3.518A10.781 10.781 0 0 1 5.587 8A10.781 10.781 0 0 1 3.518 2.25H3.625A0.625 0.625 0 0 1 3.625 1Z\"/>",
+          "mark": false,
+          "tags": [
+            "bulb"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-3": {
+          "paths": [
+            "M3.625 1.625H12.375",
+            "M3.625 14.375H12.375",
+            "M4.125 1.625A4.688 4.688 0 0 0 6.375 8A4.688 4.688 0 0 0 4.125 14.375",
+            "M11.875 1.625A4.688 4.688 0 0 1 9.625 8A4.688 4.688 0 0 1 11.875 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 1.625H12.375\"/> <path d=\"M3.625 14.375H12.375\"/> <path d=\"M4.125 1.625A4.688 4.688 0 0 0 6.375 8A4.688 4.688 0 0 0 4.125 14.375\"/> <path d=\"M11.875 1.625A4.688 4.688 0 0 1 9.625 8A4.688 4.688 0 0 1 11.875 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "bulb",
+            "full"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.39,
+              "optical": 3.29
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.39,
+              "optical": 3.29
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-3-filled": {
+          "paths": [],
+          "areas": [
+            "M3.625 1H12.375A0.625 0.625 0 0 1 12.375 2.25H12.789A5.313 5.313 0 0 1 10.85 8A5.313 5.313 0 0 1 12.789 13.75H12.375A0.625 0.625 0 0 1 12.375 15H3.625A0.625 0.625 0 0 1 3.625 13.75H3.211A5.313 5.313 0 0 1 5.15 8A5.313 5.313 0 0 1 3.211 2.25H3.625A0.625 0.625 0 0 1 3.625 1Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.625 1H12.375A0.625 0.625 0 0 1 12.375 2.25H12.789A5.313 5.313 0 0 1 10.85 8A5.313 5.313 0 0 1 12.789 13.75H12.375A0.625 0.625 0 0 1 12.375 15H3.625A0.625 0.625 0 0 1 3.625 13.75H3.211A5.313 5.313 0 0 1 5.15 8A5.313 5.313 0 0 1 3.211 2.25H3.625A0.625 0.625 0 0 1 3.625 1Z\"/>",
+          "mark": false,
+          "tags": [
+            "bulb",
+            "full"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-filled": {
+          "paths": [],
+          "areas": [
+            "M3.625 1H12.375A0.625 0.625 0 0 1 12.375 2.25H12.5L12.5 5.336A1.625 1.625 0 0 1 12.024 6.485L10.509 8L12.024 9.515A1.625 1.625 0 0 1 12.5 10.664L12.5 13.75H12.375A0.625 0.625 0 0 1 12.375 15H3.625A0.625 0.625 0 0 1 3.625 13.75H3.5L3.5 10.664A1.625 1.625 0 0 1 3.976 9.515L5.491 8L3.976 6.485A1.625 1.625 0 0 1 3.5 5.336L3.5 2.25H3.625A0.625 0.625 0 0 1 3.625 1Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.625 1H12.375A0.625 0.625 0 0 1 12.375 2.25H12.5L12.5 5.336A1.625 1.625 0 0 1 12.024 6.485L10.509 8L12.024 9.515A1.625 1.625 0 0 1 12.5 10.664L12.5 13.75H12.375A0.625 0.625 0 0 1 12.375 15H3.625A0.625 0.625 0 0 1 3.625 13.75H3.5L3.5 10.664A1.625 1.625 0 0 1 3.976 9.515L5.491 8L3.976 6.485A1.625 1.625 0 0 1 3.5 5.336L3.5 2.25H3.625A0.625 0.625 0 0 1 3.625 1Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -132590,6 +133276,12 @@
         "home-3",
         "home-3-filled",
         "home-filled",
+        "hourglass",
+        "hourglass-2",
+        "hourglass-2-filled",
+        "hourglass-3",
+        "hourglass-3-filled",
+        "hourglass-filled",
         "image",
         "image-2",
         "image-2-filled",
@@ -163820,6 +164512,343 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass": {
+          "paths": [
+            "M4.75 2.75H15.25",
+            "M4.75 17.25H15.25",
+            "M5.5 2.75V6.73A1.25 1.25 0 0 0 5.87 7.62L8.25 10L5.87 12.38A1.25 1.25 0 0 0 5.5 13.27V17.25",
+            "M14.5 2.75V6.73A1.25 1.25 0 0 1 14.13 7.62L11.75 10L14.13 12.38A1.25 1.25 0 0 1 14.5 13.27V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 2.75H15.25\"/> <path d=\"M4.75 17.25H15.25\"/> <path d=\"M5.5 2.75V6.73A1.25 1.25 0 0 0 5.87 7.62L8.25 10L5.87 12.38A1.25 1.25 0 0 0 5.5 13.27V17.25\"/> <path d=\"M14.5 2.75V6.73A1.25 1.25 0 0 1 14.13 7.62L11.75 10L14.13 12.38A1.25 1.25 0 0 1 14.5 13.27V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.85,
+              "optical": 4.64
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.85,
+              "optical": 4.64
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-2": {
+          "paths": [
+            "M4.75 2.75H15.25",
+            "M4.75 17.25H15.25",
+            "M5.5 2.75A10.93 10.93 0 0 0 8.25 10A10.93 10.93 0 0 0 5.5 17.25",
+            "M14.5 2.75A10.93 10.93 0 0 1 11.75 10A10.93 10.93 0 0 1 14.5 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 2.75H15.25\"/> <path d=\"M4.75 17.25H15.25\"/> <path d=\"M5.5 2.75A10.93 10.93 0 0 0 8.25 10A10.93 10.93 0 0 0 5.5 17.25\"/> <path d=\"M14.5 2.75A10.93 10.93 0 0 1 11.75 10A10.93 10.93 0 0 1 14.5 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "bulb"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 1.06,
+              "optical": 4.8
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 1.06,
+              "optical": 4.8
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-2-filled": {
+          "paths": [],
+          "areas": [
+            "M4.75 2H15.25A0.75 0.75 0 0 1 15.25 3.5H15.23A11.68 11.68 0 0 1 12.73 10A11.68 11.68 0 0 1 15.23 16.5H15.25A0.75 0.75 0 0 1 15.25 18H4.75A0.75 0.75 0 0 1 4.75 16.5H4.77A11.68 11.68 0 0 1 7.27 10A11.68 11.68 0 0 1 4.77 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H15.25A0.75 0.75 0 0 1 15.25 3.5H15.23A11.68 11.68 0 0 1 12.73 10A11.68 11.68 0 0 1 15.23 16.5H15.25A0.75 0.75 0 0 1 15.25 18H4.75A0.75 0.75 0 0 1 4.75 16.5H4.77A11.68 11.68 0 0 1 7.27 10A11.68 11.68 0 0 1 4.77 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "bulb"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-3": {
+          "paths": [
+            "M4.75 2.75H15.25",
+            "M4.75 17.25H15.25",
+            "M5.5 2.75A4.85 4.85 0 0 0 8.25 10A4.85 4.85 0 0 0 5.5 17.25",
+            "M14.5 2.75A4.85 4.85 0 0 1 11.75 10A4.85 4.85 0 0 1 14.5 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 2.75H15.25\"/> <path d=\"M4.75 17.25H15.25\"/> <path d=\"M5.5 2.75A4.85 4.85 0 0 0 8.25 10A4.85 4.85 0 0 0 5.5 17.25\"/> <path d=\"M14.5 2.75A4.85 4.85 0 0 1 11.75 10A4.85 4.85 0 0 1 14.5 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "bulb",
+            "full"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.44,
+              "optical": 4.33
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.44,
+              "optical": 4.33
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-3-filled": {
+          "paths": [],
+          "areas": [
+            "M4.75 2H15.25A0.75 0.75 0 0 1 15.25 3.5H15.69A5.6 5.6 0 0 1 13.51 10A5.6 5.6 0 0 1 15.69 16.5H15.25A0.75 0.75 0 0 1 15.25 18H4.75A0.75 0.75 0 0 1 4.75 16.5H4.31A5.6 5.6 0 0 1 6.49 10A5.6 5.6 0 0 1 4.31 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H15.25A0.75 0.75 0 0 1 15.25 3.5H15.69A5.6 5.6 0 0 1 13.51 10A5.6 5.6 0 0 1 15.69 16.5H15.25A0.75 0.75 0 0 1 15.25 18H4.75A0.75 0.75 0 0 1 4.75 16.5H4.31A5.6 5.6 0 0 1 6.49 10A5.6 5.6 0 0 1 4.31 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "bulb",
+            "full"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-filled": {
+          "paths": [],
+          "areas": [
+            "M4.75 2H15.25A0.75 0.75 0 0 1 15.25 3.5H15.25L15.25 6.73A2 2 0 0 1 14.66 8.15L12.81 10L14.66 11.85A2 2 0 0 1 15.25 13.27L15.25 16.5H15.25A0.75 0.75 0 0 1 15.25 18H4.75A0.75 0.75 0 0 1 4.75 16.5H4.75L4.75 13.27A2 2 0 0 1 5.34 11.85L7.19 10L5.34 8.15A2 2 0 0 1 4.75 6.73L4.75 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H15.25A0.75 0.75 0 0 1 15.25 3.5H15.25L15.25 6.73A2 2 0 0 1 14.66 8.15L12.81 10L14.66 11.85A2 2 0 0 1 15.25 13.27L15.25 16.5H15.25A0.75 0.75 0 0 1 15.25 18H4.75A0.75 0.75 0 0 1 4.75 16.5H4.75L4.75 13.27A2 2 0 0 1 5.34 11.85L7.19 10L5.34 8.15A2 2 0 0 1 4.75 6.73L4.75 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -198613,6 +199642,12 @@
         "home-3",
         "home-3-filled",
         "home-filled",
+        "hourglass",
+        "hourglass-2",
+        "hourglass-2-filled",
+        "hourglass-3",
+        "hourglass-3-filled",
+        "hourglass-filled",
         "image",
         "image-2",
         "image-2-filled",
@@ -229873,6 +230908,343 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass": {
+          "paths": [
+            "M4.75 2.75H19.25",
+            "M4.75 21.25H19.25",
+            "M5.5 2.75V6.63A1.5 1.5 0 0 0 5.94 7.69L10.25 12L5.94 16.31A1.5 1.5 0 0 0 5.5 17.37V21.25",
+            "M18.5 2.75V6.63A1.5 1.5 0 0 1 18.06 7.69L13.75 12L18.06 16.31A1.5 1.5 0 0 1 18.5 17.37V21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 2.75H19.25\"/> <path d=\"M4.75 21.25H19.25\"/> <path d=\"M5.5 2.75V6.63A1.5 1.5 0 0 0 5.94 7.69L10.25 12L5.94 16.31A1.5 1.5 0 0 0 5.5 17.37V21.25\"/> <path d=\"M18.5 2.75V6.63A1.5 1.5 0 0 1 18.06 7.69L13.75 12L18.06 16.31A1.5 1.5 0 0 1 18.5 17.37V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.98,
+              "optical": 4.74
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.98,
+              "optical": 4.74
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-2": {
+          "paths": [
+            "M4.75 2.75H19.25",
+            "M4.75 21.25H19.25",
+            "M5.5 2.75A11.38 11.38 0 0 0 10.25 12A11.38 11.38 0 0 0 5.5 21.25",
+            "M18.5 2.75A11.38 11.38 0 0 1 13.75 12A11.38 11.38 0 0 1 18.5 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 2.75H19.25\"/> <path d=\"M4.75 21.25H19.25\"/> <path d=\"M5.5 2.75A11.38 11.38 0 0 0 10.25 12A11.38 11.38 0 0 0 5.5 21.25\"/> <path d=\"M18.5 2.75A11.38 11.38 0 0 1 13.75 12A11.38 11.38 0 0 1 18.5 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "bulb"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 1.15,
+              "optical": 4.86
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 1.15,
+              "optical": 4.86
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-2-filled": {
+          "paths": [],
+          "areas": [
+            "M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.23A12.13 12.13 0 0 1 14.97 12A12.13 12.13 0 0 1 19.23 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.77A12.13 12.13 0 0 1 9.03 12A12.13 12.13 0 0 1 4.77 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.23A12.13 12.13 0 0 1 14.97 12A12.13 12.13 0 0 1 19.23 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.77A12.13 12.13 0 0 1 9.03 12A12.13 12.13 0 0 1 4.77 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "bulb"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-3": {
+          "paths": [
+            "M4.75 2.75H19.25",
+            "M4.75 21.25H19.25",
+            "M5.5 2.75A6.32 6.32 0 0 0 10.25 12A6.32 6.32 0 0 0 5.5 21.25",
+            "M18.5 2.75A6.32 6.32 0 0 1 13.75 12A6.32 6.32 0 0 1 18.5 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 2.75H19.25\"/> <path d=\"M4.75 21.25H19.25\"/> <path d=\"M5.5 2.75A6.32 6.32 0 0 0 10.25 12A6.32 6.32 0 0 0 5.5 21.25\"/> <path d=\"M18.5 2.75A6.32 6.32 0 0 1 13.75 12A6.32 6.32 0 0 1 18.5 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "bulb",
+            "full"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.55,
+              "optical": 4.41
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.55,
+              "optical": 4.41
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-3-filled": {
+          "paths": [],
+          "areas": [
+            "M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.64A7.07 7.07 0 0 1 16.2 12A7.07 7.07 0 0 1 19.64 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.36A7.07 7.07 0 0 1 7.8 12A7.07 7.07 0 0 1 4.36 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.64A7.07 7.07 0 0 1 16.2 12A7.07 7.07 0 0 1 19.64 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.36A7.07 7.07 0 0 1 7.8 12A7.07 7.07 0 0 1 4.36 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "bulb",
+            "full"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hourglass-filled": {
+          "paths": [],
+          "areas": [
+            "M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.25L19.25 6.63A2.25 2.25 0 0 1 18.59 8.22L14.81 12L18.59 15.78A2.25 2.25 0 0 1 19.25 17.37L19.25 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.75L4.75 17.37A2.25 2.25 0 0 1 5.41 15.78L9.19 12L5.41 8.22A2.25 2.25 0 0 1 4.75 6.63L4.75 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 2H19.25A0.75 0.75 0 0 1 19.25 3.5H19.25L19.25 6.63A2.25 2.25 0 0 1 18.59 8.22L14.81 12L18.59 15.78A2.25 2.25 0 0 1 19.25 17.37L19.25 20.5H19.25A0.75 0.75 0 0 1 19.25 22H4.75A0.75 0.75 0 0 1 4.75 20.5H4.75L4.75 17.37A2.25 2.25 0 0 1 5.41 15.78L9.19 12L5.41 8.22A2.25 2.25 0 0 1 4.75 6.63L4.75 3.5H4.75A0.75 0.75 0 0 1 4.75 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -270217,10 +271589,32 @@
       "section": "D · The rest, by audit rank",
       "category": "Time & Calendar",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-17",
+      "status": "done",
       "mvp": true,
-      "date": null
+      "date": "2026-10-17"
+    },
+    {
+      "n": 221,
+      "name": "hourglass-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Time & Calendar",
+      "base": "hourglass",
+      "note": "Full bow · approved 2026-10-17",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-17"
+    },
+    {
+      "n": 221,
+      "name": "hourglass-3",
+      "section": "D · The rest, by audit rank",
+      "category": "Time & Calendar",
+      "base": "hourglass",
+      "note": "Bulb flush with the caps · approved 2026-10-17",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-17"
     },
     {
       "n": 222,

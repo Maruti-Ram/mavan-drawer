@@ -581,7 +581,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 218. `hand` · UI & Layout
 - [ ] 219. `headset` · Communication
 - [ ] 220. `highlighter` · Editing & Text
-- [~] 221. `hourglass` · Time & Calendar — mvp
+- [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
+- [x] 221. `hourglass-2` · Time & Calendar · variant of `hourglass` — Full bow · approved 2026-10-17
+- [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
 - [ ] 222. `layout-list` · UI & Layout — mvp
 - [ ] 223. `messages` · Communication — mvp
 - [ ] 224. `password` · UI & Layout
