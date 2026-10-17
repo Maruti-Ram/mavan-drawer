@@ -19,7 +19,7 @@ Read CLAUDE.md's geometry and "Settled" table before drawing. Those decisions ar
 
 - **The user names an icon** ("let's do bell"): use that name, object-first (`calendar-plus`, never `add-calendar`).
 - **Numbering (C9):** a new shape of an object takes the next free number; its style word goes in `tags`. A composite that uses a numbered shape takes that shape's number (`check-circle-2` uses `check-2`, `checkbox-3` uses `check-3`); a number with no shipped shape stays unused. `login-n` / `logout-n` pair by arrow direction and door depth (C31). Containers name their ring (`help-circle`, `alert-circle`) unless the ring is the object (`ban`, `clock`, `globe`).
-- **"next icon", "continue", "carry on"**: if the board holds an icon that isn't approved yet, **resume it**. Show the board and restate its open question. Otherwise take `node tools/queue.mjs next`.
+- **"next icon", "continue", "carry on"**: if the board holds an icon that isn't approved yet, **resume it**. Show the board and restate its open question. Otherwise take `node tools/queue.mjs next`: it returns the first undrawn MVP icon, else the first undrawn icon, as `name`, `#n`, section, plus a 4th field `MVP` when it is one.
 - **Several icons at once**: do them one after another, in the order given — unless Maruti asks to review them **together**, which is the batch (up to five).
 
 ## 2. Start it
@@ -32,6 +32,8 @@ node tools/queue.mjs start <name> --batch      # beside the board, for a batch o
 This marks the icon in review and writes its references to `lab/refs/current.js` — or, with `--batch`, to `lab/refs/batch/<name>.js`, leaving the board and its references alone. If the name isn't on the sheet, it adds it:
 - a size name (`bell-small`) goes under its default;
 - anything else goes at the end, in "E · Added on request".
+
+`node tools/queue.mjs add <name>…` puts names on the sheet without starting them (no board, no refs).
 
 Tell the user in one line when a name was added. Don't ask first.
 

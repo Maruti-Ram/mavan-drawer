@@ -88,7 +88,8 @@ lint overhaul, a docs rewrite, a new lab surface — starts with a plan document
 ## Picking up
 
 **Open builds live in `plans/`.** Before starting or approving any icon, read every plan there whose
-Status has unticked boxes — it says what is in flight and what is on hold (2026-09-28: none open;
+Status has unticked boxes — it says what is in flight and what is on hold (2026-10-17: `plans/plan-view.md` is open — in build since 2026-10-17;
+`plans/set-and-rules-audit.md` is closed except deferred card 5.1 and the agenda rulings in progress (sitting A done 2026-10-17);
 `plans/facing-gap.md` is closed — lint §5f measures the air inside one path and in filled drawings, and white
 cut out of a filled shape holds 1.5 at 16; `plans/stroke-16.md` is closed — the 16 master draws at 1.25 (C7) and
 the plan records how the 114 were converted and what was decided on the way).
@@ -106,6 +107,7 @@ representative icon** (24 master) per concept; clicking opens a right panel with
 and their metrics (ink, centring, geometric/optical bearings, copy SVG). Outline/Filled switch (F),
 search (/), Show Approved | Whole queue, sections rail with progress, and an "At 16" strip. It reads
 `lab/manifest.json`, which `npm run build` now fills with each file's `body` and the parsed `queue`.
+**Plan view (`P`):** one tile per icon, grouped by category, a drawn tile showing its default drawing with a variant count. Strip: icons drawn / left, MVP drawn / left, and a drawing-day estimate from the sheet's approval dates. A star on a tile marks it MVP in the sheet itself; a box adds a name — both write through the lab server (`tools/serve.mjs` POST routes → `queue.mjs`). **An icon is a concept; `-2`, `-small` and filled twins are never counted as icons** (Maruti, 2026-10-17). "Next icon" now takes the next undrawn MVP icon first, then audit order.
 **Figure families:** `lab/figures.html` (Library sidebar → Figures) puts every figure (`user`, `user-<n>`) in a
 row beside its group and the group's arrangements (`users[-n]`, `-behind`, `-wide`, `-level`; C27), at 24 · 20 · 16 plus
 real pixels at 16 (1×, 2×), Outline | Filled (F). A name not yet shipped is drawn from the batch draft whose `set` names
@@ -254,7 +256,8 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity; `selfGap` (an open path's own counter), `materialGap` (what a knockout leaves), `facingGap` (air between two ink edges that face each other square-on — a closed path's inside, a filled file's cuts, notches, bands and shape-to-line gaps; lint §5f) |
 | `tools/optical.mjs` | optical side bearings computed from the outline |
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
-| `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `start` · `batch` · `approve` · `drop` (retire a name: delete its files, remove its row) · `rename <old>=<new>…` (renumber: move the files, rewrite the row keeping its status and date, re-point the relatives' comments) · `clear` |
+| `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `add <name>…` (a row on the sheet, no board) · `mvp <name>… on|off` (the MVP mark) · `start` · `batch` · `approve` · `drop` (retire a name: delete its files, remove its row) · `rename <old>=<new>…` (renumber: move the files, rewrite the row keeping its status and date, re-point the relatives' comments) · `clear` |
+| `tools/serve.mjs` | the lab server (`npm run lab`): static, no-store, plus two write routes — `POST /api/queue/add {name}` and `POST /api/queue/mvp {name, on}` — that run `queue.mjs` (argument array, no shell) then rebuild `lab/manifest.json` |
 | `tools/draft-svg.mjs` | one candidate → the six SVG texts it ships as; shared by `queue.mjs` and `draft-check.mjs` so a check and an approval cannot drift |
 | `tools/draft-check.mjs` | `node tools/draft-check.mjs <draft.js> [id…]` — lints a draft's candidates in a temp directory with the whole of `npm run check` (root weight, grid, keyline, gaps, C8 family, the filled-vs-outline ink box) and prints both ink boxes per master. Writes nothing |
 | `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
