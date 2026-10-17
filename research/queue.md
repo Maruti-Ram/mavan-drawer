@@ -621,8 +621,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 260. `currency` · Commerce & Payments
 - [ ] 261. `blog` · Editing & Text
 - [ ] 262. `button` · UI & Layout
-- [~] 263. `caret-down` · Arrows & Direction — mvp
-- [ ] 264. `caret-up` · Arrows & Direction — mvp
+- [x] 263. `caret-down` · Arrows & Direction — mvp · approved 2026-10-17
+- [x] 264. `caret-up` · Arrows & Direction — mvp · approved 2026-10-17
 - [ ] 265. `live` · Media & Playback
 - [ ] 266. `categories` · Files & Folders
 - [ ] 267. `chart-funnel` · Charts & Data
