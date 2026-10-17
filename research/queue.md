@@ -509,9 +509,11 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 154. `merge` · Arrows & Direction
 - [ ] 155. `note` · Files & Folders
 - [ ] 156. `quote` · Editing & Text — mvp
-- [ ] 157. `redo` · Arrows & Direction — mvp
+- [x] 157. `redo` · Arrows & Direction — mvp · approved 2026-10-17
+- [x] 157. `redo-2` · Arrows & Direction · variant of `redo` — U-turn · redo · approved 2026-10-17
 - [ ] 158. `spell-check` · Editing & Text
-- [ ] 159. `undo` · Arrows & Direction — mvp
+- [x] 159. `undo` · Arrows & Direction — mvp · approved 2026-10-17
+- [x] 159. `undo-2` · Arrows & Direction · variant of `undo` — U-turn · undo · approved 2026-10-17
 - [ ] 160. `barcode` · Devices & Hardware
 - [ ] 161. `card-reader` · Commerce & Payments
 - [ ] 162. `coins` · Commerce & Payments
@@ -657,7 +659,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 302. `arrow-down-right` · Arrows & Direction
 - [ ] 303. `arrow-up-left` · Arrows & Direction
 - [ ] 304. `command` · UI & Layout
-- [ ] 305. `shuffle` · Arrows & Direction
+- [ ] 305. `shuffle` · Arrows & Direction — mvp
 - [ ] 306. `aperture` · Media & Playback
 - [ ] 307. `hard-drive` · Devices & Hardware
 - [ ] 308. `music` · Media & Playback
