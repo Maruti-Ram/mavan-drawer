@@ -59,21 +59,25 @@ const M = [24, 20, 16];
 let style = 'outline';
 document.getElementById('title').textContent = `${draft.concept} · beside ${FAMILY.join(', ') || '(no family on the board)'}`;
 
-// A drawing as { lines, areas, weight } for one master: a candidate or a shipped file.
+// A drawing as { lines, areas, weight, widths? } for one master: a candidate or a shipped file.
 // The outline weight is the master's own (tools/masters.mjs: 1.5 · 1.5 · 1.25), never
-// one global stroke; a shipped file states the weight it was drawn at.
+// one global stroke; a shipped file states the weight it was drawn at. `widths` gives a line
+// its own weight: a numeral in a line-heavy filled drawing keeps the outline weight (C32) —
+// a draft's `filled.glyph`, a shipped file's per-path `widths` in the manifest.
 const fromCand = (c, m) => {
   const f = c.filled?.[m];
-  return style === 'filled' && f ? { lines: f.stroke ?? [], areas: f.fill ?? [], weight: f.weight ?? strokeOf(m) }
-    : { lines: c.masters[m] ?? [], areas: [], weight: strokeOf(m) };
+  if (!(style === 'filled' && f)) return { lines: c.masters[m] ?? [], areas: [], weight: strokeOf(m) };
+  const weight = f.weight ?? strokeOf(m), stroke = f.stroke ?? [], glyph = f.glyph ?? [];
+  return { lines: [...stroke, ...glyph], areas: f.fill ?? [], weight,
+    widths: [...stroke.map(() => weight), ...glyph.map(() => strokeOf(m))] };
 };
 const fromFile = (name, m) => {
   const i = manifest.masters[m]?.icons?.[style === 'filled' ? `${name}-filled` : name];
-  return i ? { lines: i.paths ?? [], areas: i.areas ?? [], weight: i.stroke ?? strokeOf(m) } : null;
+  return i ? { lines: i.paths ?? [], areas: i.areas ?? [], weight: i.stroke ?? strokeOf(m), widths: i.widths } : null;
 };
 const draw = (g, m, px, extra = '', cls = '') => `<svg class="${cls}" width="${px}" height="${px}" viewBox="0 0 ${m} ${m}">${
   g ? g.areas.map((d) => `<path d="${d}" fill="currentColor" fill-rule="evenodd"/>`).join('')
-    + g.lines.map((d) => `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${g.weight}" stroke-linecap="round" stroke-linejoin="round"/>`).join('') : ''}${extra}</svg>`;
+    + g.lines.map((d, k) => `<path d="${d}" fill="none" stroke="currentColor" stroke-width="${g.widths?.[k] ?? g.weight}" stroke-linecap="round" stroke-linejoin="round"/>`).join('') : ''}${extra}</svg>`;
 
 // Inner-mark ink box: the outline's paths after the ring, grown by half the stroke.
 const probe = document.createElementNS('http://www.w3.org/2000/svg', 'svg');

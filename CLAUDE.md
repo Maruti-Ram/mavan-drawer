@@ -117,7 +117,8 @@ to a strip (**[**, ↑ ↓ to step). It lists every candidate in `current.js`; t
 the board, and "more iterations" means adding candidates there. A sticky header holds the glyph,
 Stroke, Overlay and theme controls. The Construction panel is a grid: **sizes run down (24/20/16), styles across (Outline | Filled)**,
 so each outline sits beside its filled twin. Draft format: `masters: {24: [stroke d…]}` is the outline;
-`filled: {24: {fill: [d…], stroke: [d…]}}` (each fill entry is one evenodd shape with its holes) or
+`filled: {24: {fill: [d…], stroke: [d…]}}` (each fill entry is one evenodd shape with its holes; a line-heavy
+one at `weight` may add `glyph: [d…]`, a numeral kept at the outline weight, C32) or
 a line-only icon still needs a real filled twin at `FILLED_WEIGHT` — `filled: 'outline'` is **retired** and `draft-svg.mjs` throws on it. In context has a **Filled switch (F)** that swaps the style in place on the same rows; Compare has a Style dropdown (Outline / Filled / Both). The boards have a
 Layers menu (each guide and keyline switched separately), True size / Fit, and **Inspect**
 (rulers, Figma-style distances, click to pin, ink box, mass centre). Nothing may shift when
@@ -186,7 +187,7 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Source of truth | hand-authored SVG in `src/icons/24/`, **not** Figma |
 | Authoring format | **strokes** (typable, lintable, 10× smaller) |
 | Shipped format | **outlined fills only** — the stroked source stays private |
-| Styles | outline + filled, **drawn together per icon** and approved as a pair (user decision 2026-09-17). Separate drawings; filled outer edge = outline outer edge. **Filled rule (locked 2026-09-17):** *line-heavy* icons (plus, check, arrows, chevrons — nothing to fill) show weight by a **heavier stroke — 2.5 at 24, 2 at 20 and 16** (`FILLED_WEIGHT`), never a background; ink box stays identical, so ends pull in by half the added weight. *Repeated elements* (C17: dots, menu lines) are spaced by their own thickness (menu: fixed gap 3 at 24 and 20; **at 16 the lines hold their 1.5-era centrelines instead, so the gap is 3.25 for `menu`/`menu-2`/`menu-arrow-*`, 4.75 for `menu-3`, 6.25 for `menu-4`** — decided 2026-09-20) and thicken in place, so their filled version is slightly larger than the outline. *Every other* icon fills its shapes (plus-circle fills the circle) and its **strokes stay at the outline weight — 1.5 at 24 and 20, 1.25 at 16**. Duotone deferred. |
+| Styles | outline + filled, **drawn together per icon** and approved as a pair (user decision 2026-09-17). Separate drawings; filled outer edge = outline outer edge. **Filled rule (locked 2026-09-17):** *line-heavy* icons (plus, check, arrows, chevrons — nothing to fill) show weight by a **heavier stroke — 2.5 at 24, 2 at 20 and 16** (`FILLED_WEIGHT`), never a background; ink box stays identical, so ends pull in by half the added weight. A **numeral** inside a line-heavy icon keeps the outline weight in the filled drawing (C32, `<!-- glyph: numeral -->`, draft `filled.glyph`). *Repeated elements* (C17: dots, menu lines) are spaced by their own thickness (menu: fixed gap 3 at 24 and 20; **at 16 the lines hold their 1.5-era centrelines instead, so the gap is 3.25 for `menu`/`menu-2`/`menu-arrow-*`, 4.75 for `menu-3`, 6.25 for `menu-4`** — decided 2026-09-20) and thicken in place, so their filled version is slightly larger than the outline. *Every other* icon fills its shapes (plus-circle fills the circle) and its **strokes stay at the outline weight — 1.5 at 24 and 20, 1.25 at 16**. Duotone deferred. |
 | Weight axis | **none.** Opinionated defaults; customers do not adjust stroke. |
 | Stroke | **1.5 at 24 and 20 · 1.25 at 16** (user decision 2026-09-20, C7 amended; blind pick + eight true redraws, carried out in `plans/stroke-16.md`). Filled line weight at 16 stays 2. 219 of 228 drawings at 16 keep their ink box exactly; nine — `minus` ×3 and six menu stacks — are 0.25 shorter and nothing else, because their ink ends are the sides of a line (`tools/inkbox-guard.mjs`; dated note, 2026-09-20). 16 centrelines sit on x.375 / x.625 (eighth grid, 3 dp, that master only); gap floor stays a **literal 1.5 at every master** — no longer "one stroke-width" at 16, since the 16 stroke is now 1.25. It holds for white in filled drawings too: a line punched out of a shape or a band between two filled parts is **1.5 at 16**, not the line's 1.25 (Maruti, 2026-09-28; C22 dated note; lint §5f). |
 | Canvas | 24 |
@@ -286,6 +287,8 @@ depending on the icon.
   glyph pairs and the knockout check are untouched). Lint prints it as an info line while the drawing holds
   it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
   the drawing no longer needs. Today: `attachment-4-filled` at 24 and 20 (`gap: 1`)
+- `<!-- glyph: dot | numeral -->` declares C19's glyph floor; `numeral` also lets a numeral's path carry
+  `stroke-width` at the outline weight inside a line-heavy filled file (C32) — the only per-path weight lint allows
 - `<!-- anchor: NAME -->` marks a member of a level family (C28; first `volume-low`, `-none`,
   `-x` → `volume`; `volume-off` is a state, centred on its own, and carries none). It declares
   membership, so every anchored member carries it. Lint then does not ask the member to be centred or to match a keyline; it holds its

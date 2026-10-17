@@ -62,6 +62,7 @@ export default {
 - **Filled style.** Every candidate carries all three masters in **both** styles. Pick the form by icon type:
   - *Line-heavy icons* (nothing to fill) use `{ weight, stroke }` at `FILLED_WEIGHT` (2.5 · 2 · 2). Pull each end in by half the added weight, so the ink box matches the outline.
   - *Shape icons* use `{ fill: [evenodd d…], stroke: [lines at the outline weight] }` — 1.5 at 24 and 20, **1.25 at 16**. The filled outer edge equals the outline's outer edge.
+  - *A numeral inside a line-heavy icon* (`repeat-once`'s 1; C32) stays at the outline weight: `{ weight: 2.5, stroke: [rails…], glyph: [numeral d…] }`, with `glyph: 'numeral'` on the candidate or board. `glyph` paths are written with their own `stroke-width` (1.5 · 1.5 · 1.25) and are not pulled in; air to the rails is 1.5 measured with each path's own weight (centrelines 3.5 apart at 24, 3.25 at 20, 3.125 at 16).
 - **Candidates.** Give 2–4 — or ten when Maruti asks for ten — and mark one "(recommended)". The first line of the file comments why the decision matters.
 - **Geometry** (CLAUDE.md):
   - Round caps reach half a stroke past each endpoint — 0.75 at 24 and 20, **0.625 at 16** (a 16

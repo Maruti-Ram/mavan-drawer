@@ -28,6 +28,10 @@ function polyGap(a, b) {
 // `-filled` file draws its areas as `<path fill="currentColor" fill-rule="evenodd"
 // stroke="none" d…>` (the one path form allowed to carry paint) and keeps the
 // master's outline stroke for whatever lines are left.
+// One exception to "one weight per file" (C32, 2026-10-17): in a line-heavy `-filled` file
+// that declares `<!-- glyph: numeral -->`, a numeral's path carries its own
+// `stroke-width` at the master's OUTLINE weight, so a 1 inside 2.5 rails does not thicken
+// into a blob. Every measure below reads each path at its own weight.
 const required = (canvas, weight) => ({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: `0 0 ${canvas} ${canvas}`,
@@ -278,10 +282,45 @@ export function lintSource(canvas, file, src) {
   const stripped = body.replace(/<!--[\s\S]*?-->/g, '').replace(AREA, '');
   if (BANNED_EL.test(stripped)) errors.push(`uses ${stripped.match(BANNED_EL)[1]} — normalise to <path>`);
   if (BANNED_ATTR.test(stripped)) errors.push(`uses disallowed attribute ${stripped.match(BANNED_ATTR)[1]}`);
-  if (/<path[^>]*\sstroke/.test(stripped)) errors.push('stroke attribute on a <path> — belongs on the root');
 
   const ds = [...stripped.matchAll(/<path[^>]*\bd="([^"]+)"/g)].map((m) => m[1]);
   if (!ds.length && !areas.length) errors.push('no <path> found');
+
+  // --- 2b. a path's own weight (C32) -----------------------------------------
+  // Every stroke attribute belongs on the root, bar one: in a file that declares
+  // `<!-- glyph: numeral -->`, a numeral's path may carry `stroke-width` at this master's
+  // OUTLINE weight (masters.mjs STROKES) — which only differs from the root in a line-heavy
+  // filled file (root FILLED_WEIGHT). So a per-path weight is an ERROR, naming the path, in a
+  // file without the note, at any other value, or where it only repeats the root. `W[i]` is
+  // path i's weight; §4, §4b, §5, §5b and §5f read it, never one weight for the file.
+  // Only the ONE accepted form is taken out — a single, double-quoted `stroke-width="…"` at the
+  // outline weight, in a file with the note — and HEAD's blanket test then runs on what is left,
+  // so any other stroke attribute, any quoting, a repeat or a path lint cannot read still fails.
+  const OUTLINE = strokeOf(canvas);
+  const W = [], numerals = [];
+  let rest = stripped;   // the body with each accepted per-path weight removed
+  [...stripped.matchAll(/<path([^>]*)\bd="[^"]+"([^>]*)>/g)].forEach((m, i) => {
+    W[i] = STROKE;
+    const tag = `${m[1]} ${m[2]}`;
+    const widths = [...tag.matchAll(/\sstroke-width\b/g)].length;
+    if (widths > 1) { errors.push(`path ${i + 1} carries stroke-width more than once (C32)`); return; }
+    const own = tag.match(/\sstroke-width="([^"]*)"/);
+    if (!own) return;   // none, or not double-quoted: the blanket test below decides
+    const v = own[1];
+    if (!isNumeral)
+      errors.push(`path ${i + 1} carries its own stroke-width="${v}" — only a numeral may, in a file that declares <!-- glyph: numeral --> (C32); everything else draws at the root's ${STROKE}`);
+    else if (v !== String(OUTLINE))
+      errors.push(`path ${i + 1} carries stroke-width="${v}" — a numeral keeps this master's outline weight, "${OUTLINE}" (C32)`);
+    else if (OUTLINE === STROKE)
+      errors.push(`path ${i + 1} carries stroke-width="${v}", which is the root's own — only a numeral inside a line-heavy filled drawing needs its own weight (C32); delete it`);
+    else {
+      W[i] = OUTLINE; numerals.push(i + 1);
+      rest = rest.replace(m[0], m[0].replace(own[0], ''));
+    }
+  });
+  if (/<path[^>]*\sstroke/.test(rest)) errors.push('stroke attribute on a <path> — belongs on the root');
+  if (numerals.length)
+    notes.push(`path${numerals.length > 1 ? 's' : ''} ${numerals.join(', ')} ${numerals.length > 1 ? 'are numerals' : 'is a numeral'} at ${OUTLINE} (C32)`);
 
   // --- 3. precision + grid ------------------------------------------------
   // The grid follows the master's stroke (masters.mjs): a 1.5 stroke centred on
@@ -301,9 +340,9 @@ export function lintSource(canvas, file, src) {
 
   // --- 4. trim, keyline, centring ----------------------------------------
   if (ds.length || areas.length) {
-    // A line grows its centreline box by half a stroke; a filled area is its own box.
-    const half = STROKE / 2, boxes = [];
-    if (ds.length) { const b = bbox(ds); boxes.push([b.x0 - half, b.y0 - half, b.x1 + half, b.y1 + half]); }
+    // A line grows its centreline box by half its own stroke (C32: a numeral's is thinner than
+    // the rails'); a filled area is its own box.
+    const boxes = ds.map((d, i) => { const b = bbox([d]), h = W[i] / 2; return [b.x0 - h, b.y0 - h, b.x1 + h, b.y1 + h]; });
     if (areas.length) { const b = bbox(areas); boxes.push([b.x0, b.y0, b.x1, b.y1]); }
     // Kept unrounded for the pair comparison: at 16 a filled edge can land on x.625, and
     // rounding it to 2 dp would invent 0.005 of difference the drawing does not have.
@@ -330,8 +369,13 @@ export function lintSource(canvas, file, src) {
     }
     // A container's first path is the container; the rest is its inner mark (measured on the outline file).
     if (!isMark && !areas.length && ds.length > 1) {
-      const b = bbox(ds.slice(1));
-      inner = r2(Math.max(b.x1 - b.x0, b.y1 - b.y0) + STROKE);
+      if (W.every((w) => w === STROKE)) {
+        const b = bbox(ds.slice(1));
+        inner = r2(Math.max(b.x1 - b.x0, b.y1 - b.y0) + STROKE);
+      } else {   // a C32 numeral is thinner than the lines beside it: grow each path by its own half
+        const bs = ds.slice(1).map((d, i) => { const b = bbox([d]), h = W[i + 1] / 2; return [b.x0 - h, b.y0 - h, b.x1 + h, b.y1 + h]; });
+        inner = r2(Math.max(Math.max(...bs.map((b) => b[2])) - Math.min(...bs.map((b) => b[0])), Math.max(...bs.map((b) => b[3])) - Math.min(...bs.map((b) => b[1]))));
+      }
     }
     if (isMark) {
       notes.push(`${w}×${h}  declared mark  centre ${cx},${cy}`);
@@ -369,18 +413,19 @@ export function lintSource(canvas, file, src) {
   // solid disc. `isDot` lives in geometry.mjs so lint, build and the lab share one test — an
   // open two-arc path is a bend (a bowl running into a tuck), checked like any other, and in a
   // glyph mark it is the body, not the dot (C19).
-  for (const d of ds) if (!isDot(d)) for (const { cmd, args } of parsePath(d)) {
+  ds.forEach((d, i) => { if (!isDot(d)) for (const { cmd, args } of parsePath(d)) {
     if (cmd.toUpperCase() !== 'A') continue;
     for (let k = 0; k + 7 <= args.length; k += 7)
-      if (Math.min(args[k], args[k + 1]) < bendMin(STROKE) - 0.005)
-        warnings.push(`bend radius ${args[k]} is under half the stroke (${bendMin(STROKE)}) — the corner reads uneven (C10)`);
-  }
+      if (Math.min(args[k], args[k + 1]) < bendMin(W[i]) - 0.005)
+        warnings.push(`bend radius ${args[k]} is under half the stroke (${bendMin(W[i])}) — the corner reads uneven (C10)`);
+  } });
 
   // --- 5. advisory: near-collisions between separate paths ---------------
   // §6 asks MIN_GAP (1.5 units) between any two stroke edges, at every master —
   // the floor does not thin with the line, so a lighter master just leaves more
   // air. Only the conversion from centreline distance to edge gap is per master:
-  // it subtracts this file's own stroke. C19 carves out one case:
+  // it subtracts half of each path's own weight (one weight per file, bar a C32 numeral).
+  // C19 carves out one case:
   // in a file that declares `<!-- glyph: dot -->`, the pair {dot, body} is the inside
   // of one character and floors at GLYPH_GAP instead. The dot's clearance to the
   // silhouette (the path spanning the whole ink box) is not that pair, and keeps MIN_GAP.
@@ -394,14 +439,15 @@ export function lintSource(canvas, file, src) {
     if (crosses(sampled[i], sampled[j])) continue; // paths that cross (x, plus) join by design
     const glyphPair = isGlyph && isDot(ds[i]) !== isDot(ds[j]) && !isShell(spans[i]) && !isShell(spans[j]);
     const floor = glyphPair ? GLYPH_GAP : GAP;
-    const need = floor + STROKE; // centreline distance that leaves `floor` between the two edges
+    const pen = (W[i] + W[j]) / 2;   // half of each path's own weight (C32)
+    const need = floor + pen; // centreline distance that leaves `floor` between the two edges
     // Point-to-SEGMENT, both ways: point-to-point read a stem standing on a bar as 0.13
     // apart whenever the bar's samples straddled the stem (info-3 at 16, on the eighth grid).
     const min = Math.min(polyGap(sampled[i], sampled[j]), polyGap(sampled[j], sampled[i]));
     if (min <= 0.1) continue;
-    if (!glyphPair) measured.push(r2(min - STROKE));
+    if (!glyphPair) measured.push(r2(min - pen));
     if (min < need - 0.01)
-      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${need} (edge gap ${r2(min - STROKE)} < ${floor})`);
+      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${need} (edge gap ${r2(min - pen)} < ${floor})`);
   }
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
@@ -423,12 +469,12 @@ export function lintSource(canvas, file, src) {
   // four strokes tall, and holding that mouth at 1.5 laid its diagonal down to 25-30 degrees.
   // Every path in the file is read this way, the silhouette included - a numeral drawn on its
   // own IS the silhouette, and the lines beside one are straight, so they have no opening.
-  // `selfGap` is handed this file's own stroke, so it reads edge-to-edge at any master.
+  // `selfGap` is handed the path's own stroke, so it reads edge-to-edge at any master.
   let numeralMin = Infinity;   // the tightest opening the numeral note governs, for 5e
   const read5b = [];           // what 5b measured per path, so 5f does not warn on the same neck twice
   for (let i = 0; i < ds.length; i++) {
     if (isDot(ds[i])) continue;
-    const self = selfGap(ds[i], STROKE);
+    const self = selfGap(ds[i], W[i]);
     read5b[i] = self;
     if (!self) continue;
     const inGlyph = (isGlyph && !isShell(spans[i])) || isNumeral;
@@ -481,7 +527,7 @@ export function lintSource(canvas, file, src) {
   // MIN_GAP. Air touching a shape floors at the agreed gap, else MIN_GAP: a filled glyph's
   // own openings are material, not air, and 5c reads them. WARNINGS (plan, 2026-09-28).
   {
-    const air = facingGap(ds, STROKE, areas);
+    const air = facingGap(ds, W, areas);   // each path at its own weight (C32)
     const shut = (sub) => { const p = samplePath(sub); return p.length > 2 && Math.hypot(p.at(-1)[0] - p[0][0], p.at(-1)[1] - p[0][1]) < 0.01; };
     for (const { path, gap: g, at } of air.self) {
       const d = ds[path], subs = subpathsOf(d);
@@ -518,11 +564,12 @@ export function lintSource(canvas, file, src) {
   // `glyph: numeral` is written by the board into all six files of an icon, and at 24 a
   // numeral's opening usually clears §6 on its own, so a note with nothing under 1.5 is
   // not an error the way a stale `gap` is: it says so in an info line, and is in force
-  // (with its reading) wherever an opening does fall below §6.
+  // (with its reading) wherever an opening does fall below §6. Where a path carries the
+  // outline weight (C32), the note is in use for that, and the line says so.
   if (isNumeral)
     notes.splice(-1, 0, numeralMin < MIN_GAP - 0.01
       ? `C19 numeral opening ${numeralMin} — floor ${GLYPH_GAP}, not §6's ${MIN_GAP}`
-      : `glyph: numeral — not in use here (${Number.isFinite(numeralMin) ? `smallest opening ${numeralMin}` : 'no opening measured'}, §6's ${MIN_GAP} already holds)`);
+      : `glyph: numeral — ${numerals.length ? 'its opening floor is ' : ''}not in use here (${Number.isFinite(numeralMin) ? `smallest opening ${numeralMin}` : 'no opening measured'}, §6's ${MIN_GAP} already holds)${numerals.length ? '; the note is in use for the numeral\'s weight (C32)' : ''}`);
 
   // `paths` (whitespace-normalised) lets checkAnchors count what a member shares with its anchor.
   const paths = [...ds, ...areas].map(normPath);

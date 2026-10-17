@@ -532,17 +532,23 @@ const refineOpen = (pts, step) => [...refine(pts, step).slice(0, -Math.max(1, Ma
   pts[0][0] - pts.at(-1)[0], pts[0][1] - pts.at(-1)[1]) / step))), pts.at(-1)];
 
 export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
-  const half = stroke / 2, key = (i, j) => (i + 512) * 1024 + j + 512;
+  // `stroke` is one weight for every path, or an array with one per path: in a line-heavy
+  // filled drawing a numeral keeps the outline weight beside heavier rails (C32), and each
+  // path's edge is offset by its own half. `half` is the widest, for the spatial hash.
+  const halves = ds.map((_, i) => (Array.isArray(stroke) ? stroke[i] : stroke) / 2);
+  const half = Math.max(0, ...halves), key = (i, j) => (i + 512) * 1024 + j + 512;
   // centreline segments of every stroked path, for "is this point ink?"
   const segs = [];
-  const lines = ds.map((d) => subpathsOf(d).map((sub) => {
+  const lines = ds.map((d, owner) => subpathsOf(d).map((sub) => {
     let pts = samplePath(sub, { arcStep: 1 }).filter((p, i, a) => i === 0 || Math.hypot(p[0] - a[i - 1][0], p[1] - a[i - 1][1]) > 1e-9);
     const closed = pts.length > 2 && Math.hypot(pts.at(-1)[0] - pts[0][0], pts.at(-1)[1] - pts[0][1]) < 0.01;
     if (closed) pts.pop();
     if (pts.length > 1) pts = closed ? refine(pts, WALL) : refineOpen(pts, WALL);
     const m = closed ? pts.length : pts.length - 1;
-    for (let k = 0; k < m; k++) segs.push([pts[k], pts[(k + 1) % pts.length]]);
-    if (pts.length === 1) segs.push([pts[0], pts[0]]);
+    // each segment carries its own path's pen radius, squared, for `nearLine`
+    const R2 = (halves[owner] - 1e-4) ** 2;
+    for (let k = 0; k < m; k++) segs.push([pts[k], pts[(k + 1) % pts.length], R2]);
+    if (pts.length === 1) segs.push([pts[0], pts[0], R2]);
     return { pts, closed };
   }));
 
@@ -554,14 +560,13 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
         const k = key(i, j); if (!segGrid.has(k)) segGrid.set(k, []); segGrid.get(k).push(s);
       }
   });
-  const R2 = (half - 1e-4) ** 2;
   const nearLine = (x, y) => {
     const list = segGrid.get(key(Math.floor(x), Math.floor(y)));
     if (list) for (const s of list) {
       const [a, b] = segs[s], ex = b[0] - a[0], ey = b[1] - a[1], L = ex * ex + ey * ey;
       const u = L ? Math.max(0, Math.min(1, ((x - a[0]) * ex + (y - a[1]) * ey) / L)) : 0;
       const fx = x - a[0] - u * ex, fy = y - a[1] - u * ey;
-      if (fx * fx + fy * fy < R2) return true;
+      if (fx * fx + fy * fy < segs[s][2]) return true;
     }
     return false;
   };
@@ -609,11 +614,11 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
   };
   // a round join or cap: an arc of the pen's circle about (cx, cy), in pieces of 1 deg; the
   // pen's circle always bulges into the air
-  const fan = (cx, cy, a0, sweep, tag) => {
+  const fan = (cx, cy, a0, sweep, tag, h) => {
     const n = Math.max(1, Math.ceil(Math.abs(sweep) / (Math.PI / 180)));
     for (let i = 0; i < n; i++) {
       const s = a0 + (sweep * i) / n, e = a0 + (sweep * (i + 1)) / n, m = (s + e) / 2;
-      wall(cx + Math.cos(s) * half, cy + Math.sin(s) * half, cx + Math.cos(e) * half, cy + Math.sin(e) * half, Math.cos(m), Math.sin(m), tag, -1, 0, Math.abs(sweep) / n, Math.abs(sweep) / n);
+      wall(cx + Math.cos(s) * h, cy + Math.sin(s) * h, cx + Math.cos(e) * h, cy + Math.sin(e) * h, Math.cos(m), Math.sin(m), tag, -1, 0, Math.abs(sweep) / n, Math.abs(sweep) / n);
     }
   };
   // How a boundary turns at each vertex (signed, radians; 0 at an open end).
@@ -636,8 +641,8 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
   };
   const turnAt = (turn, k, s) => Math.max(0, -s * soft(turn[k % turn.length]));
   lines.forEach((subs, owner) => subs.forEach(({ pts, closed }) => {
-    const tag = `p${owner}`;
-    if (pts.length === 1) { fan(pts[0][0], pts[0][1], 0, TAU, tag); return; }
+    const tag = `p${owner}`, half = halves[owner];   // this path's own pen (C32)
+    if (pts.length === 1) { fan(pts[0][0], pts[0][1], 0, TAU, tag, half); return; }
     const m = closed ? pts.length : pts.length - 1, dir = [], nor = [];
     for (let k = 0; k < m; k++) {
       const a = pts[k], b = pts[(k + 1) % pts.length], L = Math.hypot(b[0] - a[0], b[1] - a[1]);
@@ -684,13 +689,13 @@ export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
     for (let k = closed ? 0 : 1; k < m; k++) {
       const a0 = dir[(k - 1 + m) % m], dt = turn[k];
       if (!sharp(k)) continue;
-      fan(pts[k][0], pts[k][1], a0 + Math.PI / 2, dt, tag);
-      fan(pts[k][0], pts[k][1], a0 - Math.PI / 2, dt, tag);
+      fan(pts[k][0], pts[k][1], a0 + Math.PI / 2, dt, tag, half);
+      fan(pts[k][0], pts[k][1], a0 - Math.PI / 2, dt, tag, half);
     }
     // round caps at the open ends
     if (!closed) {
-      fan(pts[0][0], pts[0][1], dir[0] + Math.PI / 2, Math.PI, tag);
-      fan(pts.at(-1)[0], pts.at(-1)[1], dir.at(-1) - Math.PI / 2, Math.PI, tag);
+      fan(pts[0][0], pts[0][1], dir[0] + Math.PI / 2, Math.PI, tag, half);
+      fan(pts.at(-1)[0], pts.at(-1)[1], dir.at(-1) - Math.PI / 2, Math.PI, tag, half);
     }
   }));
   const corners = [];        // [x, y, nx, ny, tag]: rays out of a shape's sharp corners

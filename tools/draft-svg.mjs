@@ -14,7 +14,11 @@
 //                   opening (the mouth of a 2) floors at GLYPH_GAP, every gap between separate
 //                   paths keeps MIN_GAP (C19, 2026-09-26). A candidate or the board writes
 //                   `glyph: 'numeral'`, written into all six files; where no opening falls under
-//                   1.5 (usually at 24) lint says the note is not in use, as an info line
+//                   1.5 (usually at 24) lint says the note is not in use, as an info line.
+//                   It also lets a numeral keep the OUTLINE weight in a line-heavy filled
+//                   drawing (C32, 2026-10-17): a filled entry's `glyph: [d…]` is written as
+//                   `<path stroke-width="<outline weight>" d="…"/>` beside the rails at
+//                   FILLED_WEIGHT — the one path that may carry its own weight
 //   optical: dx dy  the ink is deliberately moved off the box centre (C14)
 //   grows: L R T B  FILLED FILES ONLY — how far the filled ink is agreed to stand proud of its
 //                   outline twin's box on each side, in that master's units. C17's repeated
@@ -44,7 +48,7 @@ export const gapFor = (gap, m, filled) => {
   return (scoped ? gap[filled ? 'filled' : 'outline'] : gap)?.[m] ?? null;
 };
 
-export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null) => [
+export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null, numerals = []) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
@@ -57,6 +61,8 @@ export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical =
   ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
   ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
   ...stroke.map((d) => `  <path d="${d}"/>`),
+  // C32: a numeral in a line-heavy filled drawing keeps the master's outline weight
+  ...numerals.map((d) => `  <path stroke-width="${strokeOf(m)}" d="${d}"/>`),
   '</svg>', '',
 ].join('\n');
 
@@ -96,12 +102,22 @@ export function candidateFiles(draft, c, name) {
     // a shape-filled one has none, and its leftover lines keep the outline stroke.
     const sw = strokeOf(m);
     const fw = f.weight ?? sw;
+    // C32: `filled.glyph` holds the numeral(s) of a LINE-HEAVY filled drawing, which keep the
+    // outline weight while the rails in `stroke` go to `weight`. Only there: a shape-filled
+    // drawing's lines already stay at the outline weight (list-ordered's numerals sit in its
+    // `stroke`), and without a heavier weight there is nothing to keep the numeral out of.
+    const numerals = f.glyph ?? [];
+    if (numerals.length) {
+      if (glyph !== 'numeral') throw new Error(`${c.id} at ${m}: filled.glyph keeps a numeral at the outline weight, which needs glyph: 'numeral' on the candidate or the board (C32).`);
+      if (f.fill?.length) throw new Error(`${c.id} at ${m}: filled.glyph is for a line-heavy filled drawing; this one fills shapes, so its numeral's lines already stay at ${sw} — put them in filled.stroke (C32).`);
+      if (fw === sw) throw new Error(`${c.id} at ${m}: filled.glyph needs a filled weight heavier than ${sw} (filled.weight); at the outline weight the numeral belongs in filled.stroke (C32).`);
+    }
     out.push({ master: m, name, file: `${name}.svg`, filled: false,
       src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph, box?.[m], null, gapFor(gap, m, false), anchor) });
     out.push({ master: m, name: `${name}-filled`, file: `${name}-filled.svg`, filled: true,
       src: svg(m, fw, keyline,
-        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline`),
-        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m], gapFor(gap, m, true), anchor) });
+        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline${numerals.length ? `, numeral stays at ${sw}` : ''}`),
+        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m], gapFor(gap, m, true), anchor, numerals) });
   }
   return out;
 }

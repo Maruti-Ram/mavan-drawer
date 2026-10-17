@@ -17,14 +17,14 @@ import { samplePath } from './geometry.mjs';
 
 const STEP = 0.25;
 
-/** Per-scanline extreme ink position for one side. */
-function profile(pts, r, side, lo, hi) {
+/** Per-scanline extreme ink position for one side. Each point carries its own pen radius. */
+function profile(pts, side, lo, hi) {
   const vertical = side === 'left' || side === 'right';
   const want = side === 'right' || side === 'bottom' ? 1 : -1;
   const out = [];
   for (let s = lo; s <= hi + 1e-9; s += STEP) {
     let best = -Infinity;
-    for (const [px, py] of pts) {
+    for (const [px, py, r] of pts) {
       const along = vertical ? py : px;          // the scanline axis
       const across = vertical ? px : py;         // the measured axis
       const d = Math.abs(along - s);
@@ -67,23 +67,25 @@ function contiguousRecession(prof, far, stroke) {
   return sum / prof.length;
 }
 
+// `stroke` is one weight, or one per path (C32: a numeral in a line-heavy filled drawing keeps
+// the outline weight beside heavier rails); a recession is capped at the heaviest.
 export function opticalBearings(paths, stroke = 2, canvas = 24, alpha = 0.75) {
-  const pts = paths.flatMap(samplePath);
+  const weightAt = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  const pts = paths.flatMap((d, i) => samplePath(d).map(([x, y]) => [x, y, weightAt(i) / 2]));
   if (!pts.length) return null;
-  const r = stroke / 2;
-  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
   const box = {
-    x0: Math.min(...xs) - r, x1: Math.max(...xs) + r,
-    y0: Math.min(...ys) - r, y1: Math.max(...ys) + r,
+    x0: Math.min(...pts.map((p) => p[0] - p[2])), x1: Math.max(...pts.map((p) => p[0] + p[2])),
+    y0: Math.min(...pts.map((p) => p[1] - p[2])), y1: Math.max(...pts.map((p) => p[1] + p[2])),
   };
+  const heaviest = Math.max(...paths.map((_, i) => weightAt(i)));
   const r2 = (n) => Math.round(n * 100) / 100;
   const out = {};
   for (const side of ['left', 'right', 'top', 'bottom']) {
     const vertical = side === 'left' || side === 'right';
-    const prof = profile(pts, r, side, vertical ? box.y0 : box.x0, vertical ? box.y1 : box.x1);
+    const prof = profile(pts, side, vertical ? box.y0 : box.x0, vertical ? box.y1 : box.x1);
     const far = side === 'right' || side === 'bottom'
       ? Math.max(...prof) : Math.min(...prof);
-    const recession = contiguousRecession(prof, far, stroke);
+    const recession = contiguousRecession(prof, far, heaviest);
     const geo = side === 'left' ? box.x0
       : side === 'top' ? box.y0
       : side === 'right' ? canvas - box.x1

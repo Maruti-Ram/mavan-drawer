@@ -920,3 +920,97 @@ test('facingGap: a corner\'s turn is not curve - a notch or a wedge beside a sha
 test('facingGap: two shapes crossing in a narrow wedge, tiny rounds at its mouth, read nothing', () => {
   assert.deepEqual(facingGap([], 1.5, ['M8.1 8L11.9 8A0.1 0.1 0 0 1 12 8.1L12 11.9A0.1 0.1 0 0 1 11.9 12L8.1 12A0.1 0.1 0 0 1 8 11.9L8 8.1A0.1 0.1 0 0 1 8.1 8Z', 'M12.374 7.843L15.856 8.2A0.25 0.25 0 0 1 16.079 8.474L15.722 11.956A0.25 0.25 0 0 1 15.448 12.179L11.966 11.822A0.25 0.25 0 0 1 11.743 11.548L12.1 8.066A0.25 0.25 0 0 1 12.374 7.843Z']).area, []);
 });
+
+// --- C32: a numeral keeps the outline weight in a line-heavy filled drawing (2026-10-17) ---
+// repeat-once's 1 inside 2.5 rails: a 2.5 one with a flag thickens into a blob, so its path
+// carries `stroke-width` at the master's outline weight, and only in a file that declares
+// `<!-- glyph: numeral -->`. Every measure reads each path at its own weight. Fixture: a rail
+// at 2.5 and a stem below it at 1.5, at 24 (gap = centreline distance − half of each weight).
+const ROOT24F = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">';
+const RAIL24 = (stem, { notes = ['keyline: mark', 'glyph: numeral'], sw = '1.5' } = {}) => [ROOT24F, ...notes.map((n) => `  <!-- ${n} -->`),
+  '  <path d="M5 7H19"/>', `  <path stroke-width="${sw}" d="${stem}"/>`, '</svg>', ''].join('\n');
+const numPairWarn = (r) => r.warnings.filter((w) => /^paths /.test(w));
+
+test('C32: a 1.5 numeral beside a 2.5 rail is measured at its own weight', () => {
+  // 3.5 between centrelines: 3.5 − (2.5 + 1.5) / 2 = 1.5 of air, which holds §6 (at one 2.5 it would read 1)
+  const ok = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17'));
+  assert.deepEqual(ok.errors, []);
+  assert.deepEqual(numPairWarn(ok), [], ok.warnings.join(' | '));
+  assert.ok(ok.notes.includes('path 2 is a numeral at 1.5 (C32)'), ok.notes.join(' | '));
+  assert.match(ok.notes.at(-1), /declared mark/, 'the headline stays last');
+  // ink box: the stem's foot grows by 0.75, not 1.25
+  assert.equal(ok.ink.y1, 17.75);
+  assert.equal(ok.ink.x0, 3.75);
+  // 3 apart: 1 of air, and the warning says so in the numeral's own terms
+  const close = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10V17'));
+  assert.equal(numPairWarn(close).length, 1);
+  assert.match(numPairWarn(close)[0], /^paths 1\/2 are 3 apart — §6 needs 3\.5 \(edge gap 1 < 1\.5\)$/);
+});
+
+test('C32: a per-path stroke-width without `glyph: numeral` is an ERROR naming the path', () => {
+  const r = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
+  assert.ok(r.errors.some((e) => /^path 2 carries its own stroke-width="1\.5" — only a numeral may, in a file that declares <!-- glyph: numeral --> \(C32\)/.test(e)), r.errors.join(' | '));
+});
+
+test('C32: a numeral at any weight but the outline\'s is an ERROR, and so is one that repeats the root', () => {
+  const wrong = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { sw: '2' }));
+  assert.ok(wrong.errors.some((e) => /^path 2 carries stroke-width="2" — a numeral keeps this master's outline weight, "1\.5" \(C32\)$/.test(e)), wrong.errors.join(' | '));
+  // at 16 the outline weight is 1.25, so 1.5 is wrong there
+  const at16 = lintSource(16, 'x-filled.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n  <!-- keyline: mark -->\n  <!-- glyph: numeral -->\n  <path d="M3 5H13"/>\n  <path stroke-width="1.5" d="M8 8V12"/>\n</svg>\n');
+  assert.ok(at16.errors.some((e) => /path 2 carries stroke-width="1\.5" — .* "1\.25"/.test(e)), at16.errors.join(' | '));
+  // an outline file already draws at 1.5: a per-path 1.5 there says nothing
+  const outline = lintSource(24, 'repeat-once.svg', RAIL24('M12 10.5V17').replace('stroke-width="2.5"', 'stroke-width="1.5"'));
+  assert.ok(outline.errors.some((e) => /path 2 carries stroke-width="1\.5", which is the root's own/.test(e)), outline.errors.join(' | '));
+  // any other stroke attribute on a path is still refused
+  const other = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('<path d="M5 7H19"/>', '<path stroke-linecap="butt" d="M5 7H19"/>'));
+  assert.ok(other.errors.includes('stroke attribute on a <path> — belongs on the root'), other.errors.join(' | '));
+});
+
+test('facingGap reads each path at its own weight when handed one per path (C32)', () => {
+  const box = 'M8 8H16V11H8Z';   // 3 between centrelines inside
+  near(facingGap([box], 1.5).self[0].gap, 1.5, 0.02);
+  near(facingGap([box], 2.5).self[0].gap, 0.5, 0.02);
+  const mixed = facingGap(['M4 4H20', box], [2.5, 1.5]).self;
+  assert.equal(mixed.length, 1);
+  assert.equal(mixed[0].path, 1);
+  near(mixed[0].gap, 1.5, 0.02);
+});
+
+test('draft-svg writes `filled.glyph` at the outline weight and refuses it where it does not belong (C32)', () => {
+  const m = (w) => ({ 24: w, 20: w, 16: w });
+  const c = { id: 'D', label: 'stem', glyph: 'numeral', masters: m(['M5 7H19', 'M12 10.5V17']),
+    filled: { 24: { weight: 2.5, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] }, 20: { weight: 2, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] }, 16: { weight: 2, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] } } };
+  const out = candidateFiles({ keyline: 'mark' }, c, 'repeat-once');
+  const f24 = out.find((f) => f.master === 24 && f.filled).src, f16 = out.find((f) => f.master === 16 && f.filled).src;
+  assert.ok(f24.includes('  <path stroke-width="1.5" d="M12 10.5V17"/>'), f24);
+  assert.ok(f16.includes('  <path stroke-width="1.25" d="M12 10.5V17"/>'), f16);
+  assert.ok(f24.includes('stroke-width="2.5" stroke-linecap'), 'the root keeps the filled weight');
+  assert.match(f24, /<!-- stem, filled: weight 2\.5, ends pulled in 0\.5 so the ink box matches the outline, numeral stays at 1\.5 -->/);
+  assert.ok(f24.includes('<!-- glyph: numeral -->'));
+  // the file it writes lints with the info line and no error
+  const r = lintSource(24, 'repeat-once-filled.svg', f24);
+  assert.deepEqual(r.errors, []);
+  assert.ok(r.notes.includes('path 2 is a numeral at 1.5 (C32)'));
+  // refusals
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, glyph: undefined }, 'repeat-once'), /needs glyph: 'numeral'/);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { fill: ['M4 4H8V8H4Z'], glyph: ['M12 10.5V17'] } } }, 'repeat-once'), /fills shapes/);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] } } }, 'repeat-once'), /heavier than 1\.5/);
+});
+
+test('C32: only the one double-quoted form is accepted — single quotes, other stroke attributes and a repeat fail', () => {
+  const STRAY = 'stroke attribute on a <path> — belongs on the root';
+  // single-quoted weight on the numeral: not the accepted form, refused like any stroke attribute
+  const single = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('stroke-width="1.5"', "stroke-width='1.5'"));
+  assert.ok(single.errors.includes(STRAY), single.errors.join(' | '));
+  assert.ok(!single.notes.some((n) => /numeral at/.test(n)), 'not read as a numeral');
+  // another stroke attribute in single quotes, on the rail, beside an accepted numeral
+  const other = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('<path d="M5 7H19"/>', "<path stroke-linecap='butt' d=\"M5 7H19\"/>"));
+  assert.ok(other.errors.includes(STRAY), other.errors.join(' | '));
+  // and on the numeral itself, beside its accepted weight
+  const beside = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('stroke-width="1.5"', "stroke-width=\"1.5\" stroke-linecap='butt'"));
+  assert.ok(beside.errors.includes(STRAY), beside.errors.join(' | '));
+  // the weight given twice on one path
+  const twice = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('stroke-width="1.5"', 'stroke-width="1.5" stroke-width="2.5"'));
+  assert.ok(twice.errors.includes('path 2 carries stroke-width more than once (C32)'), twice.errors.join(' | '));
+  assert.ok(twice.errors.includes(STRAY), twice.errors.join(' | '));
+});

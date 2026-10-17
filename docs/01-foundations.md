@@ -230,7 +230,11 @@ ink box stays identical to the outline's, so each end pulls in by half the
 added weight (`M5.25 12h13.5` at 1.5 → `M5.75 12h12.5` at 2.5). Every other icon
 fills its shapes and keeps its **outline weight** for any leftover line — 1.5
 at 24 and 20, 1.25 at 16. Numbers live in `tools/masters.mjs` (`FILLED_WEIGHT`,
-`strokeOf`); lint enforces them on `*-filled.svg`.
+`strokeOf`); lint enforces them on `*-filled.svg`. One exception (C32,
+2026-10-17): a **numeral** inside a line-heavy icon (`repeat-once`'s 1) keeps
+the outline weight in the filled file, declared `<!-- glyph: numeral -->`, its
+path carrying `stroke-width` at that weight; gaps are measured with each path's
+own weight.
 
 **Lint compares the pair (added 2026-09-20).** Every icon ships as
 `<name>.svg` and `<name>-filled.svg` at each master, and the two are meant to
@@ -393,7 +397,8 @@ Fixed for every icon in the library:
 
 - `viewBox` equal to the master's canvas — `0 0 24 24`, `0 0 20 20` or `0 0 16 16`
 - `fill="none"` and `stroke="currentColor"` — colour is the consumer's problem
-- stroke attributes on the **root**, never on individual paths
+- stroke attributes on the **root**, never on individual paths — bar one: a C32
+  numeral in a line-heavy filled file carries `stroke-width` at the outline weight
 - **no** `width` / `height` on the root — the consumer sizes it
 - **no** `<g>`, no `transform`, no `id`, no `class`, no inline `style`
 - one `<path>` per discrete stroke run, in drawing order (container first,

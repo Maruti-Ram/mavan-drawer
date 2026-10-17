@@ -374,7 +374,8 @@ const split = (d) => (/^\s*M/.test(d) ? d.match(/M[^M]*/g).map((s) => s.trim()) 
 // A drawing is stroked centrelines plus filled areas; each fill entry is one
 // shape with its holes (evenodd), so it is never split.
 //   masters: { 24: [stroke d…] }                          the outline, at that master's stroke
-//   filled:  { 24: { fill: [d…], stroke: [d…], weight } } | 'outline'  'outline' = same drawing
+//   filled:  { 24: { fill: [d…], stroke: [d…], weight, glyph: [d…] } } | 'outline'  'outline' = same drawing
+//   glyph: a numeral in a line-heavy filled drawing, kept at the outline weight (C32)
 // Line-only icons have nothing to fill, so their filled drawing is the same
 // idea at a heavier weight — never a background.
 const STYLES = ['outline', 'filled'];
@@ -382,12 +383,13 @@ const STYLE_LABEL = { outline: 'Outline', filled: 'Filled', both: 'Both' };
 // The outline weight is the master's own (tools/masters.mjs), not one global stroke.
 function drawing(c, style, m) {
   const o = c.masters?.[m];
-  if (style === 'outline') return o ? { stroke: o, fill: [], sw: strokeOf(m) } : null;
-  if (c.filled === 'outline') return o ? { stroke: o, fill: [], sw: strokeOf(m), same: true } : null;
+  if (style === 'outline') return o ? { stroke: o, fill: [], glyph: [], sw: strokeOf(m) } : null;
+  if (c.filled === 'outline') return o ? { stroke: o, fill: [], glyph: [], sw: strokeOf(m), same: true } : null;
   const d = c.filled?.[m];
-  return d ? { stroke: d.stroke ?? [], fill: d.fill ?? [], sw: d.weight ?? strokeOf(m) } : null;
+  return d ? { stroke: d.stroke ?? [], fill: d.fill ?? [], glyph: d.glyph ?? [], sw: d.weight ?? strokeOf(m), gsw: strokeOf(m) } : null;
 }
-const paint = (dr) => dr.fill.map((d) => `<path fill="currentColor" fill-rule="evenodd" d="${d}"/>`).join('') + (dr.stroke.length ? strokes(dr.stroke, dr.sw) : '');
+const paint = (dr) => dr.fill.map((d) => `<path fill="currentColor" fill-rule="evenodd" d="${d}"/>`).join('') + (dr.stroke.length ? strokes(dr.stroke, dr.sw) : '')
+  + (dr.glyph.length ? strokes(dr.glyph, dr.gsw) : '');
 const blank = (px) => `<span style="width:${px}px;height:${px}px"></span>`;
 const icon = (c, m, px = m, style = 'outline') => { const dr = drawing(c, style, m); return dr ? svg(m, px, paint(dr)) : blank(px); };
 const shown = () => (state.view === 'both' ? STYLES : [state.view]);
@@ -672,7 +674,8 @@ function board(style, m, c) {
   const head = `<div class="bh"><b>${m} <span>master</span>${dr?.same ? '<span class="pill">Same as outline</span>' : ''}${dr && !dr.same && dr.stroke.length && dr.sw !== strokeOf(m) ? `<span class="pill">Stroke ${dr.sw}</span>` : ''}</b>${
     dr ? `<span class="actual" title="Actual size · 1× and 2×">${icon(c, m, m, style)}${icon(c, m, m * 2, style)}</span>` : ''}</div>`;
   if (!dr) return `<figure class="board ${style}">${head}<p class="mute" style="padding-left:20px">Not drawn yet</p></figure>`;
-  const parts = [...dr.fill.map((d) => ({ d, area: true })), ...dr.stroke.flatMap(split).map((d) => ({ d, sw: dr.sw }))];
+  const parts = [...dr.fill.map((d) => ({ d, area: true })), ...dr.stroke.flatMap(split).map((d) => ({ d, sw: dr.sw })),
+    ...dr.glyph.flatMap(split).map((d) => ({ d, sw: dr.gsw }))];
   const boxes = parts.map(inkBox);
   // The mark as a fraction of its container, and a glyph's dot-to-body void.
   // Absolute numbers cannot see either, and a draft has no metrics.json yet.
@@ -687,7 +690,7 @@ function board(style, m, c) {
       <g class="ink" stroke-width="${dr.sw}" stroke-linecap="round" stroke-linejoin="round">${
         parts.map((p, i) => (p.area
           ? `<path class="area" data-i="${i}" fill="currentColor" fill-rule="evenodd" d="${p.d}"/>`
-          : `<path data-i="${i}" fill="none" stroke="currentColor" d="${p.d}"/>`)).join('')}</g>
+          : `<path data-i="${i}" fill="none" stroke="currentColor"${p.sw !== dr.sw ? ` stroke-width="${p.sw}"` : ''} d="${p.d}"/>`)).join('')}</g>
       ${skeleton(parts, px)}
       ${rulers(m, px)}
       <g class="overlay measure"></g>

@@ -17,6 +17,8 @@ export const strokeOf = (master) => STROKES[master];
 // 16 stays at 2 when its outline goes to 1.25 (Maruti, 2026-09-20): the contrast
 // becomes 1.6×, matching 24's 1.67×, and no filled line file has to be redrawn.
 // Every other icon fills its shapes and keeps the outline stroke for any line.
+// C32 (2026-10-17): a numeral inside a line-heavy icon keeps the OUTLINE weight in the
+// filled file (`<!-- glyph: numeral -->`, its path carrying `stroke-width`; lint §2b).
 export const FILLED_WEIGHT = { 24: 2.5, 20: 2, 16: 2 };
 export const isFilled = (file) => /-filled(\.svg)?$/.test(file);
 export const weightOf = (file, master) => (isFilled(file) ? FILLED_WEIGHT[master] : strokeOf(master));
