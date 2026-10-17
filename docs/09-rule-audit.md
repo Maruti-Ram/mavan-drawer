@@ -10,8 +10,9 @@ about a third of the prose describes an abandoned system, and the rules that mat
 containers do not exist yet.
 
 **Acted on since:** C7 amended and carried out — the 16 master now draws at stroke 1.25
-(`plans/stroke-16.md`); the working-style section added to CLAUDE.md. Everything else below is
-still open.
+(`plans/stroke-16.md`); the working-style section added to CLAUDE.md. The badge question (§2,
+§6 item 4) ruled by C33 on 2026-10-18. Everything else below is still open unless it is marked
+in place.
 
 ---
 
@@ -35,7 +36,7 @@ still open.
 ## 2. Other conflicts found
 
 - **Doc 03** describes a Light/Regular/Bold weight axis, "ship the 24 master only", "20 is a bad size". Dead except its naming section.
-- **Badges:** doc 01 says they may cross 22; doc 05 says the clear zone "stays inside the live area"; doc 01 also says there is no live area; lint has no badge exemption. Must be settled before `calendar-plus`. Doc 05's geometry is still written for stroke 2.
+- **Badges:** doc 01 says they may cross 22; doc 05 says the clear zone "stays inside the live area"; doc 01 also says there is no live area; lint has no badge exemption. Must be settled before `calendar-plus`. Doc 05's geometry is still written for stroke 2. **Ruled 2026-10-18 (C33), on the `calendar-repeat` board: up to 22, not past it.** A badge sits on the base's bottom-right corner and may stand past the base's box up to the margin edge (22 · 18 · 15), never beyond it; the composite declares its box. Doc 01's "may cross 22" is corrected, doc 05 §2 carries a dated note with the geometry re-derived at 1.5 · 1.5 · 1.25, and its "live area" is struck (there is none, doc 01 §1). Lint needs no badge exemption: its §4 margin check already errors on any ink past 22 · 18 · 15, which is C33's limit. It does not check the badge's corner, its air beyond §5/§5f's general 1.5, or the stub rule.
 - **2-dp limit vs the 1.75 medium cut:** half-width 0.875 cannot be written, files carry 0.88. Harmless in pixels; the two rules cannot both be met.
 - **Exact placement unenforced:** "centred to 2 dp" and "filled box = outline box" are obeyed by the drawings (only C17 and `minus` differ) but lint allows ±0.5 and never compares the pair. **Half closed, 2026-09-20:** lint now compares every pair's ink box and warns on the filled file when a side differs by more than 0.01; a filled file may declare an agreed difference as `<!-- grows: L R T B -->`, verified against the drawings, and a note they do not measure is an error. Census of all 351 shipped pairs: **33 differ, 0 of them unexplained** — 18 menu stacks and 6 `more` dots (C17, thicken in place), 9 `minus` (a lone bar cannot thicken without growing). The growth is half the weight step at each master (0.5 · 0.25 · 0.375), with one exception: `more-horizontal` / `more-vertical` at 16 grow 0.25, because the C7 conversion took the outline disc from r0.45 to r0.575 to hold its ink box while the filled twin kept r0.45 — same left-behind as the 16 filled corners below, centres unmoved, nothing to redraw. Still open: the notes are not yet written into the 33 files (so they warn), and "centred to 2 dp" is still checked at ±0.5.
 - **Chevron shifts differ by direction** for the same drawing flipped (flat: 0.55 down · 0.4 up · 0.55 sideways; steep 0.61 / 0.65). By-eye scatter of ~0.15 px, not design. One magnitude per shape would be more honest.
@@ -60,7 +61,7 @@ still open.
 
 The rules were derived from 106 marks and circles and then stretched onto containers. Still missing:
 container corner radius · detail budget per master · one filled-cut policy · how a mark's share of
-its container holds from 24 to 16 (the 13% drift, doc 08 §6.1) · the modifier zone. Those five decide
+its container holds from 24 to 16 (the 13% drift, doc 08 §6.1) · the modifier zone (ruled 2026-10-18, C33). Those five decide
 whether icon 300 looks like icon 30. **Recommendation:** after `folder`, pause queue order for a
 stress batch of hard containers — `calendar`, `user`, `gear`, `bell`, `lock`, `mail`, `image`, `home`,
 `eye`, `chart-bar` — settle the five from it, then resume.
@@ -90,5 +91,5 @@ met C7's reopening test.
 1. Finish `plans/stroke-16.md`.
 2. Docs pass: retire doc 03's body; fix README, doc 01 §5–§7, CLAUDE.md's Open list; archive dead lab pages and the template.
 3. Lint: filled-vs-outline box, 2-dp centring, reuse check, radius census; fix the two metrics bugs; tests into `npm run check`.
-4. Rulings from Maruti: check cut weight · container radius · symmetrise chevron shifts · variant cap and shared style tags · may badges cross 22 · D23 revisions (doc 06).
+4. Rulings from Maruti: check cut weight · container radius · symmetrise chevron shifts · variant cap and shared style tags · ~~may badges cross 22~~ (ruled 2026-10-18, C33: up to 22, not past it) · D23 revisions (doc 06).
 5. The Overviews page, then the stress batch, then the container rules, then the queue.

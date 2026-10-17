@@ -31,7 +31,7 @@ export const bendMin = (weight) => weight / 2;
 
 export const MASTERS = {
   24: {
-    bound: [2, 22],                       // margin edge — nothing but modifier badges crosses it
+    bound: [2, 22],                       // margin edge — nothing crosses it; a -large mark (C8) and a modifier badge (C33) may reach it
     keylines: { square: [18, 18], circle: [20, 20], portrait: [16, 20], landscape: [20, 16], diagonal: [20, 20] },
     mark: 18,                             // ceiling for directional marks
   },

@@ -63,11 +63,19 @@ than chosen:
 An icon whose ink filled a 24px box reads much heavier than the 16px text beside
 it. At 20/24 it matches.
 
-### The one thing allowed past the keylines
+### What may reach the margin edge
 
-Modifier badges. Fluent's runs to 23 of 24 — outside every keyline, inside the
-canvas. That is deliberate, it is the only exception, and it is specified in
-`05-modifiers.md`. Nothing else crosses 22.
+**Nothing crosses the margin edge — 22 · 18 · 15 at 24 · 20 · 16.** Lint errors on
+any ink past it. Two rules let a drawing run past the keyline it would otherwise
+keep, out to that edge: a `-large` mark (C8), and a **modifier badge** (C33). A
+badge sits on its base's bottom-right corner and may stand past the base's box up
+to the margin edge, never beyond it. The base keeps its own position, and the
+composite declares its box (`calendar-repeat`: `<!-- box: 19x19 -->` · `15x15` ·
+`13x13`). The geometry is in `05-modifiers.md` §2's dated note.
+
+*Changed 2026-10-18 (C33). This section said badges may cross 22, after Fluent's,
+which runs to 23 of 24 — into the margin. Ours stops at the margin edge, because the
+margin is spacing shipped inside the asset (above), not room to draw in.*
 
 ## 2. Keylines
 
