@@ -621,7 +621,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 260. `currency` · Commerce & Payments
 - [ ] 261. `blog` · Editing & Text
 - [ ] 262. `button` · UI & Layout
-- [ ] 263. `caret-down` · Arrows & Direction — mvp
+- [~] 263. `caret-down` · Arrows & Direction — mvp
 - [ ] 264. `caret-up` · Arrows & Direction — mvp
 - [ ] 265. `live` · Media & Playback
 - [ ] 266. `categories` · Files & Folders
@@ -749,9 +749,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 389. `cart-plus` · Commerce & Payments · variant of `cart`
 - [ ] 390. `chart-bar-horizontal` · Charts & Data · variant of `chart-bar`
 - [ ] 391. `chart-bar-stacked` · Charts & Data · variant of `chart-bar`
-- [ ] 392. `collapse-horizontal` · Arrows & Direction · variant of `collapse`
+- [x] 392. `collapse-horizontal` · Arrows & Direction · variant of `collapse` — approved 2026-10-17
 - [x] 393. `cursor-click` · UI & Layout · variant of `cursor` — approved 2026-09-23
-- [ ] 394. `expand-horizontal` · Arrows & Direction · variant of `expand`
+- [x] 394. `expand-horizontal` · Arrows & Direction · variant of `expand` — approved 2026-10-17
 - [ ] 395. `file-down` · Files & Folders · variant of `file`
 - [ ] 396. `file-signature` · Files & Folders · variant of `file`
 - [ ] 397. `file-up` · Files & Folders · variant of `file`
