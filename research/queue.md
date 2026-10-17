@@ -492,9 +492,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 140. `alert-octagon` · Status & Feedback
 - [ ] 141. `backspace` · Editing & Text
 - [ ] 142. `columns` · UI & Layout — mvp
-- [ ] 143. `corner-down-left` · Arrows & Direction
+- [x] 143. `corner-down-left` · Arrows & Direction — approved 2026-10-17
 - [ ] 144. `minimize` · UI & Layout — mvp
-- [ ] 145. `rotate-cw` · Arrows & Direction
+- [~] 145. `rotate-cw` · Arrows & Direction
 - [ ] 146. `share` · Communication — mvp
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
@@ -661,7 +661,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 298. `stack-perspective` · Design Tools
 - [ ] 299. `subscription` · Commerce & Payments
 - [ ] 300. `airplay` · Arrows & Direction
-- [ ] 301. `arrow-down-left` · Arrows & Direction
+- [~] 301. `arrow-down-left` · Arrows & Direction
 - [ ] 302. `arrow-down-right` · Arrows & Direction
 - [ ] 303. `arrow-up-left` · Arrows & Direction
 - [ ] 304. `command` · UI & Layout
