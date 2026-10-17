@@ -796,12 +796,12 @@ export const LUCIDE_ALIAS_IGNORE = ['grid', 'text', 'edit', 'layout'];
 // D23's 122 bases, mapped onto canonical concepts. Doc 04 uses subject-first
 // names in places (`bar-chart`); the audit uses the house convention.
 export const D23 = {
-  arrows: 'arrow-up arrow-down arrow-left arrow-right chevron-up chevron-down chevron-left chevron-right caret-up caret-down caret-left caret-right external-link expand collapse refresh undo redo',
+  arrows: 'arrow-up arrow-down arrow-left arrow-right chevron-up chevron-down chevron-left chevron-right caret-up caret-down caret-left caret-right external-link expand collapse refresh undo redo repeat',
   ui: 'menu close:x search filter sort grid list:layout-list columns sidebar maximise:maximize minimise:minimize more-h:more-horizontal more-v:more-vertical drag-handle gear sliders plus minus check x',
   files: 'file file-text folder folder-open upload download copy archive trash attachment image video link export',
   users: 'user users user-circle login logout key lock unlock shield eye eye-off badge',
   comms: 'mail mail-open message chat:messages bell bell-off send phone share at:at-sign megaphone inbox',
-  time: 'calendar calendar-days clock timer history stopwatch hourglass alarm:alarm-clock repeat schedule:calendar-clock',
+  time: 'calendar calendar-days clock timer history stopwatch hourglass alarm:alarm-clock schedule:calendar-clock',
   status: 'check-circle x-circle alert-triangle alert-circle info-circle help-circle loading:loader star heart flag bookmark sparkle',
   editing: 'pencil duplicate:copy cut:scissors bold italic underline code quote list-ordered list-bullet align-left:text-align-left align-center:text-align-center align-right:text-align-right link-break:link-off',
   data: 'bar-chart:chart-bar line-chart:chart-line pie-chart:chart-pie table database trending-up trending-down activity filter-data:list-filter report:file-chart',

@@ -39,12 +39,12 @@ Everything a SaaS product needs before it needs anything else.
 
 | # | Category | ~n | Contents |
 |---|---|---|---|
-| 1 | **Arrows & Direction** | 18 | arrow ×4, chevron ×4, caret ×4, external-link, expand, collapse, refresh, undo, redo |
+| 1 | **Arrows & Direction** | 19 | arrow ×4, chevron ×4, caret ×4, external-link, expand, collapse, refresh, undo, redo, repeat |
 | 2 | **UI & Layout** | 20 | menu, close, search, filter, sort, grid, list, columns, sidebar, maximise, minimise, more-h, more-v, drag-handle, gear, sliders, plus, minus, check, x |
 | 3 | **Files & Folders** | 14 | file, file-text, folder, folder-open, upload, download, copy, archive, trash, attachment, image, video, link, export |
 | 4 | **Users & Access** | 12 | user, users, user-circle, login, logout, key, lock, unlock, shield, eye, eye-off, badge |
 | 5 | **Communication** | 12 | mail, mail-open, message, chat, bell, bell-off, send, phone, share, at, megaphone, inbox |
-| 6 | **Time & Calendar** | 10 | calendar, calendar-days, clock, timer, history, stopwatch, hourglass, alarm, repeat, schedule |
+| 6 | **Time & Calendar** | 9 | calendar, calendar-days, clock, timer, history, stopwatch, hourglass, alarm, schedule |
 | 7 | **Status & Feedback** | 12 | check-circle, x-circle, alert-triangle, alert-circle, info, help, loading, star, heart, flag, bookmark, sparkle |
 | 8 | **Editing & Text** | 14 | pencil, duplicate, cut, bold, italic, underline, code, quote, list-ordered, list-bullet, align ×3, link-break |
 | 9 | **Charts & Data** | 10 | bar-chart, line-chart, pie-chart, table, database, trending-up, trending-down, activity, filter-data, report |
