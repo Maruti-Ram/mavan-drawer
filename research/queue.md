@@ -677,7 +677,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 313. `terminal` · Development & Infra
 - [ ] 314. `tv` · Devices & Hardware
 - [ ] 315. `voicemail` · Devices & Hardware
-- [~] 316. `chevrons-down` · Arrows & Direction
+- [x] 316. `chevrons-down` · Arrows & Direction — approved 2026-10-17
+- [x] 316. `chevrons-down-2` · Arrows & Direction · variant of `chevrons-down` — Small, tight · approved 2026-10-17
 - [ ] 317. `chevrons-left` · Arrows & Direction
 - [ ] 318. `chevrons-right` · Arrows & Direction
 - [ ] 319. `chevrons-up` · Arrows & Direction
