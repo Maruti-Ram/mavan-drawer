@@ -1,5 +1,36 @@
 {
   "generated": "2026-10-17",
-  "board": null,
-  "icons": []
+  "board": {
+    "name": "transfer",
+    "candidates": 9,
+    "status": "done"
+  },
+  "icons": [
+    {
+      "name": "move",
+      "concept": "move",
+      "candidates": 5,
+      "ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "rewind",
+      "concept": "rewind",
+      "candidates": 5,
+      "ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "status": "review"
+    }
+  ]
 }

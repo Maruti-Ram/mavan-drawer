@@ -664,7 +664,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
 - [ ] 299. `subscription` · Commerce & Payments
-- [~] 300. `airplay` · Arrows & Direction
+- [x] 300. `airplay` · Arrows & Direction — approved 2026-10-17
 - [x] 301. `arrow-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 302. `arrow-down-right` · Arrows & Direction — approved 2026-10-17
 - [x] 303. `arrow-up-left` · Arrows & Direction — approved 2026-10-17
