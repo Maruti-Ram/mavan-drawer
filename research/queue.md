@@ -612,10 +612,12 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 253. `vector` · Design Tools
 - [ ] 254. `activity` · Charts & Data — mvp
 - [ ] 255. `pause` · Media & Playback
-- [ ] 256. `expand` · Arrows & Direction — mvp
+- [x] 256. `expand` · Arrows & Direction — mvp · approved 2026-10-17
+- [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
 - [ ] 257. `window` · UI & Layout
 - [ ] 258. `scan` · Devices & Hardware
-- [ ] 259. `collapse` · Arrows & Direction — mvp
+- [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
+- [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
 - [ ] 260. `currency` · Commerce & Payments
 - [ ] 261. `blog` · Editing & Text
 - [ ] 262. `button` · UI & Layout
