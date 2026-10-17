@@ -557,7 +557,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 194. `inbox` · Communication — mvp
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
-- [~] 197. `repeat` · Time & Calendar — mvp
+- [x] 197. `repeat` · Time & Calendar — mvp · approved 2026-10-17
+- [x] 197. `repeat-2` · Time & Calendar · variant of `repeat` — Closed ring, mid-rail heads · approved 2026-10-17
+- [x] 197. `repeat-3` · Time & Calendar · variant of `repeat` — Stadium, heads into the turns · approved 2026-10-17
 - [ ] 198. `scissors` · Editing & Text — mvp
 - [ ] 199. `unlock` · Users & Access — mvp
 - [ ] 200. `video` · Files & Folders — mvp
