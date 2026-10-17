@@ -679,9 +679,12 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 315. `voicemail` · Devices & Hardware
 - [x] 316. `chevrons-down` · Arrows & Direction — approved 2026-10-17
 - [x] 316. `chevrons-down-2` · Arrows & Direction · variant of `chevrons-down` — Small, tight · approved 2026-10-17
-- [ ] 317. `chevrons-left` · Arrows & Direction
-- [ ] 318. `chevrons-right` · Arrows & Direction
-- [ ] 319. `chevrons-up` · Arrows & Direction
+- [x] 317. `chevrons-left` · Arrows & Direction — approved 2026-10-17
+- [x] 317. `chevrons-left-2` · Arrows & Direction · variant of `chevrons-left` — chevrons-left-2 · approved 2026-10-17
+- [x] 318. `chevrons-right` · Arrows & Direction — approved 2026-10-17
+- [x] 318. `chevrons-right-2` · Arrows & Direction · variant of `chevrons-right` — chevrons-right-2 · approved 2026-10-17
+- [x] 319. `chevrons-up` · Arrows & Direction — approved 2026-10-17
+- [x] 319. `chevrons-up-2` · Arrows & Direction · variant of `chevrons-up` — chevrons-up-2 · approved 2026-10-17
 - [x] 320. `corner-down-right` · Arrows & Direction — approved 2026-10-17
 - [x] 320. `corner-down-right-2` · Arrows & Direction · variant of `corner-down-right` — corner-down-right-2 · approved 2026-10-17
 - [x] 321. `corner-left-down` · Arrows & Direction — approved 2026-10-17
