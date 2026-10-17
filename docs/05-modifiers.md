@@ -3,8 +3,8 @@
 > A modifier is a small mark added to a base icon that ties an **action** to that
 > object. `calendar` + `plus` = `calendar-plus`. The modifier is the `plus`.
 
-Modifiers are where icon libraries quietly explode. 200 bases × 8 modifiers is
-1,600 possible icons, almost all of which nobody needs. The system below exists
+Modifiers are where icon libraries quietly explode. 200 bases × 9 modifiers is
+1,800 possible icons, almost all of which nobody needs. The system below exists
 to make the geometry consistent and to make saying *no* the default.
 
 ---
@@ -154,7 +154,9 @@ Costs nothing at design time, saves the cut-back entirely.
 
 ## 4. The modifier set
 
-Ship these eight. Nothing else without a demonstrated use case.
+Ship these nine. Nothing else without a demonstrated use case.
+
+*2026-10-18: `repeat` added (Maruti), the ninth, after `calendar-repeat` shipped as the first composite (C33). `sync` stays deferred: repeat means "happens again on a schedule", sync means "kept in step with another copy".*
 
 | Modifier | Means | Naming |
 |---|---|---|
@@ -164,6 +166,7 @@ Ship these eight. Nothing else without a demonstrated use case.
 | `x` | cancel, reject, failed | `calendar-x` |
 | `arrow` | move, send, export, import | `folder-arrow` |
 | `clock` | scheduled, pending, history | `file-clock` |
+| `repeat` | recurring, repeats on a schedule | `calendar-repeat` |
 | `star` | favourite, featured, pinned | `folder-star` |
 | `slash` | disabled, off, hidden | `bell-off` ← different naming |
 
@@ -177,7 +180,7 @@ sorts together. `calendar-plus`, never `add-calendar`.
 
 ## 5. Governance
 
-200 bases × 8 modifiers = 1,600 possible. A healthy v1 ships **60–80**.
+200 bases × 9 modifiers = 1,800 possible. A healthy v1 ships **60–80**.
 
 A modifier variant enters the library when someone can name the screen it appears
 on. Not before. This is the rule that keeps the set from doubling every quarter,
