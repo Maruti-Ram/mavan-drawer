@@ -493,6 +493,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 141. `backspace` · Editing & Text
 - [ ] 142. `columns` · UI & Layout — mvp
 - [x] 143. `corner-down-left` · Arrows & Direction — approved 2026-10-17
+- [x] 143. `corner-down-left-2` · Arrows & Direction · variant of `corner-down-left` — corner-down-left-3 · short drop · approved 2026-10-17
 - [ ] 144. `minimize` · UI & Layout — mvp
 - [x] 145. `rotate-cw` · Arrows & Direction — approved 2026-10-17
 - [ ] 146. `share` · Communication — mvp
