@@ -543,7 +543,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 182. `popup` · UI & Layout
 - [ ] 183. `replace` · Editing & Text
 - [ ] 184. `rows` · UI & Layout
-- [ ] 185. `transfer` · Arrows & Direction
+- [x] 185. `transfer` · Arrows & Direction — approved 2026-10-17
+- [x] 185. `transfer-2` · Arrows & Direction · variant of `transfer` — Half heads · approved 2026-10-17
+- [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
 - [ ] 186. `bank` · Commerce & Payments
 - [ ] 187. `warehouse` · Commerce & Payments
 - [ ] 188. `award` · Status & Feedback
@@ -662,7 +664,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
 - [ ] 299. `subscription` · Commerce & Payments
-- [ ] 300. `airplay` · Arrows & Direction
+- [~] 300. `airplay` · Arrows & Direction
 - [x] 301. `arrow-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 302. `arrow-down-right` · Arrows & Direction — approved 2026-10-17
 - [x] 303. `arrow-up-left` · Arrows & Direction — approved 2026-10-17
@@ -701,8 +703,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 325. `corner-up-left-2` · Arrows & Direction · variant of `corner-up-left` — corner-up-left-2 · approved 2026-10-17
 - [x] 326. `corner-up-right` · Arrows & Direction — approved 2026-10-17
 - [x] 326. `corner-up-right-2` · Arrows & Direction · variant of `corner-up-right` — corner-up-right-2 · approved 2026-10-17
-- [ ] 327. `move` · Arrows & Direction
-- [ ] 328. `rewind` · Arrows & Direction
+- [~] 327. `move` · Arrows & Direction
+- [~] 328. `rewind` · Arrows & Direction
 - [ ] 329. `rss` · Communication
 - [ ] 330. `trending-down` · Charts & Data — mvp
 - [ ] 331. `trending-up` · Charts & Data — mvp
