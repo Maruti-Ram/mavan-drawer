@@ -494,7 +494,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 142. `columns` · UI & Layout — mvp
 - [x] 143. `corner-down-left` · Arrows & Direction — approved 2026-10-17
 - [ ] 144. `minimize` · UI & Layout — mvp
-- [~] 145. `rotate-cw` · Arrows & Direction
+- [x] 145. `rotate-cw` · Arrows & Direction — approved 2026-10-17
 - [ ] 146. `share` · Communication — mvp
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
