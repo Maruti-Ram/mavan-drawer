@@ -481,7 +481,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 130. `table-2` · Charts & Data · variant of `table` — Header + 2 columns · approved 2026-10-04
 - [x] 131. `thumbs-down` · Communication — approved 2026-10-17
 - [x] 131. `thumbs-down-2` · Communication · variant of `thumbs-down` — Turned · thumbs-down-2 · approved 2026-10-17
-- [ ] 132. `underline` · Editing & Text — mvp
+- [x] 132. `underline` · Editing & Text — mvp · approved 2026-10-17
 - [ ] 133. `crop` · Design Tools
 - [ ] 134. `mobile` · Devices & Hardware
 - [ ] 135. `percent` · Commerce & Payments
@@ -499,7 +499,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 146. `share` · Communication — mvp
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
-- [ ] 149. `calculator` · Charts & Data
+- [ ] 149. `calculator` · Charts & Data — mvp
 - [ ] 150. `chart-line` · Charts & Data — mvp
 - [ ] 151. `form` · UI & Layout
 - [ ] 152. `import` · Files & Folders
@@ -557,7 +557,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 194. `inbox` · Communication — mvp
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
-- [ ] 197. `repeat` · Time & Calendar — mvp
+- [~] 197. `repeat` · Time & Calendar — mvp
 - [ ] 198. `scissors` · Editing & Text — mvp
 - [ ] 199. `unlock` · Users & Access — mvp
 - [ ] 200. `video` · Files & Folders — mvp
@@ -575,19 +575,19 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 212. `shopping-bag` · Commerce & Payments
 - [ ] 213. `tag` · Commerce & Payments
 - [ ] 214. `accessibility` · Users & Access
-- [ ] 215. `alarm-clock` · Time & Calendar — mvp
+- [~] 215. `alarm-clock` · Time & Calendar — mvp
 - [ ] 216. `contrast` · UI & Layout
 - [ ] 217. `fingerprint` · Users & Access
 - [ ] 218. `hand` · UI & Layout
 - [ ] 219. `headset` · Communication
 - [ ] 220. `highlighter` · Editing & Text
-- [ ] 221. `hourglass` · Time & Calendar — mvp
+- [~] 221. `hourglass` · Time & Calendar — mvp
 - [ ] 222. `layout-list` · UI & Layout — mvp
 - [ ] 223. `messages` · Communication — mvp
 - [ ] 224. `password` · UI & Layout
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
-- [ ] 227. `timer` · Time & Calendar — mvp
+- [~] 227. `timer` · Time & Calendar — mvp
 - [ ] 228. `vault` · Users & Access
 - [ ] 229. `align-object-bottom` · Design Tools
 - [ ] 230. `align-object-center-h` · Design Tools
@@ -653,7 +653,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 286. `progress-bar` · Status & Feedback
 - [ ] 287. `saved-items` · Status & Feedback
 - [ ] 288. `scribble` · Editing & Text
-- [ ] 289. `stopwatch` · Time & Calendar — mvp
+- [~] 289. `stopwatch` · Time & Calendar — mvp
 - [ ] 290. `toggles` · UI & Layout
 - [ ] 291. `blueprint` · Development & Infra
 - [ ] 292. `decision-process` · Development & Infra

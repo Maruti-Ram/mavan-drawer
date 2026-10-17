@@ -999,6 +999,8 @@
     "trash-2",
     "trash-2-filled",
     "trash-filled",
+    "underline",
+    "underline-filled",
     "undo",
     "undo-2",
     "undo-2-filled",
@@ -59855,6 +59857,124 @@
       "ratio": null,
       "gap": null
     },
+    "underline": {
+      "paths": [
+        "M6.75 3.75V11A5.25 5.25 0 0 0 17.25 11V3.75",
+        "M5.25 20.25H18.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M6.75 3.75V11A5.25 5.25 0 0 0 17.25 11V3.75\"/> <path d=\"M5.25 20.25H18.75\"/>",
+      "mark": true,
+      "tags": [
+        "underline",
+        "u",
+        "letter",
+        "text",
+        "baseline"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4.5,
+        "y": 3,
+        "w": 15,
+        "h": 18
+      },
+      "bearing": {
+        "left": 4.5,
+        "top": 3,
+        "right": 4.5,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 4.5,
+          "recession": 0.03,
+          "optical": 4.52
+        },
+        "right": {
+          "geometric": 4.5,
+          "recession": 0.03,
+          "optical": 4.52
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "underline-filled": {
+      "paths": [
+        "M7.25 4.25V11A4.75 4.75 0 0 0 16.75 11V4.25",
+        "M5.75 19.75H18.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.25 4.25V11A4.75 4.75 0 0 0 16.75 11V4.25\"/> <path d=\"M5.75 19.75H18.25\"/>",
+      "mark": true,
+      "tags": [
+        "underline",
+        "u",
+        "letter",
+        "text",
+        "baseline"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 4.5,
+        "y": 3,
+        "w": 15,
+        "h": 18
+      },
+      "bearing": {
+        "left": 4.5,
+        "top": 3,
+        "right": 4.5,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 4.5,
+          "recession": 0.06,
+          "optical": 4.55
+        },
+        "right": {
+          "geometric": 4.5,
+          "recession": 0.06,
+          "optical": 4.55
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.07,
+          "optical": 3.05
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.07,
+          "optical": 3.05
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "undo": {
       "paths": [
         "M20.19 16.07A8.13 8.13 0 0 0 6.31 10.32L4.03 12.6",
@@ -66942,6 +67062,8 @@
         "trash-2",
         "trash-2-filled",
         "trash-filled",
+        "underline",
+        "underline-filled",
         "undo",
         "undo-2",
         "undo-2-filled",
@@ -125734,6 +125856,124 @@
           "ratio": null,
           "gap": null
         },
+        "underline": {
+          "paths": [
+            "M4.625 2.625V6.5A3.375 3.375 0 0 0 11.375 6.5V2.625",
+            "M3.625 13.375H12.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.625 2.625V6.5A3.375 3.375 0 0 0 11.375 6.5V2.625\"/> <path d=\"M3.625 13.375H12.375\"/>",
+          "mark": true,
+          "tags": [
+            "underline",
+            "u",
+            "letter",
+            "text",
+            "baseline"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 10,
+            "h": 12
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.04,
+              "optical": 3.03
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.04,
+              "optical": 3.03
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "underline-filled": {
+          "paths": [
+            "M5 3V6.5A3 3 0 0 0 11 6.5V3",
+            "M4 13H12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5 3V6.5A3 3 0 0 0 11 6.5V3\"/> <path d=\"M4 13H12\"/>",
+          "mark": true,
+          "tags": [
+            "underline",
+            "u",
+            "letter",
+            "text",
+            "baseline"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 10,
+            "h": 12
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.07,
+              "optical": 3.05
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.07,
+              "optical": 3.05
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.07,
+              "optical": 2.06
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.07,
+              "optical": 2.06
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "undo": {
           "paths": [
             "M13.074 10.386A4.773 4.773 0 0 0 4.926 7.011L3.109 8.828",
@@ -132812,6 +133052,8 @@
         "trash-2",
         "trash-2-filled",
         "trash-filled",
+        "underline",
+        "underline-filled",
         "undo",
         "undo-2",
         "undo-2-filled",
@@ -191633,6 +191875,124 @@
           "ratio": null,
           "gap": null
         },
+        "underline": {
+          "paths": [
+            "M5.75 3.75V8.5A4.25 4.25 0 0 0 14.25 8.5V3.75",
+            "M4.75 16.25H15.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 3.75V8.5A4.25 4.25 0 0 0 14.25 8.5V3.75\"/> <path d=\"M4.75 16.25H15.25\"/>",
+          "mark": true,
+          "tags": [
+            "underline",
+            "u",
+            "letter",
+            "text",
+            "baseline"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 3,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 4,
+            "top": 3,
+            "right": 4,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.04,
+              "optical": 4.03
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.04,
+              "optical": 4.03
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.04,
+              "optical": 3.03
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.04,
+              "optical": 3.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "underline-filled": {
+          "paths": [
+            "M6 4V8.5A4 4 0 0 0 14 8.5V4",
+            "M5 16H15"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6 4V8.5A4 4 0 0 0 14 8.5V4\"/> <path d=\"M5 16H15\"/>",
+          "mark": true,
+          "tags": [
+            "underline",
+            "u",
+            "letter",
+            "text",
+            "baseline"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 4,
+            "y": 3,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 4,
+            "top": 3,
+            "right": 4,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.06,
+              "optical": 4.04
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.06,
+              "optical": 4.04
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.05
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "undo": {
           "paths": [
             "M16.03 12.91A5.83 5.83 0 0 0 6.08 8.79L4.18 10.69",
@@ -198715,6 +199075,8 @@
         "trash-2",
         "trash-2-filled",
         "trash-filled",
+        "underline",
+        "underline-filled",
         "undo",
         "undo-2",
         "undo-2-filled",
@@ -257571,6 +257933,124 @@
           "ratio": null,
           "gap": null
         },
+        "underline": {
+          "paths": [
+            "M6.75 3.75V11A5.25 5.25 0 0 0 17.25 11V3.75",
+            "M5.25 20.25H18.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.75 3.75V11A5.25 5.25 0 0 0 17.25 11V3.75\"/> <path d=\"M5.25 20.25H18.75\"/>",
+          "mark": true,
+          "tags": [
+            "underline",
+            "u",
+            "letter",
+            "text",
+            "baseline"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.5,
+            "y": 3,
+            "w": 15,
+            "h": 18
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 3,
+            "right": 4.5,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 0.03,
+              "optical": 4.52
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 0.03,
+              "optical": 4.52
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "underline-filled": {
+          "paths": [
+            "M7.25 4.25V11A4.75 4.75 0 0 0 16.75 11V4.25",
+            "M5.75 19.75H18.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 4.25V11A4.75 4.75 0 0 0 16.75 11V4.25\"/> <path d=\"M5.75 19.75H18.25\"/>",
+          "mark": true,
+          "tags": [
+            "underline",
+            "u",
+            "letter",
+            "text",
+            "baseline"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 4.5,
+            "y": 3,
+            "w": 15,
+            "h": 18
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 3,
+            "right": 4.5,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 0.06,
+              "optical": 4.55
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 0.06,
+              "optical": 4.55
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.07,
+              "optical": 3.05
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.07,
+              "optical": 3.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "undo": {
           "paths": [
             "M20.19 16.07A8.13 8.13 0 0 0 6.31 10.32L4.03 12.6",
@@ -268637,10 +269117,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Editing & Text",
       "base": null,
-      "note": null,
-      "status": "todo",
+      "note": "approved 2026-10-17",
+      "status": "done",
       "mvp": true,
-      "date": null
+      "date": "2026-10-17"
     },
     {
       "n": 133,
@@ -268837,7 +269317,7 @@
       "base": null,
       "note": null,
       "status": "todo",
-      "mvp": false,
+      "mvp": true,
       "date": null
     },
     {
@@ -269474,7 +269954,7 @@
       "category": "Time & Calendar",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": true,
       "date": null
     },
@@ -269672,7 +270152,7 @@
       "category": "Time & Calendar",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": true,
       "date": null
     },
@@ -269738,7 +270218,7 @@
       "category": "Time & Calendar",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": true,
       "date": null
     },
@@ -269804,7 +270284,7 @@
       "category": "Time & Calendar",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": true,
       "date": null
     },
@@ -270530,7 +271010,7 @@
       "category": "Time & Calendar",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": true,
       "date": null
     },
