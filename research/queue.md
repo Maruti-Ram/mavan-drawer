@@ -622,7 +622,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 261. `blog` · Editing & Text
 - [ ] 262. `button` · UI & Layout
 - [x] 263. `caret-down` · Arrows & Direction — mvp · approved 2026-10-17
+- [x] 263. `caret-down-2` · Arrows & Direction · variant of `caret-down` — Near-equilateral · caret-down · approved 2026-10-17
 - [x] 264. `caret-up` · Arrows & Direction — mvp · approved 2026-10-17
+- [x] 264. `caret-up-2` · Arrows & Direction · variant of `caret-up` — Near-equilateral · caret-up · approved 2026-10-17
 - [ ] 265. `live` · Media & Playback
 - [ ] 266. `categories` · Files & Folders
 - [ ] 267. `chart-funnel` · Charts & Data
