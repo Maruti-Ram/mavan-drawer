@@ -558,7 +558,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 188. `award` · Status & Feedback
 - [~] 189. `bookmark` · Status & Feedback — mvp
 - [ ] 190. `crosshair` · Status & Feedback
-- [~] 191. `download` · Files & Folders — mvp
+- [x] 191. `download` · Files & Folders — mvp · approved 2026-10-18
+- [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
+- [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
 - [ ] 192. `gift` · Status & Feedback
 - [ ] 193. `headphones` · Communication
 - [~] 194. `inbox` · Communication — mvp
