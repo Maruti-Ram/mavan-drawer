@@ -563,7 +563,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
 - [ ] 192. `gift` · Status & Feedback
 - [ ] 193. `headphones` · Communication
-- [~] 194. `inbox` · Communication — mvp
+- [x] 194. `inbox` · Communication — mvp · approved 2026-10-18
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
 - [x] 197. `repeat` · Arrows & Direction — mvp · approved 2026-10-17
