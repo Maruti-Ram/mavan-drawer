@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { facingGap, materialGap, selfGap } from './geometry.mjs';
+import { facingGap, isSolidStroke, materialGap, selfGap } from './geometry.mjs';
 import { checkAnchors, checkPairs, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -1013,4 +1013,14 @@ test('C32: only the one double-quoted form is accepted — single quotes, other 
   const twice = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('stroke-width="1.5"', 'stroke-width="1.5" stroke-width="2.5"'));
   assert.ok(twice.errors.includes('path 2 carries stroke-width more than once (C32)'), twice.errors.join(' | '));
   assert.ok(twice.errors.includes(STRAY), twice.errors.join(' | '));
+});
+
+test('a solid key is not a bend: a closed capsule no wider than its stroke (calculator, 2026-10-19)', () => {
+  const key = 'M11.75 9A0.25 0.25 0 0 1 12.25 9L12.25 15A0.25 0.25 0 0 1 11.75 15Z';   // centreline 0.5 wide
+  assert.equal(isSolidStroke(key, 1.5), true);
+  assert.equal(isSolidStroke(key, 0.4), false);                                         // thinner stroke leaves a counter
+  assert.equal(isSolidStroke('M9 12A3 3 0 0 1 15 12A3 3 0 0 1 9 12Z', 1.5), false);    // a ring has a hole
+  assert.equal(isSolidStroke('M11.75 9A0.25 0.25 0 0 1 12.25 9L12.25 15', 1.5), false); // open: a bend, not a key
+  const lint = lintSource(24, 'calculator.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- keyline: mark --><!-- a key --><path d="${key}"/></svg>`);
+  assert.ok(!lint.warnings.some((w) => /C10/.test(w)), lint.warnings.join('\n'));
 });

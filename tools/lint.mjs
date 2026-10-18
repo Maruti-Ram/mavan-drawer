@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, selfGap, materialGap, facingGap, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidStroke, selfGap, materialGap, facingGap, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -412,8 +412,10 @@ export function lintSource(canvas, file, src) {
   // A dot (one CLOSED circle drawn as two arcs) is not a bend: under half the stroke it is a
   // solid disc. `isDot` lives in geometry.mjs so lint, build and the lab share one test — an
   // open two-arc path is a bend (a bowl running into a tuck), checked like any other, and in a
-  // glyph mark it is the body, not the dot (C19).
-  ds.forEach((d, i) => { if (!isDot(d)) for (const { cmd, args } of parsePath(d)) {
+  // glyph mark it is the body, not the dot (C19). A solid key — a closed path no wider than its
+  // stroke, so the stroke leaves no counter (calculator's tall key) — is a dot drawn long: its
+  // arcs are round ends, not bends (`isSolidStroke`, 2026-10-19).
+  ds.forEach((d, i) => { if (!isDot(d) && !isSolidStroke(d, W[i])) for (const { cmd, args } of parsePath(d)) {
     if (cmd.toUpperCase() !== 'A') continue;
     for (let k = 0; k + 7 <= args.length; k += 7)
       if (Math.min(args[k], args[k + 1]) < bendMin(W[i]) - 0.005)

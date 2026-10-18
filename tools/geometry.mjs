@@ -150,6 +150,15 @@ export function bbox(ds) {
 /** A dot is a CLOSED circle drawn as two arcs. An open two-arc path is a bend. */
 export const isDot = (d) => /^M[^A-Za-z]+A[^A-Za-z]+A[^A-Za-z]+Z$/.test(d.trim());
 
+/** A solid key: a CLOSED path whose centreline is no wider than its stroke on its short side,
+ *  so the stroke fills it with no counter left inside — a capsule key (calculator's tall key,
+ *  2026-10-19) is a dot drawn long. Its arcs are the key's round ends, not bends. */
+export const isSolidStroke = (d, w) => {
+  if (!/[Zz]\s*$/.test(d.trim())) return false;
+  const b = bbox([d]);
+  return Math.min(b.x1 - b.x0, b.y1 - b.y0) <= w + 1e-9;
+};
+
 const grow = (b, h) => ({ x0: b.x0 - h, y0: b.y0 - h, x1: b.x1 + h, y1: b.y1 + h });
 const same = (a, b) => ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(a[k] - b[k]) < 0.01);
 const r2 = (n) => Math.round(n * 100) / 100;
