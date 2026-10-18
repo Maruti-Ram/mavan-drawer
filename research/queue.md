@@ -496,7 +496,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 142. `columns-3` · UI & Layout · variant of `columns` — Three column guides · approved 2026-10-18
 - [x] 143. `corner-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 143. `corner-down-left-2` · Arrows & Direction · variant of `corner-down-left` — corner-down-left-3 · short drop · approved 2026-10-17
-- [~] 144. `minimize` · UI & Layout — mvp
+- [x] 144. `minimize` · UI & Layout — mvp · approved 2026-10-18
+- [x] 144. `minimize-2` · UI & Layout · variant of `minimize` — Crisp corners, turned in · approved 2026-10-18
+- [x] 144. `minimize-3` · UI & Layout · variant of `minimize` — Broken frame, turned in · approved 2026-10-18
+- [x] 144. `minimize-4` · UI & Layout · variant of `minimize` — Two arrows in · approved 2026-10-18
 - [x] 145. `rotate-cw` · Arrows & Direction — approved 2026-10-17
 - [~] 146. `share` · Communication — mvp
 - [ ] 147. `toggle-off` · UI & Layout

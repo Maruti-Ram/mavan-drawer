@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- keyline: mark -->
+  <!-- tags: exit fullscreen, shrink, brackets, corners, inward -->
+  <!-- Soft corners, turned in: Pairs with maximize. Its four soft corners, each turned end for end inside its own box, so the bend points at the centre and the arms run out to the edge (Lucide's minimize, our radius). Every length is maximize's: radius 2.5 · 2 · 1.5, arms 6 · 4.75 · 4 of ink, straight run 2 · 1.25 · 1.25 past the bend, spread 18×18 · 14×14 · 12×12. Air between neighbouring bends 6 · 4.5 · 4, the same air maximize leaves between its tips, so nothing comes near anything at 16. The 16 centrelines sit on x.375 / x.625 so the outer edges stay on whole pixels. Filled: weight 2.5 · 2 · 2, ends pulled in 0.5 · 0.25 · 0.375, bend 2 · 1.75 · 1.125 around the same centre, so the curve facing the middle is the outline's (outer 3.25 · 2.75 · 2.125), as maximize-filled; ink box identical. Recommended: it is the twin of the default maximize, so the pair ships as one drawing turned around; it is the exit-fullscreen mark people already know; and it keeps the most air of the five at 16 (4) (recommended) -->
+  <path d="M8.25 3.75V5.75A2.5 2.5 0 0 1 5.75 8.25H3.75"/>
+  <path d="M15.75 3.75V5.75A2.5 2.5 0 0 0 18.25 8.25H20.25"/>
+  <path d="M8.25 20.25V18.25A2.5 2.5 0 0 0 5.75 15.75H3.75"/>
+  <path d="M15.75 20.25V18.25A2.5 2.5 0 0 1 18.25 15.75H20.25"/>
+</svg>
