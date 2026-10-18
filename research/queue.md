@@ -581,7 +581,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 207. `droplet` · Design Tools
 - [ ] 208. `film` · Media & Playback
 - [ ] 209. `layers` · Design Tools
-- [~] 210. `map` · Maps & Location
+- [x] 210. `map` · Maps & Location — approved 2026-10-18
 - [ ] 211. `pen-tool` · Design Tools
 - [ ] 212. `shopping-bag` · Commerce & Payments
 - [ ] 213. `tag` · Commerce & Payments
