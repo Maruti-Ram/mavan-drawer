@@ -197,6 +197,10 @@
     "chart-bar-5",
     "chart-bar-5-filled",
     "chart-bar-filled",
+    "chart-funnel",
+    "chart-funnel-2",
+    "chart-funnel-2-filled",
+    "chart-funnel-filled",
     "chart-line",
     "chart-line-2",
     "chart-line-2-filled",
@@ -12276,6 +12280,272 @@
           "geometric": 3,
           "recession": 0.39,
           "optical": 3.29
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-funnel": {
+      "paths": [
+        "M3.75 4.5A0.75 0.75 0 0 1 4.5 3.75L19.5 3.75A0.75 0.75 0 0 1 20.25 4.5L20.25 8.5A0.75 0.75 0 0 1 19.5 9.25L17.25 9.25L17.25 14A0.75 0.75 0 0 1 16.5 14.75L14.75 14.75L14.75 19.5A0.75 0.75 0 0 1 14 20.25L10 20.25A0.75 0.75 0 0 1 9.25 19.5L9.25 14.75L7.5 14.75A0.75 0.75 0 0 1 6.75 14L6.75 9.25L4.5 9.25A0.75 0.75 0 0 1 3.75 8.5Z",
+        "M6.75 9.25H17.25",
+        "M9.25 14.75H14.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 4.5A0.75 0.75 0 0 1 4.5 3.75L19.5 3.75A0.75 0.75 0 0 1 20.25 4.5L20.25 8.5A0.75 0.75 0 0 1 19.5 9.25L17.25 9.25L17.25 14A0.75 0.75 0 0 1 16.5 14.75L14.75 14.75L14.75 19.5A0.75 0.75 0 0 1 14 20.25L10 20.25A0.75 0.75 0 0 1 9.25 19.5L9.25 14.75L7.5 14.75A0.75 0.75 0 0 1 6.75 14L6.75 9.25L4.5 9.25A0.75 0.75 0 0 1 3.75 8.5Z\"/> <path d=\"M6.75 9.25H17.25\"/> <path d=\"M9.25 14.75H14.75\"/>",
+      "mark": false,
+      "tags": [
+        "funnel",
+        "conversion",
+        "sales",
+        "pipeline",
+        "stages",
+        "analytics",
+        "report",
+        "stepped",
+        "bars"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.98,
+          "optical": 3.74
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.98,
+          "optical": 3.74
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.08,
+          "optical": 3.06
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.08,
+          "optical": 3.06
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 12,
+        "h": 7
+      },
+      "ratio": {
+        "w": 0.67,
+        "h": 0.39
+      },
+      "gap": null
+    },
+    "chart-funnel-2": {
+      "paths": [
+        "M3.83 5.73A1.5 1.5 0 0 1 3.75 5.25A1.5 1.5 0 0 1 5.25 3.75L18.75 3.75A1.5 1.5 0 0 1 20.25 5.25A1.5 1.5 0 0 1 20.17 5.73L15.46 19.74A0.75 0.75 0 0 1 14.75 20.25L9.25 20.25A0.75 0.75 0 0 1 8.54 19.74Z",
+        "M5.01 9.25H18.99",
+        "M6.86 14.75H17.14"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.83 5.73A1.5 1.5 0 0 1 3.75 5.25A1.5 1.5 0 0 1 5.25 3.75L18.75 3.75A1.5 1.5 0 0 1 20.25 5.25A1.5 1.5 0 0 1 20.17 5.73L15.46 19.74A0.75 0.75 0 0 1 14.75 20.25L9.25 20.25A0.75 0.75 0 0 1 8.54 19.74Z\"/> <path d=\"M5.01 9.25H18.99\"/> <path d=\"M6.86 14.75H17.14\"/>",
+      "mark": false,
+      "tags": [
+        "funnel",
+        "conversion",
+        "sales",
+        "pipeline",
+        "stages",
+        "analytics",
+        "report",
+        "tapered"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 1.16,
+          "optical": 3.87
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.16,
+          "optical": 3.87
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.14,
+          "optical": 3.1
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.85,
+          "optical": 3.64
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 15.48,
+        "h": 7
+      },
+      "ratio": {
+        "w": 0.86,
+        "h": 0.39
+      },
+      "gap": null
+    },
+    "chart-funnel-2-filled": {
+      "paths": [],
+      "areas": [
+        "M3.12 5.97A2.25 2.25 0 0 1 3 5.25A2.25 2.25 0 0 1 5.25 3L18.75 3A2.25 2.25 0 0 1 21 5.25A2.25 2.25 0 0 1 20.88 5.97L20.31 7.66A0.5 0.5 0 0 1 19.84 8L4.16 8A0.5 0.5 0 0 1 3.69 7.66Z",
+        "M4.53 10.16A0.5 0.5 0 0 1 4.5 10A0.5 0.5 0 0 1 5 9.5L19 9.5A0.5 0.5 0 0 1 19.5 10A0.5 0.5 0 0 1 19.47 10.16L18.13 14.16A0.5 0.5 0 0 1 17.65 14.5L6.35 14.5A0.5 0.5 0 0 1 5.87 14.16Z",
+        "M6.71 16.66A0.5 0.5 0 0 1 6.69 16.5A0.5 0.5 0 0 1 7.19 16L16.81 16A0.5 0.5 0 0 1 17.31 16.5A0.5 0.5 0 0 1 17.29 16.66L16.17 19.98A1.5 1.5 0 0 1 14.75 21L9.25 21A1.5 1.5 0 0 1 7.83 19.98Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.12 5.97A2.25 2.25 0 0 1 3 5.25A2.25 2.25 0 0 1 5.25 3L18.75 3A2.25 2.25 0 0 1 21 5.25A2.25 2.25 0 0 1 20.88 5.97L20.31 7.66A0.5 0.5 0 0 1 19.84 8L4.16 8A0.5 0.5 0 0 1 3.69 7.66Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.53 10.16A0.5 0.5 0 0 1 4.5 10A0.5 0.5 0 0 1 5 9.5L19 9.5A0.5 0.5 0 0 1 19.5 10A0.5 0.5 0 0 1 19.47 10.16L18.13 14.16A0.5 0.5 0 0 1 17.65 14.5L6.35 14.5A0.5 0.5 0 0 1 5.87 14.16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.71 16.66A0.5 0.5 0 0 1 6.69 16.5A0.5 0.5 0 0 1 7.19 16L16.81 16A0.5 0.5 0 0 1 17.31 16.5A0.5 0.5 0 0 1 17.29 16.66L16.17 19.98A1.5 1.5 0 0 1 14.75 21L9.25 21A1.5 1.5 0 0 1 7.83 19.98Z\"/>",
+      "mark": false,
+      "tags": [
+        "funnel",
+        "conversion",
+        "sales",
+        "pipeline",
+        "stages",
+        "analytics",
+        "report",
+        "tapered"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-funnel-filled": {
+      "paths": [],
+      "areas": [
+        "M3 4.5A1.5 1.5 0 0 1 4.5 3L19.5 3A1.5 1.5 0 0 1 21 4.5L21 6.5A1.5 1.5 0 0 1 19.5 8L4.5 8A1.5 1.5 0 0 1 3 6.5Z",
+        "M6 10A0.5 0.5 0 0 1 6.5 9.5L17.5 9.5A0.5 0.5 0 0 1 18 10L18 13A1.5 1.5 0 0 1 16.5 14.5L7.5 14.5A1.5 1.5 0 0 1 6 13Z",
+        "M8.5 16.5A0.5 0.5 0 0 1 9 16L15 16A0.5 0.5 0 0 1 15.5 16.5L15.5 19.5A1.5 1.5 0 0 1 14 21L10 21A1.5 1.5 0 0 1 8.5 19.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 4.5A1.5 1.5 0 0 1 4.5 3L19.5 3A1.5 1.5 0 0 1 21 4.5L21 6.5A1.5 1.5 0 0 1 19.5 8L4.5 8A1.5 1.5 0 0 1 3 6.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 10A0.5 0.5 0 0 1 6.5 9.5L17.5 9.5A0.5 0.5 0 0 1 18 10L18 13A1.5 1.5 0 0 1 16.5 14.5L7.5 14.5A1.5 1.5 0 0 1 6 13Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.5 16.5A0.5 0.5 0 0 1 9 16L15 16A0.5 0.5 0 0 1 15.5 16.5L15.5 19.5A1.5 1.5 0 0 1 14 21L10 21A1.5 1.5 0 0 1 8.5 19.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "funnel",
+        "conversion",
+        "sales",
+        "pipeline",
+        "stages",
+        "analytics",
+        "report",
+        "stepped",
+        "bars"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         }
       },
       "container": null,
@@ -71009,6 +71279,10 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-funnel",
+        "chart-funnel-2",
+        "chart-funnel-2-filled",
+        "chart-funnel-filled",
         "chart-line",
         "chart-line-2",
         "chart-line-2-filled",
@@ -83061,6 +83335,272 @@
               "geometric": 2,
               "recession": 0.33,
               "optical": 2.25
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-funnel": {
+          "paths": [
+            "M2.625 3.25A0.625 0.625 0 0 1 3.25 2.625L12.75 2.625A0.625 0.625 0 0 1 13.375 3.25L13.375 5.75A0.625 0.625 0 0 1 12.75 6.375L11.375 6.375L11.375 9A0.625 0.625 0 0 1 10.75 9.625L9.625 9.625L9.625 12.75A0.625 0.625 0 0 1 9 13.375L7 13.375A0.625 0.625 0 0 1 6.375 12.75L6.375 9.625L5.25 9.625A0.625 0.625 0 0 1 4.625 9L4.625 6.375L3.25 6.375A0.625 0.625 0 0 1 2.625 5.75Z",
+            "M4.625 6.375H11.375",
+            "M6.375 9.625H9.625"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 3.25A0.625 0.625 0 0 1 3.25 2.625L12.75 2.625A0.625 0.625 0 0 1 13.375 3.25L13.375 5.75A0.625 0.625 0 0 1 12.75 6.375L11.375 6.375L11.375 9A0.625 0.625 0 0 1 10.75 9.625L9.625 9.625L9.625 12.75A0.625 0.625 0 0 1 9 13.375L7 13.375A0.625 0.625 0 0 1 6.375 12.75L6.375 9.625L5.25 9.625A0.625 0.625 0 0 1 4.625 9L4.625 6.375L3.25 6.375A0.625 0.625 0 0 1 2.625 5.75Z\"/> <path d=\"M4.625 6.375H11.375\"/> <path d=\"M6.375 9.625H9.625\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "stepped",
+            "bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.8,
+              "optical": 2.6
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.8,
+              "optical": 2.6
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.09,
+              "optical": 2.07
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.09,
+              "optical": 2.07
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 8,
+            "h": 4.5
+          },
+          "ratio": {
+            "w": 0.67,
+            "h": 0.38
+          },
+          "gap": null
+        },
+        "chart-funnel-2": {
+          "paths": [
+            "M2.676 3.939A1 1 0 0 1 2.625 3.625A1 1 0 0 1 3.625 2.625L12.375 2.625A1 1 0 0 1 13.375 3.625A1 1 0 0 1 13.324 3.939L10.343 12.946A0.625 0.625 0 0 1 9.75 13.375L6.25 13.375A0.625 0.625 0 0 1 5.657 12.946Z",
+            "M3.482 6.375H12.518",
+            "M4.557 9.625H11.443"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.676 3.939A1 1 0 0 1 2.625 3.625A1 1 0 0 1 3.625 2.625L12.375 2.625A1 1 0 0 1 13.375 3.625A1 1 0 0 1 13.324 3.939L10.343 12.946A0.625 0.625 0 0 1 9.75 13.375L6.25 13.375A0.625 0.625 0 0 1 5.657 12.946Z\"/> <path d=\"M3.482 6.375H12.518\"/> <path d=\"M4.557 9.625H11.443\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "tapered"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.91,
+              "optical": 2.68
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.91,
+              "optical": 2.68
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.12,
+              "optical": 2.09
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.69,
+              "optical": 2.52
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 10.29,
+            "h": 4.5
+          },
+          "ratio": {
+            "w": 0.86,
+            "h": 0.38
+          },
+          "gap": null
+        },
+        "chart-funnel-2-filled": {
+          "paths": [],
+          "areas": [
+            "M2.082 4.136A1.625 1.625 0 0 1 2 3.625A1.625 1.625 0 0 1 3.625 2L12.375 2A1.625 1.625 0 0 1 14 3.625A1.625 1.625 0 0 1 13.918 4.136L13.745 4.657A0.5 0.5 0 0 1 13.27 5L2.73 5A0.5 0.5 0 0 1 2.255 4.657Z",
+            "M3.082 7.157A0.5 0.5 0 0 1 3.057 7A0.5 0.5 0 0 1 3.557 6.5L12.443 6.5A0.5 0.5 0 0 1 12.943 7A0.5 0.5 0 0 1 12.918 7.157L12.256 9.157A0.5 0.5 0 0 1 11.781 9.5L4.219 9.5A0.5 0.5 0 0 1 3.744 9.157Z",
+            "M4.572 11.657A0.5 0.5 0 0 1 4.546 11.5A0.5 0.5 0 0 1 5.046 11L10.954 11A0.5 0.5 0 0 1 11.454 11.5A0.5 0.5 0 0 1 11.428 11.657L10.937 13.143A1.25 1.25 0 0 1 9.75 14L6.25 14A1.25 1.25 0 0 1 5.063 13.143Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.082 4.136A1.625 1.625 0 0 1 2 3.625A1.625 1.625 0 0 1 3.625 2L12.375 2A1.625 1.625 0 0 1 14 3.625A1.625 1.625 0 0 1 13.918 4.136L13.745 4.657A0.5 0.5 0 0 1 13.27 5L2.73 5A0.5 0.5 0 0 1 2.255 4.657Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.082 7.157A0.5 0.5 0 0 1 3.057 7A0.5 0.5 0 0 1 3.557 6.5L12.443 6.5A0.5 0.5 0 0 1 12.943 7A0.5 0.5 0 0 1 12.918 7.157L12.256 9.157A0.5 0.5 0 0 1 11.781 9.5L4.219 9.5A0.5 0.5 0 0 1 3.744 9.157Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.572 11.657A0.5 0.5 0 0 1 4.546 11.5A0.5 0.5 0 0 1 5.046 11L10.954 11A0.5 0.5 0 0 1 11.454 11.5A0.5 0.5 0 0 1 11.428 11.657L10.937 13.143A1.25 1.25 0 0 1 9.75 14L6.25 14A1.25 1.25 0 0 1 5.063 13.143Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "tapered"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-funnel-filled": {
+          "paths": [],
+          "areas": [
+            "M2 3.25A1.25 1.25 0 0 1 3.25 2L12.75 2A1.25 1.25 0 0 1 14 3.25L14 3.75A1.25 1.25 0 0 1 12.75 5L3.25 5A1.25 1.25 0 0 1 2 3.75Z",
+            "M4 7A0.5 0.5 0 0 1 4.5 6.5L11.5 6.5A0.5 0.5 0 0 1 12 7L12 8.25A1.25 1.25 0 0 1 10.75 9.5L5.25 9.5A1.25 1.25 0 0 1 4 8.25Z",
+            "M5.75 11.5A0.5 0.5 0 0 1 6.25 11L9.75 11A0.5 0.5 0 0 1 10.25 11.5L10.25 12.75A1.25 1.25 0 0 1 9 14L7 14A1.25 1.25 0 0 1 5.75 12.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 3.25A1.25 1.25 0 0 1 3.25 2L12.75 2A1.25 1.25 0 0 1 14 3.25L14 3.75A1.25 1.25 0 0 1 12.75 5L3.25 5A1.25 1.25 0 0 1 2 3.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4 7A0.5 0.5 0 0 1 4.5 6.5L11.5 6.5A0.5 0.5 0 0 1 12 7L12 8.25A1.25 1.25 0 0 1 10.75 9.5L5.25 9.5A1.25 1.25 0 0 1 4 8.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.75 11.5A0.5 0.5 0 0 1 6.25 11L9.75 11A0.5 0.5 0 0 1 10.25 11.5L10.25 12.75A1.25 1.25 0 0 1 9 14L7 14A1.25 1.25 0 0 1 5.75 12.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "stepped",
+            "bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -141738,6 +142278,10 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-funnel",
+        "chart-funnel-2",
+        "chart-funnel-2-filled",
+        "chart-funnel-filled",
         "chart-line",
         "chart-line-2",
         "chart-line-2-filled",
@@ -153794,6 +154338,272 @@
               "geometric": 3,
               "recession": 0.33,
               "optical": 3.25
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-funnel": {
+          "paths": [
+            "M3.75 4.5A0.75 0.75 0 0 1 4.5 3.75L15.5 3.75A0.75 0.75 0 0 1 16.25 4.5L16.25 7.25A0.75 0.75 0 0 1 15.5 8L13.75 8L13.75 11.25A0.75 0.75 0 0 1 13 12L11.75 12L11.75 15.5A0.75 0.75 0 0 1 11 16.25L9 16.25A0.75 0.75 0 0 1 8.25 15.5L8.25 12L7 12A0.75 0.75 0 0 1 6.25 11.25L6.25 8L4.5 8A0.75 0.75 0 0 1 3.75 7.25Z",
+            "M6.25 8H13.75",
+            "M8.25 12H11.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 4.5A0.75 0.75 0 0 1 4.5 3.75L15.5 3.75A0.75 0.75 0 0 1 16.25 4.5L16.25 7.25A0.75 0.75 0 0 1 15.5 8L13.75 8L13.75 11.25A0.75 0.75 0 0 1 13 12L11.75 12L11.75 15.5A0.75 0.75 0 0 1 11 16.25L9 16.25A0.75 0.75 0 0 1 8.25 15.5L8.25 12L7 12A0.75 0.75 0 0 1 6.25 11.25L6.25 8L4.5 8A0.75 0.75 0 0 1 3.75 7.25Z\"/> <path d=\"M6.25 8H13.75\"/> <path d=\"M8.25 12H11.75\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "stepped",
+            "bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.97,
+              "optical": 3.73
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.97,
+              "optical": 3.73
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.1,
+              "optical": 3.08
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.1,
+              "optical": 3.08
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 9,
+            "h": 5.5
+          },
+          "ratio": {
+            "w": 0.64,
+            "h": 0.39
+          },
+          "gap": null
+        },
+        "chart-funnel-2": {
+          "paths": [
+            "M3.82 5.4A1.25 1.25 0 0 1 3.75 5A1.25 1.25 0 0 1 5 3.75L15 3.75A1.25 1.25 0 0 1 16.25 5A1.25 1.25 0 0 1 16.18 5.4L12.71 15.74A0.75 0.75 0 0 1 12 16.25L8 16.25A0.75 0.75 0 0 1 7.29 15.74Z",
+            "M4.69 8H15.31",
+            "M6.03 12H13.97"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.82 5.4A1.25 1.25 0 0 1 3.75 5A1.25 1.25 0 0 1 5 3.75L15 3.75A1.25 1.25 0 0 1 16.25 5A1.25 1.25 0 0 1 16.18 5.4L12.71 15.74A0.75 0.75 0 0 1 12 16.25L8 16.25A0.75 0.75 0 0 1 7.29 15.74Z\"/> <path d=\"M4.69 8H15.31\"/> <path d=\"M6.03 12H13.97\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "tapered"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.08,
+              "optical": 3.81
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.08,
+              "optical": 3.81
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.11
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 12.12,
+            "h": 5.5
+          },
+          "ratio": {
+            "w": 0.87,
+            "h": 0.39
+          },
+          "gap": null
+        },
+        "chart-funnel-2-filled": {
+          "paths": [],
+          "areas": [
+            "M3.1 5.64A2 2 0 0 1 3 5A2 2 0 0 1 5 3L15 3A2 2 0 0 1 17 5A2 2 0 0 1 16.9 5.64L16.64 6.41A0.5 0.5 0 0 1 16.16 6.75L3.84 6.75A0.5 0.5 0 0 1 3.36 6.41Z",
+            "M4.2 8.91A0.5 0.5 0 0 1 4.18 8.75A0.5 0.5 0 0 1 4.68 8.25L15.32 8.25A0.5 0.5 0 0 1 15.82 8.75A0.5 0.5 0 0 1 15.8 8.91L14.96 11.41A0.5 0.5 0 0 1 14.48 11.75L5.52 11.75A0.5 0.5 0 0 1 5.04 11.41Z",
+            "M5.88 13.91A0.5 0.5 0 0 1 5.86 13.75A0.5 0.5 0 0 1 6.36 13.25L13.64 13.25A0.5 0.5 0 0 1 14.14 13.75A0.5 0.5 0 0 1 14.12 13.91L13.42 15.98A1.5 1.5 0 0 1 12 17L8 17A1.5 1.5 0 0 1 6.58 15.98Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.1 5.64A2 2 0 0 1 3 5A2 2 0 0 1 5 3L15 3A2 2 0 0 1 17 5A2 2 0 0 1 16.9 5.64L16.64 6.41A0.5 0.5 0 0 1 16.16 6.75L3.84 6.75A0.5 0.5 0 0 1 3.36 6.41Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.2 8.91A0.5 0.5 0 0 1 4.18 8.75A0.5 0.5 0 0 1 4.68 8.25L15.32 8.25A0.5 0.5 0 0 1 15.82 8.75A0.5 0.5 0 0 1 15.8 8.91L14.96 11.41A0.5 0.5 0 0 1 14.48 11.75L5.52 11.75A0.5 0.5 0 0 1 5.04 11.41Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.88 13.91A0.5 0.5 0 0 1 5.86 13.75A0.5 0.5 0 0 1 6.36 13.25L13.64 13.25A0.5 0.5 0 0 1 14.14 13.75A0.5 0.5 0 0 1 14.12 13.91L13.42 15.98A1.5 1.5 0 0 1 12 17L8 17A1.5 1.5 0 0 1 6.58 15.98Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "tapered"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-funnel-filled": {
+          "paths": [],
+          "areas": [
+            "M3 4.5A1.5 1.5 0 0 1 4.5 3L15.5 3A1.5 1.5 0 0 1 17 4.5L17 5.25A1.5 1.5 0 0 1 15.5 6.75L4.5 6.75A1.5 1.5 0 0 1 3 5.25Z",
+            "M5.5 8.75A0.5 0.5 0 0 1 6 8.25L14 8.25A0.5 0.5 0 0 1 14.5 8.75L14.5 10.25A1.5 1.5 0 0 1 13 11.75L7 11.75A1.5 1.5 0 0 1 5.5 10.25Z",
+            "M7.5 13.75A0.5 0.5 0 0 1 8 13.25L12 13.25A0.5 0.5 0 0 1 12.5 13.75L12.5 15.5A1.5 1.5 0 0 1 11 17L9 17A1.5 1.5 0 0 1 7.5 15.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 4.5A1.5 1.5 0 0 1 4.5 3L15.5 3A1.5 1.5 0 0 1 17 4.5L17 5.25A1.5 1.5 0 0 1 15.5 6.75L4.5 6.75A1.5 1.5 0 0 1 3 5.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.5 8.75A0.5 0.5 0 0 1 6 8.25L14 8.25A0.5 0.5 0 0 1 14.5 8.75L14.5 10.25A1.5 1.5 0 0 1 13 11.75L7 11.75A1.5 1.5 0 0 1 5.5 10.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 13.75A0.5 0.5 0 0 1 8 13.25L12 13.25A0.5 0.5 0 0 1 12.5 13.75L12.5 15.5A1.5 1.5 0 0 1 11 17L9 17A1.5 1.5 0 0 1 7.5 15.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "stepped",
+            "bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -212510,6 +213320,10 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-funnel",
+        "chart-funnel-2",
+        "chart-funnel-2-filled",
+        "chart-funnel-filled",
         "chart-line",
         "chart-line-2",
         "chart-line-2-filled",
@@ -224589,6 +225403,272 @@
               "geometric": 3,
               "recession": 0.39,
               "optical": 3.29
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-funnel": {
+          "paths": [
+            "M3.75 4.5A0.75 0.75 0 0 1 4.5 3.75L19.5 3.75A0.75 0.75 0 0 1 20.25 4.5L20.25 8.5A0.75 0.75 0 0 1 19.5 9.25L17.25 9.25L17.25 14A0.75 0.75 0 0 1 16.5 14.75L14.75 14.75L14.75 19.5A0.75 0.75 0 0 1 14 20.25L10 20.25A0.75 0.75 0 0 1 9.25 19.5L9.25 14.75L7.5 14.75A0.75 0.75 0 0 1 6.75 14L6.75 9.25L4.5 9.25A0.75 0.75 0 0 1 3.75 8.5Z",
+            "M6.75 9.25H17.25",
+            "M9.25 14.75H14.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 4.5A0.75 0.75 0 0 1 4.5 3.75L19.5 3.75A0.75 0.75 0 0 1 20.25 4.5L20.25 8.5A0.75 0.75 0 0 1 19.5 9.25L17.25 9.25L17.25 14A0.75 0.75 0 0 1 16.5 14.75L14.75 14.75L14.75 19.5A0.75 0.75 0 0 1 14 20.25L10 20.25A0.75 0.75 0 0 1 9.25 19.5L9.25 14.75L7.5 14.75A0.75 0.75 0 0 1 6.75 14L6.75 9.25L4.5 9.25A0.75 0.75 0 0 1 3.75 8.5Z\"/> <path d=\"M6.75 9.25H17.25\"/> <path d=\"M9.25 14.75H14.75\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "stepped",
+            "bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.98,
+              "optical": 3.74
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.98,
+              "optical": 3.74
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.08,
+              "optical": 3.06
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.08,
+              "optical": 3.06
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 12,
+            "h": 7
+          },
+          "ratio": {
+            "w": 0.67,
+            "h": 0.39
+          },
+          "gap": null
+        },
+        "chart-funnel-2": {
+          "paths": [
+            "M3.83 5.73A1.5 1.5 0 0 1 3.75 5.25A1.5 1.5 0 0 1 5.25 3.75L18.75 3.75A1.5 1.5 0 0 1 20.25 5.25A1.5 1.5 0 0 1 20.17 5.73L15.46 19.74A0.75 0.75 0 0 1 14.75 20.25L9.25 20.25A0.75 0.75 0 0 1 8.54 19.74Z",
+            "M5.01 9.25H18.99",
+            "M6.86 14.75H17.14"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.83 5.73A1.5 1.5 0 0 1 3.75 5.25A1.5 1.5 0 0 1 5.25 3.75L18.75 3.75A1.5 1.5 0 0 1 20.25 5.25A1.5 1.5 0 0 1 20.17 5.73L15.46 19.74A0.75 0.75 0 0 1 14.75 20.25L9.25 20.25A0.75 0.75 0 0 1 8.54 19.74Z\"/> <path d=\"M5.01 9.25H18.99\"/> <path d=\"M6.86 14.75H17.14\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "tapered"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.16,
+              "optical": 3.87
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.16,
+              "optical": 3.87
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.85,
+              "optical": 3.64
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 15.48,
+            "h": 7
+          },
+          "ratio": {
+            "w": 0.86,
+            "h": 0.39
+          },
+          "gap": null
+        },
+        "chart-funnel-2-filled": {
+          "paths": [],
+          "areas": [
+            "M3.12 5.97A2.25 2.25 0 0 1 3 5.25A2.25 2.25 0 0 1 5.25 3L18.75 3A2.25 2.25 0 0 1 21 5.25A2.25 2.25 0 0 1 20.88 5.97L20.31 7.66A0.5 0.5 0 0 1 19.84 8L4.16 8A0.5 0.5 0 0 1 3.69 7.66Z",
+            "M4.53 10.16A0.5 0.5 0 0 1 4.5 10A0.5 0.5 0 0 1 5 9.5L19 9.5A0.5 0.5 0 0 1 19.5 10A0.5 0.5 0 0 1 19.47 10.16L18.13 14.16A0.5 0.5 0 0 1 17.65 14.5L6.35 14.5A0.5 0.5 0 0 1 5.87 14.16Z",
+            "M6.71 16.66A0.5 0.5 0 0 1 6.69 16.5A0.5 0.5 0 0 1 7.19 16L16.81 16A0.5 0.5 0 0 1 17.31 16.5A0.5 0.5 0 0 1 17.29 16.66L16.17 19.98A1.5 1.5 0 0 1 14.75 21L9.25 21A1.5 1.5 0 0 1 7.83 19.98Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.12 5.97A2.25 2.25 0 0 1 3 5.25A2.25 2.25 0 0 1 5.25 3L18.75 3A2.25 2.25 0 0 1 21 5.25A2.25 2.25 0 0 1 20.88 5.97L20.31 7.66A0.5 0.5 0 0 1 19.84 8L4.16 8A0.5 0.5 0 0 1 3.69 7.66Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.53 10.16A0.5 0.5 0 0 1 4.5 10A0.5 0.5 0 0 1 5 9.5L19 9.5A0.5 0.5 0 0 1 19.5 10A0.5 0.5 0 0 1 19.47 10.16L18.13 14.16A0.5 0.5 0 0 1 17.65 14.5L6.35 14.5A0.5 0.5 0 0 1 5.87 14.16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.71 16.66A0.5 0.5 0 0 1 6.69 16.5A0.5 0.5 0 0 1 7.19 16L16.81 16A0.5 0.5 0 0 1 17.31 16.5A0.5 0.5 0 0 1 17.29 16.66L16.17 19.98A1.5 1.5 0 0 1 14.75 21L9.25 21A1.5 1.5 0 0 1 7.83 19.98Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "tapered"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-funnel-filled": {
+          "paths": [],
+          "areas": [
+            "M3 4.5A1.5 1.5 0 0 1 4.5 3L19.5 3A1.5 1.5 0 0 1 21 4.5L21 6.5A1.5 1.5 0 0 1 19.5 8L4.5 8A1.5 1.5 0 0 1 3 6.5Z",
+            "M6 10A0.5 0.5 0 0 1 6.5 9.5L17.5 9.5A0.5 0.5 0 0 1 18 10L18 13A1.5 1.5 0 0 1 16.5 14.5L7.5 14.5A1.5 1.5 0 0 1 6 13Z",
+            "M8.5 16.5A0.5 0.5 0 0 1 9 16L15 16A0.5 0.5 0 0 1 15.5 16.5L15.5 19.5A1.5 1.5 0 0 1 14 21L10 21A1.5 1.5 0 0 1 8.5 19.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 4.5A1.5 1.5 0 0 1 4.5 3L19.5 3A1.5 1.5 0 0 1 21 4.5L21 6.5A1.5 1.5 0 0 1 19.5 8L4.5 8A1.5 1.5 0 0 1 3 6.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 10A0.5 0.5 0 0 1 6.5 9.5L17.5 9.5A0.5 0.5 0 0 1 18 10L18 13A1.5 1.5 0 0 1 16.5 14.5L7.5 14.5A1.5 1.5 0 0 1 6 13Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.5 16.5A0.5 0.5 0 0 1 9 16L15 16A0.5 0.5 0 0 1 15.5 16.5L15.5 19.5A1.5 1.5 0 0 1 14 21L10 21A1.5 1.5 0 0 1 8.5 19.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "funnel",
+            "conversion",
+            "sales",
+            "pipeline",
+            "stages",
+            "analytics",
+            "report",
+            "stepped",
+            "bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -289929,10 +291009,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Charts & Data",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-18",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-18"
+    },
+    {
+      "n": 267,
+      "name": "chart-funnel-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "chart-funnel",
+      "note": "Tapered bands · approved 2026-10-18",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-18"
     },
     {
       "n": 268,

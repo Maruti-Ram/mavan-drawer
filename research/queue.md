@@ -647,7 +647,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 264. `caret-up-2` · Arrows & Direction · variant of `caret-up` — Near-equilateral · caret-up · approved 2026-10-17
 - [ ] 265. `live` · Media & Playback
 - [ ] 266. `categories` · Files & Folders
-- [~] 267. `chart-funnel` · Charts & Data
+- [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
+- [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
 - [ ] 268. `drag-drop` · UI & Layout
 - [ ] 269. `newsletter` · Communication
 - [ ] 270. `passkey` · Users & Access
