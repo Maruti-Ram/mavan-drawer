@@ -728,8 +728,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 328. `rewind` · Arrows & Direction — approved 2026-10-17
 - [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-17
 - [ ] 329. `rss` · Communication
-- [~] 330. `trending-down` · Charts & Data — mvp
-- [~] 331. `trending-up` · Charts & Data — mvp
+- [x] 330. `trending-down` · Charts & Data — mvp · approved 2026-10-18
+- [x] 330. `trending-down-2` · Charts & Data · variant of `trending-down` — One pull-back, soft · approved 2026-10-18
+- [x] 331. `trending-up` · Charts & Data — mvp · approved 2026-10-18
+- [x] 331. `trending-up-2` · Charts & Data · variant of `trending-up` — One pull-back, soft · approved 2026-10-18
 - [ ] 332. `bluetooth` · Devices & Hardware
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
