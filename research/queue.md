@@ -693,7 +693,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 306. `aperture` · Media & Playback
 - [ ] 307. `hard-drive` · Devices & Hardware
 - [ ] 308. `music` · Media & Playback
-- [~] 309. `navigation` · Maps & Location
+- [x] 309. `navigation` · Maps & Location — approved 2026-10-18
+- [x] 309. `navigation-circle` · Maps & Location · variant of `navigation` — Dart in an open ring · approved 2026-10-18
 - [ ] 310. `radio` · Media & Playback
 - [ ] 311. `server` · Development & Infra
 - [ ] 312. `speaker` · Media & Playback
