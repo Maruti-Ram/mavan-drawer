@@ -11,6 +11,12 @@
     "24": 2.5
   },
   "names": [
+    "activity",
+    "activity-2",
+    "activity-2-filled",
+    "activity-circle",
+    "activity-circle-filled",
+    "activity-filled",
     "airplay",
     "airplay-filled",
     "alarm-clock",
@@ -1173,6 +1179,365 @@
     "x-small-filled"
   ],
   "icons": {
+    "activity": {
+      "paths": [
+        "M2.75 12L5.55 12A0.75 0.75 0 0 0 6.26 11.49L8.33 5.26A0.75 0.75 0 0 1 9.75 5.26L14.25 18.74A0.75 0.75 0 0 0 15.67 18.74L17.74 12.51A0.75 0.75 0 0 1 18.45 12L21.25 12"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12L5.55 12A0.75 0.75 0 0 0 6.26 11.49L8.33 5.26A0.75 0.75 0 0 1 9.75 5.26L14.25 18.74A0.75 0.75 0 0 0 15.67 18.74L17.74 12.51A0.75 0.75 0 0 1 18.45 12L21.25 12\"/>",
+      "mark": false,
+      "tags": [
+        "pulse",
+        "heartbeat",
+        "ecg",
+        "health",
+        "monitor",
+        "spike"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.01
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.01
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 1.32,
+          "optical": 5
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 1.32,
+          "optical": 5
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "activity-2": {
+      "paths": [
+        "M2.75 12L7.25 12A0.75 0.75 0 0 0 8 11.25L8 5.5A0.75 0.75 0 0 1 8.75 4.75L11.25 4.75A0.75 0.75 0 0 1 12 5.5L12 18.5A0.75 0.75 0 0 0 12.75 19.25L15.25 19.25A0.75 0.75 0 0 0 16 18.5L16 12.75A0.75 0.75 0 0 1 16.75 12L21.25 12"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12L7.25 12A0.75 0.75 0 0 0 8 11.25L8 5.5A0.75 0.75 0 0 1 8.75 4.75L11.25 4.75A0.75 0.75 0 0 1 12 5.5L12 18.5A0.75 0.75 0 0 0 12.75 19.25L15.25 19.25A0.75 0.75 0 0 0 16 18.5L16 12.75A0.75 0.75 0 0 1 16.75 12L21.25 12\"/>",
+      "mark": false,
+      "tags": [
+        "pulse",
+        "signal",
+        "square wave",
+        "monitor",
+        "oscilloscope"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.07,
+          "optical": 4.05
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.07,
+          "optical": 4.05
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "activity-2-filled": {
+      "paths": [
+        "M3.25 12L6.75 12A1.25 1.25 0 0 0 8 10.75L8 6.5A1.25 1.25 0 0 1 9.25 5.25L10.75 5.25A1.25 1.25 0 0 1 12 6.5L12 17.5A1.25 1.25 0 0 0 13.25 18.75L14.75 18.75A1.25 1.25 0 0 0 16 17.5L16 13.25A1.25 1.25 0 0 1 17.25 12L20.75 12"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.25 12L6.75 12A1.25 1.25 0 0 0 8 10.75L8 6.5A1.25 1.25 0 0 1 9.25 5.25L10.75 5.25A1.25 1.25 0 0 1 12 6.5L12 17.5A1.25 1.25 0 0 0 13.25 18.75L14.75 18.75A1.25 1.25 0 0 0 16 17.5L16 13.25A1.25 1.25 0 0 1 17.25 12L20.75 12\"/>",
+      "mark": false,
+      "tags": [
+        "pulse",
+        "signal",
+        "square wave",
+        "monitor",
+        "oscilloscope"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.07,
+          "optical": 2.05
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.07,
+          "optical": 2.05
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.17,
+          "optical": 4.13
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.17,
+          "optical": 4.13
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "activity-circle": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M6 12L7.38 12A0.75 0.75 0 0 0 8.09 11.49L9.25 8.01A0.75 0.75 0 0 1 10.67 8.01L13.33 15.99A0.75 0.75 0 0 0 14.75 15.99L15.91 12.51A0.75 0.75 0 0 1 16.62 12L18 12"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M6 12L7.38 12A0.75 0.75 0 0 0 8.09 11.49L9.25 8.01A0.75 0.75 0 0 1 10.67 8.01L13.33 15.99A0.75 0.75 0 0 0 14.75 15.99L15.91 12.51A0.75 0.75 0 0 1 16.62 12L18 12\"/>",
+      "mark": false,
+      "tags": [
+        "pulse",
+        "heartbeat",
+        "circle",
+        "monitor",
+        "health",
+        "status"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 13.5,
+        "h": 10.5
+      },
+      "ratio": {
+        "w": 0.68,
+        "h": 0.53
+      },
+      "gap": null
+    },
+    "activity-circle-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM6 11.25L7.38 11.25L8.54 7.78A1.5 1.5 0 0 1 11.38 7.78L14.04 15.75L15.2 12.28A1.5 1.5 0 0 1 16.62 11.25L18 11.25A0.75 0.75 0 0 1 18 12.75L16.62 12.75L15.46 16.22A1.5 1.5 0 0 1 12.62 16.22L9.96 8.25L8.8 11.72A1.5 1.5 0 0 1 7.38 12.75L6 12.75A0.75 0.75 0 0 1 6 11.25Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM6 11.25L7.38 11.25L8.54 7.78A1.5 1.5 0 0 1 11.38 7.78L14.04 15.75L15.2 12.28A1.5 1.5 0 0 1 16.62 11.25L18 11.25A0.75 0.75 0 0 1 18 12.75L16.62 12.75L15.46 16.22A1.5 1.5 0 0 1 12.62 16.22L9.96 8.25L8.8 11.72A1.5 1.5 0 0 1 7.38 12.75L6 12.75A0.75 0.75 0 0 1 6 11.25Z\"/>",
+      "mark": false,
+      "tags": [
+        "pulse",
+        "heartbeat",
+        "circle",
+        "monitor",
+        "health",
+        "status"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "activity-filled": {
+      "paths": [
+        "M3.25 12L4.8 12A1.25 1.25 0 0 0 5.98 11.15L7.66 6.1A1.25 1.25 0 0 1 10.03 6.1L13.97 17.9A1.25 1.25 0 0 0 16.34 17.9L18.02 12.85A1.25 1.25 0 0 1 19.2 12L20.75 12"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.25 12L4.8 12A1.25 1.25 0 0 0 5.98 11.15L7.66 6.1A1.25 1.25 0 0 1 10.03 6.1L13.97 17.9A1.25 1.25 0 0 0 16.34 17.9L18.02 12.85A1.25 1.25 0 0 1 19.2 12L20.75 12\"/>",
+      "mark": false,
+      "tags": [
+        "pulse",
+        "heartbeat",
+        "ecg",
+        "health",
+        "monitor",
+        "spike"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 1.12,
+          "optical": 2.84
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 1.08,
+          "optical": 2.81
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 2.01,
+          "optical": 5.51
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 2.01,
+          "optical": 5.51
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "airplay": {
       "paths": [
         "M5.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V6.25A2.5 2.5 0 0 1 5.25 3.75H18.75A2.5 2.5 0 0 1 21.25 6.25V13.75A2.5 2.5 0 0 1 18.75 16.25H18.25",
@@ -70458,6 +70823,12 @@
   "masters": {
     "16": {
       "names": [
+        "activity",
+        "activity-2",
+        "activity-2-filled",
+        "activity-circle",
+        "activity-circle-filled",
+        "activity-filled",
         "airplay",
         "airplay-filled",
         "alarm-clock",
@@ -71620,6 +71991,365 @@
         "x-small-filled"
       ],
       "icons": {
+        "activity": {
+          "paths": [
+            "M1.625 8L3.732 8A0.625 0.625 0 0 0 4.325 7.573L5.498 4.053A0.625 0.625 0 0 1 6.684 4.053L9.316 11.947A0.625 0.625 0 0 0 10.502 11.947L11.675 8.427A0.625 0.625 0 0 1 12.268 8L14.375 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8L3.732 8A0.625 0.625 0 0 0 4.325 7.573L5.498 4.053A0.625 0.625 0 0 1 6.684 4.053L9.316 11.947A0.625 0.625 0 0 0 10.502 11.947L11.675 8.427A0.625 0.625 0 0 1 12.268 8L14.375 8\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "ecg",
+            "health",
+            "monitor",
+            "spike"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.02,
+              "optical": 1.01
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.02,
+              "optical": 1.01
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.08,
+              "optical": 3.81
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.08,
+              "optical": 3.81
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-2": {
+          "paths": [
+            "M1.625 8L3.75 8A0.625 0.625 0 0 0 4.375 7.375L4.375 4.25A0.625 0.625 0 0 1 5 3.625L7.375 3.625A0.625 0.625 0 0 1 8 4.25L8 11.75A0.625 0.625 0 0 0 8.625 12.375L11 12.375A0.625 0.625 0 0 0 11.625 11.75L11.625 8.625A0.625 0.625 0 0 1 12.25 8L14.375 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8L3.75 8A0.625 0.625 0 0 0 4.375 7.375L4.375 4.25A0.625 0.625 0 0 1 5 3.625L7.375 3.625A0.625 0.625 0 0 1 8 4.25L8 11.75A0.625 0.625 0 0 0 8.625 12.375L11 12.375A0.625 0.625 0 0 0 11.625 11.75L11.625 8.625A0.625 0.625 0 0 1 12.25 8L14.375 8\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "signal",
+            "square wave",
+            "monitor",
+            "oscilloscope"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.05
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-2-filled": {
+          "paths": [
+            "M2 8L3.375 8A1 1 0 0 0 4.375 7L4.375 5A1 1 0 0 1 5.375 4L7 4A1 1 0 0 1 8 5L8 11A1 1 0 0 0 9 12L10.625 12A1 1 0 0 0 11.625 11L11.625 9A1 1 0 0 1 12.625 8L14 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2 8L3.375 8A1 1 0 0 0 4.375 7L4.375 5A1 1 0 0 1 5.375 4L7 4A1 1 0 0 1 8 5L8 11A1 1 0 0 0 9 12L10.625 12A1 1 0 0 0 11.625 11L11.625 9A1 1 0 0 1 12.625 8L14 8\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "signal",
+            "square wave",
+            "monitor",
+            "oscilloscope"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.85,
+              "optical": 1.64
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.85,
+              "optical": 1.64
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.11
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.11
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-circle": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M4.5 8L5.065 8A0.625 0.625 0 0 0 5.658 7.573L6.165 6.051A0.625 0.625 0 0 1 7.35 6.051L8.65 9.949A0.625 0.625 0 0 0 9.835 9.949L10.342 8.427A0.625 0.625 0 0 1 10.935 8L11.5 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M4.5 8L5.065 8A0.625 0.625 0 0 0 5.658 7.573L6.165 6.051A0.625 0.625 0 0 1 7.35 6.051L8.65 9.949A0.625 0.625 0 0 0 9.835 9.949L10.342 8.427A0.625 0.625 0 0 1 10.935 8L11.5 8\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "circle",
+            "monitor",
+            "health",
+            "status"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 8.25,
+            "h": 6
+          },
+          "ratio": {
+            "w": 0.59,
+            "h": 0.43
+          },
+          "gap": null
+        },
+        "activity-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM4.625 7.25L4.879 7.25L5.287 6.026A1.5 1.5 0 0 1 8.133 6.026L9.29 9.5L9.698 8.276A1.5 1.5 0 0 1 11.121 7.25L11.375 7.25A0.75 0.75 0 0 1 11.375 8.75L11.121 8.75L10.713 9.974A1.5 1.5 0 0 1 7.867 9.974L6.71 6.501L6.302 7.724A1.5 1.5 0 0 1 4.879 8.75L4.625 8.75A0.75 0.75 0 0 1 4.625 7.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM4.625 7.25L4.879 7.25L5.287 6.026A1.5 1.5 0 0 1 8.133 6.026L9.29 9.5L9.698 8.276A1.5 1.5 0 0 1 11.121 7.25L11.375 7.25A0.75 0.75 0 0 1 11.375 8.75L11.121 8.75L10.713 9.974A1.5 1.5 0 0 1 7.867 9.974L6.71 6.501L6.302 7.724A1.5 1.5 0 0 1 4.879 8.75L4.625 8.75A0.75 0.75 0 0 1 4.625 7.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "circle",
+            "monitor",
+            "health",
+            "status"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-filled": {
+          "paths": [
+            "M2 8L3.171 8A1 1 0 0 0 4.119 7.316L4.997 4.683A1 1 0 0 1 6.894 4.683L9.106 11.317A1 1 0 0 0 11.003 11.317L11.881 8.684A1 1 0 0 1 12.829 8L14 8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2 8L3.171 8A1 1 0 0 0 4.119 7.316L4.997 4.683A1 1 0 0 1 6.894 4.683L9.106 11.317A1 1 0 0 0 11.003 11.317L11.881 8.684A1 1 0 0 1 12.829 8L14 8\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "ecg",
+            "health",
+            "monitor",
+            "spike"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.88,
+              "optical": 1.66
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.83,
+              "optical": 1.62
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.56,
+              "optical": 4.17
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.56,
+              "optical": 4.17
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "airplay": {
           "paths": [
             "M3.101 10.375A1.5 1.5 0 0 1 1.625 8.875V4.125A1.5 1.5 0 0 1 3.125 2.625H12.875A1.5 1.5 0 0 1 14.375 4.125V8.875A1.5 1.5 0 0 1 12.899 10.375",
@@ -140822,6 +141552,12 @@
     },
     "20": {
       "names": [
+        "activity",
+        "activity-2",
+        "activity-2-filled",
+        "activity-circle",
+        "activity-circle-filled",
+        "activity-filled",
         "airplay",
         "airplay-filled",
         "alarm-clock",
@@ -141984,6 +142720,365 @@
         "x-small-filled"
       ],
       "icons": {
+        "activity": {
+          "paths": [
+            "M2.75 10L4.88 10A0.75 0.75 0 0 0 5.59 9.49L7 5.26A0.75 0.75 0 0 1 8.42 5.26L11.58 14.74A0.75 0.75 0 0 0 13 14.74L14.41 10.51A0.75 0.75 0 0 1 15.12 10L17.25 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10L4.88 10A0.75 0.75 0 0 0 5.59 9.49L7 5.26A0.75 0.75 0 0 1 8.42 5.26L11.58 14.74A0.75 0.75 0 0 0 13 14.74L14.41 10.51A0.75 0.75 0 0 1 15.12 10L17.25 10\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "ecg",
+            "health",
+            "monitor",
+            "spike"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 1.28,
+              "optical": 4.96
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 1.28,
+              "optical": 4.96
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-2": {
+          "paths": [
+            "M2.75 10L5.75 10A0.75 0.75 0 0 0 6.5 9.25L6.5 5.5A0.75 0.75 0 0 1 7.25 4.75L9.25 4.75A0.75 0.75 0 0 1 10 5.5L10 14.5A0.75 0.75 0 0 0 10.75 15.25L12.75 15.25A0.75 0.75 0 0 0 13.5 14.5L13.5 10.75A0.75 0.75 0 0 1 14.25 10L17.25 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10L5.75 10A0.75 0.75 0 0 0 6.5 9.25L6.5 5.5A0.75 0.75 0 0 1 7.25 4.75L9.25 4.75A0.75 0.75 0 0 1 10 5.5L10 14.5A0.75 0.75 0 0 0 10.75 15.25L12.75 15.25A0.75 0.75 0 0 0 13.5 14.5L13.5 10.75A0.75 0.75 0 0 1 14.25 10L17.25 10\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "signal",
+            "square wave",
+            "monitor",
+            "oscilloscope"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.09,
+              "optical": 4.07
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.09,
+              "optical": 4.07
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-2-filled": {
+          "paths": [
+            "M3 10L5.5 10A1 1 0 0 0 6.5 9L6.5 6A1 1 0 0 1 7.5 5L9 5A1 1 0 0 1 10 6L10 14A1 1 0 0 0 11 15L12.5 15A1 1 0 0 0 13.5 14L13.5 11A1 1 0 0 1 14.5 10L17 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 10L5.5 10A1 1 0 0 0 6.5 9L6.5 6A1 1 0 0 1 7.5 5L9 5A1 1 0 0 1 10 6L10 14A1 1 0 0 0 11 15L12.5 15A1 1 0 0 0 13.5 14L13.5 11A1 1 0 0 1 14.5 10L17 10\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "signal",
+            "square wave",
+            "monitor",
+            "oscilloscope"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.14,
+              "optical": 4.11
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.14,
+              "optical": 4.11
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-circle": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M5.88 10L6.55 10A0.75 0.75 0 0 0 7.26 9.49L7.83 7.76A0.75 0.75 0 0 1 9.25 7.76L10.75 12.24A0.75 0.75 0 0 0 12.17 12.24L12.74 10.51A0.75 0.75 0 0 1 13.45 10L14.13 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M5.88 10L6.55 10A0.75 0.75 0 0 0 7.26 9.49L7.83 7.76A0.75 0.75 0 0 1 9.25 7.76L10.75 12.24A0.75 0.75 0 0 0 12.17 12.24L12.74 10.51A0.75 0.75 0 0 1 13.45 10L14.13 10\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "circle",
+            "monitor",
+            "health",
+            "status"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 9.75,
+            "h": 7
+          },
+          "ratio": {
+            "w": 0.61,
+            "h": 0.44
+          },
+          "gap": null
+        },
+        "activity-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM5.88 9.25L6.55 9.25L7.12 7.53A1.5 1.5 0 0 1 9.97 7.53L11.46 12L12.03 10.28A1.5 1.5 0 0 1 13.45 9.25L14.13 9.25A0.75 0.75 0 0 1 14.13 10.75L13.45 10.75L12.88 12.47A1.5 1.5 0 0 1 10.03 12.47L8.54 8L7.97 9.72A1.5 1.5 0 0 1 6.55 10.75L5.88 10.75A0.75 0.75 0 0 1 5.88 9.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM5.88 9.25L6.55 9.25L7.12 7.53A1.5 1.5 0 0 1 9.97 7.53L11.46 12L12.03 10.28A1.5 1.5 0 0 1 13.45 9.25L14.13 9.25A0.75 0.75 0 0 1 14.13 10.75L13.45 10.75L12.88 12.47A1.5 1.5 0 0 1 10.03 12.47L8.54 8L7.97 9.72A1.5 1.5 0 0 1 6.55 10.75L5.88 10.75A0.75 0.75 0 0 1 5.88 9.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "circle",
+            "monitor",
+            "health",
+            "status"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-filled": {
+          "paths": [
+            "M3 10L4.51 10A1 1 0 0 0 5.46 9.32L6.66 5.69A1 1 0 0 1 8.56 5.69L11.44 14.31A1 1 0 0 0 13.34 14.31L14.54 10.68A1 1 0 0 1 15.49 10L17 10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 10L4.51 10A1 1 0 0 0 5.46 9.32L6.66 5.69A1 1 0 0 1 8.56 5.69L11.44 14.31A1 1 0 0 0 13.34 14.31L14.54 10.68A1 1 0 0 1 15.49 10L17 10\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "ecg",
+            "health",
+            "monitor",
+            "spike"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.66
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 1.61,
+              "optical": 5.21
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 1.61,
+              "optical": 5.21
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "airplay": {
           "paths": [
             "M4.25 13.19A2 2 0 0 1 2.75 11.25V5.75A2 2 0 0 1 4.75 3.75H15.25A2 2 0 0 1 17.25 5.75V11.25A2 2 0 0 1 15.75 13.19",
@@ -211229,6 +212324,12 @@
     },
     "24": {
       "names": [
+        "activity",
+        "activity-2",
+        "activity-2-filled",
+        "activity-circle",
+        "activity-circle-filled",
+        "activity-filled",
         "airplay",
         "airplay-filled",
         "alarm-clock",
@@ -212391,6 +213492,365 @@
         "x-small-filled"
       ],
       "icons": {
+        "activity": {
+          "paths": [
+            "M2.75 12L5.55 12A0.75 0.75 0 0 0 6.26 11.49L8.33 5.26A0.75 0.75 0 0 1 9.75 5.26L14.25 18.74A0.75 0.75 0 0 0 15.67 18.74L17.74 12.51A0.75 0.75 0 0 1 18.45 12L21.25 12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12L5.55 12A0.75 0.75 0 0 0 6.26 11.49L8.33 5.26A0.75 0.75 0 0 1 9.75 5.26L14.25 18.74A0.75 0.75 0 0 0 15.67 18.74L17.74 12.51A0.75 0.75 0 0 1 18.45 12L21.25 12\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "ecg",
+            "health",
+            "monitor",
+            "spike"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.01
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.01
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 1.32,
+              "optical": 5
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 1.32,
+              "optical": 5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-2": {
+          "paths": [
+            "M2.75 12L7.25 12A0.75 0.75 0 0 0 8 11.25L8 5.5A0.75 0.75 0 0 1 8.75 4.75L11.25 4.75A0.75 0.75 0 0 1 12 5.5L12 18.5A0.75 0.75 0 0 0 12.75 19.25L15.25 19.25A0.75 0.75 0 0 0 16 18.5L16 12.75A0.75 0.75 0 0 1 16.75 12L21.25 12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12L7.25 12A0.75 0.75 0 0 0 8 11.25L8 5.5A0.75 0.75 0 0 1 8.75 4.75L11.25 4.75A0.75 0.75 0 0 1 12 5.5L12 18.5A0.75 0.75 0 0 0 12.75 19.25L15.25 19.25A0.75 0.75 0 0 0 16 18.5L16 12.75A0.75 0.75 0 0 1 16.75 12L21.25 12\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "signal",
+            "square wave",
+            "monitor",
+            "oscilloscope"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.07,
+              "optical": 4.05
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.07,
+              "optical": 4.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-2-filled": {
+          "paths": [
+            "M3.25 12L6.75 12A1.25 1.25 0 0 0 8 10.75L8 6.5A1.25 1.25 0 0 1 9.25 5.25L10.75 5.25A1.25 1.25 0 0 1 12 6.5L12 17.5A1.25 1.25 0 0 0 13.25 18.75L14.75 18.75A1.25 1.25 0 0 0 16 17.5L16 13.25A1.25 1.25 0 0 1 17.25 12L20.75 12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.25 12L6.75 12A1.25 1.25 0 0 0 8 10.75L8 6.5A1.25 1.25 0 0 1 9.25 5.25L10.75 5.25A1.25 1.25 0 0 1 12 6.5L12 17.5A1.25 1.25 0 0 0 13.25 18.75L14.75 18.75A1.25 1.25 0 0 0 16 17.5L16 13.25A1.25 1.25 0 0 1 17.25 12L20.75 12\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "signal",
+            "square wave",
+            "monitor",
+            "oscilloscope"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.07,
+              "optical": 2.05
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.07,
+              "optical": 2.05
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.17,
+              "optical": 4.13
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.17,
+              "optical": 4.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-circle": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M6 12L7.38 12A0.75 0.75 0 0 0 8.09 11.49L9.25 8.01A0.75 0.75 0 0 1 10.67 8.01L13.33 15.99A0.75 0.75 0 0 0 14.75 15.99L15.91 12.51A0.75 0.75 0 0 1 16.62 12L18 12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M6 12L7.38 12A0.75 0.75 0 0 0 8.09 11.49L9.25 8.01A0.75 0.75 0 0 1 10.67 8.01L13.33 15.99A0.75 0.75 0 0 0 14.75 15.99L15.91 12.51A0.75 0.75 0 0 1 16.62 12L18 12\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "circle",
+            "monitor",
+            "health",
+            "status"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 13.5,
+            "h": 10.5
+          },
+          "ratio": {
+            "w": 0.68,
+            "h": 0.53
+          },
+          "gap": null
+        },
+        "activity-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM6 11.25L7.38 11.25L8.54 7.78A1.5 1.5 0 0 1 11.38 7.78L14.04 15.75L15.2 12.28A1.5 1.5 0 0 1 16.62 11.25L18 11.25A0.75 0.75 0 0 1 18 12.75L16.62 12.75L15.46 16.22A1.5 1.5 0 0 1 12.62 16.22L9.96 8.25L8.8 11.72A1.5 1.5 0 0 1 7.38 12.75L6 12.75A0.75 0.75 0 0 1 6 11.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM6 11.25L7.38 11.25L8.54 7.78A1.5 1.5 0 0 1 11.38 7.78L14.04 15.75L15.2 12.28A1.5 1.5 0 0 1 16.62 11.25L18 11.25A0.75 0.75 0 0 1 18 12.75L16.62 12.75L15.46 16.22A1.5 1.5 0 0 1 12.62 16.22L9.96 8.25L8.8 11.72A1.5 1.5 0 0 1 7.38 12.75L6 12.75A0.75 0.75 0 0 1 6 11.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "circle",
+            "monitor",
+            "health",
+            "status"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "activity-filled": {
+          "paths": [
+            "M3.25 12L4.8 12A1.25 1.25 0 0 0 5.98 11.15L7.66 6.1A1.25 1.25 0 0 1 10.03 6.1L13.97 17.9A1.25 1.25 0 0 0 16.34 17.9L18.02 12.85A1.25 1.25 0 0 1 19.2 12L20.75 12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.25 12L4.8 12A1.25 1.25 0 0 0 5.98 11.15L7.66 6.1A1.25 1.25 0 0 1 10.03 6.1L13.97 17.9A1.25 1.25 0 0 0 16.34 17.9L18.02 12.85A1.25 1.25 0 0 1 19.2 12L20.75 12\"/>",
+          "mark": false,
+          "tags": [
+            "pulse",
+            "heartbeat",
+            "ecg",
+            "health",
+            "monitor",
+            "spike"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 1.12,
+              "optical": 2.84
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 1.08,
+              "optical": 2.81
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 2.01,
+              "optical": 5.51
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 2.01,
+              "optical": 5.51
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "airplay": {
           "paths": [
             "M5.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V6.25A2.5 2.5 0 0 1 5.25 3.75H18.75A2.5 2.5 0 0 1 21.25 6.25V13.75A2.5 2.5 0 0 1 18.75 16.25H18.25",
@@ -288260,10 +289720,32 @@
       "section": "D · The rest, by audit rank",
       "category": "Charts & Data",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-18",
+      "status": "done",
       "mvp": true,
-      "date": null
+      "date": "2026-10-18"
+    },
+    {
+      "n": 254,
+      "name": "activity-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "activity",
+      "note": "Square pulse · approved 2026-10-18",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-18"
+    },
+    {
+      "n": 254,
+      "name": "activity-circle",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "activity",
+      "note": "In a ring · approved 2026-10-18",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-18"
     },
     {
       "n": 255,

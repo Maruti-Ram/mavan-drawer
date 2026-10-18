@@ -628,7 +628,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 251. `tags` · Commerce & Payments
 - [ ] 252. `ticket` · Commerce & Payments
 - [ ] 253. `vector` · Design Tools
-- [~] 254. `activity` · Charts & Data — mvp
+- [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
+- [x] 254. `activity-2` · Charts & Data · variant of `activity` — Square pulse · approved 2026-10-18
+- [x] 254. `activity-circle` · Charts & Data · variant of `activity` — In a ring · approved 2026-10-18
 - [ ] 255. `pause` · Media & Playback
 - [x] 256. `expand` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
