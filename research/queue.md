@@ -512,7 +512,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 153. `layout-header-4` · UI & Layout · variant of `layout-header` — Detached header box · approved 2026-09-26
 - [x] 154. `merge` · Arrows & Direction — approved 2026-10-17
 - [ ] 155. `note` · Files & Folders
-- [~] 156. `quote` · Editing & Text — mvp
+- [x] 156. `quote` · Editing & Text — mvp · approved 2026-10-18
+- [x] 156. `quote-2` · Editing & Text · variant of `quote` — Rounded blocks · approved 2026-10-18
+- [x] 156. `quote-3` · Editing & Text · variant of `quote` — Marks over text · approved 2026-10-18
 - [x] 157. `redo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 157. `redo-2` · Arrows & Direction · variant of `redo` — U-turn · redo · approved 2026-10-17
 - [x] 157. `redo-3` · Arrows & Direction · variant of `redo` — Squared return · redo · approved 2026-10-17
