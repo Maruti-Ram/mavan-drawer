@@ -504,7 +504,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 146. `share` · Communication — mvp · approved 2026-10-18
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
-- [~] 149. `calculator` · Charts & Data — mvp
+- [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
 - [ ] 151. `form` · UI & Layout
