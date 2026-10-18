@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- keyline: mark -->
+  <!-- tags: grip, compact, small dots, reorder -->
+  <!-- Six small dots, packed: Does not match more-vertical: one dot step down, 2.5 · 2.3 · 2 (more-vertical 3 · 2.7 · 2.4; list-bullet's bullet is 2 · 2 · 1.75, so this sits between the two), spaced by their own size (C17) on a pitch of 5 · 4.5 · 4: air 2.5 · 2.2 · 2. A quieter grip that keeps Polaris DragHandle's footprint (7×11 on 20 there, 6.8×11.3 here). Ink 7.5×12.5 · 6.8×11.3 · 6×10 (filled 8.5×13.5 · 7.3×11.8 · 6.5×10.5). At 16 every dot edge lands on a whole pixel (dots 5–7 and 9–11 across, 3–5 · 7–9 · 11–13 down), so each dot sits in exactly four pixels with no spill into its neighbours (each about 79% ink) — the tidiest of the five at 16, and the lightest: about 19 pixels of ink against A's 27 (measured on a 16 px render). 20 rows sit on menu's centrelines 5.5 / 10 / 14.5; radius 0.4 at 20 (dot 2.3) is off the quarter grid because 0.375 needs three decimals there, and the path values 7.35 / 8.15 / 11.85 / 12.65 are the column centres 7.75 / 12.25 ± 0.4. Filled: dots thicken in place (C17) at weight 2.5 · 2 · 2, radius 0.5 · 0.4 · 0.25 (at 16 the radius shrinks so the air holds 1.5), grows 0.5 · 0.25 · 0.25; filled air 1.5 · 1.7 · 1.5. Cost: beside more-vertical in the same row its dots read visibly smaller -->
+  <path d="M9 7A0.5 0.5 0 1 0 10 7A0.5 0.5 0 1 0 9 7Z"/>
+  <path d="M14 7A0.5 0.5 0 1 0 15 7A0.5 0.5 0 1 0 14 7Z"/>
+  <path d="M9 12A0.5 0.5 0 1 0 10 12A0.5 0.5 0 1 0 9 12Z"/>
+  <path d="M14 12A0.5 0.5 0 1 0 15 12A0.5 0.5 0 1 0 14 12Z"/>
+  <path d="M9 17A0.5 0.5 0 1 0 10 17A0.5 0.5 0 1 0 9 17Z"/>
+  <path d="M14 17A0.5 0.5 0 1 0 15 17A0.5 0.5 0 1 0 14 17Z"/>
+</svg>
