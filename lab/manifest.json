@@ -1000,8 +1000,6 @@
     "share-2-filled",
     "share-3",
     "share-3-filled",
-    "share-4",
-    "share-4-filled",
     "share-filled",
     "shield",
     "shield-2",
@@ -29186,7 +29184,8 @@
         "send out",
         "card",
         "box",
-        "break out"
+        "break out",
+        "share"
       ],
       "shift": [
         0,
@@ -29246,7 +29245,8 @@
         "send out",
         "card",
         "box",
-        "break out"
+        "break out",
+        "share"
       ],
       "shift": [
         0,
@@ -59888,125 +59888,6 @@
       "ratio": null,
       "gap": null
     },
-    "share-4": {
-      "paths": [
-        "M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69",
-        "M12 2.75V15.5",
-        "M9 9.75L7.25 9.75A2.5 2.5 0 0 0 4.75 12.25L4.75 18.75A2.5 2.5 0 0 0 7.25 21.25L16.75 21.25A2.5 2.5 0 0 0 19.25 18.75L19.25 12.25A2.5 2.5 0 0 0 16.75 9.75L15 9.75"
-      ],
-      "areas": [],
-      "body": "<path d=\"M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69\"/> <path d=\"M12 2.75V15.5\"/> <path d=\"M9 9.75L7.25 9.75A2.5 2.5 0 0 0 4.75 12.25L4.75 18.75A2.5 2.5 0 0 0 7.25 21.25L16.75 21.25A2.5 2.5 0 0 0 19.25 18.75L19.25 12.25A2.5 2.5 0 0 0 16.75 9.75L15 9.75\"/>",
-      "mark": false,
-      "tags": [
-        "box",
-        "ios",
-        "apple",
-        "tall"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 4,
-        "y": 2,
-        "w": 16,
-        "h": 20
-      },
-      "bearing": {
-        "left": 4,
-        "top": 2,
-        "right": 4,
-        "bottom": 2
-      },
-      "optical": {
-        "left": {
-          "geometric": 4,
-          "recession": 0.21,
-          "optical": 4.16
-        },
-        "right": {
-          "geometric": 4,
-          "recession": 0.21,
-          "optical": 4.16
-        },
-        "top": {
-          "geometric": 2,
-          "recession": 0.7,
-          "optical": 2.52
-        },
-        "bottom": {
-          "geometric": 2,
-          "recession": 0.27,
-          "optical": 2.2
-        }
-      },
-      "container": null,
-      "markBox": null,
-      "ratio": null,
-      "gap": null
-    },
-    "share-4-filled": {
-      "paths": [
-        "M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69",
-        "M12 2.75V15.5"
-      ],
-      "areas": [
-        "M7.25 9L9.24 9A0.5 0.5 0 0 1 9.74 9.5L9.74 15.5A2.26 2.26 0 0 0 14.26 15.5L14.26 9.5A0.5 0.5 0 0 1 14.76 9L16.75 9A3.25 3.25 0 0 1 20 12.25L20 18.75A3.25 3.25 0 0 1 16.75 22L7.25 22A3.25 3.25 0 0 1 4 18.75L4 12.25A3.25 3.25 0 0 1 7.25 9Z"
-      ],
-      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 9L9.24 9A0.5 0.5 0 0 1 9.74 9.5L9.74 15.5A2.26 2.26 0 0 0 14.26 15.5L14.26 9.5A0.5 0.5 0 0 1 14.76 9L16.75 9A3.25 3.25 0 0 1 20 12.25L20 18.75A3.25 3.25 0 0 1 16.75 22L7.25 22A3.25 3.25 0 0 1 4 18.75L4 12.25A3.25 3.25 0 0 1 7.25 9Z\"/> <path d=\"M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69\"/> <path d=\"M12 2.75V15.5\"/>",
-      "mark": false,
-      "tags": [
-        "box",
-        "ios",
-        "apple",
-        "tall"
-      ],
-      "shift": [
-        0,
-        0
-      ],
-      "stroke": 1.5,
-      "ink": {
-        "x": 4,
-        "y": 2,
-        "w": 16,
-        "h": 20
-      },
-      "bearing": {
-        "left": 4,
-        "top": 2,
-        "right": 4,
-        "bottom": 2
-      },
-      "optical": {
-        "left": {
-          "geometric": 4,
-          "recession": 0,
-          "optical": 4
-        },
-        "top": {
-          "geometric": 2,
-          "recession": 0,
-          "optical": 2
-        },
-        "right": {
-          "geometric": 4,
-          "recession": 0,
-          "optical": 4
-        },
-        "bottom": {
-          "geometric": 2,
-          "recession": 0,
-          "optical": 2
-        }
-      },
-      "container": null,
-      "markBox": null,
-      "ratio": null,
-      "gap": null
-    },
     "share-filled": {
       "paths": [
         "M10.1 10.4L14.75 5.75M10.1 13.6L14.75 18.25"
@@ -74958,8 +74839,6 @@
         "share-2-filled",
         "share-3",
         "share-3-filled",
-        "share-4",
-        "share-4-filled",
         "share-filled",
         "shield",
         "shield-2",
@@ -103096,7 +102975,8 @@
             "send out",
             "card",
             "box",
-            "break out"
+            "break out",
+            "share"
           ],
           "shift": [
             0,
@@ -103156,7 +103036,8 @@
             "send out",
             "card",
             "box",
-            "break out"
+            "break out",
+            "share"
           ],
           "shift": [
             0,
@@ -133778,125 +133659,6 @@
           "ratio": null,
           "gap": null
         },
-        "share-4": {
-          "paths": [
-            "M4.625 4.815L7.553 1.814A0.625 0.625 0 0 1 8.447 1.814L11.375 4.815",
-            "M8 1.625V11",
-            "M5.125 7.625A1.5 1.5 0 0 0 3.625 9.125L3.625 12.875A1.5 1.5 0 0 0 5.125 14.375L10.875 14.375A1.5 1.5 0 0 0 12.375 12.875L12.375 9.125A1.5 1.5 0 0 0 10.875 7.625"
-          ],
-          "areas": [],
-          "body": "<path d=\"M4.625 4.815L7.553 1.814A0.625 0.625 0 0 1 8.447 1.814L11.375 4.815\"/> <path d=\"M8 1.625V11\"/> <path d=\"M5.125 7.625A1.5 1.5 0 0 0 3.625 9.125L3.625 12.875A1.5 1.5 0 0 0 5.125 14.375L10.875 14.375A1.5 1.5 0 0 0 12.375 12.875L12.375 9.125A1.5 1.5 0 0 0 10.875 7.625\"/>",
-          "mark": false,
-          "tags": [
-            "box",
-            "ios",
-            "apple",
-            "tall"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 3,
-            "y": 1,
-            "w": 10,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 1,
-            "right": 3,
-            "bottom": 1
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0.15,
-              "optical": 3.11
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0.15,
-              "optical": 3.11
-            },
-            "top": {
-              "geometric": 1,
-              "recession": 0.74,
-              "optical": 1.55
-            },
-            "bottom": {
-              "geometric": 1,
-              "recession": 0.21,
-              "optical": 1.16
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "share-4-filled": {
-          "paths": [
-            "M4.625 4.815L7.553 1.814A0.625 0.625 0 0 1 8.447 1.814L11.375 4.815",
-            "M8 1.625V11"
-          ],
-          "areas": [
-            "M5.125 7L5.37 7A0.5 0.5 0 0 1 5.87 7.5L5.87 11A2.13 2.13 0 0 0 10.13 11L10.13 7.5A0.5 0.5 0 0 1 10.63 7L10.875 7A2.125 2.125 0 0 1 13 9.125L13 12.875A2.125 2.125 0 0 1 10.875 15L5.125 15A2.125 2.125 0 0 1 3 12.875L3 9.125A2.125 2.125 0 0 1 5.125 7Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.125 7L5.37 7A0.5 0.5 0 0 1 5.87 7.5L5.87 11A2.13 2.13 0 0 0 10.13 11L10.13 7.5A0.5 0.5 0 0 1 10.63 7L10.875 7A2.125 2.125 0 0 1 13 9.125L13 12.875A2.125 2.125 0 0 1 10.875 15L5.125 15A2.125 2.125 0 0 1 3 12.875L3 9.125A2.125 2.125 0 0 1 5.125 7Z\"/> <path d=\"M4.625 4.815L7.553 1.814A0.625 0.625 0 0 1 8.447 1.814L11.375 4.815\"/> <path d=\"M8 1.625V11\"/>",
-          "mark": false,
-          "tags": [
-            "box",
-            "ios",
-            "apple",
-            "tall"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.25,
-          "ink": {
-            "x": 3,
-            "y": 1,
-            "w": 10,
-            "h": 14
-          },
-          "bearing": {
-            "left": 3,
-            "top": 1,
-            "right": 3,
-            "bottom": 1
-          },
-          "optical": {
-            "left": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "top": {
-              "geometric": 1,
-              "recession": 0,
-              "optical": 1
-            },
-            "right": {
-              "geometric": 3,
-              "recession": 0,
-              "optical": 3
-            },
-            "bottom": {
-              "geometric": 1,
-              "recession": 0,
-              "optical": 1
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "share-filled": {
           "paths": [
             "M6.875 6.625L9.5 4M6.875 9.375L9.5 12"
@@ -148826,8 +148588,6 @@
         "share-2-filled",
         "share-3",
         "share-3-filled",
-        "share-4",
-        "share-4-filled",
         "share-filled",
         "shield",
         "shield-2",
@@ -176982,7 +176742,8 @@
             "send out",
             "card",
             "box",
-            "break out"
+            "break out",
+            "share"
           ],
           "shift": [
             0,
@@ -177042,7 +176803,8 @@
             "send out",
             "card",
             "box",
-            "break out"
+            "break out",
+            "share"
           ],
           "shift": [
             0,
@@ -207672,125 +207434,6 @@
           "ratio": null,
           "gap": null
         },
-        "share-4": {
-          "paths": [
-            "M6.25 6.19L9.47 2.97A0.75 0.75 0 0 1 10.53 2.97L13.75 6.19",
-            "M10 2.75V13.25",
-            "M6.75 9.25A2 2 0 0 0 4.75 11.25L4.75 15.25A2 2 0 0 0 6.75 17.25L13.25 17.25A2 2 0 0 0 15.25 15.25L15.25 11.25A2 2 0 0 0 13.25 9.25"
-          ],
-          "areas": [],
-          "body": "<path d=\"M6.25 6.19L9.47 2.97A0.75 0.75 0 0 1 10.53 2.97L13.75 6.19\"/> <path d=\"M10 2.75V13.25\"/> <path d=\"M6.75 9.25A2 2 0 0 0 4.75 11.25L4.75 15.25A2 2 0 0 0 6.75 17.25L13.25 17.25A2 2 0 0 0 15.25 15.25L15.25 11.25A2 2 0 0 0 13.25 9.25\"/>",
-          "mark": false,
-          "tags": [
-            "box",
-            "ios",
-            "apple",
-            "tall"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 4,
-            "y": 2,
-            "w": 12,
-            "h": 16
-          },
-          "bearing": {
-            "left": 4,
-            "top": 2,
-            "right": 4,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 4,
-              "recession": 0.21,
-              "optical": 4.16
-            },
-            "right": {
-              "geometric": 4,
-              "recession": 0.21,
-              "optical": 4.16
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0.81,
-              "optical": 2.6
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0.28,
-              "optical": 2.21
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "share-4-filled": {
-          "paths": [
-            "M6.25 6.19L9.47 2.97A0.75 0.75 0 0 1 10.53 2.97L13.75 6.19",
-            "M10 2.75V13.25"
-          ],
-          "areas": [
-            "M6.75 8.5L7.24 8.5A0.5 0.5 0 0 1 7.74 9L7.74 13.25A2.26 2.26 0 0 0 12.26 13.25L12.26 9A0.5 0.5 0 0 1 12.76 8.5L13.25 8.5A2.75 2.75 0 0 1 16 11.25L16 15.25A2.75 2.75 0 0 1 13.25 18L6.75 18A2.75 2.75 0 0 1 4 15.25L4 11.25A2.75 2.75 0 0 1 6.75 8.5Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 8.5L7.24 8.5A0.5 0.5 0 0 1 7.74 9L7.74 13.25A2.26 2.26 0 0 0 12.26 13.25L12.26 9A0.5 0.5 0 0 1 12.76 8.5L13.25 8.5A2.75 2.75 0 0 1 16 11.25L16 15.25A2.75 2.75 0 0 1 13.25 18L6.75 18A2.75 2.75 0 0 1 4 15.25L4 11.25A2.75 2.75 0 0 1 6.75 8.5Z\"/> <path d=\"M6.25 6.19L9.47 2.97A0.75 0.75 0 0 1 10.53 2.97L13.75 6.19\"/> <path d=\"M10 2.75V13.25\"/>",
-          "mark": false,
-          "tags": [
-            "box",
-            "ios",
-            "apple",
-            "tall"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 4,
-            "y": 2,
-            "w": 12,
-            "h": 16
-          },
-          "bearing": {
-            "left": 4,
-            "top": 2,
-            "right": 4,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 4,
-              "recession": 0,
-              "optical": 4
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "right": {
-              "geometric": 4,
-              "recession": 0,
-              "optical": 4
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "share-filled": {
           "paths": [
             "M8.5 8.75L11.9 5.35M8.5 11.25L11.9 14.65"
@@ -222737,8 +222380,6 @@
         "share-2-filled",
         "share-3",
         "share-3-filled",
-        "share-4",
-        "share-4-filled",
         "share-filled",
         "shield",
         "shield-2",
@@ -250923,7 +250564,8 @@
             "send out",
             "card",
             "box",
-            "break out"
+            "break out",
+            "share"
           ],
           "shift": [
             0,
@@ -250983,7 +250625,8 @@
             "send out",
             "card",
             "box",
-            "break out"
+            "break out",
+            "share"
           ],
           "shift": [
             0,
@@ -281625,125 +281268,6 @@
           "ratio": null,
           "gap": null
         },
-        "share-4": {
-          "paths": [
-            "M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69",
-            "M12 2.75V15.5",
-            "M9 9.75L7.25 9.75A2.5 2.5 0 0 0 4.75 12.25L4.75 18.75A2.5 2.5 0 0 0 7.25 21.25L16.75 21.25A2.5 2.5 0 0 0 19.25 18.75L19.25 12.25A2.5 2.5 0 0 0 16.75 9.75L15 9.75"
-          ],
-          "areas": [],
-          "body": "<path d=\"M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69\"/> <path d=\"M12 2.75V15.5\"/> <path d=\"M9 9.75L7.25 9.75A2.5 2.5 0 0 0 4.75 12.25L4.75 18.75A2.5 2.5 0 0 0 7.25 21.25L16.75 21.25A2.5 2.5 0 0 0 19.25 18.75L19.25 12.25A2.5 2.5 0 0 0 16.75 9.75L15 9.75\"/>",
-          "mark": false,
-          "tags": [
-            "box",
-            "ios",
-            "apple",
-            "tall"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 4,
-            "y": 2,
-            "w": 16,
-            "h": 20
-          },
-          "bearing": {
-            "left": 4,
-            "top": 2,
-            "right": 4,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 4,
-              "recession": 0.21,
-              "optical": 4.16
-            },
-            "right": {
-              "geometric": 4,
-              "recession": 0.21,
-              "optical": 4.16
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0.7,
-              "optical": 2.52
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0.27,
-              "optical": 2.2
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
-        "share-4-filled": {
-          "paths": [
-            "M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69",
-            "M12 2.75V15.5"
-          ],
-          "areas": [
-            "M7.25 9L9.24 9A0.5 0.5 0 0 1 9.74 9.5L9.74 15.5A2.26 2.26 0 0 0 14.26 15.5L14.26 9.5A0.5 0.5 0 0 1 14.76 9L16.75 9A3.25 3.25 0 0 1 20 12.25L20 18.75A3.25 3.25 0 0 1 16.75 22L7.25 22A3.25 3.25 0 0 1 4 18.75L4 12.25A3.25 3.25 0 0 1 7.25 9Z"
-          ],
-          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 9L9.24 9A0.5 0.5 0 0 1 9.74 9.5L9.74 15.5A2.26 2.26 0 0 0 14.26 15.5L14.26 9.5A0.5 0.5 0 0 1 14.76 9L16.75 9A3.25 3.25 0 0 1 20 12.25L20 18.75A3.25 3.25 0 0 1 16.75 22L7.25 22A3.25 3.25 0 0 1 4 18.75L4 12.25A3.25 3.25 0 0 1 7.25 9Z\"/> <path d=\"M7.75 6.69L11.47 2.97A0.75 0.75 0 0 1 12.53 2.97L16.25 6.69\"/> <path d=\"M12 2.75V15.5\"/>",
-          "mark": false,
-          "tags": [
-            "box",
-            "ios",
-            "apple",
-            "tall"
-          ],
-          "shift": [
-            0,
-            0
-          ],
-          "stroke": 1.5,
-          "ink": {
-            "x": 4,
-            "y": 2,
-            "w": 16,
-            "h": 20
-          },
-          "bearing": {
-            "left": 4,
-            "top": 2,
-            "right": 4,
-            "bottom": 2
-          },
-          "optical": {
-            "left": {
-              "geometric": 4,
-              "recession": 0,
-              "optical": 4
-            },
-            "top": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            },
-            "right": {
-              "geometric": 4,
-              "recession": 0,
-              "optical": 4
-            },
-            "bottom": {
-              "geometric": 2,
-              "recession": 0,
-              "optical": 2
-            }
-          },
-          "container": null,
-          "markBox": null,
-          "ratio": null,
-          "gap": null
-        },
         "share-filled": {
           "paths": [
             "M10.1 10.4L14.75 5.75M10.1 13.6L14.75 18.25"
@@ -300916,17 +300440,6 @@
       "category": "Communication",
       "base": "share",
       "note": "Forward arrow · approved 2026-10-19",
-      "status": "done",
-      "mvp": false,
-      "date": "2026-10-19"
-    },
-    {
-      "n": 146,
-      "name": "share-4",
-      "section": "D · The rest, by audit rank",
-      "category": "Communication",
-      "base": "share",
-      "note": "iOS box, upright · approved 2026-10-19",
       "status": "done",
       "mvp": false,
       "date": "2026-10-19"

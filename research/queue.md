@@ -504,7 +504,6 @@ Bases before their variants; within that, highest evidence first.
 - [x] 146. `share` · Communication — mvp · approved 2026-10-18
 - [x] 146. `share-2` · Communication · variant of `share` — Arrow out of an open box · approved 2026-10-19
 - [x] 146. `share-3` · Communication · variant of `share` — Forward arrow · approved 2026-10-19
-- [x] 146. `share-4` · Communication · variant of `share` — iOS box, upright · approved 2026-10-19
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
