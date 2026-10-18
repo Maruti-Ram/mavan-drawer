@@ -587,6 +587,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 208. `film` · Media & Playback
 - [ ] 209. `layers` · Design Tools
 - [x] 210. `map` · Maps & Location — approved 2026-10-18
+- [x] 210. `map-pinned` · Maps & Location · variant of `map` — Pin badge · approved 2026-10-18
+- [x] 210. `map-target` · Maps & Location · variant of `map` — You-are-here badge · approved 2026-10-18
 - [ ] 211. `pen-tool` · Design Tools
 - [ ] 212. `shopping-bag` · Commerce & Payments
 - [ ] 213. `tag` · Commerce & Payments
