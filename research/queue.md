@@ -525,7 +525,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 165. `flip-horizontal` · Design Tools
 - [ ] 166. `flip-vertical` · Design Tools
 - [ ] 167. `palette` · Design Tools
-- [ ] 168. `plane` · Maps & Location
+- [x] 168. `plane` · Maps & Location — approved 2026-10-18
 - [ ] 169. `receipt` · Commerce & Payments
 - [ ] 170. `ruler` · Design Tools
 - [ ] 171. `slideshow` · Media & Playback
@@ -566,13 +566,13 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 201. `zap` · Status & Feedback
 - [ ] 202. `zoom-in` · UI & Layout
 - [ ] 203. `zoom-out` · UI & Layout
-- [ ] 204. `anchor` · Maps & Location
+- [~] 204. `anchor` · Maps & Location
 - [ ] 205. `battery` · Devices & Hardware
 - [ ] 206. `cloud` · Development & Infra
 - [ ] 207. `droplet` · Design Tools
 - [ ] 208. `film` · Media & Playback
 - [ ] 209. `layers` · Design Tools
-- [ ] 210. `map` · Maps & Location
+- [~] 210. `map` · Maps & Location
 - [ ] 211. `pen-tool` · Design Tools
 - [ ] 212. `shopping-bag` · Commerce & Payments
 - [ ] 213. `tag` · Commerce & Payments
@@ -666,7 +666,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
 - [ ] 294. `filters` · Design Tools
 - [ ] 295. `label` · Commerce & Payments
-- [ ] 296. `roadmap` · Maps & Location
+- [~] 296. `roadmap` · Maps & Location
 - [ ] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
 - [ ] 299. `subscription` · Commerce & Payments
@@ -680,7 +680,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 306. `aperture` · Media & Playback
 - [ ] 307. `hard-drive` · Devices & Hardware
 - [ ] 308. `music` · Media & Playback
-- [ ] 309. `navigation` · Maps & Location
+- [~] 309. `navigation` · Maps & Location
 - [ ] 310. `radio` · Media & Playback
 - [ ] 311. `server` · Development & Infra
 - [ ] 312. `speaker` · Media & Playback
