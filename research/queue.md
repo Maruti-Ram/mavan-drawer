@@ -501,7 +501,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 144. `minimize-3` · UI & Layout · variant of `minimize` — Broken frame, turned in · approved 2026-10-18
 - [x] 144. `minimize-4` · UI & Layout · variant of `minimize` — Two arrows in · approved 2026-10-18
 - [x] 145. `rotate-cw` · Arrows & Direction — approved 2026-10-17
-- [~] 146. `share` · Communication — mvp
+- [x] 146. `share` · Communication — mvp · approved 2026-10-18
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
 - [~] 149. `calculator` · Charts & Data — mvp

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: nodes, network, rings, hub -->
+  <!-- box: 9.5x14 -->
+  <!-- Big hub, small rings: Hub is sliders' knob (6 · 5 · 5 across, white 3 · 2 · 2.5); leaves are A's small rings (5 · 4.5 · 4, white 2 · 1.5 · 1.5), 7.5 · 5.75 · 5 out from the hub on 45°. Built like sliders' knob and track: each link runs into its ring and stops on the ring's centreline, so its round end is hidden in the ring's ink and the join is the same corner sliders makes (measured: the same 0.24 corner sliver at 16). Links run at 45° from the hub's centre straight into each leaf's centre, so they meet every ring square-on. Both links are one path of two subpaths (as language and wand do), so lint does not read the two ends against each other inside the hub's ink. On 45° the three nodes stack taller than wide, and no keyline fits at 24 and 20, so the ink box is an agreed box (a ruling). Box 13×20 · 10.5×16 · 9.5×14. Visible links 5.11 · 3.38 · 2.57. Air at 16: leaf insides 1.5 (floor), wedge between the links at the hub 2.54 (3.05 · 2.31), 2.75 between hub and leaf beside a link. At 16 the box sits 0.25 left of centre so the hub's sides land on whole pixels. Off-grid: hub link ends ±1.6 at 24 (10.1, 10.4, 13.6) and leaf ends ±1.1 at 20 (11.9, 5.35, 14.65), each where the 45° line crosses that ring's centreline. Filled: solid discs on the outer edges, links at the outline weight. The bigger hub reads first, as the thing being shared. -->
+  <path d="M3.625 8A1.875 1.875 0 1 0 7.375 8A1.875 1.875 0 1 0 3.625 8Z"/>
+  <path d="M9.125 3A1.375 1.375 0 1 0 11.875 3A1.375 1.375 0 1 0 9.125 3Z"/>
+  <path d="M9.125 13A1.375 1.375 0 1 0 11.875 13A1.375 1.375 0 1 0 9.125 13Z"/>
+  <path d="M6.875 6.625L9.5 4M6.875 9.375L9.5 12"/>
+</svg>
