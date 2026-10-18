@@ -491,16 +491,18 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 139. `wifi` · Devices & Hardware
 - [ ] 140. `alert-octagon` · Status & Feedback
 - [ ] 141. `backspace` · Editing & Text
-- [~] 142. `columns` · UI & Layout — mvp
+- [x] 142. `columns` · UI & Layout — mvp · approved 2026-10-18
+- [x] 142. `columns-2` · UI & Layout · variant of `columns` — Two column boxes · approved 2026-10-18
+- [x] 142. `columns-3` · UI & Layout · variant of `columns` — Three column guides · approved 2026-10-18
 - [x] 143. `corner-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 143. `corner-down-left-2` · Arrows & Direction · variant of `corner-down-left` — corner-down-left-3 · short drop · approved 2026-10-17
-- [ ] 144. `minimize` · UI & Layout — mvp
+- [~] 144. `minimize` · UI & Layout — mvp
 - [x] 145. `rotate-cw` · Arrows & Direction — approved 2026-10-17
-- [ ] 146. `share` · Communication — mvp
+- [~] 146. `share` · Communication — mvp
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
-- [ ] 149. `calculator` · Charts & Data — mvp
-- [ ] 150. `chart-line` · Charts & Data — mvp
+- [~] 149. `calculator` · Charts & Data — mvp
+- [~] 150. `chart-line` · Charts & Data — mvp
 - [ ] 151. `form` · UI & Layout
 - [ ] 152. `import` · Files & Folders
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
@@ -509,7 +511,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 153. `layout-header-4` · UI & Layout · variant of `layout-header` — Detached header box · approved 2026-09-26
 - [x] 154. `merge` · Arrows & Direction — approved 2026-10-17
 - [ ] 155. `note` · Files & Folders
-- [ ] 156. `quote` · Editing & Text — mvp
+- [~] 156. `quote` · Editing & Text — mvp
 - [x] 157. `redo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 157. `redo-2` · Arrows & Direction · variant of `redo` — U-turn · redo · approved 2026-10-17
 - [x] 157. `redo-3` · Arrows & Direction · variant of `redo` — Squared return · redo · approved 2026-10-17
@@ -535,7 +537,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 174. `chevron-first` · Arrows & Direction — approved 2026-10-17
 - [x] 175. `chevron-last` · Arrows & Direction — approved 2026-10-17
 - [ ] 176. `confetti` · Status & Feedback
-- [ ] 177. `drag-handle` · UI & Layout — mvp
+- [~] 177. `drag-handle` · UI & Layout — mvp
 - [ ] 178. `face-laugh` · Communication
 - [ ] 179. `id-card` · Users & Access
 - [ ] 180. `indent` · Editing & Text
@@ -549,12 +551,12 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 186. `bank` · Commerce & Payments
 - [ ] 187. `warehouse` · Commerce & Payments
 - [ ] 188. `award` · Status & Feedback
-- [ ] 189. `bookmark` · Status & Feedback — mvp
+- [~] 189. `bookmark` · Status & Feedback — mvp
 - [ ] 190. `crosshair` · Status & Feedback
-- [ ] 191. `download` · Files & Folders — mvp
+- [~] 191. `download` · Files & Folders — mvp
 - [ ] 192. `gift` · Status & Feedback
 - [ ] 193. `headphones` · Communication
-- [ ] 194. `inbox` · Communication — mvp
+- [~] 194. `inbox` · Communication — mvp
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
 - [x] 197. `repeat` · Arrows & Direction — mvp · approved 2026-10-17
@@ -619,7 +621,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 251. `tags` · Commerce & Payments
 - [ ] 252. `ticket` · Commerce & Payments
 - [ ] 253. `vector` · Design Tools
-- [ ] 254. `activity` · Charts & Data — mvp
+- [~] 254. `activity` · Charts & Data — mvp
 - [ ] 255. `pause` · Media & Playback
 - [x] 256. `expand` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
@@ -636,7 +638,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 264. `caret-up-2` · Arrows & Direction · variant of `caret-up` — Near-equilateral · caret-up · approved 2026-10-17
 - [ ] 265. `live` · Media & Playback
 - [ ] 266. `categories` · Files & Folders
-- [ ] 267. `chart-funnel` · Charts & Data
+- [~] 267. `chart-funnel` · Charts & Data
 - [ ] 268. `drag-drop` · UI & Layout
 - [ ] 269. `newsletter` · Communication
 - [ ] 270. `passkey` · Users & Access
@@ -714,8 +716,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 328. `rewind` · Arrows & Direction — approved 2026-10-17
 - [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-17
 - [ ] 329. `rss` · Communication
-- [ ] 330. `trending-down` · Charts & Data — mvp
-- [ ] 331. `trending-up` · Charts & Data — mvp
+- [~] 330. `trending-down` · Charts & Data — mvp
+- [~] 331. `trending-up` · Charts & Data — mvp
 - [ ] 332. `bluetooth` · Devices & Hardware
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
@@ -905,3 +907,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 502. `calendar-repeat-2` · Time & Calendar · variant of `calendar-repeat` — Badge proud, one head · approved 2026-10-18
 - [x] 503. `plane-2` — added 2026-10-18 · approved 2026-10-18
 - [x] 504. `plane-3` — added 2026-10-18 · approved 2026-10-18
+- [ ] 505. `cloud-download` · Development & Infra · variant of `cloud` — held from the download board (candidate E, 2026-10-18): draw it with cloud so the cloud is settled once; draft in lab/drafts/archive/cloud-download.js
