@@ -559,7 +559,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 186. `bank` · Commerce & Payments
 - [ ] 187. `warehouse` · Commerce & Payments
 - [ ] 188. `award` · Status & Feedback
-- [~] 189. `bookmark` · Status & Feedback — mvp
+- [x] 189. `bookmark` · Status & Feedback — mvp · approved 2026-10-18
+- [x] 189. `bookmark-2` · Status & Feedback · variant of `bookmark` — Round head · approved 2026-10-18
+- [x] 189. `bookmark-3` · Status & Feedback · variant of `bookmark` — Crisp ribbon · approved 2026-10-18
 - [ ] 190. `crosshair` · Status & Feedback
 - [x] 191. `download` · Files & Folders — mvp · approved 2026-10-18
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
