@@ -904,3 +904,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 502. `calendar-repeat` · Time & Calendar · variant of `calendar` — added 2026-10-17 · approved 2026-10-18
 - [x] 502. `calendar-repeat-2` · Time & Calendar · variant of `calendar-repeat` — Badge proud, one head · approved 2026-10-18
 - [x] 503. `plane-2` — added 2026-10-18 · approved 2026-10-18
+- [x] 504. `plane-3` — added 2026-10-18 · approved 2026-10-18
