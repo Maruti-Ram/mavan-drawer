@@ -675,7 +675,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
 - [ ] 294. `filters` · Design Tools
 - [ ] 295. `label` · Commerce & Payments
-- [~] 296. `roadmap` · Maps & Location
+- [x] 296. `roadmap` · Maps & Location — approved 2026-10-18
+- [x] 296. `roadmap-2` · Maps & Location · variant of `roadmap` — One board on a post · approved 2026-10-18
 - [ ] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
 - [ ] 299. `subscription` · Commerce & Payments
