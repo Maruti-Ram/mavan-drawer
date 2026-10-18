@@ -191,6 +191,10 @@
     "chart-bar-5",
     "chart-bar-5-filled",
     "chart-bar-filled",
+    "chart-line",
+    "chart-line-2",
+    "chart-line-2-filled",
+    "chart-line-filled",
     "chart-pie",
     "chart-pie-2",
     "chart-pie-2-filled",
@@ -11886,6 +11890,272 @@
       "container": null,
       "markBox": null,
       "ratio": null,
+      "gap": null
+    },
+    "chart-line": {
+      "paths": [
+        "M3.75 3.75V18.75A1.5 1.5 0 0 0 5.25 20.25H20.25",
+        "M7.75 13L9.72 11.03A0.75 0.75 0 0 1 10.78 11.03L13.72 13.97A0.75 0.75 0 0 0 14.78 13.97L20.25 8.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 3.75V18.75A1.5 1.5 0 0 0 5.25 20.25H20.25\"/> <path d=\"M7.75 13L9.72 11.03A0.75 0.75 0 0 1 10.78 11.03L13.72 13.97A0.75 0.75 0 0 0 14.78 13.97L20.25 8.5\"/>",
+      "mark": false,
+      "tags": [
+        "line",
+        "graph",
+        "axis",
+        "analytics",
+        "report",
+        "statistics"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.08,
+          "optical": 3.06
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.45,
+          "optical": 3.34
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.08,
+          "optical": 3.06
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 14,
+        "h": 7.19
+      },
+      "ratio": {
+        "w": 0.78,
+        "h": 0.4
+      },
+      "gap": null
+    },
+    "chart-line-2": {
+      "paths": [
+        "M3.75 16.25L8.47 11.53A0.75 0.75 0 0 1 9.53 11.53L12.47 14.47A0.75 0.75 0 0 0 13.53 14.47L20.25 7.75",
+        "M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z",
+        "M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 16.25L8.47 11.53A0.75 0.75 0 0 1 9.53 11.53L12.47 14.47A0.75 0.75 0 0 0 13.53 14.47L20.25 7.75\"/> <path d=\"M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z\"/> <path d=\"M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z\"/>",
+      "mark": true,
+      "tags": [
+        "line",
+        "points",
+        "dots",
+        "data",
+        "graph",
+        "no axis"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 7,
+        "w": 18,
+        "h": 10
+      },
+      "bearing": {
+        "left": 3,
+        "top": 7,
+        "right": 3,
+        "bottom": 7
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.88,
+          "optical": 3.66
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.17,
+          "optical": 3.88
+        },
+        "top": {
+          "geometric": 7,
+          "recession": 1.36,
+          "optical": 8.02
+        },
+        "bottom": {
+          "geometric": 7,
+          "recession": 1.24,
+          "optical": 7.93
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 7,
+        "h": 7
+      },
+      "ratio": {
+        "w": 0.39,
+        "h": 0.39
+      },
+      "gap": null
+    },
+    "chart-line-2-filled": {
+      "paths": [
+        "M4.25 15.75L8.12 11.88A1.25 1.25 0 0 1 9.88 11.88L12.12 14.12A1.25 1.25 0 0 0 13.88 14.12L19.75 8.25",
+        "M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z",
+        "M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.25 15.75L8.12 11.88A1.25 1.25 0 0 1 9.88 11.88L12.12 14.12A1.25 1.25 0 0 0 13.88 14.12L19.75 8.25\"/> <path d=\"M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z\"/> <path d=\"M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z\"/>",
+      "mark": true,
+      "tags": [
+        "line",
+        "points",
+        "dots",
+        "data",
+        "graph",
+        "no axis"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 3,
+        "y": 7,
+        "w": 18,
+        "h": 10
+      },
+      "bearing": {
+        "left": 3,
+        "top": 7,
+        "right": 3,
+        "bottom": 7
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 1.3,
+          "optical": 3.98
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.79,
+          "optical": 4.34
+        },
+        "top": {
+          "geometric": 7,
+          "recession": 2.05,
+          "optical": 8.54
+        },
+        "bottom": {
+          "geometric": 7,
+          "recession": 1.65,
+          "optical": 8.23
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 8,
+        "h": 8
+      },
+      "ratio": {
+        "w": 0.44,
+        "h": 0.44
+      },
+      "gap": null
+    },
+    "chart-line-filled": {
+      "paths": [
+        "M4.25 4.25V18.5A1.25 1.25 0 0 0 5.5 19.75H19.75",
+        "M8.25 12.5L9.37 11.38A1.25 1.25 0 0 1 11.13 11.38L13.37 13.62A1.25 1.25 0 0 0 15.13 13.62L19.75 9"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.25 4.25V18.5A1.25 1.25 0 0 0 5.5 19.75H19.75\"/> <path d=\"M8.25 12.5L9.37 11.38A1.25 1.25 0 0 1 11.13 11.38L13.37 13.62A1.25 1.25 0 0 0 15.13 13.62L19.75 9\"/>",
+      "mark": false,
+      "tags": [
+        "line",
+        "graph",
+        "axis",
+        "analytics",
+        "report",
+        "statistics"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.12,
+          "optical": 3.09
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.63,
+          "optical": 3.47
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.06,
+          "optical": 3.04
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.12,
+          "optical": 3.09
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 14,
+        "h": 7.48
+      },
+      "ratio": {
+        "w": 0.78,
+        "h": 0.42
+      },
       "gap": null
     },
     "chart-pie": {
@@ -68762,6 +69032,10 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-line",
+        "chart-line-2",
+        "chart-line-2-filled",
+        "chart-line-filled",
         "chart-pie",
         "chart-pie-2",
         "chart-pie-2-filled",
@@ -80430,6 +80704,260 @@
           "container": null,
           "markBox": null,
           "ratio": null,
+          "gap": null
+        },
+        "chart-line": {
+          "paths": [
+            "M2.625 2.625V12.375A1 1 0 0 0 3.625 13.375H13.375",
+            "M6.125 8.125L7.183 7.067A0.625 0.625 0 0 1 8.067 7.067L9.683 8.683A0.625 0.625 0 0 0 10.567 8.683L13.375 5.875"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 2.625V12.375A1 1 0 0 0 3.625 13.375H13.375\"/> <path d=\"M6.125 8.125L7.183 7.067A0.625 0.625 0 0 1 8.067 7.067L9.683 8.683A0.625 0.625 0 0 0 10.567 8.683L13.375 5.875\"/>",
+          "mark": false,
+          "tags": [
+            "line",
+            "graph",
+            "axis",
+            "analytics",
+            "report",
+            "statistics"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.08,
+              "optical": 2.06
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.08,
+              "optical": 2.06
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 8.5,
+            "h": 4.24
+          },
+          "ratio": {
+            "w": 0.71,
+            "h": 0.35
+          },
+          "gap": null
+        },
+        "chart-line-2": {
+          "paths": [
+            "M2.625 9.875L5.558 6.942A0.625 0.625 0 0 1 6.442 6.942L8.808 9.308A0.625 0.625 0 0 0 9.692 9.308L13.375 5.625",
+            "M5.375 6.5A0.625 0.625 0 1 0 6.625 6.5A0.625 0.625 0 1 0 5.375 6.5Z",
+            "M8.625 9.75A0.625 0.625 0 1 0 9.875 9.75A0.625 0.625 0 1 0 8.625 9.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 9.875L5.558 6.942A0.625 0.625 0 0 1 6.442 6.942L8.808 9.308A0.625 0.625 0 0 0 9.692 9.308L13.375 5.625\"/> <path d=\"M5.375 6.5A0.625 0.625 0 1 0 6.625 6.5A0.625 0.625 0 1 0 5.375 6.5Z\"/> <path d=\"M8.625 9.75A0.625 0.625 0 1 0 9.875 9.75A0.625 0.625 0 1 0 8.625 9.75Z\"/>",
+          "mark": true,
+          "tags": [
+            "line",
+            "points",
+            "dots",
+            "data",
+            "graph",
+            "no axis"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 5,
+            "w": 12,
+            "h": 6
+          },
+          "bearing": {
+            "left": 2,
+            "top": 5,
+            "right": 2,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.8,
+              "optical": 2.6
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.95,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0.95,
+              "optical": 5.71
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0.99,
+              "optical": 5.74
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-line-2-filled": {
+          "paths": [
+            "M3 9.5L5.293 7.207A1 1 0 0 1 6.707 7.207L8.543 9.043A1 1 0 0 0 9.957 9.043L13 6",
+            "M5.5 6.5A0.5 0.5 0 1 0 6.5 6.5A0.5 0.5 0 1 0 5.5 6.5Z",
+            "M8.75 9.75A0.5 0.5 0 1 0 9.75 9.75A0.5 0.5 0 1 0 8.75 9.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 9.5L5.293 7.207A1 1 0 0 1 6.707 7.207L8.543 9.043A1 1 0 0 0 9.957 9.043L13 6\"/> <path d=\"M5.5 6.5A0.5 0.5 0 1 0 6.5 6.5A0.5 0.5 0 1 0 5.5 6.5Z\"/> <path d=\"M8.75 9.75A0.5 0.5 0 1 0 9.75 9.75A0.5 0.5 0 1 0 8.75 9.75Z\"/>",
+          "mark": true,
+          "tags": [
+            "line",
+            "points",
+            "dots",
+            "data",
+            "graph",
+            "no axis"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 5,
+            "w": 12,
+            "h": 6.25
+          },
+          "bearing": {
+            "left": 2,
+            "top": 5,
+            "right": 2,
+            "bottom": 4.75
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 1.05,
+              "optical": 2.79
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 1.28,
+              "optical": 2.96
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 1.2,
+              "optical": 5.9
+            },
+            "bottom": {
+              "geometric": 4.75,
+              "recession": 1.39,
+              "optical": 5.79
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-line-filled": {
+          "paths": [
+            "M3 3V12A1 1 0 0 0 4 13H13",
+            "M6.5 7.75L6.918 7.332A1 1 0 0 1 8.332 7.332L9.418 8.418A1 1 0 0 0 10.832 8.418L13 6.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 3V12A1 1 0 0 0 4 13H13\"/> <path d=\"M6.5 7.75L6.918 7.332A1 1 0 0 1 8.332 7.332L9.418 8.418A1 1 0 0 0 10.832 8.418L13 6.25\"/>",
+          "mark": false,
+          "tags": [
+            "line",
+            "graph",
+            "axis",
+            "analytics",
+            "report",
+            "statistics"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.09
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.35,
+              "optical": 2.26
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.09
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 8.5,
+            "h": 4.46
+          },
+          "ratio": {
+            "w": 0.71,
+            "h": 0.37
+          },
           "gap": null
         },
         "chart-pie": {
@@ -137262,6 +137790,10 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-line",
+        "chart-line-2",
+        "chart-line-2-filled",
+        "chart-line-filled",
         "chart-pie",
         "chart-pie-2",
         "chart-pie-2-filled",
@@ -148934,6 +149466,272 @@
           "container": null,
           "markBox": null,
           "ratio": null,
+          "gap": null
+        },
+        "chart-line": {
+          "paths": [
+            "M3.75 3.75V15A1.25 1.25 0 0 0 5 16.25H16.25",
+            "M7.25 10.5L8.72 9.03A0.75 0.75 0 0 1 9.78 9.03L11.72 10.97A0.75 0.75 0 0 0 12.78 10.97L16.25 7.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 3.75V15A1.25 1.25 0 0 0 5 16.25H16.25\"/> <path d=\"M7.25 10.5L8.72 9.03A0.75 0.75 0 0 1 9.78 9.03L11.72 10.97A0.75 0.75 0 0 0 12.78 10.97L16.25 7.5\"/>",
+          "mark": false,
+          "tags": [
+            "line",
+            "graph",
+            "axis",
+            "analytics",
+            "report",
+            "statistics"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.09,
+              "optical": 3.07
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.37,
+              "optical": 3.28
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.09,
+              "optical": 3.07
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 10.5,
+            "h": 5.19
+          },
+          "ratio": {
+            "w": 0.75,
+            "h": 0.37
+          },
+          "gap": null
+        },
+        "chart-line-2": {
+          "paths": [
+            "M3.75 13L7.22 9.53A0.75 0.75 0 0 1 8.28 9.53L10.47 11.72A0.75 0.75 0 0 0 11.53 11.72L16.25 7",
+            "M7 9A0.75 0.75 0 1 0 8.5 9A0.75 0.75 0 1 0 7 9Z",
+            "M10.25 12.25A0.75 0.75 0 1 0 11.75 12.25A0.75 0.75 0 1 0 10.25 12.25Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 13L7.22 9.53A0.75 0.75 0 0 1 8.28 9.53L10.47 11.72A0.75 0.75 0 0 0 11.53 11.72L16.25 7\"/> <path d=\"M7 9A0.75 0.75 0 1 0 8.5 9A0.75 0.75 0 1 0 7 9Z\"/> <path d=\"M10.25 12.25A0.75 0.75 0 1 0 11.75 12.25A0.75 0.75 0 1 0 10.25 12.25Z\"/>",
+          "mark": true,
+          "tags": [
+            "line",
+            "points",
+            "dots",
+            "data",
+            "graph",
+            "no axis"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 6.25,
+            "w": 14,
+            "h": 7.5
+          },
+          "bearing": {
+            "left": 3,
+            "top": 6.25,
+            "right": 3,
+            "bottom": 6.25
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.92,
+              "optical": 3.69
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.16,
+              "optical": 3.87
+            },
+            "top": {
+              "geometric": 6.25,
+              "recession": 1.29,
+              "optical": 7.22
+            },
+            "bottom": {
+              "geometric": 6.25,
+              "recession": 1.07,
+              "optical": 7.05
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 6.25,
+            "h": 6.25
+          },
+          "ratio": {
+            "w": 0.45,
+            "h": 0.45
+          },
+          "gap": null
+        },
+        "chart-line-2-filled": {
+          "paths": [
+            "M4 12.75L7.04 9.71A1 1 0 0 1 8.46 9.71L10.29 11.54A1 1 0 0 0 11.71 11.54L16 7.25",
+            "M7.25 9A0.5 0.5 0 1 0 8.25 9A0.5 0.5 0 1 0 7.25 9Z",
+            "M10.5 12.25A0.5 0.5 0 1 0 11.5 12.25A0.5 0.5 0 1 0 10.5 12.25Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4 12.75L7.04 9.71A1 1 0 0 1 8.46 9.71L10.29 11.54A1 1 0 0 0 11.71 11.54L16 7.25\"/> <path d=\"M7.25 9A0.5 0.5 0 1 0 8.25 9A0.5 0.5 0 1 0 7.25 9Z\"/> <path d=\"M10.5 12.25A0.5 0.5 0 1 0 11.5 12.25A0.5 0.5 0 1 0 10.5 12.25Z\"/>",
+          "mark": true,
+          "tags": [
+            "line",
+            "points",
+            "dots",
+            "data",
+            "graph",
+            "no axis"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3,
+            "y": 6.25,
+            "w": 14,
+            "h": 7.5
+          },
+          "bearing": {
+            "left": 3,
+            "top": 6.25,
+            "right": 3,
+            "bottom": 6.25
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.07,
+              "optical": 3.81
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.4,
+              "optical": 4.05
+            },
+            "top": {
+              "geometric": 6.25,
+              "recession": 1.57,
+              "optical": 7.43
+            },
+            "bottom": {
+              "geometric": 6.25,
+              "recession": 1.31,
+              "optical": 7.23
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 6.25,
+            "h": 6.25
+          },
+          "ratio": {
+            "w": 0.45,
+            "h": 0.45
+          },
+          "gap": null
+        },
+        "chart-line-filled": {
+          "paths": [
+            "M4 4V15A1 1 0 0 0 5 16H16",
+            "M7.5 10.25L8.54 9.21A1 1 0 0 1 9.96 9.21L11.54 10.79A1 1 0 0 0 12.96 10.79L16 7.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4 4V15A1 1 0 0 0 5 16H16\"/> <path d=\"M7.5 10.25L8.54 9.21A1 1 0 0 1 9.96 9.21L11.54 10.79A1 1 0 0 0 12.96 10.79L16 7.75\"/>",
+          "mark": false,
+          "tags": [
+            "line",
+            "graph",
+            "axis",
+            "analytics",
+            "report",
+            "statistics"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.11,
+              "optical": 3.08
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.44,
+              "optical": 3.33
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.05,
+              "optical": 3.04
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.11,
+              "optical": 3.08
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 10.5,
+            "h": 5.34
+          },
+          "ratio": {
+            "w": 0.75,
+            "h": 0.38
+          },
           "gap": null
         },
         "chart-pie": {
@@ -205793,6 +206591,10 @@
         "chart-bar-5",
         "chart-bar-5-filled",
         "chart-bar-filled",
+        "chart-line",
+        "chart-line-2",
+        "chart-line-2-filled",
+        "chart-line-filled",
         "chart-pie",
         "chart-pie-2",
         "chart-pie-2-filled",
@@ -217488,6 +218290,272 @@
           "container": null,
           "markBox": null,
           "ratio": null,
+          "gap": null
+        },
+        "chart-line": {
+          "paths": [
+            "M3.75 3.75V18.75A1.5 1.5 0 0 0 5.25 20.25H20.25",
+            "M7.75 13L9.72 11.03A0.75 0.75 0 0 1 10.78 11.03L13.72 13.97A0.75 0.75 0 0 0 14.78 13.97L20.25 8.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 3.75V18.75A1.5 1.5 0 0 0 5.25 20.25H20.25\"/> <path d=\"M7.75 13L9.72 11.03A0.75 0.75 0 0 1 10.78 11.03L13.72 13.97A0.75 0.75 0 0 0 14.78 13.97L20.25 8.5\"/>",
+          "mark": false,
+          "tags": [
+            "line",
+            "graph",
+            "axis",
+            "analytics",
+            "report",
+            "statistics"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.08,
+              "optical": 3.06
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.45,
+              "optical": 3.34
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.08,
+              "optical": 3.06
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 14,
+            "h": 7.19
+          },
+          "ratio": {
+            "w": 0.78,
+            "h": 0.4
+          },
+          "gap": null
+        },
+        "chart-line-2": {
+          "paths": [
+            "M3.75 16.25L8.47 11.53A0.75 0.75 0 0 1 9.53 11.53L12.47 14.47A0.75 0.75 0 0 0 13.53 14.47L20.25 7.75",
+            "M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z",
+            "M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 16.25L8.47 11.53A0.75 0.75 0 0 1 9.53 11.53L12.47 14.47A0.75 0.75 0 0 0 13.53 14.47L20.25 7.75\"/> <path d=\"M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z\"/> <path d=\"M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z\"/>",
+          "mark": true,
+          "tags": [
+            "line",
+            "points",
+            "dots",
+            "data",
+            "graph",
+            "no axis"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 7,
+            "w": 18,
+            "h": 10
+          },
+          "bearing": {
+            "left": 3,
+            "top": 7,
+            "right": 3,
+            "bottom": 7
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.88,
+              "optical": 3.66
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.17,
+              "optical": 3.88
+            },
+            "top": {
+              "geometric": 7,
+              "recession": 1.36,
+              "optical": 8.02
+            },
+            "bottom": {
+              "geometric": 7,
+              "recession": 1.24,
+              "optical": 7.93
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 7,
+            "h": 7
+          },
+          "ratio": {
+            "w": 0.39,
+            "h": 0.39
+          },
+          "gap": null
+        },
+        "chart-line-2-filled": {
+          "paths": [
+            "M4.25 15.75L8.12 11.88A1.25 1.25 0 0 1 9.88 11.88L12.12 14.12A1.25 1.25 0 0 0 13.88 14.12L19.75 8.25",
+            "M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z",
+            "M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 15.75L8.12 11.88A1.25 1.25 0 0 1 9.88 11.88L12.12 14.12A1.25 1.25 0 0 0 13.88 14.12L19.75 8.25\"/> <path d=\"M8.25 11A0.75 0.75 0 1 0 9.75 11A0.75 0.75 0 1 0 8.25 11Z\"/> <path d=\"M12.25 15A0.75 0.75 0 1 0 13.75 15A0.75 0.75 0 1 0 12.25 15Z\"/>",
+          "mark": true,
+          "tags": [
+            "line",
+            "points",
+            "dots",
+            "data",
+            "graph",
+            "no axis"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 3,
+            "y": 7,
+            "w": 18,
+            "h": 10
+          },
+          "bearing": {
+            "left": 3,
+            "top": 7,
+            "right": 3,
+            "bottom": 7
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.3,
+              "optical": 3.98
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.79,
+              "optical": 4.34
+            },
+            "top": {
+              "geometric": 7,
+              "recession": 2.05,
+              "optical": 8.54
+            },
+            "bottom": {
+              "geometric": 7,
+              "recession": 1.65,
+              "optical": 8.23
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 8,
+            "h": 8
+          },
+          "ratio": {
+            "w": 0.44,
+            "h": 0.44
+          },
+          "gap": null
+        },
+        "chart-line-filled": {
+          "paths": [
+            "M4.25 4.25V18.5A1.25 1.25 0 0 0 5.5 19.75H19.75",
+            "M8.25 12.5L9.37 11.38A1.25 1.25 0 0 1 11.13 11.38L13.37 13.62A1.25 1.25 0 0 0 15.13 13.62L19.75 9"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 4.25V18.5A1.25 1.25 0 0 0 5.5 19.75H19.75\"/> <path d=\"M8.25 12.5L9.37 11.38A1.25 1.25 0 0 1 11.13 11.38L13.37 13.62A1.25 1.25 0 0 0 15.13 13.62L19.75 9\"/>",
+          "mark": false,
+          "tags": [
+            "line",
+            "graph",
+            "axis",
+            "analytics",
+            "report",
+            "statistics"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.12,
+              "optical": 3.09
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.63,
+              "optical": 3.47
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.12,
+              "optical": 3.09
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 14,
+            "h": 7.48
+          },
+          "ratio": {
+            "w": 0.78,
+            "h": 0.42
+          },
           "gap": null
         },
         "chart-pie": {
@@ -279382,10 +280450,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Charts & Data",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-18",
+      "status": "done",
       "mvp": true,
-      "date": null
+      "date": "2026-10-18"
+    },
+    {
+      "n": 150,
+      "name": "chart-line-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Charts & Data",
+      "base": "chart-line",
+      "note": "Dots at the turns, bare · approved 2026-10-18",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-18"
     },
     {
       "n": 151,

@@ -502,7 +502,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
 - [~] 149. `calculator` · Charts & Data — mvp
-- [~] 150. `chart-line` · Charts & Data — mvp
+- [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
+- [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
 - [ ] 151. `form` · UI & Layout
 - [ ] 152. `import` · Files & Folders
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
