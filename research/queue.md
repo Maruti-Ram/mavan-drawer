@@ -580,7 +580,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 201. `zap` · Status & Feedback
 - [ ] 202. `zoom-in` · UI & Layout
 - [ ] 203. `zoom-out` · UI & Layout
-- [~] 204. `anchor` · Maps & Location
+- [x] 204. `anchor` · Maps & Location — approved 2026-10-18
+- [x] 204. `anchor-2` · Maps & Location · variant of `anchor` — Minimal · approved 2026-10-18
+- [x] 204. `anchor-3` · Maps & Location · variant of `anchor` — Ball · approved 2026-10-18
 - [ ] 205. `battery` · Devices & Hardware
 - [ ] 206. `cloud` · Development & Infra
 - [ ] 207. `droplet` · Design Tools
