@@ -491,7 +491,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 139. `wifi` · Devices & Hardware
 - [ ] 140. `alert-octagon` · Status & Feedback
 - [ ] 141. `backspace` · Editing & Text
-- [ ] 142. `columns` · UI & Layout — mvp
+- [~] 142. `columns` · UI & Layout — mvp
 - [x] 143. `corner-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 143. `corner-down-left-2` · Arrows & Direction · variant of `corner-down-left` — corner-down-left-3 · short drop · approved 2026-10-17
 - [ ] 144. `minimize` · UI & Layout — mvp
@@ -903,3 +903,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 501. `repeat-once` · Arrows & Direction · variant of `repeat` — added 2026-10-17 · approved 2026-10-18
 - [x] 502. `calendar-repeat` · Time & Calendar · variant of `calendar` — added 2026-10-17 · approved 2026-10-18
 - [x] 502. `calendar-repeat-2` · Time & Calendar · variant of `calendar-repeat` — Badge proud, one head · approved 2026-10-18
+- [x] 503. `plane-2` — added 2026-10-18 · approved 2026-10-18
