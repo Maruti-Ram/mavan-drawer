@@ -612,7 +612,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 214. `accessibility-2` · Users & Access · variant of `accessibility` — Two-line body · approved 2026-10-19
 - [x] 215. `alarm-clock` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 215. `alarm-clock-2` · Time & Calendar · variant of `alarm-clock` — Curved caps, floating · approved 2026-10-17
-- [~] 216. `contrast` · UI & Layout
+- [x] 216. `contrast` · UI & Layout — approved 2026-10-20
 - [x] 217. `fingerprint` · Users & Access — approved 2026-10-19
 - [x] 217. `fingerprint-2` · Users & Access · variant of `fingerprint` — Symmetric arches · approved 2026-10-19
 - [~] 218. `hand` · UI & Layout

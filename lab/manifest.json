@@ -405,6 +405,8 @@
     "compose-4",
     "compose-4-filled",
     "compose-filled",
+    "contrast",
+    "contrast-filled",
     "copy",
     "copy-2",
     "copy-2-filled",
@@ -24366,6 +24368,140 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "contrast": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M12 2.75V21.25",
+        "M12 7.5H20.08",
+        "M12 12H21.25",
+        "M12 16.5H20.08"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M12 2.75V21.25\"/> <path d=\"M12 7.5H20.08\"/> <path d=\"M12 12H21.25\"/> <path d=\"M12 16.5H20.08\"/>",
+      "mark": false,
+      "tags": [
+        "half hatched",
+        "half and half",
+        "half circle",
+        "dark mode",
+        "light dark",
+        "appearance",
+        "theme",
+        "invert",
+        "accessibility"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 10.75,
+        "h": 20
+      },
+      "ratio": {
+        "w": 0.54,
+        "h": 1
+      },
+      "gap": null
+    },
+    "contrast-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM12 3.5A8.5 8.5 0 0 0 12 20.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM12 3.5A8.5 8.5 0 0 0 12 20.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "half hatched",
+        "half and half",
+        "half circle",
+        "dark mode",
+        "light dark",
+        "appearance",
+        "theme",
+        "invert",
+        "accessibility"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -78371,6 +78507,8 @@
         "compose-4",
         "compose-4-filled",
         "compose-filled",
+        "contrast",
+        "contrast-filled",
         "copy",
         "copy-2",
         "copy-2-filled",
@@ -102286,6 +102424,140 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "contrast": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M8 1.625V14.375",
+            "M8 4.875H13.557",
+            "M8 8H14.375",
+            "M8 11.125H13.557"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M8 1.625V14.375\"/> <path d=\"M8 4.875H13.557\"/> <path d=\"M8 8H14.375\"/> <path d=\"M8 11.125H13.557\"/>",
+          "mark": false,
+          "tags": [
+            "half hatched",
+            "half and half",
+            "half circle",
+            "dark mode",
+            "light dark",
+            "appearance",
+            "theme",
+            "invert",
+            "accessibility"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 7.63,
+            "h": 14
+          },
+          "ratio": {
+            "w": 0.55,
+            "h": 1
+          },
+          "gap": null
+        },
+        "contrast-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM8 2.25A5.75 5.75 0 0 0 8 13.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM8 2.25A5.75 5.75 0 0 0 8 13.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "half hatched",
+            "half and half",
+            "half circle",
+            "dark mode",
+            "light dark",
+            "appearance",
+            "theme",
+            "invert",
+            "accessibility"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -156255,6 +156527,8 @@
         "compose-4",
         "compose-4-filled",
         "compose-filled",
+        "contrast",
+        "contrast-filled",
         "copy",
         "copy-2",
         "copy-2-filled",
@@ -180188,6 +180462,140 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "contrast": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M10 2.75V17.25",
+            "M10 6.5H16.35",
+            "M10 10H17.25",
+            "M10 13.5H16.35"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M10 2.75V17.25\"/> <path d=\"M10 6.5H16.35\"/> <path d=\"M10 10H17.25\"/> <path d=\"M10 13.5H16.35\"/>",
+          "mark": false,
+          "tags": [
+            "half hatched",
+            "half and half",
+            "half circle",
+            "dark mode",
+            "light dark",
+            "appearance",
+            "theme",
+            "invert",
+            "accessibility"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 8.75,
+            "h": 16
+          },
+          "ratio": {
+            "w": 0.55,
+            "h": 1
+          },
+          "gap": null
+        },
+        "contrast-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM10 3.5A6.5 6.5 0 0 0 10 16.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM10 3.5A6.5 6.5 0 0 0 10 16.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "half hatched",
+            "half and half",
+            "half circle",
+            "dark mode",
+            "light dark",
+            "appearance",
+            "theme",
+            "invert",
+            "accessibility"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -234182,6 +234590,8 @@
         "compose-4",
         "compose-4-filled",
         "compose-filled",
+        "contrast",
+        "contrast-filled",
         "copy",
         "copy-2",
         "copy-2-filled",
@@ -258143,6 +258553,140 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "contrast": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M12 2.75V21.25",
+            "M12 7.5H20.08",
+            "M12 12H21.25",
+            "M12 16.5H20.08"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M12 2.75V21.25\"/> <path d=\"M12 7.5H20.08\"/> <path d=\"M12 12H21.25\"/> <path d=\"M12 16.5H20.08\"/>",
+          "mark": false,
+          "tags": [
+            "half hatched",
+            "half and half",
+            "half circle",
+            "dark mode",
+            "light dark",
+            "appearance",
+            "theme",
+            "invert",
+            "accessibility"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 10.75,
+            "h": 20
+          },
+          "ratio": {
+            "w": 0.54,
+            "h": 1
+          },
+          "gap": null
+        },
+        "contrast-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM12 3.5A8.5 8.5 0 0 0 12 20.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM12 3.5A8.5 8.5 0 0 0 12 20.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "half hatched",
+            "half and half",
+            "half circle",
+            "dark mode",
+            "light dark",
+            "appearance",
+            "theme",
+            "invert",
+            "accessibility"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -318162,10 +318706,10 @@
       "section": "D · The rest, by audit rank",
       "category": "UI & Layout",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-20",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-20"
     },
     {
       "n": 217,
