@@ -688,7 +688,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
 - [ ] 271. `status` · Status & Feedback
-- [ ] 272. `translate` · Communication
+- [~] 272. `translate` · Communication
 - [ ] 273. `viewport-narrow` · UI & Layout
 - [ ] 274. `viewport-short` · UI & Layout
 - [ ] 275. `viewport-tall` · UI & Layout
@@ -764,7 +764,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 327. `move-2` · Arrows & Direction · variant of `move` — Four arrows · approved 2026-10-17
 - [x] 328. `rewind` · Arrows & Direction — approved 2026-10-17
 - [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-17
-- [ ] 329. `rss` · Communication
+- [~] 329. `rss` · Communication
 - [x] 330. `trending-down` · Charts & Data — mvp · approved 2026-10-18
 - [x] 330. `trending-down-2` · Charts & Data · variant of `trending-down` — One pull-back, soft · approved 2026-10-18
 - [x] 331. `trending-up` · Charts & Data — mvp · approved 2026-10-18
@@ -962,4 +962,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
-- [x] 507. `user-headphone` · Communication · variant of `headphones` — added 2026-10-20 · approved 2026-10-20
+- [x] 507. `user-headphones` · Communication · variant of `headphones` — added 2026-10-20 · approved 2026-10-20
