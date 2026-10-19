@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { facingGap, isSolidStroke, materialGap, selfGap } from './geometry.mjs';
-import { checkAnchors, checkPairs, checkTwins, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
+import { checkAnchors, checkPairs, checkTwins, comparePair, lintSource, parseAnchorNote, parseBadgeNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
@@ -1032,6 +1032,111 @@ test('C32: only the one double-quoted form is accepted — single quotes, other 
   const twice = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('stroke-width="1.5"', 'stroke-width="1.5" stroke-width="2.5"'));
   assert.ok(twice.errors.includes('path 2 carries stroke-width more than once (C32)'), twice.errors.join(' | '));
   assert.ok(twice.errors.includes(STRAY), twice.errors.join(' | '));
+});
+
+// --- C33: a line badge keeps the outline weight on a line-heavy base (2026-10-19) ----------
+// passkey-2's key on fingerprint's bold print: drawn at 2.5 the bow closed solid and the key read
+// as a thermometer. Its paths carry `stroke-width` at the outline weight, as a C32 numeral's do,
+// in a filled file that declares `<!-- badge: line -->`; badge-to-base air floors at MIN_GAP,
+// each side at its own weight, whatever the file's `gap` note says. Same fixture as C32 above.
+const BADGE = ['keyline: mark', 'badge: line'];
+const BADGE24 = (paths, notes = BADGE) => [ROOT24F, ...notes.map((n) => `  <!-- ${n} -->`), ...paths.map((p) => `  ${p}`), '</svg>', ''].join('\n');
+
+test('parseBadgeNote reads line and refuses anything else', () => {
+  assert.deepEqual(parseBadgeNote('<!-- badge: line -->'), { kind: 'line', raw: 'line' });
+  assert.deepEqual(parseBadgeNote('<!--badge:line-->'), { kind: 'line', raw: 'line' });
+  assert.equal(parseBadgeNote('<!-- glyph: numeral -->'), null);
+  assert.ok(parseBadgeNote('<!-- badge: lines -->').bad);
+  assert.ok(parseBadgeNote('<!-- badge: shape -->').bad, 'a shape badge fills; it has no note');
+});
+
+test('C33: a 1.5 line badge beside a 2.5 base is measured at its own weight, and its air is said', () => {
+  const ok = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 10.5V17', { notes: BADGE }));
+  assert.deepEqual(ok.errors, []);
+  assert.deepEqual(numPairWarn(ok), [], ok.warnings.join(' | '));
+  assert.ok(ok.notes.includes('path 2 is the line badge at 1.5 (C33)'), ok.notes.join(' | '));
+  assert.ok(ok.notes.includes('line badge to base: tightest air 1.5 (C33, floor 1.5)'), ok.notes.join(' | '));
+  assert.match(ok.notes.at(-1), /declared mark/, 'the headline stays last');
+  assert.equal(ok.ink.y1, 17.75, 'the badge grows by its own half, 0.75');
+  const close = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 10V17', { notes: BADGE }));
+  assert.equal(numPairWarn(close).length, 1);
+  assert.match(numPairWarn(close)[0], /^paths 1\/2 are 3 apart — C33 badge air needs 3\.5 \(edge gap 1 < 1\.5\)$/);
+});
+
+test('C33: the file\'s gap note loosens the base, never the badge', () => {
+  // rails 3.5 apart at 2.5 leave 1 of air (agreed); the badge stands 3 from the top rail, 1 of air
+  const src = (y) => BADGE24(['<path d="M5 7H19"/>', '<path d="M5 10.5H10"/>', `<path stroke-width="1.5" d="M14 ${y}V17"/>`], ['keyline: mark', 'gap: 1', 'badge: line']);
+  const r = lintSource(24, 'passkey-2-filled.svg', src(10));
+  assert.deepEqual(r.errors, [], 'the note is in use: the base needs it');
+  assert.ok(r.notes.includes('agreed gap 1 — smallest measured 1'), r.notes.join(' | '));
+  assert.deepEqual(numPairWarn(r), ['paths 1/3 are 3 apart — C33 badge air needs 3.5 (edge gap 1 < 1.5)']);
+  const clear = lintSource(24, 'passkey-2-filled.svg', src(10.5));
+  assert.deepEqual(numPairWarn(clear), [], clear.warnings.join(' | '));
+  assert.ok(clear.notes.includes('agreed gap 1 — smallest measured 1'), 'badge air is not what keeps the note in use');
+});
+
+test('C33: a badge that touches or crosses its base warns — it is cut back, never joined', () => {
+  const touch = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 7V17', { notes: BADGE }));
+  assert.ok(touch.warnings.includes('paths 1/2 meet — C33 cuts the base back with 1.5 of air from the badge\'s ink'), touch.warnings.join(' | '));
+  const cross = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 4V17', { notes: BADGE }));
+  assert.ok(cross.warnings.includes('paths 1/2 meet — C33 cuts the base back with 1.5 of air from the badge\'s ink'), cross.warnings.join(' | '));
+  // the badge's own paths join by design: a key's bow, shank and tooth
+  const key = lintSource(24, 'passkey-2-filled.svg', BADGE24(['<path d="M5 5H11"/>',
+    ...['M16.5 19A2.25 2.25 0 1 0 21 19A2.25 2.25 0 1 0 16.5 19Z', 'M18.75 16.75L18.75 11.75', 'M18.75 13.75L21 13.75'].map((d) => `<path stroke-width="1.5" d="${d}"/>`)]));
+  assert.deepEqual(key.errors, []);
+  assert.ok(!key.warnings.some((w) => /meet|apart/.test(w)), key.warnings.join(' | '));
+  assert.ok(key.notes.includes('paths 2, 3, 4 are the line badge at 1.5 (C33)'), key.notes.join(' | '));
+});
+
+test('C33: a badge pair floors at 1.5 even beside `glyph: dot` — a ring badge is not the glyph\'s dot', () => {
+  // isDot reads any closed two-arc ring as a dot, so before the fix the pair took C19's 1 and passed
+  const ring = 'M10 14.1A2 2 0 1 0 14 14.1A2 2 0 1 0 10 14.1Z';   // top 12.1: 3.1 from the line, 1.1 of air
+  const r = lintSource(24, 'passkey-2-filled.svg', BADGE24(['<path d="M5 9H19"/>', `<path stroke-width="1.5" d="${ring}"/>`], ['keyline: mark', 'glyph: dot', 'badge: line']));
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(numPairWarn(r), ['paths 1/2 are 3.1 apart — C33 badge air needs 3.5 (edge gap 1.1 < 1.5)']);
+  assert.ok(r.notes.includes('line badge to base: tightest air 1.1 (C33, floor 1.5)'), r.notes.join(' | '));
+});
+
+test('C33: the badge note is an ERROR when lint cannot read it, when nothing draws under it, or beside glyph: numeral', () => {
+  const none = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
+  assert.ok(none.errors.some((e) => /only a numeral may, in a file that declares <!-- glyph: numeral --> \(C32\), or a line badge, in one that declares <!-- badge: line --> \(C33\)/.test(e)), none.errors.join(' | '));
+  const wrong = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 10.5V17', { notes: BADGE, sw: '2' }));
+  assert.ok(wrong.errors.some((e) => /^path 2 carries stroke-width="2" — a line badge keeps this master's outline weight, "1\.5" \(C33\)$/.test(e)), wrong.errors.join(' | '));
+  assert.ok(!wrong.errors.some((e) => /no path carries/.test(e)), 'one error for one mistake');
+  const outline = lintSource(24, 'passkey-2.svg', RAIL24('M12 10.5V17', { notes: BADGE }).replace('stroke-width="2.5"', 'stroke-width="1.5"'));
+  assert.ok(outline.errors.some((e) => /which is the root's own — only a line badge on a line-heavy filled base needs its own weight \(C33\); delete it/.test(e)), outline.errors.join(' | '));
+  const stale = lintSource(24, 'passkey-2-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path d="M12 10.5V17"/>']));
+  assert.ok(stale.errors.some((e) => /^declares <!-- badge: line --> but no path carries its own weight/.test(e)), stale.errors.join(' | '));
+  const misspelt = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark', 'badge: lines'] }));
+  assert.ok(misspelt.errors.some((e) => /^badge note "lines" is not a kind lint knows/.test(e)), misspelt.errors.join(' | '));
+  assert.ok(misspelt.errors.some((e) => /path 2 carries its own stroke-width/.test(e)), 'and the path is then refused');
+  const both = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark', 'glyph: numeral', 'badge: line'] }));
+  assert.ok(both.errors.some((e) => /^declares both <!-- glyph: numeral --> and <!-- badge: line -->/.test(e)), both.errors.join(' | '));
+  assert.ok(both.notes.includes('path 2 is a numeral at 1.5 (C32)'), 'read as the numeral note alone');
+});
+
+test('draft-svg writes `filled.badge` at the outline weight, with the note only where it draws, and refuses it where it does not belong (C33)', () => {
+  const m = (w) => ({ 24: w, 20: w, 16: w });
+  const fl = (weight) => ({ weight, stroke: ['M5 7H19'], badge: ['M12 10.5V17'] });
+  const c = { id: 'P', label: 'stem', badge: 'line', masters: m(['M5 7H19', 'M12 10.5V17']), filled: { 24: fl(2.5), 20: fl(2), 16: fl(2) } };
+  const out = candidateFiles({ keyline: 'mark' }, c, 'passkey-2');
+  const f24 = out.find((f) => f.master === 24 && f.filled).src, f16 = out.find((f) => f.master === 16 && f.filled).src;
+  assert.ok(f24.includes('  <path stroke-width="1.5" d="M12 10.5V17"/>'), f24);
+  assert.ok(f16.includes('  <path stroke-width="1.25" d="M12 10.5V17"/>'), f16);
+  assert.ok(f24.includes('stroke-width="2.5" stroke-linecap'), 'the root keeps the filled weight');
+  assert.match(f24, /<!-- stem, filled: weight 2\.5, ends pulled in 0\.5 so the ink box matches the outline, badge stays at 1\.5 -->/);
+  assert.ok(out.filter((f) => f.filled).every((f) => f.src.includes('<!-- badge: line -->')));
+  assert.ok(out.filter((f) => !f.filled).every((f) => !f.src.includes('badge:')), 'the outline draws at 1.5 already: no note');
+  const r = lintSource(24, 'passkey-2-filled.svg', f24);
+  assert.deepEqual(r.errors, []);
+  assert.ok(r.notes.includes('path 2 is the line badge at 1.5 (C33)'));
+  // the board may carry the flag for every candidate
+  assert.equal(candidateFiles({ keyline: 'mark', badge: 'line' }, { ...c, badge: undefined }, 'passkey-2').length, 6);
+  // refusals
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, badge: undefined }, 'passkey-2'), /needs badge: 'line'/);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, badge: 'shape' }, 'passkey-2'), /badge: 'shape' is not a kind/);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { fill: ['M4 4H8V8H4Z'], badge: ['M12 10.5V17'] } } }, 'passkey-2'), /fills shapes/);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { stroke: ['M5 7H19'], badge: ['M12 10.5V17'] } } }, 'passkey-2'), /heavier than 1\.5/);
 });
 
 test('a solid key is not a bend: a closed capsule no wider than its stroke (calculator, 2026-10-19)', () => {

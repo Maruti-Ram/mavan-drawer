@@ -36,7 +36,8 @@ function buildMaster(canvas) {
     // drawing keeps the master's outline stroke for its leftover lines.
     const sw = Number(clean.match(/<svg\b[^>]*\bstroke-width="([\d.]+)"/)?.[1] ?? weightOf(n, canvas));
     // A path may carry its own weight: a numeral in a line-heavy filled drawing keeps the
-    // outline weight beside heavier rails (C32, `<!-- glyph: numeral -->`; lint checks it).
+    // outline weight beside heavier rails (C32, `<!-- glyph: numeral -->`), and so does a line
+    // badge on a line-heavy base (C33, `<!-- badge: line -->`); lint checks both.
     const widths = lines.map((m) => Number(`${m[1]} ${m[3]}`.match(/\sstroke-width="([\d.]+)"/)?.[1] ?? sw));
     const own = widths.some((w) => w !== sw);
     // A stroke grows its centreline box by half its own stroke; a filled area is its own box.

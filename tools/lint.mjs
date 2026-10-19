@@ -31,7 +31,9 @@ function polyGap(a, b) {
 // One exception to "one weight per file" (C32, 2026-10-17): in a line-heavy `-filled` file
 // that declares `<!-- glyph: numeral -->`, a numeral's path carries its own
 // `stroke-width` at the master's OUTLINE weight, so a 1 inside 2.5 rails does not thicken
-// into a blob. Every measure below reads each path at its own weight.
+// into a blob. Every measure below reads each path at its own weight. A second (C33,
+// 2026-10-19): in one that declares `<!-- badge: line -->`, a line badge's paths do the same,
+// so passkey-2's key keeps its ring beside fingerprint's bold print.
 const required = (canvas, weight) => ({
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: `0 0 ${canvas} ${canvas}`,
@@ -150,6 +152,24 @@ export function parseGlyphNote(src) {
   return GLYPH_KINDS.includes(m[1]) ? { kind: m[1], raw: m[1] } : { raw: m[1], bad: true };
 }
 
+// C33's badge is declared per filled file as `<!-- badge: KIND -->` (2026-10-19). One kind:
+//   line     a line badge (a key, a loop, a plus) on a LINE-HEAVY base: its paths carry
+//            `stroke-width` at the master's outline weight while the base draws at FILLED_WEIGHT
+//            (§2b), and its air to the base floors at MIN_GAP whatever the file's `gap` note says
+//            (§5) — the note was agreed for the base. First passkey-2: the key on fingerprint.
+// A shape badge (map-pinned's pin) fills like any shape, and a line badge on a shape-filled base
+// already draws at the outline weight (calendar-repeat's loop), so neither has a note to write.
+// Named for what C33 calls it, and shaped like `glyph:` so a file reads the same way: the
+// note says what kind of thing keeps its own weight. Like the other notes it can never hide a
+// mistake: a kind lint cannot read, and a note no path draws under, are ERRORS.
+// Returns null (no note), {kind, raw}, or {raw, bad: true}.
+export const BADGE_KINDS = ['line'];
+export function parseBadgeNote(src) {
+  const m = src.match(/<!--\s*badge:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  return BADGE_KINDS.includes(m[1]) ? { kind: m[1], raw: m[1] } : { raw: m[1], bad: true };
+}
+
 // Path text compared as written, bar whitespace (runs collapse; none is kept beside a command
 // letter or a comma): "identical" means the same drawing, not the same shape reached another way.
 const normPath = (d) => d.replace(/\s*([A-Za-z,])\s*/g, '$1').replace(/\s+/g, ' ').trim();
@@ -252,6 +272,20 @@ export function lintSource(canvas, file, src) {
   const isGlyph = glyph?.kind === 'dot';
   const isNumeral = glyph?.kind === 'numeral';
 
+  // --- 0b''. the badge note (C33; §2b, §5, §5b and §5f read it) ---------------
+  // Both notes let a path carry the outline weight, and a path says nothing about which it is,
+  // so one file declares one of them; until an icon needs both, the pair is an ERROR and the
+  // file is read as the numeral note alone.
+  let badge = parseBadgeNote(src);
+  if (badge?.bad) {
+    errors.push(`badge note "${badge.raw}" is not a kind lint knows — write <!-- badge: line --> (a line badge kept at the outline weight on a line-heavy filled base) (C33)`);
+    badge = null;
+  } else if (badge && isNumeral) {
+    errors.push('declares both <!-- glyph: numeral --> and <!-- badge: line --> — each lets a path keep the outline weight, and lint cannot tell a numeral\'s path from the badge\'s (C32, C33)');
+    badge = null;
+  }
+  const isBadge = !!badge;
+
   // --- 0c. the anchor note (C28; held to its anchor in checkAnchors) --------
   // A note that is not usable is an error and is then ignored, so §4 asks the drawing to be
   // centred on a keyline exactly as it would without it.
@@ -296,31 +330,43 @@ export function lintSource(canvas, file, src) {
   // Only the ONE accepted form is taken out — a single, double-quoted `stroke-width="…"` at the
   // outline weight, in a file with the note — and HEAD's blanket test then runs on what is left,
   // so any other stroke attribute, any quoting, a repeat or a path lint cannot read still fails.
+  // C33 (2026-10-19): `<!-- badge: line -->` grants the same, on the same terms, to a line
+  // badge's paths; `inBadge[i]` marks them for §5, §5b and §5f.
   const OUTLINE = strokeOf(canvas);
-  const W = [], numerals = [];
+  const W = [], numerals = [], badged = [], inBadge = [];
+  const [who, rule] = isBadge ? ['a line badge', 'C33'] : ['a numeral', 'C32'];
   let rest = stripped;   // the body with each accepted per-path weight removed
+  let owned = 0;         // paths that carry a readable weight of their own, accepted or not
   [...stripped.matchAll(/<path([^>]*)\bd="[^"]+"([^>]*)>/g)].forEach((m, i) => {
     W[i] = STROKE;
     const tag = `${m[1]} ${m[2]}`;
     const widths = [...tag.matchAll(/\sstroke-width\b/g)].length;
-    if (widths > 1) { errors.push(`path ${i + 1} carries stroke-width more than once (C32)`); return; }
+    if (widths > 1) { errors.push(`path ${i + 1} carries stroke-width more than once (${rule})`); return; }
     const own = tag.match(/\sstroke-width="([^"]*)"/);
     if (!own) return;   // none, or not double-quoted: the blanket test below decides
     const v = own[1];
-    if (!isNumeral)
-      errors.push(`path ${i + 1} carries its own stroke-width="${v}" — only a numeral may, in a file that declares <!-- glyph: numeral --> (C32); everything else draws at the root's ${STROKE}`);
+    owned++;
+    if (!isNumeral && !isBadge)
+      errors.push(`path ${i + 1} carries its own stroke-width="${v}" — only a numeral may, in a file that declares <!-- glyph: numeral --> (C32), or a line badge, in one that declares <!-- badge: line --> (C33); everything else draws at the root's ${STROKE}`);
     else if (v !== String(OUTLINE))
-      errors.push(`path ${i + 1} carries stroke-width="${v}" — a numeral keeps this master's outline weight, "${OUTLINE}" (C32)`);
+      errors.push(`path ${i + 1} carries stroke-width="${v}" — ${who} keeps this master's outline weight, "${OUTLINE}" (${rule})`);
     else if (OUTLINE === STROKE)
-      errors.push(`path ${i + 1} carries stroke-width="${v}", which is the root's own — only a numeral inside a line-heavy filled drawing needs its own weight (C32); delete it`);
+      errors.push(`path ${i + 1} carries stroke-width="${v}", which is the root's own — only ${isBadge ? 'a line badge on a line-heavy filled base' : 'a numeral inside a line-heavy filled drawing'} needs its own weight (${rule}); delete it`);
     else {
-      W[i] = OUTLINE; numerals.push(i + 1);
+      W[i] = OUTLINE;
+      if (isBadge) { badged.push(i + 1); inBadge[i] = true; } else numerals.push(i + 1);
       rest = rest.replace(m[0], m[0].replace(own[0], ''));
     }
   });
   if (/<path[^>]*\sstroke/.test(rest)) errors.push('stroke attribute on a <path> — belongs on the root');
   if (numerals.length)
     notes.push(`path${numerals.length > 1 ? 's' : ''} ${numerals.join(', ')} ${numerals.length > 1 ? 'are numerals' : 'is a numeral'} at ${OUTLINE} (C32)`);
+  if (badged.length)
+    notes.push(`path${badged.length > 1 ? 's' : ''} ${badged.join(', ')} ${badged.length > 1 ? 'are' : 'is'} the line badge at ${OUTLINE} (C33)`);
+  // The note has one job, so a file that declares it with no path drawn under it is stale. (A path
+  // whose weight is wrong already has its own error above; this is for a note with nothing at all.)
+  if (isBadge && !owned)
+    errors.push(`declares <!-- badge: line --> but no path carries its own weight — the note keeps a line badge at the outline weight on a line-heavy filled base (C33); anywhere else the badge draws at the root's ${STROKE} already; delete it`);
 
   // --- 3. precision + grid ------------------------------------------------
   // The grid follows the master's stroke (masters.mjs): a 1.5 stroke centred on
@@ -433,23 +479,34 @@ export function lintSource(canvas, file, src) {
   // silhouette (the path spanning the whole ink box) is not that pair, and keeps MIN_GAP.
   // (`glyph: numeral` does not reach this loop: a numeral's clearance to the next numeral and
   // to its list line is between separate paths, and keeps MIN_GAP.)
+  // C33 (`<!-- badge: line -->`, 2026-10-19): the base is cut back by hand with 1.5 of air from
+  // the badge's own ink, so a badge-to-base pair floors at MIN_GAP, each side at its own weight,
+  // and the file's `gap` note — agreed for the base's own runs — never reaches it; the badge's
+  // own paths keep MIN_GAP too. A badge that touches or crosses its base has no air at all, so
+  // it warns instead of passing as a join. The tightest badge-to-base air is printed (5g).
   const sampled = ds.map(samplePath);
   const spans = ds.map((d) => bbox([d]));
   const whole = ds.length ? bbox(ds) : null;
   const isShell = (b) => whole && ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(b[k] - whole[k]) < 0.01);
+  let badgeAir = Infinity;   // the tightest air between the badge and its base, for 5g
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
-    if (crosses(sampled[i], sampled[j])) continue; // paths that cross (x, plus) join by design
-    const glyphPair = isGlyph && isDot(ds[i]) !== isDot(ds[j]) && !isShell(spans[i]) && !isShell(spans[j]);
-    const floor = glyphPair ? GLYPH_GAP : GAP;
-    const pen = (W[i] + W[j]) / 2;   // half of each path's own weight (C32)
+    const onBadge = !!inBadge[i] || !!inBadge[j], toBase = !!inBadge[i] !== !!inBadge[j];
+    const met = `paths ${i + 1}/${j + 1} meet — C33 cuts the base back with ${MIN_GAP} of air from the badge's ink`;
+    if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); continue; } // paths that cross (x, plus) join by design
+    // the badge is read first: a ring badge is a closed two-arc path, which isDot reads as a
+    // C19 dot, and beside `glyph: dot` it would otherwise take the glyph's floor of 1
+    const glyphPair = !onBadge && isGlyph && isDot(ds[i]) !== isDot(ds[j]) && !isShell(spans[i]) && !isShell(spans[j]);
+    const floor = onBadge ? MIN_GAP : glyphPair ? GLYPH_GAP : GAP;
+    const pen = (W[i] + W[j]) / 2;   // half of each path's own weight (C32, C33)
     const need = floor + pen; // centreline distance that leaves `floor` between the two edges
     // Point-to-SEGMENT, both ways: point-to-point read a stem standing on a bar as 0.13
     // apart whenever the bar's samples straddled the stem (info-3 at 16, on the eighth grid).
     const min = Math.min(polyGap(sampled[i], sampled[j]), polyGap(sampled[j], sampled[i]));
-    if (min <= 0.1) continue;
-    if (!glyphPair) measured.push(r2(min - pen));
+    if (min <= 0.1) { if (toBase) warnings.push(met); continue; }
+    if (toBase) badgeAir = Math.min(badgeAir, r2(min - pen));
+    if (!glyphPair && !onBadge) measured.push(r2(min - pen));
     if (min < need - 0.01)
-      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${need} (edge gap ${r2(min - pen)} < ${floor})`);
+      warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : toBase ? 'C33 badge air' : !onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${need} (edge gap ${r2(min - pen)} < ${floor})`);
   }
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
@@ -472,6 +529,7 @@ export function lintSource(canvas, file, src) {
   // Every path in the file is read this way, the silhouette included - a numeral drawn on its
   // own IS the silhouette, and the lines beside one are straight, so they have no opening.
   // `selfGap` is handed the path's own stroke, so it reads edge-to-edge at any master.
+  // A C33 line badge's own openings keep MIN_GAP: the file's `gap` note is the base's.
   let numeralMin = Infinity;   // the tightest opening the numeral note governs, for 5e
   const read5b = [];           // what 5b measured per path, so 5f does not warn on the same neck twice
   for (let i = 0; i < ds.length; i++) {
@@ -479,12 +537,12 @@ export function lintSource(canvas, file, src) {
     const self = selfGap(ds[i], W[i]);
     read5b[i] = self;
     if (!self) continue;
-    const inGlyph = (isGlyph && !isShell(spans[i])) || isNumeral;
-    const floor = inGlyph ? GLYPH_GAP : GAP;
-    if (!inGlyph) measured.push(self.gap);
+    const inGlyph = !inBadge[i] && ((isGlyph && !isShell(spans[i])) || isNumeral);   // the badge first, as in §5
+    const floor = inBadge[i] ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
+    if (!inGlyph && !inBadge[i]) measured.push(self.gap);
     if (isNumeral) numeralMin = Math.min(numeralMin, self.gap);
     if (self.gap < floor - 0.01)
-      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (it turns ${self.span}°)`);
+      warnings.push(`path ${i + 1} comes within ${self.gap} of itself at ${self.at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !inBadge[i] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (it turns ${self.span}°)`);
   }
 
   // --- 5c. advisory: a knockout that leaves too little standing ---------------
@@ -528,18 +586,19 @@ export function lintSource(canvas, file, src) {
   // floors as in 5b: GLYPH_GAP inside a declared glyph, else this file's agreed gap, else
   // MIN_GAP. Air touching a shape floors at the agreed gap, else MIN_GAP: a filled glyph's
   // own openings are material, not air, and 5c reads them. WARNINGS (plan, 2026-09-28).
+  // A C33 line badge's own air (the inside of a key's bow) keeps MIN_GAP, as in 5b.
   {
-    const air = facingGap(ds, W, areas);   // each path at its own weight (C32)
+    const air = facingGap(ds, W, areas);   // each path at its own weight (C32, C33)
     const shut = (sub) => { const p = samplePath(sub); return p.length > 2 && Math.hypot(p.at(-1)[0] - p[0][0], p.at(-1)[1] - p[0][1]) < 0.01; };
     for (const { path, gap: g, at } of air.self) {
       const d = ds[path], subs = subpathsOf(d);
       if (isDot(d) || (subs.length === 1 && !shut(subs[0]))) continue;  // 5b reads it
       if (read5b[path] && read5b[path].gap <= g + 0.02) continue;        // 5b read this neck
-      const inGlyph = (isGlyph && !isShell(spans[path])) || isNumeral;
-      const floor = inGlyph ? GLYPH_GAP : GAP;
-      if (!inGlyph) measured.push(g);
+      const inGlyph = !inBadge[path] && ((isGlyph && !isShell(spans[path])) || isNumeral);   // the badge first, as in §5
+      const floor = inBadge[path] ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
+      if (!inGlyph && !inBadge[path]) measured.push(g);
       if (g < floor - 0.01)
-        warnings.push(`path ${path + 1} faces itself across ${g} of air at ${at.join(',')} — ${inGlyph ? 'C19 glyph gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+        warnings.push(`path ${path + 1} faces itself across ${g} of air at ${at.join(',')} — ${inGlyph ? 'C19 glyph gap' : !inBadge[path] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
     }
     const AIR = { cut: 'across one cut-out', notch: 'in a notch of the outer edge', separation: 'between two filled edges', line: 'between a shape and a line' };
     for (const { kind, gap: g, at } of air.area) {
@@ -572,6 +631,14 @@ export function lintSource(canvas, file, src) {
     notes.splice(-1, 0, numeralMin < MIN_GAP - 0.01
       ? `C19 numeral opening ${numeralMin} — floor ${GLYPH_GAP}, not §6's ${MIN_GAP}`
       : `glyph: numeral — ${numerals.length ? 'its opening floor is ' : ''}not in use here (${Number.isFinite(numeralMin) ? `smallest opening ${numeralMin}` : 'no opening measured'}, §6's ${MIN_GAP} already holds)${numerals.length ? '; the note is in use for the numeral\'s weight (C32)' : ''}`);
+
+  // --- 5g. the badge's air, said ----------------------------------------------
+  // C33's cut-back is done by hand, so the number it was cut to is printed beside the drawing,
+  // the way an agreed gap is: each side at its own weight, measured as §5 measures it.
+  if (badged.length)
+    notes.splice(-1, 0, Number.isFinite(badgeAir)
+      ? `line badge to base: tightest air ${badgeAir} (C33, floor ${MIN_GAP})`
+      : 'line badge to base: no base path clear of it to measure (C33)');
 
   // `paths` (whitespace-normalised) lets checkAnchors count what a member shares with its anchor.
   const paths = [...ds, ...areas].map(normPath);

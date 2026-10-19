@@ -376,6 +376,8 @@ const split = (d) => (/^\s*M/.test(d) ? d.match(/M[^M]*/g).map((s) => s.trim()) 
 //   masters: { 24: [stroke d…] }                          the outline, at that master's stroke
 //   filled:  { 24: { fill: [d…], stroke: [d…], weight, glyph: [d…] } } | 'outline'  'outline' = same drawing
 //   glyph: a numeral in a line-heavy filled drawing, kept at the outline weight (C32)
+//   badge: a line badge on a line-heavy base (passkey-2's key), kept at the outline weight too (C33);
+//          drawn with `glyph`, so every panel that reads `glyph` reads the badge
 // Line-only icons have nothing to fill, so their filled drawing is the same
 // idea at a heavier weight — never a background.
 const STYLES = ['outline', 'filled'];
@@ -386,7 +388,7 @@ function drawing(c, style, m) {
   if (style === 'outline') return o ? { stroke: o, fill: [], glyph: [], sw: strokeOf(m) } : null;
   if (c.filled === 'outline') return o ? { stroke: o, fill: [], glyph: [], sw: strokeOf(m), same: true } : null;
   const d = c.filled?.[m];
-  return d ? { stroke: d.stroke ?? [], fill: d.fill ?? [], glyph: d.glyph ?? [], sw: d.weight ?? strokeOf(m), gsw: strokeOf(m) } : null;
+  return d ? { stroke: d.stroke ?? [], fill: d.fill ?? [], glyph: [...(d.glyph ?? []), ...(d.badge ?? [])], sw: d.weight ?? strokeOf(m), gsw: strokeOf(m) } : null;
 }
 const paint = (dr) => dr.fill.map((d) => `<path fill="currentColor" fill-rule="evenodd" d="${d}"/>`).join('') + (dr.stroke.length ? strokes(dr.stroke, dr.sw) : '')
   + (dr.glyph.length ? strokes(dr.glyph, dr.gsw) : '');

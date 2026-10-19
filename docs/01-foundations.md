@@ -242,7 +242,9 @@ at 24 and 20, 1.25 at 16. Numbers live in `tools/masters.mjs` (`FILLED_WEIGHT`,
 2026-10-17): a **numeral** inside a line-heavy icon (`repeat-once`'s 1) keeps
 the outline weight in the filled file, declared `<!-- glyph: numeral -->`, its
 path carrying `stroke-width` at that weight; gaps are measured with each path's
-own weight.
+own weight. A second (C33, 2026-10-19): a **line badge** on a line-heavy base
+(`passkey-2`'s key) does the same, declared `<!-- badge: line -->`, its air to
+the base held at 1.5.
 
 **Lint compares the pair (added 2026-09-20).** Every icon ships as
 `<name>.svg` and `<name>-filled.svg` at each master, and the two are meant to
@@ -405,8 +407,9 @@ Fixed for every icon in the library:
 
 - `viewBox` equal to the master's canvas — `0 0 24 24`, `0 0 20 20` or `0 0 16 16`
 - `fill="none"` and `stroke="currentColor"` — colour is the consumer's problem
-- stroke attributes on the **root**, never on individual paths — bar one: a C32
-  numeral in a line-heavy filled file carries `stroke-width` at the outline weight
+- stroke attributes on the **root**, never on individual paths — bar two: a C32
+  numeral in a line-heavy filled file carries `stroke-width` at the outline weight,
+  and so does a C33 line badge on a line-heavy base (`<!-- badge: line -->`)
 - **no** `width` / `height` on the root — the consumer sizes it
 - **no** `<g>`, no `transform`, no `id`, no `class`, no inline `style`
 - one `<path>` per discrete stroke run, in drawing order (container first,

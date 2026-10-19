@@ -18,7 +18,16 @@
 //                   It also lets a numeral keep the OUTLINE weight in a line-heavy filled
 //                   drawing (C32, 2026-10-17): a filled entry's `glyph: [d…]` is written as
 //                   `<path stroke-width="<outline weight>" d="…"/>` beside the rails at
-//                   FILLED_WEIGHT — the one path that may carry its own weight
+//                   FILLED_WEIGHT — with a C33 line badge (below), the only paths that may carry
+//                   their own weight
+//   badge: line     FILLED FILES ONLY — a C33 line badge (a key, a loop, a plus) on a LINE-HEAVY
+//                   base keeps the OUTLINE weight while the base goes to FILLED_WEIGHT (2026-10-19,
+//                   first passkey-2: the key on fingerprint's bold print). A filled entry's
+//                   `badge: [d…]` is written like a C32 numeral, `<path stroke-width="<outline
+//                   weight>" d="…"/>`, verbatim from the outline (not pulled in), and only with
+//                   `badge: 'line'` on the candidate or the board. The note is written into the
+//                   filled files that carry such paths and nowhere else: elsewhere a line badge
+//                   is at the outline weight already, so the note would declare nothing
 //   optical: dx dy  the ink is deliberately moved off the box centre (C14)
 //   grows: L R T B  FILLED FILES ONLY — how far the filled ink is agreed to stand proud of its
 //                   outline twin's box on each side, in that master's units. C17's repeated
@@ -48,7 +57,7 @@ export const gapFor = (gap, m, filled) => {
   return (scoped ? gap[filled ? 'filled' : 'outline'] : gap)?.[m] ?? null;
 };
 
-export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null, numerals = []) => [
+export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null, numerals = [], badge = null, badges = []) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
@@ -57,12 +66,15 @@ export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical =
   ...(grows ? [`  <!-- grows: ${grows.join(' ')} -->`] : []),
   ...(gap ? [`  <!-- gap: ${gap} -->`] : []),
   ...(glyph ? [`  <!-- glyph: ${glyph} -->`] : []),
+  ...(badge ? [`  <!-- badge: ${badge} -->`] : []),
   ...(optical ? [`  <!-- optical: ${optical.join(' ')} -->`] : []),
   ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
   ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
   ...stroke.map((d) => `  <path d="${d}"/>`),
   // C32: a numeral in a line-heavy filled drawing keeps the master's outline weight
   ...numerals.map((d) => `  <path stroke-width="${strokeOf(m)}" d="${d}"/>`),
+  // C33: so does a line badge on a line-heavy base
+  ...badges.map((d) => `  <path stroke-width="${strokeOf(m)}" d="${d}"/>`),
   '</svg>', '',
 ].join('\n');
 
@@ -80,12 +92,14 @@ export function planArg(draft, arg) {
 
 // One candidate → the six files it ships as, newest master first:
 //   { master, name, file, filled, src }   file is `<name>.svg` / `<name>-filled.svg`
-// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, box, anchor).
+// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, badge, box, anchor).
 // Throws on a candidate that cannot ship; the caller decides how to report it.
 export function candidateFiles(draft, c, name) {
   const keyline = c.keyline ?? draft.keyline ?? null;
   const tags = c.tags ?? draft.tags ?? [];
   const glyph = c.glyph ?? draft.glyph ?? null;
+  const badge = c.badge ?? draft.badge ?? null;        // 'line' — written only where filled.badge draws
+  if (badge && badge !== 'line') throw new Error(`${c.id}: badge: '${badge}' is not a kind — a line badge is badge: 'line'; a shape badge fills like any shape and needs no flag (C33).`);
   const box = c.box ?? draft.box ?? null;              // { 24: [w, h], 20: […], 16: […] }
   const grows = c.grows ?? draft.grows ?? null;        // { 24: [l, r, t, b], … } — filled files only
   const gap = c.gap ?? draft.gap ?? null;              // { 24: n, … } or { filled: { 24: n, … }, outline: … }
@@ -112,12 +126,23 @@ export function candidateFiles(draft, c, name) {
       if (f.fill?.length) throw new Error(`${c.id} at ${m}: filled.glyph is for a line-heavy filled drawing; this one fills shapes, so its numeral's lines already stay at ${sw} — put them in filled.stroke (C32).`);
       if (fw === sw) throw new Error(`${c.id} at ${m}: filled.glyph needs a filled weight heavier than ${sw} (filled.weight); at the outline weight the numeral belongs in filled.stroke (C32).`);
     }
+    // C33 (2026-10-19): `filled.badge` holds a LINE badge on a LINE-HEAVY base (passkey-2's key on
+    // fingerprint's print), drawn as the outline draws it while the base in `stroke` goes to
+    // `weight`. Same three refusals as `filled.glyph`, for the same reasons: a shape-filled
+    // drawing's badge already sits in `stroke` at the outline weight (calendar-repeat's loop).
+    const badges = f.badge ?? [];
+    if (badges.length) {
+      if (badge !== 'line') throw new Error(`${c.id} at ${m}: filled.badge keeps a line badge at the outline weight, which needs badge: 'line' on the candidate or the board (C33).`);
+      if (f.fill?.length) throw new Error(`${c.id} at ${m}: filled.badge is for a line-heavy filled drawing; this one fills shapes, so a line badge already stays at ${sw} — put it in filled.stroke (C33).`);
+      if (fw === sw) throw new Error(`${c.id} at ${m}: filled.badge needs a filled weight heavier than ${sw} (filled.weight); at the outline weight the badge belongs in filled.stroke (C33).`);
+    }
     out.push({ master: m, name, file: `${name}.svg`, filled: false,
       src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyph, box?.[m], null, gapFor(gap, m, false), anchor) });
     out.push({ master: m, name: `${name}-filled`, file: `${name}-filled.svg`, filled: true,
       src: svg(m, fw, keyline,
-        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline${numerals.length ? `, numeral stays at ${sw}` : ''}`),
-        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m], gapFor(gap, m, true), anchor, numerals) });
+        `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline${numerals.length ? `, numeral stays at ${sw}` : ''}${badges.length ? `, badge stays at ${sw}` : ''}`),
+        f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyph, box?.[m], grows?.[m], gapFor(gap, m, true), anchor, numerals,
+        badges.length ? badge : null, badges) });
   }
   return out;
 }

@@ -19,6 +19,8 @@ export const strokeOf = (master) => STROKES[master];
 // Every other icon fills its shapes and keeps the outline stroke for any line.
 // C32 (2026-10-17): a numeral inside a line-heavy icon keeps the OUTLINE weight in the
 // filled file (`<!-- glyph: numeral -->`, its path carrying `stroke-width`; lint §2b).
+// C33 (2026-10-19): so does a LINE badge on a line-heavy base (`<!-- badge: line -->`,
+// first passkey-2's key on fingerprint's print), its air to the base floored at MIN_GAP.
 export const FILLED_WEIGHT = { 24: 2.5, 20: 2, 16: 2 };
 export const isFilled = (file) => /-filled(\.svg)?$/.test(file);
 export const weightOf = (file, master) => (isFilled(file) ? FILLED_WEIGHT[master] : strokeOf(master));
