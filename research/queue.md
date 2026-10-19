@@ -548,7 +548,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 177. `drag-handle` · UI & Layout — mvp · approved 2026-10-18
 - [x] 177. `drag-handle-2` · UI & Layout · variant of `drag-handle` — Six dots, lying · approved 2026-10-18
 - [x] 177. `drag-handle-3` · UI & Layout · variant of `drag-handle` — Three short lines · approved 2026-10-18
-- [ ] 178. `face-laugh` · Communication
+- [x] 178. `face-laugh` · Communication — approved 2026-10-20
+- [x] 178. `face-laugh-2` · Communication · variant of `face-laugh` — Smiling eyes · approved 2026-10-20
+- [x] 178. `face-laugh-3` · Communication · variant of `face-laugh` — Squeezed eyes · approved 2026-10-20
 - [x] 179. `id-card` · Users & Access — approved 2026-10-19
 - [x] 179. `id-card-2` · Users & Access · variant of `id-card` — Badge with a slot · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-3` · Users & Access · variant of `id-card` — Clip-on badge · A4's figure at 16 · approved 2026-10-19
@@ -572,7 +574,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
 - [ ] 192. `gift` · Status & Feedback
-- [ ] 193. `headphones` · Communication
+- [~] 193. `headphones` · Communication
 - [x] 194. `inbox` · Communication — mvp · approved 2026-10-18
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
@@ -613,16 +615,16 @@ Bases before their variants; within that, highest evidence first.
 - [x] 217. `fingerprint` · Users & Access — approved 2026-10-19
 - [x] 217. `fingerprint-2` · Users & Access · variant of `fingerprint` — Symmetric arches · approved 2026-10-19
 - [ ] 218. `hand` · UI & Layout
-- [ ] 219. `headset` · Communication
+- [~] 219. `headset` · Communication
 - [ ] 220. `highlighter` · Editing & Text
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 221. `hourglass-2` · Time & Calendar · variant of `hourglass` — Full bow · approved 2026-10-17
 - [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
 - [ ] 222. `layout-list` · UI & Layout — mvp
-- [ ] 223. `messages` · Communication — mvp
+- [~] 223. `messages` · Communication — mvp
 - [ ] 224. `password` · UI & Layout
 - [ ] 225. `pen-sparkle` · Editing & Text
-- [ ] 226. `sticker` · Communication
+- [~] 226. `sticker` · Communication
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 228. `vault` · Users & Access — approved 2026-10-19
 - [x] 228. `vault-2` · Users & Access · variant of `vault` — Round bank-vault door · approved 2026-10-19
@@ -674,7 +676,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
 - [ ] 268. `drag-drop` · UI & Layout
-- [ ] 269. `newsletter` · Communication
+- [~] 269. `newsletter` · Communication
 - [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
 - [ ] 271. `status` · Status & Feedback
