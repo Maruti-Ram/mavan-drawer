@@ -625,7 +625,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
 - [x] 222. `layout-list` · UI & Layout — mvp · approved 2026-10-20
 - [ ] 223. `messages` · Communication — mvp
-- [~] 224. `password` · UI & Layout
+- [x] 224. `password` · UI & Layout — approved 2026-10-20
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
