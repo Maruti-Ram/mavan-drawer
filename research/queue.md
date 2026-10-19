@@ -593,7 +593,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 200. `video` · Files & Folders — mvp
 - [ ] 201. `zap` · Status & Feedback
 - [x] 202. `zoom-in` · UI & Layout — approved 2026-10-20
+- [x] 202. `zoom-in-2` · UI & Layout · variant of `zoom-in` — Big lens, ring kept, thin mark · approved 2026-10-20
 - [x] 203. `zoom-out` · UI & Layout — approved 2026-10-20
+- [x] 203. `zoom-out-2` · UI & Layout · variant of `zoom-out` — Big lens, ring kept, thin mark · approved 2026-10-20
 - [x] 204. `anchor` · Maps & Location — approved 2026-10-18
 - [x] 204. `anchor-2` · Maps & Location · variant of `anchor` — Minimal · approved 2026-10-18
 - [x] 204. `anchor-3` · Maps & Location · variant of `anchor` — Ball · approved 2026-10-18

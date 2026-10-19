@@ -1300,8 +1300,12 @@
     "x-small",
     "x-small-filled",
     "zoom-in",
+    "zoom-in-2",
+    "zoom-in-2-filled",
     "zoom-in-filled",
     "zoom-out",
+    "zoom-out-2",
+    "zoom-out-2-filled",
     "zoom-out-filled"
   ],
   "icons": {
@@ -78550,6 +78554,131 @@
       "ratio": null,
       "gap": null
     },
+    "zoom-in-2": {
+      "paths": [
+        "M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z",
+        "M16.98 16.98L20.25 20.25",
+        "M11.5 7.75v7.5",
+        "M7.75 11.5h7.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z\"/> <path d=\"M16.98 16.98L20.25 20.25\"/> <path d=\"M11.5 7.75v7.5\"/> <path d=\"M7.75 11.5h7.5\"/>",
+      "mark": false,
+      "tags": [
+        "lens",
+        "taper",
+        "magnify",
+        "zoom",
+        "enlarge",
+        "plus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.84,
+          "optical": 3.63
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.23,
+          "optical": 3.92
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.84,
+          "optical": 3.63
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 1.23,
+          "optical": 3.92
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "zoom-in-2-filled": {
+      "paths": [
+        "M11.5 7.75v7.5",
+        "M7.75 11.5h7.5"
+      ],
+      "areas": [
+        "M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z",
+        "M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z\"/> <path d=\"M11.5 7.75v7.5\"/> <path d=\"M7.75 11.5h7.5\"/>",
+      "mark": false,
+      "tags": [
+        "lens",
+        "taper",
+        "magnify",
+        "zoom",
+        "enlarge",
+        "plus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "zoom-in-filled": {
       "paths": [
         "M10.75 7.75v6",
@@ -78668,6 +78797,131 @@
           "geometric": 3,
           "recession": 1.33,
           "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "zoom-out-2": {
+      "paths": [
+        "M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z",
+        "M16.98 16.98L20.25 20.25",
+        "M7.75 11.5h7.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z\"/> <path d=\"M16.98 16.98L20.25 20.25\"/> <path d=\"M7.75 11.5h7.5\"/>",
+      "mark": false,
+      "tags": [
+        "lens",
+        "taper",
+        "magnify",
+        "zoom",
+        "shrink",
+        "reduce",
+        "minus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.84,
+          "optical": 3.63
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.23,
+          "optical": 3.92
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.84,
+          "optical": 3.63
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 1.23,
+          "optical": 3.92
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "zoom-out-2-filled": {
+      "paths": [
+        "M7.75 11.5h7.5"
+      ],
+      "areas": [
+        "M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z",
+        "M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z\"/> <path d=\"M7.75 11.5h7.5\"/>",
+      "mark": false,
+      "tags": [
+        "lens",
+        "taper",
+        "magnify",
+        "zoom",
+        "shrink",
+        "reduce",
+        "minus"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         }
       },
       "container": null,
@@ -80031,8 +80285,12 @@
         "x-small",
         "x-small-filled",
         "zoom-in",
+        "zoom-in-2",
+        "zoom-in-2-filled",
         "zoom-in-filled",
         "zoom-out",
+        "zoom-out-2",
+        "zoom-out-2-filled",
         "zoom-out-filled"
       ],
       "icons": {
@@ -157196,6 +157454,131 @@
           "ratio": null,
           "gap": null
         },
+        "zoom-in-2": {
+          "paths": [
+            "M2.625 7.75A5.125 5.125 0 1 0 12.875 7.75A5.125 5.125 0 1 0 2.625 7.75Z",
+            "M11.373 11.373L13.375 13.375",
+            "M7.75 5.625v4.25",
+            "M5.625 7.75h4.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 7.75A5.125 5.125 0 1 0 12.875 7.75A5.125 5.125 0 1 0 2.625 7.75Z\"/> <path d=\"M11.373 11.373L13.375 13.375\"/> <path d=\"M7.75 5.625v4.25\"/> <path d=\"M5.625 7.75h4.25\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "enlarge",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.65,
+              "optical": 2.49
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.83,
+              "optical": 2.62
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.65,
+              "optical": 2.49
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.83,
+              "optical": 2.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-in-2-filled": {
+          "paths": [
+            "M7.75 6.125v3.25",
+            "M6.125 7.75h3.25"
+          ],
+          "areas": [
+            "M2 7.75A5.75 5.75 0 1 0 13.5 7.75A5.75 5.75 0 1 0 2 7.75ZM4 7.75A3.75 3.75 0 1 0 11.5 7.75A3.75 3.75 0 1 0 4 7.75Z",
+            "M10.48 11.51L11.7 13.42A1.25 1.25 0 0 0 12.75 14A1.25 1.25 0 0 0 14 12.75A1.25 1.25 0 0 0 13.42 11.7L11.51 10.48A0.75 0.75 0 0 0 10.48 11.51Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 7.75A5.75 5.75 0 1 0 13.5 7.75A5.75 5.75 0 1 0 2 7.75ZM4 7.75A3.75 3.75 0 1 0 11.5 7.75A3.75 3.75 0 1 0 4 7.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.48 11.51L11.7 13.42A1.25 1.25 0 0 0 12.75 14A1.25 1.25 0 0 0 14 12.75A1.25 1.25 0 0 0 13.42 11.7L11.51 10.48A0.75 0.75 0 0 0 10.48 11.51Z\"/> <path d=\"M7.75 6.125v3.25\"/> <path d=\"M6.125 7.75h3.25\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "enlarge",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "zoom-in-filled": {
           "paths": [
             "M7.25 6.125v2.25",
@@ -157314,6 +157697,131 @@
               "geometric": 2,
               "recession": 1.07,
               "optical": 2.8
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-out-2": {
+          "paths": [
+            "M2.625 7.75A5.125 5.125 0 1 0 12.875 7.75A5.125 5.125 0 1 0 2.625 7.75Z",
+            "M11.373 11.373L13.375 13.375",
+            "M5.625 7.75h4.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 7.75A5.125 5.125 0 1 0 12.875 7.75A5.125 5.125 0 1 0 2.625 7.75Z\"/> <path d=\"M11.373 11.373L13.375 13.375\"/> <path d=\"M5.625 7.75h4.25\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "shrink",
+            "reduce",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.65,
+              "optical": 2.49
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.83,
+              "optical": 2.62
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.65,
+              "optical": 2.49
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.83,
+              "optical": 2.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-out-2-filled": {
+          "paths": [
+            "M6.125 7.75h3.25"
+          ],
+          "areas": [
+            "M2 7.75A5.75 5.75 0 1 0 13.5 7.75A5.75 5.75 0 1 0 2 7.75ZM4 7.75A3.75 3.75 0 1 0 11.5 7.75A3.75 3.75 0 1 0 4 7.75Z",
+            "M10.48 11.51L11.7 13.42A1.25 1.25 0 0 0 12.75 14A1.25 1.25 0 0 0 14 12.75A1.25 1.25 0 0 0 13.42 11.7L11.51 10.48A0.75 0.75 0 0 0 10.48 11.51Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 7.75A5.75 5.75 0 1 0 13.5 7.75A5.75 5.75 0 1 0 2 7.75ZM4 7.75A3.75 3.75 0 1 0 11.5 7.75A3.75 3.75 0 1 0 4 7.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.48 11.51L11.7 13.42A1.25 1.25 0 0 0 12.75 14A1.25 1.25 0 0 0 14 12.75A1.25 1.25 0 0 0 13.42 11.7L11.51 10.48A0.75 0.75 0 0 0 10.48 11.51Z\"/> <path d=\"M6.125 7.75h3.25\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "shrink",
+            "reduce",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -158677,8 +159185,12 @@
         "x-small",
         "x-small-filled",
         "zoom-in",
+        "zoom-in-2",
+        "zoom-in-2-filled",
         "zoom-in-filled",
         "zoom-out",
+        "zoom-out-2",
+        "zoom-out-2-filled",
         "zoom-out-filled"
       ],
       "icons": {
@@ -235885,6 +236397,131 @@
           "ratio": null,
           "gap": null
         },
+        "zoom-in-2": {
+          "paths": [
+            "M3.75 9.5A5.75 5.75 0 1 0 15.25 9.5A5.75 5.75 0 1 0 3.75 9.5Z",
+            "M13.57 13.57L16.25 16.25",
+            "M9.5 7v5",
+            "M7 9.5h5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 9.5A5.75 5.75 0 1 0 15.25 9.5A5.75 5.75 0 1 0 3.75 9.5Z\"/> <path d=\"M13.57 13.57L16.25 16.25\"/> <path d=\"M9.5 7v5\"/> <path d=\"M7 9.5h5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "enlarge",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.75,
+              "optical": 3.56
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.17,
+              "optical": 3.88
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.75,
+              "optical": 3.56
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.17,
+              "optical": 3.88
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-in-2-filled": {
+          "paths": [
+            "M9.5 7.25v4.5",
+            "M7.25 9.5h4.5"
+          ],
+          "areas": [
+            "M3 9.5A6.5 6.5 0 1 0 16 9.5A6.5 6.5 0 1 0 3 9.5ZM5 9.5A4.5 4.5 0 1 0 14 9.5A4.5 4.5 0 1 0 5 9.5Z",
+            "M12.74 13.77L14.21 16.26A1.5 1.5 0 0 0 15.5 17A1.5 1.5 0 0 0 17 15.5A1.5 1.5 0 0 0 16.26 14.21L13.77 12.74A0.75 0.75 0 0 0 12.74 13.77Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 9.5A6.5 6.5 0 1 0 16 9.5A6.5 6.5 0 1 0 3 9.5ZM5 9.5A4.5 4.5 0 1 0 14 9.5A4.5 4.5 0 1 0 5 9.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.74 13.77L14.21 16.26A1.5 1.5 0 0 0 15.5 17A1.5 1.5 0 0 0 17 15.5A1.5 1.5 0 0 0 16.26 14.21L13.77 12.74A0.75 0.75 0 0 0 12.74 13.77Z\"/> <path d=\"M9.5 7.25v4.5\"/> <path d=\"M7.25 9.5h4.5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "enlarge",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "zoom-in-filled": {
           "paths": [
             "M9 7.25v3.5",
@@ -236003,6 +236640,131 @@
               "geometric": 3,
               "recession": 1.29,
               "optical": 3.97
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-out-2": {
+          "paths": [
+            "M3.75 9.5A5.75 5.75 0 1 0 15.25 9.5A5.75 5.75 0 1 0 3.75 9.5Z",
+            "M13.57 13.57L16.25 16.25",
+            "M7 9.5h5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 9.5A5.75 5.75 0 1 0 15.25 9.5A5.75 5.75 0 1 0 3.75 9.5Z\"/> <path d=\"M13.57 13.57L16.25 16.25\"/> <path d=\"M7 9.5h5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "shrink",
+            "reduce",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.75,
+              "optical": 3.56
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.17,
+              "optical": 3.88
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.75,
+              "optical": 3.56
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.17,
+              "optical": 3.88
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-out-2-filled": {
+          "paths": [
+            "M7.25 9.5h4.5"
+          ],
+          "areas": [
+            "M3 9.5A6.5 6.5 0 1 0 16 9.5A6.5 6.5 0 1 0 3 9.5ZM5 9.5A4.5 4.5 0 1 0 14 9.5A4.5 4.5 0 1 0 5 9.5Z",
+            "M12.74 13.77L14.21 16.26A1.5 1.5 0 0 0 15.5 17A1.5 1.5 0 0 0 17 15.5A1.5 1.5 0 0 0 16.26 14.21L13.77 12.74A0.75 0.75 0 0 0 12.74 13.77Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 9.5A6.5 6.5 0 1 0 16 9.5A6.5 6.5 0 1 0 3 9.5ZM5 9.5A4.5 4.5 0 1 0 14 9.5A4.5 4.5 0 1 0 5 9.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.74 13.77L14.21 16.26A1.5 1.5 0 0 0 15.5 17A1.5 1.5 0 0 0 17 15.5A1.5 1.5 0 0 0 16.26 14.21L13.77 12.74A0.75 0.75 0 0 0 12.74 13.77Z\"/> <path d=\"M7.25 9.5h4.5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "shrink",
+            "reduce",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -237366,8 +238128,12 @@
         "x-small",
         "x-small-filled",
         "zoom-in",
+        "zoom-in-2",
+        "zoom-in-2-filled",
         "zoom-in-filled",
         "zoom-out",
+        "zoom-out-2",
+        "zoom-out-2-filled",
         "zoom-out-filled"
       ],
       "icons": {
@@ -314616,6 +315382,131 @@
           "ratio": null,
           "gap": null
         },
+        "zoom-in-2": {
+          "paths": [
+            "M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z",
+            "M16.98 16.98L20.25 20.25",
+            "M11.5 7.75v7.5",
+            "M7.75 11.5h7.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z\"/> <path d=\"M16.98 16.98L20.25 20.25\"/> <path d=\"M11.5 7.75v7.5\"/> <path d=\"M7.75 11.5h7.5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "enlarge",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.84,
+              "optical": 3.63
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.23,
+              "optical": 3.92
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.84,
+              "optical": 3.63
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.23,
+              "optical": 3.92
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-in-2-filled": {
+          "paths": [
+            "M11.5 7.75v7.5",
+            "M7.75 11.5h7.5"
+          ],
+          "areas": [
+            "M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z",
+            "M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z\"/> <path d=\"M11.5 7.75v7.5\"/> <path d=\"M7.75 11.5h7.5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "enlarge",
+            "plus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "zoom-in-filled": {
           "paths": [
             "M10.75 7.75v6",
@@ -314734,6 +315625,131 @@
               "geometric": 3,
               "recession": 1.33,
               "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-out-2": {
+          "paths": [
+            "M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z",
+            "M16.98 16.98L20.25 20.25",
+            "M7.75 11.5h7.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 11.5A7.75 7.75 0 1 0 19.25 11.5A7.75 7.75 0 1 0 3.75 11.5Z\"/> <path d=\"M16.98 16.98L20.25 20.25\"/> <path d=\"M7.75 11.5h7.5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "shrink",
+            "reduce",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.84,
+              "optical": 3.63
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.23,
+              "optical": 3.92
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.84,
+              "optical": 3.63
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.23,
+              "optical": 3.92
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "zoom-out-2-filled": {
+          "paths": [
+            "M7.75 11.5h7.5"
+          ],
+          "areas": [
+            "M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z",
+            "M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 11.5A8.5 8.5 0 1 0 20 11.5A8.5 8.5 0 1 0 3 11.5ZM5.5 11.5A6 6 0 1 0 17.5 11.5A6 6 0 1 0 5.5 11.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.79 17.18L17.79 20.21A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.21 17.79L17.18 15.79A1 1 0 0 0 15.79 17.18Z\"/> <path d=\"M7.75 11.5h7.5\"/>",
+          "mark": false,
+          "tags": [
+            "lens",
+            "taper",
+            "magnify",
+            "zoom",
+            "shrink",
+            "reduce",
+            "minus"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -321002,12 +322018,34 @@
       "date": "2026-10-20"
     },
     {
+      "n": 202,
+      "name": "zoom-in-2",
+      "section": "D · The rest, by audit rank",
+      "category": "UI & Layout",
+      "base": "zoom-in",
+      "note": "Big lens, ring kept, thin mark · approved 2026-10-20",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-20"
+    },
+    {
       "n": 203,
       "name": "zoom-out",
       "section": "D · The rest, by audit rank",
       "category": "UI & Layout",
       "base": null,
       "note": "approved 2026-10-20",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-20"
+    },
+    {
+      "n": 203,
+      "name": "zoom-out-2",
+      "section": "D · The rest, by audit rank",
+      "category": "UI & Layout",
+      "base": "zoom-out",
+      "note": "Big lens, ring kept, thin mark · approved 2026-10-20",
       "status": "done",
       "mvp": false,
       "date": "2026-10-20"
