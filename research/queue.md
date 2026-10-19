@@ -721,7 +721,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 301. `arrow-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 302. `arrow-down-right` · Arrows & Direction — approved 2026-10-17
 - [x] 303. `arrow-up-left` · Arrows & Direction — approved 2026-10-17
-- [ ] 304. `command` · UI & Layout
+- [x] 304. `command` · UI & Layout — approved 2026-10-20
 - [x] 305. `shuffle` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 305. `shuffle-2` · Arrows & Direction · variant of `shuffle` — Straight X · approved 2026-10-17
 - [ ] 306. `aperture` · Media & Playback
