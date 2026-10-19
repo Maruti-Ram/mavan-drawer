@@ -504,7 +504,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 146. `share` · Communication — mvp · approved 2026-10-18
 - [x] 146. `share-2` · Communication · variant of `share` — Arrow out of an open box · approved 2026-10-19
 - [x] 146. `share-3` · Communication · variant of `share` — Forward arrow · approved 2026-10-19
-- [ ] 147. `toggle-off` · UI & Layout
+- [~] 147. `toggle-off` · UI & Layout
 - [ ] 148. `cast` · Media & Playback
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
@@ -557,7 +557,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 181. `outdent` · Editing & Text
 - [ ] 182. `popup` · UI & Layout
 - [ ] 183. `replace` · Editing & Text
-- [ ] 184. `rows` · UI & Layout
+- [~] 184. `rows` · UI & Layout
 - [x] 185. `transfer` · Arrows & Direction — approved 2026-10-17
 - [x] 185. `transfer-2` · Arrows & Direction · variant of `transfer` — Half heads · approved 2026-10-17
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
@@ -589,8 +589,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 199. `unlock-swung` · Users & Access · variant of `unlock` — Swung aside left, centred · approved 2026-10-19
 - [ ] 200. `video` · Files & Folders — mvp
 - [ ] 201. `zap` · Status & Feedback
-- [ ] 202. `zoom-in` · UI & Layout
-- [ ] 203. `zoom-out` · UI & Layout
+- [~] 202. `zoom-in` · UI & Layout
+- [~] 203. `zoom-out` · UI & Layout
 - [x] 204. `anchor` · Maps & Location — approved 2026-10-18
 - [x] 204. `anchor-2` · Maps & Location · variant of `anchor` — Minimal · approved 2026-10-18
 - [x] 204. `anchor-3` · Maps & Location · variant of `anchor` — Ball · approved 2026-10-18
@@ -609,7 +609,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 214. `accessibility-2` · Users & Access · variant of `accessibility` — Two-line body · approved 2026-10-19
 - [x] 215. `alarm-clock` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 215. `alarm-clock-2` · Time & Calendar · variant of `alarm-clock` — Curved caps, floating · approved 2026-10-17
-- [ ] 216. `contrast` · UI & Layout
+- [~] 216. `contrast` · UI & Layout
 - [x] 217. `fingerprint` · Users & Access — approved 2026-10-19
 - [x] 217. `fingerprint-2` · Users & Access · variant of `fingerprint` — Symmetric arches · approved 2026-10-19
 - [ ] 218. `hand` · UI & Layout
@@ -618,7 +618,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 221. `hourglass-2` · Time & Calendar · variant of `hourglass` — Full bow · approved 2026-10-17
 - [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
-- [ ] 222. `layout-list` · UI & Layout — mvp
+- [x] 222. `layout-list` · UI & Layout — mvp · approved 2026-10-20
 - [ ] 223. `messages` · Communication — mvp
 - [ ] 224. `password` · UI & Layout
 - [ ] 225. `pen-sparkle` · Editing & Text
