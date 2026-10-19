@@ -578,6 +578,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 197. `repeat-3` · Arrows & Direction · variant of `repeat` — Stadium, heads into the turns · approved 2026-10-17
 - [ ] 198. `scissors` · Editing & Text — mvp
 - [x] 199. `unlock` · Users & Access — mvp · approved 2026-10-19
+- [x] 199. `unlock-2` · Users & Access · variant of `unlock` — Keyhole dot, released · approved 2026-10-19
+- [x] 199. `unlock-3` · Users & Access · variant of `unlock` — Round body, released · approved 2026-10-19
+- [x] 199. `unlock-4` · Users & Access · variant of `unlock` — Pouch body, released · approved 2026-10-19
+- [x] 199. `unlock-5` · Users & Access · variant of `unlock` — Classic keyhole, released · approved 2026-10-19
+- [x] 199. `unlock-6` · Users & Access · variant of `unlock` — Pouch, F corners, released · approved 2026-10-19
 - [x] 199. `unlock-swung` · Users & Access · variant of `unlock` — Swung aside left, centred · approved 2026-10-19
 - [ ] 200. `video` · Files & Folders — mvp
 - [ ] 201. `zap` · Status & Feedback
