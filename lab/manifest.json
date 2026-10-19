@@ -1127,6 +1127,10 @@
     "thumbs-up-filled",
     "timer",
     "timer-filled",
+    "toggle-off",
+    "toggle-off-2",
+    "toggle-off-2-filled",
+    "toggle-off-filled",
     "toggle-on",
     "toggle-on-2",
     "toggle-on-2-filled",
@@ -67943,6 +67947,254 @@
       "ratio": null,
       "gap": null
     },
+    "toggle-off": {
+      "paths": [
+        "M8 6.75H16A5.25 5.25 0 0 1 16 17.25H8",
+        "M13.25 12A5.25 5.25 0 1 1 2.75 12A5.25 5.25 0 1 1 13.25 12Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8 6.75H16A5.25 5.25 0 0 1 16 17.25H8\"/> <path d=\"M13.25 12A5.25 5.25 0 1 1 2.75 12A5.25 5.25 0 1 1 13.25 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "switch",
+        "off",
+        "disabled",
+        "inactive",
+        "setting",
+        "pill",
+        "ring",
+        "joined"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 6,
+        "w": 20,
+        "h": 12
+      },
+      "bearing": {
+        "left": 2,
+        "top": 6,
+        "right": 2,
+        "bottom": 6
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.78,
+          "optical": 2.58
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.78,
+          "optical": 2.58
+        },
+        "top": {
+          "geometric": 6,
+          "recession": 0.47,
+          "optical": 6.35
+        },
+        "bottom": {
+          "geometric": 6,
+          "recession": 0.47,
+          "optical": 6.35
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "toggle-off-2": {
+      "paths": [
+        "M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58",
+        "M15.25 12A6.25 6.25 0 1 1 2.75 12A6.25 6.25 0 1 1 15.25 12Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58\"/> <path d=\"M15.25 12A6.25 6.25 0 1 1 2.75 12A6.25 6.25 0 1 1 15.25 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "switch",
+        "off",
+        "disabled",
+        "inactive",
+        "setting",
+        "pill",
+        "ring",
+        "overhang"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 5,
+        "w": 20,
+        "h": 14
+      },
+      "bearing": {
+        "left": 2,
+        "top": 5,
+        "right": 2,
+        "bottom": 5
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.83,
+          "optical": 2.62
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.51,
+          "optical": 2.38
+        },
+        "top": {
+          "geometric": 5,
+          "recession": 1.03,
+          "optical": 5.77
+        },
+        "bottom": {
+          "geometric": 5,
+          "recession": 1.03,
+          "optical": 5.77
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "toggle-off-2-filled": {
+      "paths": [
+        "M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58"
+      ],
+      "areas": [
+        "M16 12A7 7 0 1 1 2 12A7 7 0 1 1 16 12Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16 12A7 7 0 1 1 2 12A7 7 0 1 1 16 12Z\"/> <path d=\"M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58\"/>",
+      "mark": false,
+      "tags": [
+        "switch",
+        "off",
+        "disabled",
+        "inactive",
+        "setting",
+        "pill",
+        "ring",
+        "overhang"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 5,
+        "w": 20,
+        "h": 14
+      },
+      "bearing": {
+        "left": 2,
+        "top": 5,
+        "right": 2,
+        "bottom": 5
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "toggle-off-filled": {
+      "paths": [],
+      "areas": [
+        "M8 6H16A6 6 0 0 1 16 18H8A6 6 0 0 1 8 6ZM12.5 12A4.5 4.5 0 1 1 3.5 12A4.5 4.5 0 1 1 12.5 12Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 6H16A6 6 0 0 1 16 18H8A6 6 0 0 1 8 6ZM12.5 12A4.5 4.5 0 1 1 3.5 12A4.5 4.5 0 1 1 12.5 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "switch",
+        "off",
+        "disabled",
+        "inactive",
+        "setting",
+        "pill",
+        "ring",
+        "joined"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 6,
+        "w": 20,
+        "h": 12
+      },
+      "bearing": {
+        "left": 2,
+        "top": 6,
+        "right": 2,
+        "bottom": 6
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 6,
+          "recession": 0,
+          "optical": 6
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 6,
+          "recession": 0,
+          "optical": 6
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "toggle-on": {
       "paths": [
         "M16 6.75H8A5.25 5.25 0 0 0 8 17.25H16",
@@ -78209,6 +78461,10 @@
         "thumbs-up-filled",
         "timer",
         "timer-filled",
+        "toggle-off",
+        "toggle-off-2",
+        "toggle-off-2-filled",
+        "toggle-off-filled",
         "toggle-on",
         "toggle-on-2",
         "toggle-on-2-filled",
@@ -144954,6 +145210,254 @@
           "ratio": null,
           "gap": null
         },
+        "toggle-off": {
+          "paths": [
+            "M5 4.625H11A3.375 3.375 0 0 1 11 11.375H5",
+            "M8.375 8A3.375 3.375 0 1 1 1.625 8A3.375 3.375 0 1 1 8.375 8Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5 4.625H11A3.375 3.375 0 0 1 11 11.375H5\"/> <path d=\"M8.375 8A3.375 3.375 0 1 1 1.625 8A3.375 3.375 0 1 1 8.375 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "joined"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 4,
+            "w": 14,
+            "h": 8
+          },
+          "bearing": {
+            "left": 1,
+            "top": 4,
+            "right": 1,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.57,
+              "optical": 1.43
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.57,
+              "optical": 1.43
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.33,
+              "optical": 4.25
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.33,
+              "optical": 4.25
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-2": {
+          "paths": [
+            "M9.674 5.625H12A2.375 2.375 0 0 1 12 10.375H9.674",
+            "M10.375 8A4.375 4.375 0 1 1 1.625 8A4.375 4.375 0 1 1 10.375 8Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9.674 5.625H12A2.375 2.375 0 0 1 12 10.375H9.674\"/> <path d=\"M10.375 8A4.375 4.375 0 1 1 1.625 8A4.375 4.375 0 1 1 10.375 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "overhang"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.64,
+              "optical": 1.48
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.35,
+              "optical": 1.26
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-2-filled": {
+          "paths": [
+            "M9.674 5.625H12A2.375 2.375 0 0 1 12 10.375H9.674"
+          ],
+          "areas": [
+            "M11 8A5 5 0 1 1 1 8A5 5 0 1 1 11 8Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 8A5 5 0 1 1 1 8A5 5 0 1 1 11 8Z\"/> <path d=\"M9.674 5.625H12A2.375 2.375 0 0 1 12 10.375H9.674\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "overhang"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-filled": {
+          "paths": [],
+          "areas": [
+            "M5 4H11A4 4 0 0 1 11 12H5A4 4 0 0 1 5 4ZM7.5 8A2.5 2.5 0 1 1 2.5 8A2.5 2.5 0 1 1 7.5 8Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 4H11A4 4 0 0 1 11 12H5A4 4 0 0 1 5 4ZM7.5 8A2.5 2.5 0 1 1 2.5 8A2.5 2.5 0 1 1 7.5 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "joined"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 4,
+            "w": 14,
+            "h": 8
+          },
+          "bearing": {
+            "left": 1,
+            "top": 4,
+            "right": 1,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "toggle-on": {
           "paths": [
             "M11 4.625H5A3.375 3.375 0 0 0 5 11.375H11",
@@ -155209,6 +155713,10 @@
         "thumbs-up-filled",
         "timer",
         "timer-filled",
+        "toggle-off",
+        "toggle-off-2",
+        "toggle-off-2-filled",
+        "toggle-off-filled",
         "toggle-on",
         "toggle-on-2",
         "toggle-on-2-filled",
@@ -221991,6 +222499,254 @@
           "ratio": null,
           "gap": null
         },
+        "toggle-off": {
+          "paths": [
+            "M7 5.75H13A4.25 4.25 0 0 1 13 14.25H7",
+            "M11.25 10A4.25 4.25 0 1 1 2.75 10A4.25 4.25 0 1 1 11.25 10Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7 5.75H13A4.25 4.25 0 0 1 13 14.25H7\"/> <path d=\"M11.25 10A4.25 4.25 0 1 1 2.75 10A4.25 4.25 0 1 1 11.25 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "joined"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 5,
+            "w": 16,
+            "h": 10
+          },
+          "bearing": {
+            "left": 2,
+            "top": 5,
+            "right": 2,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.71,
+              "optical": 2.53
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.71,
+              "optical": 2.53
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0.45,
+              "optical": 5.33
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0.45,
+              "optical": 5.33
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-2": {
+          "paths": [
+            "M12.12 6.75H14A3.25 3.25 0 0 1 14 13.25H12.12",
+            "M13.25 10A5.25 5.25 0 1 1 2.75 10A5.25 5.25 0 1 1 13.25 10Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12.12 6.75H14A3.25 3.25 0 0 1 14 13.25H12.12\"/> <path d=\"M13.25 10A5.25 5.25 0 1 1 2.75 10A5.25 5.25 0 1 1 13.25 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "overhang"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.78,
+              "optical": 2.58
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.98,
+              "optical": 4.73
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.98,
+              "optical": 4.73
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-2-filled": {
+          "paths": [
+            "M12.12 6.75H14A3.25 3.25 0 0 1 14 13.25H12.12"
+          ],
+          "areas": [
+            "M14 10A6 6 0 1 1 2 10A6 6 0 1 1 14 10Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 10A6 6 0 1 1 2 10A6 6 0 1 1 14 10Z\"/> <path d=\"M12.12 6.75H14A3.25 3.25 0 0 1 14 13.25H12.12\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "overhang"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-filled": {
+          "paths": [],
+          "areas": [
+            "M7 5H13A5 5 0 0 1 13 15H7A5 5 0 0 1 7 5ZM10.5 10A3.5 3.5 0 1 1 3.5 10A3.5 3.5 0 1 1 10.5 10Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7 5H13A5 5 0 0 1 13 15H7A5 5 0 0 1 7 5ZM10.5 10A3.5 3.5 0 1 1 3.5 10A3.5 3.5 0 1 1 10.5 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "joined"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 5,
+            "w": 16,
+            "h": 10
+          },
+          "bearing": {
+            "left": 2,
+            "top": 5,
+            "right": 2,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "toggle-on": {
           "paths": [
             "M13 5.75H7A4.25 4.25 0 0 0 7 14.25H13",
@@ -232252,6 +233008,10 @@
         "thumbs-up-filled",
         "timer",
         "timer-filled",
+        "toggle-off",
+        "toggle-off-2",
+        "toggle-off-2-filled",
+        "toggle-off-filled",
         "toggle-on",
         "toggle-on-2",
         "toggle-on-2-filled",
@@ -299068,6 +299828,254 @@
           "ratio": null,
           "gap": null
         },
+        "toggle-off": {
+          "paths": [
+            "M8 6.75H16A5.25 5.25 0 0 1 16 17.25H8",
+            "M13.25 12A5.25 5.25 0 1 1 2.75 12A5.25 5.25 0 1 1 13.25 12Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8 6.75H16A5.25 5.25 0 0 1 16 17.25H8\"/> <path d=\"M13.25 12A5.25 5.25 0 1 1 2.75 12A5.25 5.25 0 1 1 13.25 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "joined"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 6,
+            "w": 20,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 6,
+            "right": 2,
+            "bottom": 6
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.78,
+              "optical": 2.58
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.78,
+              "optical": 2.58
+            },
+            "top": {
+              "geometric": 6,
+              "recession": 0.47,
+              "optical": 6.35
+            },
+            "bottom": {
+              "geometric": 6,
+              "recession": 0.47,
+              "optical": 6.35
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-2": {
+          "paths": [
+            "M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58",
+            "M15.25 12A6.25 6.25 0 1 1 2.75 12A6.25 6.25 0 1 1 15.25 12Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58\"/> <path d=\"M15.25 12A6.25 6.25 0 1 1 2.75 12A6.25 6.25 0 1 1 15.25 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "overhang"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 5,
+            "w": 20,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 5,
+            "right": 2,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.83,
+              "optical": 2.62
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.51,
+              "optical": 2.38
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 1.03,
+              "optical": 5.77
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 1.03,
+              "optical": 5.77
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-2-filled": {
+          "paths": [
+            "M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58"
+          ],
+          "areas": [
+            "M16 12A7 7 0 1 1 2 12A7 7 0 1 1 16 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16 12A7 7 0 1 1 2 12A7 7 0 1 1 16 12Z\"/> <path d=\"M13.58 7.75H17A4.25 4.25 0 0 1 17 16.25H13.58\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "overhang"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 5,
+            "w": 20,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 5,
+            "right": 2,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "toggle-off-filled": {
+          "paths": [],
+          "areas": [
+            "M8 6H16A6 6 0 0 1 16 18H8A6 6 0 0 1 8 6ZM12.5 12A4.5 4.5 0 1 1 3.5 12A4.5 4.5 0 1 1 12.5 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 6H16A6 6 0 0 1 16 18H8A6 6 0 0 1 8 6ZM12.5 12A4.5 4.5 0 1 1 3.5 12A4.5 4.5 0 1 1 12.5 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "switch",
+            "off",
+            "disabled",
+            "inactive",
+            "setting",
+            "pill",
+            "ring",
+            "joined"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 6,
+            "w": 20,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 6,
+            "right": 2,
+            "bottom": 6
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "toggle-on": {
           "paths": [
             "M16 6.75H8A5.25 5.25 0 0 0 8 17.25H16",
@@ -313438,10 +314446,21 @@
       "section": "D · The rest, by audit rank",
       "category": "UI & Layout",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-20",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-20"
+    },
+    {
+      "n": 147,
+      "name": "toggle-off-2",
+      "section": "D · The rest, by audit rank",
+      "category": "UI & Layout",
+      "base": "toggle-off",
+      "note": "Big knob over a slim track, off · approved 2026-10-20",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-20"
     },
     {
       "n": 148,

@@ -1,9 +1,59 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-10-20",
   "board": {
-    "name": "passkey",
+    "name": "layout-list",
     "candidates": 3,
     "status": "done"
   },
-  "icons": []
+  "icons": [
+    {
+      "name": "rows",
+      "concept": "rows",
+      "candidates": 3,
+      "ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "zoom-in",
+      "concept": "zoom-in",
+      "candidates": 5,
+      "ids": [
+        "A",
+        "B",
+        "D",
+        "E",
+        "F"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "zoom-out",
+      "concept": "zoom-out",
+      "candidates": 5,
+      "ids": [
+        "A",
+        "B",
+        "D",
+        "E",
+        "F"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "contrast",
+      "concept": "contrast",
+      "candidates": 4,
+      "ids": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "status": "review"
+    }
+  ]
 }
