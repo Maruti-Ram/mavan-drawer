@@ -617,7 +617,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 217. `fingerprint` · Users & Access — approved 2026-10-19
 - [x] 217. `fingerprint-2` · Users & Access · variant of `fingerprint` — Symmetric arches · approved 2026-10-19
 - [ ] 218. `hand` · UI & Layout
-- [~] 219. `headset` · Communication
+- [x] 219. `headset` · Communication — approved 2026-10-20
+- [x] 219. `headset-2` · Communication · variant of `headset` — Straight boom · approved 2026-10-20
+- [x] 219. `headset-3` · Communication · variant of `headset` — One ear · approved 2026-10-20
 - [ ] 220. `highlighter` · Editing & Text
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 221. `hourglass-2` · Time & Calendar · variant of `hourglass` — Full bow · approved 2026-10-17
