@@ -691,6 +691,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 295. `label` · Commerce & Payments
 - [x] 296. `roadmap` · Maps & Location — approved 2026-10-18
 - [x] 296. `roadmap-2` · Maps & Location · variant of `roadmap` — One board on a post · approved 2026-10-18
+- [x] 296. `roadmap-3` · Maps & Location · variant of `roadmap` — Two bars (Jira) · approved 2026-10-19
+- [x] 296. `roadmap-4` · Maps & Location · variant of `roadmap` — Route (maps) · approved 2026-10-19
 - [ ] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
 - [ ] 299. `subscription` · Commerce & Payments
