@@ -531,6 +531,10 @@
     "filter-4",
     "filter-4-filled",
     "filter-filled",
+    "fingerprint",
+    "fingerprint-2",
+    "fingerprint-2-filled",
+    "fingerprint-filled",
     "flag",
     "flag-2",
     "flag-2-filled",
@@ -31696,6 +31700,244 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "fingerprint": {
+      "paths": [
+        "M13 10.75A13 13 0 0 1 8.75 20.36",
+        "M5.37 17.98A9 9 0 0 0 9 10.75A4 4 0 0 1 13 6.75A4 4 0 0 1 17 10.75A17 17 0 0 1 13.37 21.25",
+        "M8.61 4.06A8 8 0 0 1 13 2.75A8 8 0 0 1 21 10.75A21 21 0 0 1 19.21 19.23",
+        "M3.21 14.58A5 5 0 0 0 5 10.75A8 8 0 0 1 5.89 7.08"
+      ],
+      "areas": [],
+      "body": "<path d=\"M13 10.75A13 13 0 0 1 8.75 20.36\"/> <path d=\"M5.37 17.98A9 9 0 0 0 9 10.75A4 4 0 0 1 13 6.75A4 4 0 0 1 17 10.75A17 17 0 0 1 13.37 21.25\"/> <path d=\"M8.61 4.06A8 8 0 0 1 13 2.75A8 8 0 0 1 21 10.75A21 21 0 0 1 19.21 19.23\"/> <path d=\"M3.21 14.58A5 5 0 0 0 5 10.75A8 8 0 0 1 5.89 7.08\"/>",
+      "mark": false,
+      "tags": [
+        "sweep",
+        "loop",
+        "touch",
+        "biometric"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2.46,
+        "y": 2,
+        "w": 19.29,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2.46,
+        "top": 2,
+        "right": 2.25,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2.46,
+          "recession": 0.53,
+          "optical": 2.86
+        },
+        "right": {
+          "geometric": 2.25,
+          "recession": 0.67,
+          "optical": 2.76
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.56,
+          "optical": 2.42
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.26,
+          "optical": 2.19
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "fingerprint-2": {
+      "paths": [
+        "M4.75 16L4.75 10.75A8 8 0 0 1 12.75 2.75A8 8 0 0 1 19.25 6.09",
+        "M8.75 20.25L8.75 10.75A4 4 0 0 1 12.75 6.75A4 4 0 0 1 16.75 10.75L16.75 18",
+        "M12.75 10.75V21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 16L4.75 10.75A8 8 0 0 1 12.75 2.75A8 8 0 0 1 19.25 6.09\"/> <path d=\"M8.75 20.25L8.75 10.75A4 4 0 0 1 12.75 6.75A4 4 0 0 1 16.75 10.75L16.75 18\"/> <path d=\"M12.75 10.75V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "partial print",
+        "arches",
+        "touch",
+        "biometric"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.41,
+          "optical": 4.3
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.86,
+          "optical": 2.65
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.03,
+          "optical": 2.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "fingerprint-2-filled": {
+      "paths": [
+        "M5.25 16L5.25 11.25A8 8 0 0 1 13.25 3.25A8 8 0 0 1 18.75 5.44",
+        "M9.25 20.25L9.25 11.25A4 4 0 0 1 13.25 7.25A4 4 0 0 1 17.25 11.25L17.25 18",
+        "M13.25 11.25V20.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.25 16L5.25 11.25A8 8 0 0 1 13.25 3.25A8 8 0 0 1 18.75 5.44\"/> <path d=\"M9.25 20.25L9.25 11.25A4 4 0 0 1 13.25 7.25A4 4 0 0 1 17.25 11.25L17.25 18\"/> <path d=\"M13.25 11.25V20.75\"/>",
+      "mark": false,
+      "tags": [
+        "partial print",
+        "arches",
+        "touch",
+        "biometric"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.65,
+          "optical": 4.49
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.26,
+          "optical": 4.2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 1.16,
+          "optical": 2.87
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.07,
+          "optical": 2.05
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "fingerprint-filled": {
+      "paths": [
+        "M12.5 11.25A13 13 0 0 1 8.98 20.14",
+        "M5.6 17.87A9 9 0 0 0 8.5 11.25A4 4 0 0 1 12.5 7.25A4 4 0 0 1 16.5 11.25A17 17 0 0 1 13.6 20.75",
+        "M8.11 4.56A8 8 0 0 1 12.5 3.25A8 8 0 0 1 20.5 11.25A21 21 0 0 1 19.44 17.83",
+        "M3.71 13.95A5 5 0 0 0 4.5 11.25A8 8 0 0 1 5.39 7.58"
+      ],
+      "areas": [],
+      "body": "<path d=\"M12.5 11.25A13 13 0 0 1 8.98 20.14\"/> <path d=\"M5.6 17.87A9 9 0 0 0 8.5 11.25A4 4 0 0 1 12.5 7.25A4 4 0 0 1 16.5 11.25A17 17 0 0 1 13.6 20.75\"/> <path d=\"M8.11 4.56A8 8 0 0 1 12.5 3.25A8 8 0 0 1 20.5 11.25A21 21 0 0 1 19.44 17.83\"/> <path d=\"M3.71 13.95A5 5 0 0 0 4.5 11.25A8 8 0 0 1 5.39 7.58\"/>",
+      "mark": false,
+      "tags": [
+        "sweep",
+        "loop",
+        "touch",
+        "biometric"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 2.46,
+        "y": 2,
+        "w": 19.29,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2.46,
+        "top": 2,
+        "right": 2.25,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2.46,
+          "recession": 0.38,
+          "optical": 2.74
+        },
+        "right": {
+          "geometric": 2.25,
+          "recession": 0.81,
+          "optical": 2.86
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.82,
+          "optical": 2.62
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.38,
+          "optical": 2.28
         }
       },
       "container": null,
@@ -77109,6 +77351,10 @@
         "filter-4",
         "filter-4-filled",
         "filter-filled",
+        "fingerprint",
+        "fingerprint-2",
+        "fingerprint-2-filled",
+        "fingerprint-filled",
         "flag",
         "flag-2",
         "flag-2-filled",
@@ -108222,6 +108468,244 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint": {
+          "paths": [
+            "M8.125 7.75A12 12 0 0 1 6.237 14.211",
+            "M3.575 12.71A8.95 8.95 0 0 0 5.075 7.75A3.05 3.05 0 0 1 8.125 4.7A3.05 3.05 0 0 1 11.175 7.75A15.05 15.05 0 0 1 9.675 14.3",
+            "M4.784 2.646A6.1 6.1 0 0 1 8.125 1.65A6.1 6.1 0 0 1 14.225 7.75A18.1 18.1 0 0 1 13.888 11.228",
+            "M1.688 9.716A5.9 5.9 0 0 0 2.025 7.75A6.1 6.1 0 0 1 2.7 4.961"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.125 7.75A12 12 0 0 1 6.237 14.211\"/> <path d=\"M3.575 12.71A8.95 8.95 0 0 0 5.075 7.75A3.05 3.05 0 0 1 8.125 4.7A3.05 3.05 0 0 1 11.175 7.75A15.05 15.05 0 0 1 9.675 14.3\"/> <path d=\"M4.784 2.646A6.1 6.1 0 0 1 8.125 1.65A6.1 6.1 0 0 1 14.225 7.75A18.1 18.1 0 0 1 13.888 11.228\"/> <path d=\"M1.688 9.716A5.9 5.9 0 0 0 2.025 7.75A6.1 6.1 0 0 1 2.7 4.961\"/>",
+          "mark": false,
+          "tags": [
+            "sweep",
+            "loop",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1.06,
+            "y": 1.03,
+            "w": 13.79,
+            "h": 13.9
+          },
+          "bearing": {
+            "left": 1.06,
+            "top": 1.03,
+            "right": 1.15,
+            "bottom": 1.07
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.06,
+              "recession": 0.19,
+              "optical": 1.2
+            },
+            "right": {
+              "geometric": 1.15,
+              "recession": 0.4,
+              "optical": 1.45
+            },
+            "top": {
+              "geometric": 1.03,
+              "recession": 0.49,
+              "optical": 1.39
+            },
+            "bottom": {
+              "geometric": 1.07,
+              "recession": 0.13,
+              "optical": 1.17
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-2": {
+          "paths": [
+            "M2.375 11.5L2.375 8.625A7 7 0 0 1 9.375 1.625A7 7 0 0 1 13.625 3.063",
+            "M5.875 13.75L5.875 8.625A3.5 3.5 0 0 1 9.375 5.125A3.5 3.5 0 0 1 12.875 8.625L12.875 12.625",
+            "M9.375 8.625V14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.375 11.5L2.375 8.625A7 7 0 0 1 9.375 1.625A7 7 0 0 1 13.625 3.063\"/> <path d=\"M5.875 13.75L5.875 8.625A3.5 3.5 0 0 1 9.375 5.125A3.5 3.5 0 0 1 12.875 8.625L12.875 12.625\"/> <path d=\"M9.375 8.625V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "partial print",
+            "arches",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1.75,
+            "y": 1,
+            "w": 12.5,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1.75,
+            "top": 1,
+            "right": 1.75,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.75,
+              "recession": 0.42,
+              "optical": 2.06
+            },
+            "right": {
+              "geometric": 1.75,
+              "recession": 0.11,
+              "optical": 1.83
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.67,
+              "optical": 1.5
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.03,
+              "optical": 1.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-2-filled": {
+          "paths": [
+            "M2.75 11.5L2.75 9A7 7 0 0 1 9.75 2A7 7 0 0 1 13.25 2.938",
+            "M6.25 13.75L6.25 9A3.5 3.5 0 0 1 9.75 5.5A3.5 3.5 0 0 1 13.25 9L13.25 12.625",
+            "M9.75 9V14"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 11.5L2.75 9A7 7 0 0 1 9.75 2A7 7 0 0 1 13.25 2.938\"/> <path d=\"M6.25 13.75L6.25 9A3.5 3.5 0 0 1 9.75 5.5A3.5 3.5 0 0 1 13.25 9L13.25 12.625\"/> <path d=\"M9.75 9V14\"/>",
+          "mark": false,
+          "tags": [
+            "partial print",
+            "arches",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 1.75,
+            "y": 1,
+            "w": 12.5,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1.75,
+            "top": 1,
+            "right": 1.75,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.75,
+              "recession": 0.66,
+              "optical": 2.24
+            },
+            "right": {
+              "geometric": 1.75,
+              "recession": 0.3,
+              "optical": 1.97
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.85,
+              "optical": 1.64
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.06,
+              "optical": 1.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-filled": {
+          "paths": [
+            "M8.1 7.775A12 12 0 0 1 6.425 13.891",
+            "M3.894 12.52A9.125 9.125 0 0 0 5.225 7.775A2.875 2.875 0 0 1 8.1 4.9A2.875 2.875 0 0 1 10.975 7.775A14.875 14.875 0 0 1 9.644 13.925",
+            "M4.951 2.964A5.75 5.75 0 0 1 8.1 2.025A5.75 5.75 0 0 1 13.85 7.775A17.75 17.75 0 0 1 13.552 11.012",
+            "M2.063 9.647A6.25 6.25 0 0 0 2.35 7.775A5.75 5.75 0 0 1 2.986 5.146"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.1 7.775A12 12 0 0 1 6.425 13.891\"/> <path d=\"M3.894 12.52A9.125 9.125 0 0 0 5.225 7.775A2.875 2.875 0 0 1 8.1 4.9A2.875 2.875 0 0 1 10.975 7.775A14.875 14.875 0 0 1 9.644 13.925\"/> <path d=\"M4.951 2.964A5.75 5.75 0 0 1 8.1 2.025A5.75 5.75 0 0 1 13.85 7.775A17.75 17.75 0 0 1 13.552 11.012\"/> <path d=\"M2.063 9.647A6.25 6.25 0 0 0 2.35 7.775A5.75 5.75 0 0 1 2.986 5.146\"/>",
+          "mark": false,
+          "tags": [
+            "sweep",
+            "loop",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 1.06,
+            "y": 1.03,
+            "w": 13.79,
+            "h": 13.9
+          },
+          "bearing": {
+            "left": 1.06,
+            "top": 1.03,
+            "right": 1.15,
+            "bottom": 1.07
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.06,
+              "recession": 0.2,
+              "optical": 1.21
+            },
+            "right": {
+              "geometric": 1.15,
+              "recession": 0.56,
+              "optical": 1.57
+            },
+            "top": {
+              "geometric": 1.03,
+              "recession": 0.64,
+              "optical": 1.51
+            },
+            "bottom": {
+              "geometric": 1.08,
+              "recession": 0.19,
+              "optical": 1.22
             }
           },
           "container": null,
@@ -153597,6 +154081,10 @@
         "filter-4",
         "filter-4-filled",
         "filter-filled",
+        "fingerprint",
+        "fingerprint-2",
+        "fingerprint-2-filled",
+        "fingerprint-filled",
         "flag",
         "flag-2",
         "flag-2-filled",
@@ -184730,6 +185218,244 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint": {
+          "paths": [
+            "M10.25 9.75A11.5 11.5 0 0 1 7.71 16.96",
+            "M4.74 15.05A8 8 0 0 0 6.75 9.75A3.5 3.5 0 0 1 10.25 6.25A3.5 3.5 0 0 1 13.75 9.75A15 15 0 0 1 11.74 17.25",
+            "M6.41 3.9A7 7 0 0 1 10.25 2.75A7 7 0 0 1 17.25 9.75A18.5 18.5 0 0 1 16.84 13.64",
+            "M2.84 11.64A4.5 4.5 0 0 0 3.25 9.75A7 7 0 0 1 4.03 6.54"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.25 9.75A11.5 11.5 0 0 1 7.71 16.96\"/> <path d=\"M4.74 15.05A8 8 0 0 0 6.75 9.75A3.5 3.5 0 0 1 10.25 6.25A3.5 3.5 0 0 1 13.75 9.75A15 15 0 0 1 11.74 17.25\"/> <path d=\"M6.41 3.9A7 7 0 0 1 10.25 2.75A7 7 0 0 1 17.25 9.75A18.5 18.5 0 0 1 16.84 13.64\"/> <path d=\"M2.84 11.64A4.5 4.5 0 0 0 3.25 9.75A7 7 0 0 1 4.03 6.54\"/>",
+          "mark": false,
+          "tags": [
+            "sweep",
+            "loop",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.09,
+            "y": 2,
+            "w": 15.91,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2.09,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.09,
+              "recession": 0.21,
+              "optical": 2.25
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.56,
+              "optical": 2.42
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.14
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-2": {
+          "paths": [
+            "M4.25 13.5L4.25 9.75A7 7 0 0 1 11.25 2.75A7 7 0 0 1 15.75 4.39",
+            "M7.75 16.5L7.75 9.75A3.5 3.5 0 0 1 11.25 6.25A3.5 3.5 0 0 1 14.75 9.75L14.75 15",
+            "M11.25 9.75V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 13.5L4.25 9.75A7 7 0 0 1 11.25 2.75A7 7 0 0 1 15.75 4.39\"/> <path d=\"M7.75 16.5L7.75 9.75A3.5 3.5 0 0 1 11.25 6.25A3.5 3.5 0 0 1 14.75 9.75L14.75 15\"/> <path d=\"M11.25 9.75V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "partial print",
+            "arches",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3.5,
+            "y": 2,
+            "w": 13,
+            "h": 16
+          },
+          "bearing": {
+            "left": 3.5,
+            "top": 2,
+            "right": 3.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3.5,
+              "recession": 0.43,
+              "optical": 3.82
+            },
+            "right": {
+              "geometric": 3.5,
+              "recession": 0.13,
+              "optical": 3.6
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.77,
+              "optical": 2.57
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-2-filled": {
+          "paths": [
+            "M4.5 13.5L4.5 10A7 7 0 0 1 11.5 3A7 7 0 0 1 15.5 4.26",
+            "M8 16.5L8 10A3.5 3.5 0 0 1 11.5 6.5A3.5 3.5 0 0 1 15 10L15 15",
+            "M11.5 10V17"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.5 13.5L4.5 10A7 7 0 0 1 11.5 3A7 7 0 0 1 15.5 4.26\"/> <path d=\"M8 16.5L8 10A3.5 3.5 0 0 1 11.5 6.5A3.5 3.5 0 0 1 15 10L15 15\"/> <path d=\"M11.5 10V17\"/>",
+          "mark": false,
+          "tags": [
+            "partial print",
+            "arches",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3.5,
+            "y": 2,
+            "w": 13,
+            "h": 16
+          },
+          "bearing": {
+            "left": 3.5,
+            "top": 2,
+            "right": 3.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3.5,
+              "recession": 0.58,
+              "optical": 3.93
+            },
+            "right": {
+              "geometric": 3.5,
+              "recession": 0.17,
+              "optical": 3.63
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.91,
+              "optical": 2.68
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-filled": {
+          "paths": [
+            "M10.12 9.88A11.5 11.5 0 0 1 7.8 16.81",
+            "M4.87 14.96A8.06 8.06 0 0 0 6.68 9.88A3.44 3.44 0 0 1 10.12 6.44A3.44 3.44 0 0 1 13.56 9.88A14.94 14.94 0 0 1 11.75 17",
+            "M6.34 4.13A6.88 6.88 0 0 1 10.12 3A6.88 6.88 0 0 1 17 9.88A18.38 18.38 0 0 1 16.74 12.97",
+            "M3.09 11.05A4.62 4.62 0 0 0 3.24 9.88A6.88 6.88 0 0 1 4.01 6.72"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.12 9.88A11.5 11.5 0 0 1 7.8 16.81\"/> <path d=\"M4.87 14.96A8.06 8.06 0 0 0 6.68 9.88A3.44 3.44 0 0 1 10.12 6.44A3.44 3.44 0 0 1 13.56 9.88A14.94 14.94 0 0 1 11.75 17\"/> <path d=\"M6.34 4.13A6.88 6.88 0 0 1 10.12 3A6.88 6.88 0 0 1 17 9.88A18.38 18.38 0 0 1 16.74 12.97\"/> <path d=\"M3.09 11.05A4.62 4.62 0 0 0 3.24 9.88A6.88 6.88 0 0 1 4.01 6.72\"/>",
+          "mark": false,
+          "tags": [
+            "sweep",
+            "loop",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2.09,
+            "y": 2,
+            "w": 15.91,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2.09,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.09,
+              "recession": 0.17,
+              "optical": 2.22
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.58,
+              "optical": 2.44
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.7,
+              "optical": 2.53
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.22,
+              "optical": 2.16
             }
           },
           "container": null,
@@ -230128,6 +230854,10 @@
         "filter-4",
         "filter-4-filled",
         "filter-filled",
+        "fingerprint",
+        "fingerprint-2",
+        "fingerprint-2-filled",
+        "fingerprint-filled",
         "flag",
         "flag-2",
         "flag-2-filled",
@@ -261293,6 +262023,244 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint": {
+          "paths": [
+            "M13 10.75A13 13 0 0 1 8.75 20.36",
+            "M5.37 17.98A9 9 0 0 0 9 10.75A4 4 0 0 1 13 6.75A4 4 0 0 1 17 10.75A17 17 0 0 1 13.37 21.25",
+            "M8.61 4.06A8 8 0 0 1 13 2.75A8 8 0 0 1 21 10.75A21 21 0 0 1 19.21 19.23",
+            "M3.21 14.58A5 5 0 0 0 5 10.75A8 8 0 0 1 5.89 7.08"
+          ],
+          "areas": [],
+          "body": "<path d=\"M13 10.75A13 13 0 0 1 8.75 20.36\"/> <path d=\"M5.37 17.98A9 9 0 0 0 9 10.75A4 4 0 0 1 13 6.75A4 4 0 0 1 17 10.75A17 17 0 0 1 13.37 21.25\"/> <path d=\"M8.61 4.06A8 8 0 0 1 13 2.75A8 8 0 0 1 21 10.75A21 21 0 0 1 19.21 19.23\"/> <path d=\"M3.21 14.58A5 5 0 0 0 5 10.75A8 8 0 0 1 5.89 7.08\"/>",
+          "mark": false,
+          "tags": [
+            "sweep",
+            "loop",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.46,
+            "y": 2,
+            "w": 19.29,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2.46,
+            "top": 2,
+            "right": 2.25,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.46,
+              "recession": 0.53,
+              "optical": 2.86
+            },
+            "right": {
+              "geometric": 2.25,
+              "recession": 0.67,
+              "optical": 2.76
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.56,
+              "optical": 2.42
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.26,
+              "optical": 2.19
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-2": {
+          "paths": [
+            "M4.75 16L4.75 10.75A8 8 0 0 1 12.75 2.75A8 8 0 0 1 19.25 6.09",
+            "M8.75 20.25L8.75 10.75A4 4 0 0 1 12.75 6.75A4 4 0 0 1 16.75 10.75L16.75 18",
+            "M12.75 10.75V21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 16L4.75 10.75A8 8 0 0 1 12.75 2.75A8 8 0 0 1 19.25 6.09\"/> <path d=\"M8.75 20.25L8.75 10.75A4 4 0 0 1 12.75 6.75A4 4 0 0 1 16.75 10.75L16.75 18\"/> <path d=\"M12.75 10.75V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "partial print",
+            "arches",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.41,
+              "optical": 4.3
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.86,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-2-filled": {
+          "paths": [
+            "M5.25 16L5.25 11.25A8 8 0 0 1 13.25 3.25A8 8 0 0 1 18.75 5.44",
+            "M9.25 20.25L9.25 11.25A4 4 0 0 1 13.25 7.25A4 4 0 0 1 17.25 11.25L17.25 18",
+            "M13.25 11.25V20.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 16L5.25 11.25A8 8 0 0 1 13.25 3.25A8 8 0 0 1 18.75 5.44\"/> <path d=\"M9.25 20.25L9.25 11.25A4 4 0 0 1 13.25 7.25A4 4 0 0 1 17.25 11.25L17.25 18\"/> <path d=\"M13.25 11.25V20.75\"/>",
+          "mark": false,
+          "tags": [
+            "partial print",
+            "arches",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.65,
+              "optical": 4.49
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.26,
+              "optical": 4.2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.16,
+              "optical": 2.87
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.07,
+              "optical": 2.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "fingerprint-filled": {
+          "paths": [
+            "M12.5 11.25A13 13 0 0 1 8.98 20.14",
+            "M5.6 17.87A9 9 0 0 0 8.5 11.25A4 4 0 0 1 12.5 7.25A4 4 0 0 1 16.5 11.25A17 17 0 0 1 13.6 20.75",
+            "M8.11 4.56A8 8 0 0 1 12.5 3.25A8 8 0 0 1 20.5 11.25A21 21 0 0 1 19.44 17.83",
+            "M3.71 13.95A5 5 0 0 0 4.5 11.25A8 8 0 0 1 5.39 7.58"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12.5 11.25A13 13 0 0 1 8.98 20.14\"/> <path d=\"M5.6 17.87A9 9 0 0 0 8.5 11.25A4 4 0 0 1 12.5 7.25A4 4 0 0 1 16.5 11.25A17 17 0 0 1 13.6 20.75\"/> <path d=\"M8.11 4.56A8 8 0 0 1 12.5 3.25A8 8 0 0 1 20.5 11.25A21 21 0 0 1 19.44 17.83\"/> <path d=\"M3.71 13.95A5 5 0 0 0 4.5 11.25A8 8 0 0 1 5.39 7.58\"/>",
+          "mark": false,
+          "tags": [
+            "sweep",
+            "loop",
+            "touch",
+            "biometric"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 2.46,
+            "y": 2,
+            "w": 19.29,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2.46,
+            "top": 2,
+            "right": 2.25,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.46,
+              "recession": 0.38,
+              "optical": 2.74
+            },
+            "right": {
+              "geometric": 2.25,
+              "recession": 0.81,
+              "optical": 2.86
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.82,
+              "optical": 2.62
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.38,
+              "optical": 2.28
             }
           },
           "container": null,
@@ -312572,10 +313540,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Users & Access",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-19",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-19"
+    },
+    {
+      "n": 217,
+      "name": "fingerprint-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Users & Access",
+      "base": "fingerprint",
+      "note": "Symmetric arches · approved 2026-10-19",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-19"
     },
     {
       "n": 218,

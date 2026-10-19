@@ -288,7 +288,7 @@ depending on the icon.
   that master's units; it replaces §6's 1.5 in that file's proximity checks — §5, §5b and §5f (C19
   glyph pairs and the knockout check are untouched). Lint prints it as an info line while the drawing holds
   it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
-  the drawing no longer needs. Today (2026-10-19 census, 13 files on 7 concepts): `attachment-4-filled` at 24 and 20 (1), `alert-triangle-2` and `-4` at 16 (1.25), `sort` and `sort-filled` at 16 (1), `database-2-filled` at 24 (1.48), `volume-off-filled` (0.7 · 0.75 · 0.375), `id-card`, `-2`, `-3` at 16, outline (1); `grep -rl '<!-- gap:' src/icons` lists them
+  the drawing no longer needs. Today (2026-10-19 census, 15 files on 8 concepts): `attachment-4-filled` at 24 and 20 (1), `alert-triangle-2` and `-4` at 16 (1.25), `sort` and `sort-filled` at 16 (1), `database-2-filled` at 24 (1.48), `volume-off-filled` (0.7 · 0.75 · 0.375), `id-card`, `-2`, `-3` at 16, outline (1), `fingerprint-filled` at 20 (1.43) and 16 (0.87); `grep -rl '<!-- gap:' src/icons` lists them
 - `<!-- glyph: dot | numeral -->` declares C19's glyph floor; `numeral` also lets a numeral's path carry
   `stroke-width` at the outline weight inside a line-heavy filled file (C32) — the only per-path weight lint allows
 - `<!-- anchor: NAME -->` marks a member of a level family (C28; first `volume-low`, `-none`,
