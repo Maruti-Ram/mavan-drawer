@@ -1137,6 +1137,8 @@
     "undo-filled",
     "unlock",
     "unlock-filled",
+    "unlock-swung",
+    "unlock-swung-filled",
     "upload",
     "upload-2",
     "upload-2-filled",
@@ -68468,6 +68470,124 @@
       "ratio": null,
       "gap": null
     },
+    "unlock-swung": {
+      "paths": [
+        "M8.25 11.75H17.75A2.5 2.5 0 0 1 20.25 14.25V18.75A2.5 2.5 0 0 1 17.75 21.25H8.25A2.5 2.5 0 0 1 5.75 18.75V14.25A2.5 2.5 0 0 1 8.25 11.75Z",
+        "M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25",
+        "M13 15.5V17.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8.25 11.75H17.75A2.5 2.5 0 0 1 20.25 14.25V18.75A2.5 2.5 0 0 1 17.75 21.25H8.25A2.5 2.5 0 0 1 5.75 18.75V14.25A2.5 2.5 0 0 1 8.25 11.75Z\"/> <path d=\"M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25\"/> <path d=\"M13 15.5V17.5\"/>",
+      "mark": false,
+      "tags": [
+        "padlock",
+        "open",
+        "unlocked",
+        "keyhole"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 3,
+        "top": 2,
+        "right": 3,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.18,
+          "optical": 3.13
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.21,
+          "optical": 3.16
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.37,
+          "optical": 2.28
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.24,
+          "optical": 2.18
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "unlock-swung-filled": {
+      "paths": [
+        "M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25"
+      ],
+      "areas": [
+        "M8.25 11H17.75A3.25 3.25 0 0 1 21 14.25V18.75A3.25 3.25 0 0 1 17.75 22H8.25A3.25 3.25 0 0 1 5 18.75V14.25A3.25 3.25 0 0 1 8.25 11ZM12.25 15.5A0.75 0.75 0 0 1 13.75 15.5V17.5A0.75 0.75 0 0 1 12.25 17.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.25 11H17.75A3.25 3.25 0 0 1 21 14.25V18.75A3.25 3.25 0 0 1 17.75 22H8.25A3.25 3.25 0 0 1 5 18.75V14.25A3.25 3.25 0 0 1 8.25 11ZM12.25 15.5A0.75 0.75 0 0 1 13.75 15.5V17.5A0.75 0.75 0 0 1 12.25 17.5Z\"/> <path d=\"M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25\"/>",
+      "mark": false,
+      "tags": [
+        "padlock",
+        "open",
+        "unlocked",
+        "keyhole"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 3,
+        "top": 2,
+        "right": 3,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "upload": {
       "paths": [
         "M3.75 15.75V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V15.75",
@@ -75339,6 +75459,8 @@
         "undo-filled",
         "unlock",
         "unlock-filled",
+        "unlock-swung",
+        "unlock-swung-filled",
         "upload",
         "upload-2",
         "upload-2-filled",
@@ -142589,6 +142711,124 @@
           "ratio": null,
           "gap": null
         },
+        "unlock-swung": {
+          "paths": [
+            "M6.125 7.625H11.875A1.5 1.5 0 0 1 13.375 9.125V12.875A1.5 1.5 0 0 1 11.875 14.375H6.125A1.5 1.5 0 0 1 4.625 12.875V9.125A1.5 1.5 0 0 1 6.125 7.625Z",
+            "M7.375 7.625V4A2.375 2.375 0 0 0 2.625 4V6.375",
+            "M9 10.375V11.625"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.125 7.625H11.875A1.5 1.5 0 0 1 13.375 9.125V12.875A1.5 1.5 0 0 1 11.875 14.375H6.125A1.5 1.5 0 0 1 4.625 12.875V9.125A1.5 1.5 0 0 1 6.125 7.625Z\"/> <path d=\"M7.375 7.625V4A2.375 2.375 0 0 0 2.625 4V6.375\"/> <path d=\"M9 10.375V11.625\"/>",
+          "mark": false,
+          "tags": [
+            "padlock",
+            "open",
+            "unlocked",
+            "keyhole"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 1,
+            "right": 2,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.15,
+              "optical": 2.11
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.29,
+              "optical": 1.22
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.18,
+              "optical": 1.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "unlock-swung-filled": {
+          "paths": [
+            "M7.375 7.625V4A2.375 2.375 0 0 0 2.625 4V6.375"
+          ],
+          "areas": [
+            "M6.125 7H11.875A2.125 2.125 0 0 1 14 9.125V12.875A2.125 2.125 0 0 1 11.875 15H6.125A2.125 2.125 0 0 1 4 12.875V9.125A2.125 2.125 0 0 1 6.125 7ZM8.25 10.5A0.75 0.75 0 0 1 9.75 10.5V11.5A0.75 0.75 0 0 1 8.25 11.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.125 7H11.875A2.125 2.125 0 0 1 14 9.125V12.875A2.125 2.125 0 0 1 11.875 15H6.125A2.125 2.125 0 0 1 4 12.875V9.125A2.125 2.125 0 0 1 6.125 7ZM8.25 10.5A0.75 0.75 0 0 1 9.75 10.5V11.5A0.75 0.75 0 0 1 8.25 11.5Z\"/> <path d=\"M7.375 7.625V4A2.375 2.375 0 0 0 2.625 4V6.375\"/>",
+          "mark": false,
+          "tags": [
+            "padlock",
+            "open",
+            "unlocked",
+            "keyhole"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 1,
+            "right": 2,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "upload": {
           "paths": [
             "M2.625 10.625V11.875A1.5 1.5 0 0 0 4.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V10.625",
@@ -149451,6 +149691,8 @@
         "undo-filled",
         "unlock",
         "unlock-filled",
+        "unlock-swung",
+        "unlock-swung-filled",
         "upload",
         "upload-2",
         "upload-2-filled",
@@ -216740,6 +216982,124 @@
           "ratio": null,
           "gap": null
         },
+        "unlock-swung": {
+          "paths": [
+            "M7.75 9.75H14.25A2 2 0 0 1 16.25 11.75V15.25A2 2 0 0 1 14.25 17.25H7.75A2 2 0 0 1 5.75 15.25V11.75A2 2 0 0 1 7.75 9.75Z",
+            "M9.75 9.75V5.75A3 3 0 0 0 3.75 5.75V8.25",
+            "M11 12.75V14.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.75 9.75H14.25A2 2 0 0 1 16.25 11.75V15.25A2 2 0 0 1 14.25 17.25H7.75A2 2 0 0 1 5.75 15.25V11.75A2 2 0 0 1 7.75 9.75Z\"/> <path d=\"M9.75 9.75V5.75A3 3 0 0 0 3.75 5.75V8.25\"/> <path d=\"M11 12.75V14.25\"/>",
+          "mark": false,
+          "tags": [
+            "padlock",
+            "open",
+            "unlocked",
+            "keyhole"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.18,
+              "optical": 3.14
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.21,
+              "optical": 3.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.38,
+              "optical": 2.28
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "unlock-swung-filled": {
+          "paths": [
+            "M9.75 9.75V5.75A3 3 0 0 0 3.75 5.75V8.25"
+          ],
+          "areas": [
+            "M7.75 9H14.25A2.75 2.75 0 0 1 17 11.75V15.25A2.75 2.75 0 0 1 14.25 18H7.75A2.75 2.75 0 0 1 5 15.25V11.75A2.75 2.75 0 0 1 7.75 9ZM10.25 12.75A0.75 0.75 0 0 1 11.75 12.75V14.25A0.75 0.75 0 0 1 10.25 14.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.75 9H14.25A2.75 2.75 0 0 1 17 11.75V15.25A2.75 2.75 0 0 1 14.25 18H7.75A2.75 2.75 0 0 1 5 15.25V11.75A2.75 2.75 0 0 1 7.75 9ZM10.25 12.75A0.75 0.75 0 0 1 11.75 12.75V14.25A0.75 0.75 0 0 1 10.25 14.25Z\"/> <path d=\"M9.75 9.75V5.75A3 3 0 0 0 3.75 5.75V8.25\"/>",
+          "mark": false,
+          "tags": [
+            "padlock",
+            "open",
+            "unlocked",
+            "keyhole"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "upload": {
           "paths": [
             "M3.75 13.25V14.25A2 2 0 0 0 5.75 16.25H14.25A2 2 0 0 0 16.25 14.25V13.25",
@@ -223606,6 +223966,8 @@
         "undo-filled",
         "unlock",
         "unlock-filled",
+        "unlock-swung",
+        "unlock-swung-filled",
         "upload",
         "upload-2",
         "upload-2-filled",
@@ -290937,6 +291299,124 @@
           "ratio": null,
           "gap": null
         },
+        "unlock-swung": {
+          "paths": [
+            "M8.25 11.75H17.75A2.5 2.5 0 0 1 20.25 14.25V18.75A2.5 2.5 0 0 1 17.75 21.25H8.25A2.5 2.5 0 0 1 5.75 18.75V14.25A2.5 2.5 0 0 1 8.25 11.75Z",
+            "M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25",
+            "M13 15.5V17.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.25 11.75H17.75A2.5 2.5 0 0 1 20.25 14.25V18.75A2.5 2.5 0 0 1 17.75 21.25H8.25A2.5 2.5 0 0 1 5.75 18.75V14.25A2.5 2.5 0 0 1 8.25 11.75Z\"/> <path d=\"M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25\"/> <path d=\"M13 15.5V17.5\"/>",
+          "mark": false,
+          "tags": [
+            "padlock",
+            "open",
+            "unlocked",
+            "keyhole"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.18,
+              "optical": 3.13
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.21,
+              "optical": 3.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.37,
+              "optical": 2.28
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "unlock-swung-filled": {
+          "paths": [
+            "M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25"
+          ],
+          "areas": [
+            "M8.25 11H17.75A3.25 3.25 0 0 1 21 14.25V18.75A3.25 3.25 0 0 1 17.75 22H8.25A3.25 3.25 0 0 1 5 18.75V14.25A3.25 3.25 0 0 1 8.25 11ZM12.25 15.5A0.75 0.75 0 0 1 13.75 15.5V17.5A0.75 0.75 0 0 1 12.25 17.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.25 11H17.75A3.25 3.25 0 0 1 21 14.25V18.75A3.25 3.25 0 0 1 17.75 22H8.25A3.25 3.25 0 0 1 5 18.75V14.25A3.25 3.25 0 0 1 8.25 11ZM12.25 15.5A0.75 0.75 0 0 1 13.75 15.5V17.5A0.75 0.75 0 0 1 12.25 17.5Z\"/> <path d=\"M11.75 11.75V6.75A4 4 0 0 0 3.75 6.75V10.25\"/>",
+          "mark": false,
+          "tags": [
+            "padlock",
+            "open",
+            "unlocked",
+            "keyhole"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "upload": {
           "paths": [
             "M3.75 15.75V17.75A2.5 2.5 0 0 0 6.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V15.75",
@@ -302708,6 +303188,17 @@
       "note": "approved 2026-10-19",
       "status": "done",
       "mvp": true,
+      "date": "2026-10-19"
+    },
+    {
+      "n": 199,
+      "name": "unlock-swung",
+      "section": "D · The rest, by audit rank",
+      "category": "Users & Access",
+      "base": "unlock",
+      "note": "Swung aside left, centred · approved 2026-10-19",
+      "status": "done",
+      "mvp": false,
       "date": "2026-10-19"
     },
     {

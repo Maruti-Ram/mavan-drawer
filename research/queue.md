@@ -578,6 +578,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 197. `repeat-3` · Arrows & Direction · variant of `repeat` — Stadium, heads into the turns · approved 2026-10-17
 - [ ] 198. `scissors` · Editing & Text — mvp
 - [x] 199. `unlock` · Users & Access — mvp · approved 2026-10-19
+- [x] 199. `unlock-swung` · Users & Access · variant of `unlock` — Swung aside left, centred · approved 2026-10-19
 - [ ] 200. `video` · Files & Folders — mvp
 - [ ] 201. `zap` · Status & Feedback
 - [ ] 202. `zoom-in` · UI & Layout
