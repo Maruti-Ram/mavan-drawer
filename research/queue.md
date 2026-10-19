@@ -549,7 +549,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 177. `drag-handle-2` · UI & Layout · variant of `drag-handle` — Six dots, lying · approved 2026-10-18
 - [x] 177. `drag-handle-3` · UI & Layout · variant of `drag-handle` — Three short lines · approved 2026-10-18
 - [ ] 178. `face-laugh` · Communication
-- [ ] 179. `id-card` · Users & Access
+- [~] 179. `id-card` · Users & Access
 - [ ] 180. `indent` · Editing & Text
 - [ ] 181. `outdent` · Editing & Text
 - [ ] 182. `popup` · UI & Layout
@@ -577,7 +577,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 197. `repeat-2` · Arrows & Direction · variant of `repeat` — Closed ring, mid-rail heads · approved 2026-10-17
 - [x] 197. `repeat-3` · Arrows & Direction · variant of `repeat` — Stadium, heads into the turns · approved 2026-10-17
 - [ ] 198. `scissors` · Editing & Text — mvp
-- [ ] 199. `unlock` · Users & Access — mvp
+- [x] 199. `unlock` · Users & Access — mvp · approved 2026-10-19
 - [ ] 200. `video` · Files & Folders — mvp
 - [ ] 201. `zap` · Status & Feedback
 - [ ] 202. `zoom-in` · UI & Layout
@@ -596,11 +596,11 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 211. `pen-tool` · Design Tools
 - [ ] 212. `shopping-bag` · Commerce & Payments
 - [ ] 213. `tag` · Commerce & Payments
-- [ ] 214. `accessibility` · Users & Access
+- [~] 214. `accessibility` · Users & Access
 - [x] 215. `alarm-clock` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 215. `alarm-clock-2` · Time & Calendar · variant of `alarm-clock` — Curved caps, floating · approved 2026-10-17
 - [ ] 216. `contrast` · UI & Layout
-- [ ] 217. `fingerprint` · Users & Access
+- [~] 217. `fingerprint` · Users & Access
 - [ ] 218. `hand` · UI & Layout
 - [ ] 219. `headset` · Communication
 - [ ] 220. `highlighter` · Editing & Text
@@ -613,7 +613,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
-- [ ] 228. `vault` · Users & Access
+- [~] 228. `vault` · Users & Access
 - [ ] 229. `align-object-bottom` · Design Tools
 - [ ] 230. `align-object-center-h` · Design Tools
 - [ ] 231. `align-object-center-v` · Design Tools
@@ -662,7 +662,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
 - [ ] 268. `drag-drop` · UI & Layout
 - [ ] 269. `newsletter` · Communication
-- [ ] 270. `passkey` · Users & Access
+- [~] 270. `passkey` · Users & Access
 - [ ] 271. `status` · Status & Feedback
 - [ ] 272. `translate` · Communication
 - [ ] 273. `viewport-narrow` · UI & Layout
