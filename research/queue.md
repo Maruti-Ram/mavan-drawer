@@ -558,7 +558,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 181. `outdent` · Editing & Text
 - [ ] 182. `popup` · UI & Layout
 - [ ] 183. `replace` · Editing & Text
-- [~] 184. `rows` · UI & Layout
+- [x] 184. `rows` · UI & Layout — approved 2026-10-20
+- [x] 184. `rows-2` · UI & Layout · variant of `rows` — Two row boxes · approved 2026-10-20
+- [x] 184. `rows-3` · UI & Layout · variant of `rows` — Three row guides · approved 2026-10-20
 - [x] 185. `transfer` · Arrows & Direction — approved 2026-10-17
 - [x] 185. `transfer-2` · Arrows & Direction · variant of `transfer` — Half heads · approved 2026-10-17
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
