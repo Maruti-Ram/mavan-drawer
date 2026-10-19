@@ -510,7 +510,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
-- [x] 151. `form` · UI & Layout — approved 2026-10-20
+- [~] 151. `form` · UI & Layout
 - [ ] 152. `import` · Files & Folders
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
 - [x] 153. `layout-header-2` · UI & Layout · variant of `layout-header` — Third, solid header · approved 2026-09-26
