@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: notepad, memo, jot, rings, lines -->
+  <!-- Notepad, rings on top: Three rings crossing the top edge of a page, 2 above it and 2 below at every master (Lucide notepad-text, Fluent Notepad, Central notepad, Phosphor Notepad). Page = file's width (16 · 12 · 10), 18 · 14 · 12 tall, corners 2.5 · 2 · 1.5. Rings on pitch 4 · 3.25 · 2.75 (air 2.5 · 1.75 · 1.5). Text lines use file-text's extents (7.75→16.25 · 7.75→12.25 · 6.625→9.375) on file-text-2's pitch 3 at every master: 3 · 2 · 2 lines (a third line at 20 would leave 0.75 of air), the last one half length, ending at the centre under the middle ring. Air ring-to-first-line equals last-line-to-floor: 2.75 · 2.25 · 1.625; line-to-wall 1.5 · 1.5 · 1.75. Ink 16×20 · 12×16 · 10×14 (portrait keyline), filled identical. Filled: page solid, lines knocked out 1.5 wide with the outline's ink ends, rings stay at 1.5 · 1.5 · 1.25 standing on the page (calendar-filled's pegs). Against calendar at 16: three rings through the edge, not two pegs on it, a portrait page, text rather than a header bar. Crispness cost: at 16 the rings sit on x.25 / .75 — an even pitch round a centred middle ring cannot also put their edges on pixels. Leaves the bottom-right corner free for note-plus. -->
+  <path d="M6.75 4.75H13.25A2 2 0 0 1 15.25 6.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V6.75A2 2 0 0 1 6.75 4.75Z"/>
+  <path d="M6.75 2.75V6.75"/>
+  <path d="M10 2.75V6.75"/>
+  <path d="M13.25 2.75V6.75"/>
+  <path d="M7.75 10.5H12.25"/>
+  <path d="M7.75 13.5H10"/>
+</svg>

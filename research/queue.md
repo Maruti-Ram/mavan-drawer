@@ -516,7 +516,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 153. `layout-header-3` · UI & Layout · variant of `layout-header` — Third, solid page · approved 2026-09-26
 - [x] 153. `layout-header-4` · UI & Layout · variant of `layout-header` — Detached header box · approved 2026-09-26
 - [x] 154. `merge` · Arrows & Direction — approved 2026-10-17
-- [~] 155. `note` · Files & Folders
+- [x] 155. `note` · Files & Folders — approved 2026-10-20
+- [x] 155. `note-2` · Files & Folders · variant of `note` — Notepad, rings on top · approved 2026-10-20
+- [x] 155. `note-3` · Files & Folders · variant of `note` — Lines and a pencil · approved 2026-10-20
+- [x] 155. `note-4` · Files & Folders · variant of `note` — Lined card · approved 2026-10-20
 - [x] 156. `quote` · Editing & Text — mvp · approved 2026-10-18
 - [x] 156. `quote-2` · Editing & Text · variant of `quote` — Rounded blocks · approved 2026-10-18
 - [x] 156. `quote-3` · Editing & Text · variant of `quote` — Marks over text · approved 2026-10-18
