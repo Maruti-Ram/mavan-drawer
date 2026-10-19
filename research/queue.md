@@ -510,7 +510,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
-- [~] 151. `form` · UI & Layout
+- [x] 151. `form` · UI & Layout — approved 2026-10-20
 - [ ] 152. `import` · Files & Folders
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
 - [x] 153. `layout-header-2` · UI & Layout · variant of `layout-header` — Third, solid header · approved 2026-09-26
@@ -625,7 +625,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
 - [x] 222. `layout-list` · UI & Layout — mvp · approved 2026-10-20
 - [ ] 223. `messages` · Communication — mvp
-- [ ] 224. `password` · UI & Layout
+- [~] 224. `password` · UI & Layout
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
@@ -678,7 +678,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 266. `categories` · Files & Folders
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
-- [ ] 268. `drag-drop` · UI & Layout
+- [~] 268. `drag-drop` · UI & Layout
 - [ ] 269. `newsletter` · Communication
 - [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
@@ -809,7 +809,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left`
 - [ ] 376. `chevron-right-circle` · Arrows & Direction · variant of `chevron-right`
 - [ ] 377. `chevron-up-circle` · Arrows & Direction · variant of `chevron-up`
-- [ ] 378. `clipboard-list` · Files & Folders · variant of `clipboard`
+- [x] 378. `clipboard-list` · Files & Folders · variant of `clipboard` — approved 2026-10-20
 - [ ] 379. `database-plus` · Charts & Data · variant of `database`
 - [ ] 380. `file-clock` · Files & Folders · variant of `file`
 - [ ] 381. `file-heart` · Files & Folders · variant of `file`
