@@ -615,7 +615,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 216. `contrast` · UI & Layout — approved 2026-10-20
 - [x] 217. `fingerprint` · Users & Access — approved 2026-10-19
 - [x] 217. `fingerprint-2` · Users & Access · variant of `fingerprint` — Symmetric arches · approved 2026-10-19
-- [~] 218. `hand` · UI & Layout
+- [x] 218. `hand` · UI & Layout — approved 2026-10-20
+- [x] 218. `hand-grab` · UI & Layout · variant of `hand` — Grab · approved 2026-10-20
+- [x] 218. `hand-pointer` · UI & Layout · variant of `hand` — Pointing finger · approved 2026-10-20
 - [ ] 219. `headset` · Communication
 - [ ] 220. `highlighter` · Editing & Text
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
