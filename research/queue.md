@@ -574,7 +574,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
 - [ ] 192. `gift` · Status & Feedback
-- [~] 193. `headphones` · Communication
+- [x] 193. `headphones` · Communication — approved 2026-10-20
+- [x] 193. `headphones-2` · Communication · variant of `headphones` — Capsule cups · approved 2026-10-20
+- [x] 193. `headphones-4` · Communication · variant of `headphones` — Wired earbuds · approved 2026-10-20
 - [x] 194. `inbox` · Communication — mvp · approved 2026-10-18
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
@@ -954,3 +956,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
+- [x] 507. `user-headphone` · Communication · variant of `headphones` — added 2026-10-20 · approved 2026-10-20
