@@ -705,7 +705,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
-- [ ] 290. `toggles` · UI & Layout
+- [~] 290. `toggles` · UI & Layout
 - [ ] 291. `blueprint` · Development & Infra
 - [ ] 292. `decision-process` · Development & Infra
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
@@ -961,3 +961,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
+- [x] 507. `input` — added 2026-10-20 · approved 2026-10-20
