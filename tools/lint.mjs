@@ -4,7 +4,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidStroke, selfGap, materialGap, facingGap, subpathsOf } from './geometry.mjs';
-import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
+import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
 function polyGap(a, b) {
@@ -663,6 +663,42 @@ export function checkAnchors(results) {
   return results;
 }
 
+// --- 9. state twins (C34): the other state is drawn for every numbered shape of its base ---
+// Which side of a state-twin pair (masters.mjs STATE_TWINS) a name is a numbered shape of, and
+// the name across from it: `lock-3` ↔ `unlock-3`, `lock` ↔ `unlock`. The number names the shape
+// (C9); a word after it (`unlock-swung`, a later `unlock-3-swung`) is a second picture of the
+// state, not a shape, and is never asked for. A size (C8) and a filled twin are not shapes either.
+// Returns null, or {twin, base, side: 'twin' | 'base', counterpart}.
+export function stateShape(name, twins = STATE_TWINS) {
+  if (isFilled(name) || sizeOf(name)) return null;
+  for (const [twin, base] of Object.entries(twins)) for (const [side, other] of [[twin, base], [base, twin]]) {
+    const m = name.match(new RegExp(`^${side}(-\\d+)?$`));
+    if (m) return { twin, base, side: side === twin ? 'twin' : 'base', counterpart: other + (m[1] ?? '') };
+  }
+  return null;
+}
+
+// Like `checkPairs`, it reads the whole map and adds to the results in place, per master. A base
+// is only asked for its twin once the twin has been started (any of its shapes at any master), so
+// `lock` alone is clean; a twin always needs its base. Read on outline files only: a filled twin
+// is `checkPairs`' to find, so a missing icon warns once per master, not twice. WARNINGS.
+export function checkTwins(results, twins = STATE_TWINS) {
+  const started = new Set();
+  for (const key of results.keys()) {
+    const s = stateShape(key.split('/')[1].replace('.svg', ''), twins);
+    if (s?.side === 'twin') started.add(s.twin);
+  }
+  for (const [key, r] of results) {
+    const [m, f] = key.split('/'), name = f.replace('.svg', '');
+    const s = stateShape(name, twins);
+    if (!s || (s.side === 'base' && !started.has(s.twin)) || results.has(`${m}/${s.counterpart}.svg`)) continue;
+    r.warnings.push(s.side === 'base'
+      ? `no state twin \`${s.counterpart}.svg\` at ${m} — \`${s.twin}\` is drawn for every numbered shape of \`${s.base}\`, so \`${name}\` needs \`${s.counterpart}\` (C34)`
+      : `no base shape \`${s.counterpart}.svg\` at ${m} — a state twin is drawn on its base's body, so \`${name}\` needs \`${s.counterpart}\` (C34)`);
+  }
+  return results;
+}
+
 // --- the run over src/icons ---------------------------------------------
 // Everything below is the command; `lintSource` above is the whole check, so a test
 // can hand it one file's text without a drawing on disk (tools/geometry.test.mjs).
@@ -686,6 +722,9 @@ checkPairs(results);
 
 // --- 8. level families (C28): anchored members inside the full member's box ---
 checkAnchors(results);
+
+// --- 9. state twins (C34): every numbered shape of a base has its twin, and back ---
+checkTwins(results);
 
 for (const [m, f] of jobs) {
   const { errors, warnings, notes } = results.get(`${m}/${f}`);

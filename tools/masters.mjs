@@ -58,6 +58,11 @@ export const sizeBase = (name) => name.replace(/-(large|small)(?=-filled$|$)/, '
 export const markMax = (name, master) =>
   sizeOf(name) === 'large' ? MASTERS[master].bound[1] - MASTERS[master].bound[0] : MASTERS[master].mark;
 
+// State twins (C34, 2026-10-19), twin → base: the other state of a toggle is drawn for every
+// numbered shape of its base (`unlock-3` for `lock-3`). Lint warns on a missing twin (§9).
+// A later twin is one entry: `'eye-off': 'eye'`.
+export const STATE_TWINS = { unlock: 'lock' };
+
 // Minimum gap between any two stroke edges: 1.5 units, at every master and in
 // both styles. A LITERAL, deliberately not `strokeOf(master)` — the floor is what
 // survives a 16px render, not a fraction of the line. The 16 master's 1.25

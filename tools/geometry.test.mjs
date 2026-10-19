@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { facingGap, isSolidStroke, materialGap, selfGap } from './geometry.mjs';
-import { checkAnchors, checkPairs, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote } from './lint.mjs';
+import { checkAnchors, checkPairs, checkTwins, comparePair, lintSource, parseAnchorNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
@@ -670,6 +670,25 @@ test('a member anchored to another member, not the full one, is an ERROR', () =>
   const mid = icon([SPEAKER, WAVE1], ['anchor: volume']);
   const r = family({ 'volume.svg': FULL, 'volume-medium.svg': mid, 'volume-low.svg': icon([SPEAKER], ['anchor: volume-medium']) });
   assert.ok(r.get('24/volume-low.svg').errors.some((e) => /is itself anchored to volume/.test(e)));
+});
+
+// --- state twins (C34): `unlock-<n>` for every `lock-<n>` -------------------------------
+test('stateShape reads the numbered shapes of a twin and its base, and nothing else', () => {
+  assert.deepEqual(stateShape('lock-3'), { twin: 'unlock', base: 'lock', side: 'base', counterpart: 'unlock-3' });
+  assert.deepEqual(stateShape('unlock'), { twin: 'unlock', base: 'lock', side: 'twin', counterpart: 'lock' });
+  for (const n of ['unlock-swung', 'unlock-3-swung', 'lock-small', 'lock-2-filled', 'padlock', 'lock-open'])
+    assert.equal(stateShape(n), null, n);
+  assert.equal(stateShape('eye-off-2', { 'eye-off': 'eye' }).counterpart, 'eye-2', 'a later twin is one entry');
+});
+
+test('checkTwins: a missing twin warns on whichever file exists, per master; lock alone is clean', () => {
+  const stub = () => ({ errors: [], warnings: [], notes: [] });
+  const run = (keys) => checkTwins(new Map(keys.map((k) => [k, stub()])));
+  const r = run(['24/lock.svg', '24/lock-3.svg', '24/unlock.svg', '24/unlock-swung.svg', '20/unlock-3.svg']);
+  assert.match(r.get('24/lock-3.svg').warnings[0], /no state twin `unlock-3\.svg` at 24 .* `lock-3` needs `unlock-3` \(C34\)/);
+  assert.match(r.get('20/unlock-3.svg').warnings[0], /no base shape `lock-3\.svg` at 20 .* \(C34\)/);
+  for (const k of ['24/lock.svg', '24/unlock.svg', '24/unlock-swung.svg']) assert.deepEqual(r.get(k).warnings, [], k);
+  assert.deepEqual(run(['24/lock.svg', '24/lock-3.svg']).get('24/lock-3.svg').warnings, [], 'no twin started yet');
 });
 
 test('draft-svg writes a candidate\'s anchor into both files; `anchor: null` opts out of the board\'s', () => {
