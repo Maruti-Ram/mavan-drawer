@@ -764,7 +764,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 327. `move-2` · Arrows & Direction · variant of `move` — Four arrows · approved 2026-10-17
 - [x] 328. `rewind` · Arrows & Direction — approved 2026-10-17
 - [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-17
-- [~] 329. `rss` · Communication
+- [x] 329. `rss` · Communication — approved 2026-10-20
 - [x] 330. `trending-down` · Charts & Data — mvp · approved 2026-10-18
 - [x] 330. `trending-down-2` · Charts & Data · variant of `trending-down` — One pull-back, soft · approved 2026-10-18
 - [x] 331. `trending-up` · Charts & Data — mvp · approved 2026-10-18
