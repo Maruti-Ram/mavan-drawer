@@ -510,13 +510,13 @@ Bases before their variants; within that, highest evidence first.
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
 - [ ] 151. `form` · UI & Layout
-- [ ] 152. `import` · Files & Folders
+- [~] 152. `import` · Files & Folders
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
 - [x] 153. `layout-header-2` · UI & Layout · variant of `layout-header` — Third, solid header · approved 2026-09-26
 - [x] 153. `layout-header-3` · UI & Layout · variant of `layout-header` — Third, solid page · approved 2026-09-26
 - [x] 153. `layout-header-4` · UI & Layout · variant of `layout-header` — Detached header box · approved 2026-09-26
 - [x] 154. `merge` · Arrows & Direction — approved 2026-10-17
-- [ ] 155. `note` · Files & Folders
+- [~] 155. `note` · Files & Folders
 - [x] 156. `quote` · Editing & Text — mvp · approved 2026-10-18
 - [x] 156. `quote-2` · Editing & Text · variant of `quote` — Rounded blocks · approved 2026-10-18
 - [x] 156. `quote-3` · Editing & Text · variant of `quote` — Marks over text · approved 2026-10-18
@@ -587,7 +587,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 199. `unlock-5` · Users & Access · variant of `unlock` — Classic keyhole, released · approved 2026-10-19
 - [x] 199. `unlock-6` · Users & Access · variant of `unlock` — Pouch, F corners, released · approved 2026-10-19
 - [x] 199. `unlock-swung` · Users & Access · variant of `unlock` — Swung aside left, centred · approved 2026-10-19
-- [ ] 200. `video` · Files & Folders — mvp
+- [x] 200. `video` · Files & Folders — mvp · approved 2026-10-20
+- [x] 200. `video-2` · Files & Folders · variant of `video` — Film strip · approved 2026-10-20
+- [x] 200. `video-3` · Files & Folders · variant of `video` — TV with play · approved 2026-10-20
 - [ ] 201. `zap` · Status & Feedback
 - [ ] 202. `zoom-in` · UI & Layout
 - [ ] 203. `zoom-out` · UI & Layout
@@ -670,7 +672,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 264. `caret-up` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 264. `caret-up-2` · Arrows & Direction · variant of `caret-up` — Near-equilateral · caret-up · approved 2026-10-17
 - [ ] 265. `live` · Media & Playback
-- [ ] 266. `categories` · Files & Folders
+- [~] 266. `categories` · Files & Folders
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
 - [ ] 268. `drag-drop` · UI & Layout
@@ -691,7 +693,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 282. `reward` · Commerce & Payments
 - [ ] 283. `sandbox` · Development & Infra
 - [ ] 284. `alert-square` · Status & Feedback
-- [ ] 285. `bookmarks` · Files & Folders
+- [~] 285. `bookmarks` · Files & Folders
 - [ ] 286. `progress-bar` · Status & Feedback
 - [ ] 287. `saved-items` · Status & Feedback
 - [ ] 288. `scribble` · Editing & Text
