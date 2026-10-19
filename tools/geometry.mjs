@@ -147,8 +147,44 @@ export function bbox(ds) {
 // What a drawing is made of, so lint, build and the lab all read one measure
 // instead of each re-deriving it (and getting it wrong differently).
 
-/** A dot is a CLOSED circle drawn as two arcs. An open two-arc path is a bend. */
+/** A CLOSED path drawn as two arcs: a dot, a ring, an ellipse, a crescent. An open two-arc
+ *  path is a bend. The name is older than the measure: this is the SHAPE, and it does not say
+ *  whether the stroke fills it — `isSolidDot` and `ringHole` do, at the path's own weight. */
 export const isDot = (d) => /^M[^A-Za-z]+A[^A-Za-z]+A[^A-Za-z]+Z$/.test(d.trim());
+
+/** A ring: a closed two-arc CIRCLE whose radius is over half its stroke, so the stroke leaves
+ *  a hole 2r − w across inside it — a key's bow, a ring badge, a keyhole, a `-circle` ring.
+ *  Returns { hole, r, at } (the hole's width, the radius, its centre), or null for a dot and
+ *  for a closed two-arc path that is not one circle (an ellipse, a crescent, a lens: their air
+ *  is read by `facingGap` like any closed path's). A circle at exactly half its stroke closes
+ *  its hole to a point and draws solid, so it is a dot (97 in the set, 2026-10-20). */
+export function ringHole(d, w) {
+  if (!isDot(d)) return null;
+  const arcs = parsePath(d).filter(({ cmd }) => cmd === 'A').map(({ args }) => args);
+  const r = arcs[0]?.[0];
+  // a malformed arc (a zero radius, a number short) is no ring, and must not stop lint
+  if (!(r > 0) || arcs.length !== 2 || !arcs.every((a) => a.length === 7 && a[0] === r && a[1] === r)) return null;
+  // one circle, as written: the centre through the start and two samples on the first arc,
+  // and every sample of both arcs r from it (an arc SVG had to scale up fails here)
+  const pts = samplePath(d);
+  if (pts.length <= SAMPLES * 2) return null;
+  const [[ax, ay], [bx, by], [qx, qy]] = [pts[0], pts[(SAMPLES >> 1)], pts[SAMPLES]];
+  const k = 2 * (ax * (by - qy) + bx * (qy - ay) + qx * (ay - by));
+  if (!k) return null;
+  const A = ax * ax + ay * ay, B = bx * bx + by * by, Q = qx * qx + qy * qy;
+  const cx = (A * (by - qy) + B * (qy - ay) + Q * (ay - by)) / k, cy = (A * (qx - bx) + B * (ax - qx) + Q * (bx - ax)) / k;
+  if (!pts.every(([x, y]) => Math.abs(Math.hypot(x - cx, y - cy) - r) < 0.005)) return null;
+  // and all the way round: a semicircle traced out and back has no hole, and its box is 2r × r
+  // (a loose test, since the samples can cut a corner of the true box on a split at an odd angle)
+  const b = bbox([d]);
+  if (b.x1 - b.x0 < 1.5 * r || b.y1 - b.y0 < 1.5 * r) return null;
+  const hole = Math.round((2 * r - w) * 1000) / 1000;
+  return hole > 0 ? { hole, r, at: [r2(cx), r2(cy)] } : null;
+}
+
+/** A dot draws SOLID: a closed two-arc path the stroke fills, with no hole left inside —
+ *  a circle of radius at most half the stroke. C19's detached dot is one; a ring is not. */
+export const isSolidDot = (d, w) => isDot(d) && isSolidStroke(d, w);
 
 /** A solid key: a CLOSED path whose centreline is no wider than its stroke on its short side,
  *  so the stroke fills it with no counter left inside — a capsule key (calculator's tall key,

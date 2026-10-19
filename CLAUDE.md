@@ -257,7 +257,7 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | File | Does |
 |---|---|
 | `tools/lint.mjs` | enforces `docs/01-foundations.md`; exits 1 |
-| `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity; `selfGap` (an open path's own counter), `materialGap` (what a knockout leaves), `facingGap` (air between two ink edges that face each other square-on — a closed path's inside, a filled file's cuts, notches, bands and shape-to-line gaps; lint §5f) |
+| `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity; `ringHole` (a ring's hole, 2r − w; a circle at most half its stroke is a solid dot, `isSolidDot`; lint §5f); `selfGap` (an open path's own counter), `materialGap` (what a knockout leaves), `facingGap` (air between two ink edges that face each other square-on — a closed path's inside, a filled file's cuts, notches, bands and shape-to-line gaps; lint §5f) |
 | `tools/optical.mjs` | optical side bearings computed from the outline |
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
 | `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `add <name>…` (a row on the sheet, no board) · `mvp <name>… on|off` (the MVP mark) · `start` · `batch` · `approve` · `drop` (retire a name: delete its files, remove its row) · `rename <old>=<new>…` (renumber: move the files, rewrite the row keeping its status and date, re-point the relatives' comments) · `clear` |

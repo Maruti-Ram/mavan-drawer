@@ -354,6 +354,15 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   **Still uncovered:** a wedge of air opening wider than ~6° (C23's triangular counters stay the drawer's),
   two sharp corners pointing at each other, air under 0.02, and §5c's material check on filled files that
   also carry strokes (one reading in 354, `cash-filled` 3.92).
+- **Dated note, 2026-10-20 — a ring's hole is measured.** The note above was not true for one kind of
+  closed path: lint read every closed two-arc path as a dot and skipped it, so the hole inside a ring
+  (a key's bow, a ring badge, a `-circle` ring) was never measured. `passkey-2`'s first filled key, drawn
+  bold, closed its bow at 16 and lint said nothing. §5f now measures a ring's hole exactly, 2r − w
+  (`ringHole`), against 1.5 or the file's agreed gap (a C33 badge's against 1.5); a circle whose radius
+  is at most half its stroke is a dot and has no hole. Other closed two-arc shapes (globe's meridians,
+  database's lid, the moon, `paintbrush-5`'s spindle handle) go to `facingGap` like any closed path. First
+  run over 3,792 drawings: no result changed. 406 rings; the tightest hold exactly 1.5 (31 rings in 21
+  files on 9 concepts — `share`, `anchor`, `cart-4`, `users-wide`…); database's lid at 16 reads 1.74.
 - Touching paths are skipped (`min > 0.1`), which is why C18's flag-to-bar exception was
   invisible.
 

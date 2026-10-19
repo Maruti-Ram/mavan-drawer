@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { facingGap, isSolidStroke, materialGap, selfGap } from './geometry.mjs';
+import { facingGap, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkPairs, checkTwins, comparePair, lintSource, parseAnchorNote, parseBadgeNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -1147,4 +1147,83 @@ test('a solid key is not a bend: a closed capsule no wider than its stroke (calc
   assert.equal(isSolidStroke('M11.75 9A0.25 0.25 0 0 1 12.25 9L12.25 15', 1.5), false); // open: a bend, not a key
   const lint = lintSource(24, 'calculator.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><!-- keyline: mark --><!-- a key --><path d="${key}"/></svg>`);
   assert.ok(!lint.warnings.some((w) => /C10/.test(w)), lint.warnings.join('\n'));
+});
+
+// --- rings (lint §5f, 2026-10-20): the air inside a closed two-arc circle ---
+// `isDot` matches every closed two-arc path, and §5f skipped them all as dots, so a ring's hole
+// was never measured: passkey-2's first filled key, drawn bold, closed its bow and read as a
+// thermometer at 16. A ring's hole is 2r − w across; a dot (r ≤ w/2) draws solid and has none.
+const RING = (cx, cy, r) => `M${cx - r} ${cy}A${r} ${r} 0 1 0 ${cx + r} ${cy}A${r} ${r} 0 1 0 ${cx - r} ${cy}Z`;
+const ringWarn = (r) => r.warnings.filter((w) => /is a ring with a hole/.test(w));
+const ONE = (root, paths, notes = ['keyline: mark']) => [root, ...notes.map((n) => `  <!-- ${n} -->`), ...paths.map((d) => `  <path d="${d}"/>`), '</svg>', ''].join('\n');
+
+test('ringHole: a ring\'s hole is 2r − w; a dot, an ellipse and a crescent have none to read', () => {
+  assert.deepEqual(ringHole(RING(12, 12, 1.25), 1.5), { hole: 1, r: 1.25, at: [12, 12] });
+  assert.deepEqual(ringHole(RING(12, 12, 1.5), 1.5), { hole: 1.5, r: 1.5, at: [12, 12] });
+  assert.equal(ringHole(RING(8, 8, 1.375), 1.25).hole, 1.5);                     // 16's eighth grid
+  // a circle split anywhere, not only across a diameter: one short arc, one long
+  const c = 2 * Math.SQRT1_2;
+  assert.deepEqual(ringHole(`M${12 - c} ${12 - c}A2 2 0 0 1 ${12 + c} ${12 - c}A2 2 0 1 1 ${12 - c} ${12 - c}Z`, 1.5), { hole: 2.5, r: 2, at: [12, 12] });
+  // a dot: at half the stroke the hole closes to a point (97 of the set's dots are drawn so)
+  for (const r of [0.75, 0.5, 0.25]) {
+    assert.equal(ringHole(RING(12, 12, r), 1.5), null, `r ${r}`);
+    assert.equal(isSolidDot(RING(12, 12, r), 1.5), true, `r ${r}`);
+  }
+  assert.equal(isSolidDot(RING(12, 12, 1.25), 1.5), false, 'a ring is not a dot');
+  assert.equal(ringHole('M2.625 4.125A5.375 1.5 0 0 1 13.375 4.125A5.375 1.5 0 0 1 2.625 4.125Z', 1.25), null);   // database 16's lid
+  assert.equal(ringHole('M8 1.625A6.375 6.375 0 1 0 14.375 8A4.508 4.508 0 0 1 8 1.625Z', 1.25), null);           // moon 16
+  assert.equal(ringHole('M9 12A3 3 0 0 1 15 12A3 3 0 0 1 9 12', 1.5), null, 'open: a bend');
+  // a semicircle traced out and back has no hole; a split at an odd angle is still a circle
+  assert.equal(ringHole('M10.75 12A1.25 1.25 0 0 1 13.25 12A1.25 1.25 0 0 0 10.75 12Z', 1.5), null);
+  const [sx, sy, ex, ey] = [12 + 9.25 * Math.cos(0.1), 12 + 9.25 * Math.sin(0.1), 12 + 9.25 * Math.cos(0.3), 12 + 9.25 * Math.sin(0.3)].map((n) => n.toFixed(4));
+  assert.equal(ringHole(`M${sx} ${sy}A9.25 9.25 0 0 1 ${ex} ${ey}A9.25 9.25 0 1 1 ${sx} ${sy}Z`, 1.5)?.hole, 17);
+  // a malformed arc is no ring, and does not stop lint (it threw before the guard)
+  for (const bad of ['M10 12A0 0 0 1 0 14 12A0 0 0 1 0 10 12Z', 'M10 12A2 2 0 1 0 14A2 2 0 1 0 10Z']) {
+    assert.equal(ringHole(bad, 1.5), null, bad);
+    assert.doesNotThrow(() => lintSource(24, 'bad.svg', ONE(ROOT24, [bad])), bad);
+  }
+  // facingGap reads the same hole on the ink's edges, and nothing inside a dot
+  assert.equal(facingGap([RING(12, 12, 1.25)], 1.5).self[0].gap, 1);
+  assert.deepEqual(facingGap([RING(12, 12, 0.75)], 1.5).self, []);
+});
+
+test('lint §5f: a ring with a 1.0 hole warns, a 1.5 hole passes, at 24 and 16', () => {
+  const tight = lintSource(24, 'key.svg', ONE(ROOT24, [RING(12, 12, 1.25)]));
+  assert.deepEqual(tight.warnings, ['path 1 is a ring with a hole 1 across at 12,12 — §6 needs 1.5 (radius 1.25 at stroke 1.5)']);
+  assert.deepEqual(lintSource(24, 'key.svg', ONE(ROOT24, [RING(12, 12, 1.5)])).warnings, []);
+  const tight16 = lintSource(16, 'key.svg', ONE(ROOT16, [RING(8, 8, 1.125)]));
+  assert.deepEqual(tight16.warnings, ['path 1 is a ring with a hole 1 across at 8,8 — §6 needs 1.5 (radius 1.125 at stroke 1.25)']);
+  assert.deepEqual(lintSource(16, 'key.svg', ONE(ROOT16, [RING(8, 8, 1.375)])).warnings, []);
+  // a bold bow like passkey-2's first filled key at 16: outer ⌀4.75 kept at weight 2 leaves 0.75
+  const bold = ONE(ROOT16.replace('stroke-width="1.25"', 'stroke-width="2"'), [RING(8, 8, 1.375), 'M8 6.625V2.125']);
+  assert.deepEqual(ringWarn(lintSource(16, 'passkey-2-filled.svg', bold)), ['path 1 is a ring with a hole 0.75 across at 8,8 — §6 needs 1.5 (radius 1.375 at stroke 2)']);
+});
+
+test('lint §5f: a solid dot is untouched — it has no hole, and stays C19\'s dot', () => {
+  for (const r of [0.75, 0.5, 0.25]) {
+    const dot = lintSource(24, 'dot.svg', ONE(ROOT24, [RING(12, 12, r)]));
+    assert.deepEqual(dot.warnings, [], `r ${r}: ${dot.warnings.join(' | ')}`);
+  }
+  // C19: {dot, body} 1 apart passes at the glyph floor; a ring standing where the dot was is
+  // no character's dot, so the same 1 of air is §6's and warns (before 2026-10-20 it took C19's 1)
+  const glyph = (d) => lintSource(24, 'info.svg', ONE(ROOT24, [d, 'M12 10V18'], ['keyline: mark', 'glyph: dot']));
+  assert.deepEqual(numPairWarn(glyph(RING(12, 7, 0.5))), []);
+  assert.deepEqual(numPairWarn(glyph(RING(12, 6, 1.5))), ['paths 1/2 are 2.5 apart — §6 needs 3 (edge gap 1 < 1.5)']);
+  assert.deepEqual(ringWarn(glyph(RING(12, 6, 1.5))), [], 'its own hole is 1.5');
+});
+
+test('lint §5f: a ring\'s hole honours the file\'s gap note; a badge\'s ring never does, and C19 never reaches it', () => {
+  const noted = (r, notes) => lintSource(24, 'key.svg', ONE(ROOT24, [RING(12, 12, r)], ['keyline: mark', ...notes]));
+  const agreed = noted(1.25, ['gap: 1']);
+  assert.deepEqual(agreed.warnings, []);
+  assert.deepEqual(agreed.errors, [], 'the note is in use: the ring needs it');
+  assert.ok(agreed.notes.includes('agreed gap 1 — smallest measured 1'), agreed.notes.join(' | '));
+  assert.deepEqual(noted(1, ['gap: 1']).warnings, ['path 1 is a ring with a hole 0.5 across at 12,12 — agreed gap 1 needs 1 (radius 1 at stroke 1.5)']);
+  // `glyph: dot` lowers a character's own openings to 1, but a ring is not one
+  assert.deepEqual(ringWarn(noted(1.25, ['glyph: dot'])), ['path 1 is a ring with a hole 1 across at 12,12 — §6 needs 1.5 (radius 1.25 at stroke 1.5)']);
+  // a C33 ring badge on a line-heavy base keeps 1.5 inside its bow whatever the base agreed
+  const badge = lintSource(24, 'passkey-2-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path d="M5 10.5H10"/>',
+    `<path stroke-width="1.5" d="${RING(17, 17, 1.25)}"/>`], ['keyline: mark', 'gap: 1', 'badge: line']));
+  assert.deepEqual(badge.errors, [], badge.errors.join(' | '));
+  assert.deepEqual(ringWarn(badge), ['path 3 is a ring with a hole 1 across at 17,17 — §6 needs 1.5 (radius 1.25 at stroke 1.5)']);
 });

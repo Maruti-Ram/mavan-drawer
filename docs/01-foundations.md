@@ -361,7 +361,10 @@ tighter fills in, and an icon that fills in at 16px is a broken icon no matter
 how good it looks at 96.
 
 Corollaries:
-- **No enclosed shape smaller than 1.5 units across** (inner dimension).
+- **No enclosed shape smaller than 1.5 units across** (inner dimension). A ring is one: a circle
+  drawn as a stroke leaves a hole 2r − w across inside it (a key's bow, a ring badge, a keyhole),
+  and lint §5f holds that hole to 1.5, or to the file's agreed gap (2026-10-20). A circle whose
+  radius is at most half its stroke is a dot: it draws solid and has no hole.
 - **No more than 3 parallel strokes** in one run. Four is a texture, not an icon.
 - When a detail cannot fit at a 2-unit gap, **remove the detail**. Do not shrink
   the stroke locally — varying stroke weight within a set is the fastest way to

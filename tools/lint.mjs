@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidStroke, selfGap, materialGap, facingGap, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, facingGap, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -456,7 +456,8 @@ export function lintSource(canvas, file, src) {
   // `bendMin` takes THIS file's weight, so the floor is per master and per style:
   // 0.75 for an outline at 1.5, 0.625 at 1.25, 1.25 for a filled line icon at 24.
   // A dot (one CLOSED circle drawn as two arcs) is not a bend: under half the stroke it is a
-  // solid disc. `isDot` lives in geometry.mjs so lint, build and the lab share one test — an
+  // solid disc. Every closed two-arc path is skipped, rings included: a ring's radius is over half
+  // its stroke, so its arcs could never reach the floor anyway (its hole is 5f's). `isDot` lives in geometry.mjs so lint, build and the lab share one test — an
   // open two-arc path is a bend (a bowl running into a tuck), checked like any other, and in a
   // glyph mark it is the body, not the dot (C19). A solid key — a closed path no wider than its
   // stroke, so the stroke leaves no counter (calculator's tall key) — is a dot drawn long: its
@@ -477,6 +478,7 @@ export function lintSource(canvas, file, src) {
   // in a file that declares `<!-- glyph: dot -->`, the pair {dot, body} is the inside
   // of one character and floors at GLYPH_GAP instead. The dot's clearance to the
   // silhouette (the path spanning the whole ink box) is not that pair, and keeps MIN_GAP.
+  // The dot is a SOLID one (`isSolidDot`, at its own weight): a ring is not a character's dot.
   // (`glyph: numeral` does not reach this loop: a numeral's clearance to the next numeral and
   // to its list line is between separate paths, and keeps MIN_GAP.)
   // C33 (`<!-- badge: line -->`, 2026-10-19): the base is cut back by hand with 1.5 of air from
@@ -493,9 +495,9 @@ export function lintSource(canvas, file, src) {
     const onBadge = !!inBadge[i] || !!inBadge[j], toBase = !!inBadge[i] !== !!inBadge[j];
     const met = `paths ${i + 1}/${j + 1} meet — C33 cuts the base back with ${MIN_GAP} of air from the badge's ink`;
     if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); continue; } // paths that cross (x, plus) join by design
-    // the badge is read first: a ring badge is a closed two-arc path, which isDot reads as a
-    // C19 dot, and beside `glyph: dot` it would otherwise take the glyph's floor of 1
-    const glyphPair = !onBadge && isGlyph && isDot(ds[i]) !== isDot(ds[j]) && !isShell(spans[i]) && !isShell(spans[j]);
+    // the badge is read first, so no badge path ever takes the glyph's floor of 1 (and a ring
+    // badge beside `glyph: dot` is not the glyph's dot either way: it is not solid)
+    const glyphPair = !onBadge && isGlyph && isSolidDot(ds[i], W[i]) !== isSolidDot(ds[j], W[j]) && !isShell(spans[i]) && !isShell(spans[j]);
     const floor = onBadge ? MIN_GAP : glyphPair ? GLYPH_GAP : GAP;
     const pen = (W[i] + W[j]) / 2;   // half of each path's own weight (C32, C33)
     const need = floor + pen; // centreline distance that leaves `floor` between the two edges
@@ -515,7 +517,9 @@ export function lintSource(canvas, file, src) {
   // counter drawn by one curling path, belong to a single `d`. `selfGap` judges a
   // pair of points only once the path between them has turned past 180 degrees, so a
   // C10 bend — which legitimately brings its own tangent points 1.06 apart — is never
-  // flagged, while a mouth that has closed up is. A dot is a solid disc by design.
+  // flagged, while a mouth that has closed up is. A closed path has no mouth (`selfGap` returns
+  // null for it), so a closed two-arc path is not even read here: a dot is solid, and a ring's
+  // hole is measured in 5f, with the inside of every other closed path.
   // Caught by eye and not by lint before this existed: help-4's 16 shipped a 0.30 mouth.
   // C19 extends here: in a file that declares `<!-- glyph: dot -->`, a mark's own
   // opening - the mouth of a `?`, of an `!`, of an `i` - is the inside of one
@@ -529,7 +533,8 @@ export function lintSource(canvas, file, src) {
   // Every path in the file is read this way, the silhouette included - a numeral drawn on its
   // own IS the silhouette, and the lines beside one are straight, so they have no opening.
   // `selfGap` is handed the path's own stroke, so it reads edge-to-edge at any master.
-  // A C33 line badge's own openings keep MIN_GAP: the file's `gap` note is the base's.
+  // A C33 line badge's own openings (the mouth of an open path) keep MIN_GAP: the file's `gap`
+  // note is the base's. The inside of a key's bow is closed, so it is 5f's, not this loop's.
   let numeralMin = Infinity;   // the tightest opening the numeral note governs, for 5e
   const read5b = [];           // what 5b measured per path, so 5f does not warn on the same neck twice
   for (let i = 0; i < ds.length; i++) {
@@ -586,13 +591,33 @@ export function lintSource(canvas, file, src) {
   // floors as in 5b: GLYPH_GAP inside a declared glyph, else this file's agreed gap, else
   // MIN_GAP. Air touching a shape floors at the agreed gap, else MIN_GAP: a filled glyph's
   // own openings are material, not air, and 5c reads them. WARNINGS (plan, 2026-09-28).
-  // A C33 line badge's own air (the inside of a key's bow) keeps MIN_GAP, as in 5b.
+  // A C33 line badge's own air keeps MIN_GAP, as in 5b.
+  // A RING (2026-10-20) — a closed two-arc circle wider than half its stroke: a key's bow, a ring
+  // badge, a keyhole, a `-circle` ring — is measured exactly, its hole 2r − w across (`ringHole`).
+  // Until then every closed two-arc path was skipped here as a dot, so a hole under 1.5 passed
+  // silently and closed up at 16 (passkey-2's first filled key: its bow went solid). It floors at
+  // this file's agreed gap, else MIN_GAP, and a badge's at MIN_GAP — never at C19's 1: a ring is
+  // not a character's opening, and C19 keeps the pairs it names. A solid dot has no air at all.
+  // (`ringHole` reads the absolute `M…A…A…Z` form every ring in the set is written in; a ring
+  // written with `a` or `z`, or with an arc SVG has to scale up, falls to `facingGap` below,
+  // which reads the same hole but, in a glyph file, floors it as a character's opening.)
+  // Any other closed two-arc path (globe's meridians, database's lid, the moon) is read by
+  // `facingGap` below like any closed path.
   {
     const air = facingGap(ds, W, areas);   // each path at its own weight (C32, C33)
     const shut = (sub) => { const p = samplePath(sub); return p.length > 2 && Math.hypot(p.at(-1)[0] - p[0][0], p.at(-1)[1] - p[0][1]) < 0.01; };
+    const rings = ds.map((d, i) => ringHole(d, W[i]));   // each path at its own weight
+    rings.forEach((ring, i) => {
+      if (!ring) return;
+      const floor = inBadge[i] ? MIN_GAP : GAP;
+      if (!inBadge[i]) measured.push(ring.hole);
+      if (ring.hole < floor - 0.01)
+        warnings.push(`path ${i + 1} is a ring with a hole ${ring.hole} across at ${ring.at.join(',')} — ${!inBadge[i] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (radius ${ring.r} at stroke ${W[i]})`);
+    });
     for (const { path, gap: g, at } of air.self) {
       const d = ds[path], subs = subpathsOf(d);
-      if (isDot(d) || (subs.length === 1 && !shut(subs[0]))) continue;  // 5b reads it
+      if (rings[path] || isSolidDot(d, W[path])) continue;              // read exactly above; a dot has no air
+      if (subs.length === 1 && !shut(subs[0])) continue;                // 5b reads it
       if (read5b[path] && read5b[path].gap <= g + 0.02) continue;        // 5b read this neck
       const inGlyph = !inBadge[path] && ((isGlyph && !isShell(spans[path])) || isNumeral);   // the badge first, as in §5
       const floor = inBadge[path] ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
