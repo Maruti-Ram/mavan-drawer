@@ -948,5 +948,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 504. `plane-3` — added 2026-10-18 · approved 2026-10-18
 - [ ] 505. `cloud-download` · Development & Infra · variant of `cloud` — held from the download board (candidate E, 2026-10-18): draw it with cloud so the cloud is settled once; draft in lab/drafts/archive/cloud-download.js
 - [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
-- [x] 506. `wheelchair-2` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
-- [x] 506. `wheelchair-3` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
+- [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
+- [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
