@@ -549,7 +549,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 177. `drag-handle-2` · UI & Layout · variant of `drag-handle` — Six dots, lying · approved 2026-10-18
 - [x] 177. `drag-handle-3` · UI & Layout · variant of `drag-handle` — Three short lines · approved 2026-10-18
 - [ ] 178. `face-laugh` · Communication
-- [~] 179. `id-card` · Users & Access
+- [x] 179. `id-card` · Users & Access — approved 2026-10-19
+- [x] 179. `id-card-2` · Users & Access · variant of `id-card` — Badge with a slot · A4's figure at 16 · approved 2026-10-19
+- [x] 179. `id-card-3` · Users & Access · variant of `id-card` — Clip-on badge · A4's figure at 16 · approved 2026-10-19
+- [x] 179. `id-card-4` · Users & Access · variant of `id-card` — Passport · approved 2026-10-19
 - [ ] 180. `indent` · Editing & Text
 - [ ] 181. `outdent` · Editing & Text
 - [ ] 182. `popup` · UI & Layout
