@@ -670,7 +670,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
 - [ ] 268. `drag-drop` · UI & Layout
 - [ ] 269. `newsletter` · Communication
-- [~] 270. `passkey` · Users & Access
+- [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [ ] 271. `status` · Status & Feedback
 - [ ] 272. `translate` · Communication
 - [ ] 273. `viewport-narrow` · UI & Layout
