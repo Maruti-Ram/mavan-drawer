@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { facingGap, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, facingGap, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkPairs, checkTwins, comparePair, lintSource, parseAnchorNote, parseBadgeNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -1226,4 +1226,21 @@ test('lint §5f: a ring\'s hole honours the file\'s gap note; a badge\'s ring ne
     `<path stroke-width="1.5" d="${RING(17, 17, 1.25)}"/>`], ['keyline: mark', 'gap: 1', 'badge: line']));
   assert.deepEqual(badge.errors, [], badge.errors.join(' | '));
   assert.deepEqual(ringWarn(badge), ['path 3 is a ring with a hole 1 across at 17,17 — §6 needs 1.5 (radius 1.25 at stroke 1.5)']);
+});
+
+// --- anatomy's detached dot is a solid one (build metrics, the Library's "void", 2026-10-20) ---
+// It looked for "one detached dot" with `isDot`, which matches every closed two-arc path, so
+// target's inner ring made a second "dot" (no reading), id-card 24's ring head read as the dot,
+// and globe's meridian ellipse gave a negative void.
+test('anatomy: a mark\'s detached dot is a solid dot, never a ring or an ellipse', () => {
+  const SHELL = RING(12, 12, 9.25);
+  // target: a ring and a dot inside the ring — the dot's void is to the inner ring's edge
+  assert.deepEqual(anatomy([SHELL, RING(12, 12, 5), RING(12, 12, 0.75)], 1.5).gap, { size: 2.75, part: 3, ratio: 0.92 });
+  // a ring head over a line (id-card at 24): no dot, so no void
+  assert.equal(anatomy([SHELL, RING(12, 9, 2), 'M8 16H16'], 1.5).gap, null);
+  // globe: a meridian ellipse crossing the equator is body, not a dot
+  assert.equal(anatomy([SHELL, 'M12 2.75A3.75 9.25 0 1 0 12 21.25A3.75 9.25 0 1 0 12 2.75Z', 'M2.75 12H21.25'], 1.5).gap, null);
+  // the dot is judged at the stroke it is drawn at: r 1 is a dot at 2, a ring at 1.5
+  assert.deepEqual(anatomy([SHELL, RING(12, 8, 1), 'M12 12V17'], 2).gap, { size: 1, part: 4, ratio: 0.25 });
+  assert.equal(anatomy([SHELL, RING(12, 8, 1), 'M12 12V17'], 1.5).gap, null);
 });

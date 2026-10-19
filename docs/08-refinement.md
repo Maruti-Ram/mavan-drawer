@@ -226,7 +226,10 @@ re-deriving it and getting it wrong differently. It splits a stroked drawing int
 silhouette and mark and returns:
 
 - **`ratio`** — mark ink box ÷ container ink diameter.
-- **`gap`** — a glyph's dot-to-body void, and that ÷ the dot's own size.
+- **`gap`** — a glyph's dot-to-body void, and that ÷ the dot's own size. The dot is a solid one
+  (`isSolidDot`); until 2026-10-20 a ring or an ellipse in the mark was read as the dot too, so
+  globe got a negative void, id-card at 24 read its ring head as a dot, and target and camera-6
+  read nothing.
 
 It also now owns `isDot`, which lint had duplicated.
 

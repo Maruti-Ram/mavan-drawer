@@ -209,6 +209,9 @@ const r2 = (n) => Math.round(n * 100) / 100;
  *   gap    for a mark with one detached dot (an i, a ?, a !), the space between
  *          dot and body, and that space over the dot's own size. This is what
  *          "a hollow middle" measures; 1.5 units next to a 2-unit dot is 0.75 of it.
+ *          The dot is a SOLID one (`isSolidDot`, at `stroke`): a ring, an ellipse or a
+ *          crescent in the mark is body, not a dot (2026-10-20; until then globe's
+ *          meridian read as a dot, and camera's lens as a second one).
  *
  * `shell` is the path whose ink box is the whole drawing's — the ring of a
  * `-circle` icon. A bare mark has none, and then there is no ratio to take.
@@ -229,8 +232,9 @@ export function anatomy(paths, stroke) {
 
   // one detached dot, and the nearest approach from it to everything else
   let gap = null;
-  const di = rest.findIndex(isDot);
-  if (di >= 0 && rest.length > 1 && rest.filter(isDot).length === 1) {
+  const solid = (d) => isSolidDot(d, stroke);
+  const di = rest.findIndex(solid);
+  if (di >= 0 && rest.length > 1 && rest.filter(solid).length === 1) {
     const dot = rest[di], body = rest.filter((_, i) => i !== di);
     const db = grow(bbox([dot]), h);
     const dp = samplePath(dot), bp = body.flatMap(samplePath);
