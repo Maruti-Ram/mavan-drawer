@@ -510,7 +510,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
-- [ ] 151. `form` · UI & Layout
+- [~] 151. `form` · UI & Layout
 - [ ] 152. `import` · Files & Folders
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
 - [x] 153. `layout-header-2` · UI & Layout · variant of `layout-header` — Third, solid header · approved 2026-09-26
@@ -592,7 +592,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 199. `unlock-swung` · Users & Access · variant of `unlock` — Swung aside left, centred · approved 2026-10-19
 - [ ] 200. `video` · Files & Folders — mvp
 - [ ] 201. `zap` · Status & Feedback
-- [~] 202. `zoom-in` · UI & Layout
+- [x] 202. `zoom-in` · UI & Layout — approved 2026-10-20
 - [~] 203. `zoom-out` · UI & Layout
 - [x] 204. `anchor` · Maps & Location — approved 2026-10-18
 - [x] 204. `anchor-2` · Maps & Location · variant of `anchor` — Minimal · approved 2026-10-18
@@ -615,7 +615,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 216. `contrast` · UI & Layout
 - [x] 217. `fingerprint` · Users & Access — approved 2026-10-19
 - [x] 217. `fingerprint-2` · Users & Access · variant of `fingerprint` — Symmetric arches · approved 2026-10-19
-- [ ] 218. `hand` · UI & Layout
+- [~] 218. `hand` · UI & Layout
 - [ ] 219. `headset` · Communication
 - [ ] 220. `highlighter` · Editing & Text
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
