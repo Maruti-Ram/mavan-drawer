@@ -628,7 +628,10 @@ Bases before their variants; within that, highest evidence first.
 - [~] 223. `messages` · Communication — mvp
 - [ ] 224. `password` · UI & Layout
 - [ ] 225. `pen-sparkle` · Editing & Text
-- [~] 226. `sticker` · Communication
+- [x] 226. `sticker` · Communication — approved 2026-10-20
+- [x] 226. `sticker-2` · Communication · variant of `sticker` — Square with face-smile's face, corner peeled · approved 2026-10-20
+- [x] 226. `sticker-3` · Communication · variant of `sticker` — Round, edge peeled · approved 2026-10-20
+- [x] 226. `sticker-4` · Communication · variant of `sticker` — Round face, edge peeled · approved 2026-10-20
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 228. `vault` · Users & Access — approved 2026-10-19
 - [x] 228. `vault-2` · Users & Access · variant of `vault` — Round bank-vault door · approved 2026-10-19
