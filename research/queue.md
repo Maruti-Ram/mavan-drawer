@@ -619,7 +619,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
-- [~] 228. `vault` · Users & Access
+- [x] 228. `vault` · Users & Access — approved 2026-10-19
+- [x] 228. `vault-2` · Users & Access · variant of `vault` — Round bank-vault door · approved 2026-10-19
+- [x] 228. `vault-3` · Users & Access · variant of `vault` — Hinged safe with a keyhole · approved 2026-10-19
 - [ ] 229. `align-object-bottom` · Design Tools
 - [ ] 230. `align-object-center-h` · Design Tools
 - [ ] 231. `align-object-center-v` · Design Tools
