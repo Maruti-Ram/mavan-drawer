@@ -732,7 +732,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 310. `radio` · Media & Playback
 - [ ] 311. `server` · Development & Infra
 - [ ] 312. `speaker` · Media & Playback
-- [ ] 313. `terminal` · Development & Infra
+- [x] 313. `terminal` · Development & Infra — approved 2026-10-20
+- [x] 313. `terminal-2` · Development & Infra · variant of `terminal` — Prompt in a window · approved 2026-10-20
 - [ ] 314. `tv` · Devices & Hardware
 - [ ] 315. `voicemail` · Devices & Hardware
 - [x] 316. `chevrons-down` · Arrows & Direction — approved 2026-10-17
