@@ -605,7 +605,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 211. `pen-tool` · Design Tools
 - [ ] 212. `shopping-bag` · Commerce & Payments
 - [ ] 213. `tag` · Commerce & Payments
-- [~] 214. `accessibility` · Users & Access
+- [x] 214. `accessibility` · Users & Access — approved 2026-10-19
+- [x] 214. `accessibility-2` · Users & Access · variant of `accessibility` — Two-line body · approved 2026-10-19
 - [x] 215. `alarm-clock` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 215. `alarm-clock-2` · Time & Calendar · variant of `alarm-clock` — Curved caps, floating · approved 2026-10-17
 - [ ] 216. `contrast` · UI & Layout
