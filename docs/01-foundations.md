@@ -379,6 +379,15 @@ Corollaries:
   drawn as a stroke leaves a hole 2r − w across inside it (a key's bow, a ring badge, a keyhole),
   and lint §5f holds that hole to 1.5, or to the file's agreed gap (2026-10-20). A circle whose
   radius is at most half its stroke is a dot: it draws solid and has no hole.
+- **Arms that cross keep 1.5 at their tips** (2026-10-20). Where two strokes cross and two
+  neighbouring arms meet at under 86°, measured tip to tip, the wedge between them fills in at 16
+  unless the arms reach far enough apart: the shorter arm's cap centre, r from the crossing, and the
+  point r along its neighbour stand 1.5 apart, edge to edge ("tip air at equal reach"; `password-2`'s
+  asterisk holds 2.25 · 1.5 · 1.5). Lint §5 measures it, and §5h the same arms where a filled twin
+  traces them as one shape, as warnings. Right-angle crossings (plus, x, #), arrowheads, single-path
+  bends and T-joins are not judged, nor an overhang whose cap sits inside its neighbour's ink. A
+  file's agreed `gap:` applies; a character's own arms take C19's 1 under `glyph:`; a C33 badge's
+  arms keep 1.5 whatever the file's `gap:` says.
 - **No more than 3 parallel strokes** in one run. Four is a texture, not an icon.
 - When a detail cannot fit at a 2-unit gap, **remove the detail**. Do not shrink
   the stroke locally — varying stroke weight within a set is the fastest way to

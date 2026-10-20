@@ -366,6 +366,19 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   database's lid, the moon, `paintbrush-5`'s spindle handle) go to `facingGap` like any closed path. First
   run over 3,792 drawings: no result changed. 406 rings; the tightest hold exactly 1.5 (31 rings in 21
   files on 9 concepts — `share`, `anchor`, `cart-4`, `users-wide`…); database's lid at 16 reads 1.74.
+- **Dated note, 2026-10-20 — the wedge between crossing arms is measured.** Lint §5 read every
+  crossing as a join and measured nothing between the arms, and `facingGap` cannot see the wedge (its
+  walls meet at an angle, never square-on), so `password-3` shipped 0.62 of air between its asterisks'
+  arm tips at 16 and lint said nothing. `armTipGap` (`tools/geometry.mjs`) now reads **tip air at equal
+  reach** where strokes cross and two neighbouring arms meet at under 86°, measured tip to tip: the
+  shorter arm's cap centre, r from the crossing, to the point r along its neighbour, less half of each
+  weight (docs/01 §6). §5 warns under 1.5, the file's agreed gap, or C19's 1 for a character's own
+  arms; §5h reads the same arms where a filled twin traces them as one shape (`password-2-filled` reads
+  exactly what its outline does). First run over 4,206 drawings: 10 drawings warn, as Maruti agreed —
+  `language` at 16 (0.75), `language-filled` (1 · 0.5 · −0.34 at 24 · 20 · 16), and `hash-2-filled` /
+  `hash-3-filled` at their 80° crossings (tightest 0.82 · 1.25 / 1.19 · 0.82); nothing else changed.
+  **Not judged, by decision:** right-angle crossings, arrowheads, single-path bends, T-joins, and a
+  filled notch whose walls do not both end in a round tip.
 - Touching paths are skipped (`min > 0.1`), which is why C18's flag-to-bar exception was
   invisible.
 

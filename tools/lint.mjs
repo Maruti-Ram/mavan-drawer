@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, facingGap, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, facingGap, armTipGap, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -99,9 +99,10 @@ export function parseGrowsNote(src) {
 
 // An icon may declare its own agreed minimum gap: `<!-- gap: N -->`, that master's
 // units, between any two stroke edges in THIS file. It replaces §6's MIN_GAP for the
-// proximity checks below (path-vs-path in §5, path-vs-itself in §5b, facing walls in §5f)
-// and for that file alone; C19's glyph pairs keep GLYPH_GAP, and the knockout check keeps
-// MIN_GAP.
+// proximity checks below (path-vs-path in §5 and the tips of arms that cross there,
+// path-vs-itself in §5b, facing walls in §5f, the tips of arms traced as one filled shape in
+// §5h) and for that file alone; C19's glyph pairs and a character's own arms keep GLYPH_GAP,
+// a C33 badge keeps MIN_GAP, and the knockout check keeps MIN_GAP.
 // Agreed by eye at approval (attachment-4-filled, 2026-09-20: the filled clip keeps all
 // four legs, so the path passes within 1.04 of itself at 24 and 1.0 at 20).
 // Same spirit as `box:` and `grows:` — a declared deviation is held to its own number
@@ -156,11 +157,14 @@ export function parseBaseNote(src) {
 // C19 is declared per file as `<!-- glyph: KIND -->`. Two kinds:
 //   dot      one character with a detached dot (info-circle's i, help-circle's ?, alert's !): the {dot, body}
 //            pair and the character's own opening floor at GLYPH_GAP (§5, §5b), and so does
-//            what a knockout leaves between two parts of itself (§5c)
+//            what a knockout leaves between two parts of itself (§5c); since 2026-10-20 so do
+//            the tips of the character's own crossing arms, between any paths but the
+//            silhouette (§5) and in any shape but the silhouette's notches (§5h)
 //   numeral  numerals drawn inside an icon (list-ordered's 1 and 2, 2026-09-26): a numeral's
 //            own opening - the mouth of a 2 between its entry terminal and its neck - floors at
-//            GLYPH_GAP (§5b) and nothing else does; numeral-to-numeral and numeral-to-line are
-//            separate paths and keep MIN_GAP
+//            GLYPH_GAP (§5b), and since 2026-10-20 so do the tips of arms where one path
+//            crosses itself (§5) and a filled shape's notches (§5h); nothing else does:
+//            numeral-to-numeral and numeral-to-line are separate paths and keep MIN_GAP
 // Until 2026-09-26 any other value was silently read as no note at all; now it is an ERROR,
 // like the other notes, so a misspelt kind can never leave a drawing held to the wrong floor.
 // Returns null (no note), {kind, raw}, or {raw, bad: true}.
@@ -532,15 +536,40 @@ export function lintSource(canvas, file, src) {
   // and the file's `gap` note — agreed for the base's own runs — never reaches it; the badge's
   // own paths keep MIN_GAP too. A badge that touches or crosses its base has no air at all, so
   // it warns instead of passing as a join. The tightest badge-to-base air is printed (5g).
+  // ARMS THAT CROSS (2026-10-20, docs/01 §6): two paths that cross join by design, but where
+  // two neighbouring arms meet at under 86 degrees, tip to tip, the wedge between them fills
+  // in at 16 when the arms are short (password-3 shipped 0.62 of air at 16). `armTipGap`
+  // measures the tip air at equal reach: the shorter arm's cap centre, r from the crossing,
+  // to the point r along its neighbour, less half of each weight. A character's own arms floor
+  // at GLYPH_GAP (C19, 2026-10-20): under `glyph: dot` any two paths but the silhouette, as the
+  // pair above reads the glyph; under `glyph: numeral` one path crossing itself only, since a
+  // numeral's clearance to the next numeral and to its line is between separate paths and keeps
+  // MIN_GAP. Everything else floors at this file's agreed gap, else MIN_GAP; a C33 badge's own
+  // arms keep MIN_GAP (a badge crossing its base already warns that they meet). Right-angle crossings, arrowheads, single-path
+  // bends and T-joins are not judged, and nor is a short overhang whose cap sits inside its
+  // neighbour's ink (store at 16). One reading per pair of paths, the tightest: judged in the
+  // crossing branch below, and after the loop for a path that crosses itself. WARNINGS.
   const sampled = ds.map(samplePath);
   const spans = ds.map((d) => bbox([d]));
   const whole = ds.length ? bbox(ds) : null;
   const isShell = (b) => whole && ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(b[k] - whole[k]) < 0.01);
   let badgeAir = Infinity;   // the tightest air between the badge and its base, for 5g
+  const tips = armTipGap(ds, W, areas, { weight: STROKE });   // each path at its own weight (C32, C33)
+  const armsAt = new Map(tips.cross.map((t) => [t.paths.join('/'), t]));
+  const judgeArms = ({ paths: [i, j], angle, gap: g, at }) => {
+    if (!!inBadge[i] !== !!inBadge[j]) return;   // badge on base: it already warns that they meet
+    const onBadge = !!inBadge[i];
+    const inGlyph = !onBadge && (isGlyph ? !isShell(spans[i]) && !isShell(spans[j]) : isNumeral && i === j);
+    const floor = onBadge ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
+    if (!inGlyph && !onBadge) measured.push(r2(g));
+    if (g < floor - 0.01)
+      warnings.push(`${i === j ? `path ${i + 1} crosses itself` : `paths ${i + 1}/${j + 1} cross`} at ${Math.round(angle)}° with ${r2(g)} of air at the arm tips at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+  };
+  const crossed = (i, j) => { const t = armsAt.get(`${i}/${j}`); if (t) { armsAt.delete(`${i}/${j}`); judgeArms(t); } };
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
     const onBadge = !!inBadge[i] || !!inBadge[j], toBase = !!inBadge[i] !== !!inBadge[j];
     const met = `paths ${i + 1}/${j + 1} meet — C33 cuts the base back with ${MIN_GAP} of air from the badge's ink`;
-    if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); continue; } // paths that cross (x, plus) join by design
+    if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else crossed(i, j); continue; } // paths that cross (x, plus) join by design; their arms' tips are judged
     // the badge is read first, so no badge path ever takes the glyph's floor of 1 (and a ring
     // badge beside `glyph: dot` is not the glyph's dot either way: it is not solid)
     const glyphPair = !onBadge && isGlyph && isSolidDot(ds[i], W[i]) !== isSolidDot(ds[j], W[j]) && !isShell(spans[i]) && !isShell(spans[j]);
@@ -556,6 +585,8 @@ export function lintSource(canvas, file, src) {
     if (min < need - 0.01)
       warnings.push(`paths ${i + 1}/${j + 1} are ${r2(min)} apart — ${glyphPair ? 'C19 glyph gap' : toBase ? 'C33 badge air' : !onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${need} (edge gap ${r2(min - pen)} < ${floor})`);
   }
+  // a path crossing itself, and any crossing the sampled test above did not see
+  for (const t of armsAt.values()) judgeArms(t);
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
   // §6's corollary "no enclosed shape smaller than 1.5 units across" has never been
@@ -679,9 +710,31 @@ export function lintSource(canvas, file, src) {
     }
   }
 
+  // --- 5h. advisory: arms traced as one filled shape --------------------------
+  // A filled twin that traces its outline's crossing arms as one evenodd shape (password-2-filled,
+  // 2026-10-20) has no centrelines to cross, so §5 cannot read it and 5f cannot either (a notch's
+  // walls meet at an angle, never square-on). `armTipGap` rebuilds a white notch under 86 degrees
+  // whose two walls both end in a round tip into two arms, and reads the same tip air the
+  // outline's crossing gives, against the floors §5 gives crossing arms: a character's own arms
+  // take GLYPH_GAP — under `glyph: dot` any shape but the silhouette (the one spanning the whole
+  // ink box), under `glyph: numeral` any notch, since a notch is always within one shape — and
+  // everything else this file's agreed gap, else MIN_GAP. No notch can be a C33 badge's: a line
+  // badge is drawn as strokes at its own weight, which only a line-heavy file (no shapes) allows,
+  // so a badge's arms are §5's and keep MIN_GAP there. Any other notch (a cut-out corner, a
+  // sliver with no tips) is not read. WARNINGS.
+  for (const { area, angle, gap: g, at } of tips.notch) {
+    const own = bbox([areas[area]]);
+    const silhouette = ink && ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(own[k] - ink[k]) < 0.01);
+    const inGlyph = isGlyph ? !silhouette : isNumeral;
+    const floor = inGlyph ? GLYPH_GAP : GAP;
+    if (!inGlyph) measured.push(r2(g));
+    if (g < floor - 0.01)
+      warnings.push(`a filled shape's arms meet at ${Math.round(angle)}° with ${r2(g)} of air at the arm tips at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+  }
+
   // --- 5d. is the agreed gap still doing anything? ------------------------
-  // The note lowers the floor, so it has to earn its place: if nothing the two checks
-  // above measure comes closer than §6's own floor, the drawing no longer needs it and
+  // The note lowers the floor, so it has to earn its place: if nothing the checks above
+  // measure under it (§5 with its crossing arms, §5b, §5f and §5h) comes closer than §6's own floor, the drawing no longer needs it and
   // the note is stale — an ERROR, so it is deleted rather than left to excuse a future
   // change nobody agreed. Otherwise it is in force, and says so the way `grows` does.
   if (gap) {

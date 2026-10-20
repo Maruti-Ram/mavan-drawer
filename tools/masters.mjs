@@ -112,4 +112,7 @@ export const gridName = (master) => gridNameFor(strokeOf(master));
 // file does (numeral to numeral and numeral to line keep MIN_GAP). At 16 a 2 is
 // about four strokes tall; holding its mouth at 1.5 laid the diagonal down to
 // 25-30 degrees (40 at 24), and the 2 read slanted and crooked.
+// Extended 2026-10-20 to a character's own CROSSING ARMS (the tip air lint §5 reads with
+// `armTipGap`, docs/01 §6): under `glyph: dot` any two paths but the silhouette, under
+// `glyph: numeral` one path crossing itself only.
 export const GLYPH_GAP = 1;

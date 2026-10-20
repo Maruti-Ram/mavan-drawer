@@ -73,7 +73,10 @@ export default {
     stroke-width" (the 16 stroke is 1.25). If a detail can't keep that gap, remove the detail.
     **Filled drawings too:** a line punched out of a shape, a band between two filled parts, a notch
     and a shape-to-line gap hold 1.5 of white at every master — at 16 wider than the 1.25 line
-    (2026-09-28, C22). Lint §5f checks it, and the air inside a closed path.
+    (2026-09-28, C22). Lint §5f checks it, and the air inside a closed path. **Arms that cross**
+    keep 1.5 at their tips where two neighbouring arms meet at under 86°, tip to tip (an asterisk,
+    a slanted #, the 文 of `language`): the shorter arm's cap centre to the point as far along its
+    neighbour (docs/01 §6, 2026-10-20). Lint §5 warns on it, and §5h on the same arms traced filled.
   - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
     on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
     pixels — with at most 3 decimal places. Comment every decimal that corrects something.
