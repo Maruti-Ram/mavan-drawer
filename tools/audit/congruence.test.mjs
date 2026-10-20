@@ -426,10 +426,11 @@ test('(d) the container ring across masters — and why "congruent up to scale" 
   });
 
 test('the whole set parses — nothing is refused', { skip: !haveSet }, () => {
-  let paths = 0, refused = [];
+  let paths = 0, elements = 0, refused = [];
   for (const m of [24, 20, 16]) {
     for (const f of readdirSync(join(ICONS, String(m)))) {
       if (!f.endsWith('.svg')) continue;
+      elements += readFileSync(join(ICONS, String(m), f), 'utf8').match(/<path\b/g)?.length ?? 0;
       for (const d of ds(m, f.replace(/\.svg$/, ''))) {
         paths++;
         try { canonical(d); } catch (e) { refused.push(`${m}/${f}: ${e.reason}`); }
@@ -437,5 +438,9 @@ test('the whole set parses — nothing is refused', { skip: !haveSet }, () => {
     }
   }
   assert.deepEqual(refused, []);
-  assert.equal(paths, 7476, 'path count at 5933041');
+  // This reads the live set, which grows with every approval, so a fixed count cannot stand here
+  // (7,500 at 5933041; 7,476 after sitting A's renames, 078e783; 11,998 on 2026-10-20). What it
+  // guards is that the walk read the whole set: one `d` for every <path>, counted apart.
+  assert.ok(paths > 0, 'the set was read');
+  assert.equal(paths, elements, 'one d per <path> element');
 });

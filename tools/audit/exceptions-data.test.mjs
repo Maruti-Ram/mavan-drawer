@@ -50,6 +50,7 @@ test('each comment lands in exactly one group, by the stated rule', () => {
   assert.equal(g('box: 20x18'), 'box');
   assert.equal(g('optical: 0.5 0'), 'optical');
   assert.equal(g('glyph: numeral'), 'glyph');
+  assert.equal(g('glyph: letter'), 'glyph', 'a kind lint knows since 2026-10-20 (C32)');
   assert.equal(g('grows: 0 0 0.5 0.5', { style: 'filled', concept: 'a' }), 'grows');
   assert.equal(g('anchor: volume'), 'anchor');
   assert.equal(g('gap: 1'), 'gap');
@@ -66,7 +67,7 @@ test('each comment lands in exactly one group, by the stated rule', () => {
   assert.equal(g('grows: 0 0 0.5 0.5'), 'ungrouped', 'grows in an outline file');
   assert.equal(g('gap: 1.5'), 'ungrouped', 'at the floor');
   assert.equal(g('anchor: a'), 'ungrouped', 'names its own file');
-  assert.equal(g('glyph: letter'), 'ungrouped');
+  assert.equal(g('glyph: letters'), 'ungrouped');
   // a misspelt key is free text, as lint reads it
   assert.equal(g('opticl: 0 0.5'), 'text');
 });
@@ -142,6 +143,18 @@ test('classifyWarning reads every gap warning lint prints', () => {
   assert.deepEqual([self.check, self.kind, self.floorKind], ['§5f', 'self', 'agreed']);
   for (const [phrase, kind] of [['across one cut-out', 'cut'], ['in a notch of the outer edge', 'notch'], ['between two filled edges', 'separation'], ['between a shape and a line', 'line']])
     assert.equal(classifyWarning(`1.49 of air ${phrase} at 1,2 — §6 needs 1.5`).kind, kind);
+  // the gap checks lint gained on 2026-10-20: §5's crossing arms, §5f's ring hole, §5h, §5i
+  const arms = classifyWarning('paths 1/2 cross at 21° with 0 of air at the arm tips at 6,12.75 — §6 needs 1.5');
+  assert.deepEqual([arms.check, arms.kind, arms.reading, arms.floor, arms.paths, arms.at], ['§5', 'arms', 0, 1.5, [1, 2], [6, 12.75]]);
+  assert.deepEqual(classifyWarning('path 3 crosses itself at 40° with 0.9 of air at the arm tips at 1,2 — C19 numeral gap needs 1').paths, [3]);
+  const ring = classifyWarning('path 1 is a ring with a hole 0.9 across at 12,12 — §6 needs 1.5 (radius 1.2 at stroke 1.5)');
+  assert.deepEqual([ring.check, ring.kind, ring.reading, ring.floor, ring.paths], ['§5f', 'ring', 0.9, 1.5, [1]]);
+  const notch = classifyWarning('a filled shape\'s arms meet at 30° with 1.2 of air at the arm tips at 3,4 — agreed gap 1 needs 1');
+  assert.deepEqual([notch.check, notch.kind, notch.reading, notch.floorKind], ['§5h', 'arms', 1.2, 'agreed']);
+  const inside = classifyWarning('path 2 (subpath 1) leaves 0.82 of air inside itself at 12,11.16 (the widest circle that fits) — §6 needs 1.5');
+  assert.deepEqual([inside.check, inside.kind, inside.reading, inside.paths], ['§5i', 'inside', 0.82, [2]]);
+  const hole = classifyWarning('a cut-out leaves 1.39 of air inside it at 12,10.69 (the widest circle that fits) — §6 needs 1.5');
+  assert.deepEqual([hole.check, hole.kind, hole.reading, hole.at], ['§5i', 'hole', 1.39, [12, 10.69]]);
   assert.equal(classifyWarning('off-centre at 7.5,8'), null);
 });
 

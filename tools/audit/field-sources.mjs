@@ -405,14 +405,14 @@ export const CALIBRATION = [
     bound: D(22, '24: circles 22 (1 to 23)', '§2.17', { kind: 'keyline' }) },
   // ours (K): the masters file, the Settled table and the report's own K row for the proposed container radius
   { system: 'Mavan', size: 24, canvas: 24, basis: 'K',
-    stroke: D(1.5, 'STROKES = { 24: 1.5, 20: 1.5, 16: 1.25 }', 'tools/masters.mjs:10'), circle: D(20, 'circle: [20, 20]', 'tools/masters.mjs:33'), square: D(18, 'square: [18, 18]', 'tools/masters.mjs:33'),
-    radius: D(2.5, 'Mavan container (proposed) | 2.5/24 = 10.4%', '§3.4'), gap: D(1.5, 'MIN_GAP = 1.5', 'tools/masters.mjs:64'), cut: null, bound: D(20, 'circle: [20, 20]', 'tools/masters.mjs:33', { kind: 'keyline' }) },
+    stroke: D(1.5, 'STROKES = { 24: 1.5, 20: 1.5, 16: 1.25 }', 'tools/masters.mjs:10'), circle: D(20, 'circle: [20, 20]', 'tools/masters.mjs:38'), square: D(18, 'square: [18, 18]', 'tools/masters.mjs:38'),
+    radius: D(2.5, 'Mavan container (proposed) | 2.5/24 = 10.4%', '§3.4'), gap: D(1.5, 'MIN_GAP = 1.5', 'tools/masters.mjs:74'), cut: null, bound: D(20, 'circle: [20, 20]', 'tools/masters.mjs:38', { kind: 'keyline' }) },
   { system: 'Mavan', size: 20, canvas: 20, basis: 'K',
-    stroke: D(1.5, 'STROKES = { 24: 1.5, 20: 1.5, 16: 1.25 }', 'tools/masters.mjs:10'), circle: D(16, 'circle: [16, 16]', 'tools/masters.mjs:38'), square: D(14, 'square: [14, 14]', 'tools/masters.mjs:38'),
-    radius: null, gap: D(1.5, 'MIN_GAP = 1.5', 'tools/masters.mjs:64'), cut: null, bound: D(16, 'circle: [16, 16]', 'tools/masters.mjs:38', { kind: 'keyline' }) },
+    stroke: D(1.5, 'STROKES = { 24: 1.5, 20: 1.5, 16: 1.25 }', 'tools/masters.mjs:10'), circle: D(16, 'circle: [16, 16]', 'tools/masters.mjs:43'), square: D(14, 'square: [14, 14]', 'tools/masters.mjs:43'),
+    radius: null, gap: D(1.5, 'MIN_GAP = 1.5', 'tools/masters.mjs:74'), cut: null, bound: D(16, 'circle: [16, 16]', 'tools/masters.mjs:43', { kind: 'keyline' }) },
   { system: 'Mavan', size: 16, canvas: 16, basis: 'K',
-    stroke: D(1.25, 'STROKES = { 24: 1.5, 20: 1.5, 16: 1.25 }', 'tools/masters.mjs:10'), circle: D(14, 'circle: [14, 14]', 'tools/masters.mjs:43'), square: D(12, 'square: [12, 12]', 'tools/masters.mjs:43'),
-    radius: null, gap: D(1.5, 'MIN_GAP = 1.5', 'tools/masters.mjs:64'), cut: D(1.5, 'cut out of a filled shape holds 1.5 at 16', 'CLAUDE.md:93'), bound: D(14, 'circle: [14, 14]', 'tools/masters.mjs:43', { kind: 'keyline' }) },
+    stroke: D(1.25, 'STROKES = { 24: 1.5, 20: 1.5, 16: 1.25 }', 'tools/masters.mjs:10'), circle: D(14, 'circle: [14, 14]', 'tools/masters.mjs:48'), square: D(12, 'square: [12, 12]', 'tools/masters.mjs:48'),
+    radius: null, gap: D(1.5, 'MIN_GAP = 1.5', 'tools/masters.mjs:74'), cut: D(1.5, 'cut out of a filled shape holds 1.5 at 16', 'CLAUDE.md:97'), bound: D(14, 'circle: [14, 14]', 'tools/masters.mjs:48', { kind: 'keyline' }) },
 ];
 export const CALIBRATION_KEYS = ['stroke', 'circle', 'square', 'radius', 'gap', 'cut', 'bound'];
 

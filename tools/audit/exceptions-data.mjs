@@ -33,7 +33,8 @@
 // masters.mjs beside it) changed in two ways, each of which must match exactly or this stops:
 //   - the five gap comparisons (`< need - 0.01)`, `< floor - 0.01)` ×3, `< GAP - 0.01)`;
 //     lint.mjs:403, 438, 465, 493, 499) lose their 0.01: every warning that appears only then is
-//     one reading in the slack band (group 19);
+//     one reading in the slack band (group 19). Today's lint (2026-10-20) has ten — the same five
+//     plus §5's crossing arms, §5f's ring hole, §5h and §5i ×2 — and loses all ten (`SLACKS`);
 //   - the two `continue`s that skip a pair of paths that cross (lint.mjs:394) or come within 0.1
 //     (lint.mjs:401) report the pair before skipping it (group 18).
 // So lint measures its own escapes; nothing here re-implements a gap check.
@@ -198,25 +199,40 @@ export function fnv(s) {
 export const SLACK = /(<\s*(?:need|floor|GAP))\s*-\s*0\.01\)/g;
 export const CROSS = 'if (crosses(sampled[i], sampled[j])) continue;';
 export const TOUCH = 'if (min <= 0.1) continue;';
+// lint at 2026-10-20 skips the same two pairs, but first warns when a C33 badge meets its base,
+// and hands a crossing pair to the arm-tip check (§5)
+export const CROSS_NOW = 'if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else crossed(i, j); continue; }';
+export const TOUCH_NOW = 'if (min <= 0.1) { if (toBase) warnings.push(met); continue; }';
+/** The lints the patch is known to fit, by how many gap comparisons carry the 0.01 slack. */
+export const LINTS = {
+  5: { what: 'the pin 5933041: §5, §5b, §5c, §5f ×2 (lint.mjs:403, 438, 465, 493, 499)', CROSS, TOUCH },
+  10: { what: 'lint at 2026-10-20: those five plus §5\'s crossing arms, §5f\'s ring hole, §5h and §5i ×2 (lint.mjs:587, 607, 650, 678, 730, 744, 754, 780, 812, 823)',
+    CROSS: CROSS_NOW, TOUCH: TOUCH_NOW },
+};
+// the skip, reporting its pair first: `if (…) continue;` gains a block, a block gains a first statement
+const reported = (s, call) => (s.endsWith(') continue;') ? s.replace(' continue;', ` { ${call} continue; }`) : s.replace(') { ', `) { ${call} `));
 /**
- * lint.mjs's source → the same source with the five gap slacks removed and the two pair skips
- * reported to `globalThis.__mdxPair(i, j, kind, min)`. Throws unless every anchor matches exactly
- * as often as stated, so a lint that has moved is never measured by a patch that half-applied.
+ * lint.mjs's source → the same source with its gap slacks removed (five at the pin, ten today:
+ * `LINTS`) and the two pair skips reported to `globalThis.__mdxPair(i, j, kind, min)`. Throws
+ * unless every anchor of one known lint matches exactly as often as stated, so a lint that has
+ * moved is never measured by a patch that half-applied.
  */
 export function patchLint(src) {
   const slack = [...src.matchAll(SLACK)].length;
-  if (slack !== 5) throw new Error(`patchLint: expected 5 gap comparisons with a 0.01 slack, found ${slack}`);
-  for (const [name, s] of [['CROSS', CROSS], ['TOUCH', TOUCH]]) {
-    const k = src.split(s).length - 1;
+  const lint = LINTS[slack];
+  if (!lint) throw new Error(`patchLint: expected 5 gap comparisons with a 0.01 slack (the pin's lint) or 10 (lint at 2026-10-20), found ${slack}`);
+  for (const name of ['CROSS', 'TOUCH']) {
+    const k = src.split(lint[name]).length - 1;
     if (k !== 1) throw new Error(`patchLint: expected the ${name} skip once, found ${k}`);
   }
   return src.replace(SLACK, '$1)')
-    .replace(CROSS, 'if (crosses(sampled[i], sampled[j])) { globalThis.__mdxPair?.(i, j, "cross", null); continue; }')
-    .replace(TOUCH, 'if (min <= 0.1) { globalThis.__mdxPair?.(i, j, "touch", min); continue; }');
+    .replace(lint.CROSS, () => reported(lint.CROSS, 'globalThis.__mdxPair?.(i, j, "cross", null);'))
+    .replace(lint.TOUCH, () => reported(lint.TOUCH, 'globalThis.__mdxPair?.(i, j, "touch", min);'));
 }
 
 /**
- * One gap warning's text (lint.mjs §5, §5b, §5c, §5f) → what it measured. `check` is the lint
+ * One gap warning's text (lint.mjs §5, §5b, §5c, §5f; since 2026-10-20 also §5's crossing arms,
+ * §5f's ring hole, §5h and §5i) → what it measured. `check` is the lint
  * section, `reading` the gap it printed (the edge gap for §5), `floor` the floor it held it to,
  * `floorKind` §6 / glyph / numeral / agreed, `at` the point it names, `paths` the 1-based paths.
  * Returns null for a warning that is not a gap reading.
@@ -238,6 +254,14 @@ export function classifyWarning(w) {
     const kind = { 'across one cut-out': 'cut', 'in a notch of the outer edge': 'notch', 'between two filled edges': 'separation', 'between a shape and a line': 'line' }[m[2]];
     return { ...base, check: '§5f', kind, reading: +m[1], floor: +m[3], paths: [] };
   }
+  if ((m = w.match(/^(?:paths (\d+)\/(\d+) cross|path (\d+) crosses itself) at [\d.]+° with ([-\d.]+) of air at the arm tips .* needs ([-\d.]+)/)))
+    return { ...base, check: '§5', kind: 'arms', reading: +m[4], floor: +m[5], paths: m[3] ? [+m[3]] : [+m[1], +m[2]] };
+  if ((m = w.match(/^path (\d+) is a ring with a hole ([-\d.]+) across .* needs ([-\d.]+)/)))
+    return { ...base, check: '§5f', kind: 'ring', reading: +m[2], floor: +m[3], paths: [+m[1]] };
+  if ((m = w.match(/^a filled shape's arms meet at [\d.]+° with ([-\d.]+) of air at the arm tips .* needs ([-\d.]+)/)))
+    return { ...base, check: '§5h', kind: 'arms', reading: +m[1], floor: +m[2], paths: [] };
+  if ((m = w.match(/^(?:path (\d+)(?: \(subpath \d+\))? leaves|a cut-out leaves) ([-\d.]+) of air inside (?:itself|it) .* needs ([-\d.]+)/)))
+    return { ...base, check: '§5i', kind: m[1] ? 'inside' : 'hole', reading: +m[2], floor: +m[3], paths: m[1] ? [+m[1]] : [] };
   return null;
 }
 

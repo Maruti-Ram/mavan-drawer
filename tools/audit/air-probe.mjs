@@ -602,8 +602,8 @@ export async function lintWithMeasured() {
   };
   once("from './geometry.mjs'", `from '${new URL('../geometry.mjs', import.meta.url).href}'`);
   once("from './masters.mjs'", `from '${new URL('../masters.mjs', import.meta.url).href}'`);
-  once('return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, paths };',
-    'return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, paths, measured };');
+  once('return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, base, paths };',
+    'return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, base, paths, measured };');
   // lint runs its CLI when argv[1] is its own path; blank argv[1] while the copy loads
   const saved = process.argv[1];
   process.argv[1] = '';

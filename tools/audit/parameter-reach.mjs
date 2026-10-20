@@ -28,8 +28,8 @@
 //   grid      gridOf / decimalsOf — on-grid, off-grid and over-precision coordinates per master
 //
 // HOW EACH REACH IS MEASURED — and on which instrument.
-//   · The ink box is lint's (§4): a stroked path's centreline box grown by half the file's
-//     weight, an area as drawn (geometry.bbox). `bbox` samples arcs at 64 points and can sit up to
+//   · The ink box is lint's (§4): a stroked path's centreline box grown by half its own weight
+//     (the file's, or a C32 / C33 path's own stroke-width), an area as drawn (geometry.bbox). `bbox` samples arcs at 64 points and can sit up to
 //     0.0056 inside the true edge (plans/set-and-rules-audit.md, known defects), so every
 //     "reaches / matches" test here uses 0.01, never tighter.
 //   · Corners come from tools/audit/radii.mjs (`census`, `radiiOf`), roles and all. Its
@@ -108,10 +108,14 @@ export function drawingOf(p, src = readFileSync(p, 'utf8')) {
   const icon = readIcon(p);
   const master = icon.master;
   const notes = extractFile(src, master, basename(p));
-  const ds = icon.paths.filter((x) => x.style === 'stroke').map((x) => x.d);
+  const strokes = icon.paths.filter((x) => x.style === 'stroke');
+  const ds = strokes.map((x) => x.d);
   const areas = icon.paths.filter((x) => x.style === 'area').map((x) => x.d);
-  const half = icon.stroke / 2, boxes = [];
-  if (ds.length) { const b = bbox(ds); boxes.push([b.x0 - half, b.y0 - half, b.x1 + half, b.y1 + half]); }
+  // lint §4 grows each line by half its OWN weight: a numeral, a letter or a line badge in a
+  // line-heavy filled file carries the outline weight as its own stroke-width (C32, C33; lint §2b)
+  const tags = [...icon.src.matchAll(/<path\b([^>]*)\/>/g)].map((m) => m[1]).filter((a) => /\bd="([^"]+)"/.test(a));
+  const own = (x) => Number(tags[x.index].match(/\sstroke-width="([^"]*)"/)?.[1] ?? icon.stroke);
+  const boxes = strokes.map((x) => { const b = bbox([x.d]), half = own(x) / 2; return [b.x0 - half, b.y0 - half, b.x1 + half, b.y1 + half]; });
   if (areas.length) { const b = bbox(areas); boxes.push([b.x0, b.y0, b.x1, b.y1]); }
   const ink = boxes.length ? {
     x0: Math.min(...boxes.map((b) => b[0])), y0: Math.min(...boxes.map((b) => b[1])),
