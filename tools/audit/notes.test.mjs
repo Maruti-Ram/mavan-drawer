@@ -29,7 +29,7 @@ const svg = (canvas, weight, lines) => `${ROOT(canvas, weight)}\n${lines.map((l)
 // --- comments -------------------------------------------------------------------------------
 
 test('every key lint or the build reads is a note; anything else is free text', () => {
-  assert.deepEqual(NOTE_KEYS, ['keyline', 'tags', 'box', 'anchor', 'grows', 'gap', 'glyph', 'optical']);
+  assert.deepEqual(NOTE_KEYS, ['keyline', 'tags', 'box', 'anchor', 'base', 'grows', 'gap', 'glyph', 'badge', 'optical']);
   for (const key of NOTE_KEYS) assert.equal(parseComment(`${key}: x`, { style: 'filled', concept: 'a' }).kind, 'note', key);
   const plain = parseComment('Plain: folder box, this icon only (2026-09-20)');
   assert.equal(plain.kind, 'text');
@@ -97,6 +97,68 @@ test('anchor: an icon name, never -filled, never itself (lint.mjs:124-129, 259-2
   assert.match(self.lint.why, /anchor itself/);
 });
 
+test('base: an icon name, never -filled, never itself (lint.mjs:151-156, 345-350)', () => {
+  const b = parseComment('base: password', { style: 'filled', concept: 'password-lock' });
+  assert.equal(b.kind, 'note');
+  assert.deepEqual(b.parsed, { name: 'password' });
+  assert.equal(b.lint.reads, true);
+  assert.match(b.lint.why, /checkBases/);
+  for (const bad of ['password-filled', 'Password', 'pass word', ''])
+    assert.equal(parseComment(`base: ${bad}`, { concept: 'password-lock' }).parsed.bad, true, bad);
+  const self = parseComment('base: password-lock', { style: 'outline', concept: 'password-lock' });
+  assert.equal(self.lint.reads, false);
+  assert.deepEqual(self.parsed, { name: 'password-lock', bad: true });
+  assert.match(self.lint.why, /348-350/);
+});
+
+test('badge: line, and nothing else (lint.mjs:199-204, 318-320)', () => {
+  const b = parseComment('badge: line', { style: 'filled', concept: 'passkey-2' });
+  assert.equal(b.kind, 'note');
+  assert.deepEqual(b.parsed, { kind: 'line' });
+  assert.equal(b.lint.reads, true);
+  for (const bad of ['lines', 'shape', 'Line', ''])
+    assert.equal(parseComment(`badge: ${bad}`).lint.reads, false, bad);
+});
+
+// The pairs lint refuses (lint.mjs:321-323, 351-353, 476-478) are settled per file, so they are
+// read through extractFile — and held to lintSource on the same text, so the mirror is lint's.
+test('a badge beside glyph: numeral or letter, a base beside anchor or keyline: mark — lint drops the note', () => {
+  const LINE = '<path d="M4 12H20"/>';
+  const run = (name, notes, master = 24) => {
+    const src = svg(master, 1.5, [...notes.map((n) => `<!-- ${n} -->`), '<!-- a drawing -->', LINE]);
+    return { N: extractFile(src, master, `${name}.svg`), L: lintSource(master, `${name}.svg`, src) };
+  };
+  const both = /declares both/;
+  for (const kind of ['numeral', 'letter']) {
+    const { N, L } = run('k-filled', ['badge: line', `glyph: ${kind}`]);
+    assert.equal(N.notes.badge.lint.reads, false, kind);
+    assert.equal(N.notes.badge.parsed.bad, true);
+    assert.match(N.notes.badge.lint.why, new RegExp(`beside \`glyph: ${kind}\``));
+    assert.equal(N.notes.glyph.lint.reads, true, 'the glyph note stands');
+    assert.ok(L.errors.some((e) => both.test(e) && e.includes(`glyph: ${kind}`) && e.includes('badge: line')), `lint: ${L.errors.join('; ')}`);
+  }
+  assert.equal(run('k-filled', ['badge: line', 'glyph: dot']).N.notes.badge.lint.reads, true, 'glyph: dot keeps no path\'s weight');
+  assert.equal(run('k-filled', ['badge: line', 'glyph: dots']).N.notes.badge.lint.reads, true, 'a glyph note lint cannot read is dropped first');
+  for (const [other, word] of [['anchor: password', 'anchor'], ['keyline: mark', 'keyline: mark']]) {
+    const { N, L } = run('password-lock', ['base: password', other]);
+    assert.equal(N.notes.base.lint.reads, false, other);
+    assert.match(N.notes.base.lint.why, new RegExp(`beside \`${word}\``));
+    assert.equal(L.base, null, `lint drops the base beside ${other}`);
+    assert.ok(L.errors.some((e) => both.test(e) && e.includes('base:')), `lint: ${L.errors.join('; ')}`);
+  }
+  // lint's pattern runs on past an anchor it cannot match to the next one, and so does the clash
+  const past = run('password-lock', ['base: password', 'anchor: a > b', 'anchor: password']);
+  assert.equal(past.N.notes.base.lint.reads, false);
+  assert.equal(past.L.base, null);
+  const all3 = run('password-lock', ['base: password', 'anchor: password', 'keyline: mark']).N.notes.base;
+  assert.match(all3.lint.why, /beside `anchor`/, 'lint\'s order: the anchor is named first');
+  for (const other of ['box: 20x18', 'keyline: marks', 'anchor: password-lock']) {
+    const { N, L } = run('password-lock', ['base: password', other]);
+    assert.equal(N.notes.base.lint.reads, true, `${other}: the base stands`);
+    assert.equal(L.base?.name, 'password', `${other}: lint keeps it`);
+  }
+});
+
 test('optical: read and never validated; a malformed pair is NaN and disables the check (lint.mjs:319, 361)', () => {
   const o = parseComment('optical: 0 0.5');
   assert.deepEqual(o.parsed, { dx: 0, dy: 0.5, valid: true });
@@ -117,7 +179,7 @@ test('tags: never read by lint, split on commas by the build (build.mjs:27)', ()
 });
 
 test('a ">" inside a note value: lint silently reads no note; the mirror says so instead of throwing', () => {
-  for (const [key, value] of [['box', '20x18 > 19'], ['gap', '1 > 0'], ['glyph', 'dot > numeral'], ['anchor', 'volume > low'], ['grows', '0 0 0.5 > 0.5'], ['keyline', 'mark >'], ['optical', '0 > 0.5'], ['tags', 'a > b']]) {
+  for (const [key, value] of [['box', '20x18 > 19'], ['gap', '1 > 0'], ['glyph', 'dot > numeral'], ['anchor', 'volume > low'], ['base', 'password > lock'], ['badge', 'line >'], ['grows', '0 0 0.5 > 0.5'], ['keyline', 'mark >'], ['optical', '0 > 0.5'], ['tags', 'a > b']]) {
     const c = parseComment(`${key}: ${value}`, { style: 'filled', concept: 'a' });
     assert.equal(c.kind, 'note', key);
     assert.equal(c.lint.reads, false, key);
@@ -267,7 +329,7 @@ test('shipped: trash at 24 carries five distinct off-quarter values (enforcement
 });
 
 // `lintSource` is lint's whole per-file check, exported for tools/geometry.test.mjs; it reads
-// nothing from disk. Its return carries the parsed `gap`, `grows` and `anchor` notes, `isMark`,
+// nothing from disk. Its return carries the parsed `gap`, `grows`, `anchor` and `base` notes, `isMark`,
 // and the printed notes — the off-grid line ("N off-quarter-grid value(s): a, b — documented
 // exception"), the "optical shift dx, dy" line and the "agreed box" headline — so every field
 // the extractor claims to mirror can be read back from lint itself. Runs over all 2,910 files
@@ -297,6 +359,8 @@ test('shipped: every file agrees with lintSource, field by field (tools/lint.mjs
     const ng = N.notes.grows?.lint.reads ? [N.notes.grows.parsed.l, N.notes.grows.parsed.r, N.notes.grows.parsed.t, N.notes.grows.parsed.b] : null;
     chk(JSON.stringify(lg) === JSON.stringify(ng), where, 'grows');
     chk((L.anchor?.name ?? null) === (N.notes.anchor?.lint.reads ? N.notes.anchor.parsed.name : null), where, 'anchor');
+    chk((L.base?.name ?? null) === (N.notes.base?.lint.reads ? N.notes.base.parsed.name : null), where, 'base');
+    chk(L.notes.some((x) => /the line badge at/.test(x)) === (N.notes.badge?.lint.reads === true), where, 'badge');   // lint.mjs:420-421, printed whenever it reads one and no error stops it
     const sh = L.notes.find((x) => /^optical shift /.test(x));
     const lintShift = sh ? sh.replace('optical shift ', '').split(', ').map(Number) : null;   // lint prints it only when sx || sy (lint.mjs:321)
     const o = N.notes.optical;

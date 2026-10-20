@@ -70,6 +70,24 @@ test('each comment lands in exactly one group, by the stated rule', () => {
   assert.equal(g('glyph: letters'), 'ungrouped');
   // a misspelt key is free text, as lint reads it
   assert.equal(g('opticl: 0 0.5'), 'text');
+  // the two notes after the pin (C33): a line badge keeps a path's weight, as glyph: does → 5;
+  // a base holds the ink to a named sibling's box, as anchor: does → 7
+  const filled = { style: 'filled', concept: 'passkey-2' }, lock = { style: 'outline', concept: 'password-lock' };
+  assert.equal(g('badge: line', filled), 'glyph');
+  assert.equal(g('base: password', lock), 'anchor');
+  assert.equal(g('badge: lines', filled), 'ungrouped');
+  assert.equal(g('base: password-filled', lock), 'ungrouped');
+  assert.equal(g('base: password-lock', lock), 'ungrouped', 'names its own file');
+  assert.equal(g('base: password > lock', lock), 'gt');
+  assert.equal(g('badge: line', filled, new Set(['badge'])), 'ungrouped');
+  // … and the pairs lint refuses, which notes.mjs settles per file
+  const inFile = (name, notes) => extractFile(svg(24, 1.5, [...notes.map((n) => `<!-- ${n} -->`), '<path d="M4 12H20"/>']), 24, `${name}.svg`).comments.map((c) => groupOfComment(c));
+  assert.deepEqual(inFile('passkey-2-filled', ['badge: line', 'glyph: numeral']), ['ungrouped', 'glyph']);
+  assert.deepEqual(inFile('passkey-2-filled', ['badge: line', 'glyph: letter']), ['ungrouped', 'glyph']);
+  assert.deepEqual(inFile('passkey-2-filled', ['badge: line', 'glyph: dot']), ['glyph', 'glyph']);
+  assert.deepEqual(inFile('password-lock', ['base: password', 'anchor: password']), ['ungrouped', 'anchor']);
+  assert.deepEqual(inFile('password-lock', ['keyline: mark', 'base: password']), ['keyline', 'ungrouped']);
+  assert.deepEqual(inFile('password-lock', ['box: 19x19', 'base: password']), ['box', 'anchor'], 'box stays allowed beside it');
 });
 
 test('the exact comment text lines up with notes.mjs\'s comment index', () => {
@@ -246,6 +264,8 @@ test('build: every escape group finds the drawing built to land in it', async ()
     // 24/h and its anchored member h-low, which keeps h's left edge and so sits off centre
     put(24, 'h', svg(24, 1.5, ['<!-- the full member -->', '<path d="M4 12H20"/>']));
     put(24, 'h-low', svg(24, 1.5, ['<!-- anchor: h -->', '<!-- one level down -->', '<path d="M4 12H10"/>']));
+    // 24/h-lock: a composite keeping h's place (C33, after the pin) — on centre, so in no escape group
+    put(24, 'h-lock', svg(24, 1.5, ['<!-- base: h -->', '<!-- a lock on h -->', '<path d="M4 12H20"/>']));
     // warned drawings: one the sort family claims, one it must not, one trash claims, one it must not
     put(24, 'sort-alpha-up', svg(24, 1.5, ['<!-- off centre -->', '<path d="M4 8H14"/>']));
     put(24, 'sort-2', svg(24, 1.5, ['<!-- off centre -->', '<path d="M4 8H14"/>']));
@@ -295,6 +315,12 @@ test('build: every escape group finds the drawing built to land in it', async ()
     assert.ok(!G.centre.refs.some((r) => r.f === at(24, 'h-low')));
     assert.ok(G.centre.refs.some((r) => r.f === at(24, 'sort-2')), 'the same offset un-anchored is listed');
 
+    // a note after the pin lands in its group, and the stated rule names it — only the ones present
+    assert.ok(G.anchor.refs.some(([f, c]) => f === at(24, 'h-lock') && c === 0), 'base: lands with anchor:');
+    assert.match(d.groupingRule[3], /tags 9 · base 7\.$/);
+    assert.match(d.groupingRule[2], /beside an anchor or keyline: mark → ungrouped\.$/);
+    assert.ok(!d.groupingRule.some((r) => /badge/.test(r)), 'no badge note in this pin, so the rule does not name one');
+
     // warned drawings: claimed by exactly the group named for them, the rest visible
     assert.deepEqual(G.sort.refs.map((r) => d.files[r.f].n), ['sort-alpha-up']);
     assert.deepEqual(G.trash.refs.map((r) => `${d.files[r.f].m}/${d.files[r.f].n}`), ['20/trash']);
@@ -311,7 +337,7 @@ test('build: every escape group finds the drawing built to land in it', async ()
     // the record says where it came from
     assert.equal(d.schema, 'mdx-exceptions/1');
     assert.equal(d.pin.commit, 'test');
-    assert.equal(d.pin.drawings, 15);
+    assert.equal(d.pin.drawings, 16);
     assert.match(d.recipe, /git archive test/);
     for (const g of d.groups) for (const c of g.counts) assert.ok('label' in c && 'ledger' in c && 'cite' in c && 'data' in c && 'match' in c, `${g.id}: ${c.label}`);
     assert.ok(d.groups.find((g) => g.id === 'text').counts.some((c) => c.match === false), 'a tiny pin disagrees with the ledger, and says so');

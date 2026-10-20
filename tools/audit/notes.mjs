@@ -12,22 +12,32 @@
 // sheet (`lab/audit-exceptions.html`) read one census instead of grepping twice.
 //
 // HOW IT READS A NOTE. Exactly as lint and the build do, regex for regex, so "lint reads this"
-// is a fact about lint and not an opinion:
+// is a fact about lint and not an opinion. Line numbers in the keyline … anchor and optical rows are the
+// pin's lint (5933041), where this mirror was written; the base and badge rows and the clash lines below
+// cite lint as of 2026-10-20:
 //   keyline  lint.mjs:322-323  `(\w+)`; only the word `mark` does anything — any other word is a silent no-op
 //   box      lint.mjs:65-70    parseBoxNote     WxH, else `bad` (an error, :325)
 //   grows    lint.mjs:85-92    parseGrowsNote   four signed numbers, else `bad` (:226); an error in an outline file (:222-224)
 //   gap      lint.mjs:106-111  parseGapNote     a positive number, else `bad` (:233); an error at or above MIN_GAP (:235-238)
 //   glyph    lint.mjs:142-147  parseGlyphNote   `dot`, `numeral` or `letter` (2026-10-20), else `bad` (:245)
 //   anchor   lint.mjs:124-129  parseAnchorNote  an icon name not ending `-filled`, else `bad` (:257); an error naming itself (:259-262)
+//   base     lint.mjs:151-156  parseBaseNote    an icon name not ending `-filled` (2026-10-20), else `bad` (:345-347); an error naming itself (:348-350)
+//   badge    lint.mjs:199-204  parseBadgeNote   `line` (2026-10-19), else `bad` (:318-320)
 //   optical  lint.mjs:319      `([-\d.]+)\s+([-\d.]+)`, Number()ed and never validated — `- .` parses to NaN
 //   tags     never read by lint; build.mjs:27 splits it on commas for the Library's search
 // Lint's `src.match` sees the FIRST note of each key; `notes` holds that one and `duplicateKeys`
 // names any key declared twice. Every one of lint's note regexes stops at the first `>`, so a
 // value that contains one (`<!-- box: 20x18 > -->`) matches nothing and lint SILENTLY reads no
-// note; the mirror reports that as `reads: false` with the reason instead of throwing. A comment
-// whose first word is not one of those eight keys is FREE TEXT, whatever it says; `looksLikeNote`
-// records the lowercase `word:` such a comment opens with, so a misspelt key (`opticl:`) is
-// visible instead of silently ignored.
+// note; the mirror reports that as `reads: false` with the reason instead of throwing. Two notes
+// lint drops when it reads them beside another: `badge:` beside `glyph: numeral` or `letter`
+// (lint.mjs:321-323), `base:` beside `anchor:` (:351-353) or `keyline: mark` (:476-478) — an
+// error, then no note. (Lint also refuses `anchor:` beside `keyline: mark` or `box:`, lint.mjs:472-475 today;
+// that one is NOT mirrored — no file carries the pair, at the pin or on 2026-10-20.) A mirror sees one
+// comment, so `extractFile` settles these per file
+// (`CLASHES`), against the note of the other key lint finds. A comment whose first word is not one
+// of those ten keys is FREE TEXT, whatever it says; `looksLikeNote` records the lowercase
+// `word:` such a comment opens with, so a misspelt key (`opticl:`) is visible instead of
+// silently ignored.
 //
 // OFF-GRID. The census mirrors lint.mjs:291-300 number for number: every literal in every
 // stroke path (plus the AREA paths of a `-filled` file) that is not on the master's grid and
@@ -70,8 +80,8 @@ import { MASTERS, MIN_GAP, decimalsOf, gridOf, isFilled } from '../masters.mjs';
 
 export const SCHEMA = 'mdx-notes/1';
 
-/** The eight keys lint or the build read, in the order `draft-svg.mjs:49-56` writes them. */
-export const NOTE_KEYS = ['keyline', 'tags', 'box', 'anchor', 'grows', 'gap', 'glyph', 'optical'];
+/** The ten keys lint or the build read, in the order `draft-svg.mjs:75-84` writes them. */
+export const NOTE_KEYS = ['keyline', 'tags', 'box', 'anchor', 'base', 'grows', 'gap', 'glyph', 'badge', 'optical'];
 
 /** Words a free-text comment uses when it is explaining an off-grid value. A proxy, named so. */
 export const KEYWORDS = /off[- ]grid|off the (quarter|eighth) grid|tangent|optical|decimal|intersect|chamfer|taper|round(ed|s|ing)? (to|up|down|off)|√|sqrt|\bsin\b|\bcos\b|\btan\b|eighth|quarter|centred? (to|on)/i;
@@ -143,6 +153,21 @@ const MIRROR = {
     if (m[1] === ctx.concept) return no({ name: m[1], bad: true }, 'lint.mjs:259-262: a file may not anchor itself — an error');
     return ok({ name: m[1] }, 'lint.mjs:567-615 (checkAnchors): ink inside the anchor\'s box and on its left or right edge, as errors; no keyline or centre check');
   },
+  base(c, ctx) {
+    const m = c.match(/<!--\s*base:\s*([^>]*?)\s*-->/);                          // lint.mjs:152
+    if (!m) return unread('152');
+    const good = /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(m[1]) && !/-filled$/.test(m[1]);   // lint.mjs:154
+    if (!good) return no({ bad: true }, 'lint.mjs:151-156 cannot read it as an icon name — an error (:345-347)');
+    if (m[1] === ctx.concept) return no({ name: m[1], bad: true }, 'lint.mjs:348-350: a composite may not name itself as its base — an error');
+    return ok({ name: m[1] }, 'lint.mjs:977-1010 (checkBases): ink holds the base\'s box and shares its left and top edges, as errors; only the centre check is lifted (:483-486, 522); a missing or inkless base is an error');
+  },
+  badge(c) {
+    const m = c.match(/<!--\s*badge:\s*([^>]*?)\s*-->/);                         // lint.mjs:201
+    if (!m) return unread('201');
+    return ['line'].includes(m[1])                                               // lint.mjs BADGE_KINDS
+      ? ok({ kind: m[1] }, 'lint.mjs:389-425, 555-608, 856-862 (C33): the badge\'s paths keep the outline weight on a line-heavy filled base, and their air to it floors at MIN_GAP whatever `gap:` says; an error when no path carries its own weight (:424-425)')
+      : no({ bad: true }, 'lint.mjs:199-204: not a kind lint knows — an error (:318-320)');
+  },
   optical(c) {
     const m = c.match(/<!--\s*optical:\s*([-\d.]+)\s+([-\d.]+)\s*-->/);          // lint.mjs:319, build.mjs:26
     if (!m) return no({ bad: true }, `lint.mjs:319 does not match it${c.includes('>', 4) && c.indexOf('>') < c.length - 3 ? ' (the value contains ">")' : ''} — the shift is silently 0, 0`);
@@ -175,6 +200,19 @@ export function parseComment(raw, ctx = {}, i = 0) {
   }
   return { i, raw: text, kind: 'text', key: null, value: null, parsed: null, lint: null, looksLikeNote: m ? m[1] : null, chars: text.length };
 }
+
+/**
+ * The notes lint drops when it reads them beside another note of the same file: key → a test on
+ * the note of each key lint's own pattern finds that returns [the other note, lint's lines
+ * and reason], or null. Tried in lint's own order, so a base beside both an anchor and a mark
+ * names the anchor, as lint's one error does.
+ */
+const CLASHES = {
+  badge: (n) => (n.glyph?.lint.reads && ['numeral', 'letter'].includes(n.glyph.parsed.kind)
+    ? [`glyph: ${n.glyph.parsed.kind}`, '321-323: each lets a path keep the outline weight, and lint cannot tell whose a path is'] : null),
+  base: (n) => (n.anchor?.lint.reads ? ['anchor', '351-353: a level member keeps its full member\'s place (C28), a composite its base\'s (C33)']
+    : n.keyline?.lint.reads ? ['keyline: mark', '476-478: a mark is held to the mark ceiling and the centre'] : null),
+};
 
 /** The off-grid census of one file, mirroring lint.mjs:291-300, plus the by-command split and the two text proxies. */
 function offGridOf(paths, master, text, hasComment) {
@@ -214,6 +252,14 @@ export function extractFile(src, master, file) {
   const concept = name.replace(/-filled$/, '');
   const ctx = { master, style, concept };
   const comments = [...src.matchAll(/<!--([\s\S]*?)-->/g)].map((m, i) => parseComment(m[1], ctx, i));
+  const first = {};   // the note of each key lint's pattern lands on: it runs on past one with a ">"
+  for (const c of comments) if (c.kind === 'note' && !c.parsed?.unread && !(c.key in first)) first[c.key] = c;
+  for (const c of comments) {
+    const clash = c.kind === 'note' && c.lint.reads ? CLASHES[c.key]?.(first) : null;
+    if (!clash) continue;
+    c.parsed = { ...c.parsed, bad: true };
+    c.lint = { reads: false, why: `lint.mjs:${clash[1]} — beside \`${clash[0]}\` it is an error, and lint then reads no ${c.key} note` };
+  }
   const notes = {}, duplicateKeys = [];
   for (const c of comments) {
     if (c.kind !== 'note') continue;

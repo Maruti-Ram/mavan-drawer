@@ -18,9 +18,10 @@
 //      note skipped by rule 1 does not count as declared, since lint's pattern runs on to the next)
 //   3. a note lint rejects or ignores: a value it cannot parse (an error), a `keyline:` word other
 //      than `mark` (a silent no-op), `grows:` in an outline file, `gap:` at or over 1.5, an
-//      `anchor:` naming its own file                → ungrouped
+//      `anchor:` or `base:` naming its own file, a `base:` beside `anchor:` or `keyline: mark`, a
+//      `badge:` beside `glyph: numeral` or `letter` → ungrouped
 //   4. any other note, by key: keyline → 2 · box → 3 · optical → 4 · glyph → 5 · grows → 6 ·
-//      anchor → 7 · gap → 8 · tags → 9
+//      anchor → 7 · gap → 8 · tags → 9 · badge → 5 · base → 7 (both after the pin; `KEY_GROUP`)
 //   5. a free-text comment                          → 1
 // Groups 10–19 hold no notes. They are the escapes the ledger lists that leave no mark in the
 // file; each lists drawings, measured as its own entry below says.
@@ -171,8 +172,17 @@ export const PROPOSALS = {
   'R-10': [739, 'volume-off at 16 declares its half-unit placement instead of passing on the slack — as optical: -0.5 0, or as a new note for a whole-pixel placement; either way the centring check would have to hold the declared value rather than ±0.5 around it'],
 };
 
-/** Which note key goes to which group (rule 4). */
-export const KEY_GROUP = { keyline: 'keyline', box: 'box', optical: 'optical', glyph: 'glyph', grows: 'grows', anchor: 'anchor', gap: 'gap', tags: 'tags' };
+/**
+ * Which note key goes to which group (rule 4). Two keys came after the pin and have no row of
+ * their own in the ledger, so each joins the group whose escape it is: `badge: line` (C33,
+ * 2026-10-19) lets a path keep the outline weight, as `glyph: numeral` and `letter` do (lint
+ * lets a file declare only one of them, lint.mjs:321-323) → 5; `base: NAME` (C33, 2026-10-20)
+ * lifts the centring and holds the ink to a named sibling's box, as `anchor:` does (and lint
+ * lets a file declare only one of those) → 7.
+ */
+export const KEY_GROUP = { keyline: 'keyline', box: 'box', optical: 'optical', glyph: 'glyph', grows: 'grows', anchor: 'anchor', gap: 'gap', tags: 'tags', badge: 'glyph', base: 'anchor' };
+/** The rule's words for the two keys after the pin, said only when the census holds one, so the pin's data stays as it was. */
+const LATE = { badge: [', a badge beside glyph: numeral or letter', ' · badge 5'], base: [', a base naming its own file or beside an anchor or keyline: mark', ' · base 7'] };
 
 /**
  * One comment (a notes.mjs Comment) → its group id, or 'ungrouped'. `seen` is the set of keys
@@ -452,8 +462,9 @@ export async function build(pinArg, { commit = DEFAULT_COMMIT, log = () => {} } 
   const L = (n) => `${LEDGER}:${n}`;
   const notesIn = (id) => groups[id].map(([fi, ci]) => ({ ...F(fi), style: F(fi).s === 'f' ? 'filled' : 'outline', comment: F(fi).k[ci] }));
   const filesOf = (list) => [...new Map(list.map((x) => [`${x.m}/${x.n}`, x])).values()];
+  // counted by the note's own key: group 7 also holds `base:` and group 5 `badge:` (none at the pin)
   const noteStats = (id, ledger, line) => {
-    const fl = filesOf(notesIn(id));
+    const fl = filesOf(notesIn(id).filter((x) => x.comment.k === id));
     return [row('files', ledger[0], L(line), fl.length), row('concepts', ledger[1], L(line), uniq(fl.map((x) => x.c))),
       row('files by master, 24 · 20 · 16', ledger[2], L(line), by3(fl)), row('files by style, outline · filled', ledger[3], L(line), byStyle(fl))];
   };
@@ -532,7 +543,7 @@ export async function build(pinArg, { commit = DEFAULT_COMMIT, log = () => {} } 
   {
     const n = notesIn('glyph');
     const dot = filesOf(n.filter((x) => x.comment.v === 'dot')), num = filesOf(n.filter((x) => x.comment.v === 'numeral'));
-    const numericNoNote = files.filter((f) => /^sort-numeric-/.test(f.c) && !f.k.some((c) => c.g === 'glyph'));
+    const numericNoNote = files.filter((f) => /^sort-numeric-/.test(f.c) && !f.k.some((c) => c.g === 'glyph' && c.k === 'glyph'));
     C.glyph = [
       row('glyph: dot — files · concepts', '90 · 15', L(89), `${dot.length} · ${uniq(dot.map((x) => x.c))}`),
       row('glyph: dot — 24 · 20 · 16 / outline · filled', '30 · 30 · 30 / 45 · 45', L(89), `${by3(dot)} / ${byStyle(dot)}`),
@@ -645,7 +656,9 @@ export async function build(pinArg, { commit = DEFAULT_COMMIT, log = () => {} } 
       row('  in files · concepts', '128 · 66', L(679), `${cross.length} · ${uniq(cross.map((x) => F(x.f).c))}`)];
   }
   {
-    const glyphFile = (f) => f.k.some((c) => c.g === 'glyph');
+    // "glyph files" are the ledger's C19 floor of 1: dot and numeral, not the two group-5 notes
+    // that only keep a path's weight (glyph: letter, badge: line — none at the pin)
+    const glyphFile = (f) => f.k.some((c) => c.g === 'glyph' && c.k === 'glyph' && (c.v === 'dot' || c.v === 'numeral'));
     const s = groups.slack.filter((x) => x.band && !glyphFile(F(x.f)) && x.floorKind === '§6' && x.floor === 1.5);
     const noise = groups.slack.filter((x) => !x.band);
     const band = groups.slack.filter((x) => x.band);
@@ -669,6 +682,7 @@ export async function build(pinArg, { commit = DEFAULT_COMMIT, log = () => {} } 
   const lintLine = (() => { const bad = files.filter((f) => f.L.e.length).length, w = files.filter((f) => !f.L.e.length && f.L.w.length).length; return `${files.length} drawings · ${files.length - bad - w} clean · ${w} warned · ${bad} failed`; })();
   for (const f of files) { delete f._slack; delete f._lost; delete f._pairs; }
   const sortOther = groups.sortOther; delete groups.sortOther;
+  const late = Object.keys(LATE).filter((k) => set.files.some((r) => r.comments.some((c) => c.key === k)));
   return {
     schema: SCHEMA,
     pin: { commit, concepts: pinConcepts.size, drawings: files.length, digest: digest.digest('hex'), manifestNames: pinNames, lint: lintLine },
@@ -680,8 +694,8 @@ export async function build(pinArg, { commit = DEFAULT_COMMIT, log = () => {} } 
     groupingRule: [
       'A note whose value contains ">" → group 20 (lint\'s note patterns stop at the first ">" and read no note).',
       'A second note of a key the file already declared → ungrouped (lint reads the first only).',
-      'A note lint rejects or ignores — a value it cannot parse, a keyline word other than mark, grows in an outline file, gap at or over 1.5, an anchor naming its own file → ungrouped.',
-      'Any other note goes to its key\'s group: keyline 2 · box 3 · optical 4 · glyph 5 · grows 6 · anchor 7 · gap 8 · tags 9.',
+      `A note lint rejects or ignores — a value it cannot parse, a keyline word other than mark, grows in an outline file, gap at or over 1.5, an anchor naming its own file${late.map((k) => LATE[k][0]).join('')} → ungrouped.`,
+      `Any other note goes to its key's group: keyline 2 · box 3 · optical 4 · glyph 5 · grows 6 · anchor 7 · gap 8 · tags 9${late.map((k) => LATE[k][1]).join('')}.`,
       'A free-text comment → group 1.',
       'Groups 10–19 hold no notes: they are escapes that leave no mark in a file, and list drawings, measured as each panel says.',
     ],
