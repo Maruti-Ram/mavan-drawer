@@ -554,7 +554,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 173. `arrows-swap-2` · Arrows & Direction · variant of `arrows-swap` — Right on top · approved 2026-10-17
 - [x] 174. `chevron-first` · Arrows & Direction — approved 2026-10-17
 - [x] 175. `chevron-last` · Arrows & Direction — approved 2026-10-17
-- [~] 176. `confetti` · Status & Feedback
+- [x] 176. `confetti` · Status & Feedback — approved 2026-10-20
 - [x] 177. `drag-handle` · UI & Layout — mvp · approved 2026-10-18
 - [x] 177. `drag-handle-2` · UI & Layout · variant of `drag-handle` — Six dots, lying · approved 2026-10-18
 - [x] 177. `drag-handle-3` · UI & Layout · variant of `drag-handle` — Three short lines · approved 2026-10-18
