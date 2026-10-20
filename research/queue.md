@@ -740,7 +740,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 281. `reset` · Media & Playback
 - [ ] 282. `reward` · Commerce & Payments
 - [ ] 283. `sandbox` · Development & Infra
-- [~] 284. `alert-square` · Status & Feedback
+- [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
 - [x] 285. `bookmarks` · Files & Folders — approved 2026-10-20
 - [x] 285. `bookmarks-3` · Files & Folders · variant of `bookmarks` — A ribbon beside a list · approved 2026-10-20
 - [x] 285. `bookmarks-4` · Files & Folders · variant of `bookmarks` — A star beside a list · approved 2026-10-20
