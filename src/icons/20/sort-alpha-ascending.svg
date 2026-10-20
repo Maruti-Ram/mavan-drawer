@@ -2,8 +2,8 @@
   <!-- tags: sort, order, arrange, alphabetical, ascending, table header -->
   <!-- box: 16x13.5 -->
   <!-- arrow — the chevron head on a full-height stem: The family’s own reading: the mark points, and it is the same head sort-3 uses so the two icons share a chevron. The stem runs the characters’ full height, which is what shipped sort-ascending does with its arrow. (recommended) The characters are Maruti’s locked letterforms re-solved for this box; at 16 they are the locked drawings untouched. A over Z, stacked with 1.5 of air, fills the family box exactly. -->
-  <path d="M2.75 8.5L4.3 4.48A0.75 0.75 0 0 1 5.7 4.48L7.25 8.5"/>
-  <path d="M4 6.75H6"/>
+  <!-- The A’s bar ends sit on the leg centrelines, off the grid at this master (invisible: the round cap is inscribed in the leg), so lint reads the A as one joined letter; the bar is drawn in the legs’ path so a browser smooths the A as one shape. -->
+  <path d="M2.75 8.5L4.3 4.48A0.75 0.75 0 0 1 5.7 4.48L7.25 8.5M3.42 6.75H6.58"/>
   <path d="M2.75 11.5H7L2.75 16H7"/>
   <path d="M11.75 6.44L13.97 4.22A0.75 0.75 0 0 1 15.03 4.22L17.25 6.44"/>
   <path d="M14.5 4V16"/>

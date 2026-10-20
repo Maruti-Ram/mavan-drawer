@@ -29,6 +29,13 @@ warnings they raise in `npm run check` are expected. Do not redraw the character
 them. The letterforms as locked still live in `lab/drafts/archive/glyph-{a,z,0,9}.js`, and their
 re-solved versions in `glyph-{a,z,0,9}-15.js`, if the question is ever genuinely reopened.
 
+**Dated note, 2026-10-20 — the outline A's warning was a false positive, now gone.** Lint read the
+A's bar and legs as two strokes 0.46 apart (edge gap −1.04: they overlap). The bar's ends now sit
+on the leg centrelines, as `translate`'s A does, and the bar is drawn in the legs' path. The ink
+is the same shape: rendered as one shape, 0 pixels change at 24, 20 and 16 (1×, 2×, 8×). The 18
+outline warnings are gone. The filled A's counter warnings (1.24 · 0.9 · 0.85) stand as above;
+that counter is the same triangle as the outline A's.
+
 ## What changes for the customer
 
 ~~Today a toolbar that shows `sort`, `sort-3` and an alphabetical variant side by side shows

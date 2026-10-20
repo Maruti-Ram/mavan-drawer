@@ -2,8 +2,8 @@
   <!-- tags: sort, order, alphabetical, ascending, lines, list, table header -->
   <!-- box: 14x12 -->
   <!-- characters left, lines right: A mirrored: the key first, the list after. Same ink, same box; the question is only which of the two the eye should land on first. -->
-  <path d="M1.625 6.625L2.912 3.038A0.625 0.625 0 0 1 4.088 3.038L5.375 6.625"/>
-  <path d="M2.5 5.125H4.5"/>
+  <!-- The A’s bar ends sit on the leg centrelines, off the grid at this master (invisible: the round cap is inscribed in the leg), so lint reads the A as one joined letter; the bar is drawn in the legs’ path so a browser smooths the A as one shape. -->
+  <path d="M1.625 6.625L2.912 3.038A0.625 0.625 0 0 1 4.088 3.038L5.375 6.625M2.163 5.125H4.837"/>
   <path d="M1.625 9.375H5.625L1.625 13.375H5.625"/>
   <path d="M9.125 4.5H10.875"/>
   <path d="M9.125 8H12.625"/>
