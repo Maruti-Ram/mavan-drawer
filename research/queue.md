@@ -687,7 +687,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 266. `categories` · Files & Folders
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
-- [~] 268. `drag-drop` · UI & Layout
+- [x] 268. `drag-drop` · UI & Layout — approved 2026-10-20
 - [ ] 269. `newsletter` · Communication
 - [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19

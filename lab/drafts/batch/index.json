@@ -3,9 +3,19 @@
   "board": {
     "name": "list-todo",
     "candidates": 2,
-    "status": "review"
+    "status": "done"
   },
   "icons": [
+    {
+      "name": "password-3",
+      "concept": "password",
+      "candidates": 2,
+      "ids": [
+        "C3",
+        "C3b"
+      ],
+      "status": "done"
+    },
     {
       "name": "password-lock",
       "concept": "password",
@@ -15,20 +25,6 @@
         "Dc"
       ],
       "status": "done"
-    },
-    {
-      "name": "drag-drop",
-      "concept": "drag-drop",
-      "candidates": 6,
-      "ids": [
-        "B",
-        "C0",
-        "C",
-        "C1",
-        "C2",
-        "C1f"
-      ],
-      "status": "review"
     }
   ]
 }
