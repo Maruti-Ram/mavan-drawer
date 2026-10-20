@@ -1027,4 +1027,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 517. `alert-square-2` — added 2026-10-20 · approved 2026-10-20
 - [x] 518. `alert-square-3` — added 2026-10-20 · approved 2026-10-20
 - [x] 519. `alert-square-4` — added 2026-10-20 · approved 2026-10-20
-- [~] 520. `library` — added 2026-10-20
+- [x] 520. `library` — added 2026-10-20 · approved 2026-10-20
