@@ -582,7 +582,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 191. `download` · Files & Folders — mvp · approved 2026-10-18
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
-- [~] 192. `gift` · Status & Feedback
+- [x] 192. `gift` · Status & Feedback — approved 2026-10-20
 - [x] 193. `headphones` · Communication — approved 2026-10-20
 - [x] 193. `headphones-2` · Communication · variant of `headphones` — Capsule cups · approved 2026-10-20
 - [x] 193. `headphones-4` · Communication · variant of `headphones` — Wired earbuds · approved 2026-10-20
@@ -1015,3 +1015,9 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
 - [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
+- [~] 514. `alert-octagon-2` — added 2026-10-20
+- [~] 515. `alert-octagon-3` — added 2026-10-20
+- [~] 516. `alert-octagon-4` — added 2026-10-20
+- [~] 517. `alert-square-2` — added 2026-10-20
+- [~] 518. `alert-square-3` — added 2026-10-20
+- [~] 519. `alert-square-4` — added 2026-10-20
