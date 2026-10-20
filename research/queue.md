@@ -988,7 +988,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 495. `sort-3` — added 2026-10-03 · approved 2026-10-03
 - [x] 496. `sort-alpha-ascending` — added 2026-10-03 · approved 2026-10-03
 - [x] 496. `sort-alpha-ascending-3` · variant of `sort-alpha-ascending` — characters left, lines right · approved 2026-10-03
-- [x] 497. `sort-numeric-ascending` — added 2026-10-03 · approved 2026-10-03
+- [x] 497. `sort-numeric-ascending` — added 2026-10-03 · approved 2026-10-20
 - [x] 497. `sort-numeric-ascending-2` · variant of `sort-numeric-ascending` — lines left, characters right · approved 2026-10-03
 - [x] 497. `sort-numeric-ascending-3` · variant of `sort-numeric-ascending` — characters left, lines right · approved 2026-10-03
 - [x] 498. `sort-numeric-descending` — added 2026-10-03 · approved 2026-10-03

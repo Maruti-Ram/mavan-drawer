@@ -29,6 +29,28 @@ warnings they raise in `npm run check` are expected. Do not redraw the character
 them. The letterforms as locked still live in `lab/drafts/archive/glyph-{a,z,0,9}.js`, and their
 re-solved versions in `glyph-{a,z,0,9}-15.js`, if the question is ever genuinely reopened.
 
+**Dated note, 2026-10-20 — the 9 redrawn for balance, not for lint.** Maruti, on the 9 beside the
+0: *"the 9 feels off beside the 0 as it feels lighter and not balanced."* Measured on the shipped
+pair at 24 · 20 · 16: the 9 carried 79 · 77 · 79 per cent of the 0's ink, stood 1 · 1 · 0.75
+narrower, and shared the 0's left edge, so its centre sat 0.50 · 0.52 · 0.39 left of the 0's. Kept
+fixed: the 0 (the locked drawing), the 9's height and place, and a hole that may close to C19's 1.
+Three boards, all in `lab/drafts/archive/`:
+- `sort-numeric-9.js`: four kinds of 9 beside the shipped one. **D**, an oval bowl as wide as the 0
+  with a curved tail, was picked. The bigger round bowl that held a 1.5 hole closed its tail onto
+  the bowl at 20 and 16.
+- `sort-numeric-9-round2.js`: one variant of D per lever. **D2**, a touch narrower (5 · 4.5 · 4), was
+  picked. Its tail leaned the 9 like italic: the long axis of its ink stood +11.9 · +12.8 · +13.3° off
+  upright, against the shipped 9's +2.0 · +3.6 · +3.0° and the 0's 0°.
+- `sort-numeric-9-round3.js`: upright tails on D2's bowl. **E4** shipped: the right side drops straight
+  for 1.25 · 1 · 0.875, as the 0's side does, then one round turn ends in a level foot. Its lean is
+  +0.3 · +0.3 · −0.9°, its ink 99 · 96 · 99 per cent of the 0's, and its hole 2 × 1.5 · 1.5 × 1 · 1.5 × 1.
+
+The space between the tail's foot and the bowl is 0.93 · 0.63 · 0.61, against the shipped 0.77 · 0.53
+· 0.52. The height bounds it at 20 and 16: three strokes stacked under the bowl leave 1.5 for the
+hole and that space together. The same 9 is in all six icons, moved the way the shipped 9 moved.
+The 16 master's 9 is therefore no longer the locked drawing; its 0 still is. All six icons declare
+`<!-- glyph: numeral -->` (C19), and their warnings, all from the old 9's 1.0 hole, are gone.
+
 ## What changes for the customer
 
 ~~Today a toolbar that shows `sort`, `sort-3` and an alphabetical variant side by side shows
