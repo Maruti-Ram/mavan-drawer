@@ -43,7 +43,7 @@ triangle with a hole; S, the filled counter filled in, which closed the hole ret
 L at 24 with the bar 0.5 lower at 20 and 16. Maruti picked **H**. The crossbar now sits 33% · 33% · 30%
 of the way up (was 44% · 47% · 44%), the same at every master, and the gap between the feet stays. The
 counter reads 1.59 · 1.27 · 1.18 (was 1.24 · 0.9 · 0.85); at 16 on a 1× screen it is a white pixel where
-it was 50% grey. The filled files at 20 and 16 carry `<!-- gap: 1.27 -->` and `1.18`. Applied to all six
+it was 50% grey. The filled files at 20 and 16 carry `<!-- gap: 1.27 -->` and `1.18`. **Same day, after lint §5i landed on main:** §5i measures a counter by the widest circle that fits it (C23's measure), which reads this A's at 1.17 · 0.93 · 0.88 (the locked A's 0.91 · 0.66 · 0.63), so every filled file now carries the note at that value, 24 included. Nothing in the drawing changed. Applied to all six
 sort-alpha icons; `translate` carries the same A on its own branch. The locked letterforms in
 `lab/drafts/archive/glyph-a*.js` are left as they were, as a record.
 

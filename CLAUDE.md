@@ -295,7 +295,7 @@ depending on the icon.
   that master's units; it replaces §6's 1.5 in that file's proximity checks — §5 (crossing arms included), §5b, §5f, §5h and §5i (C19
   glyph pairs and the knockout check are untouched). Lint prints it as an info line while the drawing holds
   it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
-  the drawing no longer needs. Today (2026-10-19 census, 17 files on 9 concepts): `attachment-4-filled` at 24 and 20 (1), `alert-triangle-2` and `-4` at 16 (1.25), `sort` and `sort-filled` at 16 (1), `database-2-filled` at 24 (1.48), `volume-off-filled` (0.7 · 0.75 · 0.375), `id-card`, `-2`, `-3` at 16, outline (1), `fingerprint-filled` and `passkey-2-filled` (its print) at 20 (1.43) and 16 (0.87); `grep -rl '<!-- gap:' src/icons` lists them
+  the drawing no longer needs. Today (2026-10-20 census, 35 files): `attachment-4-filled` at 24 and 20 (1), `alert-triangle-2` and `-4` at 16 (1.25), `sort` and `sort-filled` at 16 (1), `database-2-filled` at 24 (1.48), `volume-off-filled` (0.7 · 0.75 · 0.375), `id-card`, `-2`, `-3` at 16, outline (1), `fingerprint-filled` and `passkey-2-filled` (its print) at 20 (1.43) and 16 (0.87), the six `sort-alpha-*-filled` (the A's counter: 1.17 · 0.93 · 0.88); `grep -rl '<!-- gap:' src/icons` lists them
 - `<!-- glyph: dot | numeral | letter -->`: `dot` and `numeral` declare C19's glyph floor; `numeral` also lets a numeral's path carry
   `stroke-width` at the outline weight inside a line-heavy filled file (C32) — one of the per-path weights lint allows (with `letter` and `badge: line`).
   `letter` (2026-10-20, first `translate`) gives a letter's paths that weight and nothing else — no C19 floor, so its
