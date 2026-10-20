@@ -7,10 +7,27 @@
 //   P=<scratch>/pin; mkdir -p $P && git archive 5933041 | tar -x -C $P
 //   node tools/audit/air-probe.mjs $P [section …]
 // No section = all, in document order. An unknown section exits 2; a pin directory
-// without src/icons/{24,20,16} prints usage and exits 2. The drawings are read from the
-// pin; the instruments (tools/geometry.mjs, tools/masters.mjs, tools/lint.mjs,
-// tools/audit/raster.mjs, tools/audit/angles.mjs) are imported from this repo, whose
-// copies of geometry/masters/lint equal the pin's (`git diff 5933041 HEAD -- …` is empty).
+// without src/icons/{24,20,16} and tools/{lint,geometry,masters}.mjs prints usage and exits 2.
+// The drawings are read from the pin, and so is LINT: every lint reading here — `lintRun`,
+// `censusFile`'s two note parsers, §4a's and §4c's `lintSource`, and the in-memory copy that
+// returns `measured[]` — is <pin>/tools/lint.mjs, which imports the pin's own geometry.mjs and
+// masters.mjs beside it (`pinLint`, `lintWithMeasured`; the pattern of families.mjs `lintReading`
+// and exceptions-data.mjs). This repo's lint has moved on since the pin (2026-10-17 to 10-20:
+// per-path weights, crossing-arm tips, ring holes, §5h, §5i, `base:`); run on the pin's drawings
+// it reads 72 warned drawings and 98 warning lines where the pin's reads 62 and 74 (measured
+// 2026-10-20). `lint.mjs:N` below cites the pin's lint.
+// The other instruments are this repo's: tools/audit/raster.mjs and tools/audit/angles.mjs
+// (written after the pin, unchanged since 6293f80, 2026-10-04), and the repo's geometry.mjs and
+// masters.mjs for what this file and those two call directly — samplePath, bbox, isDot, selfGap,
+// materialGap, facingGap, subpathsOf, parsePath; STROKES, FILLED_WEIGHT, MIN_GAP, GLYPH_GAP,
+// strokeOf, weightOf, isFilled, gridOf, gridName. Checked equal to the pin's on 2026-10-20 two
+// ways. (1) Source: each one, and every top-level declaration it reaches, is the pin's text
+// comments aside — bar facingGap, whose one change lets `stroke` be an array, one weight per
+// path (C32); given one number, as everywhere here, every path's half is that number's half and
+// the spatial hash's is too, so it reads as the pin's did. (2) Run side by side, pin's module
+// against repo's, on all 7,500 paths of the pin's 2,910 drawings (selfGap and facingGap at both
+// weights a file can be read at, facingGap at cap 1.75 and 2.5): every call returned the same
+// value, deep, numbers by Object.is.
 // This document cites no reference set, so there is no --refs flag.
 //
 // SECTIONS — each prints `## §<n> <title>` and then the figures as the document states them.
@@ -61,8 +78,9 @@
 // their agreement: airSpans() (the span geometry, for phase and pixels) and gapCensus() (lint's
 // own readings, kept). Neither copies lint: gapCensus() re-implements its four loops, and the
 // one figure only lint's private state can give — its `measured[]` array — is read from an
-// IN-MEMORY copy of tools/lint.mjs (two import specifiers made absolute, the return line
-// extended), imported from a data: URL. Nothing is written to disk.
+// IN-MEMORY copy of the pin's tools/lint.mjs (its two import specifiers pointed at the pin's
+// geometry.mjs and masters.mjs, the return line extended), imported from a data: URL. Nothing
+// is written to disk.
 //
 // KNOWN INSTRUMENT DEFECTS, AND HOW EACH IS WORKED AROUND
 //   raster.mjs `classify` (plan, "Known instrument defects"; this document's Finding A1): every
@@ -80,7 +98,6 @@ import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { samplePath, bbox, isDot, selfGap, materialGap, facingGap, subpathsOf, parsePath } from '../geometry.mjs';
 import { STROKES, FILLED_WEIGHT, MIN_GAP, GLYPH_GAP, strokeOf, weightOf, isFilled, gridOf, gridName } from '../masters.mjs';
-import { lintSource, checkFamilies, checkPairs, checkAnchors, parseGapNote, parseGlyphNote } from '../lint.mjs';
 import { region, rasterise, boxCoverage, inkArea, iconFromText, flatten } from './raster.mjs';
 import { iconFromSource } from './angles.mjs';
 
@@ -117,6 +134,13 @@ export function loadPin(pin) {
   }
   return out;
 }
+
+// The pin's own lint. Its two imports are relative (./geometry.mjs, ./masters.mjs), so importing
+// <pin>/tools/lint.mjs brings the pin's geometry and masters with it: the instrument whole.
+export const PIN_TOOLS = ['lint.mjs', 'geometry.mjs', 'masters.mjs'];
+export const hasPinTools = (pin) => PIN_TOOLS.every((f) => existsSync(join(pin, 'tools', f)));
+/** <pin>/tools/lint.mjs as a module (Node caches it: one instance per pin). */
+export const pinLint = (pin) => import(pathToFileURL(join(resolve(pin), 'tools/lint.mjs')).href);
 
 // lint.mjs:40 and lint.mjs:203-283, the per-file setup every port below shares.
 const AREA = /<path fill="currentColor" fill-rule="evenodd" stroke="none" d="([^"]+)"\/>/g;
@@ -466,9 +490,13 @@ export function airRead(spans, set) {
 // THE GAP CENSUS — lint's four loops, readings kept (gap-census.mjs)
 // ════════════════════════════════════════════════════════════════════════════
 const AIR_TEXT = { cut: 'across one cut-out', notch: 'in a notch of the outer edge', separation: 'between two filled edges', line: 'between a shape and a line' };
-/** One drawing through lint's §5, §5b, §5c and §5f, every reading kept. `trap` is the negative
- *  control only: the WRONG stroke (filled weight on a shape-filled file). */
-export function censusFile(canvas, file, src, { trap = false } = {}) {
+/** One drawing through lint's §5, §5b, §5c and §5f, every reading kept. `lint` is the pin's lint
+ *  module (`pinLint`): the gap and glyph notes are read with its parsers, so a note means what it
+ *  meant at the pin. `trap` is the negative control only: the WRONG stroke (filled weight on a
+ *  shape-filled file). */
+export function censusFile(canvas, file, src, { trap = false, lint } = {}) {
+  if (!lint?.parseGapNote || !lint?.parseGlyphNote) throw new Error('censusFile: pass the pin\'s lint as { lint } (pinLint)');
+  const { parseGapNote, parseGlyphNote } = lint;
   const name = file.replace(/\.svg$/, ''), concept = conceptOf(name);
   const style = file.endsWith('-filled.svg') ? 'filled' : 'outline';
   const { areas, ds, stroke: lintStroke, noRoot } = partsOf(file, src, canvas);
@@ -563,10 +591,10 @@ export function censusFile(canvas, file, src, { trap = false } = {}) {
   }
   return { rows, warnings, measured, info };
 }
-export function gapCensus(set) {
+export function gapCensus(set, lint) {
   const rows = [], files = [];
   for (const d of set) {
-    const c = censusFile(d.master, d.file, d.src);
+    const c = censusFile(d.master, d.file, d.src, { lint });
     rows.push(...c.rows);
     files.push({ ...c.info, warnings: c.warnings });
   }
@@ -582,28 +610,32 @@ const v2 = (r) => r2(r.value);                     // the tools' own 2 dp
 const dkey = (r) => `${r.master}/${r.file}`;
 export const belowLint = (v, F) => v < F - 0.01 - 1e-9;
 
-/** lint's own run over the pin, in process: lintSource per file, then the three directory checks. */
-export function lintRun(set) {
-  const results = new Map(set.map((d) => [`${d.master}/${d.file}`, lintSource(d.master, d.file, d.src)]));
+/** lint's own run over the pin, in process: lintSource per file, then the three directory checks.
+ *  `lint` is the pin's lint module (`pinLint`). */
+export function lintRun(set, lint) {
+  const results = new Map(set.map((d) => [`${d.master}/${d.file}`, lint.lintSource(d.master, d.file, d.src)]));
   const gapOnly = new Map([...results].map(([k, r]) => [k, r.warnings.filter(isGapFamily)]));   // before the checks add theirs
-  checkFamilies(results); checkPairs(results); checkAnchors(results);
+  lint.checkFamilies(results); lint.checkPairs(results); lint.checkAnchors(results);
   let failed = 0, warned = 0, lines = 0;
   for (const r of results.values()) { if (r.errors.length) failed++; else if (r.warnings.length) warned++; lines += r.warnings.length; }
   return { results, gapOnly, drawings: results.size, failed, warned, clean: results.size - failed - warned, lines };
 }
 
-/** tools/lint.mjs, modified only to also return its private `measured[]`, imported from memory. */
-export async function lintWithMeasured() {
-  let t = readFileSync(new URL('../lint.mjs', import.meta.url), 'utf8');
+/** The pin's tools/lint.mjs, modified only to also return its private `measured[]`, imported from
+ *  memory. A data: URL has no directory, so its two relative imports are pointed at the pin's
+ *  geometry.mjs and masters.mjs by absolute file URL; the one return that carries `size` (the
+ *  full result; the pin's ends `…, gap, anchor, paths }`) gains `measured`. */
+export async function lintWithMeasured(pin) {
+  const tools = join(resolve(pin), 'tools');
+  let t = readFileSync(join(tools, 'lint.mjs'), 'utf8');
   const once = (from, to) => {
-    const n = t.split(from).length - 1;
+    const n = typeof from === 'string' ? t.split(from).length - 1 : [...t.matchAll(from)].length;
     if (n !== 1) throw new Error(`lint copy: expected one "${from}", found ${n}`);
-    t = t.replace(from, () => to);
+    t = t.replace(from, typeof to === 'string' ? () => to : to);
   };
-  once("from './geometry.mjs'", `from '${new URL('../geometry.mjs', import.meta.url).href}'`);
-  once("from './masters.mjs'", `from '${new URL('../masters.mjs', import.meta.url).href}'`);
-  once('return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, base, paths };',
-    'return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, base, paths, measured };');
+  once("from './geometry.mjs'", `from '${pathToFileURL(join(tools, 'geometry.mjs')).href}'`);
+  once("from './masters.mjs'", `from '${pathToFileURL(join(tools, 'masters.mjs')).href}'`);
+  once(/return \{ (file, errors, warnings, notes, size, [\w, ]+) \};/g, (_, fields) => `return { ${fields}, measured };`);
   // lint runs its CLI when argv[1] is its own path; blank argv[1] while the copy loads
   const saved = process.argv[1];
   process.argv[1] = '';
@@ -611,23 +643,24 @@ export async function lintWithMeasured() {
   finally { process.argv[1] = saved; }
 }
 const arrEq = (a, b) => a.length === b.length && a.every((x, i) => Object.is(x, b[i]));
-/** The proof that gapCensus() is lint: warnings, values and a negative control, per drawing. */
-export async function gapProof(set, census, lint) {
-  const clone = await lintWithMeasured();
+/** The proof that gapCensus() is the pin's lint: warnings, values and a negative control, per
+ *  drawing. `run` is lintRun's result; the port and the measured[] copy are both the pin's. */
+export async function gapProof(set, census, run, pin) {
+  const lint = await pinLint(pin), clone = await lintWithMeasured(pin);
   let warnEq = 0, measEq = 0, tried = 0, caught = 0, lineEq = 0, lineN = 0;
   const byFile = new Map(census.files.map((f) => [`${f.master}/${f.file}.svg`, f]));
   for (const d of set) {
     const key = `${d.master}/${d.file}`;
-    const mine = censusFile(d.master, d.file, d.src);
-    if (arrEq(mine.warnings, lint.gapOnly.get(key))) warnEq++;
+    const mine = censusFile(d.master, d.file, d.src, { lint });
+    if (arrEq(mine.warnings, run.gapOnly.get(key))) warnEq++;
     const cl = clone.lintSource(d.master, d.file, d.src);
     if (arrEq(mine.measured, cl.measured)) measEq++;
     if (mine.info.nAreas > 0 && mine.info.nPaths > 0) {
-      const trap = censusFile(d.master, d.file, d.src, { trap: true });
+      const trap = censusFile(d.master, d.file, d.src, { trap: true, lint });
       tried++;
-      if (!arrEq(trap.measured, cl.measured) || !arrEq(trap.warnings, lint.gapOnly.get(key))) caught++;
+      if (!arrEq(trap.measured, cl.measured) || !arrEq(trap.warnings, run.gapOnly.get(key))) caught++;
     }
-    const full = lint.results.get(key).warnings;
+    const full = run.results.get(key).warnings;
     if (full.length || byFile.get(key).warnings.length) { lineN++; if (arrEq(full, byFile.get(key).warnings)) lineEq++; }
   }
   return { warnEq, measEq, tried, caught, lineEq, lineN, files: set.length };
@@ -1000,7 +1033,8 @@ export function probeSet(primary) {
 // ════════════════════════════════════════════════════════════════════════════
 // THE SECTIONS
 // ════════════════════════════════════════════════════════════════════════════
-export function makeSections(pin) {
+export async function makeSections(pin) {
+  const lintAtPin = await pinLint(pin);   // the pin's lint: every lint reading below is its
   const set = memo(() => loadPin(pin));
   const byName = memo(() => new Map(set().map((d) => [`${d.master}/${d.name}`, d])));
   const drawing = (m, n) => {
@@ -1012,8 +1046,8 @@ export function makeSections(pin) {
   const DIAG = memo(() => diagSweep());
   const SPANS = memo(() => airSpans(set()));
   const READ = memo(() => airRead(SPANS(), set()));
-  const CENSUS = memo(() => gapCensus(set()));
-  const LINT = memo(() => lintRun(set()));
+  const CENSUS = memo(() => gapCensus(set(), lintAtPin));
+  const LINT = memo(() => lintRun(set(), lintAtPin));
   const CONTACT = memo(() => contactCensus(set()));
   const at15 = (r) => Math.abs(r.width - 1.5) < 0.02;          // "at the floor", realphase.mjs / airread.mjs
   const reads = memo(() => CENSUS().rows.filter(isReading));
@@ -1178,7 +1212,7 @@ export function makeSections(pin) {
     table(['master', ...B.map((b) => b[2])], MASTER_LIST.map((m) => [m, ...B.map(([a, b]) => int(by(m).filter((r) => r.width >= a - 1e-9 && r.width < b - 1e-9).length))]));
     say('Narrowest twelve spans in the whole set (stable sort by width):');
     const twelve = [...sp].filter((r) => r.width != null).sort((a, b) => a.width - b.width).slice(0, 12);
-    const warnsOn = (r) => lintSource(r.master, `${r.file}.svg`, drawing(r.master, r.file).src).warnings.some(isGapFamily);
+    const warnsOn = (r) => lintAtPin.lintSource(r.master, `${r.file}.svg`, drawing(r.master, r.file).src).warnings.some(isGapFamily);
     const grp = [];
     for (const r of twelve) {
       const g = grp.at(-1);
@@ -1254,7 +1288,7 @@ export function makeSections(pin) {
       for (let j = Math.ceil(y0); j + 1 <= y1; j++) rows.push(j);
       const cov = cols.flatMap((i) => rows.map((j) => sampleBox(reg, i, j, i + 1, j + 1, AIR_RATE)));
       const sp = R.filter((r) => r.file === 'desktop-6' && r.master === m && r.kind === 'pair' && at15(r));
-      const lr = lintSource(m, d.file, d.src), lint = `${lr.warnings.length} warnings, ${lr.errors.length} errors`;
+      const lr = lintAtPin.lintSource(m, d.file, d.src), lint =`${lr.warnings.length} warnings, ${lr.errors.length} errors`;
       say(`  - ${m}: channel x ${r3(xL)}..${r3(xR)} between y ${r3(y0)} and ${r3(y1)}: pixel columns ${cols.join(',')} x rows ${rows.join(',')}, coverage ${r3(Math.min(...cov))}-${r3(Math.max(...cov))}, background pixels ${cov.filter((c) => c === 0).length}; closest-approach span ${sp.map((r) => `at y ${r3(r.p[1])}, ${r.axis}, phase ${r.phase}, airMin ${r.airMin}`).join('; ')}; lintSource: ${lint}`);
     }
     say('bug / bug-2, vertical spans of exactly 1.5 with airMin = 1:');
@@ -1283,7 +1317,7 @@ export function makeSections(pin) {
   S.s4e = async () => {
     head('§4e The full gap census — lint\'s own readings, kept (gap-census.mjs)');
     const C = CENSUS(), L = LINT();
-    const proof = await gapProof(set(), C, L);
+    const proof = await gapProof(set(), C, L, pin);
     const warnRows = C.rows.filter((r) => r.lintWouldWarn);
     say(`- lint at the pin: ${L.warned} warned drawings carrying ${L.lines} warning lines; every line gap-family: ${[...L.results.values()].every((r) => r.warnings.every(isGapFamily)) ? 'yes' : 'no'}`);
     say(`- the port's warnings: ${warnRows.length} rows in ${uniq(warnRows, dkey)} drawings; same text drawing by drawing as lint's full run on ${proof.lineEq}/${proof.lineN}`);
@@ -1689,18 +1723,18 @@ export const SECTION_ORDER = ['head', 'scope', 's0', 's1', 's2', 's3a', 's3b', '
   's5', 's6a', 's6b', 's6c', 'p2', 's7', 's8', 's9', 's10', 's11', 's12', 'judged', 'eye'];
 
 const USAGE = `usage: node tools/audit/air-probe.mjs <pin-dir> [section …]
-  <pin-dir> holds src/icons/{24,20,16} (git archive 5933041)
+  <pin-dir> holds src/icons/{24,20,16} and tools/{lint,geometry,masters}.mjs (git archive 5933041)
   sections: ${SECTION_ORDER.join(' ')}`;
 
 export async function main(argv = process.argv.slice(2)) {
   const pos = argv.filter((a) => !a.startsWith('--'));
   const pin = pos[0] ? resolve(pos[0]) : null;
-  const ok = pin && existsSync(pin) && statSync(pin).isDirectory() && MASTER_LIST.every((m) => existsSync(join(pin, 'src/icons', String(m))));
+  const ok = pin && existsSync(pin) && statSync(pin).isDirectory() && MASTER_LIST.every((m) => existsSync(join(pin, 'src/icons', String(m)))) && hasPinTools(pin);
   if (!ok) { console.error(USAGE); return 2; }
   const wanted = pos.slice(1);
   const bad = wanted.filter((s) => !SECTION_ORDER.includes(s));
   if (bad.length) { console.error(`unknown section: ${bad.join(', ')}\n${USAGE}`); return 2; }
-  const S = makeSections(pin);
+  const S = await makeSections(pin);
   say(`# air-probe — docs/audit/findings-air.md, reprinted from ${pin}`);
   for (const s of wanted.length ? SECTION_ORDER.filter((x) => wanted.includes(x)) : SECTION_ORDER) await S[s]();
   return 0;

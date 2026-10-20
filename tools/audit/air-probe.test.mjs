@@ -1,25 +1,37 @@
 // Tests for tools/audit/air-probe.mjs (card 1.7, docs/audit/findings-air.md).
 // Synthetic fixtures only: hand-built paths and SVG texts, and a tiny fake pin in a temp
-// directory. Nothing under src/icons or research/ is read.
+// directory. Nothing under src/icons or research/ is read. "lint" below is the PIN's lint —
+// the instrument the probe's ports reproduce: tools/{lint,geometry,masters}.mjs at 5933041,
+// written from git into a temp directory (removed after the file), so no scratch pin is needed.
 
-import test from 'node:test';
+import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
-import { spawnSync } from 'node:child_process';
+import { spawnSync, execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { region } from './raster.mjs';
 import { iconFromSource } from './angles.mjs';
-import { lintSource } from '../lint.mjs';
+import * as repoLint from '../lint.mjs';
 import {
   sampleBox, readAir, SITUATIONS, sweep, floorsOf, anyClearPixel, phasesClearAt, holdsWholePixel, verdict,
   airSpansOf, airMinOf, censusFile, isGapFamily, lintWithMeasured, elementsOf, measurePair, junctionsOf,
   contactCensus, junctionProbe, probeSet, lintPairDrops, partsOf, loadPin, gapCensus, lintRun, gapProof,
-  diagSweep, airRead, airSpans,
+  diagSweep, airRead, airSpans, PIN_TOOLS, pinLint,
 } from './air-probe.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+const PIN_COMMIT = '5933041';
+/** The pin's three instrument files, from git, into <dir>/tools/. */
+const writePinTools = (dir) => {
+  mkdirSync(join(dir, 'tools'), { recursive: true });
+  for (const f of PIN_TOOLS) writeFileSync(join(dir, 'tools', f), execFileSync('git', ['show', `${PIN_COMMIT}:tools/${f}`], { cwd: HERE, maxBuffer: 1 << 26 }));
+};
+const PIN = mkdtempSync(join(tmpdir(), 'air-probe-pin-'));
+after(() => rmSync(PIN, { recursive: true, force: true }));
+writePinTools(PIN);
+const lint = await pinLint(PIN);
 const ROOT = (m, w) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">`;
 const svg = (m, w, ...paths) => `${ROOT(m, w)}\n${paths.map((d) => (d.startsWith('<') ? `  ${d}` : `  <path d="${d}"/>`)).join('\n')}\n</svg>\n`;
 const area = (d) => `<path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`;
@@ -122,49 +134,64 @@ test('airMinOf reads the open segment only: a pixel the span merely ends on is n
   assert.equal(airMinOf(ink, { p: [5, 5.5], q: [7, 5.5], width: 2, master: 24 }).airMin, 1);
 });
 
-test('censusFile: lint\'s readings kept, its skips recorded, its warnings reproduced', () => {
+test('censusFile: the pin\'s lint\'s readings kept, its skips recorded, its warnings reproduced', () => {
   // lint's `crosses` wants a proper crossing of the SAMPLED polylines (step 0.25), so the plus crosses off a sample
   const src = svg(24, 1.5, 'M4 10.25H20', 'M4 12.75H20', 'M12.1 4V8', 'M10 6.1H14', 'M4 20H8', 'M8 20V22', 'M16 14V20A1.25 1.25 0 0 0 18.5 20V14');
-  const c = censusFile(24, 'test.svg', src);
+  const c = censusFile(24, 'test.svg', src, { lint });
   const kinds = c.rows.map((r) => r.kind);
   assert.ok(kinds.includes('pair-crossing'), 'the plus crosses');
   assert.ok(kinds.includes('pair-touching'), 'the corner touches');
   const near = c.rows.find((r) => r.kind === 'pair' && r.pathA === 1 && r.pathB === 2);
   assert.equal(near.value, 1);
   assert.equal(near.lintWouldWarn, true);
-  assert.deepEqual(c.warnings, lintSource(24, 'test.svg', src).warnings.filter(isGapFamily));
+  assert.deepEqual(c.warnings, lint.lintSource(24, 'test.svg', src).warnings.filter(isGapFamily));
   assert.ok(c.rows.some((r) => r.kind === 'facing' && r.sub === 'self' && r.suppressedBy === 'dot-or-open-single-subpath'), 'the U\'s mouth is left to 5b');
   const cut = svg(24, 1.5, area('M3 3H21V21H3ZM6 11.275H18V12.725H6Z'));       // a 1.45 cut: under lint's 1.49
-  const cr = censusFile(24, 'cut-filled.svg', cut).rows.find((r) => r.sub === 'cut');
+  const cr = censusFile(24, 'cut-filled.svg', cut, { lint }).rows.find((r) => r.sub === 'cut');
   assert.deepEqual([cr.value, cr.lintWouldWarn], [1.45, true]);
-  assert.deepEqual(censusFile(24, 'cut-filled.svg', cut).warnings, lintSource(24, 'cut-filled.svg', cut).warnings.filter(isGapFamily));
+  assert.deepEqual(censusFile(24, 'cut-filled.svg', cut, { lint }).warnings, lint.lintSource(24, 'cut-filled.svg', cut).warnings.filter(isGapFamily));
   // §5f's second filter ("5b read this neck"): skip a facing reading only when 5b's own reading is no wider
-  const kept = censusFile(24, 'k.svg', svg(24, 1.5, 'M8 4V16A1.75 1.75 0 0 0 11.5 16V4M14 4H20')).rows.find((r) => r.sub === 'self');
+  const kept = censusFile(24, 'k.svg', svg(24, 1.5, 'M8 4V16A1.75 1.75 0 0 0 11.5 16V4M14 4H20'), { lint }).rows.find((r) => r.sub === 'self');
   assert.deepEqual([kept.value, kept.read5b, kept.suppressedBy], [1, 1.99, null]);
-  const skipped = censusFile(24, 's.svg', svg(24, 1.5, 'M6 4V16A3 3 0 0 0 12 16V4M15 4V16A1.5 1.5 0 0 0 18 16V4')).rows.find((r) => r.sub === 'self');
+  const skipped = censusFile(24, 's.svg', svg(24, 1.5, 'M6 4V16A3 3 0 0 0 12 16V4M15 4V16A1.5 1.5 0 0 0 18 16V4'), { lint }).rows.find((r) => r.sub === 'self');
   assert.deepEqual([skipped.value, skipped.read5b, skipped.suppressedBy], [1.5, 1.49, 'read5b']);
-  const nan = censusFile(24, 'nan.svg', svg(24, 1.5, 'M4 4H8A1 1 0 0 1 8 4V10', 'M8 10H12'));
+  const nan = censusFile(24, 'nan.svg', svg(24, 1.5, 'M4 4H8A1 1 0 0 1 8 4V10', 'M8 10H12'), { lint });
   const row = nan.rows.find((r) => r.unmeasurable);
   assert.ok(row && row.value === null, 'a zero-length arc gives an unmeasurable pair');
   const shaped = svg(24, 1.5, area('M3 3H21V21H3ZM6 11.25H18V12.75H6Z'), 'M12 1V2');
-  assert.notDeepEqual(censusFile(24, 's-filled.svg', shaped, { trap: true }).rows.map((r) => r.value), censusFile(24, 's-filled.svg', shaped).rows.map((r) => r.value));
+  assert.notDeepEqual(censusFile(24, 's-filled.svg', shaped, { trap: true, lint }).rows.map((r) => r.value), censusFile(24, 's-filled.svg', shaped, { lint }).rows.map((r) => r.value));
+  assert.throws(() => censusFile(24, 'm.svg', src), /pass the pin's lint/);   // no lint, no reading: never the repo's by default
+  // notes are read with the pin's parsers: `glyph: letter` is a kind only since 2026-10-20, so the pin calls it bad
+  const letter = svg(24, 1.5, '<!-- glyph: letter -->', 'M4 4H20', 'M4 8H20');
+  const lr = censusFile(24, 'l.svg', letter, { lint }).rows;
+  assert.ok(lr.length > 0, 'two lines give a §5 reading');
+  assert.ok(lr.every((r) => r.noteOnFile === 'glyph:BAD(letter)'), lr[0]?.noteOnFile);
+  assert.equal(lint.parseGlyphNote(letter).bad, true);
+  assert.notEqual(repoLint.parseGlyphNote(letter).bad, true, 'the repo\'s lint reads it — the probe must not');
 });
 
-test('lintWithMeasured: the in-memory lint copy returns measured[] equal to the port\'s', async () => {
-  const lint = await lintWithMeasured();
+test('lintWithMeasured: the in-memory copy of the pin\'s lint returns measured[] equal to the port\'s', async () => {
+  const clone = await lintWithMeasured(PIN);
   const src = svg(24, 1.5, 'M4 10.25H20', 'M4 13.25H20', 'M4 17H20');
-  assert.deepEqual(lint.lintSource(24, 'm.svg', src).measured, censusFile(24, 'm.svg', src).measured);
-  assert.ok(lint.lintSource(24, 'm.svg', src).measured.length >= 2);
+  assert.deepEqual(clone.lintSource(24, 'm.svg', src).measured, censusFile(24, 'm.svg', src, { lint }).measured);
+  assert.ok(clone.lintSource(24, 'm.svg', src).measured.length >= 2);
 });
 
-test('gapCensus, lintRun and gapProof: the port agrees with lint on a small set, and the trap is caught', async () => {
+test('the lint is the pin\'s: a narrow crossing this repo\'s lint warns on (arm tips, 2026-10-20) reads clean in lintRun and the copy', async () => {
+  const x = drawing(24, 'x.svg', svg(24, 1.5, '<!-- keyline: mark -->', 'M8 11L16 13', 'M8 13L16 11'));   // 28 degrees, 0.5 of tip air
+  assert.ok(repoLint.lintSource(24, 'x.svg', x.src).warnings.length > 0, 'the fixture tells the two lints apart');
+  assert.deepEqual(lintRun([x], lint).results.get('24/x.svg').warnings.filter((w) => !/no filled twin/.test(w)), []);   // checkPairs misses the twin, nothing else
+  assert.deepEqual((await lintWithMeasured(PIN)).lintSource(24, 'x.svg', x.src).warnings, []);
+});
+
+test('gapCensus, lintRun and gapProof: the port agrees with the pin\'s lint on a small set, and the trap is caught', async () => {
   const set = [
     drawing(24, 'near.svg', svg(24, 1.5, '<!-- keyline: mark -->', 'M4 10.25H20', 'M4 12.75H20')),   // exactly one warning
     drawing(24, 'near-filled.svg', svg(24, 2.5, 'M4 10.25H20', 'M4 14.25H20')),   // 1.5 of air at weight 2.5
     drawing(24, 'cut-filled.svg', svg(24, 1.5, area('M3 3H21V21H3ZM6 11.5H18V12.5H6Z'), 'M8 0.15H16')),   // 2.1 of air (unread); 1.6 under the trap
     drawing(24, 'cut.svg', svg(24, 1.5, 'M3 3H21V21H3Z')),
   ];
-  const C = gapCensus(set), L = lintRun(set);
+  const C = gapCensus(set, lint), L = lintRun(set, lint);
   assert.equal(C.files.length, 4);
   assert.deepEqual(C.rows.filter((r) => r.lintWouldWarn).map((r) => `${r.file} ${r.kind}${r.sub ? `:${r.sub}` : ''}`), ['near pair', 'cut-filled facing:cut']);
   assert.equal(L.drawings, 4);
@@ -173,7 +200,7 @@ test('gapCensus, lintRun and gapProof: the port agrees with lint on a small set,
   assert.deepEqual([L.failed, L.warned, L.clean, L.lines], [res.filter((r) => r.errors.length).length, res.filter((r) => !r.errors.length && r.warnings.length).length,
     res.filter((r) => !r.errors.length && !r.warnings.length).length, res.reduce((a, r) => a + r.warnings.length, 0)]);
   assert.equal(L.warned, 2);
-  const P = await gapProof(set, C, L);
+  const P = await gapProof(set, C, L, PIN);
   assert.deepEqual([P.warnEq, P.measEq, P.files], [4, 4, 4]);
   assert.deepEqual([P.tried, P.caught], [1, 1]);
 });
@@ -239,9 +266,10 @@ test('lintPairDrops counts lint\'s crossing and touching skips', () => {
   assert.equal(partsOf('x-filled.svg', svg(24, 2.5, 'M1 1H2'), 24).stroke, 2.5);
 });
 
-test('CLI: sections print their headings on a fake pin; an unknown section and a missing pin exit 2', () => {
+test('CLI: sections print their headings on a fake pin; an unknown section, a missing pin and a pin without its lint exit 2', () => {
   const dir = mkdtempSync(join(tmpdir(), 'air-probe-'));
   try {
+    writePinTools(dir);
     for (const m of [24, 20, 16]) {
       mkdirSync(join(dir, 'src/icons', String(m)), { recursive: true });
       const w = m === 16 ? 1.25 : 1.5, c = m / 2;
@@ -258,5 +286,9 @@ test('CLI: sections print their headings on a fake pin; an unknown section and a
     assert.equal(bad.status, 2);
     assert.match(bad.stderr, /unknown section/);
     assert.equal(spawnSync('node', [probe, join(dir, 'missing')], { encoding: 'utf8' }).status, 2);
+    rmSync(join(dir, 'tools/lint.mjs'));
+    const bare = spawnSync('node', [probe, dir, 's0'], { encoding: 'utf8' });   // drawings but no lint of its own
+    assert.equal(bare.status, 2);
+    assert.match(bare.stderr, /tools\/\{lint,geometry,masters\}\.mjs/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });

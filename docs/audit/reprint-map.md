@@ -1364,7 +1364,7 @@ Recovered and reprinted in full, nothing lost: every scratch script the document
 `realphase`(`2`), `airread`, `cost`, `aligncheck`, `blindspots`, `retina`, `dump`, `classify-bug`) plus `gap-census`
 (+ `-nancheck`) and `contact-census`; the inline `node -e` analyses were recovered from transcripts A and K.
 `gap-census-lint-instrumented.mjs` (a byte-copy of `lint.mjs` returning its private `measured[]`) is not copied
-anywhere: `lintWithMeasured()` reads `tools/lint.mjs` at run time, makes the same three edits in memory (two import
+anywhere: `lintWithMeasured()` reads the pin's `tools/lint.mjs` at run time (the repo's until 2026-10-20, when lint had moved on), makes the same three edits in memory (two import
 specifiers absolute, the return line extended) and imports it from a `data:` URL — the smallest honest route; nothing
 is written. `cuts.mjs`, `gaps.mjs`, `warns*.mjs`, `lintblocks.mjs` back no figure in this document (superseded by the
 two censuses).

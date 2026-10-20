@@ -304,6 +304,18 @@ test('grid: the 16 box is on the eighth grid with 14 eighth-only values; the che
   assert.equal(g[20].lintPrints.documented, 4);
 });
 
+test('drawingOf: a line grows by its own weight (lint §4 today); at one weight per file that is the pin\'s §4 box', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'parameter-reach-ink-'));
+  try {
+    mkdirSync(join(dir, '24'));
+    const inkOf = (f, src) => { const p = join(dir, '24', f); writeFileSync(p, src); return drawingOf(p).ink; };
+    // one weight, as at the pin: each line grown by 1.25 is the union grown once (pin lint.mjs:304-306)
+    assert.deepEqual(inkOf('one-filled.svg', svg(24, 2.5, [P('M4 12H20'), P('M12 4V8')])), { x0: 2.75, y0: 2.75, x1: 21.25, y1: 13.25 });
+    // a C32 / C33 line at the outline weight keeps its own 1.5: the stem's top stands 0.75 above it, not 1.25
+    assert.deepEqual(inkOf('own-filled.svg', svg(24, 2.5, [P('M4 12H20'), '<path stroke-width="1.5" d="M12 4V8"/>'])), { x0: 2.75, y0: 3.25, x1: 21.25, y1: 13.25 });
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
 test('reach runs only the sections asked for', () => {
   const one = reach(root, ['size']);
   assert.deepEqual(Object.keys(one.sections), ['size']);

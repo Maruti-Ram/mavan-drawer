@@ -27,9 +27,28 @@
 //   size      SIZE_STEP — the -small / -large families, mark-stepped (C8) and container (C18)
 //   grid      gridOf / decimalsOf — on-grid, off-grid and over-precision coordinates per master
 //
+// WHOSE INSTRUMENTS. The drawings are the pin's; nothing here imports lint. `lint.mjs:N` and
+// `masters.mjs:N` below cite the PIN's files (5933041), whose line numbers this repo's have moved.
+// geometry.mjs and masters.mjs are this repo's, checked equal to the pin's on 2026-10-20 for every
+// function this file and radii.mjs, angles.mjs and notes.mjs call (bbox, samplePath, isDot,
+// selfGap, materialGap, facingGap, subpathsOf, numbersIn, parsePath; every masters.mjs name
+// imported below), two ways: (1) each one's source, and every top-level declaration it reaches,
+// is the pin's text comments aside — bar facingGap, whose one change lets `stroke` be an array,
+// one weight per path (C32); given one number, as here, it reads as the pin's did; (2) pin's
+// module against repo's on all 7,500 paths of the pin's 2,910 drawings (facingGap at cap 1.75 and
+// 2.5): every call returned the same value. radii.mjs and angles.mjs are unchanged since 6293f80
+// (2026-10-04). notes.mjs follows today's lint, which since the pin also reads `glyph: letter`,
+// `base:` and `badge:`; no pin drawing carries one, and its record of every pin file equals the
+// record bca1cb5's copy (written while the repo's lint was the pin's) makes. This file run from a
+// `git archive bca1cb5` and from HEAD prints the same on the pin, --json too.
+//
 // HOW EACH REACH IS MEASURED — and on which instrument.
 //   · The ink box is lint's (§4): a stroked path's centreline box grown by half its own weight
-//     (the file's, or a C32 / C33 path's own stroke-width), an area as drawn (geometry.bbox). `bbox` samples arcs at 64 points and can sit up to
+//     (the file's, or a C32 / C33 path's own stroke-width; today's lint §4, 0ac0b09), an area as
+//     drawn (geometry.bbox). At the pin that is the same box: the pin's lint grew the lines' union
+//     by the file's weight (lint.mjs:304-306), its §2 made a stroke attribute on a <path> an error
+//     (lint.mjs:281), and no pin path carries one — so the per-path weight moves no figure there
+//     (the bca1cb5 run above predates it). `bbox` samples arcs at 64 points and can sit up to
 //     0.0056 inside the true edge (plans/set-and-rules-audit.md, known defects), so every
 //     "reaches / matches" test here uses 0.01, never tighter.
 //   · Corners come from tools/audit/radii.mjs (`census`, `radiiOf`), roles and all. Its
