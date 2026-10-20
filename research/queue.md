@@ -971,3 +971,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
 - [x] 507. `input` — added 2026-10-20 · approved 2026-10-20
 - [x] 508. `windows` — added 2026-10-20 · approved 2026-10-20
+- [x] 509. `tooltip` — added 2026-10-20 · approved 2026-10-20
