@@ -36,6 +36,17 @@ is the same shape: rendered as one shape, 0 pixels change at 24, 20 and 16 (1×,
 outline warnings are gone. The filled A's counter warnings (1.24 · 0.9 · 0.85) stand as above;
 that counter is the same triangle as the outline A's.
 
+**Dated note, 2026-10-20 — the A's crossbar moved to a third of the way up (H).** Maruti asked for a
+clearly better A if there was one. Drawn on one board: today's A; L, the bar lowered until the counter
+reads 1.5 at every master (0.5 · 1.0 · 1.0), which put it on the feet at 20 and 16 so the A read as a
+triangle with a hole; S, the filled counter filled in, which closed the hole retina screens show; and H,
+L at 24 with the bar 0.5 lower at 20 and 16. Maruti picked **H**. The crossbar now sits 33% · 33% · 30%
+of the way up (was 44% · 47% · 44%), the same at every master, and the gap between the feet stays. The
+counter reads 1.59 · 1.27 · 1.18 (was 1.24 · 0.9 · 0.85); at 16 on a 1× screen it is a white pixel where
+it was 50% grey. The filled files at 20 and 16 carry `<!-- gap: 1.27 -->` and `1.18`. Applied to all six
+sort-alpha icons; `translate` carries the same A on its own branch. The locked letterforms in
+`lab/drafts/archive/glyph-a*.js` are left as they were, as a record.
+
 ## What changes for the customer
 
 ~~Today a toolbar that shows `sort`, `sort-3` and an alphabetical variant side by side shows
