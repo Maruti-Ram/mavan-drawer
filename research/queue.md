@@ -578,7 +578,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 189. `bookmark` · Status & Feedback — mvp · approved 2026-10-18
 - [x] 189. `bookmark-2` · Status & Feedback · variant of `bookmark` — Round head · approved 2026-10-18
 - [x] 189. `bookmark-3` · Status & Feedback · variant of `bookmark` — Crisp ribbon · approved 2026-10-18
-- [~] 190. `crosshair` · Status & Feedback
+- [x] 190. `crosshair` · Status & Feedback — approved 2026-10-20
 - [x] 191. `download` · Files & Folders — mvp · approved 2026-10-18
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
