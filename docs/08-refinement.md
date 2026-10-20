@@ -406,6 +406,12 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   deferred it to its own census.
 - Touching paths are skipped (`min > 0.1`), which is why C18's flag-to-bar exception was
   invisible.
+- **Dated note, 2026-10-20 — three known holes in the newest checks** (found while building them; recorded here
+  from the sessions that found them). The crossing check (arms that cross, tip air at equal reach; commit 3aebe9e)
+  **misses a crossing that lands exactly on a path's corner point**, and **judges a straight tick crossing a ring at
+  90° as if it met it at 59°**, so it would ask that pair for tip air it does not need. The ring-hole check (8004c45)
+  **skips a ring written with lower-case `a` / `z`** (relative arcs), which it does not parse as a ring. No shipped
+  drawing hits any of the three today.
 
 ---
 
