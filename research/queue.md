@@ -679,7 +679,6 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 265. `live` · Media & Playback
 - [x] 266. `categories` · Files & Folders — approved 2026-10-20
 - [x] 266. `categories-2` · Files & Folders · variant of `categories` — Stacked cards · approved 2026-10-20
-- [x] 266. `categories-4` · Files & Folders · variant of `categories` — Tree: a parent with two children · approved 2026-10-20
 - [x] 266. `categories-3` · Files & Folders · variant of `categories` — Tiles: rings and squares on the diagonals · approved 2026-10-20
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
@@ -965,3 +964,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
+- [x] 507. `hierarchy` — added 2026-10-20 · approved 2026-10-20
