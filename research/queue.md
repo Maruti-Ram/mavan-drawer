@@ -712,7 +712,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
-- [~] 290. `toggles` · UI & Layout
+- [x] 290. `toggles` · UI & Layout — approved 2026-10-20
+- [x] 290. `toggles-2` · UI & Layout · variant of `toggles` — Big knob over a slim track, polished, on over off · approved 2026-10-20
 - [ ] 291. `blueprint` · Development & Infra
 - [ ] 292. `decision-process` · Development & Infra
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
