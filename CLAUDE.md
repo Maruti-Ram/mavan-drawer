@@ -291,8 +291,13 @@ depending on the icon.
 - `<!-- grows: L R T B -->` (filled files only) declares how far the filled ink is allowed to
   stand proud of its outline twin's box on each side, in that master's units; negative is inside.
   Lint compares every pair and warns on any undeclared difference; a note the drawings do not
-  measure is an error. The 33 that differ today are C17 repeated elements and `minus` — all
-  agreed, none yet noted (2026-09-20 census)
+  measure is an error. Today (2026-10-20 census) **97 filled files on 33 concepts** differ, every
+  one noted and confirmed by lint, none undeclared: C17 repeated elements — line and bar stacks
+  (the six menus, `list-bullet`, `-2`, `text-2`, `filter-2`, `chart-bar`, `quote-3`,
+  `drag-handle-3`, `password-2`'s underline), dots and tiles (`more-*`, `drag-handle`, `-2`,
+  `grid-3`, `-4`) and the eight double chevrons (`chevrons-*`, `-2`); the lone bar (`minus`,
+  `-large`, `-small`); and two one-offs approved with their icon, `command`'s ⌘ and
+  `chart-line-2`'s data dots (at 16 only); `grep -rl '<!-- grows:' src/icons` lists them
 - `<!-- gap: N -->` declares the agreed minimum gap between stroke edges for that one file, in
   that master's units; it replaces §6's 1.5 in that file's proximity checks — §5 (crossing arms included), §5b, §5f, §5h and §5i (C19
   glyph pairs and the knockout check are untouched). Lint prints it as an info line while the drawing holds
