@@ -589,7 +589,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 193. `headphones-3` · Communication · variant of `headphones` — Ring heads, slim solid stems · approved 2026-10-20
 - [x] 193. `headphones-5` · Communication · variant of `headphones` — Teardrop heads, slim solid stems · approved 2026-10-20
 - [x] 194. `inbox` · Communication — mvp · approved 2026-10-18
-- [~] 195. `life-buoy` · Status & Feedback
+- [x] 195. `life-buoy` · Status & Feedback — approved 2026-10-20
 - [~] 196. `loader` · Status & Feedback — mvp
 - [x] 197. `repeat` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 197. `repeat-2` · Arrows & Direction · variant of `repeat` — Closed ring, mid-rail heads · approved 2026-10-17

@@ -767,6 +767,8 @@
     "layout-sidebar-right-4",
     "layout-sidebar-right-4-filled",
     "layout-sidebar-right-filled",
+    "life-buoy",
+    "life-buoy-filled",
     "lightbulb",
     "lightbulb-2",
     "lightbulb-2-filled",
@@ -46309,6 +46311,134 @@
       "ratio": null,
       "gap": null
     },
+    "life-buoy": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M7 12A5 5 0 1 0 17 12A5 5 0 1 0 7 12Z",
+        "M5.46 5.46L8.46 8.46",
+        "M18.54 5.46L15.54 8.46",
+        "M18.54 18.54L15.54 15.54",
+        "M5.46 18.54L8.46 15.54"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M7 12A5 5 0 1 0 17 12A5 5 0 1 0 7 12Z\"/> <path d=\"M5.46 5.46L8.46 8.46\"/> <path d=\"M18.54 5.46L15.54 8.46\"/> <path d=\"M18.54 18.54L15.54 15.54\"/> <path d=\"M5.46 18.54L8.46 15.54\"/>",
+      "mark": false,
+      "tags": [
+        "classic",
+        "diagonal straps",
+        "rescue ring",
+        "support"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 14.58,
+        "h": 14.58
+      },
+      "ratio": {
+        "w": 0.73,
+        "h": 0.73
+      },
+      "gap": null
+    },
+    "life-buoy-filled": {
+      "paths": [],
+      "areas": [
+        "M19.6 5.5A10 10 0 0 1 19.6 18.5L15.5 14.41A4.25 4.25 0 0 0 15.5 9.59Z",
+        "M18.5 19.6A10 10 0 0 1 5.5 19.6L9.59 15.5A4.25 4.25 0 0 0 14.41 15.5Z",
+        "M4.4 18.5A10 10 0 0 1 4.4 5.5L8.5 9.59A4.25 4.25 0 0 0 8.5 14.41Z",
+        "M5.5 4.4A10 10 0 0 1 18.5 4.4L14.41 8.5A4.25 4.25 0 0 0 9.59 8.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M19.6 5.5A10 10 0 0 1 19.6 18.5L15.5 14.41A4.25 4.25 0 0 0 15.5 9.59Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18.5 19.6A10 10 0 0 1 5.5 19.6L9.59 15.5A4.25 4.25 0 0 0 14.41 15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.4 18.5A10 10 0 0 1 4.4 5.5L8.5 9.59A4.25 4.25 0 0 0 8.5 14.41Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.5 4.4A10 10 0 0 1 18.5 4.4L14.41 8.5A4.25 4.25 0 0 0 9.59 8.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "classic",
+        "diagonal straps",
+        "rescue ring",
+        "support"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "lightbulb": {
       "paths": [
         "M6.2 14.35A7.25 7.25 0 0 1 4.75 10A7.25 7.25 0 0 1 12 2.75A7.25 7.25 0 0 1 19.25 10A7.25 7.25 0 0 1 17.8 14.35L15.1 17.95A0.75 0.75 0 0 1 14.5 18.25L9.5 18.25A0.75 0.75 0 0 1 8.9 17.95Z",
@@ -90540,6 +90670,8 @@
         "layout-sidebar-right-4",
         "layout-sidebar-right-4-filled",
         "layout-sidebar-right-filled",
+        "life-buoy",
+        "life-buoy-filled",
         "lightbulb",
         "lightbulb-2",
         "lightbulb-2-filled",
@@ -136023,6 +136155,134 @@
           "ratio": null,
           "gap": null
         },
+        "life-buoy": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M4.625 8A3.375 3.375 0 1 0 11.375 8A3.375 3.375 0 1 0 4.625 8Z",
+            "M3.493 3.493L5.614 5.614",
+            "M12.507 3.493L10.386 5.614",
+            "M12.507 12.507L10.386 10.386",
+            "M3.493 12.507L5.614 10.386"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M4.625 8A3.375 3.375 0 1 0 11.375 8A3.375 3.375 0 1 0 4.625 8Z\"/> <path d=\"M3.493 3.493L5.614 5.614\"/> <path d=\"M12.507 3.493L10.386 5.614\"/> <path d=\"M12.507 12.507L10.386 10.386\"/> <path d=\"M3.493 12.507L5.614 10.386\"/>",
+          "mark": false,
+          "tags": [
+            "classic",
+            "diagonal straps",
+            "rescue ring",
+            "support"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 10.26,
+            "h": 10.26
+          },
+          "ratio": {
+            "w": 0.73,
+            "h": 0.73
+          },
+          "gap": null
+        },
+        "life-buoy-filled": {
+          "paths": [],
+          "areas": [
+            "M13.462 3.622A7 7 0 0 1 13.462 12.378L10.402 9.339A2.75 2.75 0 0 0 10.402 6.661Z",
+            "M12.378 13.462A7 7 0 0 1 3.622 13.462L6.661 10.402A2.75 2.75 0 0 0 9.339 10.402Z",
+            "M2.538 12.378A7 7 0 0 1 2.538 3.622L5.598 6.661A2.75 2.75 0 0 0 5.598 9.339Z",
+            "M3.622 2.538A7 7 0 0 1 12.378 2.538L9.339 5.598A2.75 2.75 0 0 0 6.661 5.598Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.462 3.622A7 7 0 0 1 13.462 12.378L10.402 9.339A2.75 2.75 0 0 0 10.402 6.661Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.378 13.462A7 7 0 0 1 3.622 13.462L6.661 10.402A2.75 2.75 0 0 0 9.339 10.402Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.538 12.378A7 7 0 0 1 2.538 3.622L5.598 6.661A2.75 2.75 0 0 0 5.598 9.339Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.622 2.538A7 7 0 0 1 12.378 2.538L9.339 5.598A2.75 2.75 0 0 0 6.661 5.598Z\"/>",
+          "mark": false,
+          "tags": [
+            "classic",
+            "diagonal straps",
+            "rescue ring",
+            "support"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "lightbulb": {
           "paths": [
             "M4.06 7.902A4.375 4.375 0 0 1 3.625 6A4.375 4.375 0 0 1 8 1.625A4.375 4.375 0 0 1 12.375 6A4.375 4.375 0 0 1 11.94 7.902L10.313 11.272A0.625 0.625 0 0 1 9.75 11.625L6.25 11.625A0.625 0.625 0 0 1 5.687 11.272Z",
@@ -180220,6 +180480,8 @@
         "layout-sidebar-right-4",
         "layout-sidebar-right-4-filled",
         "layout-sidebar-right-filled",
+        "life-buoy",
+        "life-buoy-filled",
         "lightbulb",
         "lightbulb-2",
         "lightbulb-2-filled",
@@ -225727,6 +225989,134 @@
           "ratio": null,
           "gap": null
         },
+        "life-buoy": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M6 10A4 4 0 1 0 14 10A4 4 0 1 0 6 10Z",
+            "M4.87 4.87L7.17 7.17",
+            "M15.13 4.87L12.83 7.17",
+            "M15.13 15.13L12.83 12.83",
+            "M4.87 15.13L7.17 12.83"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M6 10A4 4 0 1 0 14 10A4 4 0 1 0 6 10Z\"/> <path d=\"M4.87 4.87L7.17 7.17\"/> <path d=\"M15.13 4.87L12.83 7.17\"/> <path d=\"M15.13 15.13L12.83 12.83\"/> <path d=\"M4.87 15.13L7.17 12.83\"/>",
+          "mark": false,
+          "tags": [
+            "classic",
+            "diagonal straps",
+            "rescue ring",
+            "support"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 11.76,
+            "h": 11.76
+          },
+          "ratio": {
+            "w": 0.74,
+            "h": 0.74
+          },
+          "gap": null
+        },
+        "life-buoy-filled": {
+          "paths": [],
+          "areas": [
+            "M16.18 4.92A8 8 0 0 1 16.18 15.08L12.77 11.7A3.25 3.25 0 0 0 12.77 8.3Z",
+            "M15.08 16.18A8 8 0 0 1 4.92 16.18L8.3 12.77A3.25 3.25 0 0 0 11.7 12.77Z",
+            "M3.82 15.08A8 8 0 0 1 3.82 4.92L7.23 8.3A3.25 3.25 0 0 0 7.23 11.7Z",
+            "M4.92 3.82A8 8 0 0 1 15.08 3.82L11.7 7.23A3.25 3.25 0 0 0 8.3 7.23Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16.18 4.92A8 8 0 0 1 16.18 15.08L12.77 11.7A3.25 3.25 0 0 0 12.77 8.3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.08 16.18A8 8 0 0 1 4.92 16.18L8.3 12.77A3.25 3.25 0 0 0 11.7 12.77Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.82 15.08A8 8 0 0 1 3.82 4.92L7.23 8.3A3.25 3.25 0 0 0 7.23 11.7Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.92 3.82A8 8 0 0 1 15.08 3.82L11.7 7.23A3.25 3.25 0 0 0 8.3 7.23Z\"/>",
+          "mark": false,
+          "tags": [
+            "classic",
+            "diagonal straps",
+            "rescue ring",
+            "support"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "lightbulb": {
           "paths": [
             "M5.8 11.15A5.25 5.25 0 0 1 4.75 8A5.25 5.25 0 0 1 10 2.75A5.25 5.25 0 0 1 15.25 8A5.25 5.25 0 0 1 14.2 11.15L12.1 13.95A0.75 0.75 0 0 1 11.5 14.25L8.5 14.25A0.75 0.75 0 0 1 7.9 13.95Z",
@@ -269945,6 +270335,8 @@
         "layout-sidebar-right-4",
         "layout-sidebar-right-4-filled",
         "layout-sidebar-right-filled",
+        "life-buoy",
+        "life-buoy-filled",
         "lightbulb",
         "lightbulb-2",
         "lightbulb-2-filled",
@@ -315480,6 +315872,134 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "life-buoy": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M7 12A5 5 0 1 0 17 12A5 5 0 1 0 7 12Z",
+            "M5.46 5.46L8.46 8.46",
+            "M18.54 5.46L15.54 8.46",
+            "M18.54 18.54L15.54 15.54",
+            "M5.46 18.54L8.46 15.54"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M7 12A5 5 0 1 0 17 12A5 5 0 1 0 7 12Z\"/> <path d=\"M5.46 5.46L8.46 8.46\"/> <path d=\"M18.54 5.46L15.54 8.46\"/> <path d=\"M18.54 18.54L15.54 15.54\"/> <path d=\"M5.46 18.54L8.46 15.54\"/>",
+          "mark": false,
+          "tags": [
+            "classic",
+            "diagonal straps",
+            "rescue ring",
+            "support"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 14.58,
+            "h": 14.58
+          },
+          "ratio": {
+            "w": 0.73,
+            "h": 0.73
+          },
+          "gap": null
+        },
+        "life-buoy-filled": {
+          "paths": [],
+          "areas": [
+            "M19.6 5.5A10 10 0 0 1 19.6 18.5L15.5 14.41A4.25 4.25 0 0 0 15.5 9.59Z",
+            "M18.5 19.6A10 10 0 0 1 5.5 19.6L9.59 15.5A4.25 4.25 0 0 0 14.41 15.5Z",
+            "M4.4 18.5A10 10 0 0 1 4.4 5.5L8.5 9.59A4.25 4.25 0 0 0 8.5 14.41Z",
+            "M5.5 4.4A10 10 0 0 1 18.5 4.4L14.41 8.5A4.25 4.25 0 0 0 9.59 8.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M19.6 5.5A10 10 0 0 1 19.6 18.5L15.5 14.41A4.25 4.25 0 0 0 15.5 9.59Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18.5 19.6A10 10 0 0 1 5.5 19.6L9.59 15.5A4.25 4.25 0 0 0 14.41 15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.4 18.5A10 10 0 0 1 4.4 5.5L8.5 9.59A4.25 4.25 0 0 0 8.5 14.41Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.5 4.4A10 10 0 0 1 18.5 4.4L14.41 8.5A4.25 4.25 0 0 0 9.59 8.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "classic",
+            "diagonal straps",
+            "rescue ring",
+            "support"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -365117,10 +365637,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Status & Feedback",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-20",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-20"
     },
     {
       "n": 196,
