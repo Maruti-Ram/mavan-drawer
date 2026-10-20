@@ -2,19 +2,45 @@
   "generated": "2026-10-20",
   "board": {
     "name": "toggles",
-    "candidates": 2,
+    "candidates": 3,
     "status": "review"
   },
   "icons": [
     {
+      "name": "popup",
+      "concept": "popup",
+      "candidates": 3,
+      "ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "password-2",
+      "concept": "password",
+      "candidates": 6,
+      "ids": [
+        "B",
+        "Bk",
+        "Bl",
+        "C",
+        "Ck",
+        "D"
+      ],
+      "status": "done"
+    },
+    {
       "name": "drag-drop",
       "concept": "drag-drop",
-      "candidates": 4,
+      "candidates": 5,
       "ids": [
         "A",
         "B",
         "C",
-        "D"
+        "B0",
+        "C0"
       ],
       "status": "review"
     }

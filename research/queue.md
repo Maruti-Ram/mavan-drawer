@@ -558,7 +558,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 179. `id-card-4` · Users & Access · variant of `id-card` — Passport · approved 2026-10-19
 - [ ] 180. `indent` · Editing & Text
 - [ ] 181. `outdent` · Editing & Text
-- [ ] 182. `popup` · UI & Layout
+- [~] 182. `popup` · UI & Layout
 - [ ] 183. `replace` · Editing & Text
 - [x] 184. `rows` · UI & Layout — approved 2026-10-20
 - [x] 184. `rows-2` · UI & Layout · variant of `rows` — Two row boxes · approved 2026-10-20
@@ -668,7 +668,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 255. `pause` · Media & Playback
 - [x] 256. `expand` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
-- [ ] 257. `window` · UI & Layout
+- [x] 257. `window` · UI & Layout — approved 2026-10-20
+- [x] 257. `window-2` · UI & Layout · variant of `window` — Tabs · approved 2026-10-20
 - [ ] 258. `scan` · Devices & Hardware
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
@@ -964,3 +965,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
 - [x] 507. `input` — added 2026-10-20 · approved 2026-10-20
+- [x] 508. `windows` — added 2026-10-20 · approved 2026-10-20
