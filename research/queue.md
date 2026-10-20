@@ -431,8 +431,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 110. `book-3` · Files & Folders · variant of `book` — Page curl, title · approved 2026-09-28
 - [x] 110. `book-4` · Files & Folders · variant of `book` — Spine band, title · approved 2026-09-28
 - [x] 111. `hash` · Communication — approved 2026-09-28
-- [x] 111. `hash-2` · Communication · variant of `hash` — Slanted 9.5° · approved 2026-09-28
-- [x] 111. `hash-3` · Communication · variant of `hash` — Slanted 9.5°, sheared · approved 2026-09-28
+- [x] 111. `hash-2` · Communication · variant of `hash` — Slanted 9.5° · approved 2026-10-20
+- [x] 111. `hash-3` · Communication · variant of `hash` — Slanted 9.5°, sheared · approved 2026-10-20
 - [x] 112. `compass` · Maps & Location — approved 2026-09-28
 - [x] 112. `compass-2` · Maps & Location · variant of `compass` — Diagonal, small · approved 2026-09-28
 - [x] 112. `compass-3` · Maps & Location · variant of `compass` — North solid, south outlined · approved 2026-09-28

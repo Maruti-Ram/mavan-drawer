@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <!-- keyline: mark -->
   <!-- tags: number, channel, hashtag, slanted, italic, sheared -->
-  <!-- Slanted 9.5°, sheared: F's lean with the horizontals shifted to follow it (top bar right, bottom bar left, 0.5 · 0.5 · 0.375), so every arm runs past its crossing by the same length - a true italic #, the middle cell a parallelogram. Horizontals 1 · 1 · 0.75 shorter so the ink box stays plus's. Angle exception Maruti would be agreeing to: verticals at 9.46° · 9.46° · 9.25° from upright, off 0/45/90. Ink 15×15 · 13.5×13.5 · 12×12 (24 · 20 · 16), box-centred, filled identical. Air between the parallel bars (edge to edge, square to the bars): verticals 4.66 · 3.93 · 3.44, horizontals 4.5 · 4 · 3.5; filled 3.65 · 3.42 · 2.81 and 3.5 · 3.5 · 2.75 (floor 1.5). Filled verticals, re-cut to their pulled-in ends on the grid, lean 10.2° · 9.87° · 9.23°. Filled: the same four lines at 2.5 · 2 · 2, ends pulled in 0.5 · 0.25 · 0.375 so the ink box matches. Round caps, no joins (four separate lines, as plus). -->
-  <path d="M10 5.25L7.75 18.75"/>
-  <path d="M16.25 5.25L14 18.75"/>
-  <path d="M6.25 9H18.75"/>
-  <path d="M5.25 15H17.75"/>
+  <!-- Slanted 9.5°, sheared, square cell: (recommended) Both pairs of bars come in, the cell stays square, the flat bars shear by 0.75 · 0.75 · 0.5 so the flat arms stay equal (to within 0.08 · 0 · 0.15). Slanted bars in by 0.5 · 0.5 · 0.375; flat bars at 9.5/14.5 · 7.75/12.25 · 6/10, the same heights as B2, so hash-2 and hash-3 differ only in the shear, as now. Tip air at the 80° corners, outline 3.29 · 2.86 · 2.7, filled 1.57 · 2 · 1.52 (floor 1.5). Shortest arm past a crossing (crossing to cap centre), outline 3.71 · 3.38 · 3.05, filled 3.18 · 3.11 · 2.7. Middle cell air, square to the slanted bars × between the flat bars: outline 3.68×3.5 · 2.94×3 · 2.7×2.75, filled 2.67×2.5 · 2.43×2.5 · 1.96×2. Filled slanted bars lean 10.2 · 9.87 · 8.53° (outline 9.46 · 9.46 · 9.25°). Ink 15×15 · 13.5×13.5 · 12×12, box-centred, filled identical (C12). -->
+  <path d="M10.5 5.25L8.25 18.75"/>
+  <path d="M15.75 5.25L13.5 18.75"/>
+  <path d="M6 9.5H18.75"/>
+  <path d="M5.25 14.5H18"/>
 </svg>
