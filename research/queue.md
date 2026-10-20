@@ -631,6 +631,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 222. `layout-list-2` · UI & Layout · variant of `layout-list` — Bullets in a frame, even air · approved 2026-10-20
 - [ ] 223. `messages` · Communication — mvp
 - [x] 224. `password` · UI & Layout — approved 2026-10-20
+- [x] 224. `password-2` · UI & Layout · variant of `password` — Asterisks on one line, six arms, kept apart · approved 2026-10-20
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
@@ -978,3 +979,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 507. `input` — added 2026-10-20 · approved 2026-10-20
 - [x] 508. `windows` — added 2026-10-20 · approved 2026-10-20
 - [x] 509. `tooltip` — added 2026-10-20 · approved 2026-10-20
+- [ ] 510. `password-lock` — added 2026-10-20
+- [~] 511. `list-todo` — added 2026-10-20
