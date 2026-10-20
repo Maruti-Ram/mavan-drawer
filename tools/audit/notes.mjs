@@ -17,7 +17,7 @@
 //   box      lint.mjs:65-70    parseBoxNote     WxH, else `bad` (an error, :325)
 //   grows    lint.mjs:85-92    parseGrowsNote   four signed numbers, else `bad` (:226); an error in an outline file (:222-224)
 //   gap      lint.mjs:106-111  parseGapNote     a positive number, else `bad` (:233); an error at or above MIN_GAP (:235-238)
-//   glyph    lint.mjs:142-147  parseGlyphNote   `dot` or `numeral`, else `bad` (:245)
+//   glyph    lint.mjs:142-147  parseGlyphNote   `dot`, `numeral` or `letter` (2026-10-20), else `bad` (:245)
 //   anchor   lint.mjs:124-129  parseAnchorNote  an icon name not ending `-filled`, else `bad` (:257); an error naming itself (:259-262)
 //   optical  lint.mjs:319      `([-\d.]+)\s+([-\d.]+)`, Number()ed and never validated — `- .` parses to NaN
 //   tags     never read by lint; build.mjs:27 splits it on commas for the Library's search
@@ -127,10 +127,12 @@ const MIRROR = {
   glyph(c) {
     const m = c.match(/<!--\s*glyph:\s*([^>]*?)\s*-->/);                         // lint.mjs:144
     if (!m) return unread('144');
-    return ['dot', 'numeral'].includes(m[1])                                     // lint.mjs:142, 146
+    return ['dot', 'numeral', 'letter'].includes(m[1])                           // lint.mjs GLYPH_KINDS
       ? ok({ kind: m[1] }, m[1] === 'dot'
         ? 'lint.mjs:248, 395-396, 434-435, 461: the dot-to-body pair, the character\'s own opening and the knockout it leaves floor at GLYPH_GAP'
-        : 'lint.mjs:249, 434-437, 522-525: each path\'s own opening floors at GLYPH_GAP; an info line says when nothing is under MIN_GAP')
+        : m[1] === 'numeral'
+          ? 'lint.mjs:249, 434-437, 522-525: each path\'s own opening floors at GLYPH_GAP; an info line says when nothing is under MIN_GAP'
+          : 'lint.mjs §2b (C32, 2026-10-20): a letter\'s path may keep the outline weight in a line-heavy filled file; no GLYPH_GAP — an error when no path carries its own weight')
       : no({ bad: true }, 'lint.mjs:143-147: not a kind lint knows — an error (:245)');
   },
   anchor(c, ctx) {
