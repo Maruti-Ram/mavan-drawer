@@ -632,6 +632,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 223. `messages` · Communication — mvp
 - [x] 224. `password` · UI & Layout — approved 2026-10-20
 - [x] 224. `password-2` · UI & Layout · variant of `password` — Asterisks on one line, six arms, kept apart · approved 2026-10-20
+- [x] 224. `password-3` · UI & Layout · variant of `password` — Two asterisks and the caret · approved 2026-10-20
 - [ ] 225. `pen-sparkle` · Editing & Text
 - [ ] 226. `sticker` · Communication
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
