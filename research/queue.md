@@ -690,7 +690,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
 - [ ] 271. `status` · Status & Feedback
-- [~] 272. `translate` · Communication
+- [x] 272. `translate` · Communication — approved 2026-10-20
+- [x] 272. `translate-2` · Communication · variant of `translate` — Two speech bubbles · approved 2026-10-20
 - [ ] 273. `viewport-narrow` · UI & Layout
 - [ ] 274. `viewport-short` · UI & Layout
 - [ ] 275. `viewport-tall` · UI & Layout
