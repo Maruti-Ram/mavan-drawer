@@ -647,6 +647,10 @@ R-F4-04). `italic` leans 74.4–75.7° with 4.50 of ink drift; C30 pre-authorise
 - **Look at** XS-2, exceptions sheet group 10 (`eye-only.md:443`).
 - **Folds** R-7, angles §7a-5, severity §4.4 row 5, R-F4-04, -13, R-F8-01, -28, R-F9-04, R-X-03 (C-row
   half), R-X-41 (C-row half), stale-statements 4.1. **First** AG-3 (sitting B). **Launch** no.
+- **Dated note, 2026-10-20.** The `sort-numeric` 9 was redrawn for balance (Maruti; `plans/sort-family.md`).
+  Its straight tail is gone, so the 15.04° above no longer describes it: the new 9 stands upright
+  (lean +0.3 · +0.3 · −0.9°). The six icons carry `glyph: numeral` (CL-3, done) and lint clean. The sort
+  letterforms' warned drawings are now the `sort-alpha` ones only; the set has 38 warned drawings.
 
 #### AG-27 · `login` and `logout`: keep their numbers?
 **You will see** four doors shared exactly but cross-paired — `login`'s door is `logout-3`'s (R-X-05,
@@ -819,7 +823,7 @@ item that touches a file in `src/icons` goes through `queue.mjs`.
 |---|---|---|
 | CL-1 | **Cross-master errors** (a master missing; a concept not at all three) **and the false greens** (a symlinked run, a truncated pipe in `approve`, area paths in outline files, a malformed `optical:`, a misspelt key) — each catches a broken file or a broken run, never a drawing judgement. The audit's "delete 16 and lint reports 1,940, all clean" runs 1,903 clean, 37 warned, exit 0 (`reprint-map.md:1110`) — the hole stands | severity §5 rows 3–6, §7-3; R-F6-03, R-X-29 |
 | CL-2 | `geometry.test.mjs` into `check` — a failing geometry test is a tool fault, not a drawing | severity §6 (tests half), §7-4; R-X-44 (tests half) |
-| CL-3 | `glyph: numeral` on the six `sort-numeric-*`, which C19 already authorises — 12 warning lines go | severity §6b, §7-4b; R-F8-02 |
+| CL-3 | `glyph: numeral` on the six `sort-numeric-*`, which C19 already authorises — 12 warning lines go. **Done 2026-10-20**, with the 9's redraw: all 36 files carry it and lint clean | severity §6b, §7-4b; R-F8-02 |
 | CL-4 | **Notes held to their drawings:** `gap:` to 0.01 and naming its air (`sort` at 16 → 1.38); `volume-off-filled` declares its junction and its 1.25 channel as you ruled on 2026-09-28 (`plans/facing-gap.md`; C22's "noted in its file" and the ledger's "declared nowhere" both stand until then); `microphone-5`'s box at 20 and 16 from its own prose; `trash`'s tab as a junction if AG-10 says so | R-5, severity §5 row 7, scaling D1; R-F2-23, R-F8-04, -13, -14, -29 |
 | CL-5 | **Lint's blind spots:** the knockout check on the 414 shape-filled files with strokes; the zero-length arc; unjudged `facing:self` readings; two holes in one filled drawing; a measure for wedge counters, after which the concepts holding one under 1.5 — nine (card 1.8) ⇄ 18 (`reprint-map.md:1073`) — come to you as drawings; the radius check on area paths, as a warning (1,026 drawings); the container check finding its container by shape; the gap message. New readings come to you as drawings | R-9 (§5c half), severity §4.3 row 1 (measuring half), row 2; R-F2-07, R-F8-03, -21, -31, -32, R-F13-25, R-X-43 |
 | CL-6 | **Narrow the off-grid hatch** after AG-4, the residue measured first; an off-grid radius becomes an error once AG-4 has declared the dot | severity §4.5 row 2, §5 row 1; primitive-drift check 4 |
