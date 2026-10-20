@@ -748,7 +748,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 285. `bookmarks-3` · Files & Folders · variant of `bookmarks` — A ribbon beside a list · approved 2026-10-20
 - [x] 285. `bookmarks-4` · Files & Folders · variant of `bookmarks` — A star beside a list · approved 2026-10-20
 - [x] 285. `bookmarks-2` · Files & Folders · variant of `bookmarks` — Ribbon hung from the step, one size up · approved 2026-10-20
-- [~] 286. `progress-bar` · Status & Feedback
+- [x] 286. `progress-bar` · Status & Feedback — approved 2026-10-20
+- [x] 286. `progress-bar-low` · Status & Feedback · variant of `progress-bar` — Fill at 40% · approved 2026-10-20
+- [x] 286. `progress-bar-high` · Status & Feedback · variant of `progress-bar` — Fill at ~70% · approved 2026-10-20
 - [~] 287. `saved-items` · Status & Feedback
 - [ ] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
