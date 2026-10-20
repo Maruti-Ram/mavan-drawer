@@ -48,6 +48,11 @@
 //                   (NAME-filled's for the filled file). A candidate writes `anchor: 'volume'`,
 //                   written into both files; the full member has no anchor. A candidate's
 //                   `anchor: null` opts out of a board-level one
+//   base: NAME      a C33 composite keeps its base NAME's drawing and canvas position under the
+//                   badge instead of being centred (2026-10-20, first password-lock on password);
+//                   lint holds its ink to hold NAME's box and share one of its corners (NAME-filled's
+//                   for the filled file). A candidate writes `base: 'password'`, written into both
+//                   files, every master; a candidate's `base: null` opts out of a board-level one
 // Lint reads all of them; a note the drawing does not measure is an error, not a warning
 // (bar `glyph: numeral`, which is written for every master and so says "not in use" instead;
 // `glyph: letter` is not: it is written only where it draws, and a stale one is an error).
@@ -65,12 +70,13 @@ export const gapFor = (gap, m, filled) => {
   return (scoped ? gap[filled ? 'filled' : 'outline'] : gap)?.[m] ?? null;
 };
 
-export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null, glyphs = [], badge = null, badges = []) => [
+export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null, glyphs = [], badge = null, badges = [], base = null) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
   ...(box ? [`  <!-- box: ${box[0]}x${box[1]} -->`] : []),
   ...(anchor ? [`  <!-- anchor: ${anchor} -->`] : []),
+  ...(base ? [`  <!-- base: ${base} -->`] : []),
   ...(grows ? [`  <!-- grows: ${grows.join(' ')} -->`] : []),
   ...(gap ? [`  <!-- gap: ${gap} -->`] : []),
   ...(glyph ? [`  <!-- glyph: ${glyph} -->`] : []),
@@ -100,7 +106,7 @@ export function planArg(draft, arg) {
 
 // One candidate → the six files it ships as, newest master first:
 //   { master, name, file, filled, src }   file is `<name>.svg` / `<name>-filled.svg`
-// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, badge, box, anchor).
+// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, badge, box, anchor, base).
 // Throws on a candidate that cannot ship; the caller decides how to report it.
 export function candidateFiles(draft, c, name) {
   const keyline = c.keyline ?? draft.keyline ?? null;
@@ -112,6 +118,7 @@ export function candidateFiles(draft, c, name) {
   const grows = c.grows ?? draft.grows ?? null;        // { 24: [l, r, t, b], … } — filled files only
   const gap = c.gap ?? draft.gap ?? null;              // { 24: n, … } or { filled: { 24: n, … }, outline: … }
   const anchor = c.anchor !== undefined ? c.anchor : draft.anchor ?? null;   // 'volume' — both files, every master
+  const base = c.base !== undefined ? c.base : draft.base ?? null;           // 'password' — both files, every master (C33)
   const out = [];
   for (const m of masters) {
     const o = c.masters?.[m];
@@ -149,12 +156,12 @@ export function candidateFiles(draft, c, name) {
       if (fw === sw) throw new Error(`${c.id} at ${m}: filled.badge needs a filled weight heavier than ${sw} (filled.weight); at the outline weight the badge belongs in filled.stroke (C33).`);
     }
     out.push({ master: m, name, file: `${name}.svg`, filled: false,
-      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyphNote(false), box?.[m], null, gapFor(gap, m, false), anchor) });
+      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyphNote(false), box?.[m], null, gapFor(gap, m, false), anchor, [], null, [], base) });
     out.push({ master: m, name: `${name}-filled`, file: `${name}-filled.svg`, filled: true,
       src: svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline${glyphs.length ? `, ${kind} stays at ${sw}` : ''}${badges.length ? `, badge stays at ${sw}` : ''}`),
         f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyphNote(glyphs.length > 0), box?.[m], grows?.[m], gapFor(gap, m, true), anchor, glyphs,
-        badges.length ? badge : null, badges) });
+        badges.length ? badge : null, badges, base) });
   }
   return out;
 }

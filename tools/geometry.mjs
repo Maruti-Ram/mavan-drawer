@@ -947,3 +947,439 @@ const airKind = (a, b, depth) => {
   const [ai, s] = a.slice(1).split('.').map(Number);
   return depth[ai][s] % 2 === 1 ? 'cut' : 'notch';
 };
+
+// ── armTipGap ──────────────────────────────────────────────────────────────
+// The air at the TIPS of two arms that meet at an acute angle where strokes cross
+// (Maruti, 2026-10-20; docs/01 §6). Lint §5 reads two crossing paths as joined by design
+// and measures nothing between them, and `facingGap` cannot see the wedge either: its
+// walls meet at an angle, never square-on. So an asterisk whose six arms are too short,
+// or an X whose arms close up, passed clean while the wedge between two arms filled in at
+// 16 (password-3 shipped 0.62 of air at 16; `language`'s 文 reads 0.75 there).
+//
+// "Tip air at equal reach". Every place where stroked centrelines cross is split at the
+// crossing point P into ARMS, each running from P to its round cap, or to where its
+// centreline turns more than ARM_TURN off its first direction. For two NEIGHBOURING arms
+// (no third arm between them) whose angle at P, measured tip to tip — so an arm that
+// curves on its way out, like `language`'s 撇 and 捺, is read where it ends up, not where
+// it leaves — is under ARM_ANGLE: take the SHORTER arm's cap centre, r from P; find the
+// point on the neighbour r from P; the tip air is the distance between those two points
+// less half of each arm's weight. The longer arm's extra length is ignored. For two arms
+// of one length this is exactly the drawer's "tip air": password-2's asterisk measures
+// 2.25 · 1.5 · 1.5 at 24 · 20 · 16, and its filled twin, which traces those arms, the same.
+//
+// What is NOT read, by design (Maruti, 2026-10-20):
+//   · right-angle crossings — plus, x, #, grids, sliders, command — are over the gate;
+//   · arrowheads, single-path bends and T-joins: a junction counts only when two
+//     centrelines really cross and its arms go all the way round P (no gap between two
+//     neighbouring arms of 180° or more; a T-join's bar runs straight through, so its two
+//     arms sit exactly 180° apart and the stem stands on one side);
+//   · an arm that ends in a turn rather than a round cap, when it is the shorter of the two;
+//   · a short overhang whose cap centre sits inside its neighbour's ink (within half a
+//     stroke of the neighbour's centreline, the mean of the two weights): it is a join, not
+//     an arm — `store` at 16, where each wall pokes 1.14 past the awning's end scallop.
+//
+// A filled drawing that traces stroked arms as one evenodd shape (password-2-filled) is
+// read the same way: at a white NOTCH under ARM_ANGLE between two straight walls that both
+// end in a round tip (an arc of more than CAP_SWEEP), each wall is rebuilt into an arm —
+// the centreline through its tip's centre, parallel to the wall, its weight the tip's
+// diameter — and the two arms meet where their centrelines cross. password-2-filled then
+// reads exactly what its outline does. Every other notch (a cut-out corner, a sliver with
+// no tips) is `facingGap`'s or nobody's.
+//
+// The geometry is the 2026-10-20 census's, ported as it was run (a throwaway, not kept; its
+// results are in docs/08 §6.5, and this port reads every one of its wedges): curves are flattened exactly — Béziers in 24 steps, arcs every 5° — not by
+// `samplePath`'s control points, and a corner arc no larger than BEND_R that turns no
+// more than BEND_SWEEP is read as its sharp corner, so an arm ends at a rounded corner
+// where it would end at a mitred one. Crossings, ends that touch another stroke, and
+// bends are gathered into one junction when they lie within 0.6 of the root weight of
+// each other, so three strokes through one point make one six-armed junction, not three.
+//
+// `stroke` is one weight for every path or an array with one per path (C32, C33), as in
+// `facingGap`; `weight` is the file's root stroke, which sets that 0.6 (default: the widest
+// path's). Returns { cross: [{ paths: [i, j], angle, gap, at, reach }], notch: [{ area,
+// angle, gap, at, reach }] }: per pair of paths (i ≤ j, 0-based; i = j when one path
+// crosses itself) the tightest wedge between their arms, and per area its tightest notch.
+// `angle` is the tip-to-tip angle in degrees, `gap` the tip air (negative when the tips
+// overlap), `at` the middle of the span, `reach` r. Only judged wedges come back; whether
+// one is too tight is lint's call, against the file's floor.
+const ARM_ANGLE = 86;      // deg, tip to tip: neighbouring arms closer than this are judged
+const ARM_TURN = 60;       // deg: an arm ends where its centreline turns this far off its start
+const ARM_RUN = 0.3;       // an arm's direction is read over its first 0.3
+const ARM_GATHER = 95;     // deg: a bend sharper than this joins a junction; a notch is looked at
+const CAP_SWEEP = 150;     // deg: an arc at a wall's end sweeping more than this is a round tip
+const WALL_STRAIGHT = 3;   // deg: a notch wall runs straight to within this
+const BEND_R = 2.6, BEND_SWEEP = 170;   // a corner arc this tight is read as its sharp corner
+const BEZ_STEPS = 24, ARC_STEP = 5;     // flattening: steps per Bézier, degrees per arc step
+
+const unitOf = (a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], n = Math.hypot(dx, dy); return n > 1e-12 ? [dx / n, dy / n] : null; };
+const hyp = (a, b) => Math.hypot(b[0] - a[0], b[1] - a[1]);
+const degOf = (u) => (((Math.atan2(u[1], u[0]) * 180) / Math.PI) % 360 + 360) % 360;
+const modP = (a, n) => ((a % n) + n) % n;   // Python's %, which the census used
+function segDist(p, a, b) {
+  const dx = b[0] - a[0], dy = b[1] - a[1], L2 = dx * dx + dy * dy;
+  const t = L2 === 0 ? 0 : Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / L2));
+  const q = [a[0] + t * dx, a[1] + t * dy];
+  return [Math.hypot(p[0] - q[0], p[1] - q[1]), t, q];
+}
+function segCross(p, q, r, s) {   // proper crossing of pq and rs: [t, u] strictly inside both
+  const d = (q[0] - p[0]) * (s[1] - r[1]) - (q[1] - p[1]) * (s[0] - r[0]);
+  if (Math.abs(d) < 1e-12) return null;
+  const t = ((r[0] - p[0]) * (s[1] - r[1]) - (r[1] - p[1]) * (s[0] - r[0])) / d;
+  const u = ((r[0] - p[0]) * (q[1] - p[1]) - (r[1] - p[1]) * (q[0] - p[0])) / d;
+  return t > 0 && t < 1 && u > 0 && u < 1 ? [t, u] : null;
+}
+function lineCross(p, t, q, u) {
+  const den = t[0] * u[1] - t[1] * u[0];
+  if (Math.abs(den) < 1e-12) return null;
+  const s = ((q[0] - p[0]) * u[1] - (q[1] - p[1]) * u[0]) / den;
+  return [p[0] + s * t[0], p[1] + s * t[1]];
+}
+
+/** Endpoint → centre (SVG F.6.5), keeping the sweep: {c: [x, y], rx, ry, phi, t1, dt}. */
+function arcCentre(x1, y1, rx, ry, rotDeg, fa, fs, x2, y2) {
+  if (!rx || !ry || (x1 === x2 && y1 === y2)) return null;
+  const phi = (rotDeg * Math.PI) / 180, cos = Math.cos(phi), sin = Math.sin(phi);
+  const dx = (x1 - x2) / 2, dy = (y1 - y2) / 2;
+  const x1p = cos * dx + sin * dy, y1p = -sin * dx + cos * dy;
+  rx = Math.abs(rx); ry = Math.abs(ry);
+  const lam = (x1p * x1p) / (rx * rx) + (y1p * y1p) / (ry * ry);
+  if (lam > 1) { const k = Math.sqrt(lam); rx *= k; ry *= k; }
+  const num = rx * rx * ry * ry - rx * rx * y1p * y1p - ry * ry * x1p * x1p;
+  const den = rx * rx * y1p * y1p + ry * ry * x1p * x1p;
+  let co = den ? Math.sqrt(Math.max(0, num / den)) : 0;
+  if (fa === fs) co = -co;
+  const cxp = (co * rx * y1p) / ry, cyp = (-co * ry * x1p) / rx;
+  const ang = (ux, uy, vx, vy) => Math.atan2(ux * vy - uy * vx, ux * vx + uy * vy);
+  const ux = (x1p - cxp) / rx, uy = (y1p - cyp) / ry;
+  const t1 = ang(1, 0, ux, uy);
+  let dt = ang(ux, uy, (-x1p - cxp) / rx, (-y1p - cyp) / ry);
+  if (!fs && dt > 0) dt -= TAU; else if (fs && dt < 0) dt += TAU;
+  return { c: [cos * cxp - sin * cyp + (x1 + x2) / 2, sin * cxp + cos * cyp + (y1 + y2) / 2], rx, ry, phi, t1, dt };
+}
+const arcAt = (a, t) => {
+  const x = a.rx * Math.cos(t), y = a.ry * Math.sin(t), cos = Math.cos(a.phi), sin = Math.sin(a.phi);
+  return [a.c[0] + cos * x - sin * y, a.c[1] + sin * x + cos * y];
+};
+const arcTangent = (a, t) => {   // the direction of travel at parameter t
+  const s = a.dt > 0 ? 1 : -1, x = -a.rx * Math.sin(t) * s, y = a.ry * Math.cos(t) * s, cos = Math.cos(a.phi), sin = Math.sin(a.phi);
+  return [cos * x - sin * y, sin * x + cos * y];
+};
+
+/** `d` as subpaths of exact primitives — {k: 'L'|'C'|'A', p0, p1, …} — with every
+ *  command made absolute, S/T reflected and Q raised to a cubic. */
+function primitivesOf(d) {
+  const subs = [];
+  let cur = null, cx = 0, cy = 0, sx = 0, sy = 0, lastC = null, lastQ = null;
+  for (const { cmd, args } of parsePath(d)) {
+    const rel = cmd !== cmd.toUpperCase(), C = cmd.toUpperCase();
+    if (C === 'Z') {
+      if (cur) {
+        if (Math.hypot(cx - sx, cy - sy) > 1e-9) cur.prims.push({ k: 'L', p0: [cx, cy], p1: [sx, sy] });
+        cur.closed = true;
+      }
+      cx = sx; cy = sy; lastC = lastQ = null;
+      continue;
+    }
+    const step = { M: 2, L: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, T: 2, A: 7 }[C];
+    if (!step) continue;
+    for (let k = 0; k + step <= args.length; k += step) {
+      const a = args.slice(k, k + step);
+      const pt = (i) => (rel ? [cx + a[i], cy + a[i + 1]] : [a[i], a[i + 1]]);
+      const here = [cx, cy];
+      if (C === 'M' && k === 0) {
+        [cx, cy] = pt(0); sx = cx; sy = cy; lastC = lastQ = null;
+        cur = { prims: [], closed: false }; subs.push(cur);
+        continue;
+      }
+      if (!cur) { cur = { prims: [], closed: false }; subs.push(cur); }
+      let to;
+      if (C === 'M' || C === 'L' || C === 'H' || C === 'V') {
+        to = C === 'H' ? [rel ? cx + a[0] : a[0], cy] : C === 'V' ? [cx, rel ? cy + a[0] : a[0]] : pt(0);
+        cur.prims.push({ k: 'L', p0: here, p1: to }); lastC = lastQ = null;
+      } else if (C === 'C' || C === 'S') {
+        const c1 = C === 'C' ? pt(0) : lastC ? [2 * cx - lastC[0], 2 * cy - lastC[1]] : here;
+        const [c2, end] = C === 'C' ? [pt(2), pt(4)] : [pt(0), pt(2)];
+        cur.prims.push({ k: 'C', p0: here, c1, c2, p1: end }); lastC = c2; lastQ = null; to = end;
+      } else if (C === 'Q' || C === 'T') {
+        const q = C === 'Q' ? pt(0) : lastQ ? [2 * cx - lastQ[0], 2 * cy - lastQ[1]] : here;
+        const end = C === 'Q' ? pt(2) : pt(0);
+        cur.prims.push({ k: 'C', p0: here, c1: [cx + (2 / 3) * (q[0] - cx), cy + (2 / 3) * (q[1] - cy)],
+          c2: [end[0] + (2 / 3) * (q[0] - end[0]), end[1] + (2 / 3) * (q[1] - end[1])], p1: end });
+        lastQ = q; lastC = null; to = end;
+      } else {
+        to = pt(5);
+        const arc = arcCentre(cx, cy, a[0], a[1], a[2], a[3], a[4], to[0], to[1]);
+        cur.prims.push(arc ? { k: 'A', p0: here, p1: to, ...arc } : { k: 'L', p0: here, p1: to });
+        lastC = lastQ = null;
+      }
+      [cx, cy] = to;
+    }
+  }
+  return subs;
+}
+
+/** A tight corner arc (C10's bends, a box's rounded corner) becomes its sharp corner. */
+const skeleton = (prims) => prims.flatMap((p) => {
+  const sweep = Math.abs((p.dt * 180) / Math.PI);
+  if (p.k !== 'A' || Math.abs(p.rx - p.ry) >= 1e-6 || p.rx > BEND_R || sweep > BEND_SWEEP || sweep <= 1) return [p];
+  const v = lineCross(p.p0, arcTangent(p, p.t1), p.p1, arcTangent(p, p.t1 + p.dt));
+  return v ? [{ k: 'L', p0: p.p0, p1: v }, { k: 'L', p0: v, p1: p.p1 }] : [p];
+});
+
+/** Primitives → points, with `true` at every primitive's end (a vertex). */
+function flattenPrims(prims) {
+  const pts = [], vtx = [];
+  prims.forEach((p, i) => {
+    if (i === 0) { pts.push(p.p0); vtx.push(true); }
+    if (p.k === 'L') { pts.push(p.p1); vtx.push(true); }
+    else if (p.k === 'C') {
+      for (let k = 1; k <= BEZ_STEPS; k++) {
+        const t = k / BEZ_STEPS, m = 1 - t;
+        pts.push([0, 1].map((j) => m ** 3 * p.p0[j] + 3 * m * m * t * p.c1[j] + 3 * m * t * t * p.c2[j] + t ** 3 * p.p1[j]));
+        vtx.push(k === BEZ_STEPS);
+      }
+    } else {
+      const n = Math.max(2, Math.ceil(Math.abs((p.dt * 180) / Math.PI) / ARC_STEP));
+      for (let k = 1; k <= n; k++) { pts.push(k < n ? arcAt(p, p.t1 + (p.dt * k) / n) : p.p1); vtx.push(k === n); }
+    }
+  });
+  const P = [], V = [];
+  pts.forEach((p, i) => {
+    if (P.length && Math.hypot(p[0] - P.at(-1)[0], p[1] - P.at(-1)[1]) < 1e-7) { V[V.length - 1] = V.at(-1) || vtx[i]; return; }
+    P.push(p); V.push(vtx[i]);
+  });
+  return [P, V];
+}
+
+/** One stroked centreline, walkable by arc length. */
+class Line {
+  constructor(p, v, closed, w, path) {
+    Object.assign(this, { p, v, closed, w, path });
+    this.S = [0];
+    for (let i = 1; i < p.length; i++) this.S.push(this.S[i - 1] + hyp(p[i - 1], p[i]));
+    this.L = this.S.at(-1);
+  }
+  at(s) {
+    if (this.closed) s = modP(s, this.L);
+    s = Math.max(0, Math.min(this.L, s));
+    for (let i = 1; i < this.p.length; i++) if (this.S[i] >= s - 1e-12) {
+      const seg = this.S[i] - this.S[i - 1], t = seg === 0 ? 0 : (s - this.S[i - 1]) / seg, a = this.p[i - 1], b = this.p[i];
+      return [a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1])];
+    }
+    return this.p.at(-1);
+  }
+  /** The points from s0 going one way (+1 / −1) to the end, or one lap round a closed line. */
+  walk(s0, dir) {
+    const out = [this.at(s0)];
+    const lim = this.closed ? this.L : dir > 0 ? this.L - s0 : s0;
+    const ds = this.S.map((S) => (this.closed ? modP((S - s0) * dir, this.L) : (S - s0) * dir));
+    const order = ds.map((d, i) => [d, i]).filter(([d]) => d > 1e-9 && d <= lim + 1e-9).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    const add = (q) => { if (hyp(q, out.at(-1)) > 1e-9) out.push(q); };
+    for (const [, i] of order) add(this.p[i]);
+    add(this.at(s0 + dir * lim));
+    return [out, !this.closed];
+  }
+}
+
+/** The arm leaving `line` at s0 one way: to its cap, or to where it turns past ARM_TURN. */
+function armOf(line, s0, dir, X) {
+  const [pts, toEnd] = line.walk(s0, dir);
+  if (pts.length < 2) return null;
+  let acc = 0, u0 = null;
+  for (let i = 1; i < pts.length; i++) {
+    acc += hyp(pts[i - 1], pts[i]);
+    if (acc >= ARM_RUN || i === pts.length - 1) { u0 = unitOf(pts[0], pts[i]); break; }
+  }
+  if (!u0) return null;
+  let tip = pts.at(-1), kind = toEnd ? 'cap' : 'end';
+  const poly = [pts[0]], COS = Math.cos((ARM_TURN * Math.PI) / 180);
+  for (let i = 1; i < pts.length; i++) {
+    const u = unitOf(pts[i - 1], pts[i]);
+    if (!u) continue;
+    if (Math.max(-1, Math.min(1, u[0] * u0[0] + u[1] * u0[1])) < COS) { tip = pts[i - 1]; kind = 'turn'; break; }
+    poly.push(pts[i]);
+  }
+  return { u: u0, a: degOf(u0), tip, kind, L: hyp(tip, X), run: hyp(tip, pts[0]), poly, h: line.w / 2, path: line.path };
+}
+
+/** Tip air at equal reach between arms A and B meeting at X (the census's measure "c1"),
+ *  and how far the shorter arm's cap centre stands from the longer arm (for "buried"). */
+function tipAir(A, B, X) {
+  const [S, L] = A.L <= B.L ? [A, B] : [B, A];
+  const hh = A.h + B.h, r = S.L, poly = L.poly;
+  let P = null;
+  for (let i = 1; i < poly.length && !P; i++) {
+    const d0 = hyp(poly[i - 1], X), d1 = hyp(poly[i], X);
+    if (d0 <= r && r <= d1 && d1 > d0) {
+      const t = (r - d0) / (d1 - d0);
+      P = [poly[i - 1][0] + t * (poly[i][0] - poly[i - 1][0]), poly[i - 1][1] + t * (poly[i][1] - poly[i - 1][1])];
+    }
+  }
+  if (!P) P = [X[0] + L.u[0] * r, X[1] + L.u[1] * r];
+  const near = poly.length > 1 ? Math.min(...poly.slice(1).map((q, i) => segDist(S.tip, poly[i], q)[0])) : hyp(S.tip, L.tip);
+  // the angle the two arms make at X, tip to tip
+  const turn = Math.abs(((Math.atan2(A.tip[1] - X[1], A.tip[0] - X[0]) - Math.atan2(B.tip[1] - X[1], B.tip[0] - X[0])) * 180) / Math.PI) % 360;
+  const angle = Math.min(turn, 360 - turn);
+  return { S, gap: hyp(S.tip, P) - hh, buried: near - hh <= -hh / 2, angle, at: [(S.tip[0] + P[0]) / 2, (S.tip[1] + P[1]) / 2], reach: r };
+}
+
+/** Where stroked centrelines cross: each junction's neighbouring arms that are judged
+ *  (the census's `stroke_wedges`, then final2's filter). `weight` is the root stroke. */
+function crossingWedges(lines, weight) {
+  const tol = 0.6 * weight, J = [];   // [point, [[line, s, isVertex]…], source]
+  const turnOf = (u, v) => (Math.acos(Math.max(-1, Math.min(1, u[0] * v[0] + u[1] * v[1]))) * 180) / Math.PI;
+  // bends: a vertex turning sharper than ARM_GATHER, so a crossing on a corner reads from it
+  lines.forEach((ln, k) => {
+    const n = ln.p.length;
+    for (let i = ln.closed ? 0 : 1; i < n - 1; i++) {
+      if (!ln.v[i]) continue;
+      const a = i > 0 ? ln.p[i - 1] : ln.p[n - 2], u = unitOf(a, ln.p[i]), v = unitOf(ln.p[i], ln.p[i + 1]);
+      if (u && v && 180 - turnOf(u, v) <= ARM_GATHER) J.push([ln.p[i], [[k, ln.S[i], true]], 'bend']);
+    }
+  });
+  // crossings, a line against itself too (a loop)
+  const box = lines.map((ln) => ln.p.reduce((b, [x, y]) => [Math.min(b[0], x), Math.min(b[1], y), Math.max(b[2], x), Math.max(b[3], y)], [Infinity, Infinity, -Infinity, -Infinity]));
+  for (let i = 0; i < lines.length; i++) for (let j = i; j < lines.length; j++) {
+    const A = lines[i], B = lines[j], [a0, b0] = [box[i], box[j]];
+    if (a0[0] > b0[2] || b0[0] > a0[2] || a0[1] > b0[3] || b0[1] > a0[3]) continue;
+    const last = A.p.length - 1;
+    for (let a = 1; a < A.p.length; a++) for (let b = 1; b < B.p.length; b++) {
+      if (i === j && (Math.abs(a - b) <= 1 || (A.closed && ((a === 1 && b === last) || (b === 1 && a === last))))) continue;
+      const r = segCross(A.p[a - 1], A.p[a], B.p[b - 1], B.p[b]);
+      if (!r) continue;
+      const [t, u] = r, p = A.p[a - 1], q = A.p[a];
+      J.push([[p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1])],
+        [[i, A.S[a - 1] + t * (A.S[a] - A.S[a - 1]), false], [j, B.S[b - 1] + u * (B.S[b] - B.S[b - 1]), false]], 'cross']);
+    }
+  }
+  // touches: an open end inside another stroke's ink (a T-join's stem, a wall poking a scallop)
+  lines.forEach((A, i) => {
+    if (A.closed) return;
+    for (const [sEnd, q] of [[0, A.p[0]], [A.L, A.p.at(-1)]]) lines.forEach((B, j) => {
+      let best = [Infinity, null, null];
+      for (let k = 1; k < B.p.length; k++) {
+        const [d, t, f] = segDist(q, B.p[k - 1], B.p[k]), s = B.S[k - 1] + t * (B.S[k] - B.S[k - 1]);
+        if (i === j && Math.abs(s - sEnd) < 2 * A.w) continue;
+        if (d < best[0]) best = [d, s, f];
+      }
+      if (best[2] && best[0] <= Math.max(A.w, B.w) / 2 + 0.01) J.push([best[2], [[i, sEnd, false], [j, best[1], false]], 'touch']);
+    });
+  });
+  // gather: each point joins the first junction whose first point lies within tol
+  const clusters = [];
+  for (const [pt, mem, src] of J) {
+    const c = clusters.find((c) => hyp(pt, c.pt) <= tol);
+    if (c) { c.mem.push(...mem); c.src.add(src); c.pts.push([pt, src]); }
+    else clusters.push({ pt, mem: [...mem], src: new Set([src]), pts: [[pt, src]] });
+  }
+  const out = [];
+  for (const c of clusters) {
+    if (!c.src.has('cross')) continue;   // a bend, an arrowhead or a T-join alone: not judged
+    const of = (s) => c.pts.filter(([, k]) => k === s).map(([p]) => p);
+    const use = of('bend').length ? of('bend') : of('cross');
+    const X = [use.reduce((t, p) => t + p[0], 0) / use.length, use.reduce((t, p) => t + p[1], 0) / use.length];
+    // one membership per line and place: a vertex first, then anything within a stroke of it
+    const mem = [];
+    for (const [k, s, isv] of [...c.mem].sort((x, y) => x[0] - y[0] || Number(y[2]) - Number(x[2]))) {
+      const ln = lines[k];
+      if (!mem.some(([mk, ms]) => mk === k && (ln.closed ? Math.min(Math.abs(ms - s), ln.L - Math.abs(ms - s)) : Math.abs(ms - s)) < ln.w)) mem.push([k, s, isv]);
+    }
+    const arms = [];
+    for (const [k, s] of mem) for (const dir of [1, -1]) {
+      const arm = armOf(lines[k], s, dir, X);
+      if (arm && arm.run > 0.5 * lines[k].w) arms.push(arm);
+    }
+    if (arms.length < 2) continue;
+    arms.sort((x, y) => x.a - y.a);
+    const n = arms.length, gaps = arms.map((A, q) => modP(arms[(q + 1) % n].a - A.a, 360) || 360);
+    // the arms go all the way round: a T-join's bar leaves exactly 180 on its open side
+    // (the census rounded to 0.1 before comparing, so 179.95 is its edge)
+    if (Math.max(...gaps) >= 179.95) continue;
+    for (let q = 0; q < n; q++) {
+      const A = arms[q], B = arms[(q + 1) % n];
+      if (modP(B.a - A.a, 360) < 0.5) continue;   // one arm counted twice
+      const m = tipAir(A, B, X);
+      if (m.S.kind !== 'cap' || m.buried || m.angle >= ARM_ANGLE) continue;
+      out.push({ paths: [A.path, B.path].sort((x, y) => x - y), angle: m.angle, gap: m.gap, at: m.at, reach: m.reach });
+    }
+  }
+  return out;
+}
+
+/** A filled shape's white notches whose two walls both end in a round tip, rebuilt into
+ *  arms (the census's `area_wedges`). */
+function notchWedges(areas) {
+  const shapes = areas.map((d) => primitivesOf(d).filter((sp) => sp.prims.length).map((sp) => {
+    const sk = skeleton(sp.prims);
+    let [P, V] = flattenPrims(sk);
+    if (P.length > 1 && hyp(P[0], P.at(-1)) < 1e-6) { P = P.slice(0, -1); V = V.slice(0, -1); V[0] = true; }
+    return { sk, P, V };
+  }));
+  const evenOdd = (polys, [x, y]) => {
+    let odd = false;
+    for (const P of polys) for (let i = 0; i < P.length; i++) {
+      const a = P[i], b = P[(i + 1) % P.length];
+      if ((a[1] > y) !== (b[1] > y) && a[0] + ((y - a[1]) * (b[0] - a[0])) / (b[1] - a[1]) > x) odd = !odd;
+    }
+    return odd;
+  };
+  const paint = (q) => shapes.some((subs) => evenOdd(subs.map((s) => s.P), q));
+  const COS_WALL = Math.cos((WALL_STRAIGHT * Math.PI) / 180), out = [];
+  shapes.forEach((subs, area) => subs.forEach(({ sk, P, V }) => {
+    const n = P.length;
+    for (let i = 0; i < n; i++) {
+      if (!V[i]) continue;
+      const b = P[i], uIn = unitOf(b, P[(i - 1 + n) % n]), uOut = unitOf(b, P[(i + 1) % n]);
+      if (!uIn || !uOut) continue;
+      const psi = (Math.acos(Math.max(-1, Math.min(1, uIn[0] * uOut[0] + uIn[1] * uOut[1]))) * 180) / Math.PI;
+      if (psi > ARM_GATHER || psi < 0.5) continue;
+      const bis = unitOf([0, 0], [uIn[0] + uOut[0], uIn[1] + uOut[1]]);
+      if (!bis || paint([b[0] + bis[0] * 0.02, b[1] + bis[1] * 0.02])) continue;   // a corner of paint, not a notch
+      // each wall runs straight from the notch to the next vertex; a round tip ends it
+      const arms = [-1, 1].map((dir) => {
+        const u0 = dir < 0 ? uIn : uOut;
+        let j = i, end = b;
+        for (let step = 0; step < n; step++) {
+          const k = (j + dir + n) % n, uu = unitOf(P[j], P[k]);
+          if (!uu || uu[0] * u0[0] + uu[1] * u0[1] < COS_WALL) break;
+          end = P[k]; j = k;
+          if (V[k]) break;
+        }
+        let cap = null;
+        for (const p of sk) if (p.k === 'A' && (hyp(p.p0, end) < 1e-6 || hyp(p.p1, end) < 1e-6) && Math.abs((p.dt * 180) / Math.PI) > CAP_SWEEP) cap = p;
+        return cap && { tip: cap.c, u: u0, h: cap.rx };
+      });
+      if (!arms[0] || !arms[1]) continue;   // a notch without two round tips is not two arms
+      const X = lineCross(arms[0].tip, arms[0].u, arms[1].tip, arms[1].u);
+      if (!X) continue;
+      const [A, B] = arms.map((a) => ({ ...a, L: hyp(a.tip, X), poly: [X, a.tip], kind: 'cap' }));
+      const m = tipAir(A, B, X);
+      if (m.buried || m.angle >= ARM_ANGLE) continue;
+      out.push({ area, angle: m.angle, gap: m.gap, at: m.at, reach: m.reach });
+    }
+  }));
+  return out;
+}
+
+export function armTipGap(ds, stroke, areas = [], { weight } = {}) {
+  const wOf = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  const lines = [];
+  ds.forEach((d, path) => primitivesOf(d).forEach((sp) => {
+    const sk = skeleton(sp.prims);
+    if (!sk.length) return;
+    const [P, V] = flattenPrims(sk);
+    if (P.length > 1) lines.push(new Line(P, V, sp.closed || hyp(P[0], P.at(-1)) < 1e-6, wOf(path), path));
+  }));
+  const root = weight ?? Math.max(0, ...ds.map((_, i) => wOf(i)));
+  const said = (w) => ({ angle: Math.round(w.angle * 10) / 10, gap: r3(w.gap), at: w.at.map(r2), reach: r3(w.reach) });
+  const tightest = (list, key) => {
+    const best = new Map();
+    for (const w of list) { const k = key(w); if (!best.has(k) || w.gap < best.get(k).gap) best.set(k, w); }
+    return [...best.values()];
+  };
+  const cross = tightest(crossingWedges(lines, root), (w) => w.paths.join('/'))
+    .sort((a, b) => a.paths[0] - b.paths[0] || a.paths[1] - b.paths[1]).map((w) => ({ paths: w.paths, ...said(w) }));
+  const notch = tightest(areas.length ? notchWedges(areas) : [], (w) => w.area)
+    .sort((a, b) => a.area - b.area).map((w) => ({ area: w.area, ...said(w) }));
+  return { cross, notch };
+}
