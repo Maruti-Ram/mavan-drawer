@@ -54,7 +54,7 @@ import { spawnSync } from 'node:child_process';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { MASTERS, sizeBase, sizeOf } from './masters.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
-import { parseAnchorNote } from './lint.mjs';
+import { parseAnchorNote, parseBaseNote } from './lint.mjs';
 
 const QUEUE = 'research/queue.md';
 const ADDED = 'E · Added on request';
@@ -339,8 +339,9 @@ async function approve(args) {
 
   if (dry) return dryRun(path, plan, icon);
 
-  // Build every file before writing any, so a candidate that cannot ship, or a level-family
-  // member (C28) whose anchor would be missing, stops the approval with nothing written.
+  // Build every file before writing any, so a candidate that cannot ship, a level-family
+  // member (C28) whose anchor would be missing, or a C33 composite whose base would be,
+  // stops the approval with nothing written.
   const built = [];
   for (const { c, file } of plan) {
     try { built.push(...candidateFiles(d, c, file)); } catch (e) { die(e.message); }
@@ -348,9 +349,13 @@ async function approve(args) {
   const planned = new Set(plan.map((p) => p.file));
   const shipped = (n) => masters.every((m) => [n, `${n}-filled`].every((f) => existsSync(`src/icons/${m}/${f}.svg`)));
   for (const { file } of plan) {
-    const anchor = parseAnchorNote(built.find((b) => b.name === file)?.src ?? '')?.name;
+    const src = built.find((b) => b.name === file)?.src ?? '';
+    const anchor = parseAnchorNote(src)?.name;
     if (anchor && !planned.has(anchor) && !shipped(anchor))
       die(`${file} is anchored to ${anchor}, which is neither in this approval nor shipped — approve ${anchor} in the same command, or first (C28). Nothing was written.`);
+    const base = parseBaseNote(src)?.name;   // a C33 composite's base, the same way (2026-10-20)
+    if (base && !planned.has(base) && !shipped(base))
+      die(`${file} keeps ${base}'s place, but ${base} is neither in this approval nor shipped — approve ${base} in the same command, or first (C33). Nothing was written.`);
   }
 
   const written = [];
@@ -413,8 +418,9 @@ async function approve(args) {
 function dryRun(path, plan, icon) {
   const args = plan.map(({ c, file }) => `${c.id}=${file}`);
   console.log(`Dry run · ${path} · nothing will be written\n`);
-  // --approve: the anchor of a level-family member comes only from this plan or src/icons,
-  // as it will on the real approve — never from an unapproved candidate in the draft's `set`.
+  // --approve: the anchor of a level-family member (and a C33 composite's base) comes only from
+  // this plan or src/icons, as it will on the real approve — never from an unapproved candidate
+  // in the draft's `set`.
   const check = spawnSync('node', ['tools/draft-check.mjs', path, '--approve', ...args], { stdio: 'inherit' });
   const q = readQueue();
   console.log('\nOn a real approve this would write:');

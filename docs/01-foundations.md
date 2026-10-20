@@ -147,6 +147,20 @@ Lint then holds their ink inside the full member's box, sharing its left or righ
 to be centred or to match a keyline; the margin, grid and gaps still apply, and `anchor`
 goes with neither `box` nor `keyline: mark`.
 
+**A composite that keeps its base's place (C33).** A modifier badge sits on its base's
+bottom-right corner and the base keeps its own canvas position, so on a short base the whole
+icon sits off the canvas centre (`password-lock`: `password`'s field in place, the composite
+2.5 · 2 · 1.5 below centre, 2026-10-20). Such a composite declares its base:
+
+```svg
+<!-- base: password -->
+```
+
+Lint then holds it to the base's place instead of the centre — same master, same style, as an
+error: its ink must hold the base's box and share its left and top edges (the corner away
+from the bottom-right badge). The margin, grid, gaps and its declared `box` still apply; `base` goes
+with neither `anchor` nor `keyline: mark`.
+
 **These are outer dimensions — they include the stroke.** At 24, a stroked
 circle that should hit the ⌀20 keyline has a *centreline* radius of 9.25,
 because the 1.5-unit stroke adds 0.75 on each side. At 16, the same logic on

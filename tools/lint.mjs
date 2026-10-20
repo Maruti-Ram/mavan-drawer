@@ -134,6 +134,25 @@ export function parseAnchorNote(src) {
     ? { name: m[1], raw: m[1] } : { raw: m[1], bad: true };
 }
 
+// A C33 composite declares `<!-- base: NAME -->` (2026-10-20): NAME is the icon whose drawing and
+// canvas position it keeps, with a badge on NAME's corner. C33 keeps the base where NAME has it, so
+// on a short base the badge pulls the whole icon off the canvas centre (first `password-lock`:
+// password's 20×10 field, 2.5 · 2 · 1.5 low). The note names the outline; a filled file is held to
+// `NAME-filled.svg`. Checked in `checkBases` below, which reads the whole map. It lifts only the
+// centring: the ink must hold NAME's box and share its left and top edges (the corner away
+// from C33's bottom-right badge), and `box:` stays allowed beside it, since C33 composites declare their box. Same
+// spirit as `anchor:` — a note lint cannot read, one naming its own file, a missing or inkless base,
+// ink that does not hold the base's box or moves off its top-left corner, and `base` with `anchor` or
+// `keyline: mark` are all ERRORS. Like `anchor` it states how the drawing was built, so a composite
+// that happens to sit on the centre keeps it (the info line says "on centre").
+// Returns null (no note), {name, raw}, or {raw, bad: true}.
+export function parseBaseNote(src) {
+  const m = src.match(/<!--\s*base:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(m[1]) && !/-filled$/.test(m[1])
+    ? { name: m[1], raw: m[1] } : { raw: m[1], bad: true };
+}
+
 // C19 is declared per file as `<!-- glyph: KIND -->`. Two kinds:
 //   dot      one character with a detached dot (info-circle's i, help-circle's ?, alert's !): the {dot, body}
 //            pair and the character's own opening floor at GLYPH_GAP (§5, §5b), and so does
@@ -299,6 +318,22 @@ export function lintSource(canvas, file, src) {
     anchor = null;
   }
 
+  // --- 0c'. the base note (C33; held to its base in checkBases) ---------------
+  // Same handling: a note that is not usable is an error and is then ignored, so §4 asks the
+  // drawing to be centred as it would without it. A composite keeps its base's place, a level
+  // member its full member's; one file cannot be held to both, so the pair drops the base.
+  let base = parseBaseNote(src);
+  if (base?.bad) {
+    errors.push(`base note "${base.raw}" is not an icon name — write <!-- base: NAME --> with the base's outline name, e.g. <!-- base: password -->`);
+    base = null;
+  } else if (base && base.name === selfName) {
+    errors.push(`declares itself as its base — a C33 composite names the icon under its badge, whose place it keeps (password-lock: <!-- base: password -->); the base itself is centred like any icon and carries no note (C33)`);
+    base = null;
+  } else if (base && anchor) {
+    errors.push(`declares both \`anchor:\` and \`base:\` — a level member keeps its full member's place (C28), a composite its base's (C33); pick one`);
+    base = null;
+  }
+
   // --- 1. root attributes -------------------------------------------------
   const root = src.match(/<svg\b([^>]*)>/);
   if (!root) return { file, errors: ['no <svg> root'], warnings, notes };
@@ -413,6 +448,17 @@ export function lintSource(canvas, file, src) {
       errors.push(`declares both \`anchor:\` and \`${isMark ? 'keyline: mark' : 'box:'}\` — an anchored member is held to its full member's box (C28), ${isMark ? 'a mark to the mark ceiling' : 'an agreed box to its own size'}; pick one`);
       anchor = null;
     }
+    if (base && isMark) {
+      errors.push('declares both `base:` and `keyline: mark` — a C33 composite keeps its base\'s place and declares its box, a mark is held to the mark ceiling and the centre; pick one');
+      base = null;
+    }
+    // A composite keeps its base's place (C33), so the off-centre warning below is held back, not
+    // dropped: checkBases puts it back if the base cannot be found, and prints the offset instead.
+    // Measured on the unrounded ink, less any optical shift, so 16's eighths print exactly.
+    if (base) {
+      base.held = [];
+      base.off = [r3((ink.x0 + ink.x1) / 2 - sx - mid), r3((ink.y0 + ink.y1) / 2 - sy - mid)];
+    }
     // A container's first path is the container; the rest is its inner mark (measured on the outline file).
     if (!isMark && !areas.length && ds.length > 1) {
       if (W.every((w) => w === STROKE)) {
@@ -448,7 +494,7 @@ export function lintSource(canvas, file, src) {
       if (anchor) anchor.held = [];
       if (!key) (anchor?.held ?? warnings).push(`${w}×${h} matches no keyline (§2) — if this is a directional mark, declare <!-- keyline: mark -->`);
     }
-    if (Math.abs(cx - mid) > 0.5 || Math.abs(cy - mid) > 0.5) (anchor?.held ?? warnings).push(`off-centre at ${cx},${cy}`);
+    if (Math.abs(cx - mid) > 0.5 || Math.abs(cy - mid) > 0.5) (anchor?.held ?? base?.held ?? warnings).push(`off-centre at ${cx},${cy}`);
   }
 
   // --- 4b. advisory: bends tighter than half the stroke (C10) --------------
@@ -667,7 +713,7 @@ export function lintSource(canvas, file, src) {
 
   // `paths` (whitespace-normalised) lets checkAnchors count what a member shares with its anchor.
   const paths = [...ds, ...areas].map(normPath);
-  return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, paths };
+  return { file, errors, warnings, notes, size, inner, isMark, ink, grows, gap, anchor, base, paths };
 }
 
 // --- 6. size families (C8): a mark's large and small sit one SIZE_STEP from the default;
@@ -755,6 +801,64 @@ export function checkAnchors(results) {
   return results;
 }
 
+// --- 8b. C33 composites: a declared base keeps its place under the badge ---------------
+// Like `checkAnchors`, it reads the whole map, so the base is looked up in whatever set of files
+// is being linted: src/icons for `npm run check`, the candidate plus its base for draft-check.
+// Same master, same style: `password-lock.svg` is held to `password.svg`, `-filled` to `-filled`.
+// One file cannot tell its base's ink from its badge's, so the corner is read from the boxes: the
+// badge stands out from the base on its own corner (bottom-right, C33) and leaves the base's box
+// edges on the far side untouched, so the composite's ink must HOLD the base's box and share its
+// LEFT and TOP edges. Two adjacent edges pin the base on both axes; any other corner could be the
+// badge's own (a composite moved up by exactly the badge's overhang shares the bottom corners).
+// Adds to the results in place.
+const EDGES = ['l', 't', 'r', 'b'];
+// The corner away from the badge. C33 fixes the badge on the bottom-right, so the base's left and
+// top edges must stay exactly where they are; any other shared corner could be the badge's own
+// (a whole composite moved up by the badge's overhang still shares the bottom corners: review, 2026-10-20).
+const BASE_CORNER = ['l', 't'];
+const listed = (ks) => ks.map((k) => SIDES[k]).join(', ').replace(/, ([a-z]+)$/, ' and $1');
+// "2.5 below centre", "1 right of centre", "2.5 below and 1 right of centre", "on centre"
+export const offsetText = ([dx, dy]) => {
+  const parts = [];
+  if (Math.abs(dy) > 0.005) parts.push(`${r3(Math.abs(dy))} ${dy > 0 ? 'below' : 'above'}`);
+  if (Math.abs(dx) > 0.005) parts.push(`${r3(Math.abs(dx))} ${dx > 0 ? 'right of' : 'left of'}`);
+  return parts.length ? `${parts.join(' and ')} centre` : 'on centre';
+};
+export function checkBases(results) {
+  for (const [key, r] of results) {
+    if (!r.base) continue;
+    const [m, f] = key.split('/');
+    const { name, held = [], off = [0, 0] } = r.base;
+    const baseFile = `${name}${f.endsWith('-filled.svg') ? '-filled' : ''}.svg`;
+    const a = results.get(`${m}/${baseFile}`);
+    if (!a) {
+      r.errors.push(`keeps ${name}'s place, but there is no \`${baseFile}\` at ${m} to hold it to — the base ships before its composites, or with them (C33)`);
+      r.warnings.push(...held);   // no base after all: it answers to the centre like any icon
+      continue;
+    }
+    if (!a.ink) {
+      r.errors.push(`keeps ${name}'s place, but \`${baseFile}\` at ${m} has no ink to hold it to (C33)`);
+      r.warnings.push(...held);
+      continue;
+    }
+    if (!r.ink) { r.warnings.push(...held); continue; }   // lintSource has already said "no <path> found"
+    const out = {   // outward on every side: + is composite ink standing past the base's box
+      l: a.ink.x0 - r.ink.x0, r: r.ink.x1 - a.ink.x1, t: a.ink.y0 - r.ink.y0, b: r.ink.y1 - a.ink.y1 };
+    const short = Object.keys(SIDES).filter((k) => out[k] < -0.01);
+    if (short.length) {
+      r.errors.push(`ink ${fmtBox(r.ink)} does not hold ${name}'s ${fmtBox(a.ink)}: it stops short on the ${short.map((k) => `${SIDES[k]} by ${r3(-out[k])}`).join(', ')} — the base keeps its drawing and its place under the badge (C33)`);
+      continue;
+    }
+    const shared = EDGES.filter((k) => Math.abs(out[k]) <= 0.01);
+    if (!BASE_CORNER.every((k) => shared.includes(k))) {
+      r.errors.push(`ink ${fmtBox(r.ink)} does not keep ${name}'s top-left corner ${fmtBox(a.ink)} (${shared.length ? `shares only its ${listed(shared)} edge${shared.length > 1 ? 's' : ''}` : 'shares no edge at all'}) — the base has moved; C33 puts the badge bottom-right and keeps the base in place, so its left and top edges stay on ${name}'s`);
+      continue;
+    }
+    r.notes.splice(-1, 0, `keeps ${name}'s place: ${listed(shared)} edges shared, ${offsetText(off)} (C33)`);
+  }
+  return results;
+}
+
 // --- 9. state twins (C34): the other state is drawn for every numbered shape of its base ---
 // Which side of a state-twin pair (masters.mjs STATE_TWINS) a name is a numbered shape of, and
 // the name across from it: `lock-3` ↔ `unlock-3`, `lock` ↔ `unlock`. The number names the shape
@@ -814,6 +918,9 @@ checkPairs(results);
 
 // --- 8. level families (C28): anchored members inside the full member's box ---
 checkAnchors(results);
+
+// --- 8b. C33 composites: a declared base keeps its place under the badge ---
+checkBases(results);
 
 // --- 9. state twins (C34): every numbered shape of a base has its twin, and back ---
 checkTwins(results);
