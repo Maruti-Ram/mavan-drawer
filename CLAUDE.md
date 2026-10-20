@@ -161,10 +161,12 @@ with no argument builds its reference rows).
 
 **Refinement assessment (2026-09-18)** — `docs/08-refinement.md`: why our marks read less refined than the
 references, every number that was measured, what C19 settled, and the **open agenda** — the undecided 13%
-mark/container drift from 24 to 16, the two unenforced §6 corollaries, the gap rule's holes (closed on
+mark/container drift from 24 to 16, the §6 corollary still not in code ("no more than 3 parallel strokes"; the
+enclosed-shape one is measured since 2026-10-20 as the widest circle in one closed shape's white, lint §5i,
+`insideAir`), the gap rule's holes (closed on
 2026-09-28 by lint §5f, `facingGap`: the air inside one closed path and every gap in a shape-filled file are now
 measured, as warnings — see `plans/facing-gap.md`; the wedge between crossing arms on 2026-10-20 by lint §5,
-`armTipGap`), and the Fluent items worth inheriting. Read it before
+`armTipGap`; white closed in by several strokes is still open, deferred to its own census), and the Fluent items worth inheriting. Read it before
 reopening stroke weight, `MIN_GAP` or the optical machinery — §8 lists what was already ruled out and why.
 
 **Audit** — done: `docs/06-audit.md`, `research/ranked.md`. The user has **not** yet ruled on
@@ -261,7 +263,7 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | File | Does |
 |---|---|
 | `tools/lint.mjs` | enforces `docs/01-foundations.md`; exits 1 |
-| `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity; `ringHole` (a ring's hole, 2r − w; a circle at most half its stroke is a solid dot, `isSolidDot`; lint §5f); `selfGap` (an open path's own counter), `materialGap` (what a knockout leaves), `facingGap` (air between two ink edges that face each other square-on — a closed path's inside, a filled file's cuts, notches, bands and shape-to-line gaps; lint §5f); `armTipGap` (tip air at equal reach where strokes cross and two neighbouring arms meet at under 86°, tip to tip, and where a filled twin traces those arms as one shape; lint §5 and §5h) |
+| `tools/geometry.mjs` | path parser, **exact** arc bboxes, line-sampled proximity; `ringHole` (a ring's hole, 2r − w; a circle at most half its stroke is a solid dot, `isSolidDot`; lint §5f); `selfGap` (an open path's own counter), `materialGap` (what a knockout leaves), `facingGap` (air between two ink edges that face each other square-on — a closed path's inside, a filled file's cuts, notches, bands and shape-to-line gaps; lint §5f); `armTipGap` (tip air at equal reach where strokes cross and two neighbouring arms meet at under 86°, tip to tip, and where a filled twin traces those arms as one shape; lint §5 and §5h); `insideAir` (inside air: the widest circle that fits in the white one closed shape leaves inside itself — a closed stroked path less its own stroke, a filled file's hole less any island — so a triangle reads its incircle and a sliver its width; exact distances, branch and bound to ±0.002; lint §5i) |
 | `tools/optical.mjs` | optical side bearings computed from the outline |
 | `tools/build.mjs` | emits `dist/icons.json`, `dist/metrics.json`, `lab/manifest.json` |
 | `tools/queue.mjs` | the sheet as a command: `status` · `next` · `show` · `add <name>…` (a row on the sheet, no board) · `mvp <name>… on|off` (the MVP mark) · `start` · `batch` · `approve` · `drop` (retire a name: delete its files, remove its row) · `rename <old>=<new>…` (renumber: move the files, rewrite the row keeping its status and date, re-point the relatives' comments) · `clear` |
@@ -290,7 +292,7 @@ depending on the icon.
   measure is an error. The 33 that differ today are C17 repeated elements and `minus` — all
   agreed, none yet noted (2026-09-20 census)
 - `<!-- gap: N -->` declares the agreed minimum gap between stroke edges for that one file, in
-  that master's units; it replaces §6's 1.5 in that file's proximity checks — §5 (crossing arms included), §5b, §5f and §5h (C19
+  that master's units; it replaces §6's 1.5 in that file's proximity checks — §5 (crossing arms included), §5b, §5f, §5h and §5i (C19
   glyph pairs and the knockout check are untouched). Lint prints it as an info line while the drawing holds
   it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
   the drawing no longer needs. Today (2026-10-19 census, 17 files on 9 concepts): `attachment-4-filled` at 24 and 20 (1), `alert-triangle-2` and `-4` at 16 (1.25), `sort` and `sort-filled` at 16 (1), `database-2-filled` at 24 (1.48), `volume-off-filled` (0.7 · 0.75 · 0.375), `id-card`, `-2`, `-3` at 16, outline (1), `fingerprint-filled` and `passkey-2-filled` (its print) at 20 (1.43) and 16 (0.87); `grep -rl '<!-- gap:' src/icons` lists them

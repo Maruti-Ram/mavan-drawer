@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, facingGap, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, armTipGap, facingGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -1601,4 +1601,107 @@ test('lint §5h: a traced character\'s own notches floor at C19\'s 1 under `glyp
   assert.deepEqual(armWarn(agreed), []);
   assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
   assert.ok(agreed.notes.some((n) => /^agreed gap 1 — smallest measured 1\.2\d$/.test(n)), agreed.notes.join(' | '));
+});
+
+// --- inside air (lint §5i, 2026-10-20): the widest circle in one closed shape's white ----------
+// docs/01 §6's "no enclosed shape smaller than 1.5 units across", measured as Maruti agreed it: the
+// diameter of the widest circle that fits in the white one closed shape leaves inside itself.
+// facingGap reads a neck square-on and nothing inside a wedge or a small triangle, so rewind-2's
+// trailing triangle (1.07 at 16 and 20) and video-3's play at 20 (1.13) passed in silence.
+const airWarn = (r) => r.warnings.filter((w) => /of air inside/.test(w));
+const airLines = (r) => r.warnings.filter((w) => /of air|a hole|itself/.test(w));
+const WEDGE10 = 'M4 12L15.23 11.02L15.23 12.98Z';   // 10°, 0.2964 inside (its incircle, less the stroke)
+const WEDGE17 = 'M4 12L15.23 10.25L15.23 13.75Z';   // the same length opened to ~17.7°: 1.4968 inside
+const THIN = 'M4 11.1H20V12.9H4Z';                  // a channel 1.8 − 1.5 = 0.3 tall
+const TRI12 = 'M12 9.3L14.34 13.35L9.66 13.35Z';    // incircle 1.35 at the centreline: 1.2 inside
+
+test('insideAir: a 10° wedge with 0.30 inside warns, where lint was silent; opened to ~17.7° (1.5 inside) it passes', () => {
+  near(insideAir([WEDGE10], 1.5).paths[0].air, 0.2964, 0.003);
+  assert.deepEqual(facingGap([WEDGE10], 1.5).self, [], 'its walls never face square-on');
+  const tight = lintSource(24, 'wedge.svg', ONE(ROOT24, [WEDGE10]));
+  assert.deepEqual(airLines(tight), ['path 1 leaves 0.3 of air inside itself at 14.33,12 (the widest circle that fits) — §6 needs 1.5']);
+  near(insideAir([WEDGE17], 1.5).paths[0].air, 1.4968, 0.003);
+  assert.deepEqual(airLines(lintSource(24, 'wedge.svg', ONE(ROOT24, [WEDGE17]))), []);
+});
+
+test('insideAir: a thin rectangle reads 0.30, as facingGap does, and warns once, not twice', () => {
+  const [ia] = insideAir([THIN], 1.5).paths;
+  assert.equal(ia.air, 0.3);
+  assert.equal(facingGap([THIN], 1.5).self[0].gap, 0.3);
+  assert.deepEqual(airLines(lintSource(24, 'slot.svg', ONE(ROOT24, [THIN]))), ['path 1 faces itself across 0.3 of air at 4.79,12 — §6 needs 1.5']);
+});
+
+test('insideAir: a play triangle, an alert triangle and a shield pass — sharp inner corners never decide it', () => {
+  const PLAY16 = 'M4.22 4.13A1 1 0 0 1 5.22 3.13A1 1 0 0 1 5.71 3.26L12.46 7.13A1 1 0 0 1 12.97 8A1 1 0 0 1 12.46 8.87L5.71 12.74A1 1 0 0 1 5.22 12.88A1 1 0 0 1 4.22 11.88Z';
+  const ALERT16 = ['M6.227 2.699A2 2 0 0 1 8 1.625A2 2 0 0 1 9.773 2.699L14.204 11.18A1.5 1.5 0 0 1 14.375 11.875A1.5 1.5 0 0 1 12.875 13.375L3.125 13.375A1.5 1.5 0 0 1 1.625 11.875A1.5 1.5 0 0 1 1.796 11.18Z',
+    'M8 5.25V7.375', 'M7.625 10A0.375 0.375 0 1 0 8.375 10A0.375 0.375 0 1 0 7.625 10Z'];
+  const SHIELD16 = 'M8 1.625L10.875 1.625A1.5 1.5 0 0 1 12.375 3.125L12.375 8.947A5.5 5.5 0 0 1 8.935 14.046L8.234 14.329A0.625 0.625 0 0 1 8 14.375A0.625 0.625 0 0 1 7.766 14.329L7.065 14.046A5.5 5.5 0 0 1 3.625 8.947L3.625 3.125A1.5 1.5 0 0 1 5.125 1.625L8 1.625Z';
+  // video-3 16's play, drawn at the floor: its incircle leaves 1.496, inside lint's 0.01
+  const VPLAY16 = 'M7.437 4.664L9.684 5.958A0.625 0.625 0 0 1 9.684 7.042L7.437 8.336A0.625 0.625 0 0 1 6.5 7.794L6.5 5.206A0.625 0.625 0 0 1 7.437 4.664Z';
+  for (const [ds, least] of [[[PLAY16], 5], [ALERT16, 7.5], [[SHIELD16], 7.4], [[VPLAY16], 1.49]]) {
+    const got = insideAir(ds, 1.25).paths;
+    assert.equal(got.length, 1, ds[0]);   // the dot is solid: no white, no reading
+    assert.ok(got[0].air >= least, `${got[0].air} < ${least}`);
+    assert.deepEqual(airWarn(lintSource(16, 'shape.svg', ONE(ROOT16, ds))), [], ds[0]);
+  }
+  near(insideAir([VPLAY16], 1.25).paths[0].air, 1.496, 0.003);
+  // the same play at 20 (1.13) and rewind-2's trailing triangle (1.07) are the ones that warn
+  const VPLAY20 = 'M9.62 6.88L11.34 7.85A0.75 0.75 0 0 1 11.34 9.15L9.62 10.12A0.75 0.75 0 0 1 8.5 9.47L8.5 7.53A0.75 0.75 0 0 1 9.62 6.88Z';
+  const REW16 = 'M12.75 7A0.625 0.625 0 0 0 12.125 6.375A0.625 0.625 0 0 0 11.778 6.48L10.278 7.48A0.625 0.625 0 0 0 10 8A0.625 0.625 0 0 0 10.278 8.52L11.778 9.52A0.625 0.625 0 0 0 12.125 9.625A0.625 0.625 0 0 0 12.75 9Z';
+  near(insideAir([VPLAY20], 1.5).paths[0].air, 1.13, 0.005);
+  near(insideAir([REW16], 1.25).paths[0].air, 1.07, 0.005);
+});
+
+test('insideAir agrees with ringHole on a ring, and lint warns on a tight ring once', () => {
+  const c = 2 * Math.SQRT1_2;
+  for (const [d, w] of [[RING(12, 12, 1.25), 1.5], [RING(12, 12, 1.5), 1.5], [RING(8, 8, 1.375), 1.25], [RING(12, 12, 9.25), 1.5],
+    [`M${12 - c} ${12 - c}A2 2 0 0 1 ${12 + c} ${12 - c}A2 2 0 1 1 ${12 - c} ${12 - c}Z`, 1.5]]) {
+    const [got] = insideAir([d], w).paths;
+    near(got.air, ringHole(d, w).hole, 0.003);
+  }
+  assert.deepEqual(insideAir([RING(12, 12, 0.75)], 1.5).paths, [], 'a dot is solid');
+  assert.deepEqual(airLines(lintSource(24, 'key.svg', ONE(ROOT24, [RING(12, 12, 1.25)]))), ['path 1 is a ring with a hole 1 across at 12,12 — §6 needs 1.5 (radius 1.25 at stroke 1.5)']);
+});
+
+test('insideAir: an evenodd hole is read less any island; facingGap\'s line on the same white is not repeated', () => {
+  const SQ = 'M4 4H20V20H4Z', F = (areas, notes = ['keyline: mark']) => drawn(24, 1.5, [], { areas, notes });
+  // a triangular cut-out: facingGap reads nothing in it, the widest circle 1.2
+  const TRI = `${SQ}M12 10.3L13.04 12.1L10.96 12.1Z`;
+  assert.deepEqual(facingGap([], 1.5, [TRI]).area, []);
+  near(insideAir([], 1.5, [TRI]).holes[0].air, 1.2, 0.005);
+  assert.deepEqual(airLines(lintSource(24, 'x-filled.svg', F([TRI]))), ['a cut-out leaves 1.2 of air inside it at 12,11.5 (the widest circle that fits) — §6 needs 1.5']);
+  // an island in a 4 × 4 hole leaves a frame 1 wide: the widest circle sits in a corner of it,
+  // touching both outer walls and the island's corner, 2√2 / (1 + √2) = 1.17 — not the hole's 4
+  const ISLAND = `${SQ}M10 10H14V14H10ZM11 11H13V13H11Z`;
+  near(insideAir([], 1.5, [ISLAND]).holes[0].air, 2 * Math.SQRT2 / (1 + Math.SQRT2), 0.003);
+  assert.deepEqual(airLines(lintSource(24, 'x-filled.svg', F([ISLAND]))), ['1 of air between two filled edges at 11.04,10.5 — §6 needs 1.5']);
+  // a slot 0.5 wide: facingGap's cut line, and nothing more
+  const SLOT = `${SQ}M8 11.75H16V12.25H8Z`;
+  assert.equal(insideAir([], 1.5, [SLOT]).holes[0].air, 0.5);
+  assert.deepEqual(airLines(lintSource(24, 'x-filled.svg', F([SLOT]))), ['0.5 of air across one cut-out at 8.04,12 — §6 needs 1.5']);
+  // a shape painted inside a closed stroke takes its white
+  assert.equal(insideAir([THIN.replace('11.1', '9.1').replace('12.9', '14.9')], 1.5, ['M5 10H19V12H5Z']).paths[0].air, 2.15);
+});
+
+test('lint §5i: a character\'s own closed shape floors at C19\'s 1 under `glyph:`; the silhouette, the gap note and a badge keep theirs', () => {
+  const shell = RING(12, 12, 9.25), at = (notes, ds = [shell, TRI12]) => airWarn(lintSource(24, 't.svg', ONE(ROOT24, ds, ['keyline: mark', ...notes])));
+  assert.deepEqual(at([]), ['path 2 leaves 1.2 of air inside itself at 12,12 (the widest circle that fits) — §6 needs 1.5']);
+  assert.deepEqual(at(['glyph: dot']), [], 'the inside of a character');
+  assert.deepEqual(at(['glyph: numeral']), []);
+  assert.deepEqual(at(['glyph: dot'], [TRI12]), ['path 1 leaves 1.2 of air inside itself at 12,12 (the widest circle that fits) — §6 needs 1.5'], 'drawn alone it is the silhouette');
+  const agreed = lintSource(24, 't.svg', ONE(ROOT24, [shell, TRI12], ['keyline: mark', 'gap: 1']));
+  assert.deepEqual(airWarn(agreed), []);
+  assert.deepEqual(agreed.errors, [], 'the note is in use: the triangle needs it');
+  assert.ok(agreed.notes.includes('agreed gap 1 — smallest measured 1.2'), agreed.notes.join(' | '));
+  // a hole: in a shape that is not the silhouette, a character's; in the silhouette, §6's
+  const RINGED = 'M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12ZM4.25 12A7.75 7.75 0 1 0 19.75 12A7.75 7.75 0 1 0 4.25 12Z';
+  const CUT = 'M9 9H15V15H9ZM12 10.3L13.04 12.1L10.96 12.1Z';
+  const holes = (areas, notes) => airWarn(lintSource(24, 'g-filled.svg', drawn(24, 1.5, [], { areas, notes: ['keyline: mark', ...notes] })));
+  assert.equal(holes([RINGED, CUT], []).length, 1);
+  assert.deepEqual(holes([RINGED, CUT], ['glyph: dot']), []);
+  assert.deepEqual(holes([CUT], ['glyph: dot']), ['a cut-out leaves 1.2 of air inside it at 12,11.5 (the widest circle that fits) — §6 needs 1.5']);
+  // a C33 line badge's own closed shape keeps 1.5, whatever the base agreed
+  const badge = lintSource(24, 'passkey-2-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path d="M5 10.5H10"/>',
+    `<path stroke-width="1.5" d="${TRI12.replace(/[\d.]+/g, (n) => String(+(+n + 4).toFixed(2)))}"/>`], ['keyline: mark', 'gap: 1', 'badge: line']));
+  assert.deepEqual(airWarn(badge), ['path 3 leaves 1.2 of air inside itself at 16,16 (the widest circle that fits) — §6 needs 1.5']);
 });

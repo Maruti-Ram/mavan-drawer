@@ -73,7 +73,10 @@ export default {
     stroke-width" (the 16 stroke is 1.25). If a detail can't keep that gap, remove the detail.
     **Filled drawings too:** a line punched out of a shape, a band between two filled parts, a notch
     and a shape-to-line gap hold 1.5 of white at every master — at 16 wider than the 1.25 line
-    (2026-09-28, C22). Lint §5f checks it, and the air inside a closed path. **Arms that cross**
+    (2026-09-28, C22). Lint §5f checks it, and the air inside a closed path. **Inside air:** the
+    widest circle that fits in the white one closed shape leaves (a closed path, a filled file's
+    hole) is 1.5 too — a small triangle reads its incircle, so a play or rewind triangle at 16 or 20
+    closes up before its corners look tight (lint §5i, 2026-10-20). **Arms that cross**
     keep 1.5 at their tips where two neighbouring arms meet at under 86°, tip to tip (an asterisk,
     a slanted #, the 文 of `language`): the shorter arm's cap centre to the point as far along its
     neighbour (docs/01 §6, 2026-10-20). Lint §5 warns on it, and §5h on the same arms traced filled.

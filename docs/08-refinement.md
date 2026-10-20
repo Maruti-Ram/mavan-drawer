@@ -318,6 +318,10 @@ Across all 576 drawings it reported four, all question marks at the 16 master an
 else — which settled **C19's extension to the glyph mouth** (doc 07). `help-circle-4`'s first 16
 measured 0.30 there and had shipped lint-clean that morning.
 
+**Dated note, 2026-10-20 — the first corollary, for a closed shape, is measured as Maruti defined it:**
+the widest circle that fits in the white one closed shape leaves inside itself (lint §5i, `insideAir`;
+§6.5). `selfGap` still reads an open path's mouth; white closed in by several strokes is still open. Also still uncovered (review, 2026-10-20): white split into pieces — pinched shut by its own stroke, a crossing centreline or a fold in the same `d` — reports only its largest piece; and a hole in a filled shape ignores strokes drawn inside it (zoom-in/out's mark, gear-3). Nothing in the set is hidden by either today.
+
 **The second corollary — no more than 3 parallel strokes in one run — is still not in code.**
 Nothing approved breaks it (`menu` is the widest run at three), so it binds nothing today.
 
@@ -379,6 +383,27 @@ gap"* three lines under a rule that says 1.5 — stale wording from the stroke-2
   `hash-3-filled` at their 80° crossings (tightest 0.82 · 1.25 / 1.19 · 0.82); nothing else changed.
   **Not judged, by decision:** right-angle crossings, arrowheads, single-path bends, T-joins, and a
   filled notch whose walls do not both end in a round tip.
+- **Dated note, 2026-10-20 — the inside air of one closed shape is measured; the wedge hole is closed
+  for it.** `facingGap` reads a neck square-on, so inside a wedge of air opening wider than ~6°, or a
+  small triangle, it read nothing (the 2026-09-28 note's first "still uncovered" item; C23's
+  triangular counters were left to the drawer). Maruti's measure (docs/01 §6) is the **inside air**:
+  the diameter of the widest circle that fits in the white one closed shape leaves inside itself — a
+  closed stroked path's inside less its own stroke (and any shape painted there), a filled file's hole
+  less any island. Taken over the whole interior, a long 0.3 sliver reads 0.3 and a triangle reads its
+  incircle, never its sharp corners. `insideAir` (`tools/geometry.mjs`) measures it on an exact
+  distance field (segments and circular arcs as drawn, ellipses flattened to 0.0001) by branch and
+  bound, to ±0.002; it agrees with `ringHole`'s 2r − w on rings and with `facingGap` on a parallel
+  channel. Lint §5i warns under 1.5, the file's agreed gap, or C19's 1 for a character's own shape; it
+  adds to §5f, and where §5f already warns on the same white it adds no second line. The census before
+  it (a raster at 400 px/unit, 3,146 closed shapes) and the port agree within 0.009 near the floor.
+  First run over 4,206 drawings: three drawings warn, as Maruti agreed — `rewind-2` at 16 and 20 (its
+  trailing triangle holds 1.07) and `video-3` at 20 (its play, 1.13); nothing else changed, and the 42
+  interiors §5f already warned on (`sort-numeric`'s 0, the filled `sort-alpha` A) keep their one line.
+  **Still uncovered:** **white closed in by several strokes** — a page's dog-ear, the outline
+  `sort-alpha` A's counter, `note`, `import-2`, `key-4`, `video-4`. A whole-drawing scan in the same
+  census finds 46 drawings with such a region under 1.5 (one region each, slivers under 0.05 at the
+  joins set aside), about half of them reading open at 16 because they sit on whole pixels. Maruti
+  deferred it to its own census.
 - Touching paths are skipped (`min > 0.1`), which is why C18's flag-to-bar exception was
   invisible.
 

@@ -375,10 +375,17 @@ tighter fills in, and an icon that fills in at 16px is a broken icon no matter
 how good it looks at 96.
 
 Corollaries:
-- **No enclosed shape smaller than 1.5 units across** (inner dimension). A ring is one: a circle
-  drawn as a stroke leaves a hole 2r − w across inside it (a key's bow, a ring badge, a keyhole),
-  and lint §5f holds that hole to 1.5, or to the file's agreed gap (2026-10-20). A circle whose
-  radius is at most half its stroke is a dot: it draws solid and has no hole.
+- **No enclosed shape smaller than 1.5 units across** (inner dimension), measured as **the widest
+  circle that fits in the white one closed shape leaves inside itself** (Maruti, 2026-10-20): inside
+  a closed stroked path, less the ink of its own `d` (its stroke, and any other subpath drawn in the same `d`) and anything a filled shape paints there; inside a hole
+  cut out of a filled shape, less any island. Taken over the whole interior, a long sliver reads its
+  width and a triangle reads its incircle, so its sharp inner corners never decide it. Lint §5i
+  holds it to 1.5, the file's agreed gap, or C19's 1 for a character's own shape (a C33 badge keeps
+  1.5), as warnings. A ring is one: a circle drawn as a stroke leaves a hole 2r − w across inside it
+  (a key's bow, a ring badge, a keyhole), and lint §5f holds that hole exactly (2026-10-20). A
+  circle whose radius is at most half its stroke is a dot: it draws solid and has no hole. White
+  closed in by **several** strokes (a page's dog-ear) is not measured yet — its own census comes
+  first (`docs/08-refinement.md` §6.5).
 - **Arms that cross keep 1.5 at their tips** (2026-10-20). Where two strokes cross and two
   neighbouring arms meet at under 86°, measured tip to tip, the wedge between them fills in at 16
   unless the arms reach far enough apart: the shorter arm's cap centre, r from the crossing, and the

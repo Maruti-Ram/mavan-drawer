@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, facingGap, armTipGap, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, facingGap, armTipGap, insideAir, encloses, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -101,7 +101,7 @@ export function parseGrowsNote(src) {
 // units, between any two stroke edges in THIS file. It replaces §6's MIN_GAP for the
 // proximity checks below (path-vs-path in §5 and the tips of arms that cross there,
 // path-vs-itself in §5b, facing walls in §5f, the tips of arms traced as one filled shape in
-// §5h) and for that file alone; C19's glyph pairs and a character's own arms keep GLYPH_GAP,
+// §5h, the inside air of one closed shape in §5i) and for that file alone; C19's glyph pairs and a character's own arms keep GLYPH_GAP,
 // a C33 badge keeps MIN_GAP, and the knockout check keeps MIN_GAP.
 // Agreed by eye at approval (attachment-4-filled, 2026-09-20: the filled clip keeps all
 // four legs, so the path passes within 1.04 of itself at 24 and 1.0 at 20).
@@ -159,11 +159,13 @@ export function parseBaseNote(src) {
 //            pair and the character's own opening floor at GLYPH_GAP (§5, §5b), and so does
 //            what a knockout leaves between two parts of itself (§5c); since 2026-10-20 so do
 //            the tips of the character's own crossing arms, between any paths but the
-//            silhouette (§5) and in any shape but the silhouette's notches (§5h)
+//            silhouette (§5) and in any shape but the silhouette's notches (§5h), and the inside
+//            air of a closed path or a hole that is not the silhouette's (§5i)
 //   numeral  numerals drawn inside an icon (list-ordered's 1 and 2, 2026-09-26): a numeral's
 //            own opening - the mouth of a 2 between its entry terminal and its neck - floors at
 //            GLYPH_GAP (§5b), and since 2026-10-20 so do the tips of arms where one path
-//            crosses itself (§5) and a filled shape's notches (§5h); nothing else does:
+//            crosses itself (§5), a filled shape's notches (§5h) and the inside air of a
+//            closed path or a hole (§5i); nothing else does:
 //            numeral-to-numeral and numeral-to-line are separate paths and keep MIN_GAP
 // Until 2026-09-26 any other value was silently read as no note at all; now it is an ERROR,
 // like the other notes, so a misspelt kind can never leave a drawing held to the wrong floor.
@@ -589,14 +591,15 @@ export function lintSource(canvas, file, src) {
   for (const t of armsAt.values()) judgeArms(t);
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
-  // §6's corollary "no enclosed shape smaller than 1.5 units across" has never been
-  // in code, and the pair loop above cannot see it: both ends of one stroke, and a
+  // §6's corollary "no enclosed shape smaller than 1.5 units across" was not in code
+  // before this loop (2026-09-18), and the pair loop above cannot see it: both ends of one stroke, and a
   // counter drawn by one curling path, belong to a single `d`. `selfGap` judges a
   // pair of points only once the path between them has turned past 180 degrees, so a
   // C10 bend — which legitimately brings its own tangent points 1.06 apart — is never
   // flagged, while a mouth that has closed up is. A closed path has no mouth (`selfGap` returns
   // null for it), so a closed two-arc path is not even read here: a dot is solid, and a ring's
-  // hole is measured in 5f, with the inside of every other closed path.
+  // hole is measured in 5f, with the inside of every other closed path (its necks in 5f, its
+  // widest circle in 5i).
   // Caught by eye and not by lint before this existed: help-4's 16 shipped a 0.30 mouth.
   // C19 extends here: in a file that declares `<!-- glyph: dot -->`, a mark's own
   // opening - the mouth of a `?`, of an `!`, of an `i` - is the inside of one
@@ -680,6 +683,8 @@ export function lintSource(canvas, file, src) {
   // which reads the same hole but, in a glyph file, floors it as a character's opening.)
   // Any other closed two-arc path (globe's meridians, database's lid, the moon) is read by
   // `facingGap` below like any closed path.
+  // What 5f warned on, and where, so 5i does not warn a second time on the same white.
+  const warned5f = { ring: new Set(), self: [], area: [] };
   {
     const air = facingGap(ds, W, areas);   // each path at its own weight (C32, C33)
     const shut = (sub) => { const p = samplePath(sub); return p.length > 2 && Math.hypot(p.at(-1)[0] - p[0][0], p.at(-1)[1] - p[0][1]) < 0.01; };
@@ -688,8 +693,10 @@ export function lintSource(canvas, file, src) {
       if (!ring) return;
       const floor = inBadge[i] ? MIN_GAP : GAP;
       if (!inBadge[i]) measured.push(ring.hole);
-      if (ring.hole < floor - 0.01)
+      if (ring.hole < floor - 0.01) {
+        warned5f.ring.add(i);
         warnings.push(`path ${i + 1} is a ring with a hole ${ring.hole} across at ${ring.at.join(',')} — ${!inBadge[i] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (radius ${ring.r} at stroke ${W[i]})`);
+      }
     });
     for (const { path, gap: g, at } of air.self) {
       const d = ds[path], subs = subpathsOf(d);
@@ -699,14 +706,18 @@ export function lintSource(canvas, file, src) {
       const inGlyph = !inBadge[path] && ((isGlyph && !isShell(spans[path])) || isNumeral);   // the badge first, as in §5
       const floor = inBadge[path] ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
       if (!inGlyph && !inBadge[path]) measured.push(g);
-      if (g < floor - 0.01)
+      if (g < floor - 0.01) {
+        warned5f.self.push({ path, at });
         warnings.push(`path ${path + 1} faces itself across ${g} of air at ${at.join(',')} — ${inGlyph ? 'C19 glyph gap' : !inBadge[path] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+      }
     }
     const AIR = { cut: 'across one cut-out', notch: 'in a notch of the outer edge', separation: 'between two filled edges', line: 'between a shape and a line' };
     for (const { kind, gap: g, at } of air.area) {
       measured.push(g);
-      if (g < GAP - 0.01)
+      if (g < GAP - 0.01) {
+        warned5f.area.push(at);
         warnings.push(`${g} of air ${AIR[kind]} at ${at.join(',')} — ${gap ? `agreed gap ${gap.n}` : '§6'} needs ${GAP}`);
+      }
     }
   }
 
@@ -732,9 +743,51 @@ export function lintSource(canvas, file, src) {
       warnings.push(`a filled shape's arms meet at ${Math.round(angle)}° with ${r2(g)} of air at the arm tips at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
   }
 
+  // --- 5i. advisory: the inside air of one closed shape ------------------------
+  // docs/01 §6's corollary "no enclosed shape smaller than 1.5 units across", measured as Maruti
+  // agreed it (2026-10-20): the diameter of the widest circle that fits in the white ONE closed
+  // shape leaves inside itself (`insideAir`) — a closed stroked subpath, less its own path's ink and
+  // anything a shape paints there (outline files, and line-weight paths in filled ones), and a hole
+  // in a filled file, less any island. It is taken over the whole interior, so a long sliver reads
+  // its width and a triangle's sharp inner corners never decide it: its incircle does. 5f reads a
+  // neck square-on, and inside a wedge or a small triangle it reads nothing (`rewind-2`'s trailing
+  // triangle held 1.07 at 16 and 20, `video-3`'s play 1.13 at 20, and lint was silent); this reads
+  // the room. White closed in by SEVERAL strokes (a dog-ear, an outline A's counter) is not read:
+  // Maruti deferred it to its own census. Floors: a path's air as 5b and 5f floor it (GLYPH_GAP
+  // inside a declared glyph, a C33 badge's MIN_GAP, else this file's agreed gap, else MIN_GAP); a
+  // hole as §5h floors a filled shape's notch (GLYPH_GAP for a character's own shape — under `glyph:
+  // dot` any shape but the silhouette, under `glyph: numeral` any — else the agreed gap, else
+  // MIN_GAP). One line per interior: where 5f already warns on the same white — this path's ring
+  // (`ringHole` reads its hole exactly, 2r − w, which is what this reads), this path facing itself,
+  // or air touching a shape — with its reading inside this shape, nothing is added. No floor is over
+  // MIN_GAP, so a shape proven to hold MIN_GAP − 0.01 is not searched further (`cap`). WARNINGS.
+  {
+    const inside = insideAir(ds, W, areas, { cap: MIN_GAP - 0.01 });   // each path at its own weight (C32, C33)
+    const here = (sub) => (p) => encloses(sub, p);
+    for (const { path, sub, air, at } of inside.paths) {
+      const subs = subpathsOf(ds[path]), mine = here(subs[sub]);
+      if (warned5f.ring.has(path) || warned5f.self.some((w) => w.path === path && mine(w.at)) || warned5f.area.some(mine)) continue;
+      const inGlyph = !inBadge[path] && ((isGlyph && !isShell(spans[path])) || isNumeral);   // the badge first, as in §5
+      const floor = inBadge[path] ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
+      if (!inGlyph && !inBadge[path]) measured.push(r2(air));
+      if (air < floor - 0.01)
+        warnings.push(`path ${path + 1}${subs.length > 1 ? ` (subpath ${sub + 1})` : ''} leaves ${r2(air)} of air inside itself at ${at.join(',')} (the widest circle that fits) — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !inBadge[path] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+    }
+    for (const { area, sub, air, at } of inside.holes) {
+      if (warned5f.area.some(here(subpathsOf(areas[area])[sub]))) continue;
+      const own = bbox([areas[area]]);
+      const silhouette = ink && ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(own[k] - ink[k]) < 0.01);
+      const inGlyph = isGlyph ? !silhouette : isNumeral;
+      const floor = inGlyph ? GLYPH_GAP : GAP;
+      if (!inGlyph) measured.push(r2(air));
+      if (air < floor - 0.01)
+        warnings.push(`a cut-out leaves ${r2(air)} of air inside it at ${at.join(',')} (the widest circle that fits) — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+    }
+  }
+
   // --- 5d. is the agreed gap still doing anything? ------------------------
   // The note lowers the floor, so it has to earn its place: if nothing the checks above
-  // measure under it (§5 with its crossing arms, §5b, §5f and §5h) comes closer than §6's own floor, the drawing no longer needs it and
+  // measure under it (§5 with its crossing arms, §5b, §5f, §5h and §5i) comes closer than §6's own floor, the drawing no longer needs it and
   // the note is stale — an ERROR, so it is deleted rather than left to excuse a future
   // change nobody agreed. Otherwise it is in force, and says so the way `grows` does.
   if (gap) {

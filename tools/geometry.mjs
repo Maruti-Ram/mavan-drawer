@@ -425,6 +425,9 @@ function ringOf(d, opts) {
   return pts;
 }
 
+/** Does one subpath (evenodd, alone) enclose the point [x, y]? Lint asks it of a reading's point. */
+export const encloses = (sub, [x, y]) => inside(ringOf(sub), x, y);
+
 function inside(ring, x, y) {
   let odd = false;
   for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
@@ -557,8 +560,9 @@ export function materialGap(areas) {
 // bulge (the corner's turn is a JOIN, not curve).
 //
 // Blind sides: a wedge of air whose walls open by more than about 2 x ARRIVE is read as the
-// inside of a corner, so a triangular counter (C23) is still the drawer's to measure by its
-// largest inscribed circle; two sharp corners pointing straight at each other are not read
+// inside of a corner, so a triangular counter (C23) is not read here: where it is one closed
+// shape's, `insideAir` (lint §5i, 2026-10-20) reads its largest inscribed circle, and where
+// several strokes close it in it is still the drawer's; two sharp corners pointing straight at each other are not read
 // (a sharp corner facing a round or a flat is: its fan of rays finds it, and a round is read
 // exactly as above); air under 0.02 across is ignored.
 //
@@ -1382,4 +1386,227 @@ export function armTipGap(ds, stroke, areas = [], { weight } = {}) {
   const notch = tightest(areas.length ? notchWedges(areas) : [], (w) => w.area)
     .sort((a, b) => a.area - b.area).map((w) => ({ area: w.area, ...said(w) }));
   return { cross, notch };
+}
+
+// ── insideAir ──────────────────────────────────────────────────────────────
+// The INSIDE AIR of a closed shape (Maruti, 2026-10-20; docs/01 §6's "no enclosed shape smaller
+// than 1.5 units across"): the diameter of the widest circle that fits in the white ONE closed
+// shape leaves inside itself.
+//   · a closed stroked subpath: the white inside its centreline, less its own path's ink (every
+//     subpath of that `d`, at that path's weight) and anything a shape paints there;
+//   · a hole in a filled file (a subpath at odd depth in its own evenodd area): the white inside
+//     it, less any island or other shape painted there.
+// White enclosed by SEVERAL strokes (a dog-ear, an outline A's counter) is not this measure's:
+// another path's ink is not subtracted (Maruti deferred it to its own census, 2026-10-20).
+//
+// Why a circle. `facingGap` reads a neck, a span square-on to both walls, so it is blind inside a
+// wedge (walls more than ~2 × ARRIVE off parallel) and in a triangle's corners; `ringHole` reads
+// only a ring. The widest circle is taken over the whole interior, so a long 0.3 sliver reads 0.3,
+// a ring reads 2r − w, a parallel channel reads its width as facingGap does, and a triangle's sharp
+// inner corners never decide it — its incircle does. It ADDS to facingGap: where a room has a
+// narrow neck, facingGap reads the neck and this reads the room.
+//
+// How. The white's distance field is exact: segments and circular arcs are measured as drawn;
+// an elliptical arc or a Bézier is flattened to within AIR_FLAT. h(x) is how far x stands from
+// the nearest point that is not white (positive in the white, never more than 1 per unit moved),
+// so the widest circle's radius is h's maximum. That is found by branch and bound over square
+// cells (the "pole of inaccessibility" search, polylabel's method): a cell can hold no more than
+// h at its centre plus its half-diagonal, cells that cannot beat the best so far by AIR_EPS are
+// dropped, the rest split in four. The reading is the true diameter to within 2 × (AIR_EPS +
+// AIR_FLAT), never over it by more than 2 × AIR_FLAT: ±0.0022.
+//
+// `stroke` is one weight or one per path (C32, C33). `cap`: a shape whose air reaches it stops
+// being searched and is left out (anything wider is not a gap question; lint passes 2).
+// Returns { paths: [{ path, sub, air, at }], holes: [{ area, sub, air, at }] } — `sub` indexes
+// `subpathsOf` of that `d` — for every closed shape with white in it; `air` to 3 dp, `at` the
+// circle's centre to 2. A shape the stroke or a shape fills (a dot, a solid key) has no white
+// and is not returned; nor is white under AIR_MIN across.
+const AIR_FLAT = 1e-4;     // chord error allowed where a curve is flattened
+const AIR_EPS = 1e-3;      // the search stops within this of the widest circle's radius
+const AIR_MIN = 0.02;      // white thinner than this is no white (facingGap ignores it too)
+
+/** A primitive's points, flattened to within AIR_FLAT (the start point not included). */
+function flatPoints(p) {
+  if (p.k === 'L') return [p.p1];
+  if (p.k === 'C') {
+    // a cubic strays from its chords by at most 3/4 × its larger second difference / n² (none in
+    // the set today: every curve is an arc)
+    const M = Math.max(Math.hypot(p.p0[0] - 2 * p.c1[0] + p.c2[0], p.p0[1] - 2 * p.c1[1] + p.c2[1]),
+      Math.hypot(p.c1[0] - 2 * p.c2[0] + p.p1[0], p.c1[1] - 2 * p.c2[1] + p.p1[1]));
+    const n = Math.max(1, Math.ceil(Math.sqrt((0.75 * M) / AIR_FLAT)));
+    return Array.from({ length: n }, (_, k) => {
+      const t = (k + 1) / n, m = 1 - t;
+      return k === n - 1 ? p.p1 : [0, 1].map((j) => m ** 3 * p.p0[j] + 3 * m * m * t * p.c1[j] + 3 * m * t * t * p.c2[j] + t ** 3 * p.p1[j]);
+    });
+  }
+  const R = Math.max(p.rx, p.ry), step = R > AIR_FLAT ? 2 * Math.acos(1 - AIR_FLAT / R) : Math.PI;
+  const n = Math.max(1, Math.ceil(Math.abs(p.dt) / step));
+  return Array.from({ length: n }, (_, k) => (k === n - 1 ? p.p1 : arcAt(p, p.t1 + (p.dt * (k + 1)) / n)));
+}
+
+/** Pieces to measure distance to: a segment, or a circular arc kept exact; anything else flattened.
+ *  Filed in runs of AIR_RUN along the outline, each run with its box, so a distance query skips a
+ *  whole run (a flattened ellipse is hundreds of segments) when its box is already too far. */
+const AIR_RUN = 16;
+function airPieces(prims) {
+  const out = [];
+  const seg = (a, b) => out.push({ k: 'L', a, b, x0: Math.min(a[0], b[0]), y0: Math.min(a[1], b[1]), x1: Math.max(a[0], b[0]), y1: Math.max(a[1], b[1]) });
+  for (const p of prims) {
+    if (p.k === 'L') seg(p.p0, p.p1);
+    else if (p.k === 'A' && Math.abs(p.rx - p.ry) < 1e-9) {
+      const r = p.rx, [cx, cy] = p.c;
+      out.push({ k: 'O', c: p.c, r, a0: p.t1 + p.phi, dt: p.dt, p0: p.p0, p1: p.p1, x0: cx - r, y0: cy - r, x1: cx + r, y1: cy + r });
+    } else {
+      let a = p.p0;
+      for (const b of flatPoints(p)) { seg(a, b); a = b; }
+    }
+  }
+  const runs = [];
+  for (let i = 0; i < out.length; i += AIR_RUN) {
+    const items = out.slice(i, i + AIR_RUN);
+    runs.push({ items, x0: Math.min(...items.map((q) => q.x0)), y0: Math.min(...items.map((q) => q.y0)),
+      x1: Math.max(...items.map((q) => q.x1)), y1: Math.max(...items.map((q) => q.y1)) });
+  }
+  return runs;
+}
+
+/** Distance from (x, y) to the nearest piece, or `limit` when none is nearer. */
+function nearestPiece(runs, x, y, limit = Infinity) {
+  let best = limit;
+  const far = (q) => { const bx = Math.max(q.x0 - x, 0, x - q.x1), by = Math.max(q.y0 - y, 0, y - q.y1); return bx * bx + by * by >= best * best; };
+  for (const run of runs) {
+    if (far(run)) continue;
+    for (const q of run.items) {
+      if (far(q)) continue;
+      let d;
+      if (q.k === 'L') d = segDist([x, y], q.a, q.b)[0];
+      else {
+        const dx = x - q.c[0], dy = y - q.c[1];
+        let a = Math.atan2(dy, dx) - q.a0;
+        a = q.dt >= 0 ? modP(a, TAU) : modP(-a, TAU);
+        d = a <= Math.abs(q.dt) + 1e-12 ? Math.abs(Math.hypot(dx, dy) - q.r) : Math.min(hyp([x, y], q.p0), hyp([x, y], q.p1));
+      }
+      if (d < best) best = d;
+    }
+  }
+  return best;
+}
+
+/** Evenodd paint over some closed rings of points, edges filed by height in bands. */
+function paintOf(rings) {
+  const BAND = 0.25, bands = new Map();
+  for (const r of rings) if (r.length > 2) r.forEach((a, i) => {
+    const b = r[(i + 1) % r.length];
+    for (let k = Math.floor(Math.min(a[1], b[1]) / BAND); k <= Math.floor(Math.max(a[1], b[1]) / BAND); k++) {
+      if (!bands.has(k)) bands.set(k, []); bands.get(k).push([a[0], a[1], b[0], b[1]]);
+    }
+  });
+  return (x, y) => {
+    let odd = false;
+    for (const [xi, yi, xj, yj] of bands.get(Math.floor(y / BAND)) ?? [])
+      if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) odd = !odd;
+    return odd;
+  };
+}
+
+/** A subpath's primitives as one closed ring of points (flattened to within AIR_FLAT). */
+const airRing = (prims) => {
+  const pts = prims.length ? [prims[0].p0] : [];
+  for (const p of prims) for (const q of flatPoints(p)) if (hyp(q, pts.at(-1)) > 1e-12) pts.push(q);
+  if (pts.length > 1 && hyp(pts[0], pts.at(-1)) < 1e-9) pts.pop();
+  return pts;
+};
+
+/** A tiny max-heap on `max`. */
+class CellHeap {
+  constructor() { this.a = []; }
+  get size() { return this.a.length; }
+  push(c) {
+    const a = this.a; a.push(c);
+    for (let i = a.length - 1; i > 0;) { const p = (i - 1) >> 1; if (a[p].max >= a[i].max) break; [a[p], a[i]] = [a[i], a[p]]; i = p; }
+  }
+  pop() {
+    const a = this.a, top = a[0], last = a.pop();
+    if (a.length) {
+      a[0] = last;
+      for (let i = 0; ;) {
+        const l = 2 * i + 1, r = l + 1; let m = i;
+        if (l < a.length && a[l].max > a[m].max) m = l;
+        if (r < a.length && a[r].max > a[m].max) m = r;
+        if (m === i) break; [a[m], a[i]] = [a[i], a[m]]; i = m;
+      }
+    }
+    return top;
+  }
+}
+
+/** The widest circle h allows inside `box`: branch and bound to within `eps`. Returns
+ *  { x, y, d } (d the radius) — or null when the search reaches `capR` first. */
+function widestCircle(h, box, eps, capR) {
+  const W = box.x1 - box.x0, H = box.y1 - box.y0, size = Math.min(W, H);
+  if (!(size > 0)) return { x: box.x0, y: box.y0, d: -Infinity };
+  const heap = new CellHeap();
+  const cell = (x, y, s) => { const d = h(x, y); return { x, y, s, d, max: d + s * Math.SQRT2 }; };
+  let best = cell(box.x0 + W / 2, box.y0 + H / 2, 0);
+  const nx = Math.ceil(W / size - 1e-9), ny = Math.ceil(H / size - 1e-9), s0 = size / 2;
+  for (let i = 0; i < nx; i++) for (let j = 0; j < ny; j++) heap.push(cell(box.x0 + s0 + i * size, box.y0 + s0 + j * size, s0));
+  while (heap.size) {
+    const c = heap.pop();
+    if (c.d > best.d) best = c;
+    if (best.d >= capR) return null;
+    if (c.max - best.d <= eps) break;   // the heap gives the largest bound first: nothing left can win
+    const s = c.s / 2;
+    for (const [dx, dy] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) {
+      const k = cell(c.x + dx * s, c.y + dy * s, s);
+      if (k.max > best.d + eps) heap.push(k);
+      else if (k.d > best.d) best = k;
+    }
+  }
+  return best;
+}
+
+export function insideAir(ds, stroke, areas = [], { cap = Infinity } = {}) {
+  const wOf = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  // everything a shape paints, as one test and one distance field
+  const areaSubs = areas.map((d) => subpathsOf(d).map((s) => primitivesOf(s)[0]?.prims ?? []));
+  const areaRings = areaSubs.map((subs) => subs.map(airRing));
+  const paints = areaRings.map(paintOf);
+  const painted = (x, y) => paints.some((p) => p(x, y));
+  const paintPieces = areaSubs.flatMap((subs) => subs.flatMap(airPieces));
+  // signed distance to paint: + outside every shape, − inside one
+  const toPaint = paintPieces.length ? (x, y, limit) => (painted(x, y) ? -nearestPiece(paintPieces, x, y) : nearestPiece(paintPieces, x, y, limit)) : () => Infinity;
+  const boxOf = (ring) => ring.reduce((b, [x, y]) => ({ x0: Math.min(b.x0, x), y0: Math.min(b.y0, y), x1: Math.max(b.x1, x), y1: Math.max(b.y1, y) }), { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity });
+  const read = (ring, h) => {
+    const best = widestCircle(h, boxOf(ring), AIR_EPS, cap / 2);
+    if (!best || !(2 * best.d >= AIR_MIN)) return null;
+    return { air: r3(2 * best.d), at: [r2(best.x), r2(best.y)] };
+  };
+  const paths = [], holes = [];
+  ds.forEach((d, path) => {
+    const subs = subpathsOf(d).map((s) => primitivesOf(s)[0] ?? { prims: [], closed: false });
+    const ink = subs.flatMap((s) => airPieces(s.prims)), half = wOf(path) / 2;
+    subs.forEach(({ prims, closed }, sub) => {
+      if (!prims.length || !(closed || hyp(prims[0].p0, prims.at(-1).p1) < 0.01)) return;
+      const ring = airRing(prims), own = airPieces(prims), inside = paintOf([ring]);
+      // outside the centreline: minus the distance to it (h is never above that there); inside:
+      // the nearer of the path's own ink and the paint
+      const h = (x, y) => {
+        if (!inside(x, y)) return -nearestPiece(own, x, y);
+        const e = nearestPiece(ink, x, y) - half;
+        return Math.min(e, toPaint(x, y, e));
+      };
+      const got = read(ring, h);
+      if (got) paths.push({ path, sub, ...got });
+    });
+  });
+  areaRings.forEach((rings, area) => rings.forEach((ring, sub) => {
+    if (ring.length < 3) return;
+    const depth = rings.filter((o, k) => k !== sub && o.length > 2 && inside(o, ring[0][0], ring[0][1])).length;
+    if (depth % 2 !== 1) return;   // the shape itself, or an island: not a hole
+    const own = airPieces(areaSubs[area][sub]), inHole = paintOf([ring]);
+    const h = (x, y) => (inHole(x, y) ? toPaint(x, y, Infinity) : -nearestPiece(own, x, y));
+    const got = read(ring, h);
+    if (got) holes.push({ area, sub, ...got });
+  }));
+  return { paths, holes };
 }
