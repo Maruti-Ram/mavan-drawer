@@ -2,8 +2,8 @@
   "generated": "2026-10-20",
   "board": {
     "name": "loader",
-    "candidates": 13,
-    "status": "review"
+    "candidates": 6,
+    "status": "done"
   },
   "icons": [
     {
@@ -36,39 +36,33 @@
     {
       "name": "crosshair",
       "concept": "crosshair",
-      "candidates": 5,
+      "candidates": 6,
       "ids": [
         "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "zap",
-      "concept": "zap",
-      "candidates": 5,
-      "ids": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
+        "A1",
+        "A2",
+        "E",
+        "E1",
+        "E2"
       ],
       "status": "review"
     },
     {
       "name": "status",
       "concept": "status",
-      "candidates": 5,
+      "candidates": 11,
       "ids": [
-        "A",
         "B",
+        "B1",
+        "B2",
         "C",
-        "D",
-        "E"
+        "C1",
+        "C2",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J"
       ],
       "status": "review"
     },
@@ -89,13 +83,68 @@
     {
       "name": "saved-items",
       "concept": "saved-items",
-      "candidates": 5,
+      "candidates": 6,
       "ids": [
         "A",
+        "A3",
         "B",
         "C",
         "D",
         "E"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "alert-octagon-2",
+      "concept": "alert-octagon-2",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "alert-octagon-3",
+      "concept": "alert-octagon-3",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "alert-octagon-4",
+      "concept": "alert-octagon-4",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "alert-square-2",
+      "concept": "alert-square-2",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "alert-square-3",
+      "concept": "alert-square-3",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "alert-square-4",
+      "concept": "alert-square-4",
+      "candidates": 1,
+      "ids": [
+        "A"
       ],
       "status": "review"
     }

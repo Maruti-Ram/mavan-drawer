@@ -607,7 +607,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 200. `video-2` · Files & Folders · variant of `video` — Film strip · approved 2026-10-20
 - [x] 200. `video-3` · Files & Folders · variant of `video` — TV with play · approved 2026-10-20
 - [x] 200. `video-4` · Files & Folders · variant of `video` — Clapperboard, hinged at the corner; hinge segment hollow when filled · approved 2026-10-20
-- [~] 201. `zap` · Status & Feedback
+- [x] 201. `bolt` · Status & Feedback — approved 2026-10-20
+- [x] 201. `bolt-2` · Status & Feedback · variant of `bolt` — Narrow bolt · approved 2026-10-20
+- [x] 201. `bolt-3` · Status & Feedback · variant of `bolt` — Wide 45° bolt · approved 2026-10-20
 - [x] 202. `zoom-in` · UI & Layout — approved 2026-10-20
 - [x] 202. `zoom-in-2` · UI & Layout · variant of `zoom-in` — Big lens, ring kept, thin mark · approved 2026-10-20
 - [x] 203. `zoom-out` · UI & Layout — approved 2026-10-20
@@ -897,7 +899,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 411. `phone-call` · Communication · variant of `phone`
 - [ ] 412. `plus-square` · UI & Layout · variant of `plus`
 - [ ] 413. `x-square` · UI & Layout · variant of `x`
-- [ ] 414. `zap-off` · Status & Feedback · variant of `zap`
+- [ ] 414. `bolt-off` · Status & Feedback · variant of `bolt`
 - [ ] 415. `battery-charging` · Devices & Hardware · variant of `battery`
 - [ ] 417. `activity-square` · Charts & Data · variant of `activity`
 - [ ] 418. `bell-plus` · Communication · variant of `bell`
