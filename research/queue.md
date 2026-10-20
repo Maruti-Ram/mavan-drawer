@@ -692,7 +692,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
 - [ ] 271. `status` · Status & Feedback
 - [ ] 272. `translate` · Communication
-- [~] 273. `viewport-narrow` · UI & Layout
+- [x] 273. `viewport-narrow` · UI & Layout — approved 2026-10-20
+- [x] 273. `viewport-narrow-2` · UI & Layout · variant of `viewport-narrow` — Capsule, heads in · approved 2026-10-20
+- [x] 273. `viewport-narrow-3` · UI & Layout · variant of `viewport-narrow` — Dimension arrow, in · approved 2026-10-20
 - [ ] 274. `viewport-short` · UI & Layout
 - [ ] 275. `viewport-tall` · UI & Layout
 - [ ] 276. `viewport-wide` · UI & Layout
