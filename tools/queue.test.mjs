@@ -3,7 +3,7 @@
 // Reads the live research/queue.md; every command that writes runs on a copy in a temp directory.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, mkdirSync, rmSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, mkdtempSync, mkdirSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -234,4 +234,21 @@ test("build.mjs reads the sheet with queue.mjs's parser, and it agrees with buil
   });
   // every approved row carries its date
   for (const r of rows.filter((x) => x.status === 'done')) assert.match(r.date ?? '', /^\d{4}-\d{2}-\d{2}$/, r.name);
+});
+
+test('approve refuses a C33 composite whose base is neither in the command nor shipped, and writes nothing', () => {
+  const s = scratch();
+  try {
+    for (const m of [24, 20, 16]) mkdirSync(join(s.dir, 'src/icons', String(m)), { recursive: true });
+    mkdirSync(join(s.dir, 'lab/drafts'), { recursive: true });
+    const line = { 24: 'M3.75 12H20.25', 20: 'M3.75 10H16.25', 16: 'M2.625 8H13.375' };
+    const at = (f) => Object.fromEntries(Object.entries(line).map(([m, d]) => [m, f(d)]));
+    const c = { id: 'D', label: 'lock badge', base: 'password', masters: at((d) => [d]), filled: at((d) => ({ fill: [], stroke: [d] })) };
+    writeFileSync(join(s.dir, 'lab/drafts/current.js'), `export default ${JSON.stringify({ concept: 'password-lock', candidates: [c] })};\n`);
+    const r = s.run('approve', 'D');
+    assert.equal(r.status, 1, r.stdout);
+    assert.match(r.stderr, /password-lock keeps password's place, but password is neither in this approval nor shipped — approve password in the same command, or first \(C33\)\. Nothing was written\./);
+    for (const m of [24, 20, 16]) assert.deepEqual(readdirSync(join(s.dir, 'src/icons', String(m))), [], `nothing written at ${m}`);
+    assert.equal(s.sheet(), LIVE, 'the sheet is untouched');
+  } finally { s.done(); }
 });

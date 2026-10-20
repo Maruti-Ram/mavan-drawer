@@ -123,8 +123,8 @@ Maruti is choosing the direction: 1.5 (redraw the 9) or 1.25 (redraw about 61).
 ## Known blind sides (recorded, not fixed)
 
 - **A wedge of air whose walls open wider than about 6°** is read as a corner and is not judged. A
-  triangular counter (C23) is still measured by its largest inscribed circle, and that stays the
-  drawer's job.
+  triangular counter (C23) is still measured by its largest inscribed circle — **since 2026-10-20 by
+  lint §5i (`insideAir`), no longer the drawer's job** (docs/08 dated note).
 - **Two sharp corners of shapes pointing straight at each other** are not read: each ray arrives at
   the other shape's point, not at a wall. Nothing like this ships.
 - **Air under 0.02 wide** is ignored (hairlines left by offsets). `volume-off`'s lower bar sits in its

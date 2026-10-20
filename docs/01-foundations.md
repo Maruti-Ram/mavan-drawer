@@ -147,6 +147,20 @@ Lint then holds their ink inside the full member's box, sharing its left or righ
 to be centred or to match a keyline; the margin, grid and gaps still apply, and `anchor`
 goes with neither `box` nor `keyline: mark`.
 
+**A composite that keeps its base's place (C33).** A modifier badge sits on its base's
+bottom-right corner and the base keeps its own canvas position, so on a short base the whole
+icon sits off the canvas centre (`password-lock`: `password`'s field in place, the composite
+2.5 · 2 · 1.5 below centre, 2026-10-20). Such a composite declares its base:
+
+```svg
+<!-- base: password -->
+```
+
+Lint then holds it to the base's place instead of the centre — same master, same style, as an
+error: its ink must hold the base's box and share its left and top edges (the corner away
+from the bottom-right badge). The margin, grid, gaps and its declared `box` still apply; `base` goes
+with neither `anchor` nor `keyline: mark`.
+
 **These are outer dimensions — they include the stroke.** At 24, a stroked
 circle that should hit the ⌀20 keyline has a *centreline* radius of 9.25,
 because the 1.5-unit stroke adds 0.75 on each side. At 16, the same logic on
@@ -242,7 +256,9 @@ at 24 and 20, 1.25 at 16. Numbers live in `tools/masters.mjs` (`FILLED_WEIGHT`,
 2026-10-17): a **numeral** inside a line-heavy icon (`repeat-once`'s 1) keeps
 the outline weight in the filled file, declared `<!-- glyph: numeral -->`, its
 path carrying `stroke-width` at that weight; gaps are measured with each path's
-own weight. A second (C33, 2026-10-19): a **line badge** on a line-heavy base
+own weight. Letters follow it since 2026-10-20 (`translate`'s A and 文),
+declared `<!-- glyph: letter -->` — the weight only, not C19's floor of 1.
+A second (C33, 2026-10-19): a **line badge** on a line-heavy base
 (`passkey-2`'s key) does the same, declared `<!-- badge: line -->`, its air to
 the base held at 1.5.
 
@@ -353,7 +369,8 @@ One carve-out, declared per file and checked by lint: **C19's glyph gap of 1 uni
 for the inside of one character — a dot to its body (`<!-- glyph: dot -->`), a `?`'s
 mouth, and a numeral's own opening such as the mouth of a 2 (`<!-- glyph: numeral -->`,
 2026-09-26). The gap between a character and anything else stays 1.5
-(`07-character.md` C19).
+(`07-character.md` C19). A letter's own openings are not covered: `<!-- glyph: letter -->`
+(C32) keeps a letter's weight, not this floor.
 
 The same at every master, and at the 16 master that is 1.5px — the smallest gap
 that still reads as a gap rather than a smudge. Anything
@@ -361,10 +378,26 @@ tighter fills in, and an icon that fills in at 16px is a broken icon no matter
 how good it looks at 96.
 
 Corollaries:
-- **No enclosed shape smaller than 1.5 units across** (inner dimension). A ring is one: a circle
-  drawn as a stroke leaves a hole 2r − w across inside it (a key's bow, a ring badge, a keyhole),
-  and lint §5f holds that hole to 1.5, or to the file's agreed gap (2026-10-20). A circle whose
-  radius is at most half its stroke is a dot: it draws solid and has no hole.
+- **No enclosed shape smaller than 1.5 units across** (inner dimension), measured as **the widest
+  circle that fits in the white one closed shape leaves inside itself** (Maruti, 2026-10-20): inside
+  a closed stroked path, less the ink of its own `d` (its stroke, and any other subpath drawn in the same `d`) and anything a filled shape paints there; inside a hole
+  cut out of a filled shape, less any island. Taken over the whole interior, a long sliver reads its
+  width and a triangle reads its incircle, so its sharp inner corners never decide it. Lint §5i
+  holds it to 1.5, the file's agreed gap, or C19's 1 for a character's own shape (a C33 badge keeps
+  1.5), as warnings. A ring is one: a circle drawn as a stroke leaves a hole 2r − w across inside it
+  (a key's bow, a ring badge, a keyhole), and lint §5f holds that hole exactly (2026-10-20). A
+  circle whose radius is at most half its stroke is a dot: it draws solid and has no hole. White
+  closed in by **several** strokes (a page's dog-ear) is not measured yet — its own census comes
+  first (`docs/08-refinement.md` §6.5).
+- **Arms that cross keep 1.5 at their tips** (2026-10-20). Where two strokes cross and two
+  neighbouring arms meet at under 86°, measured tip to tip, the wedge between them fills in at 16
+  unless the arms reach far enough apart: the shorter arm's cap centre, r from the crossing, and the
+  point r along its neighbour stand 1.5 apart, edge to edge ("tip air at equal reach"; `password-2`'s
+  asterisk holds 2.25 · 1.5 · 1.5). Lint §5 measures it, and §5h the same arms where a filled twin
+  traces them as one shape, as warnings. Right-angle crossings (plus, x, #), arrowheads, single-path
+  bends and T-joins are not judged, nor an overhang whose cap sits inside its neighbour's ink. A
+  file's agreed `gap:` applies; a character's own arms take C19's 1 under `glyph:`; a C33 badge's
+  arms keep 1.5 whatever the file's `gap:` says.
 - **No more than 3 parallel strokes** in one run. Four is a texture, not an icon.
 - When a detail cannot fit at a 2-unit gap, **remove the detail**. Do not shrink
   the stroke locally — varying stroke weight within a set is the fastest way to
@@ -411,8 +444,8 @@ Fixed for every icon in the library:
 - `viewBox` equal to the master's canvas — `0 0 24 24`, `0 0 20 20` or `0 0 16 16`
 - `fill="none"` and `stroke="currentColor"` — colour is the consumer's problem
 - stroke attributes on the **root**, never on individual paths — bar two: a C32
-  numeral in a line-heavy filled file carries `stroke-width` at the outline weight,
-  and so does a C33 line badge on a line-heavy base (`<!-- badge: line -->`)
+  numeral or letter in a line-heavy filled file carries `stroke-width` at the outline
+  weight (`<!-- glyph: numeral | letter -->`), and so does a C33 line badge on a line-heavy base (`<!-- badge: line -->`)
 - **no** `width` / `height` on the root — the consumer sizes it
 - **no** `<g>`, no `transform`, no `id`, no `class`, no inline `style`
 - one `<path>` per discrete stroke run, in drawing order (container first,

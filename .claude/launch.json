@@ -19,6 +19,26 @@
       ],
       "port": 4175,
       "autoPort": false
+    },
+    {
+      "name": "lab-4176",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "tools/serve.mjs",
+        "4176"
+      ],
+      "port": 4176,
+      "autoPort": false
+    },
+    {
+      "name": "lab-4179",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "tools/serve.mjs",
+        "4179"
+      ],
+      "port": 4179,
+      "autoPort": false
     }
   ]
 }

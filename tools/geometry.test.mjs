@@ -4,8 +4,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, facingGap, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
-import { checkAnchors, checkPairs, checkTwins, comparePair, lintSource, parseAnchorNote, parseBadgeNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
+import { anatomy, armTipGap, facingGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
@@ -672,6 +672,154 @@ test('a member anchored to another member, not the full one, is an ERROR', () =>
   assert.ok(r.get('24/volume-low.svg').errors.some((e) => /is itself anchored to volume/.test(e)));
 });
 
+// --- C33 composites: `<!-- base: NAME -->` (2026-10-20) --------------------------------
+// A composite keeps its base's drawing and canvas position under the badge, so on a short base
+// it sits off the canvas centre; the note swaps the off-centre warning for "keeps NAME's place".
+// Fixture: the shipped `password` field at 24 (ink 2,7 → 22,17, centred) and password-lock's
+// candidate D at 24 — the field cut back for a lock on its bottom-right corner, one dot kept
+// (ink 2,7 → 22,22: 20×15, centre 12,14.5, 2.5 below the canvas centre).
+const PW_FIELD = 'M5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V13.75A2.5 2.5 0 0 1 18.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V10.25A2.5 2.5 0 0 1 5.25 7.75Z';
+const PW_DOT = (x) => `M${x - 0.75} 12A0.75 0.75 0 1 0 ${x + 0.75} 12A0.75 0.75 0 1 0 ${x - 0.75} 12Z`;
+const PASSWORD = icon([PW_FIELD, PW_DOT(7), PW_DOT(12), PW_DOT(17)], ['box: 20x10']);
+const LOCKED = [
+  'M12.25 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V10.25A2.5 2.5 0 0 1 5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25',
+  PW_DOT(7),
+  'M16 17.25H20A1.25 1.25 0 0 1 21.25 18.5V20A1.25 1.25 0 0 1 20 21.25H16A1.25 1.25 0 0 1 14.75 20V18.5A1.25 1.25 0 0 1 16 17.25Z',
+  'M16.25 17.25V15A1.75 1.75 0 0 1 19.75 15V17.25',
+];
+const PASSWORD_LOCK = (notes = ['box: 20x15', 'base: password'], ds = LOCKED) => icon(ds, notes);
+const composite = (files) => checkBases(new Map(Object.entries(files).map(([f, src]) => [`24/${f}`, lintSource(24, f, src)])));
+// every y in an absolute M/L/H/V/A/Z path moved up by dy
+const up = (d, dy) => d.replace(/([MLHVAZ])([^MLHVAZ]*)/g, (_, c, a) => {
+  const n = a.trim() ? a.trim().split(/[\s,]+/).map(Number) : [];
+  if (c === 'V') n[0] -= dy;
+  if (c === 'M' || c === 'L') for (let i = 1; i < n.length; i += 2) n[i] -= dy;
+  if (c === 'A') for (let i = 6; i < n.length; i += 7) n[i] -= dy;
+  return c + n.join(' ');
+});
+
+test('parseBaseNote reads an icon name and refuses anything else', () => {
+  assert.deepEqual(parseBaseNote('<!-- base: password -->'), { name: 'password', raw: 'password' });
+  assert.equal(parseBaseNote('<!--base:map-pin-2-->').name, 'map-pin-2');
+  assert.equal(parseBaseNote('<!-- anchor: volume -->'), null);
+  assert.ok(parseBaseNote('<!-- base: Password -->').bad);
+  assert.ok(parseBaseNote('<!-- base: the field -->').bad);
+  assert.ok(parseBaseNote('<!-- base: password-filled -->').bad, 'the note names the outline; a filled file finds NAME-filled itself');
+});
+
+test('offsetText says where the ink centre sits, in 3 dp', () => {
+  assert.equal(offsetText([0, 2.5]), '2.5 below centre');
+  assert.equal(offsetText([1, 0]), '1 right of centre');
+  assert.equal(offsetText([-0.125, -1.5]), '1.5 above and 0.125 left of centre');
+  assert.equal(offsetText([0, 0]), 'on centre');
+  assert.equal(offsetText([0.004, -0.004]), 'on centre');
+});
+
+test('the fixture: password is clean, password-lock without the note warns off-centre', () => {
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(['box: 20x15']) });
+  assert.deepEqual(r.get('24/password.svg').warnings, []);
+  assert.deepEqual(r.get('24/password-lock.svg').errors, []);
+  assert.deepEqual(r.get('24/password-lock.svg').warnings, ['off-centre at 12,14.5']);
+});
+
+test('a composite that keeps its base\'s place: no centre warning, an info line instead; box stays allowed', () => {
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK() }).get('24/password-lock.svg');
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(r.warnings, []);
+  assert.ok(r.notes.includes("keeps password's place: left, top and right edges shared, 2.5 below centre (C33)"), r.notes.join(' | '));
+  assert.equal(r.notes.at(-1), '20×15  agreed box  centre 12,14.5', 'the headline stays last');
+  // the note does not loosen the box: a wrong one is still an error
+  const box = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(['box: 20x14', 'base: password']) }).get('24/password-lock.svg');
+  assert.ok(box.errors.some((e) => /declares box 20x14 but the ink is 20×15/.test(e)), box.errors.join(' | '));
+});
+
+test('a composite whose base moved up 1 leaves its top-left corner: an ERROR', () => {
+  // still holds the base's box (6 < 7, 21 > 17) and its left and right edges, but not the top
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(undefined, LOCKED.map((d) => up(d, 1))) }).get('24/password-lock.svg');
+  assert.deepEqual(r.errors, ["ink 2,6 → 22,21 does not keep password's top-left corner 2,7 → 22,17 (shares only its left and right edges) — the base has moved; C33 puts the badge bottom-right and keeps the base in place, so its left and top edges stay on password's"]);
+  // the whole icon centred instead (password-lock's Dc: up 2.5) is the same error
+  const centred = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(undefined, LOCKED.map((d) => up(d, 2.5))) }).get('24/password-lock.svg');
+  assert.match(centred.errors[0] ?? '', /^ink 2,4\.5 → 22,19\.5 does not keep password's top-left corner/);
+  assert.deepEqual(centred.warnings, [], 'an error, not the off-centre warning back');
+  // moved up by exactly the badge's overhang (5): the bottom corners now coincide with the base's,
+  // which any-corner let through (review, 2026-10-20) — the top-left rule catches it
+  const five = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(undefined, LOCKED.map((d) => up(d, 5))) }).get('24/password-lock.svg');
+  assert.match(five.errors[0] ?? '', /does not keep password's top-left corner/);
+});
+
+test('a composite that does not hold its base\'s box is an ERROR, whatever corner it shares', () => {
+  // left and top shared, but the right stops 1 short of the field's 22
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': icon(['M2.75 7.75H20.25', 'M16 21.25H19.25'], ['base: password']) }).get('24/password-lock.svg');
+  assert.deepEqual(r.errors, ["ink 2,7 → 21,22 does not hold password's 2,7 → 22,17: it stops short on the right by 1 — the base keeps its drawing and its place under the badge (C33)"]);
+});
+
+test('only the top-left corner holds the base: a composite on the base\'s own box says "on centre" and keeps its note', () => {
+  // a badge drawn on the top edge shares only the bottom corners — the badge's side under C33's
+  // bottom-right rule could be its own, so it is an error, not a pass
+  const top = composite({ 'password.svg': PASSWORD, 'password-up.svg': icon([PW_FIELD, PW_DOT(7), 'M16 2.75H21.25'], ['base: password']) }).get('24/password-up.svg');
+  assert.match(top.errors[0] ?? '', /does not keep password's top-left corner/);
+  // inside the base's own box the note still states how the drawing was built: never asked off
+  const own = composite({ 'password.svg': PASSWORD, 'password-dot.svg': icon([PW_FIELD, PW_DOT(7)], ['box: 20x10', 'base: password']) }).get('24/password-dot.svg');
+  assert.deepEqual([own.errors, own.warnings], [[], []]);
+  assert.ok(own.notes.includes("keeps password's place: left, top, right and bottom edges shared, on centre (C33)"), own.notes.join(' | '));
+});
+
+test('a base that is not there, or has no ink, is an ERROR, and the centre warning comes back', () => {
+  const gone = composite({ 'password-lock.svg': PASSWORD_LOCK() }).get('24/password-lock.svg');
+  assert.deepEqual(gone.errors, ["keeps password's place, but there is no `password.svg` at 24 to hold it to — the base ships before its composites, or with them (C33)"]);
+  assert.deepEqual(gone.warnings, ['off-centre at 12,14.5']);
+  // same master, same style: a filled composite is held to `password-filled.svg`, not to the outline
+  const f = composite({ 'password.svg': PASSWORD, 'password-lock-filled.svg': PASSWORD_LOCK() }).get('24/password-lock-filled.svg');
+  assert.ok(f.errors.some((e) => e.includes('no `password-filled.svg` at 24')), f.errors.join(' | '));
+  const inkless = composite({ 'password.svg': icon([]), 'password-lock.svg': PASSWORD_LOCK() }).get('24/password-lock.svg');
+  assert.deepEqual(inkless.errors, ["keeps password's place, but `password.svg` at 24 has no ink to hold it to (C33)"]);
+  assert.deepEqual(inkless.warnings, ['off-centre at 12,14.5']);
+});
+
+test('a base note lint cannot read, or one naming its own file, is an ERROR, and the note is dropped', () => {
+  const bad = lintSource(24, 'password-lock.svg', PASSWORD_LOCK(['box: 20x15', 'base: the field']));
+  assert.ok(bad.errors.some((e) => /base note "the field" is not an icon name/.test(e)), bad.errors.join(' | '));
+  assert.equal(bad.base, null);
+  assert.deepEqual(bad.warnings, ['off-centre at 12,14.5'], 'an unreadable note is dropped, not half-believed');
+  const self = lintSource(24, 'password-lock-filled.svg', PASSWORD_LOCK(['box: 20x15', 'base: password-lock']));
+  assert.ok(self.errors.some((e) => /declares itself as its base/.test(e)), self.errors.join(' | '));
+  assert.equal(self.base, null);
+});
+
+test('base with an anchor or a mark is an ERROR, and the base is dropped', () => {
+  const a = lintSource(24, 'password-lock.svg', PASSWORD_LOCK(['base: password', 'anchor: password']));
+  assert.ok(a.errors.some((e) => /declares both `anchor:` and `base:`/.test(e)), a.errors.join(' | '));
+  assert.equal(a.base, null);
+  const m = lintSource(24, 'password-lock.svg', PASSWORD_LOCK(['keyline: mark', 'base: password']));
+  assert.ok(m.errors.some((e) => /declares both `base:` and `keyline: mark`/.test(e)), m.errors.join(' | '));
+  assert.equal(m.base, null);
+});
+
+test('the shipped C33 composites already keep their base\'s place: the rule is their practice', () => {
+  // calendar-repeat on calendar (badge 1 past the box, right and bottom) and map-pinned on map
+  // (badge below the sheet), every master and style, with the note added in memory only
+  for (const [comp, base, edges] of [['calendar-repeat', 'calendar', 'left and top'], ['map-pinned', 'map', 'left, top and right']])
+    for (const m of [24, 20, 16]) for (const sfx of ['', '-filled']) {
+      const src = shipped(m, `${comp}${sfx}.svg`).replace(/(<svg[^>]*>\n)/, `$1  <!-- base: ${base} -->\n`);
+      const r = checkBases(new Map([[`${m}/${comp}${sfx}.svg`, lintSource(m, `${comp}${sfx}.svg`, src)],
+        [`${m}/${base}${sfx}.svg`, lintSource(m, `${base}${sfx}.svg`, shipped(m, `${base}${sfx}.svg`))]])).get(`${m}/${comp}${sfx}.svg`);
+      assert.deepEqual(r.errors, [], `${m}/${comp}${sfx}`);
+      assert.ok(r.notes.some((n) => n.startsWith(`keeps ${base}'s place: ${edges} edges shared`)), `${m}/${comp}${sfx}: ${r.notes.join(' | ')}`);
+    }
+});
+
+test('draft-svg writes a candidate\'s base into both files; `base: null` opts out of the board\'s', () => {
+  const c = { id: 'D', label: 'lock badge', base: 'password', masters: { 24: LOCKED, 20: LOCKED, 16: LOCKED },
+    filled: { 24: { fill: [], stroke: LOCKED }, 20: { fill: [], stroke: LOCKED }, 16: { fill: [], stroke: LOCKED } } };
+  const out = candidateFiles({}, c, 'password-lock');
+  assert.equal(out.length, 6);
+  assert.ok(out.every((f) => f.src.includes('<!-- base: password -->')));
+  assert.ok(candidateFiles({ base: 'password' }, { ...c, base: undefined }, 'password-lock').every((f) => f.src.includes('<!-- base: password -->')), 'board-level');
+  assert.ok(candidateFiles({ base: 'password' }, { ...c, base: null }, 'password').every((f) => !f.src.includes('base:')), 'the base itself opts out');
+  // what draft-svg writes, lint reads
+  assert.deepEqual(parseBaseNote(out.find((f) => f.master === 24 && f.filled).src), { name: 'password', raw: 'password' });
+});
+
 // --- state twins (C34): `unlock-<n>` for every `lock-<n>` -------------------------------
 test('stateShape reads the numbered shapes of a twin and its base, and nothing else', () => {
   assert.deepEqual(stateShape('lock-3'), { twin: 'unlock', base: 'lock', side: 'base', counterpart: 'unlock-3' });
@@ -722,9 +870,11 @@ const LIST16 = (entry, notes = ['keyline: mark']) => [ROOT16, ...notes.map((n) =
 const lintList = (entry, notes) => lintSource(16, 'list-ordered.svg', LIST16(entry, notes));
 const selfWarn = (r) => r.warnings.filter((w) => /of itself/.test(w));
 
-test('parseGlyphNote reads dot and numeral and refuses anything else', () => {
+test('parseGlyphNote reads dot, numeral and letter and refuses anything else', () => {
   assert.deepEqual(parseGlyphNote('<!-- glyph: dot -->'), { kind: 'dot', raw: 'dot' });
   assert.deepEqual(parseGlyphNote('<!--glyph:numeral-->'), { kind: 'numeral', raw: 'numeral' });
+  assert.deepEqual(parseGlyphNote('<!-- glyph: letter -->'), { kind: 'letter', raw: 'letter' });
+  assert.ok(parseGlyphNote('<!-- glyph: letters -->').bad);
   assert.equal(parseGlyphNote('<!-- gap: 1 -->'), null);
   assert.ok(parseGlyphNote('<!-- glyph: numerals -->').bad);
   assert.ok(parseGlyphNote('<!-- glyph: dot numeral -->').bad);
@@ -968,7 +1118,7 @@ test('C32: a 1.5 numeral beside a 2.5 rail is measured at its own weight', () =>
 
 test('C32: a per-path stroke-width without `glyph: numeral` is an ERROR naming the path', () => {
   const r = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
-  assert.ok(r.errors.some((e) => /^path 2 carries its own stroke-width="1\.5" — only a numeral may, in a file that declares <!-- glyph: numeral --> \(C32\)/.test(e)), r.errors.join(' | '));
+  assert.ok(r.errors.some((e) => /^path 2 carries its own stroke-width="1\.5" — only a numeral or a letter may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\)/.test(e)), r.errors.join(' | '));
 });
 
 test('C32: a numeral at any weight but the outline\'s is an ERROR, and so is one that repeats the root', () => {
@@ -1032,6 +1182,98 @@ test('C32: only the one double-quoted form is accepted — single quotes, other 
   const twice = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('stroke-width="1.5"', 'stroke-width="1.5" stroke-width="2.5"'));
   assert.ok(twice.errors.includes('path 2 carries stroke-width more than once (C32)'), twice.errors.join(' | '));
   assert.ok(twice.errors.includes(STRAY), twice.errors.join(' | '));
+});
+
+// --- C32 widened to letters: `<!-- glyph: letter -->` (2026-10-20) -------------------------
+// translate's A and 文 inside its 2.5 swap hooks: at 2.5 the A's counter closed solid and the 文's
+// bar came within 0.98 of its strokes, so the letters keep the outline weight, as a numeral does.
+// C32's weight and nothing else: C19's opening floor of 1 is a numeral's (and a dot glyph's), not
+// a letter's, so a letter's openings keep §6 or the file's `gap` note. Same fixture as C32 above.
+const LETTER = ['keyline: mark', 'glyph: letter'];
+
+test('C32 letter: a 1.5 letter beside a 2.5 rail passes, and the info line says letter', () => {
+  const ok = lintSource(24, 'translate-filled.svg', RAIL24('M12 10.5V17', { notes: LETTER }));
+  assert.deepEqual(ok.errors, []);
+  assert.deepEqual(numPairWarn(ok), [], ok.warnings.join(' | '));
+  assert.ok(ok.notes.includes('path 2 is a letter at 1.5 (C32)'), ok.notes.join(' | '));
+  assert.ok(!ok.notes.some((n) => /numeral/.test(n)), ok.notes.join(' | '));
+  assert.equal(ok.ink.y1, 17.75, 'the letter grows by its own half, 0.75');
+  const two = lintSource(24, 'translate-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path stroke-width="1.5" d="M8 10.5V17"/>', '<path stroke-width="1.5" d="M16 10.5V17"/>'], LETTER));
+  assert.deepEqual(two.errors, []);
+  assert.ok(two.notes.includes('paths 2, 3 are letters at 1.5 (C32)'), two.notes.join(' | '));
+  // its pair air is read at its own weight, as a numeral's is
+  const close = lintSource(24, 'translate-filled.svg', RAIL24('M12 10V17', { notes: LETTER }));
+  assert.deepEqual(numPairWarn(close), ['paths 1/2 are 3 apart — §6 needs 3.5 (edge gap 1 < 1.5)']);
+});
+
+test('C32 letter: the numeral\'s errors, in the letter\'s words — wrong weight, the root\'s own, a stale note, beside a badge', () => {
+  const wrong = lintSource(24, 'translate-filled.svg', RAIL24('M12 10.5V17', { notes: LETTER, sw: '2' }));
+  assert.ok(wrong.errors.some((e) => /^path 2 carries stroke-width="2" — a letter keeps this master's outline weight, "1\.5" \(C32\)$/.test(e)), wrong.errors.join(' | '));
+  assert.ok(!wrong.errors.some((e) => /no path carries/.test(e)), 'one error for one mistake');
+  const at16 = lintSource(16, 'translate-filled.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n  <!-- keyline: mark -->\n  <!-- glyph: letter -->\n  <path d="M3 5H13"/>\n  <path stroke-width="1.5" d="M8 8V12"/>\n</svg>\n');
+  assert.ok(at16.errors.some((e) => /^path 2 carries stroke-width="1\.5" — a letter keeps this master's outline weight, "1\.25" \(C32\)$/.test(e)), at16.errors.join(' | '));
+  const outline = lintSource(24, 'translate.svg', RAIL24('M12 10.5V17', { notes: LETTER }).replace('stroke-width="2.5"', 'stroke-width="1.5"'));
+  assert.ok(outline.errors.some((e) => /path 2 carries stroke-width="1\.5", which is the root's own — only a letter inside a line-heavy filled drawing needs its own weight \(C32\); delete it/.test(e)), outline.errors.join(' | '));
+  const stale = lintSource(24, 'translate-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path d="M12 10.5V17"/>'], LETTER));
+  assert.ok(stale.errors.some((e) => /^declares <!-- glyph: letter --> but no path carries its own weight/.test(e)), stale.errors.join(' | '));
+  const both = lintSource(24, 'translate-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark', 'glyph: letter', 'badge: line'] }));
+  assert.ok(both.errors.some((e) => /^declares both <!-- glyph: letter --> and <!-- badge: line -->/.test(e)), both.errors.join(' | '));
+  assert.ok(both.notes.includes('path 2 is a letter at 1.5 (C32)'), 'read as the letter note alone');
+});
+
+test('C32 letter: a letter\'s 1.23 opening warns under §6 — it would pass as a numeral — and honours a gap note', () => {
+  // the list-ordered 2 (1.23 mouth at 1.25) as a kept-weight path beside a rail at 2, at 16
+  const src = (notes) => ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+    ...notes.map((n) => `  <!-- ${n} -->`), '  <path d="M9.5 3.5H13.5"/>', `  <path stroke-width="1.25" d="${TWO16('2.65 10.5')}"/>`, '</svg>', ''].join('\n');
+  const letter = lintSource(16, 'x-filled.svg', src(LETTER));
+  assert.deepEqual(letter.errors, []);
+  assert.ok(letter.notes.includes('path 2 is a letter at 1.25 (C32)'), letter.notes.join(' | '));
+  assert.equal(selfWarn(letter).length, 1, letter.warnings.join(' | '));
+  assert.match(selfWarn(letter)[0], /^path 2 comes within 1\.23 of itself .* — §6 needs 1\.5 /);
+  const numeral = lintSource(16, 'x-filled.svg', src(['keyline: mark', 'glyph: numeral']));
+  assert.deepEqual(numeral.errors, []);
+  assert.deepEqual(selfWarn(numeral), [], 'the numeral takes C19\'s floor of 1');
+  assert.ok(numeral.notes.includes('C19 numeral opening 1.23 — floor 1, not §6\'s 1.5'), numeral.notes.join(' | '));
+  const agreed = lintSource(16, 'x-filled.svg', src(['keyline: mark', 'gap: 1', 'glyph: letter']));
+  assert.deepEqual(agreed.errors, [], 'the gap note is in use: the letter needs it');
+  assert.deepEqual(selfWarn(agreed), []);
+  assert.ok(agreed.notes.includes('agreed gap 1 — smallest measured 1.23'), agreed.notes.join(' | '));
+});
+
+test('C32 letter: the inside of a closed letter path (§5f) keeps §6 — it would pass as a numeral', () => {
+  // a closed counter 2.75 tall at 1.5: 1.25 of air inside, read by §5f (5b skips a closed path)
+  const src = (notes) => BADGE24(['<path d="M5 7H19"/>', '<path stroke-width="1.5" d="M9 12H15V14.75H9Z"/>'], notes);
+  const faces = (r) => r.warnings.filter((w) => /faces itself/.test(w));
+  const letter = lintSource(24, 'translate-filled.svg', src(LETTER));
+  assert.deepEqual(letter.errors, []);
+  assert.equal(faces(letter).length, 1, letter.warnings.join(' | '));
+  assert.match(faces(letter)[0], /^path 2 faces itself across 1\.25 of air at .* — §6 needs 1\.5$/);
+  const numeral = lintSource(24, 'translate-filled.svg', src(['keyline: mark', 'glyph: numeral']));
+  assert.deepEqual(numeral.errors, []);
+  assert.deepEqual(faces(numeral), [], 'the numeral takes C19\'s floor of 1');
+});
+
+test('draft-svg writes `glyph: letter` with `filled.glyph` at the outline weight, the note only where a letter keeps its weight (C32)', () => {
+  const m = (w) => ({ 24: w, 20: w, 16: w });
+  const c = { id: 'T', label: 'letters', glyph: 'letter', masters: m(['M5 7H19', 'M12 10.5V17']),
+    filled: { 24: { weight: 2.5, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] }, 20: { weight: 2, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] }, 16: { weight: 2, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] } } };
+  const out = candidateFiles({ keyline: 'mark' }, c, 'translate');
+  const f24 = out.find((f) => f.master === 24 && f.filled).src, f16 = out.find((f) => f.master === 16 && f.filled).src;
+  assert.ok(out.filter((f) => f.filled).every((f) => f.src.includes('<!-- glyph: letter -->')));
+  assert.ok(out.filter((f) => !f.filled).every((f) => !f.src.includes('glyph:')), 'the outline draws its letters at the outline weight already: no note');
+  assert.ok(f24.includes('  <path stroke-width="1.5" d="M12 10.5V17"/>'), f24);
+  assert.ok(f16.includes('  <path stroke-width="1.25" d="M12 10.5V17"/>'), f16);
+  assert.match(f24, /<!-- letters, filled: weight 2\.5, ends pulled in 0\.5 so the ink box matches the outline, letter stays at 1\.5 -->/);
+  const r = lintSource(24, 'translate-filled.svg', f24);
+  assert.deepEqual(r.errors, []);
+  assert.ok(r.notes.includes('path 2 is a letter at 1.5 (C32)'));
+  // a master whose filled drawing keeps no letter at its own weight carries no note
+  const shaped = candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { fill: ['M4 4H8V8H4Z'], stroke: ['M12 10.5V17'] } } }, 'translate');
+  assert.ok(!shaped.find((f) => f.master === 24 && f.filled).src.includes('glyph:'));
+  // the board may carry the flag; without one, filled.glyph is refused
+  assert.equal(candidateFiles({ keyline: 'mark', glyph: 'letter' }, { ...c, glyph: undefined }, 'translate').length, 6);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, glyph: undefined }, 'translate'), /needs glyph: 'numeral' or glyph: 'letter'/);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] } } }, 'translate'), /heavier than 1\.5 .* the letter belongs in filled\.stroke/);
 });
 
 // --- C33: a line badge keeps the outline weight on a line-heavy base (2026-10-19) ----------
@@ -1099,7 +1341,7 @@ test('C33: a badge pair floors at 1.5 even beside `glyph: dot` — a ring badge 
 
 test('C33: the badge note is an ERROR when lint cannot read it, when nothing draws under it, or beside glyph: numeral', () => {
   const none = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
-  assert.ok(none.errors.some((e) => /only a numeral may, in a file that declares <!-- glyph: numeral --> \(C32\), or a line badge, in one that declares <!-- badge: line --> \(C33\)/.test(e)), none.errors.join(' | '));
+  assert.ok(none.errors.some((e) => /only a numeral or a letter may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\), or a line badge, in one that declares <!-- badge: line --> \(C33\)/.test(e)), none.errors.join(' | '));
   const wrong = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 10.5V17', { notes: BADGE, sw: '2' }));
   assert.ok(wrong.errors.some((e) => /^path 2 carries stroke-width="2" — a line badge keeps this master's outline weight, "1\.5" \(C33\)$/.test(e)), wrong.errors.join(' | '));
   assert.ok(!wrong.errors.some((e) => /no path carries/.test(e)), 'one error for one mistake');
@@ -1243,4 +1485,317 @@ test('anatomy: a mark\'s detached dot is a solid dot, never a ring or an ellipse
   // the dot is judged at the stroke it is drawn at: r 1 is a dot at 2, a ring at 1.5
   assert.deepEqual(anatomy([SHELL, RING(12, 8, 1), 'M12 12V17'], 2).gap, { size: 1, part: 4, ratio: 0.25 });
   assert.equal(anatomy([SHELL, RING(12, 8, 1), 'M12 12V17'], 1.5).gap, null);
+});
+
+// --- arms that cross (lint §5 and 5h, 2026-10-20): tip air at equal reach ---------------
+// Where two strokes cross at an acute angle the wedge between two neighbouring arms fills in at
+// 16 when the arms are short; §5 read every crossing as a join and measured nothing. Maruti's
+// measure: the shorter arm's cap centre, r from the crossing, to the point r along its
+// neighbour, less half of each weight. For equal arms it is the drawer's "tip air".
+const rootOf = (m, w) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">`;
+const AREA_OF = (d) => `<path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`;
+const drawn = (m, w, paths, { notes = ['keyline: mark'], areas = [] } = {}) =>
+  [rootOf(m, w), ...notes.map((n) => `  <!-- ${n} -->`), ...areas.map((d) => `  ${AREA_OF(d)}`), ...paths.map((d) => `  <path d="${d}"/>`), '</svg>', ''].join('\n');
+const armWarn = (r) => r.warnings.filter((w) => /arm tips/.test(w));
+const tipsOf = (ds, w, areas = []) => armTipGap(ds, w, areas, { weight: w });
+const minGap = (list) => Math.min(...list.map((t) => t.gap));
+
+// password-2 as shipped: six arms 60° apart, tip air 2.25 · 1.5 · 1.5, and a filled twin that
+// traces the outline's arms as one evenodd shape per asterisk
+const PW2 = {
+  24: { w: 1.5, ds: ['M7 6.25V13.75', 'M3.75 8.13L10.25 11.88', 'M3.75 11.88L10.25 8.13', 'M17 6.25V13.75', 'M13.75 8.13L20.25 11.88', 'M13.75 11.88L20.25 8.13', 'M3.75 17.25H20.25'],
+    areas: ['M6.25 8.7L6.25 6.25A0.74 0.74 0 0 1 7.75 6.25L7.75 8.7L9.87 7.48A0.74 0.74 0 0 1 10.62 8.77L8.5 10L10.62 11.23A0.74 0.74 0 0 1 9.87 12.52L7.75 11.3L7.75 13.75A0.74 0.74 0 0 1 6.25 13.75L6.25 11.3L4.13 12.52A0.74 0.74 0 0 1 3.38 11.23L5.5 10L3.38 8.77A0.74 0.74 0 0 1 4.13 7.48L6.25 8.7Z',
+      'M16.25 8.7L16.25 6.25A0.74 0.74 0 0 1 17.75 6.25L17.75 8.7L19.87 7.48A0.74 0.74 0 0 1 20.62 8.77L18.5 10L20.62 11.23A0.74 0.74 0 0 1 19.87 12.52L17.75 11.3L17.75 13.75A0.74 0.74 0 0 1 16.25 13.75L16.25 11.3L14.13 12.52A0.74 0.74 0 0 1 13.38 11.23L15.5 10L13.38 8.77A0.74 0.74 0 0 1 14.13 7.48L16.25 8.7Z',
+      'M4.25 16H19.75A1.25 1.25 0 0 1 19.75 18.5H4.25A1.25 1.25 0 0 1 4.25 16Z'], air: 2.25 },
+  20: { w: 1.5, ds: ['M5.75 5.5V11.5', 'M3.15 7L8.35 10', 'M3.15 10L8.35 7', 'M14.25 5.5V11.5', 'M11.65 7L16.85 10', 'M11.65 10L16.85 7', 'M3.25 14.75H16.75'],
+    areas: ['M5 7.2L5 5.5A0.74 0.74 0 0 1 6.5 5.5L6.5 7.2L7.97 6.35A0.74 0.74 0 0 1 8.72 7.65L7.25 8.5L8.72 9.35A0.74 0.74 0 0 1 7.97 10.65L6.5 9.8L6.5 11.5A0.74 0.74 0 0 1 5 11.5L5 9.8L3.53 10.65A0.74 0.74 0 0 1 2.78 9.35L4.25 8.5L2.78 7.65A0.74 0.74 0 0 1 3.53 6.35L5 7.2Z',
+      'M13.5 7.2L13.5 5.5A0.74 0.74 0 0 1 15 5.5L15 7.2L16.47 6.35A0.74 0.74 0 0 1 17.22 7.65L15.75 8.5L17.22 9.35A0.74 0.74 0 0 1 16.47 10.65L15 9.8L15 11.5A0.74 0.74 0 0 1 13.5 11.5L13.5 9.8L12.03 10.65A0.74 0.74 0 0 1 11.28 9.35L12.75 8.5L11.28 7.65A0.74 0.74 0 0 1 12.03 6.35L13.5 7.2Z',
+      'M3.5 13.75H16.5A1 1 0 0 1 16.5 15.75H3.5A1 1 0 0 1 3.5 13.75Z'], air: 1.5 },
+  16: { w: 1.25, ds: ['M4.125 3.75V9.25', 'M1.743 5.125L6.507 7.875', 'M1.743 7.875L6.507 5.125', 'M11.875 3.75V9.25', 'M9.493 5.125L14.257 7.875', 'M9.493 7.875L14.257 5.125', 'M1.75 12.375H14.25'],
+    areas: ['M3.5 5.417L3.5 3.75A0.624 0.624 0 0 1 4.75 3.75L4.75 5.417L6.194 4.584A0.624 0.624 0 0 1 6.819 5.666L5.375 6.5L6.819 7.334A0.624 0.624 0 0 1 6.194 8.416L4.75 7.583L4.75 9.25A0.624 0.624 0 0 1 3.5 9.25L3.5 7.583L2.056 8.416A0.624 0.624 0 0 1 1.431 7.334L2.875 6.5L1.431 5.666A0.624 0.624 0 0 1 2.056 4.584L3.5 5.417Z',
+      'M11.25 5.417L11.25 3.75A0.624 0.624 0 0 1 12.5 3.75L12.5 5.417L13.944 4.584A0.624 0.624 0 0 1 14.569 5.666L13.125 6.5L14.569 7.334A0.624 0.624 0 0 1 13.944 8.416L12.5 7.583L12.5 9.25A0.624 0.624 0 0 1 11.25 9.25L11.25 7.583L9.806 8.416A0.624 0.624 0 0 1 9.181 7.334L10.625 6.5L9.181 5.666A0.624 0.624 0 0 1 9.806 4.584L11.25 5.417Z',
+      'M2.125 11.375H13.875A1 1 0 0 1 13.875 13.375H2.125A1 1 0 0 1 2.125 11.375Z'], air: 1.5 },
+};
+
+test('armTipGap: password-2 reads its drawn tip air, 2.25 · 1.5 · 1.5, in both styles', () => {
+  for (const [m, { w, ds, areas, air }] of Object.entries(PW2)) {
+    const outline = tipsOf(ds, w);
+    assert.equal(outline.cross.length, 6, `${m}: three pairs of neighbouring arms per asterisk`);
+    assert.ok(outline.cross.every((t) => Math.abs(t.angle - 60) < 0.5), `${m}: 60°`);
+    near(minGap(outline.cross), air, 0.01);
+    // the filled twin's notches rebuild the same arms: one reading per asterisk, the outline's air
+    const filled = tipsOf([], w, areas);
+    assert.deepEqual(filled.cross, []);
+    assert.equal(filled.notch.length, 2, `${m}: the bar has no notch`);
+    near(minGap(filled.notch), air, 0.01);
+  }
+  // at 20 the traced arms read 1.495: inside lint's 0.01, so drawn AT the floor passes
+  near(minGap(tipsOf([], 1.5, PW2[20].areas).notch), 1.495, 0.002);
+});
+
+test('lint: password-2 passes at every master, outline and filled', () => {
+  for (const [m, { w, ds, areas }] of Object.entries(PW2)) {
+    const outline = lintSource(+m, 'password-2.svg', drawn(+m, w, ds));
+    assert.deepEqual(armWarn(outline), [], `${m}: ${outline.warnings.join(' | ')}`);
+    const filled = lintSource(+m, 'password-2-filled.svg', drawn(+m, w, [], { areas }));
+    assert.deepEqual(armWarn(filled), [], `${m} filled: ${filled.warnings.join(' | ')}`);
+  }
+});
+
+// password-3 as first committed (53c059c): the same asterisk with arms too short to hold 1.5
+const PW3 = {
+  20: ['M4.75 7.7V12.3', 'M2.76 8.85L6.74 11.15', 'M2.76 11.15L6.74 8.85', 'M11.75 7.7V12.3', 'M9.76 8.85L13.74 11.15', 'M9.76 11.15L13.74 8.85', 'M17 4.25V15.75'],
+  16: ['M3.25 6.125V9.875', 'M1.626 7.063L4.874 8.938', 'M1.626 8.938L4.874 7.063', 'M9.25 6.125V9.875', 'M7.626 7.063L10.874 8.938', 'M7.626 8.938L10.874 7.063', 'M14 3.125V12.875'],
+};
+
+test('lint: password-3 as first drawn warns at 20 and 16 — 0.8 and 0.63 of tip air', () => {
+  const at20 = armWarn(lintSource(20, 'password-3.svg', drawn(20, 1.5, PW3[20])));
+  assert.equal(at20.length, 6, at20.join(' | '));
+  assert.equal(at20[0], 'paths 1/2 cross at 60° with 0.8 of air at the arm tips at 5.75,11.72 — §6 needs 1.5');
+  const at16 = armWarn(lintSource(16, 'password-3.svg', drawn(16, 1.25, PW3[16])));
+  assert.equal(at16.length, 6, at16.join(' | '));
+  assert.equal(at16[0], 'paths 1/2 cross at 60° with 0.63 of air at the arm tips at 4.06,9.41 — §6 needs 1.5');
+  near(minGap(tipsOf(PW3[16], 1.25).cross), 0.625, 0.002);
+});
+
+test('armTipGap: right-angle crossings are never judged, however short the arms', () => {
+  const none = (ds, w = 1.5) => assert.deepEqual(tipsOf(ds, w).cross, [], ds.join(' '));
+  none(['M12 5.25v13.5', 'M5.25 12h13.5']);                                          // plus (relative commands)
+  none(['M6.25 6.25l11.5 11.5', 'M17.75 6.25l-11.5 11.5']);                          // x
+  none(['M9 5.25L9 18.75', 'M15 5.25L15 18.75', 'M5.25 9H18.75', 'M5.25 15H18.75']); // #
+  // command: one path that crosses itself four times, every crossing square
+  none(['M14.25 7.5V16.5A2.25 2.25 0 1 0 16.5 14.25H7.5A2.25 2.25 0 1 0 9.75 16.5V7.5A2.25 2.25 0 1 0 7.5 9.75H16.5A2.25 2.25 0 1 0 14.25 7.5Z']);
+  // an x with arms of 1: at 90° its tips would read 1.41 − 1.5 if judged; the angle keeps it out
+  none(['M11 11L13 13', 'M13 11L11 13']);
+  for (const ds of [['M12 5.25v13.5', 'M5.25 12h13.5'], ['M11 11L13 13', 'M13 11L11 13']])
+    assert.deepEqual(armWarn(lintSource(24, 'x.svg', drawn(24, 1.5, ds))), []);
+  // the slanted # crosses at 80°: judged, and holds at 1.5 in the outline; bold, it does not
+  const slanted = ['M10 5.25L7.75 18.75', 'M16.25 5.25L14 18.75', 'M5.25 9H18.75', 'M5.25 15H18.75'];
+  assert.ok(minGap(tipsOf(slanted, 1.5).cross) >= 1.5);
+  const bold = tipsOf(['M10 5.75L7.75 18.25', 'M16.25 5.75L14 18.25', 'M5.75 9H18.25', 'M5.75 15H18.25'], 2.5).cross;
+  assert.equal(bold.length, 4);
+  assert.ok(bold.every((t) => Math.abs(t.angle - 79.8) < 0.1));
+  near(minGap(bold), 0.82, 0.005);
+});
+
+test('armTipGap: an overhang whose cap sits inside its neighbour\'s ink is a join (store at 16)', () => {
+  // each wall starts where it crosses the awning's end scallop and pokes 1.14 past it, 25° off
+  const STORE16 = ['M2.625 5.375V3.625A1 1 0 0 1 3.625 2.625H12.375A1 1 0 0 1 13.375 3.625V5.375A2 2 0 0 1 9.75 5.375A1.875 1.875 0 0 1 6.25 5.375A2 2 0 0 1 2.625 5.375Z',
+    'M3.625 6.375V12.375A1 1 0 0 0 4.625 13.375H11.375A1 1 0 0 0 12.375 12.375V6.375',
+    'M6.625 13.375V10.625A1 1 0 0 1 7.625 9.625H8.375A1 1 0 0 1 9.375 10.625V13.375'];
+  assert.deepEqual(tipsOf(STORE16, 1.25).cross, []);
+  assert.deepEqual(armWarn(lintSource(16, 'store.svg', drawn(16, 1.25, STORE16))), []);
+});
+
+test('armTipGap: arms that curve are judged where they end up, tip to tip (language)', () => {
+  // 文's 撇 and 捺 are arcs: at 20 filled they LEAVE the crossing 86° apart, over the gate, but
+  // their tips are 57° apart and 0.5 of air sits between them
+  const LANG20F = ['M3 4.75H9M6 3V4.75', 'M7.25 8.25A4.46 4.46 0 0 1 3.75 11.75', 'M4.75 8.25A4.46 4.46 0 0 0 8.25 11.75',
+    'M9.5 17L12.38 12A1 1 0 0 1 14.12 12L17 17', 'M10.08 16H16.42'];
+  const f20 = tipsOf(LANG20F, 2).cross;
+  assert.equal(f20.length, 1);
+  assert.deepEqual(f20[0].paths, [1, 2]);
+  near(f20[0].angle, 56.9, 0.1);
+  near(f20[0].gap, 0.5, 0.005);
+  const LANG16 = ['M1.625 3.375H6.875M4.25 1.625V3.375', 'M5.25 6.125A4.031 4.031 0 0 1 2.5 8.875', 'M3.25 6.125A4.031 4.031 0 0 0 6 8.875',
+    'M6.375 14.375L9.834 8.384A0.625 0.625 0 0 1 10.916 8.384L14.375 14.375', 'M7.963 11.625H12.787'];
+  assert.deepEqual(armWarn(lintSource(16, 'language.svg', drawn(16, 1.25, LANG16))),
+    ['paths 2/3 cross at 61° with 0.75 of air at the arm tips at 4.25,6.13 — §6 needs 1.5']);
+  // the A's crossbar ends on its legs: a T-join, not judged
+  assert.ok(tipsOf(LANG16, 1.25).cross.every((t) => t.paths.join() === '1,2'));
+});
+
+test('lint: a character\'s own crossing arms floor at C19\'s 1 under `glyph:`; the gap note and a badge keep theirs', () => {
+  // an asterisk inside a ring, arms 2.75 at 1.5: 1.25 of tip air (1.26 once its ends are on 2 dp).
+  // Where its strokes cross on a sample of the pair loop, the crossing branch cannot see it, and
+  // the pair is judged after the loop - so the order of the warnings is not the paths' order.
+  const star = (r) => {
+    const dx = (r * Math.cos(Math.PI / 6)).toFixed(2), dy = (r / 2).toFixed(2), f = (n) => +n.toFixed(2);
+    return [`M12 ${f(12 - r)}V${f(12 + r)}`, `M${f(12 - dx)} ${f(12 - dy)}L${f(12 + +dx)} ${f(12 + +dy)}`, `M${f(12 - dx)} ${f(12 + +dy)}L${f(12 + +dx)} ${f(12 - dy)}`];
+  };
+  const lint = (r, notes) => lintSource(24, 'mark.svg', drawn(24, 1.5, [RING(12, 12, 9.25), ...star(r)], { notes: ['keyline: mark', ...notes] }));
+  const plain = armWarn(lint(2.75, [])).sort();
+  assert.deepEqual(plain.map((w) => w.slice(0, 10)), ['paths 2/3 ', 'paths 2/4 ', 'paths 3/4 ']);
+  for (const w of plain) assert.match(w, /^paths \d\/\d cross at 60° with 1\.2\d of air at the arm tips at [\d.,]+ — §6 needs 1\.5$/);
+  assert.deepEqual(armWarn(lint(2.75, ['glyph: dot'])), [], 'the inside of a character');
+  // a numeral's floor is its own: one path crossing itself takes 1, separate paths keep 1.5
+  assert.equal(armWarn(lint(2.75, ['glyph: numeral'])).length, 3, 'numeral to numeral keeps §6');
+  const one = (notes) => lintSource(24, 'mark.svg', drawn(24, 1.5, [RING(12, 12, 9.25), star(2.75).join('')], { notes: ['keyline: mark', ...notes] }));
+  assert.match(armWarn(one([]))[0], /^path 2 crosses itself at 60° with 1\.2\d of air at the arm tips at [\d.,]+ — §6 needs 1\.5$/);
+  assert.deepEqual(armWarn(one(['glyph: numeral'])), []);
+  assert.match(armWarn(lint(2.25, ['glyph: dot']))[0], /with 0\.7\d of air at the arm tips at [\d.,]+ — C19 glyph gap needs 1$/);
+  // the agreed gap governs crossing arms like any other air, and is in use for them
+  const agreed = lint(2.75, ['gap: 1']);
+  assert.deepEqual(armWarn(agreed), []);
+  assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
+  assert.ok(agreed.notes.some((n) => /^agreed gap 1 — smallest measured 1\.2\d$/.test(n)), agreed.notes.join(' | '));
+  assert.match(armWarn(lint(2.25, ['gap: 1']))[0], /0\.7\d of air at the arm tips at [\d.,]+ — agreed gap 1 needs 1$/);
+  // a C33 line badge's own arms keep 1.5, whatever the base agreed
+  const badge = lintSource(24, 'passkey-2-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path d="M5 10.5H10"/>',
+    ...star(2.75).map((d) => `<path stroke-width="1.5" d="${d.replace(/[\d.]+/g, (n) => String(+(+n + 4).toFixed(2)))}"/>`)], ['keyline: mark', 'gap: 1', 'badge: line']));
+  assert.deepEqual(badge.errors, [], badge.errors.join(' | '));
+  assert.equal(armWarn(badge).length, 3, badge.warnings.join(' | '));
+  for (const w of armWarn(badge)) assert.match(w, /^paths [345]\/[345] cross at 60° with 1\.2\d of air at the arm tips at [\d.,]+ — §6 needs 1\.5$/);
+});
+
+test('armTipGap: an arrowhead is not judged, even where the shaft pokes through its point', () => {
+  const ARROW = ['M14.81 7.75L18.53 11.47A0.75 0.75 0 0 1 18.53 12.53L14.81 16.25', 'M18.75 12H5.25'];   // arrow-right 24
+  // a tight head whose legs would leave 0.67 at their tips if read as crossing arms; all three
+  // arms point back from the crossing, so no gap between neighbours is under 180°
+  const POKED = ['M16 10L18 12L16 14', 'M5 12H18.5'];
+  for (const ds of [ARROW, POKED]) {
+    assert.deepEqual(tipsOf(ds, 1.5).cross, [], ds.join(' '));
+    assert.deepEqual(armWarn(lintSource(24, 'arrow.svg', drawn(24, 1.5, ds))), []);
+  }
+});
+
+test('armTipGap: unequal arms are read at the shorter arm\'s reach; the longer arm\'s extra is ignored', () => {
+  // a horizontal with arms 5 and 2.5, crossed at 60° by a line with arms 2.5 and 5: each 60°
+  // wedge pairs a 2.5 arm with a 5 arm. Tip to tip it would read 2.83; at equal reach, 2.5 − 1.5
+  const ds = ['M7 12H14.5', 'M10.75 9.83L14.5 16.33'];
+  const [t] = tipsOf(ds, 1.5).cross;
+  near(t.angle, 60, 0.1);
+  near(t.reach, 2.5, 0.01);
+  near(t.gap, 1, 0.01);
+  assert.deepEqual(armWarn(lintSource(24, 'x.svg', drawn(24, 1.5, ds))), [`paths 1/2 cross at 60° with ${r2t(t.gap)} of air at the arm tips at ${t.at.join(',')} — §6 needs 1.5`]);
+});
+const r2t = (n) => Math.round(n * 100) / 100;
+
+test('lint §5h: password-3-filled as first drawn (53c059c) warns at 16 — 0.62 at the traced tips', () => {
+  const PW3F16 = ['M2.625 6.917L2.625 6.125A0.624 0.624 0 0 1 3.875 6.125L3.875 6.917L4.561 6.521A0.624 0.624 0 0 1 5.186 7.604L4.5 8L5.186 8.396A0.624 0.624 0 0 1 4.561 9.479L3.875 9.083L3.875 9.875A0.624 0.624 0 0 1 2.625 9.875L2.625 9.083L1.939 9.479A0.624 0.624 0 0 1 1.314 8.396L2 8L1.314 7.604A0.624 0.624 0 0 1 1.939 6.521L2.625 6.917Z',
+    'M8.625 6.917L8.625 6.125A0.624 0.624 0 0 1 9.875 6.125L9.875 6.917L10.561 6.521A0.624 0.624 0 0 1 11.186 7.604L10.5 8L11.186 8.396A0.624 0.624 0 0 1 10.561 9.479L9.875 9.083L9.875 9.875A0.624 0.624 0 0 1 8.625 9.875L8.625 9.083L7.939 9.479A0.624 0.624 0 0 1 7.314 8.396L8 8L7.314 7.604A0.624 0.624 0 0 1 7.939 6.521L8.625 6.917Z',
+    'M13 3.5A1 1 0 0 1 15 3.5V12.5A1 1 0 0 1 13 12.5Z'];
+  assert.deepEqual(armWarn(lintSource(16, 'password-3-filled.svg', drawn(16, 1.25, [], { areas: PW3F16 }))), [
+    'a filled shape\'s arms meet at 60° with 0.62 of air at the arm tips at 4.06,6.59 — §6 needs 1.5',
+    'a filled shape\'s arms meet at 60° with 0.62 of air at the arm tips at 8.44,6.59 — §6 needs 1.5',
+  ]);
+});
+
+test('lint §5h: a traced character\'s own notches floor at C19\'s 1 under `glyph:`; the silhouette and the gap note keep theirs', () => {
+  // an asterisk traced as one shape, as password-2-filled draws it: six arms r from (12, 12),
+  // 1.5 wide with round tips, tip air r − 1.5
+  const traced = (r, h = 0.75) => {
+    const f = (n) => +n.toFixed(2), at = (a, d, s = 0) => [f(12 + d * Math.cos(a) + s * Math.sin(a)), f(12 + d * Math.sin(a) - s * Math.cos(a))];
+    const arm = (k) => (-90 + 60 * k) * Math.PI / 180, notch = (k) => at(arm(k) - Math.PI / 6, 2 * h);
+    let d = `M${notch(0).join(' ')}`;
+    for (let k = 0; k < 6; k++) d += `L${at(arm(k), r, h).join(' ')}A${h - 0.01} ${h - 0.01} 0 0 1 ${at(arm(k), r, -h).join(' ')}L${notch(k + 1).join(' ')}`;
+    return `${d}Z`;
+  };
+  const RINGED = 'M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12ZM4.25 12A7.75 7.75 0 1 0 19.75 12A7.75 7.75 0 1 0 4.25 12Z';
+  const lint = (areas, notes) => lintSource(24, 'mark-filled.svg', drawn(24, 1.5, [], { areas, notes: ['keyline: mark', ...notes] }));
+  near(tipsOf([], 1.5, [traced(2.75)]).notch[0].gap, 1.25, 0.02);
+  assert.match(armWarn(lint([RINGED, traced(2.75)], []))[0] ?? '', /^a filled shape's arms meet at 60° with 1\.2\d of air at the arm tips at [\d.,]+ — §6 needs 1\.5$/);
+  assert.deepEqual(armWarn(lint([RINGED, traced(2.75)], ['glyph: dot'])), [], 'the inside of a character');
+  assert.deepEqual(armWarn(lint([RINGED, traced(2.75)], ['glyph: numeral'])), [], 'a notch is always within one shape');
+  assert.match(armWarn(lint([RINGED, traced(2.25)], ['glyph: dot']))[0] ?? '', /0\.7\d of air at the arm tips at [\d.,]+ — C19 glyph gap needs 1$/);
+  // drawn alone, the asterisk IS the silhouette: not the inside of a character, so §6's 1.5
+  assert.match(armWarn(lint([traced(2.75)], ['glyph: dot']))[0] ?? '', /— §6 needs 1\.5$/);
+  // the agreed gap governs a traced notch, and is in use for it
+  const agreed = lint([RINGED, traced(2.75)], ['gap: 1']);
+  assert.deepEqual(armWarn(agreed), []);
+  assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
+  assert.ok(agreed.notes.some((n) => /^agreed gap 1 — smallest measured 1\.2\d$/.test(n)), agreed.notes.join(' | '));
+});
+
+// --- inside air (lint §5i, 2026-10-20): the widest circle in one closed shape's white ----------
+// docs/01 §6's "no enclosed shape smaller than 1.5 units across", measured as Maruti agreed it: the
+// diameter of the widest circle that fits in the white one closed shape leaves inside itself.
+// facingGap reads a neck square-on and nothing inside a wedge or a small triangle, so rewind-2's
+// trailing triangle (1.07 at 16 and 20) and video-3's play at 20 (1.13) passed in silence.
+const airWarn = (r) => r.warnings.filter((w) => /of air inside/.test(w));
+const airLines = (r) => r.warnings.filter((w) => /of air|a hole|itself/.test(w));
+const WEDGE10 = 'M4 12L15.23 11.02L15.23 12.98Z';   // 10°, 0.2964 inside (its incircle, less the stroke)
+const WEDGE17 = 'M4 12L15.23 10.25L15.23 13.75Z';   // the same length opened to ~17.7°: 1.4968 inside
+const THIN = 'M4 11.1H20V12.9H4Z';                  // a channel 1.8 − 1.5 = 0.3 tall
+const TRI12 = 'M12 9.3L14.34 13.35L9.66 13.35Z';    // incircle 1.35 at the centreline: 1.2 inside
+
+test('insideAir: a 10° wedge with 0.30 inside warns, where lint was silent; opened to ~17.7° (1.5 inside) it passes', () => {
+  near(insideAir([WEDGE10], 1.5).paths[0].air, 0.2964, 0.003);
+  assert.deepEqual(facingGap([WEDGE10], 1.5).self, [], 'its walls never face square-on');
+  const tight = lintSource(24, 'wedge.svg', ONE(ROOT24, [WEDGE10]));
+  assert.deepEqual(airLines(tight), ['path 1 leaves 0.3 of air inside itself at 14.33,12 (the widest circle that fits) — §6 needs 1.5']);
+  near(insideAir([WEDGE17], 1.5).paths[0].air, 1.4968, 0.003);
+  assert.deepEqual(airLines(lintSource(24, 'wedge.svg', ONE(ROOT24, [WEDGE17]))), []);
+});
+
+test('insideAir: a thin rectangle reads 0.30, as facingGap does, and warns once, not twice', () => {
+  const [ia] = insideAir([THIN], 1.5).paths;
+  assert.equal(ia.air, 0.3);
+  assert.equal(facingGap([THIN], 1.5).self[0].gap, 0.3);
+  assert.deepEqual(airLines(lintSource(24, 'slot.svg', ONE(ROOT24, [THIN]))), ['path 1 faces itself across 0.3 of air at 4.79,12 — §6 needs 1.5']);
+});
+
+test('insideAir: a play triangle, an alert triangle and a shield pass — sharp inner corners never decide it', () => {
+  const PLAY16 = 'M4.22 4.13A1 1 0 0 1 5.22 3.13A1 1 0 0 1 5.71 3.26L12.46 7.13A1 1 0 0 1 12.97 8A1 1 0 0 1 12.46 8.87L5.71 12.74A1 1 0 0 1 5.22 12.88A1 1 0 0 1 4.22 11.88Z';
+  const ALERT16 = ['M6.227 2.699A2 2 0 0 1 8 1.625A2 2 0 0 1 9.773 2.699L14.204 11.18A1.5 1.5 0 0 1 14.375 11.875A1.5 1.5 0 0 1 12.875 13.375L3.125 13.375A1.5 1.5 0 0 1 1.625 11.875A1.5 1.5 0 0 1 1.796 11.18Z',
+    'M8 5.25V7.375', 'M7.625 10A0.375 0.375 0 1 0 8.375 10A0.375 0.375 0 1 0 7.625 10Z'];
+  const SHIELD16 = 'M8 1.625L10.875 1.625A1.5 1.5 0 0 1 12.375 3.125L12.375 8.947A5.5 5.5 0 0 1 8.935 14.046L8.234 14.329A0.625 0.625 0 0 1 8 14.375A0.625 0.625 0 0 1 7.766 14.329L7.065 14.046A5.5 5.5 0 0 1 3.625 8.947L3.625 3.125A1.5 1.5 0 0 1 5.125 1.625L8 1.625Z';
+  // video-3 16's play, drawn at the floor: its incircle leaves 1.496, inside lint's 0.01
+  const VPLAY16 = 'M7.437 4.664L9.684 5.958A0.625 0.625 0 0 1 9.684 7.042L7.437 8.336A0.625 0.625 0 0 1 6.5 7.794L6.5 5.206A0.625 0.625 0 0 1 7.437 4.664Z';
+  for (const [ds, least] of [[[PLAY16], 5], [ALERT16, 7.5], [[SHIELD16], 7.4], [[VPLAY16], 1.49]]) {
+    const got = insideAir(ds, 1.25).paths;
+    assert.equal(got.length, 1, ds[0]);   // the dot is solid: no white, no reading
+    assert.ok(got[0].air >= least, `${got[0].air} < ${least}`);
+    assert.deepEqual(airWarn(lintSource(16, 'shape.svg', ONE(ROOT16, ds))), [], ds[0]);
+  }
+  near(insideAir([VPLAY16], 1.25).paths[0].air, 1.496, 0.003);
+  // the same play at 20 (1.13) and rewind-2's trailing triangle (1.07) are the ones that warn
+  const VPLAY20 = 'M9.62 6.88L11.34 7.85A0.75 0.75 0 0 1 11.34 9.15L9.62 10.12A0.75 0.75 0 0 1 8.5 9.47L8.5 7.53A0.75 0.75 0 0 1 9.62 6.88Z';
+  const REW16 = 'M12.75 7A0.625 0.625 0 0 0 12.125 6.375A0.625 0.625 0 0 0 11.778 6.48L10.278 7.48A0.625 0.625 0 0 0 10 8A0.625 0.625 0 0 0 10.278 8.52L11.778 9.52A0.625 0.625 0 0 0 12.125 9.625A0.625 0.625 0 0 0 12.75 9Z';
+  near(insideAir([VPLAY20], 1.5).paths[0].air, 1.13, 0.005);
+  near(insideAir([REW16], 1.25).paths[0].air, 1.07, 0.005);
+});
+
+test('insideAir agrees with ringHole on a ring, and lint warns on a tight ring once', () => {
+  const c = 2 * Math.SQRT1_2;
+  for (const [d, w] of [[RING(12, 12, 1.25), 1.5], [RING(12, 12, 1.5), 1.5], [RING(8, 8, 1.375), 1.25], [RING(12, 12, 9.25), 1.5],
+    [`M${12 - c} ${12 - c}A2 2 0 0 1 ${12 + c} ${12 - c}A2 2 0 1 1 ${12 - c} ${12 - c}Z`, 1.5]]) {
+    const [got] = insideAir([d], w).paths;
+    near(got.air, ringHole(d, w).hole, 0.003);
+  }
+  assert.deepEqual(insideAir([RING(12, 12, 0.75)], 1.5).paths, [], 'a dot is solid');
+  assert.deepEqual(airLines(lintSource(24, 'key.svg', ONE(ROOT24, [RING(12, 12, 1.25)]))), ['path 1 is a ring with a hole 1 across at 12,12 — §6 needs 1.5 (radius 1.25 at stroke 1.5)']);
+});
+
+test('insideAir: an evenodd hole is read less any island; facingGap\'s line on the same white is not repeated', () => {
+  const SQ = 'M4 4H20V20H4Z', F = (areas, notes = ['keyline: mark']) => drawn(24, 1.5, [], { areas, notes });
+  // a triangular cut-out: facingGap reads nothing in it, the widest circle 1.2
+  const TRI = `${SQ}M12 10.3L13.04 12.1L10.96 12.1Z`;
+  assert.deepEqual(facingGap([], 1.5, [TRI]).area, []);
+  near(insideAir([], 1.5, [TRI]).holes[0].air, 1.2, 0.005);
+  assert.deepEqual(airLines(lintSource(24, 'x-filled.svg', F([TRI]))), ['a cut-out leaves 1.2 of air inside it at 12,11.5 (the widest circle that fits) — §6 needs 1.5']);
+  // an island in a 4 × 4 hole leaves a frame 1 wide: the widest circle sits in a corner of it,
+  // touching both outer walls and the island's corner, 2√2 / (1 + √2) = 1.17 — not the hole's 4
+  const ISLAND = `${SQ}M10 10H14V14H10ZM11 11H13V13H11Z`;
+  near(insideAir([], 1.5, [ISLAND]).holes[0].air, 2 * Math.SQRT2 / (1 + Math.SQRT2), 0.003);
+  assert.deepEqual(airLines(lintSource(24, 'x-filled.svg', F([ISLAND]))), ['1 of air between two filled edges at 11.04,10.5 — §6 needs 1.5']);
+  // a slot 0.5 wide: facingGap's cut line, and nothing more
+  const SLOT = `${SQ}M8 11.75H16V12.25H8Z`;
+  assert.equal(insideAir([], 1.5, [SLOT]).holes[0].air, 0.5);
+  assert.deepEqual(airLines(lintSource(24, 'x-filled.svg', F([SLOT]))), ['0.5 of air across one cut-out at 8.04,12 — §6 needs 1.5']);
+  // a shape painted inside a closed stroke takes its white
+  assert.equal(insideAir([THIN.replace('11.1', '9.1').replace('12.9', '14.9')], 1.5, ['M5 10H19V12H5Z']).paths[0].air, 2.15);
+});
+
+test('lint §5i: a character\'s own closed shape floors at C19\'s 1 under `glyph:`; the silhouette, the gap note and a badge keep theirs', () => {
+  const shell = RING(12, 12, 9.25), at = (notes, ds = [shell, TRI12]) => airWarn(lintSource(24, 't.svg', ONE(ROOT24, ds, ['keyline: mark', ...notes])));
+  assert.deepEqual(at([]), ['path 2 leaves 1.2 of air inside itself at 12,12 (the widest circle that fits) — §6 needs 1.5']);
+  assert.deepEqual(at(['glyph: dot']), [], 'the inside of a character');
+  assert.deepEqual(at(['glyph: numeral']), []);
+  assert.deepEqual(at(['glyph: dot'], [TRI12]), ['path 1 leaves 1.2 of air inside itself at 12,12 (the widest circle that fits) — §6 needs 1.5'], 'drawn alone it is the silhouette');
+  const agreed = lintSource(24, 't.svg', ONE(ROOT24, [shell, TRI12], ['keyline: mark', 'gap: 1']));
+  assert.deepEqual(airWarn(agreed), []);
+  assert.deepEqual(agreed.errors, [], 'the note is in use: the triangle needs it');
+  assert.ok(agreed.notes.includes('agreed gap 1 — smallest measured 1.2'), agreed.notes.join(' | '));
+  // a hole: in a shape that is not the silhouette, a character's; in the silhouette, §6's
+  const RINGED = 'M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12ZM4.25 12A7.75 7.75 0 1 0 19.75 12A7.75 7.75 0 1 0 4.25 12Z';
+  const CUT = 'M9 9H15V15H9ZM12 10.3L13.04 12.1L10.96 12.1Z';
+  const holes = (areas, notes) => airWarn(lintSource(24, 'g-filled.svg', drawn(24, 1.5, [], { areas, notes: ['keyline: mark', ...notes] })));
+  assert.equal(holes([RINGED, CUT], []).length, 1);
+  assert.deepEqual(holes([RINGED, CUT], ['glyph: dot']), []);
+  assert.deepEqual(holes([CUT], ['glyph: dot']), ['a cut-out leaves 1.2 of air inside it at 12,11.5 (the widest circle that fits) — §6 needs 1.5']);
+  // a C33 line badge's own closed shape keeps 1.5, whatever the base agreed
+  const badge = lintSource(24, 'passkey-2-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path d="M5 10.5H10"/>',
+    `<path stroke-width="1.5" d="${TRI12.replace(/[\d.]+/g, (n) => String(+(+n + 4).toFixed(2)))}"/>`], ['keyline: mark', 'gap: 1', 'badge: line']));
+  assert.deepEqual(airWarn(badge), ['path 3 leaves 1.2 of air inside itself at 16,16 (the widest circle that fits) — §6 needs 1.5']);
 });

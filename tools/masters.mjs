@@ -18,7 +18,8 @@ export const strokeOf = (master) => STROKES[master];
 // becomes 1.6×, matching 24's 1.67×, and no filled line file has to be redrawn.
 // Every other icon fills its shapes and keeps the outline stroke for any line.
 // C32 (2026-10-17): a numeral inside a line-heavy icon keeps the OUTLINE weight in the
-// filled file (`<!-- glyph: numeral -->`, its path carrying `stroke-width`; lint §2b).
+// filled file (`<!-- glyph: numeral -->`, its path carrying `stroke-width`; lint §2b); so
+// does a letter since 2026-10-20 (`<!-- glyph: letter -->`, translate's A and 文).
 // C33 (2026-10-19): so does a LINE badge on a line-heavy base (`<!-- badge: line -->`,
 // first passkey-2's key on fingerprint's print), its air to the base floored at MIN_GAP.
 export const FILLED_WEIGHT = { 24: 2.5, 20: 2, 16: 2 };
@@ -62,8 +63,8 @@ export const markMax = (name, master) =>
 
 // State twins (C34, 2026-10-19), twin → base: the other state of a toggle is drawn for every
 // numbered shape of its base (`unlock-3` for `lock-3`). Lint warns on a missing twin (§9).
-// A later twin is one entry: `'eye-off': 'eye'`.
-export const STATE_TWINS = { unlock: 'lock' };
+// A later twin is one entry: `'eye-off': 'eye'`. `toggle-off` joined 2026-10-20.
+export const STATE_TWINS = { unlock: 'lock', 'toggle-off': 'toggle-on' };
 
 // Minimum gap between any two stroke edges: 1.5 units, at every master and in
 // both styles. A LITERAL, deliberately not `strokeOf(master)` — the floor is what
@@ -112,4 +113,10 @@ export const gridName = (master) => gridNameFor(strokeOf(master));
 // file does (numeral to numeral and numeral to line keep MIN_GAP). At 16 a 2 is
 // about four strokes tall; holding its mouth at 1.5 laid the diagonal down to
 // 25-30 degrees (40 at 24), and the 2 read slanted and crooked.
+// Extended 2026-10-20 to a character's own CROSSING ARMS (the tip air lint §5 reads with
+// `armTipGap`, docs/01 §6): under `glyph: dot` any two paths but the silhouette, under
+// `glyph: numeral` one path crossing itself only.
+// Not letters: `<!-- glyph: letter -->` (C32, 2026-10-20) keeps a letter's weight and nothing
+// else; a letter's openings and crossing arms keep MIN_GAP, or the file's gap note (there is no ruling on them,
+// and translate's hold 1.5).
 export const GLYPH_GAP = 1;

@@ -364,7 +364,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 91. `images-2` · Files & Folders · variant of `images` — Up-right · approved 2026-09-26
 - [x] 91. `images-3` · Files & Folders · variant of `images` — Up-left · approved 2026-09-26
 - [x] 91. `images-4` · Files & Folders · variant of `images` — Full-size front, side peek · approved 2026-09-26
-- [x] 92. `language` · Communication — approved 2026-09-26
+- [x] 92. `language` · Communication — approved 2026-10-20
 - [x] 93. `layout-footer` · UI & Layout — approved 2026-09-26
 - [x] 93. `layout-footer-2` · UI & Layout · variant of `layout-footer` — Third, solid footer · approved 2026-09-26
 - [x] 93. `layout-footer-3` · UI & Layout · variant of `layout-footer` — Third, solid page · approved 2026-09-26
@@ -431,8 +431,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 110. `book-3` · Files & Folders · variant of `book` — Page curl, title · approved 2026-09-28
 - [x] 110. `book-4` · Files & Folders · variant of `book` — Spine band, title · approved 2026-09-28
 - [x] 111. `hash` · Communication — approved 2026-09-28
-- [x] 111. `hash-2` · Communication · variant of `hash` — Slanted 9.5° · approved 2026-09-28
-- [x] 111. `hash-3` · Communication · variant of `hash` — Slanted 9.5°, sheared · approved 2026-09-28
+- [x] 111. `hash-2` · Communication · variant of `hash` — Slanted 9.5° · approved 2026-10-20
+- [x] 111. `hash-3` · Communication · variant of `hash` — Slanted 9.5°, sheared · approved 2026-10-20
 - [x] 112. `compass` · Maps & Location — approved 2026-09-28
 - [x] 112. `compass-2` · Maps & Location · variant of `compass` — Diagonal, small · approved 2026-09-28
 - [x] 112. `compass-3` · Maps & Location · variant of `compass` — North solid, south outlined · approved 2026-09-28
@@ -504,12 +504,15 @@ Bases before their variants; within that, highest evidence first.
 - [x] 146. `share` · Communication — mvp · approved 2026-10-18
 - [x] 146. `share-2` · Communication · variant of `share` — Arrow out of an open box · approved 2026-10-19
 - [x] 146. `share-3` · Communication · variant of `share` — Forward arrow · approved 2026-10-19
-- [ ] 147. `toggle-off` · UI & Layout
+- [x] 147. `toggle-off` · UI & Layout — approved 2026-10-20
+- [x] 147. `toggle-off-2` · UI & Layout · variant of `toggle-off` — Big knob over a slim track, off · approved 2026-10-20
 - [ ] 148. `cast` · Media & Playback
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
-- [ ] 151. `form` · UI & Layout
+- [x] 151. `form` · UI & Layout — approved 2026-10-20
+- [x] 151. `form-2` · UI & Layout · variant of `form` — Two fields and a button · approved 2026-10-20
+- [x] 151. `form-3` · UI & Layout · variant of `form` — Card with a field and a button · approved 2026-10-20
 - [x] 152. `import` · Files & Folders — approved 2026-10-20
 - [x] 152. `import-2` · Files & Folders · variant of `import` — Page, arrow in at the side · approved 2026-10-20
 - [x] 153. `layout-header` · UI & Layout — approved 2026-09-26
@@ -552,16 +555,20 @@ Bases before their variants; within that, highest evidence first.
 - [x] 177. `drag-handle` · UI & Layout — mvp · approved 2026-10-18
 - [x] 177. `drag-handle-2` · UI & Layout · variant of `drag-handle` — Six dots, lying · approved 2026-10-18
 - [x] 177. `drag-handle-3` · UI & Layout · variant of `drag-handle` — Three short lines · approved 2026-10-18
-- [ ] 178. `face-laugh` · Communication
+- [x] 178. `face-laugh` · Communication — approved 2026-10-20
+- [x] 178. `face-laugh-2` · Communication · variant of `face-laugh` — Smiling eyes · approved 2026-10-20
+- [x] 178. `face-laugh-3` · Communication · variant of `face-laugh` — Squeezed eyes · approved 2026-10-20
 - [x] 179. `id-card` · Users & Access — approved 2026-10-19
 - [x] 179. `id-card-2` · Users & Access · variant of `id-card` — Badge with a slot · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-3` · Users & Access · variant of `id-card` — Clip-on badge · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-4` · Users & Access · variant of `id-card` — Passport · approved 2026-10-19
 - [ ] 180. `indent` · Editing & Text
 - [ ] 181. `outdent` · Editing & Text
-- [ ] 182. `popup` · UI & Layout
+- [x] 182. `popup` · UI & Layout — approved 2026-10-20
 - [ ] 183. `replace` · Editing & Text
-- [ ] 184. `rows` · UI & Layout
+- [x] 184. `rows` · UI & Layout — approved 2026-10-20
+- [x] 184. `rows-2` · UI & Layout · variant of `rows` — Two row boxes · approved 2026-10-20
+- [x] 184. `rows-3` · UI & Layout · variant of `rows` — Three row guides · approved 2026-10-20
 - [x] 185. `transfer` · Arrows & Direction — approved 2026-10-17
 - [x] 185. `transfer-2` · Arrows & Direction · variant of `transfer` — Half heads · approved 2026-10-17
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
@@ -576,7 +583,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
 - [ ] 192. `gift` · Status & Feedback
-- [ ] 193. `headphones` · Communication
+- [x] 193. `headphones` · Communication — approved 2026-10-20
+- [x] 193. `headphones-2` · Communication · variant of `headphones` — Capsule cups · approved 2026-10-20
+- [x] 193. `headphones-4` · Communication · variant of `headphones` — Wired earbuds · approved 2026-10-20
+- [x] 193. `headphones-3` · Communication · variant of `headphones` — Ring heads, slim solid stems · approved 2026-10-20
+- [x] 193. `headphones-5` · Communication · variant of `headphones` — Teardrop heads, slim solid stems · approved 2026-10-20
 - [x] 194. `inbox` · Communication — mvp · approved 2026-10-18
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
@@ -596,8 +607,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 200. `video-3` · Files & Folders · variant of `video` — TV with play · approved 2026-10-20
 - [x] 200. `video-4` · Files & Folders · variant of `video` — Clapperboard, hinged at the corner; hinge segment hollow when filled · approved 2026-10-20
 - [ ] 201. `zap` · Status & Feedback
-- [ ] 202. `zoom-in` · UI & Layout
-- [ ] 203. `zoom-out` · UI & Layout
+- [x] 202. `zoom-in` · UI & Layout — approved 2026-10-20
+- [x] 202. `zoom-in-2` · UI & Layout · variant of `zoom-in` — Big lens, ring kept, thin mark · approved 2026-10-20
+- [x] 203. `zoom-out` · UI & Layout — approved 2026-10-20
+- [x] 203. `zoom-out-2` · UI & Layout · variant of `zoom-out` — Big lens, ring kept, thin mark · approved 2026-10-20
 - [x] 204. `anchor` · Maps & Location — approved 2026-10-18
 - [x] 204. `anchor-2` · Maps & Location · variant of `anchor` — Minimal · approved 2026-10-18
 - [x] 204. `anchor-3` · Maps & Location · variant of `anchor` — Ball · approved 2026-10-18
@@ -616,20 +629,35 @@ Bases before their variants; within that, highest evidence first.
 - [x] 214. `accessibility-2` · Users & Access · variant of `accessibility` — Two-line body · approved 2026-10-19
 - [x] 215. `alarm-clock` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 215. `alarm-clock-2` · Time & Calendar · variant of `alarm-clock` — Curved caps, floating · approved 2026-10-17
-- [ ] 216. `contrast` · UI & Layout
+- [x] 216. `contrast` · UI & Layout — approved 2026-10-20
 - [x] 217. `fingerprint` · Users & Access — approved 2026-10-19
 - [x] 217. `fingerprint-2` · Users & Access · variant of `fingerprint` — Symmetric arches · approved 2026-10-19
-- [ ] 218. `hand` · UI & Layout
-- [ ] 219. `headset` · Communication
+- [x] 218. `hand` · UI & Layout — approved 2026-10-20
+- [x] 218. `hand-grab` · UI & Layout · variant of `hand` — Grab · approved 2026-10-20
+- [x] 218. `hand-pointer` · UI & Layout · variant of `hand` — Pointing finger · approved 2026-10-20
+- [x] 219. `headset` · Communication — approved 2026-10-20
+- [x] 219. `headset-2` · Communication · variant of `headset` — Straight boom · approved 2026-10-20
+- [x] 219. `headset-3` · Communication · variant of `headset` — One ear · approved 2026-10-20
 - [ ] 220. `highlighter` · Editing & Text
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 221. `hourglass-2` · Time & Calendar · variant of `hourglass` — Full bow · approved 2026-10-17
 - [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
-- [ ] 222. `layout-list` · UI & Layout — mvp
-- [ ] 223. `messages` · Communication — mvp
-- [ ] 224. `password` · UI & Layout
+- [x] 222. `layout-list` · UI & Layout — mvp · approved 2026-10-20
+- [x] 222. `layout-list-2` · UI & Layout · variant of `layout-list` — Bullets in a frame, even air · approved 2026-10-20
+- [x] 223. `messages` · Communication — mvp · approved 2026-10-20
+- [x] 223. `messages-2` · Communication · variant of `messages` — Pair, inset tail · approved 2026-10-20
+- [x] 223. `messages-3` · Communication · variant of `messages` — Pair, teardrop · approved 2026-10-20
+- [x] 223. `messages-4` · Communication · variant of `messages` — Pair, text lines · approved 2026-10-20
+- [x] 223. `messages-5` · Communication · variant of `messages` — Pair, round, corner tail · approved 2026-10-20
+- [x] 223. `messages-6` · Communication · variant of `messages` — Pair, pill · approved 2026-10-20
+- [x] 223. `messages-7` · Communication · variant of `messages` — Pair, soft · approved 2026-10-20
+- [x] 224. `password` · UI & Layout — approved 2026-10-20
+- [x] 224. `password-2` · UI & Layout · variant of `password` — Asterisks on one line, six arms, kept apart · approved 2026-10-20
 - [ ] 225. `pen-sparkle` · Editing & Text
-- [ ] 226. `sticker` · Communication
+- [x] 226. `sticker` · Communication — approved 2026-10-20
+- [x] 226. `sticker-2` · Communication · variant of `sticker` — Square with face-smile's face, corner peeled · approved 2026-10-20
+- [x] 226. `sticker-3` · Communication · variant of `sticker` — Round, edge peeled · approved 2026-10-20
+- [x] 226. `sticker-4` · Communication · variant of `sticker` — Round face, edge peeled · approved 2026-10-20
 - [x] 227. `timer` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 228. `vault` · Users & Access — approved 2026-10-19
 - [x] 228. `vault-2` · Users & Access · variant of `vault` — Round bank-vault door · approved 2026-10-19
@@ -665,13 +693,16 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 255. `pause` · Media & Playback
 - [x] 256. `expand` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
-- [ ] 257. `window` · UI & Layout
+- [x] 257. `window` · UI & Layout — approved 2026-10-20
+- [x] 257. `window-2` · UI & Layout · variant of `window` — Tabs · approved 2026-10-20
 - [ ] 258. `scan` · Devices & Hardware
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
 - [ ] 260. `currency` · Commerce & Payments
 - [ ] 261. `blog` · Editing & Text
-- [ ] 262. `button` · UI & Layout
+- [x] 262. `button` · UI & Layout — approved 2026-10-20
+- [x] 262. `button-2` · UI & Layout · variant of `button` — Raised button · approved 2026-10-20
+- [x] 262. `button-3` · UI & Layout · variant of `button` — Push-button · approved 2026-10-20
 - [x] 263. `caret-down` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 263. `caret-down-2` · Arrows & Direction · variant of `caret-down` — Near-equilateral · caret-down · approved 2026-10-17
 - [x] 264. `caret-up` · Arrows & Direction — mvp · approved 2026-10-17
@@ -682,16 +713,26 @@ Bases before their variants; within that, highest evidence first.
 - [x] 266. `categories-3` · Files & Folders · variant of `categories` — Tiles: rings and squares on the diagonals · approved 2026-10-20
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
-- [ ] 268. `drag-drop` · UI & Layout
-- [ ] 269. `newsletter` · Communication
+- [x] 268. `drag-drop` · UI & Layout — approved 2026-10-20
+- [x] 269. `newsletter` · Communication — approved 2026-10-20
+- [x] 269. `newsletter-2` · Communication · variant of `newsletter` — Letter rising from an open envelope · approved 2026-10-20
 - [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
 - [ ] 271. `status` · Status & Feedback
-- [ ] 272. `translate` · Communication
-- [ ] 273. `viewport-narrow` · UI & Layout
-- [ ] 274. `viewport-short` · UI & Layout
-- [ ] 275. `viewport-tall` · UI & Layout
-- [ ] 276. `viewport-wide` · UI & Layout
+- [x] 272. `translate` · Communication — approved 2026-10-20
+- [x] 272. `translate-2` · Communication · variant of `translate` — Two speech bubbles · approved 2026-10-20
+- [x] 273. `viewport-narrow` · UI & Layout — approved 2026-10-20
+- [x] 273. `viewport-narrow-2` · UI & Layout · variant of `viewport-narrow` — Capsule, heads in · approved 2026-10-20
+- [x] 273. `viewport-narrow-3` · UI & Layout · variant of `viewport-narrow` — Dimension arrow, in · approved 2026-10-20
+- [x] 274. `viewport-short` · UI & Layout — approved 2026-10-20
+- [x] 274. `viewport-short-2` · UI & Layout · variant of `viewport-short` — Capsule, heads in · approved 2026-10-20
+- [x] 274. `viewport-short-3` · UI & Layout · variant of `viewport-short` — Dimension arrow, in · approved 2026-10-20
+- [x] 275. `viewport-tall` · UI & Layout — approved 2026-10-20
+- [x] 275. `viewport-tall-2` · UI & Layout · variant of `viewport-tall` — Capsule, heads out · approved 2026-10-20
+- [x] 275. `viewport-tall-3` · UI & Layout · variant of `viewport-tall` — Dimension arrow, out · approved 2026-10-20
+- [x] 276. `viewport-wide` · UI & Layout — approved 2026-10-20
+- [x] 276. `viewport-wide-2` · UI & Layout · variant of `viewport-wide` — Capsule, heads out · approved 2026-10-20
+- [x] 276. `viewport-wide-3` · UI & Layout · variant of `viewport-wide` — Dimension arrow, out · approved 2026-10-20
 - [ ] 277. `atm` · Commerce & Payments
 - [ ] 278. `channels` · Development & Infra
 - [ ] 279. `contactless` · Commerce & Payments
@@ -709,7 +750,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
-- [ ] 290. `toggles` · UI & Layout
+- [x] 290. `toggles` · UI & Layout — approved 2026-10-20
+- [x] 290. `toggles-2` · UI & Layout · variant of `toggles` — Big knob over a slim track, polished, on over off · approved 2026-10-20
 - [ ] 291. `blueprint` · Development & Infra
 - [ ] 292. `decision-process` · Development & Infra
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
@@ -726,7 +768,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 301. `arrow-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 302. `arrow-down-right` · Arrows & Direction — approved 2026-10-17
 - [x] 303. `arrow-up-left` · Arrows & Direction — approved 2026-10-17
-- [ ] 304. `command` · UI & Layout
+- [x] 304. `command` · UI & Layout — approved 2026-10-20
 - [x] 305. `shuffle` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 305. `shuffle-2` · Arrows & Direction · variant of `shuffle` — Straight X · approved 2026-10-17
 - [ ] 306. `aperture` · Media & Playback
@@ -737,7 +779,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 310. `radio` · Media & Playback
 - [ ] 311. `server` · Development & Infra
 - [ ] 312. `speaker` · Media & Playback
-- [ ] 313. `terminal` · Development & Infra
+- [x] 313. `terminal` · Development & Infra — approved 2026-10-20
+- [x] 313. `terminal-2` · Development & Infra · variant of `terminal` — Prompt in a window · approved 2026-10-20
 - [ ] 314. `tv` · Devices & Hardware
 - [ ] 315. `voicemail` · Devices & Hardware
 - [x] 316. `chevrons-down` · Arrows & Direction — approved 2026-10-17
@@ -765,8 +808,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 327. `move` · Arrows & Direction — approved 2026-10-17
 - [x] 327. `move-2` · Arrows & Direction · variant of `move` — Four arrows · approved 2026-10-17
 - [x] 328. `rewind` · Arrows & Direction — approved 2026-10-17
-- [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-17
-- [ ] 329. `rss` · Communication
+- [x] 328. `rewind-2` · Arrows & Direction · variant of `rewind` — Stepped · approved 2026-10-20
+- [x] 329. `rss` · Communication — approved 2026-10-20
+- [x] 329. `rss-2` · Communication · variant of `rss` — In a square, box-centred · approved 2026-10-20
 - [x] 330. `trending-down` · Charts & Data — mvp · approved 2026-10-18
 - [x] 330. `trending-down-2` · Charts & Data · variant of `trending-down` — One pull-back, soft · approved 2026-10-18
 - [x] 331. `trending-up` · Charts & Data — mvp · approved 2026-10-18
@@ -816,7 +860,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left`
 - [ ] 376. `chevron-right-circle` · Arrows & Direction · variant of `chevron-right`
 - [ ] 377. `chevron-up-circle` · Arrows & Direction · variant of `chevron-up`
-- [ ] 378. `clipboard-list` · Files & Folders · variant of `clipboard`
+- [x] 378. `clipboard-list` · Files & Folders · variant of `clipboard` — approved 2026-10-20
 - [ ] 379. `database-plus` · Charts & Data · variant of `database`
 - [ ] 380. `file-clock` · Files & Folders · variant of `file`
 - [ ] 381. `file-heart` · Files & Folders · variant of `file`
@@ -965,3 +1009,9 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
 - [x] 507. `hierarchy` — added 2026-10-20 · approved 2026-10-20
+- [x] 508. `user-headphones` · Communication · variant of `headphones` — added 2026-10-20 · approved 2026-10-20
+- [x] 509. `input` — added 2026-10-20 · approved 2026-10-20
+- [x] 510. `windows` — added 2026-10-20 · approved 2026-10-20
+- [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
+- [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
+- [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
