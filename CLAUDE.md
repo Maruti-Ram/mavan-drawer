@@ -109,7 +109,8 @@ approve` (writes, lints, ticks) → commit, **without asking** → next icon. **
 representative icon** (24 master) per concept; clicking opens a right panel with all three masters
 and their metrics (ink, centring, geometric/optical bearings, copy SVG). Outline/Filled switch (F),
 search (/), Show Approved | Whole queue, sections rail with progress, and an "At 16" strip. It reads
-`lab/manifest.json`, which `npm run build` now fills with each file's `body` and the parsed `queue`.
+`lab/manifest.json`, which `npm run build` now fills with each file's `body`, the parsed `queue` and
+`next` — `queue.mjs next`'s own answer, which the sidebar's "Next on the board" shows.
 **Plan view (`P`):** one tile per icon, grouped by category, a drawn tile showing its default drawing with a variant count. Strip: icons drawn / left, MVP drawn / left, and a drawing-day estimate from the sheet's approval dates. A star on a tile marks it MVP in the sheet itself; a box adds a name — both write through the lab server (`tools/serve.mjs` POST routes → `queue.mjs`). **An icon is a concept; `-2`, `-small` and filled twins are never counted as icons** (Maruti, 2026-10-17). "Next icon" now takes the next undrawn MVP icon first, then audit order.
 **Figure families:** `lab/figures.html` (Library sidebar → Figures) puts every figure (`user`, `user-<n>`) in a
 row beside its group and the group's arrangements (`users[-n]`, `-behind`, `-wide`, `-level`; C27), at 24 · 20 · 16 plus

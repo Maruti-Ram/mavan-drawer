@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { bbox, anatomy } from './geometry.mjs';
 import { opticalBearings } from './optical.mjs';
 import { MASTERS, STROKES, FILLED_WEIGHT, strokeOf, weightOf } from './masters.mjs';
-import { parseSheet } from './queue.mjs';
+import { parseSheet, next } from './queue.mjs';
 
 const r2 = (n) => Math.round(n * 100) / 100;
 
@@ -71,15 +71,20 @@ const built = Object.fromEntries(Object.keys(MASTERS).map((m) => [m, buildMaster
 // Parsed by tools/queue.mjs's own parser, so the manifest and the commands cannot read the
 // sheet differently. `mvp` is the MVP mark (a token at the start of the note, kept out of
 // `note`); `date` is the `approved YYYY-MM-DD` in the note, else null.
-const queue = parseSheet(readFileSync('research/queue.md', 'utf8')).rows.map((r) => ({
+const sheet = parseSheet(readFileSync('research/queue.md', 'utf8'));
+const queue = sheet.rows.map((r) => ({
   n: r.n, name: r.name, section: r.section, category: r.category, base: r.base, note: r.note,
   status: r.status, mvp: r.mvp, date: r.date }));
+// The next icon to draw, by queue.mjs's own `next` (undrawn MVP first, then sheet order), so
+// the Library's "Next on the board" and `node tools/queue.mjs next` cannot disagree.
+const upNext = next(sheet);
+const nextIcon = upNext && { n: upNext.n, name: upNext.name, section: upNext.section, mvp: upNext.mvp };
 
 mkdirSync('lab', { recursive: true });
 mkdirSync('dist', { recursive: true });
 // `stroke` is the 24 master's, kept for the lab pages that still read one scalar;
 // `strokes` is the per-master map they should read instead (plans/stroke-16.md card 6).
-writeFileSync('lab/manifest.json', JSON.stringify({ stroke: strokeOf(24), strokes: STROKES, filledWeight: FILLED_WEIGHT, ...built[24], masters: built, queue }, null, 2));
+writeFileSync('lab/manifest.json', JSON.stringify({ stroke: strokeOf(24), strokes: STROKES, filledWeight: FILLED_WEIGHT, ...built[24], masters: built, queue, next: nextIcon }, null, 2));
 writeFileSync('dist/icons.json', JSON.stringify(Object.fromEntries(Object.entries(built).map(([m, b]) => [m, b.icons]))));
 
 // Standalone metrics file — small, and the thing a consumer's <Icon> needs to

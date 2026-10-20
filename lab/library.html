@@ -463,9 +463,10 @@ function renderSections() {
   document.getElementById('subtitle').textContent =
     `${planFigures().icons.drawn} of ${planFigures().icons.total} icons drawn (${all.done} of ${all.all} rows) · outline + filled · masters 24 · 20 · 16 · stroke ${sw}`;
 
-  const next = q.find((e) => e.status !== 'done');
+  // `next` is `node tools/queue.mjs next`, written by the build: undrawn MVP first, then sheet order.
+  const next = man.next;
   document.getElementById('next').innerHTML = next
-    ? `Next on the board<b>#${next.n} ${esc(next.name)}</b>${esc(label(next.section))}` : 'Queue complete';
+    ? `Next on the board<b>#${next.n} ${esc(next.name)}</b>${esc(label(next.section))}${next.mvp ? ' · MVP' : ''}` : 'Queue complete';
 }
 document.getElementById('secs').addEventListener('click', (e) => {
   const t = e.target.closest('.sec'); if (!t) return;
@@ -527,7 +528,7 @@ function renderGrid() {
   if (sheet) return renderSheet(list);
   const el = document.getElementById('grid');
   if (!shown.length) {
-    const next = entries.find((e) => e.n != null && e.status !== 'done');
+    const next = man.next && (state.sec === 'all' || man.next.section === state.sec) ? man.next : null;
     el.innerHTML = `<div class="empty" style="grid-column:1/-1">${state.q
       ? `<b>No icons match “${esc(state.q)}”</b>Try another name, or show the whole queue.`
       : `<b>Nothing approved${state.sec === 'all' ? '' : ' in this section'} yet</b>${next ? `Next up: <a href="icon.html">#${next.n} ${esc(next.name)}</a> on the drawing board. ` : ''}Show <em>Whole queue</em> to see what is coming.`}</div>`;
