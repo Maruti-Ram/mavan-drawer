@@ -594,6 +594,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 200. `video` · Files & Folders — mvp · approved 2026-10-20
 - [x] 200. `video-2` · Files & Folders · variant of `video` — Film strip · approved 2026-10-20
 - [x] 200. `video-3` · Files & Folders · variant of `video` — TV with play · approved 2026-10-20
+- [x] 200. `video-4` · Files & Folders · variant of `video` — Clapperboard, hinged at the corner; hinge segment hollow when filled · approved 2026-10-20
 - [ ] 201. `zap` · Status & Feedback
 - [ ] 202. `zoom-in` · UI & Layout
 - [ ] 203. `zoom-out` · UI & Layout
