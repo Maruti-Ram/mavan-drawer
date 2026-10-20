@@ -558,7 +558,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 179. `id-card-4` · Users & Access · variant of `id-card` — Passport · approved 2026-10-19
 - [ ] 180. `indent` · Editing & Text
 - [ ] 181. `outdent` · Editing & Text
-- [~] 182. `popup` · UI & Layout
+- [x] 182. `popup` · UI & Layout — approved 2026-10-20
 - [ ] 183. `replace` · Editing & Text
 - [x] 184. `rows` · UI & Layout — approved 2026-10-20
 - [x] 184. `rows-2` · UI & Layout · variant of `rows` — Two row boxes · approved 2026-10-20
@@ -692,7 +692,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
 - [ ] 271. `status` · Status & Feedback
 - [ ] 272. `translate` · Communication
-- [ ] 273. `viewport-narrow` · UI & Layout
+- [~] 273. `viewport-narrow` · UI & Layout
 - [ ] 274. `viewport-short` · UI & Layout
 - [ ] 275. `viewport-tall` · UI & Layout
 - [ ] 276. `viewport-wide` · UI & Layout
