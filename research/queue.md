@@ -710,7 +710,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 263. `caret-down-2` · Arrows & Direction · variant of `caret-down` — Near-equilateral · caret-down · approved 2026-10-17
 - [x] 264. `caret-up` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 264. `caret-up-2` · Arrows & Direction · variant of `caret-up` — Near-equilateral · caret-up · approved 2026-10-17
-- [ ] 265. `live` · Media & Playback
+- [x] 265. `live` · Media & Playback — approved 2026-10-20
 - [x] 266. `categories` · Files & Folders — approved 2026-10-20
 - [x] 266. `categories-2` · Files & Folders · variant of `categories` — Stacked cards · approved 2026-10-20
 - [x] 266. `categories-3` · Files & Folders · variant of `categories` — Tiles: rings and squares on the diagonals · approved 2026-10-20
