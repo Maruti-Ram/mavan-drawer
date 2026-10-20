@@ -490,6 +490,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 138. `truck` · Commerce & Payments
 - [ ] 139. `wifi` · Devices & Hardware
 - [x] 140. `alert-octagon` · Status & Feedback — approved 2026-10-20
+- [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
+- [x] 140. `alert-octagon-3` · Status & Feedback · variant of `alert-octagon` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
+- [x] 140. `alert-octagon-4` · Status & Feedback · variant of `alert-octagon` — Wedge + dash (alert-circle-4's mark) · approved 2026-10-20
 - [ ] 141. `backspace` · Editing & Text
 - [x] 142. `columns` · UI & Layout — mvp · approved 2026-10-18
 - [x] 142. `columns-2` · UI & Layout · variant of `columns` — Two column boxes · approved 2026-10-18
@@ -744,6 +747,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 282. `reward` · Commerce & Payments
 - [ ] 283. `sandbox` · Development & Infra
 - [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
+- [x] 284. `alert-square-2` · Status & Feedback · variant of `alert-square` — Wedge (alert-circle-2's mark) · approved 2026-10-20
+- [x] 284. `alert-square-3` · Status & Feedback · variant of `alert-square` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
+- [x] 284. `alert-square-4` · Status & Feedback · variant of `alert-square` — Wedge + dash (alert-circle-4's mark) · approved 2026-10-20
 - [x] 285. `bookmarks` · Files & Folders — approved 2026-10-20
 - [x] 285. `bookmarks-3` · Files & Folders · variant of `bookmarks` — A ribbon beside a list · approved 2026-10-20
 - [x] 285. `bookmarks-4` · Files & Folders · variant of `bookmarks` — A star beside a list · approved 2026-10-20
@@ -1021,12 +1027,6 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
 - [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
-- [x] 514. `alert-octagon-2` — added 2026-10-20 · approved 2026-10-20
-- [x] 515. `alert-octagon-3` — added 2026-10-20 · approved 2026-10-20
-- [x] 516. `alert-octagon-4` — added 2026-10-20 · approved 2026-10-20
-- [x] 517. `alert-square-2` — added 2026-10-20 · approved 2026-10-20
-- [x] 518. `alert-square-3` — added 2026-10-20 · approved 2026-10-20
-- [x] 519. `alert-square-4` — added 2026-10-20 · approved 2026-10-20
 - [x] 520. `library` — added 2026-10-20 · approved 2026-10-20
 - [x] 521. `trophy` — added 2026-10-20 · approved 2026-10-20
 - [x] 522. `crown` — added 2026-10-20 · approved 2026-10-20
