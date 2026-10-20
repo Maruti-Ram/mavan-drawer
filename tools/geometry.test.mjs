@@ -722,9 +722,11 @@ const LIST16 = (entry, notes = ['keyline: mark']) => [ROOT16, ...notes.map((n) =
 const lintList = (entry, notes) => lintSource(16, 'list-ordered.svg', LIST16(entry, notes));
 const selfWarn = (r) => r.warnings.filter((w) => /of itself/.test(w));
 
-test('parseGlyphNote reads dot and numeral and refuses anything else', () => {
+test('parseGlyphNote reads dot, numeral and letter and refuses anything else', () => {
   assert.deepEqual(parseGlyphNote('<!-- glyph: dot -->'), { kind: 'dot', raw: 'dot' });
   assert.deepEqual(parseGlyphNote('<!--glyph:numeral-->'), { kind: 'numeral', raw: 'numeral' });
+  assert.deepEqual(parseGlyphNote('<!-- glyph: letter -->'), { kind: 'letter', raw: 'letter' });
+  assert.ok(parseGlyphNote('<!-- glyph: letters -->').bad);
   assert.equal(parseGlyphNote('<!-- gap: 1 -->'), null);
   assert.ok(parseGlyphNote('<!-- glyph: numerals -->').bad);
   assert.ok(parseGlyphNote('<!-- glyph: dot numeral -->').bad);
@@ -968,7 +970,7 @@ test('C32: a 1.5 numeral beside a 2.5 rail is measured at its own weight', () =>
 
 test('C32: a per-path stroke-width without `glyph: numeral` is an ERROR naming the path', () => {
   const r = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
-  assert.ok(r.errors.some((e) => /^path 2 carries its own stroke-width="1\.5" — only a numeral may, in a file that declares <!-- glyph: numeral --> \(C32\)/.test(e)), r.errors.join(' | '));
+  assert.ok(r.errors.some((e) => /^path 2 carries its own stroke-width="1\.5" — only a numeral or a letter may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\)/.test(e)), r.errors.join(' | '));
 });
 
 test('C32: a numeral at any weight but the outline\'s is an ERROR, and so is one that repeats the root', () => {
@@ -1032,6 +1034,98 @@ test('C32: only the one double-quoted form is accepted — single quotes, other 
   const twice = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17').replace('stroke-width="1.5"', 'stroke-width="1.5" stroke-width="2.5"'));
   assert.ok(twice.errors.includes('path 2 carries stroke-width more than once (C32)'), twice.errors.join(' | '));
   assert.ok(twice.errors.includes(STRAY), twice.errors.join(' | '));
+});
+
+// --- C32 widened to letters: `<!-- glyph: letter -->` (2026-10-20) -------------------------
+// translate's A and 文 inside its 2.5 swap hooks: at 2.5 the A's counter closed solid and the 文's
+// bar came within 0.98 of its strokes, so the letters keep the outline weight, as a numeral does.
+// C32's weight and nothing else: C19's opening floor of 1 is a numeral's (and a dot glyph's), not
+// a letter's, so a letter's openings keep §6 or the file's `gap` note. Same fixture as C32 above.
+const LETTER = ['keyline: mark', 'glyph: letter'];
+
+test('C32 letter: a 1.5 letter beside a 2.5 rail passes, and the info line says letter', () => {
+  const ok = lintSource(24, 'translate-filled.svg', RAIL24('M12 10.5V17', { notes: LETTER }));
+  assert.deepEqual(ok.errors, []);
+  assert.deepEqual(numPairWarn(ok), [], ok.warnings.join(' | '));
+  assert.ok(ok.notes.includes('path 2 is a letter at 1.5 (C32)'), ok.notes.join(' | '));
+  assert.ok(!ok.notes.some((n) => /numeral/.test(n)), ok.notes.join(' | '));
+  assert.equal(ok.ink.y1, 17.75, 'the letter grows by its own half, 0.75');
+  const two = lintSource(24, 'translate-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path stroke-width="1.5" d="M8 10.5V17"/>', '<path stroke-width="1.5" d="M16 10.5V17"/>'], LETTER));
+  assert.deepEqual(two.errors, []);
+  assert.ok(two.notes.includes('paths 2, 3 are letters at 1.5 (C32)'), two.notes.join(' | '));
+  // its pair air is read at its own weight, as a numeral's is
+  const close = lintSource(24, 'translate-filled.svg', RAIL24('M12 10V17', { notes: LETTER }));
+  assert.deepEqual(numPairWarn(close), ['paths 1/2 are 3 apart — §6 needs 3.5 (edge gap 1 < 1.5)']);
+});
+
+test('C32 letter: the numeral\'s errors, in the letter\'s words — wrong weight, the root\'s own, a stale note, beside a badge', () => {
+  const wrong = lintSource(24, 'translate-filled.svg', RAIL24('M12 10.5V17', { notes: LETTER, sw: '2' }));
+  assert.ok(wrong.errors.some((e) => /^path 2 carries stroke-width="2" — a letter keeps this master's outline weight, "1\.5" \(C32\)$/.test(e)), wrong.errors.join(' | '));
+  assert.ok(!wrong.errors.some((e) => /no path carries/.test(e)), 'one error for one mistake');
+  const at16 = lintSource(16, 'translate-filled.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\n  <!-- keyline: mark -->\n  <!-- glyph: letter -->\n  <path d="M3 5H13"/>\n  <path stroke-width="1.5" d="M8 8V12"/>\n</svg>\n');
+  assert.ok(at16.errors.some((e) => /^path 2 carries stroke-width="1\.5" — a letter keeps this master's outline weight, "1\.25" \(C32\)$/.test(e)), at16.errors.join(' | '));
+  const outline = lintSource(24, 'translate.svg', RAIL24('M12 10.5V17', { notes: LETTER }).replace('stroke-width="2.5"', 'stroke-width="1.5"'));
+  assert.ok(outline.errors.some((e) => /path 2 carries stroke-width="1\.5", which is the root's own — only a letter inside a line-heavy filled drawing needs its own weight \(C32\); delete it/.test(e)), outline.errors.join(' | '));
+  const stale = lintSource(24, 'translate-filled.svg', BADGE24(['<path d="M5 7H19"/>', '<path d="M12 10.5V17"/>'], LETTER));
+  assert.ok(stale.errors.some((e) => /^declares <!-- glyph: letter --> but no path carries its own weight/.test(e)), stale.errors.join(' | '));
+  const both = lintSource(24, 'translate-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark', 'glyph: letter', 'badge: line'] }));
+  assert.ok(both.errors.some((e) => /^declares both <!-- glyph: letter --> and <!-- badge: line -->/.test(e)), both.errors.join(' | '));
+  assert.ok(both.notes.includes('path 2 is a letter at 1.5 (C32)'), 'read as the letter note alone');
+});
+
+test('C32 letter: a letter\'s 1.23 opening warns under §6 — it would pass as a numeral — and honours a gap note', () => {
+  // the list-ordered 2 (1.23 mouth at 1.25) as a kept-weight path beside a rail at 2, at 16
+  const src = (notes) => ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">',
+    ...notes.map((n) => `  <!-- ${n} -->`), '  <path d="M9.5 3.5H13.5"/>', `  <path stroke-width="1.25" d="${TWO16('2.65 10.5')}"/>`, '</svg>', ''].join('\n');
+  const letter = lintSource(16, 'x-filled.svg', src(LETTER));
+  assert.deepEqual(letter.errors, []);
+  assert.ok(letter.notes.includes('path 2 is a letter at 1.25 (C32)'), letter.notes.join(' | '));
+  assert.equal(selfWarn(letter).length, 1, letter.warnings.join(' | '));
+  assert.match(selfWarn(letter)[0], /^path 2 comes within 1\.23 of itself .* — §6 needs 1\.5 /);
+  const numeral = lintSource(16, 'x-filled.svg', src(['keyline: mark', 'glyph: numeral']));
+  assert.deepEqual(numeral.errors, []);
+  assert.deepEqual(selfWarn(numeral), [], 'the numeral takes C19\'s floor of 1');
+  assert.ok(numeral.notes.includes('C19 numeral opening 1.23 — floor 1, not §6\'s 1.5'), numeral.notes.join(' | '));
+  const agreed = lintSource(16, 'x-filled.svg', src(['keyline: mark', 'gap: 1', 'glyph: letter']));
+  assert.deepEqual(agreed.errors, [], 'the gap note is in use: the letter needs it');
+  assert.deepEqual(selfWarn(agreed), []);
+  assert.ok(agreed.notes.includes('agreed gap 1 — smallest measured 1.23'), agreed.notes.join(' | '));
+});
+
+test('C32 letter: the inside of a closed letter path (§5f) keeps §6 — it would pass as a numeral', () => {
+  // a closed counter 2.75 tall at 1.5: 1.25 of air inside, read by §5f (5b skips a closed path)
+  const src = (notes) => BADGE24(['<path d="M5 7H19"/>', '<path stroke-width="1.5" d="M9 12H15V14.75H9Z"/>'], notes);
+  const faces = (r) => r.warnings.filter((w) => /faces itself/.test(w));
+  const letter = lintSource(24, 'translate-filled.svg', src(LETTER));
+  assert.deepEqual(letter.errors, []);
+  assert.equal(faces(letter).length, 1, letter.warnings.join(' | '));
+  assert.match(faces(letter)[0], /^path 2 faces itself across 1\.25 of air at .* — §6 needs 1\.5$/);
+  const numeral = lintSource(24, 'translate-filled.svg', src(['keyline: mark', 'glyph: numeral']));
+  assert.deepEqual(numeral.errors, []);
+  assert.deepEqual(faces(numeral), [], 'the numeral takes C19\'s floor of 1');
+});
+
+test('draft-svg writes `glyph: letter` with `filled.glyph` at the outline weight, the note only where a letter keeps its weight (C32)', () => {
+  const m = (w) => ({ 24: w, 20: w, 16: w });
+  const c = { id: 'T', label: 'letters', glyph: 'letter', masters: m(['M5 7H19', 'M12 10.5V17']),
+    filled: { 24: { weight: 2.5, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] }, 20: { weight: 2, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] }, 16: { weight: 2, stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] } } };
+  const out = candidateFiles({ keyline: 'mark' }, c, 'translate');
+  const f24 = out.find((f) => f.master === 24 && f.filled).src, f16 = out.find((f) => f.master === 16 && f.filled).src;
+  assert.ok(out.filter((f) => f.filled).every((f) => f.src.includes('<!-- glyph: letter -->')));
+  assert.ok(out.filter((f) => !f.filled).every((f) => !f.src.includes('glyph:')), 'the outline draws its letters at the outline weight already: no note');
+  assert.ok(f24.includes('  <path stroke-width="1.5" d="M12 10.5V17"/>'), f24);
+  assert.ok(f16.includes('  <path stroke-width="1.25" d="M12 10.5V17"/>'), f16);
+  assert.match(f24, /<!-- letters, filled: weight 2\.5, ends pulled in 0\.5 so the ink box matches the outline, letter stays at 1\.5 -->/);
+  const r = lintSource(24, 'translate-filled.svg', f24);
+  assert.deepEqual(r.errors, []);
+  assert.ok(r.notes.includes('path 2 is a letter at 1.5 (C32)'));
+  // a master whose filled drawing keeps no letter at its own weight carries no note
+  const shaped = candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { fill: ['M4 4H8V8H4Z'], stroke: ['M12 10.5V17'] } } }, 'translate');
+  assert.ok(!shaped.find((f) => f.master === 24 && f.filled).src.includes('glyph:'));
+  // the board may carry the flag; without one, filled.glyph is refused
+  assert.equal(candidateFiles({ keyline: 'mark', glyph: 'letter' }, { ...c, glyph: undefined }, 'translate').length, 6);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, glyph: undefined }, 'translate'), /needs glyph: 'numeral' or glyph: 'letter'/);
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, filled: { ...c.filled, 24: { stroke: ['M5 7H19'], glyph: ['M12 10.5V17'] } } }, 'translate'), /heavier than 1\.5 .* the letter belongs in filled\.stroke/);
 });
 
 // --- C33: a line badge keeps the outline weight on a line-heavy base (2026-10-19) ----------
@@ -1099,7 +1193,7 @@ test('C33: a badge pair floors at 1.5 even beside `glyph: dot` — a ring badge 
 
 test('C33: the badge note is an ERROR when lint cannot read it, when nothing draws under it, or beside glyph: numeral', () => {
   const none = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
-  assert.ok(none.errors.some((e) => /only a numeral may, in a file that declares <!-- glyph: numeral --> \(C32\), or a line badge, in one that declares <!-- badge: line --> \(C33\)/.test(e)), none.errors.join(' | '));
+  assert.ok(none.errors.some((e) => /only a numeral or a letter may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\), or a line badge, in one that declares <!-- badge: line --> \(C33\)/.test(e)), none.errors.join(' | '));
   const wrong = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 10.5V17', { notes: BADGE, sw: '2' }));
   assert.ok(wrong.errors.some((e) => /^path 2 carries stroke-width="2" — a line badge keeps this master's outline weight, "1\.5" \(C33\)$/.test(e)), wrong.errors.join(' | '));
   assert.ok(!wrong.errors.some((e) => /no path carries/.test(e)), 'one error for one mistake');
