@@ -364,7 +364,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 91. `images-2` · Files & Folders · variant of `images` — Up-right · approved 2026-09-26
 - [x] 91. `images-3` · Files & Folders · variant of `images` — Up-left · approved 2026-09-26
 - [x] 91. `images-4` · Files & Folders · variant of `images` — Full-size front, side peek · approved 2026-09-26
-- [x] 92. `language` · Communication — approved 2026-09-26
+- [x] 92. `language` · Communication — approved 2026-10-20
 - [x] 93. `layout-footer` · UI & Layout — approved 2026-09-26
 - [x] 93. `layout-footer-2` · UI & Layout · variant of `layout-footer` — Third, solid footer · approved 2026-09-26
 - [x] 93. `layout-footer-3` · UI & Layout · variant of `layout-footer` — Third, solid page · approved 2026-09-26
