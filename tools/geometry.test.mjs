@@ -1802,8 +1802,8 @@ test('lint §5i: a character\'s own closed shape floors at C19\'s 1 under `glyph
 
 // --- a numeral's own hole floors at C19's 1 in every check (Maruti, 2026-10-20) ---------------
 // §5i held a filled numeral's hole to C19's 1, but §5f warned first on the same white at 1.5, so
-// §5i's floor never applied (reported on sort-numeric, whose filled 0 and 9 have oval bowls 1.0
-// across at 20 and 16). Under `glyph: numeral` a cut-out's width (both walls one hole of one shape)
+// §5i's floor never applied (reported on sort-numeric, whose filled 0 and 9 are painted shapes; the
+// 9's measured holes are in docs/07 C19). Under `glyph: numeral` a cut-out's width (both walls one hole of one shape)
 // now floors at 1 too; a notch, a separation and a shape-to-line span stay clearances, at 1.5. And
 // 5e's line reports every reading the note governs, not 5b's alone.
 const ZERO = 'M9 8A3 3 0 0 1 15 8V16A3 3 0 0 1 9 16ZM11.4 8.6A0.6 0.6 0 0 1 12.6 8.6V15.4A0.6 0.6 0 0 1 11.4 15.4Z';   // a filled 0, its hole 1.2 across

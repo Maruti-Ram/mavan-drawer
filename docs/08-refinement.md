@@ -320,7 +320,7 @@ measured 0.30 there and had shipped lint-clean that morning.
 
 **Dated note, 2026-10-20 — the first corollary, for a closed shape, is measured as Maruti defined it:**
 the widest circle that fits in the white one closed shape leaves inside itself (lint §5i, `insideAir`;
-§6.5). `selfGap` still reads an open path's mouth; white closed in by several strokes is still open. Also still uncovered (review, 2026-10-20): white split into pieces — pinched shut by its own stroke, a crossing centreline or a fold in the same `d` — reports only its largest piece; and a hole in a filled shape ignores strokes drawn inside it (zoom-in/out's mark, gear-3). Nothing in the set is hidden by either today.
+§6.5). `selfGap` still reads an open path's mouth; white closed in by several strokes is still open. Also still uncovered (review, 2026-10-20): white split into pieces — pinched shut by its own stroke, a crossing centreline or a fold in the same `d` — reports only its largest piece; and a hole in a filled shape ignores strokes drawn inside it (zoom-in/out's mark, gear-3). Nothing in the set is hidden by either today. And a numeral's own opening between two **touching** paths is not read: sort-numeric's 9 has its tail tip 0.93 · 0.63 · 0.61 from its bowl, under C19's 1 and agreed by Maruti (docs/07 C19), because tail and bowl are separate paths that meet (2026-10-20).
 
 **The second corollary — no more than 3 parallel strokes in one run — is still not in code.**
 Nothing approved breaks it (`menu` is the widest run at three), so it binds nothing today.
