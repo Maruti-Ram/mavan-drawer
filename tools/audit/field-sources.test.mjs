@@ -14,7 +14,7 @@ import {
   REPO, sha256, projectSlug, handbackMessage, extractReports, isInside, praiseAnchors, constructionAnchors,
   citedAnchors, quotedStrings, findQuote, failureModes, recountTally, constructionCounts, normaliseRow,
   normaliseTable, checkTranscription, checkDocument, CALIBRATION, CALIBRATION_KEYS, valueBacked, isThirdParty,
-  reportQuotedSpans, sourceText, QUOTE_WORD_CAP,
+  reportQuotedSpans, sourceText, locateSay, movedCitations, QUOTE_WORD_CAP,
 } from './field-sources.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -344,7 +344,7 @@ test('a value is backed by its snippet only when it is one of the numbers writte
   assert.equal(valueBacked({ v: 22, calc: 'process.exit(1)' }, 'Circle r 10', 2), false, 'only arithmetic is evaluated');
 });
 
-test('transcription guard: a missing snippet, a wrong section, a wrong value and a wrong repo line are each reported; every embedded row has a source', () => {
+test('transcription guard: a missing snippet, a wrong section, a wrong value and words gone from a repo file are each reported; a moved repo line is not; every embedded row has a source', () => {
   const dir = tmp();
   try {
     mkdirSync(join(dir, 'docs', 'audit'), { recursive: true });
@@ -357,16 +357,32 @@ test('transcription guard: a missing snippet, a wrong section, a wrong value and
       { ...base, system: 'nosec', size: 16, canvas: 16, basis: 'S', stroke: { v: 1.5, say: '1.5px', at: '§2.99' } },
       { ...base, system: 'wrongv', size: 16, canvas: 16, basis: 'S', stroke: { v: 2.5, say: '1.5px. Legacy set was 2px on a 24 canvas', at: '§2.5' } },
       { ...base, system: 'repo-ok', size: 24, canvas: 24, basis: 'K', stroke: { v: 1.5, say: '1.00 · 1.50 · 2.00', at: 'fake-card.md:2' }, gap: { v: 1.5, say: 'the floor is 1.5', at: 'ROOT.md:1' } },
-      { ...base, system: 'repo-bad', size: 24, canvas: 24, basis: 'K', stroke: { v: 1.5, say: '1.00 · 1.50 · 2.00', at: 'fake-card.md:3' } },
+      { ...base, system: 'repo-moved', size: 24, canvas: 24, basis: 'K', stroke: { v: 1.5, say: '1.00 · 1.50 · 2.00', at: 'fake-card.md:3' } },
+      { ...base, system: 'repo-bad', size: 24, canvas: 24, basis: 'K', stroke: { v: 1.5, say: '1.00 · 1.50 · 2.50', at: 'fake-card.md:2' } },
       { ...base, system: 'nosay', size: 24, canvas: 24, basis: 'K', stroke: { v: 1.5, say: null, at: null } },
     ];
     const bad = checkTranscription(CONSTRUCTION, rows, dir);
     assert.deepEqual(bad.map((b) => b.split(':')[0]), ['absent 16 stroke', 'nosec 16 stroke', 'wrongv 16 stroke', 'repo-bad 24 stroke', 'nosay 24 stroke']);
     assert.match(bad[2], /value 2\.5 is not among the numbers in "1\.5px\. Legacy set was 2px on a 24 canvas"/);
-    assert.match(bad[3], /not found in fake-card\.md:3/);
+    assert.match(bad[3], /not found in fake-card\.md:2 — nor on any other line of that file/);
+    // the words cited at :3 sit on :2 — found, and said to have moved
+    assert.deepEqual(locateSay('1.00 · 1.50 · 2.00', 'fake-card.md:3', new Map(), dir), { found: true, line: 2, stated: 3, moved: true });
+    assert.deepEqual(locateSay('the floor is 1.5', 'ROOT.md:1', new Map(), dir), { found: true, line: 1, stated: 1, moved: false });
+    assert.deepEqual(locateSay('the floor is 1.5', 'nowhere.md:1', new Map(), dir), { found: false, line: null, stated: 1, moved: false, missing: true });
+    assert.match(checkTranscription('', [{ system: 'gone', size: 24, stroke: { v: 1.5, say: 'the floor is 1.5', at: 'nowhere.md:1' } }], dir)[0], /not found in nowhere\.md:1 — that file is not in the repo/);
+    assert.deepEqual(movedCitations(rows, dir), [{ system: 'repo-moved', size: 24, key: 'stroke', at: 'fake-card.md:3', line: 2 }]);
+    // words on more than one line: the nearest to the stated line is the one meant
+    writeFileSync(join(dir, 'TWICE.md'), 'MIN_GAP = 1.5\na\nb\nc\nMIN_GAP = 1.5\n');
+    assert.equal(locateSay('MIN_GAP = 1.5', 'TWICE.md:4', new Map(), dir).line, 5);
+    assert.equal(locateSay('MIN_GAP = 1.5', 'TWICE.md:2', new Map(), dir).line, 1);
     assert.equal(sourceText('ROOT.md:1', new Map(), dir), 'the floor is 1.5 at every master');
     assert.equal(sourceText('nowhere.md:1', new Map(), dir), null);
   } finally { rmSync(dir, { recursive: true, force: true }); }
+  // the real rows' repo citations hold in this repo, wherever their lines have moved to
+  for (const r of CALIBRATION) for (const k of CALIBRATION_KEYS) {
+    const d = r[k];
+    if (d?.at && !d.at.startsWith('§')) assert.ok(locateSay(d.say, d.at, new Map(), REPO).found, `${r.system} ${r.size} ${k}: "${d.say}" is in ${d.at.replace(/:\d+$/, '')}`);
+  }
   for (const r of CALIBRATION) for (const k of CALIBRATION_KEYS) {
     const d = r[k];
     if (!d) continue;

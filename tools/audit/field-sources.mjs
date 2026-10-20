@@ -321,7 +321,10 @@ export function constructionCounts(text) {
 // ── the calibration table ───────────────────────────────────────────────────────────────────
 // Each number carries `say`, the exact words that state it, and `at`, where those words live: a
 // section of the construction report (`§2.5`) or a line of a repo file (`references-fluent.md:118`
-// under docs/audit, or a path from the repo root). `check` verifies that every `say` is in its
+// under docs/audit, or a path from the repo root). A repo line is where the words were when the row
+// was written: `check` looks for them on every line of that file, so an edit above them moves the
+// citation without breaking it — it prints the line they are on now — and only words that no line
+// of the file holds any longer fail. `check` verifies that every `say` is in its
 // source AND that the value is one of the numbers written in `say` (or, for a derived value, that
 // `calc` — arithmetic on numbers written in `say` and the row's own stroke — gives it). A range is
 // {lo, hi}. "n/s" = not stated. Columns: stroke · circle keyline (ink) · square keyline (ink) ·
@@ -472,16 +475,35 @@ export function valueBacked(d, say, strokeV = null) {
   return ok(d.v);
 }
 
-/** The text a `say` must be found in: a construction-report section (`§2.5`) or a repo line
- *  (`references-fluent.md:118` — a bare name is looked up under docs/audit first, then from the
- *  repo root; a path with a slash from the repo root). */
+/** The lines of a repo file a citation names (`references-fluent.md:118` — a bare name is looked
+ *  up under docs/audit first, then from the repo root; a path with a slash from the repo root), or
+ *  null when there is no such file. */
+function citedLines(file, repo) {
+  const candidates = file.includes('/') ? [join(repo, file)] : [join(repo, 'docs', 'audit', file), join(repo, file)];
+  const p = candidates.find((c) => existsSync(c));
+  return p ? readFileSync(p, 'utf8').split('\n') : null;
+}
+
+/** The text at a citation, read literally: a construction-report section (`§2.5`) or one repo line. */
 export function sourceText(at, anchors, repo) {
   const m = at.match(/^([^:§]+):(\d+)$/);
   if (!m) return anchors.get(at) ?? null;
-  const candidates = m[1].includes('/') ? [join(repo, m[1])] : [join(repo, 'docs', 'audit', m[1]), join(repo, m[1])];
-  const p = candidates.find((c) => existsSync(c));
-  if (!p) return null;
-  return readFileSync(p, 'utf8').split('\n')[+m[2] - 1] ?? null;
+  return citedLines(m[1], repo)?.[+m[2] - 1] ?? null;
+}
+
+/** Where a `say` is now. A section holds it or does not (`line` null). A repo citation's line is a
+ *  hint: the words are looked for on every line of the file, and the nearest line that holds them
+ *  is where they are, so text inserted above a cited line moves it instead of breaking it.
+ *  Returns { found, line, stated, moved }. */
+export function locateSay(say, at, anchors, repo) {
+  const m = at.match(/^([^:§]+):(\d+)$/);
+  if (!m) { const t = anchors.get(at); return { found: t != null && unsmart(t).includes(unsmart(say)), line: null, stated: null, moved: false }; }
+  const stated = +m[2], want = unsmart(say);
+  const lines = citedLines(m[1], repo);
+  if (!lines) return { found: false, line: null, stated, moved: false, missing: true };
+  const hits = lines.map((l, i) => (unsmart(l).includes(want) ? i + 1 : 0)).filter(Boolean);
+  const line = hits.length ? hits.reduce((best, n) => (Math.abs(n - stated) < Math.abs(best - stated) ? n : best)) : null;
+  return { found: line != null, line, stated, moved: line != null && line !== stated };
 }
 
 /** Every `say` must be found in its source and every value must be backed by its `say`. */
@@ -492,11 +514,24 @@ export function checkTranscription(constructionText, rows = CALIBRATION, repo = 
     const d = r[key];
     if (!d) continue;
     if (d.say == null) { bad.push(`${r.system} ${r.size} ${key}: no source snippet`); continue; }
-    const src = sourceText(d.at, a, repo);
-    if (!src || !unsmart(src).includes(unsmart(d.say))) bad.push(`${r.system} ${r.size} ${key}: "${d.say}" not found in ${d.at}`);
+    const at = locateSay(d.say, d.at, a, repo);
+    if (!at.found) bad.push(`${r.system} ${r.size} ${key}: "${d.say}" not found in ${d.at}${at.missing ? ' — that file is not in the repo' : at.stated == null ? '' : ' — nor on any other line of that file'}`);
     if (!valueBacked(d, d.say, r.stroke?.v ?? null)) bad.push(`${r.system} ${r.size} ${key}: value ${JSON.stringify(d.v)} is not among the numbers in "${d.say}"`);
   }
   return bad;
+}
+
+/** The repo citations whose words now sit on another line: { system, size, key, at, line }. Found,
+ *  so not a problem; `check` prints them so the stated line can be brought up to date. */
+export function movedCitations(rows = CALIBRATION, repo = REPO) {
+  const out = [];
+  for (const r of rows) for (const key of CALIBRATION_KEYS) {
+    const d = r[key];
+    if (!d?.say || !d.at) continue;
+    const at = locateSay(d.say, d.at, new Map(), repo);
+    if (at.moved) out.push({ system: r.system, size: r.size, key, at: d.at, line: at.line });
+  }
+  return out;
 }
 
 // ── check ───────────────────────────────────────────────────────────────────────────────────
@@ -549,7 +584,8 @@ export function checkDocument({ doc, reports, evidenceDir = null, transcription 
   // guard says nothing, so it runs only when the reports are the recorded ones
   const transcriptionProblems = transcription ? checkTranscription(construction.text) : null;
   if (transcriptionProblems) problems.push(...transcriptionProblems);
-  return { problems, anchorsCited: seen.size, quotes: where, quoteStats, transcription: transcriptionProblems, counts: { praise: failureModes(praise.text), construction: constructionCounts(construction.text) } };
+  const moved = transcription ? movedCitations() : null;
+  return { problems, anchorsCited: seen.size, quotes: where, quoteStats, transcription: transcriptionProblems, moved, counts: { praise: failureModes(praise.text), construction: constructionCounts(construction.text) } };
 }
 
 // ── CLI ─────────────────────────────────────────────────────────────────────────────────────
@@ -593,6 +629,7 @@ function main(argv) {
     console.log(`\n## construction report counts: systems ${cc.systems} · stroke at 16 stated as 1.0 by ${cc.strokesAt16['1.0'] ?? 0}, as 1.5 by ${cc.strokesAt16['1.5'] ?? 0} · multi-size policy rows ${cc.multiSizeRows}, of which one drawing per concept ${cc.oneDrawingPerConcept} (plus ${cc.oneTopologyWithAxes} one topology with axes) · live-area rows ${cc.liveAreaRows} · contradiction topics ${cc.contradictionTopics} · filled-twin systems in the §1.7 table ${cc.filledTwinSystems}`);
     const cells = CALIBRATION.reduce((n, r) => n + CALIBRATION_KEYS.filter((k) => r[k]).length, 0);
     console.log('\n## calibration transcription: ' + (res.transcription === null ? 'skipped — the reports are not the recorded ones (--no-hash)' : res.transcription.length ? 'FAIL' : `every embedded value (${CALIBRATION.length} rows, ${cells} cells) is among the numbers of its snippet, and every snippet is in its source`));
+    for (const m of res.moved ?? []) console.log(`  moved: ${m.system} ${m.size} ${m.key} cites ${m.at}; the words are on line ${m.line} now`);
     if (res.problems.length) { console.log('\n## PROBLEMS'); for (const p of res.problems) console.log('  ✗ ' + p); return 1; }
     console.log('\n## OK — every anchor exists and every quote is verbatim');
     return 0;
