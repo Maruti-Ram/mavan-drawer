@@ -590,6 +590,8 @@
     "headphones",
     "headphones-2",
     "headphones-2-filled",
+    "headphones-3",
+    "headphones-3-filled",
     "headphones-4",
     "headphones-4-filled",
     "headphones-filled",
@@ -35313,6 +35315,127 @@
         "capsule",
         "audio",
         "music"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "headphones-3": {
+      "paths": [
+        "M3.75 6.75A3 3 0 1 0 9.75 6.75A3 3 0 1 0 3.75 6.75Z",
+        "M14.25 6.75A3 3 0 1 0 20.25 6.75A3 3 0 1 0 14.25 6.75Z",
+        "M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z",
+        "M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 6.75A3 3 0 1 0 9.75 6.75A3 3 0 1 0 3.75 6.75Z\"/> <path d=\"M14.25 6.75A3 3 0 1 0 20.25 6.75A3 3 0 1 0 14.25 6.75Z\"/> <path d=\"M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z\"/> <path d=\"M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "earbuds",
+        "wireless",
+        "in-ear",
+        "airpods"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 1.16,
+          "optical": 3.87
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.16,
+          "optical": 3.87
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.69,
+          "optical": 3.52
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.14,
+          "optical": 3.1
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "headphones-3-filled": {
+      "paths": [
+        "M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z",
+        "M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z"
+      ],
+      "areas": [
+        "M3 6.75A3.75 3.75 0 1 0 10.5 6.75A3.75 3.75 0 1 0 3 6.75Z",
+        "M13.5 6.75A3.75 3.75 0 1 0 21 6.75A3.75 3.75 0 1 0 13.5 6.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6.75A3.75 3.75 0 1 0 10.5 6.75A3.75 3.75 0 1 0 3 6.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.5 6.75A3.75 3.75 0 1 0 21 6.75A3.75 3.75 0 1 0 13.5 6.75Z\"/> <path d=\"M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z\"/> <path d=\"M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "earbuds",
+        "wireless",
+        "in-ear",
+        "airpods"
       ],
       "shift": [
         0,
@@ -79649,6 +79772,8 @@
         "headphones",
         "headphones-2",
         "headphones-2-filled",
+        "headphones-3",
+        "headphones-3-filled",
         "headphones-4",
         "headphones-4-filled",
         "headphones-filled",
@@ -114314,6 +114439,127 @@
             "capsule",
             "audio",
             "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "headphones-3": {
+          "paths": [
+            "M2.625 4.5A1.875 1.875 0 1 0 6.375 4.5A1.875 1.875 0 1 0 2.625 4.5Z",
+            "M9.625 4.5A1.875 1.875 0 1 0 13.375 4.5A1.875 1.875 0 1 0 9.625 4.5Z",
+            "M6.375 4.5V13A0.375 0.375 0 0 1 5.625 13V6A1.875 1.875 0 0 0 6.375 4.5Z",
+            "M9.625 4.5V13A0.375 0.375 0 0 0 10.375 13V6A1.875 1.875 0 0 1 9.625 4.5Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 4.5A1.875 1.875 0 1 0 6.375 4.5A1.875 1.875 0 1 0 2.625 4.5Z\"/> <path d=\"M9.625 4.5A1.875 1.875 0 1 0 13.375 4.5A1.875 1.875 0 1 0 9.625 4.5Z\"/> <path d=\"M6.375 4.5V13A0.375 0.375 0 0 1 5.625 13V6A1.875 1.875 0 0 0 6.375 4.5Z\"/> <path d=\"M9.625 4.5V13A0.375 0.375 0 0 0 10.375 13V6A1.875 1.875 0 0 1 9.625 4.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "earbuds",
+            "wireless",
+            "in-ear",
+            "airpods"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.7
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.7
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.52,
+              "optical": 2.39
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.11
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "headphones-3-filled": {
+          "paths": [
+            "M6.375 4.5V13A0.375 0.375 0 0 1 5.625 13V6A1.875 1.875 0 0 0 6.375 4.5Z",
+            "M9.625 4.5V13A0.375 0.375 0 0 0 10.375 13V6A1.875 1.875 0 0 1 9.625 4.5Z"
+          ],
+          "areas": [
+            "M2 4.5A2.5 2.5 0 1 0 7 4.5A2.5 2.5 0 1 0 2 4.5Z",
+            "M9 4.5A2.5 2.5 0 1 0 14 4.5A2.5 2.5 0 1 0 9 4.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 4.5A2.5 2.5 0 1 0 7 4.5A2.5 2.5 0 1 0 2 4.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 4.5A2.5 2.5 0 1 0 14 4.5A2.5 2.5 0 1 0 9 4.5Z\"/> <path d=\"M6.375 4.5V13A0.375 0.375 0 0 1 5.625 13V6A1.875 1.875 0 0 0 6.375 4.5Z\"/> <path d=\"M9.625 4.5V13A0.375 0.375 0 0 0 10.375 13V6A1.875 1.875 0 0 1 9.625 4.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "earbuds",
+            "wireless",
+            "in-ear",
+            "airpods"
           ],
           "shift": [
             0,
@@ -158624,6 +158870,8 @@
         "headphones",
         "headphones-2",
         "headphones-2-filled",
+        "headphones-3",
+        "headphones-3-filled",
         "headphones-4",
         "headphones-4-filled",
         "headphones-filled",
@@ -193312,6 +193560,127 @@
             "capsule",
             "audio",
             "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "headphones-3": {
+          "paths": [
+            "M3.75 6A2.25 2.25 0 1 0 8.25 6A2.25 2.25 0 1 0 3.75 6Z",
+            "M11.75 6A2.25 2.25 0 1 0 16.25 6A2.25 2.25 0 1 0 11.75 6Z",
+            "M8.25 6V16A0.25 0.25 0 0 1 7.75 16V7.41A2.25 2.25 0 0 0 8.25 6Z",
+            "M11.75 6V16A0.25 0.25 0 0 0 12.25 16V7.41A2.25 2.25 0 0 1 11.75 6Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 6A2.25 2.25 0 1 0 8.25 6A2.25 2.25 0 1 0 3.75 6Z\"/> <path d=\"M11.75 6A2.25 2.25 0 1 0 16.25 6A2.25 2.25 0 1 0 11.75 6Z\"/> <path d=\"M8.25 6V16A0.25 0.25 0 0 1 7.75 16V7.41A2.25 2.25 0 0 0 8.25 6Z\"/> <path d=\"M11.75 6V16A0.25 0.25 0 0 0 12.25 16V7.41A2.25 2.25 0 0 1 11.75 6Z\"/>",
+          "mark": false,
+          "tags": [
+            "earbuds",
+            "wireless",
+            "in-ear",
+            "airpods"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.11,
+              "optical": 3.83
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.11,
+              "optical": 3.83
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.61,
+              "optical": 3.46
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.12,
+              "optical": 3.09
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "headphones-3-filled": {
+          "paths": [
+            "M8.25 6V16A0.25 0.25 0 0 1 7.75 16V7.41A2.25 2.25 0 0 0 8.25 6Z",
+            "M11.75 6V16A0.25 0.25 0 0 0 12.25 16V7.41A2.25 2.25 0 0 1 11.75 6Z"
+          ],
+          "areas": [
+            "M3 6A3 3 0 1 0 9 6A3 3 0 1 0 3 6Z",
+            "M11 6A3 3 0 1 0 17 6A3 3 0 1 0 11 6Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6A3 3 0 1 0 9 6A3 3 0 1 0 3 6Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 6A3 3 0 1 0 17 6A3 3 0 1 0 11 6Z\"/> <path d=\"M8.25 6V16A0.25 0.25 0 0 1 7.75 16V7.41A2.25 2.25 0 0 0 8.25 6Z\"/> <path d=\"M11.75 6V16A0.25 0.25 0 0 0 12.25 16V7.41A2.25 2.25 0 0 1 11.75 6Z\"/>",
+          "mark": false,
+          "tags": [
+            "earbuds",
+            "wireless",
+            "in-ear",
+            "airpods"
           ],
           "shift": [
             0,
@@ -237643,6 +238012,8 @@
         "headphones",
         "headphones-2",
         "headphones-2-filled",
+        "headphones-3",
+        "headphones-3-filled",
         "headphones-4",
         "headphones-4-filled",
         "headphones-filled",
@@ -272366,6 +272737,127 @@
             "capsule",
             "audio",
             "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "headphones-3": {
+          "paths": [
+            "M3.75 6.75A3 3 0 1 0 9.75 6.75A3 3 0 1 0 3.75 6.75Z",
+            "M14.25 6.75A3 3 0 1 0 20.25 6.75A3 3 0 1 0 14.25 6.75Z",
+            "M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z",
+            "M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 6.75A3 3 0 1 0 9.75 6.75A3 3 0 1 0 3.75 6.75Z\"/> <path d=\"M14.25 6.75A3 3 0 1 0 20.25 6.75A3 3 0 1 0 14.25 6.75Z\"/> <path d=\"M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z\"/> <path d=\"M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "earbuds",
+            "wireless",
+            "in-ear",
+            "airpods"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.16,
+              "optical": 3.87
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.16,
+              "optical": 3.87
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.69,
+              "optical": 3.52
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "headphones-3-filled": {
+          "paths": [
+            "M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z",
+            "M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z"
+          ],
+          "areas": [
+            "M3 6.75A3.75 3.75 0 1 0 10.5 6.75A3.75 3.75 0 1 0 3 6.75Z",
+            "M13.5 6.75A3.75 3.75 0 1 0 21 6.75A3.75 3.75 0 1 0 13.5 6.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6.75A3.75 3.75 0 1 0 10.5 6.75A3.75 3.75 0 1 0 3 6.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.5 6.75A3.75 3.75 0 1 0 21 6.75A3.75 3.75 0 1 0 13.5 6.75Z\"/> <path d=\"M9.75 6.75V19.75A0.5 0.5 0 0 1 8.75 19.75V8.99A3 3 0 0 0 9.75 6.75Z\"/> <path d=\"M14.25 6.75V19.75A0.5 0.5 0 0 0 15.25 19.75V8.99A3 3 0 0 1 14.25 6.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "earbuds",
+            "wireless",
+            "in-ear",
+            "airpods"
           ],
           "shift": [
             0,
@@ -322136,6 +322628,17 @@
       "category": "Communication",
       "base": "headphones",
       "note": "Wired earbuds · approved 2026-10-20",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-20"
+    },
+    {
+      "n": 193,
+      "name": "headphones-3",
+      "section": "D · The rest, by audit rank",
+      "category": "Communication",
+      "base": "headphones",
+      "note": "Ring heads, slim solid stems · approved 2026-10-20",
       "status": "done",
       "mvp": false,
       "date": "2026-10-20"
