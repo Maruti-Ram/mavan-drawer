@@ -1030,3 +1030,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 520. `library` — added 2026-10-20 · approved 2026-10-20
 - [x] 521. `trophy` — added 2026-10-20 · approved 2026-10-20
 - [x] 522. `crown` — added 2026-10-20 · approved 2026-10-20
+- [x] 523. `medal` — added 2026-10-20 · approved 2026-10-20

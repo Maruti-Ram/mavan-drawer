@@ -883,6 +883,8 @@
     "maximize-5",
     "maximize-5-filled",
     "maximize-filled",
+    "medal",
+    "medal-filled",
     "megaphone",
     "megaphone-2",
     "megaphone-2-filled",
@@ -53368,6 +53370,131 @@
       "ratio": null,
       "gap": null
     },
+    "medal": {
+      "paths": [
+        "M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z",
+        "M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8",
+        "M11.5 8L12.5 7V11"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z\"/> <path d=\"M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8\"/> <path d=\"M11.5 8L12.5 7V11\"/>",
+      "mark": false,
+      "tags": [
+        "medal",
+        "first",
+        "gold",
+        "1",
+        "winner",
+        "numeral",
+        "lucide",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 5,
+        "y": 2,
+        "w": 14,
+        "h": 20
+      },
+      "bearing": {
+        "left": 5,
+        "top": 2,
+        "right": 5,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 5,
+          "recession": 1.05,
+          "optical": 5.79
+        },
+        "right": {
+          "geometric": 5,
+          "recession": 1.05,
+          "optical": 5.79
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.83,
+          "optical": 2.62
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.5,
+          "optical": 2.38
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "medal-filled": {
+      "paths": [],
+      "areas": [
+        "M5 9A7 7 0 1 0 19 9A7 7 0 1 0 5 9ZM12.03 8.53L11.75 8.81L11.75 11A0.75 0.75 0 0 0 12.5 11.75A0.75 0.75 0 0 0 13.25 11L13.25 11L13.25 7A0.75 0.75 0 0 0 11.97 6.47L10.97 7.47A0.75 0.75 0 0 0 10.97 8.53A0.75 0.75 0 0 0 12.03 8.53Z",
+        "M7.25 16.99A0.5 0.5 0 0 1 8.03 16.57A8.5 8.5 0 0 0 15.97 16.57A0.5 0.5 0 0 1 16.75 16.99L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 9A7 7 0 1 0 19 9A7 7 0 1 0 5 9ZM12.03 8.53L11.75 8.81L11.75 11A0.75 0.75 0 0 0 12.5 11.75A0.75 0.75 0 0 0 13.25 11L13.25 11L13.25 7A0.75 0.75 0 0 0 11.97 6.47L10.97 7.47A0.75 0.75 0 0 0 10.97 8.53A0.75 0.75 0 0 0 12.03 8.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 16.99A0.5 0.5 0 0 1 8.03 16.57A8.5 8.5 0 0 0 15.97 16.57A0.5 0.5 0 0 1 16.75 16.99L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "medal",
+        "first",
+        "gold",
+        "1",
+        "winner",
+        "numeral",
+        "lucide",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 5,
+        "y": 2,
+        "w": 14,
+        "h": 20
+      },
+      "bearing": {
+        "left": 5,
+        "top": 2,
+        "right": 5,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "megaphone": {
       "paths": [
         "M5.71 19.46L4.29 18.04A1.5 1.5 0 0 1 4.29 15.92L8.06 12.16A0.75 0.75 0 0 0 8.24 11.86L10.8 4.17A0.75 0.75 0 0 1 12.05 3.87L19.88 11.7A0.75 0.75 0 0 1 19.58 12.95L11.89 15.51A0.75 0.75 0 0 0 11.59 15.69L7.83 19.46A1.5 1.5 0 0 1 5.71 19.46Z",
@@ -93521,6 +93648,8 @@
         "maximize-5",
         "maximize-5-filled",
         "maximize-filled",
+        "medal",
+        "medal-filled",
         "megaphone",
         "megaphone-2",
         "megaphone-2-filled",
@@ -145945,6 +146074,131 @@
           "ratio": null,
           "gap": null
         },
+        "medal": {
+          "paths": [
+            "M3.625 6A4.375 4.375 0 1 0 12.375 6A4.375 4.375 0 1 0 3.625 6Z",
+            "M5.625 9.674L5.625 13.75A0.625 0.625 0 0 0 6.25 14.375A0.625 0.625 0 0 0 6.692 14.192L7.558 13.326A0.625 0.625 0 0 1 8.442 13.326L9.308 14.192A0.625 0.625 0 0 0 9.75 14.375A0.625 0.625 0 0 0 10.375 13.75L10.375 9.674",
+            "M7.5 5.5L8.5 4.5V7.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 6A4.375 4.375 0 1 0 12.375 6A4.375 4.375 0 1 0 3.625 6Z\"/> <path d=\"M5.625 9.674L5.625 13.75A0.625 0.625 0 0 0 6.25 14.375A0.625 0.625 0 0 0 6.692 14.192L7.558 13.326A0.625 0.625 0 0 1 8.442 13.326L9.308 14.192A0.625 0.625 0 0 0 9.75 14.375A0.625 0.625 0 0 0 10.375 13.75L10.375 9.674\"/> <path d=\"M7.5 5.5L8.5 4.5V7.5\"/>",
+          "mark": false,
+          "tags": [
+            "medal",
+            "first",
+            "gold",
+            "1",
+            "winner",
+            "numeral",
+            "lucide",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.64,
+              "optical": 1.48
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.26,
+              "optical": 1.2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "medal-filled": {
+          "paths": [],
+          "areas": [
+            "M3 6A5 5 0 1 0 13 6A5 5 0 1 0 3 6ZM8.03 6.03L7.75 6.311L7.75 7.5A0.75 0.75 0 0 0 8.5 8.25A0.75 0.75 0 0 0 9.25 7.5L9.25 7.5L9.25 4.5A0.75 0.75 0 0 0 7.97 3.97L6.97 4.97A0.75 0.75 0 0 0 6.97 6.03A0.75 0.75 0 0 0 8.03 6.03Z",
+            "M5 12.59A0.5 0.5 0 0 1 5.731 12.146A6.5 6.5 0 0 0 10.269 12.146A0.5 0.5 0 0 1 11 12.59L11 13.75A1.25 1.25 0 0 1 9.75 15A1.25 1.25 0 0 1 8.866 14.634L8 13.768L7.134 14.634A1.25 1.25 0 0 1 6.25 15A1.25 1.25 0 0 1 5 13.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6A5 5 0 1 0 13 6A5 5 0 1 0 3 6ZM8.03 6.03L7.75 6.311L7.75 7.5A0.75 0.75 0 0 0 8.5 8.25A0.75 0.75 0 0 0 9.25 7.5L9.25 7.5L9.25 4.5A0.75 0.75 0 0 0 7.97 3.97L6.97 4.97A0.75 0.75 0 0 0 6.97 6.03A0.75 0.75 0 0 0 8.03 6.03Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 12.59A0.5 0.5 0 0 1 5.731 12.146A6.5 6.5 0 0 0 10.269 12.146A0.5 0.5 0 0 1 11 12.59L11 13.75A1.25 1.25 0 0 1 9.75 15A1.25 1.25 0 0 1 8.866 14.634L8 13.768L7.134 14.634A1.25 1.25 0 0 1 6.25 15A1.25 1.25 0 0 1 5 13.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "medal",
+            "first",
+            "gold",
+            "1",
+            "winner",
+            "numeral",
+            "lucide",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "megaphone": {
           "paths": [
             "M3.64 12.64L3.11 12.11A1 1 0 0 1 3.11 10.696L5.657 8.148A0.625 0.625 0 0 0 5.808 7.904L7.475 2.905A0.625 0.625 0 0 1 8.509 2.66L13.09 7.241A0.625 0.625 0 0 1 12.845 8.275L7.846 9.942A0.625 0.625 0 0 0 7.602 10.093L5.054 12.64A1 1 0 0 1 3.64 12.64Z",
@@ -186066,6 +186320,8 @@
         "maximize-5",
         "maximize-5-filled",
         "maximize-filled",
+        "medal",
+        "medal-filled",
         "megaphone",
         "megaphone-2",
         "megaphone-2-filled",
@@ -238514,6 +238770,131 @@
           "ratio": null,
           "gap": null
         },
+        "medal": {
+          "paths": [
+            "M5.25 7.5A4.75 4.75 0 1 0 14.75 7.5A4.75 4.75 0 1 0 5.25 7.5Z",
+            "M7 11.18L7 16.5A0.75 0.75 0 0 0 7.75 17.25A0.75 0.75 0 0 0 8.28 17.03L9.47 15.84A0.75 0.75 0 0 1 10.53 15.84L11.72 17.03A0.75 0.75 0 0 0 12.25 17.25A0.75 0.75 0 0 0 13 16.5L13 11.18",
+            "M9.5 7.25L10.5 6.25V8.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 7.5A4.75 4.75 0 1 0 14.75 7.5A4.75 4.75 0 1 0 5.25 7.5Z\"/> <path d=\"M7 11.18L7 16.5A0.75 0.75 0 0 0 7.75 17.25A0.75 0.75 0 0 0 8.28 17.03L9.47 15.84A0.75 0.75 0 0 1 10.53 15.84L11.72 17.03A0.75 0.75 0 0 0 12.25 17.25A0.75 0.75 0 0 0 13 16.5L13 11.18\"/> <path d=\"M9.5 7.25L10.5 6.25V8.75\"/>",
+          "mark": false,
+          "tags": [
+            "medal",
+            "first",
+            "gold",
+            "1",
+            "winner",
+            "numeral",
+            "lucide",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.5,
+            "y": 2,
+            "w": 11,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 2,
+            "right": 4.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 1,
+              "optical": 5.25
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 1,
+              "optical": 5.25
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.74,
+              "optical": 2.56
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.37,
+              "optical": 2.28
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "medal-filled": {
+          "paths": [],
+          "areas": [
+            "M4.5 7.5A5.5 5.5 0 1 0 15.5 7.5A5.5 5.5 0 1 0 4.5 7.5ZM10.03 7.78L9.75 8.06L9.75 8.75A0.75 0.75 0 0 0 10.5 9.5A0.75 0.75 0 0 0 11.25 8.75L11.25 8.75L11.25 6.25A0.75 0.75 0 0 0 9.97 5.72L8.97 6.72A0.75 0.75 0 0 0 8.97 7.78A0.75 0.75 0 0 0 10.03 7.78Z",
+            "M6.25 14.32A0.5 0.5 0 0 1 7.02 13.9A7 7 0 0 0 12.98 13.9A0.5 0.5 0 0 1 13.75 14.32L13.75 16.5A1.5 1.5 0 0 1 12.25 18A1.5 1.5 0 0 1 11.19 17.56L10 16.37L8.81 17.56A1.5 1.5 0 0 1 7.75 18A1.5 1.5 0 0 1 6.25 16.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.5 7.5A5.5 5.5 0 1 0 15.5 7.5A5.5 5.5 0 1 0 4.5 7.5ZM10.03 7.78L9.75 8.06L9.75 8.75A0.75 0.75 0 0 0 10.5 9.5A0.75 0.75 0 0 0 11.25 8.75L11.25 8.75L11.25 6.25A0.75 0.75 0 0 0 9.97 5.72L8.97 6.72A0.75 0.75 0 0 0 8.97 7.78A0.75 0.75 0 0 0 10.03 7.78Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 14.32A0.5 0.5 0 0 1 7.02 13.9A7 7 0 0 0 12.98 13.9A0.5 0.5 0 0 1 13.75 14.32L13.75 16.5A1.5 1.5 0 0 1 12.25 18A1.5 1.5 0 0 1 11.19 17.56L10 16.37L8.81 17.56A1.5 1.5 0 0 1 7.75 18A1.5 1.5 0 0 1 6.25 16.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "medal",
+            "first",
+            "gold",
+            "1",
+            "winner",
+            "numeral",
+            "lucide",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.5,
+            "y": 2,
+            "w": 11,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 2,
+            "right": 4.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 0,
+              "optical": 4.5
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 0,
+              "optical": 4.5
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "megaphone": {
           "paths": [
             "M4.85 15.35L4.15 14.65A1.25 1.25 0 0 1 4.15 12.88L7.2 9.82A0.75 0.75 0 0 0 7.38 9.53L9.24 3.95A0.75 0.75 0 0 1 10.48 3.66L15.84 9.02A0.75 0.75 0 0 1 15.55 10.26L9.97 12.12A0.75 0.75 0 0 0 9.68 12.3L6.62 15.35A1.25 1.25 0 0 1 4.85 15.35Z",
@@ -278656,6 +279037,8 @@
         "maximize-5",
         "maximize-5-filled",
         "maximize-filled",
+        "medal",
+        "medal-filled",
         "megaphone",
         "megaphone-2",
         "megaphone-2-filled",
@@ -331141,6 +331524,131 @@
           "ratio": null,
           "gap": null
         },
+        "medal": {
+          "paths": [
+            "M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z",
+            "M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8",
+            "M11.5 8L12.5 7V11"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z\"/> <path d=\"M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8\"/> <path d=\"M11.5 8L12.5 7V11\"/>",
+          "mark": false,
+          "tags": [
+            "medal",
+            "first",
+            "gold",
+            "1",
+            "winner",
+            "numeral",
+            "lucide",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5,
+            "y": 2,
+            "w": 14,
+            "h": 20
+          },
+          "bearing": {
+            "left": 5,
+            "top": 2,
+            "right": 5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 1.05,
+              "optical": 5.79
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 1.05,
+              "optical": 5.79
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.83,
+              "optical": 2.62
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.5,
+              "optical": 2.38
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "medal-filled": {
+          "paths": [],
+          "areas": [
+            "M5 9A7 7 0 1 0 19 9A7 7 0 1 0 5 9ZM12.03 8.53L11.75 8.81L11.75 11A0.75 0.75 0 0 0 12.5 11.75A0.75 0.75 0 0 0 13.25 11L13.25 11L13.25 7A0.75 0.75 0 0 0 11.97 6.47L10.97 7.47A0.75 0.75 0 0 0 10.97 8.53A0.75 0.75 0 0 0 12.03 8.53Z",
+            "M7.25 16.99A0.5 0.5 0 0 1 8.03 16.57A8.5 8.5 0 0 0 15.97 16.57A0.5 0.5 0 0 1 16.75 16.99L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 9A7 7 0 1 0 19 9A7 7 0 1 0 5 9ZM12.03 8.53L11.75 8.81L11.75 11A0.75 0.75 0 0 0 12.5 11.75A0.75 0.75 0 0 0 13.25 11L13.25 11L13.25 7A0.75 0.75 0 0 0 11.97 6.47L10.97 7.47A0.75 0.75 0 0 0 10.97 8.53A0.75 0.75 0 0 0 12.03 8.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 16.99A0.5 0.5 0 0 1 8.03 16.57A8.5 8.5 0 0 0 15.97 16.57A0.5 0.5 0 0 1 16.75 16.99L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "medal",
+            "first",
+            "gold",
+            "1",
+            "winner",
+            "numeral",
+            "lucide",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5,
+            "y": 2,
+            "w": 14,
+            "h": 20
+          },
+          "bearing": {
+            "left": 5,
+            "top": 2,
+            "right": 5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "megaphone": {
           "paths": [
             "M5.71 19.46L4.29 18.04A1.5 1.5 0 0 1 4.29 15.92L8.06 12.16A0.75 0.75 0 0 0 8.24 11.86L10.8 4.17A0.75 0.75 0 0 1 12.05 3.87L19.88 11.7A0.75 0.75 0 0 1 19.58 12.95L11.89 15.51A0.75 0.75 0 0 0 11.59 15.69L7.83 19.46A1.5 1.5 0 0 1 5.71 19.46Z",
@@ -381359,6 +381867,17 @@
     {
       "n": 522,
       "name": "crown",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-20 · approved 2026-10-20",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-20"
+    },
+    {
+      "n": 523,
+      "name": "medal",
       "section": "E · Added on request",
       "category": null,
       "base": null,
