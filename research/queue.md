@@ -578,6 +578,10 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 186. `bank` · Commerce & Payments
 - [ ] 187. `warehouse` · Commerce & Payments
 - [x] 188. `award` · Status & Feedback — approved 2026-10-20
+- [x] 521. `trophy` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 522. `crown` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 523. `medal` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 524. `rosette` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 189. `bookmark` · Status & Feedback — mvp · approved 2026-10-18
 - [x] 189. `bookmark-2` · Status & Feedback · variant of `bookmark` — Round head · approved 2026-10-18
 - [x] 189. `bookmark-3` · Status & Feedback · variant of `bookmark` — Crisp ribbon · approved 2026-10-18
@@ -759,6 +763,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 286. `progress-bar-high` · Status & Feedback · variant of `progress-bar` — Fill at ~70% · approved 2026-10-20
 - [x] 287. `saved-items` · Status & Feedback — approved 2026-10-20
 - [x] 287. `saved-items-2` · Status & Feedback · variant of `saved-items` — Ribbon with a tick (bookmark-2) · approved 2026-10-20
+- [x] 520. `library` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [ ] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
@@ -1027,8 +1032,3 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
 - [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
-- [x] 520. `library` — added 2026-10-20 · approved 2026-10-20
-- [x] 521. `trophy` — added 2026-10-20 · approved 2026-10-20
-- [x] 522. `crown` — added 2026-10-20 · approved 2026-10-20
-- [x] 523. `medal` — added 2026-10-20 · approved 2026-10-20
-- [x] 524. `rosette` — added 2026-10-20 · approved 2026-10-20
