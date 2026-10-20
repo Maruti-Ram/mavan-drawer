@@ -22,6 +22,8 @@
 // be in that plan or already shipped, exactly as the real approve will find it. A bare id is
 // named by the draft's `set` when it lists that id (`set: { V2: 'volume', V1: 'volume-low' }`),
 // else by the concept — so `draft-check volume.js` checks each member under the name it ships as.
+// A C33 composite declaring `base: 'password'` is found and held the same way: its base's six
+// files are linted beside it, from the same three places, and `--approve` skips `set` the same.
 //
 // Nothing in the repo is touched, so it is safe while an icon is on the board.
 // Exits 1 if any candidate has an error.
@@ -30,7 +32,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { sizeBase, sizeOf } from './masters.mjs';
-import { lintSource, checkPairs, checkFamilies, checkAnchors } from './lint.mjs';
+import { lintSource, checkPairs, checkFamilies, checkAnchors, checkBases } from './lint.mjs';
 import { candidateFiles, masters, planArg } from './draft-svg.mjs';
 
 const G = '\x1b[32m', Y = '\x1b[33m', R = '\x1b[31m', D = '\x1b[2m', B = '\x1b[1m', X = '\x1b[0m';
@@ -78,22 +80,25 @@ for (const { c, file } of plan) {
     const p = join('src/icons', String(m), f);
     if (existsSync(p)) results.set(`${m}/${f}`, lintSource(m, f, readFileSync(p, 'utf8')));
   }
-  // An anchored member (C28) is held to its full member: lint those six files beside it.
-  const anchor = [...results.values()].find((r) => r.anchor)?.anchor.name;
-  let anchorFrom = null;
-  if (anchor && anchor !== file) {
-    const inPlan = plan.find((p) => p.file === anchor && p.from === 'explicit')?.c;
-    const inSet = approveMode ? null : d.candidates.find((x) => d.set?.[x.id] === anchor);
+  // An anchored member (C28) is held to its full member, and a C33 composite that declares a base
+  // to that base: lint those six files beside it. A file declares at most one of the two.
+  const refs = [];   // [{ kind, name, from }] — printed under the candidate's headline
+  for (const [kind, name] of [['anchor', [...results.values()].find((r) => r.anchor)?.anchor.name],
+    ['base', [...results.values()].find((r) => r.base)?.base.name]]) {
+    if (!name || name === file) continue;
+    let from = null;
+    const inPlan = plan.find((p) => p.file === name && p.from === 'explicit')?.c;
+    const inSet = approveMode ? null : d.candidates.find((x) => d.set?.[x.id] === name);
     const byName = inPlan ?? inSet;
     let src = null;
     if (byName) {
-      try { src = candidateFiles(d, byName, anchor); anchorFrom = `candidate ${byName.id} of this draft${inPlan ? '' : ' (its `set` name)'}`; }
-      catch (e) { anchorFrom = `candidate ${byName.id} cannot ship (${e.message}); `; }
+      try { src = candidateFiles(d, byName, name); from = `candidate ${byName.id} of this draft${inPlan ? '' : ' (its `set` name)'}`; }
+      catch (e) { from = `candidate ${byName.id} cannot ship (${e.message}); `; }
     }
     if (!src) {
-      src = masters.flatMap((m) => [`${anchor}.svg`, `${anchor}-filled.svg`].map((f) => ({ master: m, file: f, p: join('src/icons', String(m), f) })))
+      src = masters.flatMap((m) => [`${name}.svg`, `${name}-filled.svg`].map((f) => ({ master: m, file: f, p: join('src/icons', String(m), f) })))
         .filter(({ p }) => existsSync(p)).map(({ master, file: f, p }) => ({ master, file: f, src: readFileSync(p, 'utf8') }));
-      anchorFrom = (anchorFrom ?? '') + (src.length ? 'shipped src/icons' : `not in ${approveMode ? 'this approval' : 'this run or the draft\'s set'}, not shipped`);
+      from = (from ?? '') + (src.length ? 'shipped src/icons' : `not in ${approveMode ? 'this approval' : 'this run or the draft\'s set'}, not shipped`);
     }
     for (const { master, file: f, src: text } of src) {
       if (results.has(`${master}/${f}`)) continue;
@@ -101,16 +106,18 @@ for (const { c, file } of plan) {
       writeFileSync(join(tmp, c.id, String(master), f), text);
       results.set(`${master}/${f}`, lintSource(master, f, text));
     }
+    refs.push({ kind, name, from });
   }
   checkFamilies(results);
   checkPairs(results);
   checkAnchors(results);
+  checkBases(results);
 
   const errs = [...mine].reduce((n, k) => n + results.get(k).errors.length, 0);
   const warns = [...mine].reduce((n, k) => n + results.get(k).warnings.length, 0);
   const mark = errs ? `${R}✗${X}` : warns ? `${Y}!${X}` : `${G}✓${X}`;
   console.log(`${mark} ${B}${c.id}${X} → ${file}${c.label ? ` ${D}(${c.label})${X}` : ''}`);
-  if (anchorFrom) console.log(`  ${D}anchor ${anchor}: ${anchorFrom}${X}`);
+  for (const { kind, name, from } of refs) console.log(`  ${D}${kind} ${name}: ${from}${X}`);
   for (const m of masters) {
     const o = results.get(`${m}/${file}.svg`), f = results.get(`${m}/${file}-filled.svg`);
     console.log(`  ${String(m).padStart(2)}  outline ${dims(o?.ink).padEnd(26)} filled ${dims(f?.ink)}`);

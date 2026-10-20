@@ -105,6 +105,15 @@ export default {
   naming its own file, a missing, inkless or itself-anchored anchor, ink outside the anchor's box,
   ink that shares neither its left nor its right edge, and `anchor` with `box` or `keyline: mark`. The note declares
   membership, so it stays even when a member fills the full member's own box (info line).
+- **A composite that keeps its base's place (C33).** When the badge pulls a composite off the canvas
+  centre because its base is short (`password-lock` on `password`, 2.5 · 2 · 1.5 low), give the
+  candidate `base: 'password'` (a board-level `base` works too; `null` opts out). It is written into
+  all six files as `<!-- base: password -->`, and lint holds the composite's ink to hold the base's box
+  and share its left and top edges (the corner away from the bottom-right badge) at the same master
+  and style, instead of asking it to be centred; `box` stays. `draft-check` lints the base beside it
+  (shipped, or a candidate named `=password` in the same run), and `approve` refuses a composite whose
+  base is neither in the command nor shipped. Use it only once Maruti has chosen the base in place over
+  the composite centred.
 - **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge.
 - **Consistency.** Check against approved relatives first (`src/icons/24/`, `node tools/queue.mjs show <name>`). Reuse their lengths, radii and weights unless the question is about changing them.
 

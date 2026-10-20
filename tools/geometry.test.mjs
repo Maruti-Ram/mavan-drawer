@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { anatomy, facingGap, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
-import { checkAnchors, checkPairs, checkTwins, comparePair, lintSource, parseAnchorNote, parseBadgeNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
+import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
   FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
@@ -670,6 +670,154 @@ test('a member anchored to another member, not the full one, is an ERROR', () =>
   const mid = icon([SPEAKER, WAVE1], ['anchor: volume']);
   const r = family({ 'volume.svg': FULL, 'volume-medium.svg': mid, 'volume-low.svg': icon([SPEAKER], ['anchor: volume-medium']) });
   assert.ok(r.get('24/volume-low.svg').errors.some((e) => /is itself anchored to volume/.test(e)));
+});
+
+// --- C33 composites: `<!-- base: NAME -->` (2026-10-20) --------------------------------
+// A composite keeps its base's drawing and canvas position under the badge, so on a short base
+// it sits off the canvas centre; the note swaps the off-centre warning for "keeps NAME's place".
+// Fixture: the shipped `password` field at 24 (ink 2,7 → 22,17, centred) and password-lock's
+// candidate D at 24 — the field cut back for a lock on its bottom-right corner, one dot kept
+// (ink 2,7 → 22,22: 20×15, centre 12,14.5, 2.5 below the canvas centre).
+const PW_FIELD = 'M5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25V13.75A2.5 2.5 0 0 1 18.75 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V10.25A2.5 2.5 0 0 1 5.25 7.75Z';
+const PW_DOT = (x) => `M${x - 0.75} 12A0.75 0.75 0 1 0 ${x + 0.75} 12A0.75 0.75 0 1 0 ${x - 0.75} 12Z`;
+const PASSWORD = icon([PW_FIELD, PW_DOT(7), PW_DOT(12), PW_DOT(17)], ['box: 20x10']);
+const LOCKED = [
+  'M12.25 16.25H5.25A2.5 2.5 0 0 1 2.75 13.75V10.25A2.5 2.5 0 0 1 5.25 7.75H18.75A2.5 2.5 0 0 1 21.25 10.25',
+  PW_DOT(7),
+  'M16 17.25H20A1.25 1.25 0 0 1 21.25 18.5V20A1.25 1.25 0 0 1 20 21.25H16A1.25 1.25 0 0 1 14.75 20V18.5A1.25 1.25 0 0 1 16 17.25Z',
+  'M16.25 17.25V15A1.75 1.75 0 0 1 19.75 15V17.25',
+];
+const PASSWORD_LOCK = (notes = ['box: 20x15', 'base: password'], ds = LOCKED) => icon(ds, notes);
+const composite = (files) => checkBases(new Map(Object.entries(files).map(([f, src]) => [`24/${f}`, lintSource(24, f, src)])));
+// every y in an absolute M/L/H/V/A/Z path moved up by dy
+const up = (d, dy) => d.replace(/([MLHVAZ])([^MLHVAZ]*)/g, (_, c, a) => {
+  const n = a.trim() ? a.trim().split(/[\s,]+/).map(Number) : [];
+  if (c === 'V') n[0] -= dy;
+  if (c === 'M' || c === 'L') for (let i = 1; i < n.length; i += 2) n[i] -= dy;
+  if (c === 'A') for (let i = 6; i < n.length; i += 7) n[i] -= dy;
+  return c + n.join(' ');
+});
+
+test('parseBaseNote reads an icon name and refuses anything else', () => {
+  assert.deepEqual(parseBaseNote('<!-- base: password -->'), { name: 'password', raw: 'password' });
+  assert.equal(parseBaseNote('<!--base:map-pin-2-->').name, 'map-pin-2');
+  assert.equal(parseBaseNote('<!-- anchor: volume -->'), null);
+  assert.ok(parseBaseNote('<!-- base: Password -->').bad);
+  assert.ok(parseBaseNote('<!-- base: the field -->').bad);
+  assert.ok(parseBaseNote('<!-- base: password-filled -->').bad, 'the note names the outline; a filled file finds NAME-filled itself');
+});
+
+test('offsetText says where the ink centre sits, in 3 dp', () => {
+  assert.equal(offsetText([0, 2.5]), '2.5 below centre');
+  assert.equal(offsetText([1, 0]), '1 right of centre');
+  assert.equal(offsetText([-0.125, -1.5]), '1.5 above and 0.125 left of centre');
+  assert.equal(offsetText([0, 0]), 'on centre');
+  assert.equal(offsetText([0.004, -0.004]), 'on centre');
+});
+
+test('the fixture: password is clean, password-lock without the note warns off-centre', () => {
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(['box: 20x15']) });
+  assert.deepEqual(r.get('24/password.svg').warnings, []);
+  assert.deepEqual(r.get('24/password-lock.svg').errors, []);
+  assert.deepEqual(r.get('24/password-lock.svg').warnings, ['off-centre at 12,14.5']);
+});
+
+test('a composite that keeps its base\'s place: no centre warning, an info line instead; box stays allowed', () => {
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK() }).get('24/password-lock.svg');
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(r.warnings, []);
+  assert.ok(r.notes.includes("keeps password's place: left, top and right edges shared, 2.5 below centre (C33)"), r.notes.join(' | '));
+  assert.equal(r.notes.at(-1), '20×15  agreed box  centre 12,14.5', 'the headline stays last');
+  // the note does not loosen the box: a wrong one is still an error
+  const box = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(['box: 20x14', 'base: password']) }).get('24/password-lock.svg');
+  assert.ok(box.errors.some((e) => /declares box 20x14 but the ink is 20×15/.test(e)), box.errors.join(' | '));
+});
+
+test('a composite whose base moved up 1 leaves its top-left corner: an ERROR', () => {
+  // still holds the base's box (6 < 7, 21 > 17) and its left and right edges, but not the top
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(undefined, LOCKED.map((d) => up(d, 1))) }).get('24/password-lock.svg');
+  assert.deepEqual(r.errors, ["ink 2,6 → 22,21 does not keep password's top-left corner 2,7 → 22,17 (shares only its left and right edges) — the base has moved; C33 puts the badge bottom-right and keeps the base in place, so its left and top edges stay on password's"]);
+  // the whole icon centred instead (password-lock's Dc: up 2.5) is the same error
+  const centred = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(undefined, LOCKED.map((d) => up(d, 2.5))) }).get('24/password-lock.svg');
+  assert.match(centred.errors[0] ?? '', /^ink 2,4\.5 → 22,19\.5 does not keep password's top-left corner/);
+  assert.deepEqual(centred.warnings, [], 'an error, not the off-centre warning back');
+  // moved up by exactly the badge's overhang (5): the bottom corners now coincide with the base's,
+  // which any-corner let through (review, 2026-10-20) — the top-left rule catches it
+  const five = composite({ 'password.svg': PASSWORD, 'password-lock.svg': PASSWORD_LOCK(undefined, LOCKED.map((d) => up(d, 5))) }).get('24/password-lock.svg');
+  assert.match(five.errors[0] ?? '', /does not keep password's top-left corner/);
+});
+
+test('a composite that does not hold its base\'s box is an ERROR, whatever corner it shares', () => {
+  // left and top shared, but the right stops 1 short of the field's 22
+  const r = composite({ 'password.svg': PASSWORD, 'password-lock.svg': icon(['M2.75 7.75H20.25', 'M16 21.25H19.25'], ['base: password']) }).get('24/password-lock.svg');
+  assert.deepEqual(r.errors, ["ink 2,7 → 21,22 does not hold password's 2,7 → 22,17: it stops short on the right by 1 — the base keeps its drawing and its place under the badge (C33)"]);
+});
+
+test('only the top-left corner holds the base: a composite on the base\'s own box says "on centre" and keeps its note', () => {
+  // a badge drawn on the top edge shares only the bottom corners — the badge's side under C33's
+  // bottom-right rule could be its own, so it is an error, not a pass
+  const top = composite({ 'password.svg': PASSWORD, 'password-up.svg': icon([PW_FIELD, PW_DOT(7), 'M16 2.75H21.25'], ['base: password']) }).get('24/password-up.svg');
+  assert.match(top.errors[0] ?? '', /does not keep password's top-left corner/);
+  // inside the base's own box the note still states how the drawing was built: never asked off
+  const own = composite({ 'password.svg': PASSWORD, 'password-dot.svg': icon([PW_FIELD, PW_DOT(7)], ['box: 20x10', 'base: password']) }).get('24/password-dot.svg');
+  assert.deepEqual([own.errors, own.warnings], [[], []]);
+  assert.ok(own.notes.includes("keeps password's place: left, top, right and bottom edges shared, on centre (C33)"), own.notes.join(' | '));
+});
+
+test('a base that is not there, or has no ink, is an ERROR, and the centre warning comes back', () => {
+  const gone = composite({ 'password-lock.svg': PASSWORD_LOCK() }).get('24/password-lock.svg');
+  assert.deepEqual(gone.errors, ["keeps password's place, but there is no `password.svg` at 24 to hold it to — the base ships before its composites, or with them (C33)"]);
+  assert.deepEqual(gone.warnings, ['off-centre at 12,14.5']);
+  // same master, same style: a filled composite is held to `password-filled.svg`, not to the outline
+  const f = composite({ 'password.svg': PASSWORD, 'password-lock-filled.svg': PASSWORD_LOCK() }).get('24/password-lock-filled.svg');
+  assert.ok(f.errors.some((e) => e.includes('no `password-filled.svg` at 24')), f.errors.join(' | '));
+  const inkless = composite({ 'password.svg': icon([]), 'password-lock.svg': PASSWORD_LOCK() }).get('24/password-lock.svg');
+  assert.deepEqual(inkless.errors, ["keeps password's place, but `password.svg` at 24 has no ink to hold it to (C33)"]);
+  assert.deepEqual(inkless.warnings, ['off-centre at 12,14.5']);
+});
+
+test('a base note lint cannot read, or one naming its own file, is an ERROR, and the note is dropped', () => {
+  const bad = lintSource(24, 'password-lock.svg', PASSWORD_LOCK(['box: 20x15', 'base: the field']));
+  assert.ok(bad.errors.some((e) => /base note "the field" is not an icon name/.test(e)), bad.errors.join(' | '));
+  assert.equal(bad.base, null);
+  assert.deepEqual(bad.warnings, ['off-centre at 12,14.5'], 'an unreadable note is dropped, not half-believed');
+  const self = lintSource(24, 'password-lock-filled.svg', PASSWORD_LOCK(['box: 20x15', 'base: password-lock']));
+  assert.ok(self.errors.some((e) => /declares itself as its base/.test(e)), self.errors.join(' | '));
+  assert.equal(self.base, null);
+});
+
+test('base with an anchor or a mark is an ERROR, and the base is dropped', () => {
+  const a = lintSource(24, 'password-lock.svg', PASSWORD_LOCK(['base: password', 'anchor: password']));
+  assert.ok(a.errors.some((e) => /declares both `anchor:` and `base:`/.test(e)), a.errors.join(' | '));
+  assert.equal(a.base, null);
+  const m = lintSource(24, 'password-lock.svg', PASSWORD_LOCK(['keyline: mark', 'base: password']));
+  assert.ok(m.errors.some((e) => /declares both `base:` and `keyline: mark`/.test(e)), m.errors.join(' | '));
+  assert.equal(m.base, null);
+});
+
+test('the shipped C33 composites already keep their base\'s place: the rule is their practice', () => {
+  // calendar-repeat on calendar (badge 1 past the box, right and bottom) and map-pinned on map
+  // (badge below the sheet), every master and style, with the note added in memory only
+  for (const [comp, base, edges] of [['calendar-repeat', 'calendar', 'left and top'], ['map-pinned', 'map', 'left, top and right']])
+    for (const m of [24, 20, 16]) for (const sfx of ['', '-filled']) {
+      const src = shipped(m, `${comp}${sfx}.svg`).replace(/(<svg[^>]*>\n)/, `$1  <!-- base: ${base} -->\n`);
+      const r = checkBases(new Map([[`${m}/${comp}${sfx}.svg`, lintSource(m, `${comp}${sfx}.svg`, src)],
+        [`${m}/${base}${sfx}.svg`, lintSource(m, `${base}${sfx}.svg`, shipped(m, `${base}${sfx}.svg`))]])).get(`${m}/${comp}${sfx}.svg`);
+      assert.deepEqual(r.errors, [], `${m}/${comp}${sfx}`);
+      assert.ok(r.notes.some((n) => n.startsWith(`keeps ${base}'s place: ${edges} edges shared`)), `${m}/${comp}${sfx}: ${r.notes.join(' | ')}`);
+    }
+});
+
+test('draft-svg writes a candidate\'s base into both files; `base: null` opts out of the board\'s', () => {
+  const c = { id: 'D', label: 'lock badge', base: 'password', masters: { 24: LOCKED, 20: LOCKED, 16: LOCKED },
+    filled: { 24: { fill: [], stroke: LOCKED }, 20: { fill: [], stroke: LOCKED }, 16: { fill: [], stroke: LOCKED } } };
+  const out = candidateFiles({}, c, 'password-lock');
+  assert.equal(out.length, 6);
+  assert.ok(out.every((f) => f.src.includes('<!-- base: password -->')));
+  assert.ok(candidateFiles({ base: 'password' }, { ...c, base: undefined }, 'password-lock').every((f) => f.src.includes('<!-- base: password -->')), 'board-level');
+  assert.ok(candidateFiles({ base: 'password' }, { ...c, base: null }, 'password').every((f) => !f.src.includes('base:')), 'the base itself opts out');
+  // what draft-svg writes, lint reads
+  assert.deepEqual(parseBaseNote(out.find((f) => f.master === 24 && f.filled).src), { name: 'password', raw: 'password' });
 });
 
 // --- state twins (C34): `unlock-<n>` for every `lock-<n>` -------------------------------
