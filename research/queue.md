@@ -578,6 +578,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 193. `headphones-2` · Communication · variant of `headphones` — Capsule cups · approved 2026-10-20
 - [x] 193. `headphones-4` · Communication · variant of `headphones` — Wired earbuds · approved 2026-10-20
 - [x] 193. `headphones-3` · Communication · variant of `headphones` — Ring heads, slim solid stems · approved 2026-10-20
+- [x] 193. `headphones-5` · Communication · variant of `headphones` — Teardrop heads, slim solid stems · approved 2026-10-20
 - [x] 194. `inbox` · Communication — mvp · approved 2026-10-18
 - [ ] 195. `life-buoy` · Status & Feedback
 - [ ] 196. `loader` · Status & Feedback — mvp
