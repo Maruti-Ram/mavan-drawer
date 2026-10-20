@@ -1799,3 +1799,59 @@ test('lint §5i: a character\'s own closed shape floors at C19\'s 1 under `glyph
     `<path stroke-width="1.5" d="${TRI12.replace(/[\d.]+/g, (n) => String(+(+n + 4).toFixed(2)))}"/>`], ['keyline: mark', 'gap: 1', 'badge: line']));
   assert.deepEqual(airWarn(badge), ['path 3 leaves 1.2 of air inside itself at 16,16 (the widest circle that fits) — §6 needs 1.5']);
 });
+
+// --- a numeral's own hole floors at C19's 1 in every check (Maruti, 2026-10-20) ---------------
+// §5i held a filled numeral's hole to C19's 1, but §5f warned first on the same white at 1.5, so
+// §5i's floor never applied (reported on sort-numeric, whose filled 0 and 9 have oval bowls 1.0
+// across at 20 and 16). Under `glyph: numeral` a cut-out's width (both walls one hole of one shape)
+// now floors at 1 too; a notch, a separation and a shape-to-line span stay clearances, at 1.5. And
+// 5e's line reports every reading the note governs, not 5b's alone.
+const ZERO = 'M9 8A3 3 0 0 1 15 8V16A3 3 0 0 1 9 16ZM11.4 8.6A0.6 0.6 0 0 1 12.6 8.6V15.4A0.6 0.6 0 0 1 11.4 15.4Z';   // a filled 0, its hole 1.2 across
+const NUMERAL_IN_USE = (n) => `C19 numeral opening ${n} — floor 1, not §6's 1.5`;
+
+test('a filled numeral\'s 1.2 hole passes §5f and §5i under `glyph: numeral`; without the note it warns once', () => {
+  const ARROW = 'M5 5V19';   // sort-numeric's arrow, clear of the 0
+  const F = (areas, paths, notes) => lintSource(24, 'n-filled.svg', drawn(24, 1.5, paths, { areas, notes: ['keyline: mark', ...notes] }));
+  // both checks read the same white
+  assert.deepEqual(facingGap([ARROW], 1.5, [ZERO]).area.map((r) => [r.kind, r.gap]), [['cut', 1.2]]);
+  near(insideAir([ARROW], 1.5, [ZERO]).holes[0].air, 1.2, 0.005);
+  assert.deepEqual(airLines(F([ZERO], [ARROW], [])), ['1.2 of air across one cut-out at 12,8.72 — §6 needs 1.5'], '§5i adds no second line');
+  const noted = F([ZERO], [ARROW], ['glyph: numeral']);
+  assert.deepEqual(airLines(noted), [], 'C19\'s 1 in §5f and in §5i');
+  assert.ok(noted.notes.includes(NUMERAL_IN_USE(1.2)), noted.notes.join(' | '));
+  // the floor keeps its teeth: a 0.8 hole warns against 1
+  const tight = F([ZERO.replace('M11.4 8.6A0.6 0.6 0 0 1 12.6 8.6V15.4A0.6 0.6 0 0 1 11.4 15.4Z', 'M11.6 8.4A0.4 0.4 0 0 1 12.4 8.4V15.6A0.4 0.4 0 0 1 11.6 15.6Z')], [ARROW], ['glyph: numeral']);
+  assert.deepEqual(airLines(tight), ['0.8 of air across one cut-out at 12,8.69 — C19 numeral gap needs 1']);
+  // the hole is the note's reading, not the agreed gap's: beside the numeral note a gap note has nothing to do
+  const both = F([ZERO], [ARROW], ['glyph: numeral', 'gap: 1']);
+  assert.ok(both.errors.some((e) => /^declares gap 1 but nothing in this drawing comes within §6's 1\.5/.test(e)), both.errors.join(' | '));
+  // under `glyph: dot` a cut is the knocked-out character's own line (C22) and keeps 1.5
+  assert.deepEqual(airLines(F([ZERO], [ARROW], ['glyph: dot'])), ['1.2 of air across one cut-out at 12,8.72 — §6 needs 1.5']);
+});
+
+test('`glyph: numeral` relaxes no clearance in a filled drawing: numeral to line and numeral to numeral keep 1.5', () => {
+  const F = (areas, paths) => lintSource(24, 'n-filled.svg', drawn(24, 1.5, paths, { areas, notes: ['keyline: mark', 'glyph: numeral'] }));
+  // a line 1.2 from the 0's side
+  assert.deepEqual(airLines(F([ZERO], ['M7.05 5V19'])), ['1.2 of air between a shape and a line at 8.4,8.04 — §6 needs 1.5']);
+  // two filled numerals 1.2 apart
+  assert.deepEqual(airLines(F(['M4 8A3 3 0 0 1 10 8V16A3 3 0 0 1 4 16Z', 'M11.2 8A3 3 0 0 1 17.2 8V16A3 3 0 0 1 11.2 16Z'], [])),
+    ['1.2 of air between two filled edges at 10.6,8.04 — §6 needs 1.5']);
+});
+
+test('5e reports the numeral readings of 5f and 5i: a bowl left open, a round 0, a filled hole only 5i can read', () => {
+  const O = (ds, notes) => lintSource(24, 'n.svg', drawn(24, 1.5, ds, { notes: ['keyline: mark', ...notes] }));
+  const F = (areas, notes) => lintSource(24, 'n-filled.svg', drawn(24, 1.5, [], { areas, notes: ['keyline: mark', ...notes] }));
+  const BOWL = 'M12 9.5A1.35 2.5 0 0 1 12 14.5A1.35 2.5 0 0 1 12 9.5';   // a 9's bowl, no Z: §5f's self-air reads it
+  const ROUND = RING(12, 12, 1.35);                                    // closed with Z: `ringHole` reads it
+  const TRI = 'M4 4H20V20H4ZM12 10.3L13.04 12.1L10.96 12.1Z';          // a hole §5f cannot read (§5i: 1.2)
+  for (const [label, bare, noted, warn] of [
+    ['open bowl', O([BOWL], []), O([BOWL], ['glyph: numeral']), 'path 1 faces itself across 1.2 of air at 12,11.92 — §6 needs 1.5'],
+    ['round 0', O([ROUND], []), O([ROUND], ['glyph: numeral']), 'path 1 is a ring with a hole 1.2 across at 12,12 — §6 needs 1.5 (radius 1.35 at stroke 1.5)'],
+    ['triangular hole', F([TRI], []), F([TRI], ['glyph: numeral']), 'a cut-out leaves 1.2 of air inside it at 12,11.5 (the widest circle that fits) — §6 needs 1.5'],
+  ]) {
+    assert.deepEqual(airLines(bare), [warn], label);
+    assert.deepEqual(airLines(noted), [], `${label}: C19's 1, closed with Z or not`);
+    assert.ok(noted.notes.includes(NUMERAL_IN_USE(1.2)), `${label}: ${noted.notes.join(' | ')}`);
+    assert.ok(!noted.notes.some((n) => /not in use/.test(n)), label);
+  }
+});

@@ -368,7 +368,8 @@ these and the air inside a closed path; an agreed exception is declared with `<!
 One carve-out, declared per file and checked by lint: **C19's glyph gap of 1 unit**
 for the inside of one character — a dot to its body (`<!-- glyph: dot -->`), a `?`'s
 mouth, and a numeral's own opening such as the mouth of a 2 (`<!-- glyph: numeral -->`,
-2026-09-26). The gap between a character and anything else stays 1.5
+2026-09-26) or its own hole, outline or filled, in every check (2026-10-20 — so a filled
+numeral's hole is not held to the 1.5 of white above). The gap between a character and anything else stays 1.5
 (`07-character.md` C19). A letter's own openings are not covered: `<!-- glyph: letter -->`
 (C32) keeps a letter's weight, not this floor.
 

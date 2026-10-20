@@ -165,9 +165,10 @@ export function parseBaseNote(src) {
 //   numeral  numerals drawn inside an icon (list-ordered's 1 and 2, 2026-09-26): a numeral's
 //            own opening - the mouth of a 2 between its entry terminal and its neck - floors at
 //            GLYPH_GAP (§5b), and since 2026-10-20 so do the tips of arms where one path
-//            crosses itself (§5), a filled shape's notches (§5h) and the inside air of a
-//            closed path or a hole (§5i); nothing else does:
-//            numeral-to-numeral and numeral-to-line are separate paths and keep MIN_GAP
+//            crosses itself (§5), a filled shape's notches (§5h), the inside air of a
+//            closed path or a hole (§5i), and a numeral's own hole — outline or filled — in
+//            every check, §5f's width across a cut-out included (Maruti, 2026-10-20); nothing
+//            else does: numeral-to-numeral and numeral-to-line keep MIN_GAP
 //   letter   letters drawn inside a LINE-HEAVY icon (translate's A and 文, 2026-10-20): C32's
 //            weight and nothing else — a letter's path keeps the outline weight in the filled
 //            file (§2b), as a numeral's does, but its openings get no GLYPH_GAP: they keep §6, or
@@ -302,9 +303,12 @@ export function lintSource(canvas, file, src) {
     glyph = null;
   }
   const isGlyph = glyph?.kind === 'dot';
-  const isNumeral = glyph?.kind === 'numeral';   // C19's opening floor (§5b, §5f, §5e) and C32's weight (§2b)
+  const isNumeral = glyph?.kind === 'numeral';   // C19's opening floor (§5, §5b, §5f, §5h, §5i; said in 5e) and C32's weight (§2b)
   const isLetter = glyph?.kind === 'letter';     // C32's weight (§2b) only — never C19's floor
   const keepsWeight = isNumeral || isLetter;     // the glyph notes that let a path keep the outline weight
+  // the tightest reading the numeral note floors at GLYPH_GAP — every check that lowers the floor
+  // for it feeds this (§5, §5b, §5f, §5h, §5i), so 5e never calls a note in use "not in use"
+  let numeralMin = Infinity;
 
   // --- 0b''. the badge note (C33; §2b, §5, §5b and §5f read it) ---------------
   // Both notes let a path carry the outline weight, and a path says nothing about which it is,
@@ -579,6 +583,7 @@ export function lintSource(canvas, file, src) {
     const inGlyph = !onBadge && (isGlyph ? !isShell(spans[i]) && !isShell(spans[j]) : isNumeral && i === j);
     const floor = onBadge ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
     if (!inGlyph && !onBadge) measured.push(r2(g));
+    if (inGlyph && isNumeral) numeralMin = Math.min(numeralMin, r2(g));
     if (g < floor - 0.01)
       warnings.push(`${i === j ? `path ${i + 1} crosses itself` : `paths ${i + 1}/${j + 1} cross`} at ${Math.round(angle)}° with ${r2(g)} of air at the arm tips at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
   };
@@ -632,7 +637,6 @@ export function lintSource(canvas, file, src) {
   // note is the base's. The inside of a key's bow is closed, so it is 5f's, not this loop's.
   // `glyph: letter` (C32, 2026-10-20) is NOT read as a glyph here or in 5f: it carries the weight
   // and nothing else, so a letter's openings keep §6, or the file's `gap` note, like any path.
-  let numeralMin = Infinity;   // the tightest opening the numeral note governs, for 5e
   const read5b = [];           // what 5b measured per path, so 5f does not warn on the same neck twice
   for (let i = 0; i < ds.length; i++) {
     if (isDot(ds[i])) continue;
@@ -662,8 +666,9 @@ export function lintSource(canvas, file, src) {
   // 1.25 shifted the outlines 0.125 under cut-outs that were deliberately left as
   // approved, and an unchanged `help-4-filled` began to warn. The floor is the one the
   // outline's own mouth gets in 5b: GLYPH_GAP inside a declared glyph, else MIN_GAP.
-  // `glyph: numeral` does not reach here: numerals stay strokes in the filled twin, so
-  // their openings are read by 5b; no numeral has been knocked out of a shape yet.
+  // `glyph: numeral` does not reach here: a numeral stroked in the filled twin has its
+  // openings read by 5b, and one painted as a shape (sort-numeric's 0 and 9) has its hole
+  // read as air in 5f and 5i; no numeral has been knocked out of a shape yet.
   if (areas.length && ds.length === 0) {
     const left = materialGap(areas);
     const floor = isGlyph ? GLYPH_GAP : MIN_GAP;
@@ -688,13 +693,24 @@ export function lintSource(canvas, file, src) {
   // floors as in 5b: GLYPH_GAP inside a declared glyph, else this file's agreed gap, else
   // MIN_GAP. Air touching a shape floors at the agreed gap, else MIN_GAP: a filled glyph's
   // own openings are material, not air, and 5c reads them. WARNINGS (plan, 2026-09-28).
+  // A NUMERAL'S OWN HOLE (C19, Maruti 2026-10-20): a numeral painted as a shape (sort-numeric's
+  // filled 0 and 9) is the paint, so the hole in it is its own opening, not a line punched out.
+  // Under `glyph: numeral` a `cut` — both walls one hole of one shape — floors at GLYPH_GAP, as
+  // §5i floors the same hole, and is the note's reading (5e), not the agreed gap's (5d). A notch,
+  // a separation and a shape-to-line span keep this file's agreed gap, else MIN_GAP: numeral to
+  // numeral and numeral to line are clearances, not the inside of one character. Under
+  // `glyph: dot` a cut keeps them too: a dot glyph is knocked out of its silhouette, so its cut is
+  // the character's own line (C22's 1.5), and its openings are the material 5c floors at 1.
   // A C33 line badge's own air keeps MIN_GAP, as in 5b.
   // A RING (2026-10-20) — a closed two-arc circle wider than half its stroke: a key's bow, a ring
   // badge, a keyhole, a `-circle` ring — is measured exactly, its hole 2r − w across (`ringHole`).
   // Until then every closed two-arc path was skipped here as a dot, so a hole under 1.5 passed
   // silently and closed up at 16 (passkey-2's first filled key: its bow went solid). It floors at
-  // this file's agreed gap, else MIN_GAP, and a badge's at MIN_GAP — never at C19's 1: a ring is
-  // not a character's opening, and C19 keeps the pairs it names. A solid dot has no air at all.
+  // this file's agreed gap, else MIN_GAP, and a badge's at MIN_GAP — not at C19's 1: a ring is
+  // not a character's opening, and C19 keeps the pairs it names. Bar a numeral's (2026-10-20):
+  // under `glyph: numeral` a ring is the numeral's own hole (a round 0, a 9's bowl closed with Z)
+  // and floors at GLYPH_GAP, as the same bowl left open does here and in 5i — whether the drawer
+  // closed it with Z must not move its floor. A solid dot has no air at all.
   // (`ringHole` reads the absolute `M…A…A…Z` form every ring in the set is written in; a ring
   // written with `a` or `z`, or with an arc SVG has to scale up, falls to `facingGap` below,
   // which reads the same hole but, in a glyph file, floors it as a character's opening.)
@@ -708,11 +724,12 @@ export function lintSource(canvas, file, src) {
     const rings = ds.map((d, i) => ringHole(d, W[i]));   // each path at its own weight
     rings.forEach((ring, i) => {
       if (!ring) return;
-      const floor = inBadge[i] ? MIN_GAP : GAP;
-      if (!inBadge[i]) measured.push(ring.hole);
+      const own = isNumeral && !inBadge[i];   // a numeral's own hole (see above)
+      const floor = inBadge[i] ? MIN_GAP : own ? GLYPH_GAP : GAP;
+      if (own) numeralMin = Math.min(numeralMin, ring.hole); else if (!inBadge[i]) measured.push(ring.hole);
       if (ring.hole < floor - 0.01) {
         warned5f.ring.add(i);
-        warnings.push(`path ${i + 1} is a ring with a hole ${ring.hole} across at ${ring.at.join(',')} — ${!inBadge[i] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (radius ${ring.r} at stroke ${W[i]})`);
+        warnings.push(`path ${i + 1} is a ring with a hole ${ring.hole} across at ${ring.at.join(',')} — ${own ? 'C19 numeral gap' : !inBadge[i] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor} (radius ${ring.r} at stroke ${W[i]})`);
       }
     });
     for (const { path, gap: g, at } of air.self) {
@@ -723,17 +740,20 @@ export function lintSource(canvas, file, src) {
       const inGlyph = !inBadge[path] && ((isGlyph && !isShell(spans[path])) || isNumeral);   // the badge first, as in §5
       const floor = inBadge[path] ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
       if (!inGlyph && !inBadge[path]) measured.push(g);
+      if (inGlyph && isNumeral) numeralMin = Math.min(numeralMin, g);   // a 9's bowl left open (no Z) is read here
       if (g < floor - 0.01) {
         warned5f.self.push({ path, at });
-        warnings.push(`path ${path + 1} faces itself across ${g} of air at ${at.join(',')} — ${inGlyph ? 'C19 glyph gap' : !inBadge[path] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+        warnings.push(`path ${path + 1} faces itself across ${g} of air at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !inBadge[path] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
       }
     }
     const AIR = { cut: 'across one cut-out', notch: 'in a notch of the outer edge', separation: 'between two filled edges', line: 'between a shape and a line' };
     for (const { kind, gap: g, at } of air.area) {
-      measured.push(g);
-      if (g < GAP - 0.01) {
+      const own = isNumeral && kind === 'cut';   // a numeral's own hole (see above)
+      const floor = own ? GLYPH_GAP : GAP;
+      if (own) numeralMin = Math.min(numeralMin, g); else measured.push(g);
+      if (g < floor - 0.01) {
         warned5f.area.push(at);
-        warnings.push(`${g} of air ${AIR[kind]} at ${at.join(',')} — ${gap ? `agreed gap ${gap.n}` : '§6'} needs ${GAP}`);
+        warnings.push(`${g} of air ${AIR[kind]} at ${at.join(',')} — ${own ? 'C19 numeral gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
       }
     }
   }
@@ -756,6 +776,7 @@ export function lintSource(canvas, file, src) {
     const inGlyph = isGlyph ? !silhouette : isNumeral;
     const floor = inGlyph ? GLYPH_GAP : GAP;
     if (!inGlyph) measured.push(r2(g));
+    if (inGlyph && isNumeral) numeralMin = Math.min(numeralMin, r2(g));
     if (g < floor - 0.01)
       warnings.push(`a filled shape's arms meet at ${Math.round(angle)}° with ${r2(g)} of air at the arm tips at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
   }
@@ -787,6 +808,7 @@ export function lintSource(canvas, file, src) {
       const inGlyph = !inBadge[path] && ((isGlyph && !isShell(spans[path])) || isNumeral);   // the badge first, as in §5
       const floor = inBadge[path] ? MIN_GAP : inGlyph ? GLYPH_GAP : GAP;
       if (!inGlyph && !inBadge[path]) measured.push(r2(air));
+      if (inGlyph && isNumeral) numeralMin = Math.min(numeralMin, r2(air));
       if (air < floor - 0.01)
         warnings.push(`path ${path + 1}${subs.length > 1 ? ` (subpath ${sub + 1})` : ''} leaves ${r2(air)} of air inside itself at ${at.join(',')} (the widest circle that fits) — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !inBadge[path] && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
     }
@@ -797,6 +819,7 @@ export function lintSource(canvas, file, src) {
       const inGlyph = isGlyph ? !silhouette : isNumeral;
       const floor = inGlyph ? GLYPH_GAP : GAP;
       if (!inGlyph) measured.push(r2(air));
+      if (inGlyph && isNumeral) numeralMin = Math.min(numeralMin, r2(air));
       if (air < floor - 0.01)
         warnings.push(`a cut-out leaves ${r2(air)} of air inside it at ${at.join(',')} (the widest circle that fits) — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
     }
@@ -820,7 +843,11 @@ export function lintSource(canvas, file, src) {
   // numeral's opening usually clears §6 on its own, so a note with nothing under 1.5 is
   // not an error the way a stale `gap` is: it says so in an info line, and is in force
   // (with its reading) wherever an opening does fall below §6. Where a path carries the
-  // outline weight (C32), the note is in use for that, and the line says so.
+  // outline weight (C32), the note is in use for that, and the line says so. The reading is
+  // the tightest of every check that floors at GLYPH_GAP under the note — a path's own
+  // opening (5b), its own air and a numeral's hole (5f), the widest circle inside one closed
+  // shape (5i), and a numeral's own crossing arms (5, 5h) — not 5b's alone (2026-10-20: a
+  // 9's bowl left open, read in 5f, and a filled 0's hole printed "not in use").
   if (isNumeral)
     notes.splice(-1, 0, numeralMin < MIN_GAP - 0.01
       ? `C19 numeral opening ${numeralMin} — floor ${GLYPH_GAP}, not §6's ${MIN_GAP}`
