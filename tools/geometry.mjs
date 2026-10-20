@@ -586,7 +586,7 @@ const refineOpen = (pts, step) => [...refine(pts, step).slice(0, -Math.max(1, Ma
 
 export function facingGap(ds, stroke, areas = [], { cap = 1.75 } = {}) {
   // `stroke` is one weight for every path, or an array with one per path: in a line-heavy
-  // filled drawing a numeral keeps the outline weight beside heavier rails (C32), and each
+  // filled drawing a numeral or a letter keeps the outline weight beside heavier rails (C32), and each
   // path's edge is offset by its own half. `half` is the widest, for the spatial hash.
   const halves = ds.map((_, i) => (Array.isArray(stroke) ? stroke[i] : stroke) / 2);
   const half = Math.max(0, ...halves), key = (i, j) => (i + 512) * 1024 + j + 512;

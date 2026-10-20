@@ -78,10 +78,12 @@ test('gap: a positive number below MIN_GAP; 1.5 and above is an error (lint.mjs:
   assert.equal(parseComment('gap: 0').lint.reads, false, 'lint requires > 0');
 });
 
-test('glyph: dot or numeral; anything else is an error (lint.mjs:142-147)', () => {
+test('glyph: dot, numeral or letter; anything else is an error (lint.mjs:142-147)', () => {
   assert.equal(parseComment('glyph: dot').parsed.kind, 'dot');
   assert.equal(parseComment('glyph: numeral').lint.reads, true);
-  assert.equal(parseComment('glyph: letter').lint.reads, false);
+  assert.equal(parseComment('glyph: letter').lint.reads, true);
+  assert.equal(parseComment('glyph: letter').parsed.kind, 'letter');
+  assert.equal(parseComment('glyph: letters').lint.reads, false);
 });
 
 test('anchor: an icon name, never -filled, never itself (lint.mjs:124-129, 259-262)', () => {
