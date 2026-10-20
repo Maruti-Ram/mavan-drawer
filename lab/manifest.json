@@ -131,6 +131,8 @@
     "attachment-4",
     "attachment-4-filled",
     "attachment-filled",
+    "award",
+    "award-filled",
     "ban",
     "ban-2",
     "ban-2-filled",
@@ -8616,6 +8618,125 @@
           "geometric": 2,
           "recession": 1.06,
           "optical": 2.79
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "award": {
+      "paths": [
+        "M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z",
+        "M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z\"/> <path d=\"M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8\"/>",
+      "mark": false,
+      "tags": [
+        "ribbon",
+        "medal",
+        "ring",
+        "lucide",
+        "nucleo",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 5,
+        "y": 2,
+        "w": 14,
+        "h": 20
+      },
+      "bearing": {
+        "left": 5,
+        "top": 2,
+        "right": 5,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 5,
+          "recession": 1.05,
+          "optical": 5.79
+        },
+        "right": {
+          "geometric": 5,
+          "recession": 1.05,
+          "optical": 5.79
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.83,
+          "optical": 2.62
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.5,
+          "optical": 2.38
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "award-filled": {
+      "paths": [],
+      "areas": [
+        "M7.25 14.14A7 7 0 0 1 5 9A7 7 0 0 1 12 2A7 7 0 0 1 19 9A7 7 0 0 1 16.75 14.14L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5L7.25 14.14ZM6.5 9A5.5 5.5 0 1 0 17.5 9A5.5 5.5 0 1 0 6.5 9ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 14.14A7 7 0 0 1 5 9A7 7 0 0 1 12 2A7 7 0 0 1 19 9A7 7 0 0 1 16.75 14.14L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5L7.25 14.14ZM6.5 9A5.5 5.5 0 1 0 17.5 9A5.5 5.5 0 1 0 6.5 9ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9Z\"/>",
+      "mark": false,
+      "tags": [
+        "ribbon",
+        "medal",
+        "ring",
+        "lucide",
+        "nucleo",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 5,
+        "y": 2,
+        "w": 14,
+        "h": 20
+      },
+      "bearing": {
+        "left": 5,
+        "top": 2,
+        "right": 5,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -92896,6 +93017,8 @@
         "attachment-4",
         "attachment-4-filled",
         "attachment-filled",
+        "award",
+        "award-filled",
         "ban",
         "ban-2",
         "ban-2-filled",
@@ -101381,6 +101504,125 @@
               "geometric": 1,
               "recession": 0.91,
               "optical": 1.68
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award": {
+          "paths": [
+            "M3.625 6A4.375 4.375 0 1 0 12.375 6A4.375 4.375 0 1 0 3.625 6Z",
+            "M5.625 9.674L5.625 13.75A0.625 0.625 0 0 0 6.25 14.375A0.625 0.625 0 0 0 6.692 14.192L7.558 13.326A0.625 0.625 0 0 1 8.442 13.326L9.308 14.192A0.625 0.625 0 0 0 9.75 14.375A0.625 0.625 0 0 0 10.375 13.75L10.375 9.674"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.625 6A4.375 4.375 0 1 0 12.375 6A4.375 4.375 0 1 0 3.625 6Z\"/> <path d=\"M5.625 9.674L5.625 13.75A0.625 0.625 0 0 0 6.25 14.375A0.625 0.625 0 0 0 6.692 14.192L7.558 13.326A0.625 0.625 0 0 1 8.442 13.326L9.308 14.192A0.625 0.625 0 0 0 9.75 14.375A0.625 0.625 0 0 0 10.375 13.75L10.375 9.674\"/>",
+          "mark": false,
+          "tags": [
+            "ribbon",
+            "medal",
+            "ring",
+            "lucide",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.83,
+              "optical": 3.62
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.64,
+              "optical": 1.48
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.26,
+              "optical": 1.2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-filled": {
+          "paths": [],
+          "areas": [
+            "M5 10A5 5 0 0 1 3 6A5 5 0 0 1 8 1A5 5 0 0 1 13 6A5 5 0 0 1 11 10L11 13.75A1.25 1.25 0 0 1 9.75 15A1.25 1.25 0 0 1 8.866 14.634L8 13.768L7.134 14.634A1.25 1.25 0 0 1 6.25 15A1.25 1.25 0 0 1 5 13.75L5 10ZM4.25 6A3.75 3.75 0 1 0 11.75 6A3.75 3.75 0 1 0 4.25 6ZM5.75 6A2.25 2.25 0 1 0 10.25 6A2.25 2.25 0 1 0 5.75 6Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 10A5 5 0 0 1 3 6A5 5 0 0 1 8 1A5 5 0 0 1 13 6A5 5 0 0 1 11 10L11 13.75A1.25 1.25 0 0 1 9.75 15A1.25 1.25 0 0 1 8.866 14.634L8 13.768L7.134 14.634A1.25 1.25 0 0 1 6.25 15A1.25 1.25 0 0 1 5 13.75L5 10ZM4.25 6A3.75 3.75 0 1 0 11.75 6A3.75 3.75 0 1 0 4.25 6ZM5.75 6A2.25 2.25 0 1 0 10.25 6A2.25 2.25 0 1 0 5.75 6Z\"/>",
+          "mark": false,
+          "tags": [
+            "ribbon",
+            "medal",
+            "ring",
+            "lucide",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -185568,6 +185810,8 @@
         "attachment-4",
         "attachment-4-filled",
         "attachment-filled",
+        "award",
+        "award-filled",
         "ban",
         "ban-2",
         "ban-2-filled",
@@ -194053,6 +194297,125 @@
               "geometric": 2,
               "recession": 0.91,
               "optical": 2.68
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award": {
+          "paths": [
+            "M5.25 7.5A4.75 4.75 0 1 0 14.75 7.5A4.75 4.75 0 1 0 5.25 7.5Z",
+            "M7 11.18L7 16.5A0.75 0.75 0 0 0 7.75 17.25A0.75 0.75 0 0 0 8.28 17.03L9.47 15.84A0.75 0.75 0 0 1 10.53 15.84L11.72 17.03A0.75 0.75 0 0 0 12.25 17.25A0.75 0.75 0 0 0 13 16.5L13 11.18"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 7.5A4.75 4.75 0 1 0 14.75 7.5A4.75 4.75 0 1 0 5.25 7.5Z\"/> <path d=\"M7 11.18L7 16.5A0.75 0.75 0 0 0 7.75 17.25A0.75 0.75 0 0 0 8.28 17.03L9.47 15.84A0.75 0.75 0 0 1 10.53 15.84L11.72 17.03A0.75 0.75 0 0 0 12.25 17.25A0.75 0.75 0 0 0 13 16.5L13 11.18\"/>",
+          "mark": false,
+          "tags": [
+            "ribbon",
+            "medal",
+            "ring",
+            "lucide",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.5,
+            "y": 2,
+            "w": 11,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 2,
+            "right": 4.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 1,
+              "optical": 5.25
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 1,
+              "optical": 5.25
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.74,
+              "optical": 2.56
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.37,
+              "optical": 2.28
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-filled": {
+          "paths": [],
+          "areas": [
+            "M6.25 11.52A5.5 5.5 0 0 1 4.5 7.5A5.5 5.5 0 0 1 10 2A5.5 5.5 0 0 1 15.5 7.5A5.5 5.5 0 0 1 13.75 11.52L13.75 16.5A1.5 1.5 0 0 1 12.25 18A1.5 1.5 0 0 1 11.19 17.56L10 16.37L8.81 17.56A1.5 1.5 0 0 1 7.75 18A1.5 1.5 0 0 1 6.25 16.5L6.25 11.52ZM6 7.5A4 4 0 1 0 14 7.5A4 4 0 1 0 6 7.5ZM7.5 7.5A2.5 2.5 0 1 0 12.5 7.5A2.5 2.5 0 1 0 7.5 7.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 11.52A5.5 5.5 0 0 1 4.5 7.5A5.5 5.5 0 0 1 10 2A5.5 5.5 0 0 1 15.5 7.5A5.5 5.5 0 0 1 13.75 11.52L13.75 16.5A1.5 1.5 0 0 1 12.25 18A1.5 1.5 0 0 1 11.19 17.56L10 16.37L8.81 17.56A1.5 1.5 0 0 1 7.75 18A1.5 1.5 0 0 1 6.25 16.5L6.25 11.52ZM6 7.5A4 4 0 1 0 14 7.5A4 4 0 1 0 6 7.5ZM7.5 7.5A2.5 2.5 0 1 0 12.5 7.5A2.5 2.5 0 1 0 7.5 7.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "ribbon",
+            "medal",
+            "ring",
+            "lucide",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.5,
+            "y": 2,
+            "w": 11,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 2,
+            "right": 4.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 0,
+              "optical": 4.5
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4.5,
+              "recession": 0,
+              "optical": 4.5
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -278285,6 +278648,8 @@
         "attachment-4",
         "attachment-4-filled",
         "attachment-filled",
+        "award",
+        "award-filled",
         "ban",
         "ban-2",
         "ban-2-filled",
@@ -286770,6 +287135,125 @@
               "geometric": 2,
               "recession": 1.06,
               "optical": 2.79
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award": {
+          "paths": [
+            "M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z",
+            "M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 9A6.25 6.25 0 1 0 18.25 9A6.25 6.25 0 1 0 5.75 9Z\"/> <path d=\"M8 13.8L8 20.5A0.75 0.75 0 0 0 8.75 21.25A0.75 0.75 0 0 0 9.28 21.03L11.47 18.84A0.75 0.75 0 0 1 12.53 18.84L14.72 21.03A0.75 0.75 0 0 0 15.25 21.25A0.75 0.75 0 0 0 16 20.5L16 13.8\"/>",
+          "mark": false,
+          "tags": [
+            "ribbon",
+            "medal",
+            "ring",
+            "lucide",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5,
+            "y": 2,
+            "w": 14,
+            "h": 20
+          },
+          "bearing": {
+            "left": 5,
+            "top": 2,
+            "right": 5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 1.05,
+              "optical": 5.79
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 1.05,
+              "optical": 5.79
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.83,
+              "optical": 2.62
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.5,
+              "optical": 2.38
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-filled": {
+          "paths": [],
+          "areas": [
+            "M7.25 14.14A7 7 0 0 1 5 9A7 7 0 0 1 12 2A7 7 0 0 1 19 9A7 7 0 0 1 16.75 14.14L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5L7.25 14.14ZM6.5 9A5.5 5.5 0 1 0 17.5 9A5.5 5.5 0 1 0 6.5 9ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 14.14A7 7 0 0 1 5 9A7 7 0 0 1 12 2A7 7 0 0 1 19 9A7 7 0 0 1 16.75 14.14L16.75 20.5A1.5 1.5 0 0 1 15.25 22A1.5 1.5 0 0 1 14.19 21.56L12 19.37L9.81 21.56A1.5 1.5 0 0 1 8.75 22A1.5 1.5 0 0 1 7.25 20.5L7.25 14.14ZM6.5 9A5.5 5.5 0 1 0 17.5 9A5.5 5.5 0 1 0 6.5 9ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9Z\"/>",
+          "mark": false,
+          "tags": [
+            "ribbon",
+            "medal",
+            "ring",
+            "lucide",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5,
+            "y": 2,
+            "w": 14,
+            "h": 20
+          },
+          "bearing": {
+            "left": 5,
+            "top": 2,
+            "right": 5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -376920,10 +377404,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Status & Feedback",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-20",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-20"
     },
     {
       "n": 189,
@@ -381885,6 +382369,17 @@
       "status": "done",
       "mvp": false,
       "date": "2026-10-20"
+    },
+    {
+      "n": 524,
+      "name": "rosette",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-20",
+      "status": "review",
+      "mvp": false,
+      "date": null
     }
   ],
   "next": {

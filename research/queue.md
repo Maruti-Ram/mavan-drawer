@@ -574,7 +574,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
 - [ ] 186. `bank` · Commerce & Payments
 - [ ] 187. `warehouse` · Commerce & Payments
-- [~] 188. `award` · Status & Feedback
+- [x] 188. `award` · Status & Feedback — approved 2026-10-20
 - [x] 189. `bookmark` · Status & Feedback — mvp · approved 2026-10-18
 - [x] 189. `bookmark-2` · Status & Feedback · variant of `bookmark` — Round head · approved 2026-10-18
 - [x] 189. `bookmark-3` · Status & Feedback · variant of `bookmark` — Crisp ribbon · approved 2026-10-18
@@ -1031,3 +1031,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 521. `trophy` — added 2026-10-20 · approved 2026-10-20
 - [x] 522. `crown` — added 2026-10-20 · approved 2026-10-20
 - [x] 523. `medal` — added 2026-10-20 · approved 2026-10-20
+- [~] 524. `rosette` — added 2026-10-20
