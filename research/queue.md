@@ -695,9 +695,15 @@ Bases before their variants; within that, highest evidence first.
 - [x] 273. `viewport-narrow` · UI & Layout — approved 2026-10-20
 - [x] 273. `viewport-narrow-2` · UI & Layout · variant of `viewport-narrow` — Capsule, heads in · approved 2026-10-20
 - [x] 273. `viewport-narrow-3` · UI & Layout · variant of `viewport-narrow` — Dimension arrow, in · approved 2026-10-20
-- [ ] 274. `viewport-short` · UI & Layout
-- [ ] 275. `viewport-tall` · UI & Layout
-- [ ] 276. `viewport-wide` · UI & Layout
+- [x] 274. `viewport-short` · UI & Layout — approved 2026-10-20
+- [x] 274. `viewport-short-2` · UI & Layout · variant of `viewport-short` — Capsule, heads in · approved 2026-10-20
+- [x] 274. `viewport-short-3` · UI & Layout · variant of `viewport-short` — Dimension arrow, in · approved 2026-10-20
+- [x] 275. `viewport-tall` · UI & Layout — approved 2026-10-20
+- [x] 275. `viewport-tall-2` · UI & Layout · variant of `viewport-tall` — Capsule, heads out · approved 2026-10-20
+- [x] 275. `viewport-tall-3` · UI & Layout · variant of `viewport-tall` — Dimension arrow, out · approved 2026-10-20
+- [x] 276. `viewport-wide` · UI & Layout — approved 2026-10-20
+- [x] 276. `viewport-wide-2` · UI & Layout · variant of `viewport-wide` — Capsule, heads out · approved 2026-10-20
+- [x] 276. `viewport-wide-3` · UI & Layout · variant of `viewport-wide` — Dimension arrow, out · approved 2026-10-20
 - [ ] 277. `atm` · Commerce & Payments
 - [ ] 278. `channels` · Development & Infra
 - [ ] 279. `contactless` · Commerce & Payments
