@@ -980,4 +980,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 508. `windows` — added 2026-10-20 · approved 2026-10-20
 - [x] 509. `tooltip` — added 2026-10-20 · approved 2026-10-20
 - [ ] 510. `password-lock` — added 2026-10-20
-- [~] 511. `list-todo` — added 2026-10-20
+- [x] 511. `list-todo` — added 2026-10-20 · approved 2026-10-20
