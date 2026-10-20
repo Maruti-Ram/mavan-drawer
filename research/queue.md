@@ -1020,9 +1020,9 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
 - [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
-- [~] 514. `alert-octagon-2` — added 2026-10-20
-- [~] 515. `alert-octagon-3` — added 2026-10-20
-- [~] 516. `alert-octagon-4` — added 2026-10-20
-- [~] 517. `alert-square-2` — added 2026-10-20
-- [~] 518. `alert-square-3` — added 2026-10-20
-- [~] 519. `alert-square-4` — added 2026-10-20
+- [x] 514. `alert-octagon-2` — added 2026-10-20 · approved 2026-10-20
+- [x] 515. `alert-octagon-3` — added 2026-10-20 · approved 2026-10-20
+- [x] 516. `alert-octagon-4` — added 2026-10-20 · approved 2026-10-20
+- [x] 517. `alert-square-2` — added 2026-10-20 · approved 2026-10-20
+- [x] 518. `alert-square-3` — added 2026-10-20 · approved 2026-10-20
+- [x] 519. `alert-square-4` — added 2026-10-20 · approved 2026-10-20
