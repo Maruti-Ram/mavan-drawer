@@ -34,8 +34,9 @@
 // INSTRUMENTS. tools/audit/raster.mjs (readIcon, regionOf, region, flatten, region.covered,
 // region.bbox, rasterise and inkBox only where a figure compares against them), tools/geometry.mjs
 // parsePath, tools/masters.mjs (stroke and keyline constants for the arithmetic in §2.4 and §4).
-// The repo's copies equal the pin's (`git diff 5933041 HEAD -- tools/geometry.mjs tools/masters.mjs`
-// is empty); raster.mjs is not in the pin and is imported from the repo.
+// The repo's copies have gained code since the pin, but parsePath and the STROKES, MIN_GAP and MASTERS
+// values this probe reaches are unchanged (checked 2026-10-20 against the pin's own copies: identical output on all 2,910 pin drawings, values deep-equal); raster.mjs is not in the pin and is imported from the
+// repo.
 //
 // KNOWN DEFECT WORKED AROUND. raster.mjs:257 `classify` drops an area path's horizontal edges and
 // reuses that list for its box-uniformity test, so `rasterise` / `inkArea` / `density` can score a

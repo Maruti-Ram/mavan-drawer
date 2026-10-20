@@ -43,8 +43,9 @@
 //
 // Instruments: tools/audit/congruence.mjs (canonical, subpathsOfPath, classify,
 // congruentUpToTranslation, congruentUpToScale, prepare, scaleTrivial), tools/geometry.mjs
-// (bbox) and tools/masters.mjs (STROKES, FILLED_WEIGHT, gridOf) — the repo's copies, which
-// equal the pin's (`git diff 5933041 HEAD -- tools/geometry.mjs tools/masters.mjs` is empty).
+// (bbox) and tools/masters.mjs (STROKES, FILLED_WEIGHT, gridOf) — the repo's copies. Both have
+// gained code since the pin, but bbox, parsePath (through congruence.mjs) and these three values
+// are unchanged (checked 2026-10-20 against the pin's own copies: identical output on all 2,910 pin drawings, values deep-equal).
 // None is modified. The part classifier below is the card's own (its scratch `parts.mjs`),
 // folded in: a subpath is a circle, lens, line, polyline, bend (L A L), arc, rrect-ish
 // (closed, one arc radius) or other, measured on its canonical spelling.

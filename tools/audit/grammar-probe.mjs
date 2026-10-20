@@ -38,8 +38,8 @@
 //
 // INSTRUMENTS, imported read-only: tools/audit/congruence.mjs (canonical, subpathsOfPath, prepare, classify,
 // congruentUpToTranslation, congruentUpToScale, scaleTrivial), tools/geometry.mjs (parsePath, samplePath, bbox,
-// isDot), tools/masters.mjs (strokeOf, weightOf, MASTERS bounds and keylines). geometry.mjs and masters.mjs at
-// HEAD are byte-identical to the pin's (git diff 5933041 HEAD is empty for both).
+// isDot), tools/masters.mjs (strokeOf, weightOf, MASTERS bounds and keylines). geometry.mjs and masters.mjs have
+// gained code since the pin, but every function and value named here is unchanged (checked 2026-10-20 against the pin's own copies: identical output on all 2,910 pin drawings, values deep-equal).
 //
 // MEASURES (as the document's §0 defines them; the code is card 1.9's scratch lib.mjs, composites.mjs,
 // objects.mjs and its probes, folded in and re-run against the pin — the original scripts, pointed at the pin,

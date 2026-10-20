@@ -56,9 +56,11 @@
 // INSTRUMENTS: tools/geometry.mjs (bbox, facingGap), tools/masters.mjs, tools/audit/angles.mjs
 // (segmentsOf), tools/audit/radii.mjs (radiiOf, iconFromSource), tools/audit/raster.mjs (iconFromText,
 // regionOf().covered, flatten), tools/audit/metrics-check.mjs (readSvg, inkBoxOf — the solved box, for
-// the defect cross-check in s1 and for reading arc radii in s5.4). All from the repo; geometry, masters
-// and lint at HEAD equal the pin's (`git diff 5933041 HEAD -- tools/geometry.mjs tools/masters.mjs` is
-// empty). The drawings are read from the pin.
+// the defect cross-check in s1 and for reading arc radii in s5.4). All from the repo. geometry.mjs and
+// masters.mjs have gained code since the pin, but what this probe reaches has not changed: bbox,
+// parsePath and every masters value are as they were, and facingGap — whose text changed, as it now
+// also takes one weight per path — gives the pin's result for the single weight passed here (checked 2026-10-20 against the pin's own copies: identical output on all 2,910 pin drawings, values deep-equal).
+// Lint is never imported. The drawings are read from the pin.
 //
 // DEFINITIONS WAVE 5 RECONCILES (plan, "Wave 5 must reconcile, never pick") — this document's own:
 //  · box equality "1,100 of 1,455 exact" (s1, s6): every side's filled-minus-outline difference rounds to

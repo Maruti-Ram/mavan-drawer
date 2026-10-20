@@ -38,8 +38,9 @@
 //
 // Instruments: tools/audit/pixelgrid.mjs (blurScore, edgeLanding, probe, rowProfile),
 // tools/audit/raster.mjs (readIcon, regionOf, flatten, rasterise, inkArea, areaRegion),
-// tools/geometry.mjs (parsePath). The repo's copies are used: the pin has no tools/audit/, and
-// `git diff 5933041 HEAD -- tools/geometry.mjs` is empty.
+// tools/geometry.mjs (parsePath). The repo's copies are used: the pin has no tools/audit/.
+// geometry.mjs has gained code since the pin, but parsePath, the only part of it this probe reaches,
+// is unchanged (checked 2026-10-20 against the pin's own copies: identical output on all 2,910 pin drawings, values deep-equal).
 //
 // Known instrument defects (plans/set-and-rules-audit.md) and how this probe treats them:
 //   · raster.mjs `classify` drops an area path's horizontal edges, so `rasterise` (and

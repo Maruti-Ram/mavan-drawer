@@ -46,8 +46,9 @@
 //               so the 60% clause never binds; it is kept because the card's definition states it. A deliberate
 //               break of it is the one mutation the tests cannot see — see the card-reprint map.)
 //
-// INSTRUMENTS: tools/geometry.mjs, tools/masters.mjs (the repo's copies; `git diff 5933041 HEAD` on them is
-// empty), tools/audit/{angles,radii,congruence,mass,raster,metrics-check}.mjs. Never edited.
+// INSTRUMENTS: tools/geometry.mjs, tools/masters.mjs (the repo's copies; both have gained code since the pin,
+// but what this probe reaches — bbox, subpathsOf, parsePath, strokeOf, weightOf, bendMin and the masters
+// constants — is unchanged, checked 2026-10-20 against the pin's own copies: identical output on all 2,910 pin drawings, values deep-equal), tools/audit/{angles,radii,congruence,mass,raster,metrics-check}.mjs. Never edited.
 //
 // DEFECTS (plans/set-and-rules-audit.md, "Known instrument defects") and how this probe meets each one:
 //   raster.mjs:257 `classify` drops an area path's horizontal edges, so `inkArea` / `density` can be wrong on a
