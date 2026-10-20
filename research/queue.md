@@ -655,7 +655,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 248. `shapes` · Design Tools
 - [ ] 249. `shopping-basket` · Commerce & Payments
 - [ ] 250. `signal` · Devices & Hardware
-- [ ] 251. `tags` · Commerce & Payments
+- [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
 - [ ] 252. `ticket` · Commerce & Payments
 - [ ] 253. `vector` · Design Tools
 - [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
@@ -678,7 +678,6 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 265. `live` · Media & Playback
 - [x] 266. `categories` · Files & Folders — approved 2026-10-20
 - [x] 266. `categories-2` · Files & Folders · variant of `categories` — Stacked cards · approved 2026-10-20
-- [x] 266. `categories-3` · Files & Folders · variant of `categories` — Tags: one even edge behind · approved 2026-10-20
 - [x] 266. `categories-4` · Files & Folders · variant of `categories` — Tree: a parent with two children · approved 2026-10-20
 - [x] 266. `categories-5` · Files & Folders · variant of `categories` — Tiles: rings and squares on the diagonals · approved 2026-10-20
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
