@@ -680,7 +680,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 266. `categories` · Files & Folders — approved 2026-10-20
 - [x] 266. `categories-2` · Files & Folders · variant of `categories` — Stacked cards · approved 2026-10-20
 - [x] 266. `categories-4` · Files & Folders · variant of `categories` — Tree: a parent with two children · approved 2026-10-20
-- [x] 266. `categories-5` · Files & Folders · variant of `categories` — Tiles: rings and squares on the diagonals · approved 2026-10-20
+- [x] 266. `categories-3` · Files & Folders · variant of `categories` — Tiles: rings and squares on the diagonals · approved 2026-10-20
 - [x] 267. `chart-funnel` · Charts & Data — approved 2026-10-18
 - [x] 267. `chart-funnel-2` · Charts & Data · variant of `chart-funnel` — Tapered bands · approved 2026-10-18
 - [ ] 268. `drag-drop` · UI & Layout
