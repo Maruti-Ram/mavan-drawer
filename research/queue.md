@@ -751,7 +751,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 286. `progress-bar` · Status & Feedback — approved 2026-10-20
 - [x] 286. `progress-bar-low` · Status & Feedback · variant of `progress-bar` — Fill at 40% · approved 2026-10-20
 - [x] 286. `progress-bar-high` · Status & Feedback · variant of `progress-bar` — Fill at ~70% · approved 2026-10-20
-- [~] 287. `saved-items` · Status & Feedback
+- [x] 287. `saved-items` · Status & Feedback — approved 2026-10-20
+- [x] 287. `saved-items-2` · Status & Feedback · variant of `saved-items` — Ribbon with a tick (bookmark-2) · approved 2026-10-20
 - [ ] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
@@ -1026,3 +1027,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 517. `alert-square-2` — added 2026-10-20 · approved 2026-10-20
 - [x] 518. `alert-square-3` — added 2026-10-20 · approved 2026-10-20
 - [x] 519. `alert-square-4` — added 2026-10-20 · approved 2026-10-20
+- [~] 520. `library` — added 2026-10-20
