@@ -675,7 +675,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
 - [ ] 260. `currency` · Commerce & Payments
 - [ ] 261. `blog` · Editing & Text
-- [ ] 262. `button` · UI & Layout
+- [x] 262. `button` · UI & Layout — approved 2026-10-20
+- [x] 262. `button-2` · UI & Layout · variant of `button` — Raised button · approved 2026-10-20
+- [x] 262. `button-3` · UI & Layout · variant of `button` — Push-button · approved 2026-10-20
 - [x] 263. `caret-down` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 263. `caret-down-2` · Arrows & Direction · variant of `caret-down` — Near-equilateral · caret-down · approved 2026-10-17
 - [x] 264. `caret-up` · Arrows & Direction — mvp · approved 2026-10-17
