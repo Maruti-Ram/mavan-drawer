@@ -111,7 +111,7 @@ The ⌀20 keyline and what sits inside it.
 - [x] 19. `minus-circle-small` · UI & Layout · variant of `minus-circle` — Heavy · run kept · plus width · small · approved 2026-09-17
 - [x] 20. `info-circle` · Status & Feedback — mvp · approved 2026-09-18
 - [x] 21. `help-circle` · Status & Feedback — mvp · approved 2026-10-21
-- [x] 21. `help-circle-2` · Status & Feedback · variant of `help-circle` — Coil · approved 2026-09-18
+- [x] 21. `help-circle-2` · Status & Feedback · variant of `help-circle` — Coil · approved 2026-10-21
 - [x] 21. `help-circle-3` · Status & Feedback · variant of `help-circle` — Hook · approved 2026-09-18
 - [x] 22. `alert-circle` · Status & Feedback — mvp · approved 2026-09-18
 - [x] 22. `alert-circle-2` · Status & Feedback · variant of `alert-circle` — Wedge · approved 2026-09-18
