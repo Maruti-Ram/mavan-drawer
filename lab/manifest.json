@@ -1195,6 +1195,8 @@
     "repeat-filled",
     "repeat-once",
     "repeat-once-filled",
+    "reward",
+    "reward-filled",
     "rewind",
     "rewind-2",
     "rewind-2-filled",
@@ -72428,6 +72430,135 @@
       "ratio": null,
       "gap": null
     },
+    "reward": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M11.29 7.25A0.75 0.75 0 0 1 12 6.73A0.75 0.75 0 0 1 12.71 7.25L13.56 9.86L16.3 9.85A0.75 0.75 0 0 1 17.05 10.6A0.75 0.75 0 0 1 16.74 11.21L14.52 12.82L15.37 15.42A0.75 0.75 0 0 1 15.41 15.66A0.75 0.75 0 0 1 14.66 16.41A0.75 0.75 0 0 1 14.22 16.26L12 14.65L9.78 16.26A0.75 0.75 0 0 1 9.34 16.41A0.75 0.75 0 0 1 8.59 15.66A0.75 0.75 0 0 1 8.63 15.42L9.48 12.82L7.26 11.21A0.75 0.75 0 0 1 6.95 10.6A0.75 0.75 0 0 1 7.7 9.85L10.44 9.86Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M11.29 7.25A0.75 0.75 0 0 1 12 6.73A0.75 0.75 0 0 1 12.71 7.25L13.56 9.86L16.3 9.85A0.75 0.75 0 0 1 17.05 10.6A0.75 0.75 0 0 1 16.74 11.21L14.52 12.82L15.37 15.42A0.75 0.75 0 0 1 15.41 15.66A0.75 0.75 0 0 1 14.66 16.41A0.75 0.75 0 0 1 14.22 16.26L12 14.65L9.78 16.26A0.75 0.75 0 0 1 9.34 16.41A0.75 0.75 0 0 1 8.59 15.66A0.75 0.75 0 0 1 8.63 15.42L9.48 12.82L7.26 11.21A0.75 0.75 0 0 1 6.95 10.6A0.75 0.75 0 0 1 7.7 9.85L10.44 9.86Z\"/>",
+      "mark": false,
+      "tags": [
+        "points",
+        "stars",
+        "loyalty",
+        "star",
+        "circle",
+        "container",
+        "slim",
+        "sf symbols"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 11.6,
+        "h": 11.18
+      },
+      "ratio": {
+        "w": 0.58,
+        "h": 0.56
+      },
+      "gap": null
+    },
+    "reward-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.57 7.02A1.5 1.5 0 0 1 12 5.98A1.5 1.5 0 0 1 13.43 7.02L14.1 9.11L16.3 9.1A1.5 1.5 0 0 1 17.8 10.6A1.5 1.5 0 0 1 17.18 11.82L15.4 13.1L16.08 15.19A1.5 1.5 0 0 1 16.16 15.66A1.5 1.5 0 0 1 14.66 17.16A1.5 1.5 0 0 1 13.77 16.87L12 15.58L10.23 16.87A1.5 1.5 0 0 1 9.34 17.16A1.5 1.5 0 0 1 7.84 15.66A1.5 1.5 0 0 1 7.92 15.19L8.6 13.1L6.82 11.82A1.5 1.5 0 0 1 6.2 10.6A1.5 1.5 0 0 1 7.7 9.1L9.9 9.11Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.57 7.02A1.5 1.5 0 0 1 12 5.98A1.5 1.5 0 0 1 13.43 7.02L14.1 9.11L16.3 9.1A1.5 1.5 0 0 1 17.8 10.6A1.5 1.5 0 0 1 17.18 11.82L15.4 13.1L16.08 15.19A1.5 1.5 0 0 1 16.16 15.66A1.5 1.5 0 0 1 14.66 17.16A1.5 1.5 0 0 1 13.77 16.87L12 15.58L10.23 16.87A1.5 1.5 0 0 1 9.34 17.16A1.5 1.5 0 0 1 7.84 15.66A1.5 1.5 0 0 1 7.92 15.19L8.6 13.1L6.82 11.82A1.5 1.5 0 0 1 6.2 10.6A1.5 1.5 0 0 1 7.7 9.1L9.9 9.11Z\"/>",
+      "mark": false,
+      "tags": [
+        "points",
+        "stars",
+        "loyalty",
+        "star",
+        "circle",
+        "container",
+        "slim",
+        "sf symbols"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "rewind": {
       "paths": [
         "M10 8.25A0.75 0.75 0 0 0 9.25 7.5A0.75 0.75 0 0 0 8.81 7.64L3.56 11.39A0.75 0.75 0 0 0 3.25 12A0.75 0.75 0 0 0 3.56 12.61L8.81 16.36A0.75 0.75 0 0 0 9.25 16.5A0.75 0.75 0 0 0 10 15.75Z",
@@ -101583,6 +101714,8 @@
         "repeat-filled",
         "repeat-once",
         "repeat-once-filled",
+        "reward",
+        "reward-filled",
         "rewind",
         "rewind-2",
         "rewind-2-filled",
@@ -172743,6 +172876,135 @@
           "ratio": null,
           "gap": null
         },
+        "reward": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M7.405 4.854A0.625 0.625 0 0 1 8 4.42A0.625 0.625 0 0 1 8.595 4.854L9.115 6.466L10.809 6.462A0.625 0.625 0 0 1 10.81 6.462A0.625 0.625 0 0 1 11.435 7.087A0.625 0.625 0 0 1 11.176 7.593L9.804 8.586L10.331 10.196A0.625 0.625 0 0 1 10.362 10.39A0.625 0.625 0 0 1 9.737 11.015A0.625 0.625 0 0 1 9.368 10.895L8 9.897L6.632 10.895A0.625 0.625 0 0 1 6.263 11.015A0.625 0.625 0 0 1 5.638 10.39A0.625 0.625 0 0 1 5.669 10.196L6.196 8.586L4.824 7.593A0.625 0.625 0 0 1 4.565 7.087A0.625 0.625 0 0 1 5.19 6.462A0.625 0.625 0 0 1 5.191 6.462L6.885 6.466Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M7.405 4.854A0.625 0.625 0 0 1 8 4.42A0.625 0.625 0 0 1 8.595 4.854L9.115 6.466L10.809 6.462A0.625 0.625 0 0 1 10.81 6.462A0.625 0.625 0 0 1 11.435 7.087A0.625 0.625 0 0 1 11.176 7.593L9.804 8.586L10.331 10.196A0.625 0.625 0 0 1 10.362 10.39A0.625 0.625 0 0 1 9.737 11.015A0.625 0.625 0 0 1 9.368 10.895L8 9.897L6.632 10.895A0.625 0.625 0 0 1 6.263 11.015A0.625 0.625 0 0 1 5.638 10.39A0.625 0.625 0 0 1 5.669 10.196L6.196 8.586L4.824 7.593A0.625 0.625 0 0 1 4.565 7.087A0.625 0.625 0 0 1 5.19 6.462A0.625 0.625 0 0 1 5.191 6.462L6.885 6.466Z\"/>",
+          "mark": false,
+          "tags": [
+            "points",
+            "stars",
+            "loyalty",
+            "star",
+            "circle",
+            "container",
+            "slim",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 8.12,
+            "h": 7.85
+          },
+          "ratio": {
+            "w": 0.58,
+            "h": 0.56
+          },
+          "gap": null
+        },
+        "reward-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM6.81 4.662A1.25 1.25 0 0 1 8 3.795A1.25 1.25 0 0 1 9.19 4.662L9.57 5.84L10.807 5.837A1.25 1.25 0 0 1 10.81 5.837A1.25 1.25 0 0 1 12.06 7.087A1.25 1.25 0 0 1 11.543 8.1L10.54 8.825L10.925 10.001A1.25 1.25 0 0 1 10.987 10.39A1.25 1.25 0 0 1 9.737 11.64A1.25 1.25 0 0 1 9 11.4L8 10.67L7 11.4A1.25 1.25 0 0 1 6.263 11.64A1.25 1.25 0 0 1 5.013 10.39A1.25 1.25 0 0 1 5.075 10.001L5.46 8.825L4.457 8.1A1.25 1.25 0 0 1 3.94 7.087A1.25 1.25 0 0 1 5.19 5.837A1.25 1.25 0 0 1 5.193 5.837L6.43 5.84Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM6.81 4.662A1.25 1.25 0 0 1 8 3.795A1.25 1.25 0 0 1 9.19 4.662L9.57 5.84L10.807 5.837A1.25 1.25 0 0 1 10.81 5.837A1.25 1.25 0 0 1 12.06 7.087A1.25 1.25 0 0 1 11.543 8.1L10.54 8.825L10.925 10.001A1.25 1.25 0 0 1 10.987 10.39A1.25 1.25 0 0 1 9.737 11.64A1.25 1.25 0 0 1 9 11.4L8 10.67L7 11.4A1.25 1.25 0 0 1 6.263 11.64A1.25 1.25 0 0 1 5.013 10.39A1.25 1.25 0 0 1 5.075 10.001L5.46 8.825L4.457 8.1A1.25 1.25 0 0 1 3.94 7.087A1.25 1.25 0 0 1 5.19 5.837A1.25 1.25 0 0 1 5.193 5.837L6.43 5.84Z\"/>",
+          "mark": false,
+          "tags": [
+            "points",
+            "stars",
+            "loyalty",
+            "star",
+            "circle",
+            "container",
+            "slim",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "rewind": {
           "paths": [
             "M6.375 6A0.625 0.625 0 0 0 5.75 5.375A0.625 0.625 0 0 0 5.382 5.495L2.632 7.495A0.625 0.625 0 0 0 2.375 8A0.625 0.625 0 0 0 2.632 8.505L5.382 10.505A0.625 0.625 0 0 0 5.75 10.625A0.625 0.625 0 0 0 6.375 10Z",
@@ -201868,6 +202130,8 @@
         "repeat-filled",
         "repeat-once",
         "repeat-once-filled",
+        "reward",
+        "reward-filled",
         "rewind",
         "rewind-2",
         "rewind-2-filled",
@@ -273055,6 +273319,135 @@
           "ratio": null,
           "gap": null
         },
+        "reward": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M9.29 6.47A0.75 0.75 0 0 1 10 5.95A0.75 0.75 0 0 1 10.71 6.47L11.28 8.23L13.14 8.23A0.75 0.75 0 0 1 13.89 8.98A0.75 0.75 0 0 1 13.58 9.59L12.08 10.67L12.65 12.44A0.75 0.75 0 0 1 12.69 12.67A0.75 0.75 0 0 1 11.94 13.42A0.75 0.75 0 0 1 11.5 13.28L10 12.18L8.5 13.28A0.75 0.75 0 0 1 8.06 13.42A0.75 0.75 0 0 1 7.31 12.67A0.75 0.75 0 0 1 7.35 12.44L7.92 10.67L6.42 9.59A0.75 0.75 0 0 1 6.11 8.98A0.75 0.75 0 0 1 6.86 8.23L8.72 8.23Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M9.29 6.47A0.75 0.75 0 0 1 10 5.95A0.75 0.75 0 0 1 10.71 6.47L11.28 8.23L13.14 8.23A0.75 0.75 0 0 1 13.89 8.98A0.75 0.75 0 0 1 13.58 9.59L12.08 10.67L12.65 12.44A0.75 0.75 0 0 1 12.69 12.67A0.75 0.75 0 0 1 11.94 13.42A0.75 0.75 0 0 1 11.5 13.28L10 12.18L8.5 13.28A0.75 0.75 0 0 1 8.06 13.42A0.75 0.75 0 0 1 7.31 12.67A0.75 0.75 0 0 1 7.35 12.44L7.92 10.67L6.42 9.59A0.75 0.75 0 0 1 6.11 8.98A0.75 0.75 0 0 1 6.86 8.23L8.72 8.23Z\"/>",
+          "mark": false,
+          "tags": [
+            "points",
+            "stars",
+            "loyalty",
+            "star",
+            "circle",
+            "container",
+            "slim",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 9.28,
+            "h": 8.97
+          },
+          "ratio": {
+            "w": 0.58,
+            "h": 0.56
+          },
+          "gap": null
+        },
+        "reward-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM8.57 6.24A1.5 1.5 0 0 1 10 5.2A1.5 1.5 0 0 1 11.43 6.24L11.83 7.48L13.14 7.48A1.5 1.5 0 0 1 14.64 8.98A1.5 1.5 0 0 1 14.02 10.2L12.96 10.96L13.37 12.2A1.5 1.5 0 0 1 13.44 12.67A1.5 1.5 0 0 1 11.94 14.17A1.5 1.5 0 0 1 11.06 13.88L10 13.11L8.94 13.88A1.5 1.5 0 0 1 8.06 14.17A1.5 1.5 0 0 1 6.56 12.67A1.5 1.5 0 0 1 6.63 12.2L7.04 10.96L5.98 10.2A1.5 1.5 0 0 1 5.36 8.98A1.5 1.5 0 0 1 6.86 7.48L8.17 7.48Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM8.57 6.24A1.5 1.5 0 0 1 10 5.2A1.5 1.5 0 0 1 11.43 6.24L11.83 7.48L13.14 7.48A1.5 1.5 0 0 1 14.64 8.98A1.5 1.5 0 0 1 14.02 10.2L12.96 10.96L13.37 12.2A1.5 1.5 0 0 1 13.44 12.67A1.5 1.5 0 0 1 11.94 14.17A1.5 1.5 0 0 1 11.06 13.88L10 13.11L8.94 13.88A1.5 1.5 0 0 1 8.06 14.17A1.5 1.5 0 0 1 6.56 12.67A1.5 1.5 0 0 1 6.63 12.2L7.04 10.96L5.98 10.2A1.5 1.5 0 0 1 5.36 8.98A1.5 1.5 0 0 1 6.86 7.48L8.17 7.48Z\"/>",
+          "mark": false,
+          "tags": [
+            "points",
+            "stars",
+            "loyalty",
+            "star",
+            "circle",
+            "container",
+            "slim",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "rewind": {
           "paths": [
             "M8.25 7.75A0.75 0.75 0 0 0 7.5 7A0.75 0.75 0 0 0 7.07 7.13L3.82 9.38A0.75 0.75 0 0 0 3.5 10A0.75 0.75 0 0 0 3.82 10.62L7.07 12.87A0.75 0.75 0 0 0 7.5 13A0.75 0.75 0 0 0 8.25 12.25Z",
@@ -302201,6 +302594,8 @@
         "repeat-filled",
         "repeat-once",
         "repeat-once-filled",
+        "reward",
+        "reward-filled",
         "rewind",
         "rewind-2",
         "rewind-2-filled",
@@ -373434,6 +373829,135 @@
           "ratio": null,
           "gap": null
         },
+        "reward": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M11.29 7.25A0.75 0.75 0 0 1 12 6.73A0.75 0.75 0 0 1 12.71 7.25L13.56 9.86L16.3 9.85A0.75 0.75 0 0 1 17.05 10.6A0.75 0.75 0 0 1 16.74 11.21L14.52 12.82L15.37 15.42A0.75 0.75 0 0 1 15.41 15.66A0.75 0.75 0 0 1 14.66 16.41A0.75 0.75 0 0 1 14.22 16.26L12 14.65L9.78 16.26A0.75 0.75 0 0 1 9.34 16.41A0.75 0.75 0 0 1 8.59 15.66A0.75 0.75 0 0 1 8.63 15.42L9.48 12.82L7.26 11.21A0.75 0.75 0 0 1 6.95 10.6A0.75 0.75 0 0 1 7.7 9.85L10.44 9.86Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M11.29 7.25A0.75 0.75 0 0 1 12 6.73A0.75 0.75 0 0 1 12.71 7.25L13.56 9.86L16.3 9.85A0.75 0.75 0 0 1 17.05 10.6A0.75 0.75 0 0 1 16.74 11.21L14.52 12.82L15.37 15.42A0.75 0.75 0 0 1 15.41 15.66A0.75 0.75 0 0 1 14.66 16.41A0.75 0.75 0 0 1 14.22 16.26L12 14.65L9.78 16.26A0.75 0.75 0 0 1 9.34 16.41A0.75 0.75 0 0 1 8.59 15.66A0.75 0.75 0 0 1 8.63 15.42L9.48 12.82L7.26 11.21A0.75 0.75 0 0 1 6.95 10.6A0.75 0.75 0 0 1 7.7 9.85L10.44 9.86Z\"/>",
+          "mark": false,
+          "tags": [
+            "points",
+            "stars",
+            "loyalty",
+            "star",
+            "circle",
+            "container",
+            "slim",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 11.6,
+            "h": 11.18
+          },
+          "ratio": {
+            "w": 0.58,
+            "h": 0.56
+          },
+          "gap": null
+        },
+        "reward-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.57 7.02A1.5 1.5 0 0 1 12 5.98A1.5 1.5 0 0 1 13.43 7.02L14.1 9.11L16.3 9.1A1.5 1.5 0 0 1 17.8 10.6A1.5 1.5 0 0 1 17.18 11.82L15.4 13.1L16.08 15.19A1.5 1.5 0 0 1 16.16 15.66A1.5 1.5 0 0 1 14.66 17.16A1.5 1.5 0 0 1 13.77 16.87L12 15.58L10.23 16.87A1.5 1.5 0 0 1 9.34 17.16A1.5 1.5 0 0 1 7.84 15.66A1.5 1.5 0 0 1 7.92 15.19L8.6 13.1L6.82 11.82A1.5 1.5 0 0 1 6.2 10.6A1.5 1.5 0 0 1 7.7 9.1L9.9 9.11Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.57 7.02A1.5 1.5 0 0 1 12 5.98A1.5 1.5 0 0 1 13.43 7.02L14.1 9.11L16.3 9.1A1.5 1.5 0 0 1 17.8 10.6A1.5 1.5 0 0 1 17.18 11.82L15.4 13.1L16.08 15.19A1.5 1.5 0 0 1 16.16 15.66A1.5 1.5 0 0 1 14.66 17.16A1.5 1.5 0 0 1 13.77 16.87L12 15.58L10.23 16.87A1.5 1.5 0 0 1 9.34 17.16A1.5 1.5 0 0 1 7.84 15.66A1.5 1.5 0 0 1 7.92 15.19L8.6 13.1L6.82 11.82A1.5 1.5 0 0 1 6.2 10.6A1.5 1.5 0 0 1 7.7 9.1L9.9 9.11Z\"/>",
+          "mark": false,
+          "tags": [
+            "points",
+            "stars",
+            "loyalty",
+            "star",
+            "circle",
+            "container",
+            "slim",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "rewind": {
           "paths": [
             "M10 8.25A0.75 0.75 0 0 0 9.25 7.5A0.75 0.75 0 0 0 8.81 7.64L3.56 11.39A0.75 0.75 0 0 0 3.25 12A0.75 0.75 0 0 0 3.56 12.61L8.81 16.36A0.75 0.75 0 0 0 9.25 16.5A0.75 0.75 0 0 0 10 15.75Z",
@@ -409540,10 +410064,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Commerce & Payments",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 283,
@@ -412800,6 +413324,171 @@
       "status": "done",
       "mvp": false,
       "date": "2026-10-21"
+    },
+    {
+      "n": 539,
+      "name": "pound",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 540,
+      "name": "yen",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 541,
+      "name": "rupee",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 542,
+      "name": "bitcoin",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 543,
+      "name": "won",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 544,
+      "name": "ruble",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 545,
+      "name": "lira",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 546,
+      "name": "franc",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 547,
+      "name": "shekel",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 548,
+      "name": "naira",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 549,
+      "name": "peso",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 550,
+      "name": "dong",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 551,
+      "name": "baht",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 552,
+      "name": "real",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 553,
+      "name": "riyal",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
     }
   ],
   "next": {

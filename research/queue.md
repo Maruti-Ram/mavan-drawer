@@ -769,7 +769,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 279. `contactless-circle` · Commerce & Payments · variant of `contactless` — Waves fitted to the disc (recommended) · approved 2026-10-21
 - [ ] 280. `replay` · Media & Playback
 - [ ] 281. `reset` · Media & Playback
-- [~] 282. `reward` · Commerce & Payments
+- [x] 282. `reward` · Commerce & Payments — approved 2026-10-21
 - [ ] 283. `sandbox` · Development & Infra
 - [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
 - [x] 284. `alert-square-2` · Status & Feedback · variant of `alert-square` — Wedge (alert-circle-2's mark) · approved 2026-10-20
@@ -1071,3 +1071,18 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 537. `dollar-circle` — added 2026-10-21 · approved 2026-10-21
 - [x] 537. `dollar-circle-2` · variant of `dollar-circle` — G in a coin · approved 2026-10-21
 - [x] 538. `heart-handshake` — added 2026-10-21 · approved 2026-10-21
+- [~] 539. `pound` — added 2026-10-21
+- [~] 540. `yen` — added 2026-10-21
+- [~] 541. `rupee` — added 2026-10-21
+- [~] 542. `bitcoin` — added 2026-10-21
+- [~] 543. `won` — added 2026-10-21
+- [~] 544. `ruble` — added 2026-10-21
+- [~] 545. `lira` — added 2026-10-21
+- [~] 546. `franc` — added 2026-10-21
+- [~] 547. `shekel` — added 2026-10-21
+- [~] 548. `naira` — added 2026-10-21
+- [~] 549. `peso` — added 2026-10-21
+- [~] 550. `dong` — added 2026-10-21
+- [~] 551. `baht` — added 2026-10-21
+- [~] 552. `real` — added 2026-10-21
+- [~] 553. `riyal` — added 2026-10-21
