@@ -2132,17 +2132,19 @@ test('lint: a fill path that paints nothing is an error; the cut-out drawing pas
 // Card 5. tools/optical-sheet.mjs moved every path by rounding to 2 dp, which bent the 16 master's
 // eighth-grid coordinates (x.375 → x.38) even at a zero shift, and its `--draft` board dropped the
 // per-icon notes (gap, box, glyph…), so a drafted icon linted differently on the sheet than on its
-// own board. It now keeps 3 dp, rounds each shift to its master's precision (2 dp at 24 and 20, 3 at
-// 16 — the grid lint holds each master's coordinates to), and carries the notes.
+// own board. It now keeps 3 dp, snaps each shift to its master's grid (quarter units at 24 and 20,
+// eighths at 16) and says the snapped value in the row's label, and carries the notes.
 test('optical-sheet: a move keeps 16\'s eighths, a shift keeps its master\'s precision, the notes travel', async () => {
   const { move, snapShift, draftNotes, fileNotes } = await import('./optical-sheet.mjs');
   assert.equal(move('M4.125 2.625L8 7.375L11.875 2.625', 0, 0), 'M4.125 2.625L8 7.375L11.875 2.625');
   assert.equal(move('M5 2.625V13.375H8.625A1.875 1.875 0 0 1 10.5 15.25', 0.125, -0.25), 'M5.125 2.375V13.125H8.75A1.875 1.875 0 0 1 10.625 15');
   assert.equal(move('M3.75 12h16.5', 0.47, 0), 'M4.22 12h16.5', 'a relative command keeps its own numbers');
-  assert.equal(snapShift(0.46666, 24), 0.47);
-  assert.equal(snapShift(0.46666, 20), 0.47);
-  assert.equal(snapShift(0.46666, 16), 0.467);
-  assert.equal(snapShift(0.3125, 16), 0.313);
+  // a shift lands on its master's grid: quarter units at 24 and 20, eighths at 16
+  assert.equal(snapShift(0.46666, 24), 0.5);
+  assert.equal(snapShift(0.1, 20), 0);
+  assert.equal(snapShift(-0.2, 24), -0.25);
+  assert.equal(snapShift(0.075, 16), 0.125);
+  assert.equal(snapShift(0.3, 16), 0.25);
   // a draft candidate's own notes win over the board's; nothing it does not say is invented
   const board = { keyline: 'mark', glyph: 'dot', gap: { 16: 1.25 } };
   assert.deepEqual(draftNotes(board, { box: { 24: [20, 18] }, grows: { 24: [0, 0, 0.25, 0.25] } }),
@@ -2157,4 +2159,32 @@ test('optical-sheet: a move keeps 16\'s eighths, a shift keeps its master\'s pre
     16: { outline: file([]), filled: file([]) },
   }), { glyph: 'numeral', badge: 'line', box: { 20: [14, 12] }, grows: { 20: [0, 0, 0.25, 0.25] }, gap: { outline: { 20: 1.25 }, filled: { 24: 1, 20: 1.25 } } });
   assert.deepEqual(fileNotes({ 24: { outline: file(['keyline: mark']), filled: file([]) } }), {});
+});
+
+test('optical-sheet: every row carries its icon\'s gap, box and glyph notes, and says where its shift snapped', async () => {
+  const { sheet } = await import('./optical-sheet.mjs');
+  const Y = YEN;
+  const board = { candidates: [{ id: 'A', label: 'yen-x · test', tags: ['test'], glyph: 'dot', gap: { filled: { 16: 1 } },
+    box: { 24: [12.5, 16], 20: [10, 13], 16: [9, 12] },
+    masters: { 24: Y[24].o, 20: Y[20].o, 16: Y[16].o },
+    filled: { 24: { weight: 2.5, stroke: Y[24].f }, 20: { weight: 2, stroke: Y[20].f }, 16: { weight: 2, stroke: Y[16].f } } }] };
+  const { board: out, text } = await sheet(['yen-x', '--axes', 'y'], { board });
+  assert.equal(out.candidates.length, 5);
+  for (const c of out.candidates) {
+    assert.deepEqual(c.gap, { filled: { 16: 1 } });
+    assert.equal(c.glyph, 'dot');
+    assert.deepEqual(c.box, { 24: [12.5, 16], 20: [10, 13], 16: [9, 12] });
+    assert.equal(c.keyline, undefined, 'a row with an agreed box takes no mark keyline');
+  }
+  assert.equal(out.keyline, undefined, 'nor does the board, where a row has a box');
+  assert.match(text, /^\/\/ yen-x — optical placement sheet/);
+  // ↓ 0.1 at 24 is 0.1 · 0.08 · 0.075 by ink height: on the grid 0 · 0 · 0.125, and the label says so
+  const down = out.candidates.find((c) => c.pos[1] === 0.1);
+  assert.deepEqual(down.optical, { 24: [0, 0], 20: [0, 0], 16: [0, 0.125] });
+  assert.equal(down.at, '↓ 0.1 · snapped centred / centred / ↓ 0.125 at 24 / 20 / 16');
+  const two = out.candidates.find((c) => c.pos[1] === 0.2);
+  assert.deepEqual(two.optical, { 24: [0, 0.25], 20: [0, 0.25], 16: [0, 0.125] });
+  // every coordinate stays on 2 dp at 24 and 20, 3 at 16
+  for (const c of out.candidates) for (const m of [24, 20, 16]) for (const d of c.masters[m])
+    for (const n of d.match(/-?[\d.]+/g)) assert.ok((n.split('.')[1]?.length ?? 0) <= (m === 16 ? 3 : 2), `${m}: ${n}`);
 });

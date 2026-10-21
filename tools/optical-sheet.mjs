@@ -32,7 +32,8 @@
 //
 // Units: a position (x, y) is in units of the family default at 24, SVG signs (x + right,
 // y + down). Each master and size variant moves by x × (its ink width ÷ the default's) and
-// y × (its ink height ÷ the default's). Row ids read <id><x><y> in hundredths with r/l and d/u,
+// y × (its ink height ÷ the default's), snapped to that master's grid (quarter units at 24 and 20,
+// eighths at 16; the row's label says where each landed). Row ids read <id><x><y> in hundredths with r/l and d/u,
 // e.g. C r45 u20 → "Cr45u20"; a centred axis is left out ("C0" is box-centred).
 //
 // Measured recommendation (single-bend marks): the eye reads a bent mark's centre as the centre
@@ -44,7 +45,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { decimalsOf, sizeBase, strokeOf } from './masters.mjs';
+import { gridOf, sizeBase, strokeOf } from './masters.mjs';
 import { samplePath, bbox } from './geometry.mjs';
 
 const MASTERS = [24, 20, 16];
@@ -74,10 +75,10 @@ export function move(d, dx, dy) {
   });
 }
 
-// A shift at one master, rounded to that master's precision — the decimals lint holds its coordinates
-// to (2 dp at 24 and 20, 3 at 16, masters.mjs) — so a moved drawing stays within its master's grid of
-// decimals: 2 dp would round a 16 shift that the eighth-grid drawing can carry exactly.
-export const snapShift = (v, m) => { const k = 10 ** decimalsOf(m); return Math.round(v * k) / k || 0; };
+// A shift at one master, snapped to that master's grid (masters.mjs: quarter units at 24 and 20,
+// eighths at 16), so a moved drawing keeps its construction on the grid (2026-10-21). A row's label
+// says where each master's shift landed, since a small asked shift may snap to nothing at one master.
+export const snapShift = (v, m) => { const g = gridOf(m); return Math.round(v / g) * g || 0; };
 
 // The per-icon notes a board candidate carries (tools/draft-svg.mjs reads them): what lint holds a
 // drawing to beyond the set's rules. Until 2026-10-21 the sheet dropped them, so an icon with an agreed
@@ -107,10 +108,16 @@ export function fileNotes(files) {
   return Object.fromEntries(NOTE_KEYS.filter((k) => k in out).map((k) => [k, out[k]]));
 }
 
-if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) await main();
+if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
+  const { text, rows, shapes } = await sheet(process.argv.slice(2));
+  writeFileSync('lab/drafts/current.js', text);
+  console.log(`${rows} rows · ${shapes} shapes → lab/drafts/current.js · open /lab/optical-shift.html`);
+}
 
-async function main() {
-const args = process.argv.slice(2);
+// The sheet as data: `argv` as the command takes it, and optionally a board object in place of
+// `--draft <file>` (the test hands one in). Returns { board, text, rows, shapes }; writes nothing.
+export async function sheet(argv, { board: given = null } = {}) {
+const args = [...argv];
 const opt = (k, d) => { const i = args.indexOf(`--${k}`); return i < 0 ? d : args.splice(i, 2)[1]; };
 if (args.includes('--dir')) die('--dir is retired: the judged axes come from the shape\'s symmetry (C15). Use --axes, --rec x:y, --xs, --ys.');
 const list = (s) => s.split(',').map(Number);
@@ -128,13 +135,14 @@ const hold = Number(opt('hold', 0));
 const shapes = args;
 if (!shapes.length) die('Name at least one shape, e.g. check check-2');
 
-const man = JSON.parse(readFileSync('lab/manifest.json', 'utf8')).masters;
+let man = null;   // read on first use: a sheet of drafted shapes needs no build
+const manifest = () => (man ??= JSON.parse(readFileSync('lab/manifest.json', 'utf8')).masters);
 
 // --draft: shapes that are drawn but not shipped (a family turned or mirrored from a shipped one).
 // Each is measured the way build.mjs measures a file, so the sheet treats it like a shipped icon.
 const draftFile = opt('draft', null);
 const drafted = {}, draftSaid = {}, draftNoted = {};
-if (draftFile) {
+if (draftFile || given) {
   const measure = (paths, areas, stroke, shift, tags) => {
     const boxes = [];
     if (paths.length) { const b = bbox(paths); boxes.push([b.x0 - stroke / 2, b.y0 - stroke / 2, b.x1 + stroke / 2, b.y1 + stroke / 2]); }
@@ -142,7 +150,7 @@ if (draftFile) {
     const [x0, y0, x1, y1] = [0, 1, 2, 3].map((i) => (i < 2 ? Math.min : Math.max)(...boxes.map((b) => b[i])));
     return { paths, areas, stroke, shift, tags, ink: { x: r2(x0), y: r2(y0), w: r2(x1 - x0), h: r2(y1 - y0) } };
   };
-  const board = (await import(pathToFileURL(resolve(draftFile)).href)).default;
+  const board = given ?? (await import(pathToFileURL(resolve(draftFile)).href)).default;
   for (const c of board.candidates) {
     const name = c.label.split(' · ')[0];
     draftSaid[name] = [c.label, c.note].filter(Boolean).join(': ');
@@ -164,7 +172,7 @@ const markInk = (i) => {
   const b = bbox(i.paths.slice(hold)), h = i.stroke / 2;
   return { x: b.x0 - h, y: b.y0 - h, w: b.x1 - b.x0 + i.stroke, h: b.y1 - b.y0 + i.stroke };
 };
-const at = (m, n) => drafted[m]?.[n] ?? man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
+const at = (m, n) => drafted[m]?.[n] ?? manifest()[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
 // The notes the sheet's rows carry: a draft's own, else the shipped files' (2026-10-21).
 const read = (f) => (existsSync(f) ? readFileSync(f, 'utf8') : '');
 const notesOf = (n) => draftNoted[n] ?? fileNotes(Object.fromEntries(MASTERS.map((m) =>
@@ -269,8 +277,13 @@ shapes.forEach((name, k) => {
       if (f.glyphs?.length) c.filled[m].glyph = f.glyphs.map(back);   // C32: a draft's numeral or letter
       if (f.badges?.length) c.filled[m].badge = f.badges.map(back);   // C33: a draft's line badge
     }
-    if (!c.optical[24][0] && !c.optical[24][1]) delete c.optical;   // centred: no optical comment
-    c.at = arrow(pos);
+    // the asked position, and where it snapped at each master when that is not just the asked one scaled
+    const exact = MASTERS.map((m) => { const o = markInk(at(m, name)); return [pos[0] * o.w / rInk.w, pos[1] * o.h / rInk.h]; });
+    const snapped = MASTERS.some((m, k) => c.optical[m].some((v, a) => Math.abs(v - exact[k][a]) > 1e-9));
+    c.at = snapped ? `${arrow(pos)} · snapped ${by.join(' / ')} at 24 / 20 / 16` : arrow(pos);
+    // centred at every master: no optical comment (24 alone used to decide, so a row that snapped to
+    // the centre at 24 but moved at 16 lost the comment its 16 drawing needs)
+    if (MASTERS.every((m) => !c.optical[m][0] && !c.optical[m][1])) delete c.optical;
     c.by = by;
     c.note = [detail, pos[0] || pos[1] ? `optical ${by.join(' / ')} at 24 / 20 / 16 (C14, C15)` : ''].filter(Boolean).join(' · ');
     candidates.push(c);
@@ -284,14 +297,15 @@ if (boxed && !hold) for (const c of candidates) if (!c.box) c.keyline = 'mark';
 const family = (n) => sizeBase(n).replace(/-\d+$/, '');
 const concept = family(shapes[0]);
 const concepts = [...new Set(shapes.map(family))];
-writeFileSync('lab/drafts/current.js',
-  `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each row is an (x, y)\n` +
+const board = {
+  concept, ...(concepts.length > 1 ? { concepts } : {}), ...(draftFile || given ? { drafted: true } : {}),
+  ...(hold || boxed ? {} : { keyline: 'mark' }),   // a held container is the silhouette, not a mark
+  ...(context ? { context } : {}),
+  question: 'Optical placement (C15): which position reads balanced in the canvas — top, bottom, left and right — for each shape? Open /lab/optical-shift.html.',
+  candidates,
+};
+const text = `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each row is an (x, y)\n` +
   `// position in family-default units at 24; judge the balance in the canvas against all four edges.\n` +
-  `export default ${JSON.stringify({
-    concept, ...(concepts.length > 1 ? { concepts } : {}), ...(draftFile ? { drafted: true } : {}), ...(hold || boxed ? {} : { keyline: 'mark' }),   // a held container is the silhouette, not a mark
-    ...(context ? { context } : {}),
-    question: 'Optical placement (C15): which position reads balanced in the canvas — top, bottom, left and right — for each shape? Open /lab/optical-shift.html.',
-    candidates,
-  }, null, 2)};\n`);
-console.log(`${candidates.length} rows · ${shapes.length} shapes → lab/drafts/current.js · open /lab/optical-shift.html`);
+  `export default ${JSON.stringify(board, null, 2)};\n`;
+return { board, text, rows: candidates.length, shapes: shapes.length };
 }
