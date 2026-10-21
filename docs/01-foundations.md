@@ -369,7 +369,7 @@ filled shape, a band separating two filled parts, a notch in the outline and the
 a shape and a line all hold 1.5 of white at every master — at 16 that is wider than the 1.25 line
 it replaces, because a white line reads thinner than a drawn one (C18, C22). Lint §5f measures
 these and the air inside a closed path; an agreed exception is declared with `<!-- gap: N -->`.
-**The material left between two cut-outs of one shape** is read too (2026-10-20, `holeGap`): the disc
+**The material left between two cut-outs of one shape**, and between two parts of one knockout (`materialGap`, §5c, 2026-10-21), is read too (2026-10-20, `holeGap`): the disc
 between `alert-circle-filled`'s bar and its dot, the card between `id-card`'s head and shoulders. Lint
 cannot tell whether that material stands for the outline's air (a knocked-out character's gap) or for one
 of its lines (the tick between `window-2-filled`'s two tab cells, 1.25 at 16), so it floors at the
@@ -401,8 +401,12 @@ Corollaries:
   circle whose radius is at most half its stroke is a dot: it draws solid and has no hole. White
   closed in by **several** strokes (a page's dog-ear) is not measured yet — its own census comes
   first (`docs/08-refinement.md` §6.5).
-- **Arms that cross keep 1.5 at their tips** (2026-10-20). Where two strokes cross and two
-  neighbouring arms meet at under 86°, measured tip to tip, the wedge between them fills in at 16
+- **Arms that cross keep 1.5 at their tips** (2026-10-20). Where two strokes cross (a line through
+  another's corner or joint counts, as ¥'s bar through its fork, 2026-10-21) and two neighbouring arms
+  meet at under 86° — read by each arm's tangent where it leaves the crossing and by where it ends up
+  (tip to tip, and at equal reach), both under 86°, so a stem crossed square that curves only after the
+  crossing (the £) is not judged; where both arms curl toward each other (`language`'s 文) only where
+  they end up is read (2026-10-21) — the wedge between them fills in at 16
   unless the arms reach far enough apart: the shorter arm's cap centre, r from the crossing, and the
   point r along its neighbour stand 1.5 apart, edge to edge ("tip air at equal reach"; `password-2`'s
   asterisk holds 2.25 · 1.5 · 1.5). Lint §5 measures it, and §5h the same arms where a filled twin
