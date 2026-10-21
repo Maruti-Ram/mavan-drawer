@@ -1101,4 +1101,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 565. `lira-circle` — added 2026-10-21
 - [x] 566. `ruble-circle` — added 2026-10-21 · approved 2026-10-21
 - [~] 567. `peso-circle` — added 2026-10-21
-- [~] 568. `won-circle` — added 2026-10-21
+- [x] 568. `won-circle` — added 2026-10-21 · approved 2026-10-21
