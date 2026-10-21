@@ -543,7 +543,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 160. `barcode` · Devices & Hardware
 - [x] 161. `card-reader` · Commerce & Payments — approved 2026-10-21
 - [x] 161. `card-reader-contactless` · Commerce & Payments · variant of `card-reader` — Tap on the reader · approved 2026-10-21
-- [~] 162. `coins` · Commerce & Payments
+- [x] 162. `coins` · Commerce & Payments — approved 2026-10-21
+- [x] 162. `coins-2` · Commerce & Payments · variant of `coins` — Pile and coin · approved 2026-10-21
+- [x] 162. `coins-plus` · Commerce & Payments · variant of `coins` — Two coins, plus · approved 2026-10-21
 - [ ] 163. `corner-radius` · Design Tools
 - [ ] 164. `eyedropper` · Design Tools
 - [ ] 165. `flip-horizontal` · Design Tools
@@ -1059,3 +1061,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 530. `ticket-percent` — added 2026-10-21
 - [~] 531. `tickets` — added 2026-10-21
 - [x] 532. `van` — added 2026-10-21 · approved 2026-10-21
+- [~] 533. `hand-coins` — added 2026-10-21
