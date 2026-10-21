@@ -1078,7 +1078,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 543. `won` — added 2026-10-21
 - [~] 544. `ruble` — added 2026-10-21
 - [~] 545. `lira` — added 2026-10-21
-- [~] 546. `franc` — added 2026-10-21
+- [x] 546. `franc` — added 2026-10-21 · approved 2026-10-21
 - [~] 547. `shekel` — added 2026-10-21
 - [~] 548. `naira` — added 2026-10-21
 - [x] 549. `peso` — added 2026-10-21 · approved 2026-10-21
