@@ -1028,11 +1028,14 @@ const airKind = (a, b, depth) => {
 // "Tip air at equal reach". Every place where stroked centrelines cross is split at the
 // crossing point P into ARMS, each running from P to its round cap, or to where its
 // centreline turns more than ARM_TURN off its first direction. For two NEIGHBOURING arms
-// (no third arm between them) whose angle at P, measured tip to tip — so an arm that
-// curves on its way out, like `language`'s 撇 and 捺, is read where it ends up, not where
-// it leaves — is under ARM_ANGLE: take the SHORTER arm's cap centre, r from P; find the
-// point on the neighbour r from P; the tip air is the distance between those two points
-// less half of each arm's weight. The longer arm's extra length is ignored. For two arms
+// (no third arm between them) whose angle at P is under ARM_ANGLE: take the SHORTER arm's
+// cap centre, r from P; find the point on the neighbour r from P; the tip air is the distance
+// between those two points less half of each arm's weight. The angle must be acute both tip
+// to tip and within the reach (between those same two points) — so an arm that curves on its
+// way out, like `language`'s 撇 and 捺, is read where it ends up, not where it leaves, while an
+// arm that curves only past the reach (the £ swept stem, crossed square by its bar, curving
+// left 2 below it) is square at the reach and not judged (2026-10-21; tip to tip alone until
+// then, which judged the £ at 65.7°). The longer arm's extra length is ignored. For two arms
 // of one length this is exactly the drawer's "tip air": password-2's asterisk measures
 // 2.25 · 1.5 · 1.5 at 24 · 20 · 16, and its filled twin, which traces those arms, the same.
 //
@@ -1068,10 +1071,10 @@ const airKind = (a, b, depth) => {
 // path's). Returns { cross: [{ paths: [i, j], angle, gap, at, reach }], notch: [{ area,
 // angle, gap, at, reach }] }: per pair of paths (i ≤ j, 0-based; i = j when one path
 // crosses itself) the tightest wedge between their arms, and per area its tightest notch.
-// `angle` is the tip-to-tip angle in degrees, `gap` the tip air (negative when the tips
+// `angle` is the wider of the tip-to-tip angle and the angle within the reach, in degrees, `gap` the tip air (negative when the tips
 // overlap), `at` the middle of the span, `reach` r. Only judged wedges come back; whether
 // one is too tight is lint's call, against the file's floor.
-const ARM_ANGLE = 86;      // deg, tip to tip: neighbouring arms closer than this are judged
+const ARM_ANGLE = 86;      // deg, tip to tip and within the reach: neighbouring arms closer than this are judged
 const ARM_TURN = 60;       // deg: an arm ends where its centreline turns this far off its start
 const ARM_RUN = 0.3;       // an arm's direction is read over its first 0.3
 const ARM_GATHER = 95;     // deg: a bend sharper than this joins a junction; a notch is looked at
@@ -1286,9 +1289,15 @@ function tipAir(A, B, X) {
   }
   if (!P) P = [X[0] + L.u[0] * r, X[1] + L.u[1] * r];
   const near = poly.length > 1 ? Math.min(...poly.slice(1).map((q, i) => segDist(S.tip, poly[i], q)[0])) : hyp(S.tip, L.tip);
-  // the angle the two arms make at X, tip to tip
-  const turn = Math.abs(((Math.atan2(A.tip[1] - X[1], A.tip[0] - X[0]) - Math.atan2(B.tip[1] - X[1], B.tip[0] - X[0])) * 180) / Math.PI) % 360;
-  const angle = Math.min(turn, 360 - turn);
+  // the angle the two arms make at X: tip to tip, and within the reach — from the shorter arm's tip
+  // to the point at equal reach on the longer one. A wedge is judged only when BOTH are acute, and the
+  // angle said is the wider. Tip to tip alone until 2026-10-21 — so a stem crossed square by a bar
+  // that curved away 2 below it (the £ swept stem) read its far tip's 65.7° and was judged as an
+  // acute arm; within the reach it is square. Arms that curve inside the reach (language's 文) read
+  // the same both ways. Within the reach alone was tried and judged eight shipped drawings that tip
+  // to tip never had (€ and ₱, bars crossing a bowl at 84–85°): left for its own ruling, not this fix.
+  const ang = (p, q) => { const t = Math.abs(((Math.atan2(p[1] - X[1], p[0] - X[0]) - Math.atan2(q[1] - X[1], q[0] - X[0])) * 180) / Math.PI) % 360; return Math.min(t, 360 - t); };
+  const angle = Math.max(ang(A.tip, B.tip), ang(S.tip, P));
   return { S, gap: hyp(S.tip, P) - hh, buried: near - hh <= -hh / 2, angle, at: [(S.tip[0] + P[0]) / 2, (S.tip[1] + P[1]) / 2], reach: r };
 }
 

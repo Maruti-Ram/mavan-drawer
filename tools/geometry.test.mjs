@@ -1967,3 +1967,25 @@ test('§5c: a knockout\'s material floors at the line weight — 1.25 at 16, 1.5
   assert.match(knockWarn(F(16, [UPLATE(0.75)], ['gap: 1']))[0] ?? '', /— agreed gap 1 needs 1: /);
   assert.deepEqual(knockWarn(F(16, [UPLATE(1.25)], ['gap: 1.4'])), [], 'a note never raises the floor');
 });
+
+// Card 4. The £ "swept stem" (lab draft pound B, since cleared): a straight stem crossed square by a
+// bar, the stem curving left 2 below the bar. Its lower arm ended where it turned, down-left of the
+// crossing, so tip to tip it read 65.7° from the bar's left arm and was judged, 0.98 of "tip air" at a
+// reach of 1.75 — the air of a right angle, which is never judged. The angle is now read within the
+// reach, from the shorter arm's tip to the point at equal reach on the longer arm: where the arms are.
+const POUND_SWEPT = ['M12 4V10C12 13 10 15 7 16', 'M10.25 8H15'];
+
+test('armTipGap: a stem that curves after a square crossing is not an acute arm (the £ swept stem)', () => {
+  assert.deepEqual(tipsOf(POUND_SWEPT, 1.5).cross, []);
+  assert.deepEqual(armWarn(lintSource(24, 'pound.svg', drawn(24, 1.5, POUND_SWEPT))), []);
+  // the same with the curve drawn as an arc
+  assert.deepEqual(tipsOf(['M12 4V10A5 5 0 0 1 7 15', 'M10.25 8H15'], 1.5).cross, []);
+  // a bar that really crosses at 59° is still judged, and warns: 0.8 of air at a reach of 2.33
+  const [acute] = tipsOf(['M12 4V16', 'M10 6.5L15 9.5'], 1.5).cross;
+  near(acute.angle, 59, 0.1);
+  near(acute.gap, 0.798, 0.005);
+  assert.equal(armWarn(lintSource(24, 'mark.svg', drawn(24, 1.5, ['M12 4V16', 'M10 6.5L15 9.5']))).length, 1);
+  // and a stem that turns toward the bar's arm within its reach is judged where it is
+  const [early] = tipsOf(['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15'], 1.5).cross;
+  assert.ok(early && early.angle < 86, JSON.stringify(early));
+});
