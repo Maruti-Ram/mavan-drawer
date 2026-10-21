@@ -858,7 +858,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
 - [ ] 335. `disc` · Devices & Hardware
-- [~] 336. `dollar-sign` · Commerce & Payments
+- [x] 336. `dollar-sign` · Commerce & Payments — approved 2026-10-21
 - [ ] 337. `fast-forward` · Media & Playback
 - [ ] 338. `git-branch` · Development & Infra
 - [ ] 339. `git-merge` · Development & Infra
