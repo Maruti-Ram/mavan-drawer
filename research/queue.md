@@ -1051,4 +1051,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
 - [x] 526. `credit-card-contactless` — added 2026-10-21 · approved 2026-10-21
 - [x] 527. `phone-contactless` — added 2026-10-21 · approved 2026-10-21
-- [~] 528. `badge-check` — added 2026-10-21
+- [x] 528. `badge-check` — added 2026-10-21 · approved 2026-10-21
