@@ -96,14 +96,16 @@
     {
       "name": "currency",
       "concept": "currency",
-      "candidates": 6,
+      "candidates": 8,
       "ids": [
         "B",
         "B1",
         "B2",
+        "B3",
         "C",
         "C1",
-        "C2"
+        "C2",
+        "C3"
       ],
       "status": "review"
     },
@@ -133,23 +135,6 @@
       "status": "review"
     },
     {
-      "name": "subscription",
-      "concept": "subscription",
-      "candidates": 9,
-      "ids": [
-        "B",
-        "B1",
-        "B2",
-        "D",
-        "D1",
-        "D2",
-        "E",
-        "E1",
-        "E2"
-      ],
-      "status": "review"
-    },
-    {
       "name": "dollar-sign",
       "concept": "dollar-sign",
       "candidates": 5,
@@ -158,6 +143,15 @@
         "B",
         "C",
         "D",
+        "E"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "badge-check",
+      "concept": "badge-check",
+      "candidates": 1,
+      "ids": [
         "E"
       ],
       "status": "review"

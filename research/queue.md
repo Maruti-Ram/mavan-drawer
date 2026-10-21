@@ -796,7 +796,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 296. `roadmap-4` · Maps & Location · variant of `roadmap` — Route (maps) · approved 2026-10-19
 - [ ] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
-- [~] 299. `subscription` · Commerce & Payments
+- [x] 299. `subscription` · Commerce & Payments — approved 2026-10-21
+- [x] 299. `subscription-2` · Commerce & Payments · variant of `subscription` — Box on repeat · approved 2026-10-21
 - [x] 300. `airplay` · Arrows & Direction — approved 2026-10-17
 - [x] 301. `arrow-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 302. `arrow-down-right` · Arrows & Direction — approved 2026-10-17
@@ -1050,3 +1051,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
 - [x] 526. `credit-card-contactless` — added 2026-10-21 · approved 2026-10-21
 - [x] 527. `phone-contactless` — added 2026-10-21 · approved 2026-10-21
+- [~] 528. `badge-check` — added 2026-10-21
