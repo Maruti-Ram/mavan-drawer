@@ -552,7 +552,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 166. `flip-vertical` · Design Tools
 - [ ] 167. `palette` · Design Tools
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
-- [~] 169. `receipt` · Commerce & Payments
+- [x] 169. `receipt` · Commerce & Payments — approved 2026-10-21
 - [ ] 170. `ruler` · Design Tools
 - [ ] 171. `slideshow` · Media & Playback
 - [ ] 172. `workflow` · Development & Infra

@@ -1151,6 +1151,8 @@
     "quote-3",
     "quote-3-filled",
     "quote-filled",
+    "receipt",
+    "receipt-filled",
     "redo",
     "redo-2",
     "redo-2-filled",
@@ -69682,6 +69684,133 @@
       "ratio": null,
       "gap": null
     },
+    "receipt": {
+      "paths": [
+        "M7.25 2.75H16.75 A2.5 2.5 0 0 1 19.25 5.25V21.25 L16.5 19 L14.25 21.25 L12 19 L9.75 21.25 L7.5 19 L4.75 21.25V5.25 A2.5 2.5 0 0 1 7.25 2.75Z",
+        "M7.75 7H16.25",
+        "M7.75 11H16.25",
+        "M7.75 15H11.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.25 2.75H16.75 A2.5 2.5 0 0 1 19.25 5.25V21.25 L16.5 19 L14.25 21.25 L12 19 L9.75 21.25 L7.5 19 L4.75 21.25V5.25 A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M7.75 7H16.25\"/> <path d=\"M7.75 11H16.25\"/> <path d=\"M7.75 15H11.25\"/>",
+      "mark": false,
+      "tags": [
+        "torn",
+        "zigzag",
+        "slip",
+        "bill",
+        "invoice",
+        "total"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.12,
+          "optical": 4.09
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.12,
+          "optical": 4.09
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.27,
+          "optical": 2.2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.76,
+          "optical": 2.57
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 10,
+        "h": 9.5
+      },
+      "ratio": {
+        "w": 0.5,
+        "h": 0.48
+      },
+      "gap": null
+    },
+    "receipt-filled": {
+      "paths": [],
+      "areas": [
+        "M7.25 2H16.75 A3.25 3.25 0 0 1 20 5.25V21.25 A0.75 0.75 0 0 1 19.25 22 A0.75 0.75 0 0 1 18.78 21.83 L16.55 20.01 L14.78 21.78 A0.75 0.75 0 0 1 14.25 22 A0.75 0.75 0 0 1 13.72 21.78 L12 20.06 L10.28 21.78 A0.75 0.75 0 0 1 9.75 22 A0.75 0.75 0 0 1 9.22 21.78 L7.45 20.01 L5.22 21.83 A0.75 0.75 0 0 1 4.75 22 A0.75 0.75 0 0 1 4 21.25V5.25 A3.25 3.25 0 0 1 7.25 2ZM7.75 6.25A0.75 0.75 0 0 0 7.75 7.75H16.25A0.75 0.75 0 0 0 16.25 6.25ZM7.75 10.25A0.75 0.75 0 0 0 7.75 11.75H16.25A0.75 0.75 0 0 0 16.25 10.25ZM7.75 14.25A0.75 0.75 0 0 0 7.75 15.75H11.25A0.75 0.75 0 0 0 11.25 14.25Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H16.75 A3.25 3.25 0 0 1 20 5.25V21.25 A0.75 0.75 0 0 1 19.25 22 A0.75 0.75 0 0 1 18.78 21.83 L16.55 20.01 L14.78 21.78 A0.75 0.75 0 0 1 14.25 22 A0.75 0.75 0 0 1 13.72 21.78 L12 20.06 L10.28 21.78 A0.75 0.75 0 0 1 9.75 22 A0.75 0.75 0 0 1 9.22 21.78 L7.45 20.01 L5.22 21.83 A0.75 0.75 0 0 1 4.75 22 A0.75 0.75 0 0 1 4 21.25V5.25 A3.25 3.25 0 0 1 7.25 2ZM7.75 6.25A0.75 0.75 0 0 0 7.75 7.75H16.25A0.75 0.75 0 0 0 16.25 6.25ZM7.75 10.25A0.75 0.75 0 0 0 7.75 11.75H16.25A0.75 0.75 0 0 0 16.25 10.25ZM7.75 14.25A0.75 0.75 0 0 0 7.75 15.75H11.25A0.75 0.75 0 0 0 11.25 14.25Z\"/>",
+      "mark": false,
+      "tags": [
+        "torn",
+        "zigzag",
+        "slip",
+        "bill",
+        "invoice",
+        "total"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "redo": {
       "paths": [
         "M3.81 16.07A8.13 8.13 0 0 1 17.69 10.32L19.97 12.6",
@@ -99780,6 +99909,8 @@
         "quote-3",
         "quote-3-filled",
         "quote-filled",
+        "receipt",
+        "receipt-filled",
         "redo",
         "redo-2",
         "redo-2-filled",
@@ -168241,6 +168372,132 @@
           "ratio": null,
           "gap": null
         },
+        "receipt": {
+          "paths": [
+            "M5.125 1.625H10.875 A1.5 1.5 0 0 1 12.375 3.125V14.375 L10.125 12.375 L8 14.375 L5.875 12.375 L3.625 14.375V3.125 A1.5 1.5 0 0 1 5.125 1.625Z",
+            "M6.625 5.625H9.375",
+            "M6.625 8.625H7.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.125 1.625H10.875 A1.5 1.5 0 0 1 12.375 3.125V14.375 L10.125 12.375 L8 14.375 L5.875 12.375 L3.625 14.375V3.125 A1.5 1.5 0 0 1 5.125 1.625Z\"/> <path d=\"M6.625 5.625H9.375\"/> <path d=\"M6.625 8.625H7.375\"/>",
+          "mark": false,
+          "tags": [
+            "torn",
+            "zigzag",
+            "slip",
+            "bill",
+            "invoice",
+            "total"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.09,
+              "optical": 3.07
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.09,
+              "optical": 3.07
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.21,
+              "optical": 1.16
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.66,
+              "optical": 1.49
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 4,
+            "h": 4.25
+          },
+          "ratio": {
+            "w": 0.29,
+            "h": 0.3
+          },
+          "gap": null
+        },
+        "receipt-filled": {
+          "paths": [],
+          "areas": [
+            "M5.125 1H10.875 A2.125 2.125 0 0 1 13 3.125V14.375 A0.625 0.625 0 0 1 12.375 15 A0.625 0.625 0 0 1 11.96 14.842 L10.137 13.222 L8.428 14.83 A0.625 0.625 0 0 1 8 15 A0.625 0.625 0 0 1 7.572 14.83 L5.863 13.222 L4.04 14.842 A0.625 0.625 0 0 1 3.625 15 A0.625 0.625 0 0 1 3 14.375V3.125 A2.125 2.125 0 0 1 5.125 1ZM6.75 4.875A0.75 0.75 0 0 0 6.75 6.375H9.25A0.75 0.75 0 0 0 9.25 4.875ZM6.75 7.875A0.75 0.75 0 0 0 6.75 9.375H7.25A0.75 0.75 0 0 0 7.25 7.875Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.125 1H10.875 A2.125 2.125 0 0 1 13 3.125V14.375 A0.625 0.625 0 0 1 12.375 15 A0.625 0.625 0 0 1 11.96 14.842 L10.137 13.222 L8.428 14.83 A0.625 0.625 0 0 1 8 15 A0.625 0.625 0 0 1 7.572 14.83 L5.863 13.222 L4.04 14.842 A0.625 0.625 0 0 1 3.625 15 A0.625 0.625 0 0 1 3 14.375V3.125 A2.125 2.125 0 0 1 5.125 1ZM6.75 4.875A0.75 0.75 0 0 0 6.75 6.375H9.25A0.75 0.75 0 0 0 9.25 4.875ZM6.75 7.875A0.75 0.75 0 0 0 6.75 9.375H7.25A0.75 0.75 0 0 0 7.25 7.875Z\"/>",
+          "mark": false,
+          "tags": [
+            "torn",
+            "zigzag",
+            "slip",
+            "bill",
+            "invoice",
+            "total"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "redo": {
           "paths": [
             "M2.926 10.386A4.773 4.773 0 0 1 11.074 7.011L12.891 8.828",
@@ -198309,6 +198566,8 @@
         "quote-3",
         "quote-3-filled",
         "quote-filled",
+        "receipt",
+        "receipt-filled",
         "redo",
         "redo-2",
         "redo-2-filled",
@@ -266797,6 +267056,132 @@
           "ratio": null,
           "gap": null
         },
+        "receipt": {
+          "paths": [
+            "M6.75 2.75H13.25 A2 2 0 0 1 15.25 4.75V17.25 L13.5 15.5 L11.75 17.25 L10 15.5 L8.25 17.25 L6.5 15.5 L4.75 17.25V4.75 A2 2 0 0 1 6.75 2.75Z",
+            "M7.75 7H12.25",
+            "M7.75 11H9.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.75 2.75H13.25 A2 2 0 0 1 15.25 4.75V17.25 L13.5 15.5 L11.75 17.25 L10 15.5 L8.25 17.25 L6.5 15.5 L4.75 17.25V4.75 A2 2 0 0 1 6.75 2.75Z\"/> <path d=\"M7.75 7H12.25\"/> <path d=\"M7.75 11H9.25\"/>",
+          "mark": false,
+          "tags": [
+            "torn",
+            "zigzag",
+            "slip",
+            "bill",
+            "invoice",
+            "total"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.12,
+              "optical": 4.09
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.12,
+              "optical": 4.09
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.56,
+              "optical": 2.42
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 6,
+            "h": 5.5
+          },
+          "ratio": {
+            "w": 0.38,
+            "h": 0.34
+          },
+          "gap": null
+        },
+        "receipt-filled": {
+          "paths": [],
+          "areas": [
+            "M6.75 2H13.25 A2.75 2.75 0 0 1 16 4.75V17.25 A0.75 0.75 0 0 1 15.25 18 A0.75 0.75 0 0 1 14.72 17.78 L13.5 16.56 L12.28 17.78 A0.75 0.75 0 0 1 11.75 18 A0.75 0.75 0 0 1 11.22 17.78 L10 16.56 L8.78 17.78 A0.75 0.75 0 0 1 8.25 18 A0.75 0.75 0 0 1 7.72 17.78 L6.5 16.56 L5.28 17.78 A0.75 0.75 0 0 1 4.75 18 A0.75 0.75 0 0 1 4 17.25V4.75 A2.75 2.75 0 0 1 6.75 2ZM7.75 6.25A0.75 0.75 0 0 0 7.75 7.75H12.25A0.75 0.75 0 0 0 12.25 6.25ZM7.75 10.25A0.75 0.75 0 0 0 7.75 11.75H9.25A0.75 0.75 0 0 0 9.25 10.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 2H13.25 A2.75 2.75 0 0 1 16 4.75V17.25 A0.75 0.75 0 0 1 15.25 18 A0.75 0.75 0 0 1 14.72 17.78 L13.5 16.56 L12.28 17.78 A0.75 0.75 0 0 1 11.75 18 A0.75 0.75 0 0 1 11.22 17.78 L10 16.56 L8.78 17.78 A0.75 0.75 0 0 1 8.25 18 A0.75 0.75 0 0 1 7.72 17.78 L6.5 16.56 L5.28 17.78 A0.75 0.75 0 0 1 4.75 18 A0.75 0.75 0 0 1 4 17.25V4.75 A2.75 2.75 0 0 1 6.75 2ZM7.75 6.25A0.75 0.75 0 0 0 7.75 7.75H12.25A0.75 0.75 0 0 0 12.25 6.25ZM7.75 10.25A0.75 0.75 0 0 0 7.75 11.75H9.25A0.75 0.75 0 0 0 9.25 10.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "torn",
+            "zigzag",
+            "slip",
+            "bill",
+            "invoice",
+            "total"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "redo": {
           "paths": [
             "M3.97 12.91A5.83 5.83 0 0 1 13.92 8.79L15.82 10.69",
@@ -296886,6 +297271,8 @@
         "quote-3",
         "quote-3-filled",
         "quote-filled",
+        "receipt",
+        "receipt-filled",
         "redo",
         "redo-2",
         "redo-2-filled",
@@ -365417,6 +365804,133 @@
           "ratio": null,
           "gap": null
         },
+        "receipt": {
+          "paths": [
+            "M7.25 2.75H16.75 A2.5 2.5 0 0 1 19.25 5.25V21.25 L16.5 19 L14.25 21.25 L12 19 L9.75 21.25 L7.5 19 L4.75 21.25V5.25 A2.5 2.5 0 0 1 7.25 2.75Z",
+            "M7.75 7H16.25",
+            "M7.75 11H16.25",
+            "M7.75 15H11.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 2.75H16.75 A2.5 2.5 0 0 1 19.25 5.25V21.25 L16.5 19 L14.25 21.25 L12 19 L9.75 21.25 L7.5 19 L4.75 21.25V5.25 A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M7.75 7H16.25\"/> <path d=\"M7.75 11H16.25\"/> <path d=\"M7.75 15H11.25\"/>",
+          "mark": false,
+          "tags": [
+            "torn",
+            "zigzag",
+            "slip",
+            "bill",
+            "invoice",
+            "total"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.12,
+              "optical": 4.09
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.12,
+              "optical": 4.09
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.76,
+              "optical": 2.57
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 10,
+            "h": 9.5
+          },
+          "ratio": {
+            "w": 0.5,
+            "h": 0.48
+          },
+          "gap": null
+        },
+        "receipt-filled": {
+          "paths": [],
+          "areas": [
+            "M7.25 2H16.75 A3.25 3.25 0 0 1 20 5.25V21.25 A0.75 0.75 0 0 1 19.25 22 A0.75 0.75 0 0 1 18.78 21.83 L16.55 20.01 L14.78 21.78 A0.75 0.75 0 0 1 14.25 22 A0.75 0.75 0 0 1 13.72 21.78 L12 20.06 L10.28 21.78 A0.75 0.75 0 0 1 9.75 22 A0.75 0.75 0 0 1 9.22 21.78 L7.45 20.01 L5.22 21.83 A0.75 0.75 0 0 1 4.75 22 A0.75 0.75 0 0 1 4 21.25V5.25 A3.25 3.25 0 0 1 7.25 2ZM7.75 6.25A0.75 0.75 0 0 0 7.75 7.75H16.25A0.75 0.75 0 0 0 16.25 6.25ZM7.75 10.25A0.75 0.75 0 0 0 7.75 11.75H16.25A0.75 0.75 0 0 0 16.25 10.25ZM7.75 14.25A0.75 0.75 0 0 0 7.75 15.75H11.25A0.75 0.75 0 0 0 11.25 14.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H16.75 A3.25 3.25 0 0 1 20 5.25V21.25 A0.75 0.75 0 0 1 19.25 22 A0.75 0.75 0 0 1 18.78 21.83 L16.55 20.01 L14.78 21.78 A0.75 0.75 0 0 1 14.25 22 A0.75 0.75 0 0 1 13.72 21.78 L12 20.06 L10.28 21.78 A0.75 0.75 0 0 1 9.75 22 A0.75 0.75 0 0 1 9.22 21.78 L7.45 20.01 L5.22 21.83 A0.75 0.75 0 0 1 4.75 22 A0.75 0.75 0 0 1 4 21.25V5.25 A3.25 3.25 0 0 1 7.25 2ZM7.75 6.25A0.75 0.75 0 0 0 7.75 7.75H16.25A0.75 0.75 0 0 0 16.25 6.25ZM7.75 10.25A0.75 0.75 0 0 0 7.75 11.75H16.25A0.75 0.75 0 0 0 16.25 10.25ZM7.75 14.25A0.75 0.75 0 0 0 7.75 15.75H11.25A0.75 0.75 0 0 0 11.25 14.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "torn",
+            "zigzag",
+            "slip",
+            "bill",
+            "invoice",
+            "total"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "redo": {
           "paths": [
             "M3.81 16.07A8.13 8.13 0 0 1 17.69 10.32L19.97 12.6",
@@ -400123,10 +400637,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Commerce & Payments",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 170,
