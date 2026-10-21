@@ -668,6 +668,8 @@
     "grid-7-filled",
     "grid-filled",
     "hand",
+    "hand-coins",
+    "hand-coins-filled",
     "hand-filled",
     "hand-grab",
     "hand-grab-filled",
@@ -40433,6 +40435,133 @@
           "geometric": 3,
           "recession": 0.77,
           "optical": 3.58
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hand-coins": {
+      "paths": [
+        "M7.75 8A3.25 3.25 0 1 0 14.25 8A3.25 3.25 0 1 0 7.75 8Z",
+        "M14.84 3.07A3.25 3.25 0 0 1 16.25 2.75A3.25 3.25 0 0 1 19.5 6A3.25 3.25 0 0 1 17.15 9.12",
+        "M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.75 8A3.25 3.25 0 1 0 14.25 8A3.25 3.25 0 1 0 7.75 8Z\"/> <path d=\"M14.84 3.07A3.25 3.25 0 0 1 16.25 2.75A3.25 3.25 0 0 1 19.5 6A3.25 3.25 0 0 1 17.15 9.12\"/> <path d=\"M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "hand",
+        "palm",
+        "payout",
+        "pay",
+        "donate",
+        "central",
+        "untitled",
+        "lucide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.13,
+          "optical": 2.1
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.48,
+          "optical": 2.36
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.17,
+          "optical": 2.12
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.56,
+          "optical": 2.42
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hand-coins-filled": {
+      "paths": [
+        "M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25"
+      ],
+      "areas": [
+        "M7 8A4 4 0 1 0 15 8A4 4 0 1 0 7 8Z",
+        "M14.52 2.39A4 4 0 0 1 16.25 2A4 4 0 0 1 20.25 6A4 4 0 0 1 17.36 9.84A0.75 0.75 0 0 1 16.41 8.99A5.5 5.5 0 0 0 14.38 3.66A0.75 0.75 0 0 1 14.52 2.39Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7 8A4 4 0 1 0 15 8A4 4 0 1 0 7 8Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.52 2.39A4 4 0 0 1 16.25 2A4 4 0 0 1 20.25 6A4 4 0 0 1 17.36 9.84A0.75 0.75 0 0 1 16.41 8.99A5.5 5.5 0 0 0 14.38 3.66A0.75 0.75 0 0 1 14.52 2.39Z\"/> <path d=\"M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "hand",
+        "palm",
+        "payout",
+        "pay",
+        "donate",
+        "central",
+        "untitled",
+        "lucide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -99168,6 +99297,8 @@
         "grid-7-filled",
         "grid-filled",
         "hand",
+        "hand-coins",
+        "hand-coins-filled",
         "hand-filled",
         "hand-grab",
         "hand-grab-filled",
@@ -138873,6 +139004,133 @@
               "geometric": 1,
               "recession": 0.61,
               "optical": 1.46
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hand-coins": {
+          "paths": [
+            "M5.125 4.5A2.125 2.125 0 1 0 9.375 4.5A2.125 2.125 0 1 0 5.125 4.5Z",
+            "M11.188 1.626A2.125 2.125 0 0 1 11.25 1.625A2.125 2.125 0 0 1 13.375 3.75A2.125 2.125 0 0 1 11.961 5.752",
+            "M1.625 10.875L4.612 9.547A2 2 0 0 1 5.424 9.375L7.134 9.375A1.5 1.5 0 0 1 8.57 10.445L8.62 10.609A0.875 0.875 0 0 0 9.96 11.075L12.211 9.499A1.375 1.375 0 0 1 14.375 10.625A1.375 1.375 0 0 1 13.789 11.751L10.558 14.013A2 2 0 0 1 9.411 14.375L1.625 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.125 4.5A2.125 2.125 0 1 0 9.375 4.5A2.125 2.125 0 1 0 5.125 4.5Z\"/> <path d=\"M11.188 1.626A2.125 2.125 0 0 1 11.25 1.625A2.125 2.125 0 0 1 13.375 3.75A2.125 2.125 0 0 1 11.961 5.752\"/> <path d=\"M1.625 10.875L4.612 9.547A2 2 0 0 1 5.424 9.375L7.134 9.375A1.5 1.5 0 0 1 8.57 10.445L8.62 10.609A0.875 0.875 0 0 0 9.96 11.075L12.211 9.499A1.375 1.375 0 0 1 14.375 10.625A1.375 1.375 0 0 1 13.789 11.751L10.558 14.013A2 2 0 0 1 9.411 14.375L1.625 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "hand",
+            "palm",
+            "payout",
+            "pay",
+            "donate",
+            "central",
+            "untitled",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.14,
+              "optical": 1.11
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.37,
+              "optical": 1.27
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.12,
+              "optical": 1.09
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.36,
+              "optical": 1.27
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hand-coins-filled": {
+          "paths": [
+            "M1.625 10.875L4.612 9.547A2 2 0 0 1 5.424 9.375L7.134 9.375A1.5 1.5 0 0 1 8.57 10.445L8.62 10.609A0.875 0.875 0 0 0 9.96 11.075L12.211 9.499A1.375 1.375 0 0 1 14.375 10.625A1.375 1.375 0 0 1 13.789 11.751L10.558 14.013A2 2 0 0 1 9.411 14.375L1.625 14.375"
+          ],
+          "areas": [
+            "M4.5 4.5A2.75 2.75 0 1 0 10 4.5A2.75 2.75 0 1 0 4.5 4.5Z",
+            "M11.169 1.001A2.75 2.75 0 0 1 11.25 1A2.75 2.75 0 0 1 14 3.75A2.75 2.75 0 0 1 12.171 6.341A0.625 0.625 0 0 1 11.357 5.592A4.25 4.25 0 0 0 10.683 1.994A0.625 0.625 0 0 1 11.169 1.001Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.5 4.5A2.75 2.75 0 1 0 10 4.5A2.75 2.75 0 1 0 4.5 4.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.169 1.001A2.75 2.75 0 0 1 11.25 1A2.75 2.75 0 0 1 14 3.75A2.75 2.75 0 0 1 12.171 6.341A0.625 0.625 0 0 1 11.357 5.592A4.25 4.25 0 0 0 10.683 1.994A0.625 0.625 0 0 1 11.169 1.001Z\"/> <path d=\"M1.625 10.875L4.612 9.547A2 2 0 0 1 5.424 9.375L7.134 9.375A1.5 1.5 0 0 1 8.57 10.445L8.62 10.609A0.875 0.875 0 0 0 9.96 11.075L12.211 9.499A1.375 1.375 0 0 1 14.375 10.625A1.375 1.375 0 0 1 13.789 11.751L10.558 14.013A2 2 0 0 1 9.411 14.375L1.625 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "hand",
+            "palm",
+            "payout",
+            "pay",
+            "donate",
+            "central",
+            "untitled",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -197568,6 +197826,8 @@
         "grid-7-filled",
         "grid-filled",
         "hand",
+        "hand-coins",
+        "hand-coins-filled",
         "hand-filled",
         "hand-grab",
         "hand-grab-filled",
@@ -237296,6 +237556,133 @@
               "geometric": 3,
               "recession": 0.69,
               "optical": 3.52
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hand-coins": {
+          "paths": [
+            "M5.75 6A2.75 2.75 0 1 0 11.25 6A2.75 2.75 0 1 0 5.75 6Z",
+            "M13.24 2.75A2.75 2.75 0 0 1 13.25 2.75A2.75 2.75 0 0 1 16 5.5A2.75 2.75 0 0 1 13.82 8.19",
+            "M2.75 13L5.61 11.9A2.25 2.25 0 0 1 6.42 11.75L8.7 11.75A1.75 1.75 0 0 1 10.37 13L10.39 13.06A1 1 0 0 0 11.92 13.59L14.89 11.52A1.5 1.5 0 0 1 17.25 12.75A1.5 1.5 0 0 1 16.61 13.98L12.57 16.8A2.5 2.5 0 0 1 11.14 17.25L2.75 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 6A2.75 2.75 0 1 0 11.25 6A2.75 2.75 0 1 0 5.75 6Z\"/> <path d=\"M13.24 2.75A2.75 2.75 0 0 1 13.25 2.75A2.75 2.75 0 0 1 16 5.5A2.75 2.75 0 0 1 13.82 8.19\"/> <path d=\"M2.75 13L5.61 11.9A2.25 2.25 0 0 1 6.42 11.75L8.7 11.75A1.75 1.75 0 0 1 10.37 13L10.39 13.06A1 1 0 0 0 11.92 13.59L14.89 11.52A1.5 1.5 0 0 1 17.25 12.75A1.5 1.5 0 0 1 16.61 13.98L12.57 16.8A2.5 2.5 0 0 1 11.14 17.25L2.75 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "hand",
+            "palm",
+            "payout",
+            "pay",
+            "donate",
+            "central",
+            "untitled",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.12,
+              "optical": 2.09
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.45,
+              "optical": 2.34
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.16,
+              "optical": 2.12
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.36
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hand-coins-filled": {
+          "paths": [
+            "M2.75 13L5.61 11.9A2.25 2.25 0 0 1 6.42 11.75L8.7 11.75A1.75 1.75 0 0 1 10.37 13L10.39 13.06A1 1 0 0 0 11.92 13.59L14.89 11.52A1.5 1.5 0 0 1 17.25 12.75A1.5 1.5 0 0 1 16.61 13.98L12.57 16.8A2.5 2.5 0 0 1 11.14 17.25L2.75 17.25"
+          ],
+          "areas": [
+            "M5 6A3.5 3.5 0 1 0 12 6A3.5 3.5 0 1 0 5 6Z",
+            "M13.24 2A3.5 3.5 0 0 1 13.25 2A3.5 3.5 0 0 1 16.75 5.5A3.5 3.5 0 0 1 13.97 8.93A0.75 0.75 0 0 1 13.12 7.91A5 5 0 0 0 12.62 3.17A0.75 0.75 0 0 1 13.24 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 6A3.5 3.5 0 1 0 12 6A3.5 3.5 0 1 0 5 6Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.24 2A3.5 3.5 0 0 1 13.25 2A3.5 3.5 0 0 1 16.75 5.5A3.5 3.5 0 0 1 13.97 8.93A0.75 0.75 0 0 1 13.12 7.91A5 5 0 0 0 12.62 3.17A0.75 0.75 0 0 1 13.24 2Z\"/> <path d=\"M2.75 13L5.61 11.9A2.25 2.25 0 0 1 6.42 11.75L8.7 11.75A1.75 1.75 0 0 1 10.37 13L10.39 13.06A1 1 0 0 0 11.92 13.59L14.89 11.52A1.5 1.5 0 0 1 17.25 12.75A1.5 1.5 0 0 1 16.61 13.98L12.57 16.8A2.5 2.5 0 0 1 11.14 17.25L2.75 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "hand",
+            "palm",
+            "payout",
+            "pay",
+            "donate",
+            "central",
+            "untitled",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -296016,6 +296403,8 @@
         "grid-7-filled",
         "grid-filled",
         "hand",
+        "hand-coins",
+        "hand-coins-filled",
         "hand-filled",
         "hand-grab",
         "hand-grab-filled",
@@ -335781,6 +336170,133 @@
               "geometric": 3,
               "recession": 0.77,
               "optical": 3.58
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hand-coins": {
+          "paths": [
+            "M7.75 8A3.25 3.25 0 1 0 14.25 8A3.25 3.25 0 1 0 7.75 8Z",
+            "M14.84 3.07A3.25 3.25 0 0 1 16.25 2.75A3.25 3.25 0 0 1 19.5 6A3.25 3.25 0 0 1 17.15 9.12",
+            "M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.75 8A3.25 3.25 0 1 0 14.25 8A3.25 3.25 0 1 0 7.75 8Z\"/> <path d=\"M14.84 3.07A3.25 3.25 0 0 1 16.25 2.75A3.25 3.25 0 0 1 19.5 6A3.25 3.25 0 0 1 17.15 9.12\"/> <path d=\"M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "hand",
+            "palm",
+            "payout",
+            "pay",
+            "donate",
+            "central",
+            "untitled",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.17,
+              "optical": 2.12
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.56,
+              "optical": 2.42
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hand-coins-filled": {
+          "paths": [
+            "M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25"
+          ],
+          "areas": [
+            "M7 8A4 4 0 1 0 15 8A4 4 0 1 0 7 8Z",
+            "M14.52 2.39A4 4 0 0 1 16.25 2A4 4 0 0 1 20.25 6A4 4 0 0 1 17.36 9.84A0.75 0.75 0 0 1 16.41 8.99A5.5 5.5 0 0 0 14.38 3.66A0.75 0.75 0 0 1 14.52 2.39Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7 8A4 4 0 1 0 15 8A4 4 0 1 0 7 8Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.52 2.39A4 4 0 0 1 16.25 2A4 4 0 0 1 20.25 6A4 4 0 0 1 17.36 9.84A0.75 0.75 0 0 1 16.41 8.99A5.5 5.5 0 0 0 14.38 3.66A0.75 0.75 0 0 1 14.52 2.39Z\"/> <path d=\"M2.75 15.75L6.6 14.39A2.5 2.5 0 0 1 7.43 14.25L10.51 14.25A2 2 0 0 1 12.43 15.68L12.54 16.05A1 1 0 0 0 14.06 16.59L18.51 13.55A1.75 1.75 0 0 1 21.25 15A1.75 1.75 0 0 1 20.49 16.45L14.21 20.73A3 3 0 0 1 12.52 21.25L2.75 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "hand",
+            "palm",
+            "payout",
+            "pay",
+            "donate",
+            "central",
+            "untitled",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -405151,10 +405667,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     }
   ],
   "next": {
