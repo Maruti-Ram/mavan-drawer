@@ -484,10 +484,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 132. `underline` · Editing & Text — mvp · approved 2026-10-17
 - [ ] 133. `crop` · Design Tools
 - [ ] 134. `mobile` · Devices & Hardware
-- [ ] 135. `percent` · Commerce & Payments
+- [x] 135. `percent` · Commerce & Payments — approved 2026-10-21
+- [x] 135. `percent-2` · Commerce & Payments · variant of `percent` — Typed glyph · approved 2026-10-21
+- [x] 135. `percent-circle` · Commerce & Payments · variant of `percent` — In a circle · approved 2026-10-21
 - [ ] 136. `stop-circle` · Media & Playback
 - [ ] 137. `tablet` · Devices & Hardware
-- [ ] 138. `truck` · Commerce & Payments
+- [~] 138. `truck` · Commerce & Payments
 - [ ] 139. `wifi` · Devices & Hardware
 - [x] 140. `alert-octagon` · Status & Feedback — approved 2026-10-20
 - [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
@@ -538,15 +540,15 @@ Bases before their variants; within that, highest evidence first.
 - [x] 159. `undo-2` · Arrows & Direction · variant of `undo` — U-turn · undo · approved 2026-10-17
 - [x] 159. `undo-3` · Arrows & Direction · variant of `undo` — Squared return · undo · approved 2026-10-17
 - [ ] 160. `barcode` · Devices & Hardware
-- [ ] 161. `card-reader` · Commerce & Payments
-- [ ] 162. `coins` · Commerce & Payments
+- [~] 161. `card-reader` · Commerce & Payments
+- [~] 162. `coins` · Commerce & Payments
 - [ ] 163. `corner-radius` · Design Tools
 - [ ] 164. `eyedropper` · Design Tools
 - [ ] 165. `flip-horizontal` · Design Tools
 - [ ] 166. `flip-vertical` · Design Tools
 - [ ] 167. `palette` · Design Tools
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
-- [ ] 169. `receipt` · Commerce & Payments
+- [~] 169. `receipt` · Commerce & Payments
 - [ ] 170. `ruler` · Design Tools
 - [ ] 171. `slideshow` · Media & Playback
 - [ ] 172. `workflow` · Development & Infra
