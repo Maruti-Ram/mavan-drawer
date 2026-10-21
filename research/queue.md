@@ -1076,6 +1076,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 541. `rupee` — added 2026-10-21 · approved 2026-10-21
 - [x] 542. `bitcoin` — added 2026-10-21 · approved 2026-10-21
 - [x] 543. `won` — added 2026-10-21 · approved 2026-10-21
+- [x] 543. `won-2` · variant of `won` — Two bars centred on A’s bar · approved 2026-10-21
 - [x] 544. `ruble` — added 2026-10-21 · approved 2026-10-21
 - [x] 545. `lira` — added 2026-10-21 · approved 2026-10-21
 - [x] 546. `franc` — added 2026-10-21 · approved 2026-10-21
@@ -1086,3 +1087,18 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 551. `baht` — added 2026-10-21 · approved 2026-10-21
 - [x] 552. `real` — added 2026-10-21 · approved 2026-10-21
 - [x] 553. `riyal` — added 2026-10-21 · approved 2026-10-21
+- [~] 554. `pound-circle` — added 2026-10-21
+- [~] 555. `yen-circle` — added 2026-10-21
+- [~] 556. `rupee-circle` — added 2026-10-21
+- [~] 557. `bitcoin-circle` — added 2026-10-21
+- [~] 558. `franc-circle` — added 2026-10-21
+- [~] 559. `shekel-circle` — added 2026-10-21
+- [~] 560. `naira-circle` — added 2026-10-21
+- [~] 561. `dong-circle` — added 2026-10-21
+- [~] 562. `baht-circle` — added 2026-10-21
+- [~] 563. `real-circle` — added 2026-10-21
+- [~] 564. `riyal-circle` — added 2026-10-21
+- [~] 565. `lira-circle` — added 2026-10-21
+- [~] 566. `ruble-circle` — added 2026-10-21
+- [~] 567. `peso-circle` — added 2026-10-21
+- [~] 568. `won-circle` — added 2026-10-21
