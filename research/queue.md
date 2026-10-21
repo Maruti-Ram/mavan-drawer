@@ -1080,7 +1080,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 545. `lira` — added 2026-10-21
 - [x] 546. `franc` — added 2026-10-21 · approved 2026-10-21
 - [x] 547. `shekel` — added 2026-10-21 · approved 2026-10-21
-- [~] 548. `naira` — added 2026-10-21
+- [x] 548. `naira` — added 2026-10-21 · approved 2026-10-21
 - [x] 549. `peso` — added 2026-10-21 · approved 2026-10-21
 - [~] 550. `dong` — added 2026-10-21
 - [~] 551. `baht` — added 2026-10-21
