@@ -765,6 +765,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 277. `atm` · Commerce & Payments — approved 2026-10-21
 - [ ] 278. `channels` · Development & Infra
 - [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
+- [x] 279. `contactless-circle` · Commerce & Payments · variant of `contactless` — Waves fitted to the disc (recommended) · approved 2026-10-21
 - [ ] 280. `replay` · Media & Playback
 - [ ] 281. `reset` · Media & Playback
 - [~] 282. `reward` · Commerce & Payments

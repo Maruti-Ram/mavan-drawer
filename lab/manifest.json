@@ -472,6 +472,8 @@
     "confetti",
     "confetti-filled",
     "contactless",
+    "contactless-circle",
+    "contactless-circle-filled",
     "contactless-filled",
     "contrast",
     "contrast-filled",
@@ -28781,6 +28783,131 @@
           "geometric": 3.5,
           "recession": 0.35,
           "optical": 3.76
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "contactless-circle": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M8.32 9.85A3.75 3.75 0 0 1 8.32 14.15",
+        "M10.78 8.13A6.75 6.75 0 0 1 10.78 15.87",
+        "M13.24 6.41A9.75 9.75 0 0 1 13.24 17.59"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M8.32 9.85A3.75 3.75 0 0 1 8.32 14.15\"/> <path d=\"M10.78 8.13A6.75 6.75 0 0 1 10.78 15.87\"/> <path d=\"M13.24 6.41A9.75 9.75 0 0 1 13.24 17.59\"/>",
+      "mark": false,
+      "tags": [
+        "waves",
+        "circle",
+        "disc",
+        "nfc",
+        "tap"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 8.18,
+        "h": 12.68
+      },
+      "ratio": {
+        "w": 0.41,
+        "h": 0.63
+      },
+      "gap": null
+    },
+    "contactless-circle-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.94 9.42A4.5 4.5 0 0 1 8.94 14.58A0.75 0.75 0 0 1 7.71 13.72A3 3 0 0 0 7.71 10.28A0.75 0.75 0 0 1 8.94 9.42ZM11.39 7.7A7.5 7.5 0 0 1 11.39 16.3A0.75 0.75 0 0 1 10.16 15.44A6 6 0 0 0 10.16 8.56A0.75 0.75 0 0 1 11.39 7.7ZM13.85 5.98A10.5 10.5 0 0 1 13.85 18.02A0.75 0.75 0 0 1 12.62 17.16A9 9 0 0 0 12.62 6.84A0.75 0.75 0 0 1 13.85 5.98Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.94 9.42A4.5 4.5 0 0 1 8.94 14.58A0.75 0.75 0 0 1 7.71 13.72A3 3 0 0 0 7.71 10.28A0.75 0.75 0 0 1 8.94 9.42ZM11.39 7.7A7.5 7.5 0 0 1 11.39 16.3A0.75 0.75 0 0 1 10.16 15.44A6 6 0 0 0 10.16 8.56A0.75 0.75 0 0 1 11.39 7.7ZM13.85 5.98A10.5 10.5 0 0 1 13.85 18.02A0.75 0.75 0 0 1 12.62 17.16A9 9 0 0 0 12.62 6.84A0.75 0.75 0 0 1 13.85 5.98Z\"/>",
+      "mark": false,
+      "tags": [
+        "waves",
+        "circle",
+        "disc",
+        "nfc",
+        "tap"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -99600,6 +99727,8 @@
         "confetti",
         "confetti-filled",
         "contactless",
+        "contactless-circle",
+        "contactless-circle-filled",
         "contactless-filled",
         "contrast",
         "contrast-filled",
@@ -127862,6 +127991,130 @@
               "geometric": 2.38,
               "recession": 0.26,
               "optical": 2.57
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "contactless-circle": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M6.037 6.136A3.25 3.25 0 0 1 6.037 9.864",
+            "M8.495 4.415A6.25 6.25 0 0 1 8.495 11.585"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M6.037 6.136A3.25 3.25 0 0 1 6.037 9.864\"/> <path d=\"M8.495 4.415A6.25 6.25 0 0 1 8.495 11.585\"/>",
+          "mark": false,
+          "tags": [
+            "waves",
+            "circle",
+            "disc",
+            "nfc",
+            "tap"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 4.84,
+            "h": 8.42
+          },
+          "ratio": {
+            "w": 0.35,
+            "h": 0.6
+          },
+          "gap": null
+        },
+        "contactless-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM6.652 5.706A4 4 0 0 1 6.652 10.294A0.75 0.75 0 0 1 5.423 9.434A2.5 2.5 0 0 0 5.423 6.566A0.75 0.75 0 0 1 6.652 5.706ZM9.109 3.985A7 7 0 0 1 9.109 12.015A0.75 0.75 0 0 1 7.88 11.155A5.5 5.5 0 0 0 7.88 4.845A0.75 0.75 0 0 1 9.109 3.985Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM6.652 5.706A4 4 0 0 1 6.652 10.294A0.75 0.75 0 0 1 5.423 9.434A2.5 2.5 0 0 0 5.423 6.566A0.75 0.75 0 0 1 6.652 5.706ZM9.109 3.985A7 7 0 0 1 9.109 12.015A0.75 0.75 0 0 1 7.88 11.155A5.5 5.5 0 0 0 7.88 4.845A0.75 0.75 0 0 1 9.109 3.985Z\"/>",
+          "mark": false,
+          "tags": [
+            "waves",
+            "circle",
+            "disc",
+            "nfc",
+            "tap"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -198627,6 +198880,8 @@
         "confetti",
         "confetti-filled",
         "contactless",
+        "contactless-circle",
+        "contactless-circle-filled",
         "contactless-filled",
         "contrast",
         "contrast-filled",
@@ -226907,6 +227162,130 @@
               "geometric": 3.25,
               "recession": 0.27,
               "optical": 3.45
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "contactless-circle": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M7.82 7.85A3.75 3.75 0 0 1 7.82 12.15",
+            "M10.48 5.98A7 7 0 0 1 10.48 14.02"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M7.82 7.85A3.75 3.75 0 0 1 7.82 12.15\"/> <path d=\"M10.48 5.98A7 7 0 0 1 10.48 14.02\"/>",
+          "mark": false,
+          "tags": [
+            "waves",
+            "circle",
+            "disc",
+            "nfc",
+            "tap"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 5.43,
+            "h": 9.54
+          },
+          "ratio": {
+            "w": 0.34,
+            "h": 0.6
+          },
+          "gap": null
+        },
+        "contactless-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM8.44 7.42A4.5 4.5 0 0 1 8.44 12.58A0.75 0.75 0 0 1 7.21 11.72A3 3 0 0 0 7.21 8.28A0.75 0.75 0 0 1 8.44 7.42ZM11.1 5.55A7.75 7.75 0 0 1 11.1 14.45A0.75 0.75 0 0 1 9.87 13.58A6.25 6.25 0 0 0 9.87 6.42A0.75 0.75 0 0 1 11.1 5.55Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM8.44 7.42A4.5 4.5 0 0 1 8.44 12.58A0.75 0.75 0 0 1 7.21 11.72A3 3 0 0 0 7.21 8.28A0.75 0.75 0 0 1 8.44 7.42ZM11.1 5.55A7.75 7.75 0 0 1 11.1 14.45A0.75 0.75 0 0 1 9.87 13.58A6.25 6.25 0 0 0 9.87 6.42A0.75 0.75 0 0 1 11.1 5.55Z\"/>",
+          "mark": false,
+          "tags": [
+            "waves",
+            "circle",
+            "disc",
+            "nfc",
+            "tap"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -297702,6 +298081,8 @@
         "confetti",
         "confetti-filled",
         "contactless",
+        "contactless-circle",
+        "contactless-circle-filled",
         "contactless-filled",
         "contrast",
         "contrast-filled",
@@ -326011,6 +326392,131 @@
               "geometric": 3.5,
               "recession": 0.35,
               "optical": 3.76
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "contactless-circle": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M8.32 9.85A3.75 3.75 0 0 1 8.32 14.15",
+            "M10.78 8.13A6.75 6.75 0 0 1 10.78 15.87",
+            "M13.24 6.41A9.75 9.75 0 0 1 13.24 17.59"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M8.32 9.85A3.75 3.75 0 0 1 8.32 14.15\"/> <path d=\"M10.78 8.13A6.75 6.75 0 0 1 10.78 15.87\"/> <path d=\"M13.24 6.41A9.75 9.75 0 0 1 13.24 17.59\"/>",
+          "mark": false,
+          "tags": [
+            "waves",
+            "circle",
+            "disc",
+            "nfc",
+            "tap"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 8.18,
+            "h": 12.68
+          },
+          "ratio": {
+            "w": 0.41,
+            "h": 0.63
+          },
+          "gap": null
+        },
+        "contactless-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.94 9.42A4.5 4.5 0 0 1 8.94 14.58A0.75 0.75 0 0 1 7.71 13.72A3 3 0 0 0 7.71 10.28A0.75 0.75 0 0 1 8.94 9.42ZM11.39 7.7A7.5 7.5 0 0 1 11.39 16.3A0.75 0.75 0 0 1 10.16 15.44A6 6 0 0 0 10.16 8.56A0.75 0.75 0 0 1 11.39 7.7ZM13.85 5.98A10.5 10.5 0 0 1 13.85 18.02A0.75 0.75 0 0 1 12.62 17.16A9 9 0 0 0 12.62 6.84A0.75 0.75 0 0 1 13.85 5.98Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.94 9.42A4.5 4.5 0 0 1 8.94 14.58A0.75 0.75 0 0 1 7.71 13.72A3 3 0 0 0 7.71 10.28A0.75 0.75 0 0 1 8.94 9.42ZM11.39 7.7A7.5 7.5 0 0 1 11.39 16.3A0.75 0.75 0 0 1 10.16 15.44A6 6 0 0 0 10.16 8.56A0.75 0.75 0 0 1 11.39 7.7ZM13.85 5.98A10.5 10.5 0 0 1 13.85 18.02A0.75 0.75 0 0 1 12.62 17.16A9 9 0 0 0 12.62 6.84A0.75 0.75 0 0 1 13.85 5.98Z\"/>",
+          "mark": false,
+          "tags": [
+            "waves",
+            "circle",
+            "disc",
+            "nfc",
+            "tap"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -404450,6 +404956,17 @@
       "category": "Commerce & Payments",
       "base": null,
       "note": "approved 2026-10-21",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-21"
+    },
+    {
+      "n": 279,
+      "name": "contactless-circle",
+      "section": "D · The rest, by audit rank",
+      "category": "Commerce & Payments",
+      "base": "contactless",
+      "note": "Waves fitted to the disc (recommended) · approved 2026-10-21",
       "status": "done",
       "mvp": false,
       "date": "2026-10-21"
