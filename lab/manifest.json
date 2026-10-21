@@ -502,6 +502,8 @@
     "credit-card-2-filled",
     "credit-card-3",
     "credit-card-3-filled",
+    "credit-card-contactless",
+    "credit-card-contactless-filled",
     "credit-card-filled",
     "crosshair",
     "crosshair-filled",
@@ -30434,6 +30436,130 @@
           "geometric": 4,
           "recession": 0,
           "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "credit-card-contactless": {
+      "paths": [
+        "M21.25 8.75V7.25A2.5 2.5 0 0 0 18.75 4.75H5.25A2.5 2.5 0 0 0 2.75 7.25V16.75A2.5 2.5 0 0 0 5.25 19.25H13.5",
+        "M2.75 8.75H21.25",
+        "M5.75 15.25H9.25",
+        "M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25",
+        "M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M21.25 8.75V7.25A2.5 2.5 0 0 0 18.75 4.75H5.25A2.5 2.5 0 0 0 2.75 7.25V16.75A2.5 2.5 0 0 0 5.25 19.25H13.5\"/> <path d=\"M2.75 8.75H21.25\"/> <path d=\"M5.75 15.25H9.25\"/> <path d=\"M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25\"/> <path d=\"M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "card",
+        "waves",
+        "badge",
+        "nucleo",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.24,
+          "optical": 2.18
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.13,
+          "optical": 2.1
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.07,
+          "optical": 2.06
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "credit-card-contactless-filled": {
+      "paths": [
+        "M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25",
+        "M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25"
+      ],
+      "areas": [
+        "M2 7.25A3.25 3.25 0 0 1 5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V7.5A0.5 0.5 0 0 1 21.5 8H2.5A0.5 0.5 0 0 1 2 7.5Z",
+        "M2 10A0.5 0.5 0 0 1 2.5 9.5H13.5A0.75 0.75 0 0 1 14.25 10.25V19.25A0.75 0.75 0 0 1 13.5 20H5.25A3.25 3.25 0 0 1 2 16.75ZM5.75 14.5H9.25A0.75 0.75 0 0 1 9.25 16H5.75A0.75 0.75 0 0 1 5.75 14.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 7.25A3.25 3.25 0 0 1 5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V7.5A0.5 0.5 0 0 1 21.5 8H2.5A0.5 0.5 0 0 1 2 7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A0.5 0.5 0 0 1 2.5 9.5H13.5A0.75 0.75 0 0 1 14.25 10.25V19.25A0.75 0.75 0 0 1 13.5 20H5.25A3.25 3.25 0 0 1 2 16.75ZM5.75 14.5H9.25A0.75 0.75 0 0 1 9.25 16H5.75A0.75 0.75 0 0 1 5.75 14.5Z\"/> <path d=\"M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25\"/> <path d=\"M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "card",
+        "waves",
+        "badge",
+        "nucleo",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -96411,6 +96537,8 @@
         "credit-card-2-filled",
         "credit-card-3",
         "credit-card-3-filled",
+        "credit-card-contactless",
+        "credit-card-contactless-filled",
         "credit-card-filled",
         "crosshair",
         "crosshair-filled",
@@ -126297,6 +126425,130 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "credit-card-contactless": {
+          "paths": [
+            "M14.375 6.625V5.125A1.5 1.5 0 0 0 12.875 3.625H3.125A1.5 1.5 0 0 0 1.625 5.125V10.875A1.5 1.5 0 0 0 3.125 12.375H8.5",
+            "M1.625 6.625H14.375",
+            "M4.375 9.5H6.625",
+            "M11.324 10.75A2.25 2.25 0 0 1 11.324 13",
+            "M13.705 9.375A5 5 0 0 1 13.705 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M14.375 6.625V5.125A1.5 1.5 0 0 0 12.875 3.625H3.125A1.5 1.5 0 0 0 1.625 5.125V10.875A1.5 1.5 0 0 0 3.125 12.375H8.5\"/> <path d=\"M1.625 6.625H14.375\"/> <path d=\"M4.375 9.5H6.625\"/> <path d=\"M11.324 10.75A2.25 2.25 0 0 1 11.324 13\"/> <path d=\"M13.705 9.375A5 5 0 0 1 13.705 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "card",
+            "waves",
+            "badge",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.18,
+              "optical": 1.13
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.19,
+              "optical": 1.14
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.05,
+              "optical": 1.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "credit-card-contactless-filled": {
+          "paths": [
+            "M11.324 10.75A2.25 2.25 0 0 1 11.324 13",
+            "M13.705 9.375A5 5 0 0 1 13.705 14.375"
+          ],
+          "areas": [
+            "M1 5.25A2.25 2.25 0 0 1 3.25 3H12.75A2.25 2.25 0 0 1 15 5.25V5.5A0.5 0.5 0 0 1 14.5 6H1.5A0.5 0.5 0 0 1 1 5.5Z",
+            "M1 8A0.5 0.5 0 0 1 1.5 7.5H8.5A0.625 0.625 0 0 1 9.125 8.125V12.375A0.625 0.625 0 0 1 8.5 13H3.25A2.25 2.25 0 0 1 1 10.75ZM4.5 9H6.5A0.75 0.75 0 0 1 6.5 10.5H4.5A0.75 0.75 0 0 1 4.5 9Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 5.25A2.25 2.25 0 0 1 3.25 3H12.75A2.25 2.25 0 0 1 15 5.25V5.5A0.5 0.5 0 0 1 14.5 6H1.5A0.5 0.5 0 0 1 1 5.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A0.5 0.5 0 0 1 1.5 7.5H8.5A0.625 0.625 0 0 1 9.125 8.125V12.375A0.625 0.625 0 0 1 8.5 13H3.25A2.25 2.25 0 0 1 1 10.75ZM4.5 9H6.5A0.75 0.75 0 0 1 6.5 10.5H4.5A0.75 0.75 0 0 1 4.5 9Z\"/> <path d=\"M11.324 10.75A2.25 2.25 0 0 1 11.324 13\"/> <path d=\"M13.705 9.375A5 5 0 0 1 13.705 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "card",
+            "waves",
+            "badge",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -192225,6 +192477,8 @@
         "credit-card-2-filled",
         "credit-card-3",
         "credit-card-3-filled",
+        "credit-card-contactless",
+        "credit-card-contactless-filled",
         "credit-card-filled",
         "crosshair",
         "crosshair-filled",
@@ -222129,6 +222383,130 @@
               "geometric": 4,
               "recession": 0,
               "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "credit-card-contactless": {
+          "paths": [
+            "M17.25 7.75V6.75A2 2 0 0 0 15.25 4.75H4.75A2 2 0 0 0 2.75 6.75V13.25A2 2 0 0 0 4.75 15.25H10.5",
+            "M2.75 7.75H17.25",
+            "M5.75 11.75H8.25",
+            "M13.56 12.38A3.25 3.25 0 0 1 13.56 15.63",
+            "M16.38 10.75A6.5 6.5 0 0 1 16.38 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M17.25 7.75V6.75A2 2 0 0 0 15.25 4.75H4.75A2 2 0 0 0 2.75 6.75V13.25A2 2 0 0 0 4.75 15.25H10.5\"/> <path d=\"M2.75 7.75H17.25\"/> <path d=\"M5.75 11.75H8.25\"/> <path d=\"M13.56 12.38A3.25 3.25 0 0 1 13.56 15.63\"/> <path d=\"M16.38 10.75A6.5 6.5 0 0 1 16.38 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "card",
+            "waves",
+            "badge",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.25,
+              "optical": 2.19
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.07,
+              "optical": 2.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "credit-card-contactless-filled": {
+          "paths": [
+            "M13.56 12.38A3.25 3.25 0 0 1 13.56 15.63",
+            "M16.38 10.75A6.5 6.5 0 0 1 16.38 17.25"
+          ],
+          "areas": [
+            "M2 6.75A2.75 2.75 0 0 1 4.75 4H15.25A2.75 2.75 0 0 1 18 6.75A0.25 0.25 0 0 1 17.75 7H2.25A0.25 0.25 0 0 1 2 6.75Z",
+            "M2 9A0.5 0.5 0 0 1 2.5 8.5H10.5A0.75 0.75 0 0 1 11.25 9.25V15.25A0.75 0.75 0 0 1 10.5 16H4.75A2.75 2.75 0 0 1 2 13.25ZM5.75 11H8.25A0.75 0.75 0 0 1 8.25 12.5H5.75A0.75 0.75 0 0 1 5.75 11Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 6.75A2.75 2.75 0 0 1 4.75 4H15.25A2.75 2.75 0 0 1 18 6.75A0.25 0.25 0 0 1 17.75 7H2.25A0.25 0.25 0 0 1 2 6.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 9A0.5 0.5 0 0 1 2.5 8.5H10.5A0.75 0.75 0 0 1 11.25 9.25V15.25A0.75 0.75 0 0 1 10.5 16H4.75A2.75 2.75 0 0 1 2 13.25ZM5.75 11H8.25A0.75 0.75 0 0 1 8.25 12.5H5.75A0.75 0.75 0 0 1 5.75 11Z\"/> <path d=\"M13.56 12.38A3.25 3.25 0 0 1 13.56 15.63\"/> <path d=\"M16.38 10.75A6.5 6.5 0 0 1 16.38 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "card",
+            "waves",
+            "badge",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -288085,6 +288463,8 @@
         "credit-card-2-filled",
         "credit-card-3",
         "credit-card-3-filled",
+        "credit-card-contactless",
+        "credit-card-contactless-filled",
         "credit-card-filled",
         "crosshair",
         "crosshair-filled",
@@ -318017,6 +318397,130 @@
               "geometric": 4,
               "recession": 0,
               "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "credit-card-contactless": {
+          "paths": [
+            "M21.25 8.75V7.25A2.5 2.5 0 0 0 18.75 4.75H5.25A2.5 2.5 0 0 0 2.75 7.25V16.75A2.5 2.5 0 0 0 5.25 19.25H13.5",
+            "M2.75 8.75H21.25",
+            "M5.75 15.25H9.25",
+            "M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25",
+            "M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M21.25 8.75V7.25A2.5 2.5 0 0 0 18.75 4.75H5.25A2.5 2.5 0 0 0 2.75 7.25V16.75A2.5 2.5 0 0 0 5.25 19.25H13.5\"/> <path d=\"M2.75 8.75H21.25\"/> <path d=\"M5.75 15.25H9.25\"/> <path d=\"M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25\"/> <path d=\"M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "card",
+            "waves",
+            "badge",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.1
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.07,
+              "optical": 2.06
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "credit-card-contactless-filled": {
+          "paths": [
+            "M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25",
+            "M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25"
+          ],
+          "areas": [
+            "M2 7.25A3.25 3.25 0 0 1 5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V7.5A0.5 0.5 0 0 1 21.5 8H2.5A0.5 0.5 0 0 1 2 7.5Z",
+            "M2 10A0.5 0.5 0 0 1 2.5 9.5H13.5A0.75 0.75 0 0 1 14.25 10.25V19.25A0.75 0.75 0 0 1 13.5 20H5.25A3.25 3.25 0 0 1 2 16.75ZM5.75 14.5H9.25A0.75 0.75 0 0 1 9.25 16H5.75A0.75 0.75 0 0 1 5.75 14.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 7.25A3.25 3.25 0 0 1 5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V7.5A0.5 0.5 0 0 1 21.5 8H2.5A0.5 0.5 0 0 1 2 7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A0.5 0.5 0 0 1 2.5 9.5H13.5A0.75 0.75 0 0 1 14.25 10.25V19.25A0.75 0.75 0 0 1 13.5 20H5.25A3.25 3.25 0 0 1 2 16.75ZM5.75 14.5H9.25A0.75 0.75 0 0 1 9.25 16H5.75A0.75 0.75 0 0 1 5.75 14.5Z\"/> <path d=\"M16.65 14.75A4.5 4.5 0 0 1 16.65 19.25\"/> <path d=\"M20.11 12.75A8.5 8.5 0 0 1 20.11 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "card",
+            "waves",
+            "badge",
+            "nucleo",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -394641,10 +395145,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 527,
