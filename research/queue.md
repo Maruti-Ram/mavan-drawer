@@ -995,7 +995,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 
 - [x] 488. `info-circle-2` — added 2026-09-17 · approved 2026-09-18
 - [x] 489. `info-circle-3` — added 2026-09-17 · approved 2026-09-18
-- [x] 490. `help-circle-4` — added 2026-09-18 · approved 2026-09-18
+- [x] 490. `help-circle-4` — added 2026-09-18 · approved 2026-10-21
 - [x] 491. `volume-minus` — added 2026-09-26 · approved 2026-09-26
 - [x] 492. `volume-plus` — added 2026-09-26 · approved 2026-09-26
 - [x] 493. `layout-sidebar` — added 2026-09-26 · approved 2026-09-26
