@@ -143,6 +143,8 @@
     "ban-3",
     "ban-3-filled",
     "ban-filled",
+    "bank",
+    "bank-filled",
     "bell",
     "bell-2",
     "bell-2-filled",
@@ -9412,6 +9414,137 @@
         "w": 0.74,
         "h": 0.74
       },
+      "gap": null
+    },
+    "bank": {
+      "paths": [
+        "M3.75 8.25L11.25 3.95A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.75 3.95L20.25 8.25Z",
+        "M6 11.25V20.25",
+        "M10 11.25V20.25",
+        "M14 11.25V20.25",
+        "M18 11.25V20.25",
+        "M3.75 20.25H20.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 8.25L11.25 3.95A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.75 3.95L20.25 8.25Z\"/> <path d=\"M6 11.25V20.25\"/> <path d=\"M10 11.25V20.25\"/> <path d=\"M14 11.25V20.25\"/> <path d=\"M18 11.25V20.25\"/> <path d=\"M3.75 20.25H20.25\"/>",
+      "mark": false,
+      "tags": [
+        "temple",
+        "columns",
+        "pediment",
+        "landmark",
+        "finance",
+        "lucide",
+        "sf symbols"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.41,
+          "optical": 3.31
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.41,
+          "optical": 3.31
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.19,
+          "optical": 3.89
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "bank-filled": {
+      "paths": [
+        "M6 11.25V20.25",
+        "M10 11.25V20.25",
+        "M14 11.25V20.25",
+        "M18 11.25V20.25",
+        "M3.75 20.25H20.25"
+      ],
+      "areas": [
+        "M3.38 7.6L10.88 3.3A2.25 2.25 0 0 1 12 3A2.25 2.25 0 0 1 13.12 3.3L20.62 7.6A0.75 0.75 0 0 1 21 8.25A0.75 0.75 0 0 1 20.25 9L3.75 9A0.75 0.75 0 0 1 3 8.25A0.75 0.75 0 0 1 3.38 7.6Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.38 7.6L10.88 3.3A2.25 2.25 0 0 1 12 3A2.25 2.25 0 0 1 13.12 3.3L20.62 7.6A0.75 0.75 0 0 1 21 8.25A0.75 0.75 0 0 1 20.25 9L3.75 9A0.75 0.75 0 0 1 3 8.25A0.75 0.75 0 0 1 3.38 7.6Z\"/> <path d=\"M6 11.25V20.25\"/> <path d=\"M10 11.25V20.25\"/> <path d=\"M14 11.25V20.25\"/> <path d=\"M18 11.25V20.25\"/> <path d=\"M3.75 20.25H20.25\"/>",
+      "mark": false,
+      "tags": [
+        "temple",
+        "columns",
+        "pediment",
+        "landmark",
+        "finance",
+        "lucide",
+        "sf symbols"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
       "gap": null
     },
     "bell": {
@@ -97107,6 +97240,8 @@
         "ban-3",
         "ban-3-filled",
         "ban-filled",
+        "bank",
+        "bank-filled",
         "bell",
         "bell-2",
         "bell-2-filled",
@@ -106376,6 +106511,137 @@
             "w": 0.75,
             "h": 0.75
           },
+          "gap": null
+        },
+        "bank": {
+          "paths": [
+            "M2.625 5.625L7.493 2.763A1 1 0 0 1 8 2.625A1 1 0 0 1 8.507 2.763L13.375 5.625Z",
+            "M3.875 8.375V13.375",
+            "M6.625 8.375V13.375",
+            "M9.375 8.375V13.375",
+            "M12.125 8.375V13.375",
+            "M2.625 13.375H13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 5.625L7.493 2.763A1 1 0 0 1 8 2.625A1 1 0 0 1 8.507 2.763L13.375 5.625Z\"/> <path d=\"M3.875 8.375V13.375\"/> <path d=\"M6.625 8.375V13.375\"/> <path d=\"M9.375 8.375V13.375\"/> <path d=\"M12.125 8.375V13.375\"/> <path d=\"M2.625 13.375H13.375\"/>",
+          "mark": false,
+          "tags": [
+            "temple",
+            "columns",
+            "pediment",
+            "landmark",
+            "finance",
+            "lucide",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.96,
+              "optical": 2.72
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.96,
+              "optical": 2.72
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.95,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bank-filled": {
+          "paths": [
+            "M3.875 8.375V13.375",
+            "M6.625 8.375V13.375",
+            "M9.375 8.375V13.375",
+            "M12.125 8.375V13.375",
+            "M2.625 13.375H13.375"
+          ],
+          "areas": [
+            "M2.308 5.086L7.176 2.224A1.625 1.625 0 0 1 8 2A1.625 1.625 0 0 1 8.824 2.224L13.692 5.086A0.625 0.625 0 0 1 14 5.625A0.625 0.625 0 0 1 13.375 6.25L2.625 6.25A0.625 0.625 0 0 1 2 5.625A0.625 0.625 0 0 1 2.308 5.086Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.308 5.086L7.176 2.224A1.625 1.625 0 0 1 8 2A1.625 1.625 0 0 1 8.824 2.224L13.692 5.086A0.625 0.625 0 0 1 14 5.625A0.625 0.625 0 0 1 13.375 6.25L2.625 6.25A0.625 0.625 0 0 1 2 5.625A0.625 0.625 0 0 1 2.308 5.086Z\"/> <path d=\"M3.875 8.375V13.375\"/> <path d=\"M6.625 8.375V13.375\"/> <path d=\"M9.375 8.375V13.375\"/> <path d=\"M12.125 8.375V13.375\"/> <path d=\"M2.625 13.375H13.375\"/>",
+          "mark": false,
+          "tags": [
+            "temple",
+            "columns",
+            "pediment",
+            "landmark",
+            "finance",
+            "lucide",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
           "gap": null
         },
         "bell": {
@@ -193975,6 +194241,8 @@
         "ban-3",
         "ban-3-filled",
         "ban-filled",
+        "bank",
+        "bank-filled",
         "bell",
         "bell-2",
         "bell-2-filled",
@@ -203244,6 +203512,137 @@
             "w": 0.74,
             "h": 0.74
           },
+          "gap": null
+        },
+        "bank": {
+          "paths": [
+            "M3.75 7L9.4 3.9A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.6 3.9L16.25 7Z",
+            "M5.5 10V16.25",
+            "M8.5 10V16.25",
+            "M11.5 10V16.25",
+            "M14.5 10V16.25",
+            "M3.75 16.25H16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 7L9.4 3.9A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.6 3.9L16.25 7Z\"/> <path d=\"M5.5 10V16.25\"/> <path d=\"M8.5 10V16.25\"/> <path d=\"M11.5 10V16.25\"/> <path d=\"M14.5 10V16.25\"/> <path d=\"M3.75 16.25H16.25\"/>",
+          "mark": false,
+          "tags": [
+            "temple",
+            "columns",
+            "pediment",
+            "landmark",
+            "finance",
+            "lucide",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.14,
+              "optical": 3.86
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.14,
+              "optical": 3.86
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.11,
+              "optical": 3.83
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bank-filled": {
+          "paths": [
+            "M5.5 10V16.25",
+            "M8.5 10V16.25",
+            "M11.5 10V16.25",
+            "M14.5 10V16.25",
+            "M3.75 16.25H16.25"
+          ],
+          "areas": [
+            "M3.39 6.34L9.04 3.25A2 2 0 0 1 10 3A2 2 0 0 1 10.96 3.25L16.61 6.34A0.75 0.75 0 0 1 17 7A0.75 0.75 0 0 1 16.25 7.75L3.75 7.75A0.75 0.75 0 0 1 3 7A0.75 0.75 0 0 1 3.39 6.34Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.39 6.34L9.04 3.25A2 2 0 0 1 10 3A2 2 0 0 1 10.96 3.25L16.61 6.34A0.75 0.75 0 0 1 17 7A0.75 0.75 0 0 1 16.25 7.75L3.75 7.75A0.75 0.75 0 0 1 3 7A0.75 0.75 0 0 1 3.39 6.34Z\"/> <path d=\"M5.5 10V16.25\"/> <path d=\"M8.5 10V16.25\"/> <path d=\"M11.5 10V16.25\"/> <path d=\"M14.5 10V16.25\"/> <path d=\"M3.75 16.25H16.25\"/>",
+          "mark": false,
+          "tags": [
+            "temple",
+            "columns",
+            "pediment",
+            "landmark",
+            "finance",
+            "lucide",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
           "gap": null
         },
         "bell": {
@@ -290889,6 +291288,8 @@
         "ban-3",
         "ban-3-filled",
         "ban-filled",
+        "bank",
+        "bank-filled",
         "bell",
         "bell-2",
         "bell-2-filled",
@@ -300158,6 +300559,137 @@
             "w": 0.74,
             "h": 0.74
           },
+          "gap": null
+        },
+        "bank": {
+          "paths": [
+            "M3.75 8.25L11.25 3.95A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.75 3.95L20.25 8.25Z",
+            "M6 11.25V20.25",
+            "M10 11.25V20.25",
+            "M14 11.25V20.25",
+            "M18 11.25V20.25",
+            "M3.75 20.25H20.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 8.25L11.25 3.95A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.75 3.95L20.25 8.25Z\"/> <path d=\"M6 11.25V20.25\"/> <path d=\"M10 11.25V20.25\"/> <path d=\"M14 11.25V20.25\"/> <path d=\"M18 11.25V20.25\"/> <path d=\"M3.75 20.25H20.25\"/>",
+          "mark": false,
+          "tags": [
+            "temple",
+            "columns",
+            "pediment",
+            "landmark",
+            "finance",
+            "lucide",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.41,
+              "optical": 3.31
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.41,
+              "optical": 3.31
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.19,
+              "optical": 3.89
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "bank-filled": {
+          "paths": [
+            "M6 11.25V20.25",
+            "M10 11.25V20.25",
+            "M14 11.25V20.25",
+            "M18 11.25V20.25",
+            "M3.75 20.25H20.25"
+          ],
+          "areas": [
+            "M3.38 7.6L10.88 3.3A2.25 2.25 0 0 1 12 3A2.25 2.25 0 0 1 13.12 3.3L20.62 7.6A0.75 0.75 0 0 1 21 8.25A0.75 0.75 0 0 1 20.25 9L3.75 9A0.75 0.75 0 0 1 3 8.25A0.75 0.75 0 0 1 3.38 7.6Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.38 7.6L10.88 3.3A2.25 2.25 0 0 1 12 3A2.25 2.25 0 0 1 13.12 3.3L20.62 7.6A0.75 0.75 0 0 1 21 8.25A0.75 0.75 0 0 1 20.25 9L3.75 9A0.75 0.75 0 0 1 3 8.25A0.75 0.75 0 0 1 3.38 7.6Z\"/> <path d=\"M6 11.25V20.25\"/> <path d=\"M10 11.25V20.25\"/> <path d=\"M14 11.25V20.25\"/> <path d=\"M18 11.25V20.25\"/> <path d=\"M3.75 20.25H20.25\"/>",
+          "mark": false,
+          "tags": [
+            "temple",
+            "columns",
+            "pediment",
+            "landmark",
+            "finance",
+            "lucide",
+            "sf symbols"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
           "gap": null
         },
         "bell": {
@@ -393744,10 +394276,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Commerce & Payments",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 187,
@@ -398907,6 +399439,17 @@
       "status": "done",
       "mvp": false,
       "date": "2026-10-21"
+    },
+    {
+      "n": 529,
+      "name": "piggy-bank",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21",
+      "status": "review",
+      "mvp": false,
+      "date": null
     }
   ],
   "next": {

@@ -577,7 +577,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 185. `transfer` · Arrows & Direction — approved 2026-10-17
 - [x] 185. `transfer-2` · Arrows & Direction · variant of `transfer` — Half heads · approved 2026-10-17
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
-- [~] 186. `bank` · Commerce & Payments
+- [x] 186. `bank` · Commerce & Payments — approved 2026-10-21
 - [x] 187. `warehouse` · Commerce & Payments — approved 2026-10-21
 - [x] 187. `warehouse-2` · Commerce & Payments · variant of `warehouse` — Roof resting on the stack · approved 2026-10-21
 - [x] 187. `warehouse-3` · Commerce & Payments · variant of `warehouse` — Open shed, two boxes · approved 2026-10-21
@@ -1052,3 +1052,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 526. `credit-card-contactless` — added 2026-10-21 · approved 2026-10-21
 - [x] 527. `phone-contactless` — added 2026-10-21 · approved 2026-10-21
 - [x] 528. `badge-check` — added 2026-10-21 · approved 2026-10-21
+- [~] 529. `piggy-bank` — added 2026-10-21
