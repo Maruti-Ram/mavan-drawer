@@ -1207,10 +1207,14 @@
     "saved-items-2",
     "saved-items-2-filled",
     "saved-items-filled",
+    "scale",
     "scale-2",
     "scale-2-filled",
     "scale-3",
     "scale-3-filled",
+    "scale-4",
+    "scale-4-filled",
+    "scale-filled",
     "search",
     "search-2",
     "search-2-filled",
@@ -73026,6 +73030,73 @@
       "ratio": null,
       "gap": null
     },
+    "scale": {
+      "paths": [
+        "M12 2.75L12 21.25",
+        "M2.75 5L21.25 5",
+        "M5.75 5L8.68 14.04A1.5 1.5 0 0 1 8.75 14.5A1.5 1.5 0 0 1 7.25 16L4.25 16A1.5 1.5 0 0 1 2.75 14.5A1.5 1.5 0 0 1 2.82 14.04L5.75 5Z",
+        "M18.25 5L21.18 14.04A1.5 1.5 0 0 1 21.25 14.5A1.5 1.5 0 0 1 19.75 16L16.75 16A1.5 1.5 0 0 1 15.25 14.5A1.5 1.5 0 0 1 15.32 14.04L18.25 5Z",
+        "M6.75 21.25L17.25 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 5L21.25 5\"/> <path d=\"M5.75 5L8.68 14.04A1.5 1.5 0 0 1 8.75 14.5A1.5 1.5 0 0 1 7.25 16L4.25 16A1.5 1.5 0 0 1 2.75 14.5A1.5 1.5 0 0 1 2.82 14.04L5.75 5Z\"/> <path d=\"M18.25 5L21.18 14.04A1.5 1.5 0 0 1 21.25 14.5A1.5 1.5 0 0 1 19.75 16L16.75 16A1.5 1.5 0 0 1 15.25 14.5A1.5 1.5 0 0 1 15.32 14.04L18.25 5Z\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "balance",
+        "scales",
+        "justice",
+        "law",
+        "weighing",
+        "beam",
+        "pans",
+        "dish",
+        "central",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.02
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.02
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.01,
+          "optical": 2.01
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.01,
+          "optical": 2.01
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "scale-2": {
       "paths": [
         "M3.75 3.75L20.25 3.75",
@@ -73230,6 +73301,213 @@
         "platform",
         "dial",
         "package",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "scale-4": {
+      "paths": [
+        "M12 2.75L12 21.25",
+        "M2.75 6.79L21.25 3.71",
+        "M5.75 6.29L8.67 15.07A1.5 1.5 0 0 1 8.75 15.54A1.5 1.5 0 0 1 7.25 17.04L4.25 17.04A1.5 1.5 0 0 1 2.75 15.54A1.5 1.5 0 0 1 2.83 15.07L5.75 6.29Z",
+        "M18.25 4.21L21.17 12.98A1.5 1.5 0 0 1 21.25 13.46A1.5 1.5 0 0 1 19.75 14.96L16.75 14.96A1.5 1.5 0 0 1 15.25 13.46A1.5 1.5 0 0 1 15.33 12.98L18.25 4.21Z",
+        "M6.75 21.25L17.25 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 6.79L21.25 3.71\"/> <path d=\"M5.75 6.29L8.67 15.07A1.5 1.5 0 0 1 8.75 15.54A1.5 1.5 0 0 1 7.25 17.04L4.25 17.04A1.5 1.5 0 0 1 2.75 15.54A1.5 1.5 0 0 1 2.83 15.07L5.75 6.29Z\"/> <path d=\"M18.25 4.21L21.17 12.98A1.5 1.5 0 0 1 21.25 13.46A1.5 1.5 0 0 1 19.75 14.96L16.75 14.96A1.5 1.5 0 0 1 15.25 13.46A1.5 1.5 0 0 1 15.33 12.98L18.25 4.21Z\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "balance",
+        "scales",
+        "justice",
+        "law",
+        "weighing",
+        "beam",
+        "pans",
+        "tipped",
+        "unbalanced",
+        "compare",
+        "untitled",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.45,
+          "optical": 2.34
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.51,
+          "optical": 2.38
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.02
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "scale-4-filled": {
+      "paths": [
+        "M12 2.75L12 21.25",
+        "M2.75 6.79L21.25 3.71",
+        "M6.75 21.25L17.25 21.25"
+      ],
+      "areas": [
+        "M6.46 6.05L9.38 14.83A2.25 2.25 0 0 1 9.5 15.54A2.25 2.25 0 0 1 7.25 17.79L4.25 17.79A2.25 2.25 0 0 1 2 15.54A2.25 2.25 0 0 1 2.12 14.83L5.04 6.05A0.75 0.75 0 0 1 5.75 5.54A0.75 0.75 0 0 1 6.46 6.05Z",
+        "M18.96 3.97L21.88 12.75A2.25 2.25 0 0 1 22 13.46A2.25 2.25 0 0 1 19.75 15.71L16.75 15.71A2.25 2.25 0 0 1 14.5 13.46A2.25 2.25 0 0 1 14.62 12.75L17.54 3.97A0.75 0.75 0 0 1 18.25 3.46A0.75 0.75 0 0 1 18.96 3.97Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.46 6.05L9.38 14.83A2.25 2.25 0 0 1 9.5 15.54A2.25 2.25 0 0 1 7.25 17.79L4.25 17.79A2.25 2.25 0 0 1 2 15.54A2.25 2.25 0 0 1 2.12 14.83L5.04 6.05A0.75 0.75 0 0 1 5.75 5.54A0.75 0.75 0 0 1 6.46 6.05Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18.96 3.97L21.88 12.75A2.25 2.25 0 0 1 22 13.46A2.25 2.25 0 0 1 19.75 15.71L16.75 15.71A2.25 2.25 0 0 1 14.5 13.46A2.25 2.25 0 0 1 14.62 12.75L17.54 3.97A0.75 0.75 0 0 1 18.25 3.46A0.75 0.75 0 0 1 18.96 3.97Z\"/> <path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 6.79L21.25 3.71\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "balance",
+        "scales",
+        "justice",
+        "law",
+        "weighing",
+        "beam",
+        "pans",
+        "tipped",
+        "unbalanced",
+        "compare",
+        "untitled",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "scale-filled": {
+      "paths": [
+        "M12 2.75L12 21.25",
+        "M2.75 5L21.25 5",
+        "M6.75 21.25L17.25 21.25"
+      ],
+      "areas": [
+        "M6.46 4.77L9.39 13.81A2.25 2.25 0 0 1 9.5 14.5A2.25 2.25 0 0 1 7.25 16.75L4.25 16.75A2.25 2.25 0 0 1 2 14.5A2.25 2.25 0 0 1 2.11 13.81L5.04 4.77A0.75 0.75 0 0 1 5.75 4.25A0.75 0.75 0 0 1 6.46 4.77Z",
+        "M18.96 4.77L21.89 13.81A2.25 2.25 0 0 1 22 14.5A2.25 2.25 0 0 1 19.75 16.75L16.75 16.75A2.25 2.25 0 0 1 14.5 14.5A2.25 2.25 0 0 1 14.61 13.81L17.54 4.77A0.75 0.75 0 0 1 18.25 4.25A0.75 0.75 0 0 1 18.96 4.77Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.46 4.77L9.39 13.81A2.25 2.25 0 0 1 9.5 14.5A2.25 2.25 0 0 1 7.25 16.75L4.25 16.75A2.25 2.25 0 0 1 2 14.5A2.25 2.25 0 0 1 2.11 13.81L5.04 4.77A0.75 0.75 0 0 1 5.75 4.25A0.75 0.75 0 0 1 6.46 4.77Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18.96 4.77L21.89 13.81A2.25 2.25 0 0 1 22 14.5A2.25 2.25 0 0 1 19.75 16.75L16.75 16.75A2.25 2.25 0 0 1 14.5 14.5A2.25 2.25 0 0 1 14.61 13.81L17.54 4.77A0.75 0.75 0 0 1 18.25 4.25A0.75 0.75 0 0 1 18.96 4.77Z\"/> <path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 5L21.25 5\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "balance",
+        "scales",
+        "justice",
+        "law",
+        "weighing",
+        "beam",
+        "pans",
+        "dish",
+        "central",
         "nucleo"
       ],
       "shift": [
@@ -97498,10 +97776,14 @@
         "saved-items-2",
         "saved-items-2-filled",
         "saved-items-filled",
+        "scale",
         "scale-2",
         "scale-2-filled",
         "scale-3",
         "scale-3-filled",
+        "scale-4",
+        "scale-4-filled",
+        "scale-filled",
         "search",
         "search-2",
         "search-2-filled",
@@ -169247,6 +169529,73 @@
           "ratio": null,
           "gap": null
         },
+        "scale": {
+          "paths": [
+            "M8 1.625L8 14.375",
+            "M1.625 3.375L14.375 3.375",
+            "M3.375 3.375L5.089 9.61A1 1 0 0 1 5.125 9.875A1 1 0 0 1 4.125 10.875L2.625 10.875A1 1 0 0 1 1.625 9.875A1 1 0 0 1 1.661 9.61L3.375 3.375Z",
+            "M12.625 3.375L14.339 9.61A1 1 0 0 1 14.375 9.875A1 1 0 0 1 13.375 10.875L11.875 10.875A1 1 0 0 1 10.875 9.875A1 1 0 0 1 10.911 9.61L12.625 3.375Z",
+            "M4.375 14.375L11.625 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8 1.625L8 14.375\"/> <path d=\"M1.625 3.375L14.375 3.375\"/> <path d=\"M3.375 3.375L5.089 9.61A1 1 0 0 1 5.125 9.875A1 1 0 0 1 4.125 10.875L2.625 10.875A1 1 0 0 1 1.625 9.875A1 1 0 0 1 1.661 9.61L3.375 3.375Z\"/> <path d=\"M12.625 3.375L14.339 9.61A1 1 0 0 1 14.375 9.875A1 1 0 0 1 13.375 10.875L11.875 10.875A1 1 0 0 1 10.875 9.875A1 1 0 0 1 10.911 9.61L12.625 3.375Z\"/> <path d=\"M4.375 14.375L11.625 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "dish",
+            "central",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.36,
+              "optical": 1.27
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.36,
+              "optical": 1.27
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.03,
+              "optical": 1.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "scale-2": {
           "paths": [
             "M2.625 2.625L13.375 2.625",
@@ -169451,6 +169800,213 @@
             "platform",
             "dial",
             "package",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-4": {
+          "paths": [
+            "M8 1.625L8 14.375",
+            "M1.625 4.938L14.375 2.813",
+            "M3.375 4.646L5.081 10.229A1 1 0 0 1 5.125 10.521A1 1 0 0 1 4.125 11.521L2.625 11.521A1 1 0 0 1 1.625 10.521A1 1 0 0 1 1.669 10.229L3.375 4.646Z",
+            "M12.625 3.104L14.331 8.687A1 1 0 0 1 14.375 8.979A1 1 0 0 1 13.375 9.979L11.875 9.979A1 1 0 0 1 10.875 8.979A1 1 0 0 1 10.919 8.687L12.625 3.104Z",
+            "M4.375 14.375L11.625 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8 1.625L8 14.375\"/> <path d=\"M1.625 4.938L14.375 2.813\"/> <path d=\"M3.375 4.646L5.081 10.229A1 1 0 0 1 5.125 10.521A1 1 0 0 1 4.125 11.521L2.625 11.521A1 1 0 0 1 1.625 10.521A1 1 0 0 1 1.669 10.229L3.375 4.646Z\"/> <path d=\"M12.625 3.104L14.331 8.687A1 1 0 0 1 14.375 8.979A1 1 0 0 1 13.375 9.979L11.875 9.979A1 1 0 0 1 10.875 8.979A1 1 0 0 1 10.919 8.687L12.625 3.104Z\"/> <path d=\"M4.375 14.375L11.625 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "tipped",
+            "unbalanced",
+            "compare",
+            "untitled",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.3,
+              "optical": 1.22
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.34,
+              "optical": 1.25
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.03,
+              "optical": 1.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-4-filled": {
+          "paths": [
+            "M8 1.625L8 14.375",
+            "M1.625 4.938L14.375 2.813",
+            "M4.375 14.375L11.625 14.375"
+          ],
+          "areas": [
+            "M3.973 4.463L5.679 10.046A1.625 1.625 0 0 1 5.75 10.521A1.625 1.625 0 0 1 4.125 12.146L2.625 12.146A1.625 1.625 0 0 1 1 10.521A1.625 1.625 0 0 1 1.071 10.046L2.777 4.463A0.625 0.625 0 0 1 3.375 4.021A0.625 0.625 0 0 1 3.973 4.463Z",
+            "M13.223 2.921L14.929 8.504A1.625 1.625 0 0 1 15 8.979A1.625 1.625 0 0 1 13.375 10.604L11.875 10.604A1.625 1.625 0 0 1 10.25 8.979A1.625 1.625 0 0 1 10.321 8.504L12.027 2.921A0.625 0.625 0 0 1 12.625 2.479A0.625 0.625 0 0 1 13.223 2.921Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.973 4.463L5.679 10.046A1.625 1.625 0 0 1 5.75 10.521A1.625 1.625 0 0 1 4.125 12.146L2.625 12.146A1.625 1.625 0 0 1 1 10.521A1.625 1.625 0 0 1 1.071 10.046L2.777 4.463A0.625 0.625 0 0 1 3.375 4.021A0.625 0.625 0 0 1 3.973 4.463Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.223 2.921L14.929 8.504A1.625 1.625 0 0 1 15 8.979A1.625 1.625 0 0 1 13.375 10.604L11.875 10.604A1.625 1.625 0 0 1 10.25 8.979A1.625 1.625 0 0 1 10.321 8.504L12.027 2.921A0.625 0.625 0 0 1 12.625 2.479A0.625 0.625 0 0 1 13.223 2.921Z\"/> <path d=\"M8 1.625L8 14.375\"/> <path d=\"M1.625 4.938L14.375 2.813\"/> <path d=\"M4.375 14.375L11.625 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "tipped",
+            "unbalanced",
+            "compare",
+            "untitled",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-filled": {
+          "paths": [
+            "M8 1.625L8 14.375",
+            "M1.625 3.375L14.375 3.375",
+            "M4.375 14.375L11.625 14.375"
+          ],
+          "areas": [
+            "M3.978 3.209L5.692 9.444A1.625 1.625 0 0 1 5.75 9.875A1.625 1.625 0 0 1 4.125 11.5L2.625 11.5A1.625 1.625 0 0 1 1 9.875A1.625 1.625 0 0 1 1.058 9.444L2.772 3.209A0.625 0.625 0 0 1 3.375 2.75A0.625 0.625 0 0 1 3.978 3.209Z",
+            "M13.228 3.209L14.942 9.444A1.625 1.625 0 0 1 15 9.875A1.625 1.625 0 0 1 13.375 11.5L11.875 11.5A1.625 1.625 0 0 1 10.25 9.875A1.625 1.625 0 0 1 10.308 9.444L12.022 3.209A0.625 0.625 0 0 1 12.625 2.75A0.625 0.625 0 0 1 13.228 3.209Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.978 3.209L5.692 9.444A1.625 1.625 0 0 1 5.75 9.875A1.625 1.625 0 0 1 4.125 11.5L2.625 11.5A1.625 1.625 0 0 1 1 9.875A1.625 1.625 0 0 1 1.058 9.444L2.772 3.209A0.625 0.625 0 0 1 3.375 2.75A0.625 0.625 0 0 1 3.978 3.209Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.228 3.209L14.942 9.444A1.625 1.625 0 0 1 15 9.875A1.625 1.625 0 0 1 13.375 11.5L11.875 11.5A1.625 1.625 0 0 1 10.25 9.875A1.625 1.625 0 0 1 10.308 9.444L12.022 3.209A0.625 0.625 0 0 1 12.625 2.75A0.625 0.625 0 0 1 13.228 3.209Z\"/> <path d=\"M8 1.625L8 14.375\"/> <path d=\"M1.625 3.375L14.375 3.375\"/> <path d=\"M4.375 14.375L11.625 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "dish",
+            "central",
             "nucleo"
           ],
           "shift": [
@@ -193693,10 +194249,14 @@
         "saved-items-2",
         "saved-items-2-filled",
         "saved-items-filled",
+        "scale",
         "scale-2",
         "scale-2-filled",
         "scale-3",
         "scale-3-filled",
+        "scale-4",
+        "scale-4-filled",
+        "scale-filled",
         "search",
         "search-2",
         "search-2-filled",
@@ -265470,6 +266030,73 @@
           "ratio": null,
           "gap": null
         },
+        "scale": {
+          "paths": [
+            "M10 2.75L10 17.25",
+            "M2.75 4.5L17.25 4.5",
+            "M4.75 4.5L6.71 11.67A1.25 1.25 0 0 1 6.75 12A1.25 1.25 0 0 1 5.5 13.25L4 13.25A1.25 1.25 0 0 1 2.75 12A1.25 1.25 0 0 1 2.79 11.67L4.75 4.5Z",
+            "M15.25 4.5L17.21 11.67A1.25 1.25 0 0 1 17.25 12A1.25 1.25 0 0 1 16 13.25L14.5 13.25A1.25 1.25 0 0 1 13.25 12A1.25 1.25 0 0 1 13.29 11.67L15.25 4.5Z",
+            "M6 17.25L14 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10 2.75L10 17.25\"/> <path d=\"M2.75 4.5L17.25 4.5\"/> <path d=\"M4.75 4.5L6.71 11.67A1.25 1.25 0 0 1 6.75 12A1.25 1.25 0 0 1 5.5 13.25L4 13.25A1.25 1.25 0 0 1 2.75 12A1.25 1.25 0 0 1 2.79 11.67L4.75 4.5Z\"/> <path d=\"M15.25 4.5L17.21 11.67A1.25 1.25 0 0 1 17.25 12A1.25 1.25 0 0 1 16 13.25L14.5 13.25A1.25 1.25 0 0 1 13.25 12A1.25 1.25 0 0 1 13.29 11.67L15.25 4.5Z\"/> <path d=\"M6 17.25L14 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "dish",
+            "central",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.32
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.32
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.69,
+              "optical": 2.52
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.01
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "scale-2": {
           "paths": [
             "M3.75 3.75L16.25 3.75",
@@ -265674,6 +266301,213 @@
             "platform",
             "dial",
             "package",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-4": {
+          "paths": [
+            "M10 2.75L10 17.25",
+            "M2.75 6.46L17.25 4.04",
+            "M4.75 6.13L6.69 12.25A1.25 1.25 0 0 1 6.75 12.63A1.25 1.25 0 0 1 5.5 13.88L4 13.88A1.25 1.25 0 0 1 2.75 12.63A1.25 1.25 0 0 1 2.81 12.25L4.75 6.13Z",
+            "M15.25 4.38L17.19 10.5A1.25 1.25 0 0 1 17.25 10.88A1.25 1.25 0 0 1 16 12.13L14.5 12.13A1.25 1.25 0 0 1 13.25 10.88A1.25 1.25 0 0 1 13.31 10.5L15.25 4.38Z",
+            "M6 17.25L14 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10 2.75L10 17.25\"/> <path d=\"M2.75 6.46L17.25 4.04\"/> <path d=\"M4.75 6.13L6.69 12.25A1.25 1.25 0 0 1 6.75 12.63A1.25 1.25 0 0 1 5.5 13.88L4 13.88A1.25 1.25 0 0 1 2.75 12.63A1.25 1.25 0 0 1 2.81 12.25L4.75 6.13Z\"/> <path d=\"M15.25 4.38L17.19 10.5A1.25 1.25 0 0 1 17.25 10.88A1.25 1.25 0 0 1 16 12.13L14.5 12.13A1.25 1.25 0 0 1 13.25 10.88A1.25 1.25 0 0 1 13.31 10.5L15.25 4.38Z\"/> <path d=\"M6 17.25L14 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "tipped",
+            "unbalanced",
+            "compare",
+            "untitled",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.67,
+              "optical": 2.51
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.37,
+              "optical": 2.28
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-4-filled": {
+          "paths": [
+            "M10 2.75L10 17.25",
+            "M2.75 6.46L17.25 4.04",
+            "M6 17.25L14 17.25"
+          ],
+          "areas": [
+            "M5.46 5.9L7.41 12.02A2 2 0 0 1 7.5 12.63A2 2 0 0 1 5.5 14.63L4 14.63A2 2 0 0 1 2 12.63A2 2 0 0 1 2.09 12.02L4.04 5.9A0.75 0.75 0 0 1 4.75 5.38A0.75 0.75 0 0 1 5.46 5.9Z",
+            "M15.96 4.15L17.91 10.27A2 2 0 0 1 18 10.88A2 2 0 0 1 16 12.88L14.5 12.88A2 2 0 0 1 12.5 10.88A2 2 0 0 1 12.59 10.27L14.54 4.15A0.75 0.75 0 0 1 15.25 3.63A0.75 0.75 0 0 1 15.96 4.15Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.46 5.9L7.41 12.02A2 2 0 0 1 7.5 12.63A2 2 0 0 1 5.5 14.63L4 14.63A2 2 0 0 1 2 12.63A2 2 0 0 1 2.09 12.02L4.04 5.9A0.75 0.75 0 0 1 4.75 5.38A0.75 0.75 0 0 1 5.46 5.9Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.96 4.15L17.91 10.27A2 2 0 0 1 18 10.88A2 2 0 0 1 16 12.88L14.5 12.88A2 2 0 0 1 12.5 10.88A2 2 0 0 1 12.59 10.27L14.54 4.15A0.75 0.75 0 0 1 15.25 3.63A0.75 0.75 0 0 1 15.96 4.15Z\"/> <path d=\"M10 2.75L10 17.25\"/> <path d=\"M2.75 6.46L17.25 4.04\"/> <path d=\"M6 17.25L14 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "tipped",
+            "unbalanced",
+            "compare",
+            "untitled",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-filled": {
+          "paths": [
+            "M10 2.75L10 17.25",
+            "M2.75 4.5L17.25 4.5",
+            "M6 17.25L14 17.25"
+          ],
+          "areas": [
+            "M5.47 4.3L7.43 11.47A2 2 0 0 1 7.5 12A2 2 0 0 1 5.5 14L4 14A2 2 0 0 1 2 12A2 2 0 0 1 2.07 11.47L4.03 4.3A0.75 0.75 0 0 1 4.75 3.75A0.75 0.75 0 0 1 5.47 4.3Z",
+            "M15.97 4.3L17.93 11.47A2 2 0 0 1 18 12A2 2 0 0 1 16 14L14.5 14A2 2 0 0 1 12.5 12A2 2 0 0 1 12.57 11.47L14.53 4.3A0.75 0.75 0 0 1 15.25 3.75A0.75 0.75 0 0 1 15.97 4.3Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.47 4.3L7.43 11.47A2 2 0 0 1 7.5 12A2 2 0 0 1 5.5 14L4 14A2 2 0 0 1 2 12A2 2 0 0 1 2.07 11.47L4.03 4.3A0.75 0.75 0 0 1 4.75 3.75A0.75 0.75 0 0 1 5.47 4.3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.97 4.3L17.93 11.47A2 2 0 0 1 18 12A2 2 0 0 1 16 14L14.5 14A2 2 0 0 1 12.5 12A2 2 0 0 1 12.57 11.47L14.53 4.3A0.75 0.75 0 0 1 15.25 3.75A0.75 0.75 0 0 1 15.97 4.3Z\"/> <path d=\"M10 2.75L10 17.25\"/> <path d=\"M2.75 4.5L17.25 4.5\"/> <path d=\"M6 17.25L14 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "dish",
+            "central",
             "nucleo"
           ],
           "shift": [
@@ -289934,10 +290768,14 @@
         "saved-items-2",
         "saved-items-2-filled",
         "saved-items-filled",
+        "scale",
         "scale-2",
         "scale-2-filled",
         "scale-3",
         "scale-3-filled",
+        "scale-4",
+        "scale-4-filled",
+        "scale-filled",
         "search",
         "search-2",
         "search-2-filled",
@@ -361753,6 +362591,73 @@
           "ratio": null,
           "gap": null
         },
+        "scale": {
+          "paths": [
+            "M12 2.75L12 21.25",
+            "M2.75 5L21.25 5",
+            "M5.75 5L8.68 14.04A1.5 1.5 0 0 1 8.75 14.5A1.5 1.5 0 0 1 7.25 16L4.25 16A1.5 1.5 0 0 1 2.75 14.5A1.5 1.5 0 0 1 2.82 14.04L5.75 5Z",
+            "M18.25 5L21.18 14.04A1.5 1.5 0 0 1 21.25 14.5A1.5 1.5 0 0 1 19.75 16L16.75 16A1.5 1.5 0 0 1 15.25 14.5A1.5 1.5 0 0 1 15.32 14.04L18.25 5Z",
+            "M6.75 21.25L17.25 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 5L21.25 5\"/> <path d=\"M5.75 5L8.68 14.04A1.5 1.5 0 0 1 8.75 14.5A1.5 1.5 0 0 1 7.25 16L4.25 16A1.5 1.5 0 0 1 2.75 14.5A1.5 1.5 0 0 1 2.82 14.04L5.75 5Z\"/> <path d=\"M18.25 5L21.18 14.04A1.5 1.5 0 0 1 21.25 14.5A1.5 1.5 0 0 1 19.75 16L16.75 16A1.5 1.5 0 0 1 15.25 14.5A1.5 1.5 0 0 1 15.32 14.04L18.25 5Z\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "dish",
+            "central",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "scale-2": {
           "paths": [
             "M3.75 3.75L20.25 3.75",
@@ -361957,6 +362862,213 @@
             "platform",
             "dial",
             "package",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-4": {
+          "paths": [
+            "M12 2.75L12 21.25",
+            "M2.75 6.79L21.25 3.71",
+            "M5.75 6.29L8.67 15.07A1.5 1.5 0 0 1 8.75 15.54A1.5 1.5 0 0 1 7.25 17.04L4.25 17.04A1.5 1.5 0 0 1 2.75 15.54A1.5 1.5 0 0 1 2.83 15.07L5.75 6.29Z",
+            "M18.25 4.21L21.17 12.98A1.5 1.5 0 0 1 21.25 13.46A1.5 1.5 0 0 1 19.75 14.96L16.75 14.96A1.5 1.5 0 0 1 15.25 13.46A1.5 1.5 0 0 1 15.33 12.98L18.25 4.21Z",
+            "M6.75 21.25L17.25 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 6.79L21.25 3.71\"/> <path d=\"M5.75 6.29L8.67 15.07A1.5 1.5 0 0 1 8.75 15.54A1.5 1.5 0 0 1 7.25 17.04L4.25 17.04A1.5 1.5 0 0 1 2.75 15.54A1.5 1.5 0 0 1 2.83 15.07L5.75 6.29Z\"/> <path d=\"M18.25 4.21L21.17 12.98A1.5 1.5 0 0 1 21.25 13.46A1.5 1.5 0 0 1 19.75 14.96L16.75 14.96A1.5 1.5 0 0 1 15.25 13.46A1.5 1.5 0 0 1 15.33 12.98L18.25 4.21Z\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "tipped",
+            "unbalanced",
+            "compare",
+            "untitled",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.45,
+              "optical": 2.34
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.51,
+              "optical": 2.38
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-4-filled": {
+          "paths": [
+            "M12 2.75L12 21.25",
+            "M2.75 6.79L21.25 3.71",
+            "M6.75 21.25L17.25 21.25"
+          ],
+          "areas": [
+            "M6.46 6.05L9.38 14.83A2.25 2.25 0 0 1 9.5 15.54A2.25 2.25 0 0 1 7.25 17.79L4.25 17.79A2.25 2.25 0 0 1 2 15.54A2.25 2.25 0 0 1 2.12 14.83L5.04 6.05A0.75 0.75 0 0 1 5.75 5.54A0.75 0.75 0 0 1 6.46 6.05Z",
+            "M18.96 3.97L21.88 12.75A2.25 2.25 0 0 1 22 13.46A2.25 2.25 0 0 1 19.75 15.71L16.75 15.71A2.25 2.25 0 0 1 14.5 13.46A2.25 2.25 0 0 1 14.62 12.75L17.54 3.97A0.75 0.75 0 0 1 18.25 3.46A0.75 0.75 0 0 1 18.96 3.97Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.46 6.05L9.38 14.83A2.25 2.25 0 0 1 9.5 15.54A2.25 2.25 0 0 1 7.25 17.79L4.25 17.79A2.25 2.25 0 0 1 2 15.54A2.25 2.25 0 0 1 2.12 14.83L5.04 6.05A0.75 0.75 0 0 1 5.75 5.54A0.75 0.75 0 0 1 6.46 6.05Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18.96 3.97L21.88 12.75A2.25 2.25 0 0 1 22 13.46A2.25 2.25 0 0 1 19.75 15.71L16.75 15.71A2.25 2.25 0 0 1 14.5 13.46A2.25 2.25 0 0 1 14.62 12.75L17.54 3.97A0.75 0.75 0 0 1 18.25 3.46A0.75 0.75 0 0 1 18.96 3.97Z\"/> <path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 6.79L21.25 3.71\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "tipped",
+            "unbalanced",
+            "compare",
+            "untitled",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "scale-filled": {
+          "paths": [
+            "M12 2.75L12 21.25",
+            "M2.75 5L21.25 5",
+            "M6.75 21.25L17.25 21.25"
+          ],
+          "areas": [
+            "M6.46 4.77L9.39 13.81A2.25 2.25 0 0 1 9.5 14.5A2.25 2.25 0 0 1 7.25 16.75L4.25 16.75A2.25 2.25 0 0 1 2 14.5A2.25 2.25 0 0 1 2.11 13.81L5.04 4.77A0.75 0.75 0 0 1 5.75 4.25A0.75 0.75 0 0 1 6.46 4.77Z",
+            "M18.96 4.77L21.89 13.81A2.25 2.25 0 0 1 22 14.5A2.25 2.25 0 0 1 19.75 16.75L16.75 16.75A2.25 2.25 0 0 1 14.5 14.5A2.25 2.25 0 0 1 14.61 13.81L17.54 4.77A0.75 0.75 0 0 1 18.25 4.25A0.75 0.75 0 0 1 18.96 4.77Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.46 4.77L9.39 13.81A2.25 2.25 0 0 1 9.5 14.5A2.25 2.25 0 0 1 7.25 16.75L4.25 16.75A2.25 2.25 0 0 1 2 14.5A2.25 2.25 0 0 1 2.11 13.81L5.04 4.77A0.75 0.75 0 0 1 5.75 4.25A0.75 0.75 0 0 1 6.46 4.77Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18.96 4.77L21.89 13.81A2.25 2.25 0 0 1 22 14.5A2.25 2.25 0 0 1 19.75 16.75L16.75 16.75A2.25 2.25 0 0 1 14.5 14.5A2.25 2.25 0 0 1 14.61 13.81L17.54 4.77A0.75 0.75 0 0 1 18.25 4.25A0.75 0.75 0 0 1 18.96 4.77Z\"/> <path d=\"M12 2.75L12 21.25\"/> <path d=\"M2.75 5L21.25 5\"/> <path d=\"M6.75 21.25L17.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "balance",
+            "scales",
+            "justice",
+            "law",
+            "weighing",
+            "beam",
+            "pans",
+            "dish",
+            "central",
             "nucleo"
           ],
           "shift": [
@@ -392394,10 +393506,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Commerce & Payments",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 247,
@@ -392417,6 +393529,17 @@
       "category": "Commerce & Payments",
       "base": "scale",
       "note": "Parcel scale · approved 2026-10-21",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-21"
+    },
+    {
+      "n": 247,
+      "name": "scale-4",
+      "section": "D · The rest, by audit rank",
+      "category": "Commerce & Payments",
+      "base": "scale",
+      "note": "Tipped · approved 2026-10-21",
       "status": "done",
       "mvp": false,
       "date": "2026-10-21"

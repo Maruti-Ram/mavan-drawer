@@ -699,9 +699,10 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 244. `rocket` · Development & Infra
 - [ ] 245. `rotation` · Design Tools
 - [ ] 246. `satellite` · Devices & Hardware
-- [~] 247. `scale` · Commerce & Payments
+- [x] 247. `scale` · Commerce & Payments — approved 2026-10-21
 - [x] 247. `scale-2` · Commerce & Payments · variant of `scale` — Kitchen scale · approved 2026-10-21
 - [x] 247. `scale-3` · Commerce & Payments · variant of `scale` — Parcel scale · approved 2026-10-21
+- [x] 247. `scale-4` · Commerce & Payments · variant of `scale` — Tipped · approved 2026-10-21
 - [ ] 248. `shapes` · Design Tools
 - [x] 249. `shopping-basket` · Commerce & Payments — approved 2026-10-21
 - [x] 249. `shopping-basket-2` · Commerce & Payments · variant of `shopping-basket` — Slatted basket · approved 2026-10-21
