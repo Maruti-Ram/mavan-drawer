@@ -1985,9 +1985,30 @@ test('armTipGap: a stem that curves after a square crossing is not an acute arm 
   near(acute.angle, 59, 0.1);
   near(acute.gap, 0.798, 0.005);
   assert.equal(armWarn(lintSource(24, 'mark.svg', drawn(24, 1.5, ['M12 4V16', 'M10 6.5L15 9.5']))).length, 1);
-  // and a stem that turns toward the bar's arm within its reach is judged where it is
-  const [early] = tipsOf(['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15'], 1.5).cross;
-  assert.ok(early && early.angle < 86, JSON.stringify(early));
+  // a stem that leaves the bar square and turns soon after is still square at the crossing
+  assert.deepEqual(tipsOf(['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15'], 1.5).cross, []);
+});
+
+// The shipped £ (swan neck): the stem stands upright exactly where the bar crosses it, at the joint
+// of two Béziers, and curves down-left at once below it. Once card 3 read crossings at a joint, the
+// reach-or-tips angle judged it at 81–86° and seven drawings warned; at the crossing the stem's
+// tangent is vertical on both sides — a right angle, never judged.
+const POUND = {
+  24: ['M17 6.7A4.25 4.5 0 0 0 9.25 9.25C9.25 10.88 10.25 10.88 10.25 12.5C10.25 16.21 7.77 18.61 7 19.25', 'M8 12.5H15.25', 'M7 19.25H17'],
+  '24f': ['M16.5 6.85A3.75 4 0 0 0 9.75 9.25C9.75 10.88 10.75 10.88 10.75 12.5C10.75 15.94 8.27 18.11 7.5 18.75', 'M8.5 12.5H14.75', 'M7.5 18.75H16.5'],
+  20: ['M14 5.78A3.6 3.75 0 0 0 7.5 8C7.5 9.25 8.25 9.25 8.25 10.5C8.25 13.39 6.61 15.24 6 15.75', 'M6.5 10.5H12.25', 'M6 15.75H14'],
+  '20f': ['M13.75 5.86A3.35 3.5 0 0 0 7.75 8C7.75 9.25 8.5 9.25 8.5 10.5C8.5 13.25 6.86 14.99 6.25 15.5', 'M6.75 10.5H12', 'M6.25 15.5H13.75'],
+  '16f': ['M11.5 4.488A3.375 3.125 0 0 0 5.25 6.125C5.25 7.25 6 7.25 6 8.375C6 10.919 5.036 12.55 4.5 13', 'M4.625 8.375H9', 'M4.5 13H11.5'],
+  '24c': [RING(12, 12, 9.25), 'M15 8.17A2.75 2.75 0 0 0 10 9.75C10 10.75 10.75 10.75 10.75 11.75C10.75 14.09 9.23 15.6 8.75 16', 'M9.25 11.75H13.75', 'M8.75 16H15'],
+  '20c': [RING(10, 10, 7.25), 'M12.25 7.18A2 2 0 0 0 8.75 8.5C8.75 9.25 9 9.25 9 10C9 11.65 8.32 12.52 7.75 13', 'M8 10H11', 'M7.75 13H12.25'],
+};
+
+test('armTipGap: the shipped £ is square where its bar crosses the stem — no warning at any master or style', () => {
+  for (const [k, ds] of Object.entries(POUND)) {
+    const m = parseInt(k, 10), w = k.endsWith('f') ? FILLED_WEIGHT[m] : strokeOf(m);
+    assert.deepEqual(tipsOf(ds, w).cross, [], `${k}: ${JSON.stringify(tipsOf(ds, w).cross)}`);
+    assert.deepEqual(armWarn(lintSource(m, 'pound.svg', drawn(m, w, ds))), [], k);
+  }
 });
 
 // Card 3. ¥: the top bar passes through the fork's point, where the two arms meet and the stem
