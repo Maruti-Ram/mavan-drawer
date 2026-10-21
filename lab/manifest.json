@@ -1639,6 +1639,8 @@
     "x-large-filled",
     "x-small",
     "x-small-filled",
+    "yen",
+    "yen-filled",
     "zoom-in",
     "zoom-in-2",
     "zoom-in-2-filled",
@@ -100026,6 +100028,130 @@
       },
       "gap": null
     },
+    "yen": {
+      "paths": [
+        "M6.5 4.75L12 12L17.5 4.75",
+        "M12 12V19.25",
+        "M8.25 12H15.75",
+        "M8.25 16H15.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M6.5 4.75L12 12L17.5 4.75\"/> <path d=\"M12 12V19.25\"/> <path d=\"M8.25 12H15.75\"/> <path d=\"M8.25 16H15.75\"/>",
+      "mark": true,
+      "tags": [
+        "yen",
+        "yuan",
+        "renminbi",
+        "currency",
+        "money",
+        "two bars"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 5.75,
+        "y": 4,
+        "w": 12.5,
+        "h": 16
+      },
+      "bearing": {
+        "left": 5.75,
+        "top": 4,
+        "right": 5.75,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 5.75,
+          "recession": 0.49,
+          "optical": 6.12
+        },
+        "right": {
+          "geometric": 5.75,
+          "recession": 0.49,
+          "optical": 6.12
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 1.12,
+          "optical": 4.84
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.04,
+          "optical": 4.03
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "yen-filled": {
+      "paths": [
+        "M7 5.25L12 12L17 5.25",
+        "M12 12V18.75",
+        "M8.75 12H15.25",
+        "M8.75 16H15.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7 5.25L12 12L17 5.25\"/> <path d=\"M12 12V18.75\"/> <path d=\"M8.75 12H15.25\"/> <path d=\"M8.75 16H15.25\"/>",
+      "mark": true,
+      "tags": [
+        "yen",
+        "yuan",
+        "renminbi",
+        "currency",
+        "money",
+        "two bars"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 5.75,
+        "y": 4,
+        "w": 12.5,
+        "h": 16
+      },
+      "bearing": {
+        "left": 5.75,
+        "top": 4,
+        "right": 5.75,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 5.75,
+          "recession": 1.85,
+          "optical": 7.13
+        },
+        "right": {
+          "geometric": 5.75,
+          "recession": 1.85,
+          "optical": 7.13
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 1.44,
+          "optical": 5.08
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 1.36,
+          "optical": 5.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "zoom-in": {
       "paths": [
         "M3.75 10.75A7 7 0 1 0 17.75 10.75A7 7 0 1 0 3.75 10.75Z",
@@ -102158,6 +102284,8 @@
         "x-large-filled",
         "x-small",
         "x-small-filled",
+        "yen",
+        "yen-filled",
         "zoom-in",
         "zoom-in-2",
         "zoom-in-2-filled",
@@ -200442,6 +200570,130 @@
           },
           "gap": null
         },
+        "yen": {
+          "paths": [
+            "M4.125 2.625L8 7.375L11.875 2.625",
+            "M8 7.375V13.375",
+            "M5.25 7.375H10.75",
+            "M5.25 10.875H10.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.125 2.625L8 7.375L11.875 2.625\"/> <path d=\"M8 7.375V13.375\"/> <path d=\"M5.25 7.375H10.75\"/> <path d=\"M5.25 10.875H10.75\"/>",
+          "mark": true,
+          "tags": [
+            "yen",
+            "yuan",
+            "renminbi",
+            "currency",
+            "money",
+            "two bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3.5,
+            "y": 2,
+            "w": 9,
+            "h": 12
+          },
+          "bearing": {
+            "left": 3.5,
+            "top": 2,
+            "right": 3.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3.5,
+              "recession": 0.47,
+              "optical": 3.85
+            },
+            "right": {
+              "geometric": 3.5,
+              "recession": 0.47,
+              "optical": 3.85
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.01
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "yen-filled": {
+          "paths": [
+            "M4.5 3L8 7.375L11.5 3",
+            "M8 7.375V13",
+            "M5.625 7.375H10.375",
+            "M5.625 10.875H10.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.5 3L8 7.375L11.5 3\"/> <path d=\"M8 7.375V13\"/> <path d=\"M5.625 7.375H10.375\"/> <path d=\"M5.625 10.875H10.375\"/>",
+          "mark": true,
+          "tags": [
+            "yen",
+            "yuan",
+            "renminbi",
+            "currency",
+            "money",
+            "two bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3.5,
+            "y": 2,
+            "w": 9,
+            "h": 12
+          },
+          "bearing": {
+            "left": 3.5,
+            "top": 2,
+            "right": 3.5,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3.5,
+              "recession": 1.37,
+              "optical": 4.53
+            },
+            "right": {
+              "geometric": 3.5,
+              "recession": 1.37,
+              "optical": 4.53
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.05,
+              "optical": 2.79
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 1.05,
+              "optical": 2.79
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "zoom-in": {
           "paths": [
             "M2.625 7.25A4.625 4.625 0 1 0 11.875 7.25A4.625 4.625 0 1 0 2.625 7.25Z",
@@ -202574,6 +202826,8 @@
         "x-large-filled",
         "x-small",
         "x-small-filled",
+        "yen",
+        "yen-filled",
         "zoom-in",
         "zoom-in-2",
         "zoom-in-2-filled",
@@ -300906,6 +301160,130 @@
           },
           "gap": null
         },
+        "yen": {
+          "paths": [
+            "M5.75 4.25L10 9.5L14.25 4.25",
+            "M10 9.5V15.75",
+            "M7 9.5H13",
+            "M7 13H13"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 4.25L10 9.5L14.25 4.25\"/> <path d=\"M10 9.5V15.75\"/> <path d=\"M7 9.5H13\"/> <path d=\"M7 13H13\"/>",
+          "mark": true,
+          "tags": [
+            "yen",
+            "yuan",
+            "renminbi",
+            "currency",
+            "money",
+            "two bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5,
+            "y": 3.5,
+            "w": 10,
+            "h": 13
+          },
+          "bearing": {
+            "left": 5,
+            "top": 3.5,
+            "right": 5,
+            "bottom": 3.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0.56,
+              "optical": 5.42
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0.56,
+              "optical": 5.42
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 1.01,
+              "optical": 4.26
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 0.05,
+              "optical": 3.54
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "yen-filled": {
+          "paths": [
+            "M6 4.5L10 9.5L14 4.5",
+            "M10 9.5V15.5",
+            "M7.25 9.5H12.75",
+            "M7.25 13H12.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6 4.5L10 9.5L14 4.5\"/> <path d=\"M10 9.5V15.5\"/> <path d=\"M7.25 9.5H12.75\"/> <path d=\"M7.25 13H12.75\"/>",
+          "mark": true,
+          "tags": [
+            "yen",
+            "yuan",
+            "renminbi",
+            "currency",
+            "money",
+            "two bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 5,
+            "y": 3.5,
+            "w": 10,
+            "h": 13
+          },
+          "bearing": {
+            "left": 5,
+            "top": 3.5,
+            "right": 5,
+            "bottom": 3.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 1.46,
+              "optical": 6.09
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 1.46,
+              "optical": 6.09
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 1.14,
+              "optical": 4.36
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 1.15,
+              "optical": 4.36
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "zoom-in": {
           "paths": [
             "M3.75 9A5.25 5.25 0 1 0 14.25 9A5.25 5.25 0 1 0 3.75 9Z",
@@ -303038,6 +303416,8 @@
         "x-large-filled",
         "x-small",
         "x-small-filled",
+        "yen",
+        "yen-filled",
         "zoom-in",
         "zoom-in-2",
         "zoom-in-2-filled",
@@ -401425,6 +401805,130 @@
           },
           "gap": null
         },
+        "yen": {
+          "paths": [
+            "M6.5 4.75L12 12L17.5 4.75",
+            "M12 12V19.25",
+            "M8.25 12H15.75",
+            "M8.25 16H15.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.5 4.75L12 12L17.5 4.75\"/> <path d=\"M12 12V19.25\"/> <path d=\"M8.25 12H15.75\"/> <path d=\"M8.25 16H15.75\"/>",
+          "mark": true,
+          "tags": [
+            "yen",
+            "yuan",
+            "renminbi",
+            "currency",
+            "money",
+            "two bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5.75,
+            "y": 4,
+            "w": 12.5,
+            "h": 16
+          },
+          "bearing": {
+            "left": 5.75,
+            "top": 4,
+            "right": 5.75,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 5.75,
+              "recession": 0.49,
+              "optical": 6.12
+            },
+            "right": {
+              "geometric": 5.75,
+              "recession": 0.49,
+              "optical": 6.12
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 1.12,
+              "optical": 4.84
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.04,
+              "optical": 4.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "yen-filled": {
+          "paths": [
+            "M7 5.25L12 12L17 5.25",
+            "M12 12V18.75",
+            "M8.75 12H15.25",
+            "M8.75 16H15.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7 5.25L12 12L17 5.25\"/> <path d=\"M12 12V18.75\"/> <path d=\"M8.75 12H15.25\"/> <path d=\"M8.75 16H15.25\"/>",
+          "mark": true,
+          "tags": [
+            "yen",
+            "yuan",
+            "renminbi",
+            "currency",
+            "money",
+            "two bars"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 5.75,
+            "y": 4,
+            "w": 12.5,
+            "h": 16
+          },
+          "bearing": {
+            "left": 5.75,
+            "top": 4,
+            "right": 5.75,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 5.75,
+              "recession": 1.85,
+              "optical": 7.13
+            },
+            "right": {
+              "geometric": 5.75,
+              "recession": 1.85,
+              "optical": 7.13
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 1.44,
+              "optical": 5.08
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 1.36,
+              "optical": 5.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "zoom-in": {
           "paths": [
             "M3.75 10.75A7 7 0 1 0 17.75 10.75A7 7 0 1 0 3.75 10.75Z",
@@ -413342,10 +413846,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 541,
