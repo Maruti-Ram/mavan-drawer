@@ -1274,6 +1274,8 @@
     "rss-2-filled",
     "rss-filled",
     "ruble",
+    "ruble-circle",
+    "ruble-circle-filled",
     "ruble-filled",
     "rupee",
     "rupee-filled",
@@ -77418,6 +77420,145 @@
       "ratio": null,
       "gap": null
     },
+    "ruble-circle": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M9.5 16.75V7.25",
+        "M9.5 7.25H11.5A3 2 0 0 1 14.5 9.25V10A3 2 0 0 1 11.5 12H8",
+        "M8 15H11.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M9.5 16.75V7.25\"/> <path d=\"M9.5 7.25H11.5A3 2 0 0 1 14.5 9.25V10A3 2 0 0 1 11.5 12H8\"/> <path d=\"M8 15H11.5\"/>",
+      "mark": false,
+      "tags": [
+        "ruble",
+        "rouble",
+        "rub",
+        "russian ruble",
+        "currency",
+        "money",
+        "sign",
+        "two bars",
+        "oval",
+        "square",
+        "coin",
+        "circle"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 8,
+        "h": 11
+      },
+      "ratio": {
+        "w": 0.4,
+        "h": 0.55
+      },
+      "gap": null
+    },
+    "ruble-circle-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 7.25A0.75 0.75 0 0 1 9.5 6.5H11.5A3.95 2.75 0 0 1 15.45 9.25V10A3.95 2.75 0 0 1 11.5 12.75H10.25V14.25H11.5A0.75 0.75 0 0 1 11.5 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V12.75H8A0.75 0.75 0 0 1 8 11.25H8.75ZM10.25 8H11.5A2.25 1.25 0 0 1 13.75 9.25V10A2.25 1.25 0 0 1 11.5 11.25H10.25Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 7.25A0.75 0.75 0 0 1 9.5 6.5H11.5A3.95 2.75 0 0 1 15.45 9.25V10A3.95 2.75 0 0 1 11.5 12.75H10.25V14.25H11.5A0.75 0.75 0 0 1 11.5 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V12.75H8A0.75 0.75 0 0 1 8 11.25H8.75ZM10.25 8H11.5A2.25 1.25 0 0 1 13.75 9.25V10A2.25 1.25 0 0 1 11.5 11.25H10.25Z\"/>",
+      "mark": false,
+      "tags": [
+        "ruble",
+        "rouble",
+        "rub",
+        "russian ruble",
+        "currency",
+        "money",
+        "sign",
+        "two bars",
+        "oval",
+        "square",
+        "coin",
+        "circle"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "ruble-filled": {
       "paths": [
         "M8.5 18.75V5.25",
@@ -104715,6 +104856,8 @@
         "rss-2-filled",
         "rss-filled",
         "ruble",
+        "ruble-circle",
+        "ruble-circle-filled",
         "ruble-filled",
         "rupee",
         "rupee-filled",
@@ -180784,6 +180927,145 @@
           "ratio": null,
           "gap": null
         },
+        "ruble-circle": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M6.5 11.25V4.75",
+            "M6.5 4.75H7.625A1.875 1.25 0 0 1 9.5 6V6.5A1.875 1.25 0 0 1 7.625 7.75H5.5",
+            "M5.5 10.5H7.625"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M6.5 11.25V4.75\"/> <path d=\"M6.5 4.75H7.625A1.875 1.25 0 0 1 9.5 6V6.5A1.875 1.25 0 0 1 7.625 7.75H5.5\"/> <path d=\"M5.5 10.5H7.625\"/>",
+          "mark": false,
+          "tags": [
+            "ruble",
+            "rouble",
+            "rub",
+            "russian ruble",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "oval",
+            "square",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 5.25,
+            "h": 7.75
+          },
+          "ratio": {
+            "w": 0.38,
+            "h": 0.55
+          },
+          "gap": null
+        },
+        "ruble-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5.75 4.75A0.75 0.75 0 0 1 6.5 4H7.625A2.825 2 0 0 1 10.45 6V6.5A2.825 2 0 0 1 7.625 8.5H7.25V9.75H7.625A0.75 0.75 0 0 1 7.625 11.25H7.25V11.25A0.75 0.75 0 0 1 5.75 11.25V11.25H5.5A0.75 0.75 0 0 1 5.5 9.75H5.75V8.5H5.5A0.75 0.75 0 0 1 5.5 7H5.75ZM7.25 5.5H7.625A1.125 0.5 0 0 1 8.75 6V6.5A1.125 0.5 0 0 1 7.625 7H7.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5.75 4.75A0.75 0.75 0 0 1 6.5 4H7.625A2.825 2 0 0 1 10.45 6V6.5A2.825 2 0 0 1 7.625 8.5H7.25V9.75H7.625A0.75 0.75 0 0 1 7.625 11.25H7.25V11.25A0.75 0.75 0 0 1 5.75 11.25V11.25H5.5A0.75 0.75 0 0 1 5.5 9.75H5.75V8.5H5.5A0.75 0.75 0 0 1 5.5 7H5.75ZM7.25 5.5H7.625A1.125 0.5 0 0 1 8.75 6V6.5A1.125 0.5 0 0 1 7.625 7H7.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "ruble",
+            "rouble",
+            "rub",
+            "russian ruble",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "oval",
+            "square",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "ruble-filled": {
           "paths": [
             "M5 13V3",
@@ -208052,6 +208334,8 @@
         "rss-2-filled",
         "rss-filled",
         "ruble",
+        "ruble-circle",
+        "ruble-circle-filled",
         "ruble-filled",
         "rupee",
         "rupee-filled",
@@ -284149,6 +284433,145 @@
           "ratio": null,
           "gap": null
         },
+        "ruble-circle": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M8.25 13.5V6.5",
+            "M8.25 6.5H9.5A2.25 1.5 0 0 1 11.75 8V8.25A2.25 1.5 0 0 1 9.5 9.75H7",
+            "M7 12.75H9.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M8.25 13.5V6.5\"/> <path d=\"M8.25 6.5H9.5A2.25 1.5 0 0 1 11.75 8V8.25A2.25 1.5 0 0 1 9.5 9.75H7\"/> <path d=\"M7 12.75H9.5\"/>",
+          "mark": false,
+          "tags": [
+            "ruble",
+            "rouble",
+            "rub",
+            "russian ruble",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "oval",
+            "square",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 6.25,
+            "h": 8.5
+          },
+          "ratio": {
+            "w": 0.39,
+            "h": 0.53
+          },
+          "gap": null
+        },
+        "ruble-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7.5 6.5A0.75 0.75 0 0 1 8.25 5.75H9.5A3.2 2.25 0 0 1 12.7 8V8.25A3.2 2.25 0 0 1 9.5 10.5H9V12H9.5A0.75 0.75 0 0 1 9.5 13.5H9V13.5A0.75 0.75 0 0 1 7.5 13.5V13.5H7A0.75 0.75 0 0 1 7 12H7.5V10.5H7A0.75 0.75 0 0 1 7 9H7.5ZM9 7.25H9.5A1.5 0.75 0 0 1 11 8V8.25A1.5 0.75 0 0 1 9.5 9H9Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7.5 6.5A0.75 0.75 0 0 1 8.25 5.75H9.5A3.2 2.25 0 0 1 12.7 8V8.25A3.2 2.25 0 0 1 9.5 10.5H9V12H9.5A0.75 0.75 0 0 1 9.5 13.5H9V13.5A0.75 0.75 0 0 1 7.5 13.5V13.5H7A0.75 0.75 0 0 1 7 12H7.5V10.5H7A0.75 0.75 0 0 1 7 9H7.5ZM9 7.25H9.5A1.5 0.75 0 0 1 11 8V8.25A1.5 0.75 0 0 1 9.5 9H9Z\"/>",
+          "mark": false,
+          "tags": [
+            "ruble",
+            "rouble",
+            "rub",
+            "russian ruble",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "oval",
+            "square",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "ruble-filled": {
           "paths": [
             "M7 15.5V4.5",
@@ -311437,6 +311860,8 @@
         "rss-2-filled",
         "rss-filled",
         "ruble",
+        "ruble-circle",
+        "ruble-circle-filled",
         "ruble-filled",
         "rupee",
         "rupee-filled",
@@ -387581,6 +388006,145 @@
           "ratio": null,
           "gap": null
         },
+        "ruble-circle": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M9.5 16.75V7.25",
+            "M9.5 7.25H11.5A3 2 0 0 1 14.5 9.25V10A3 2 0 0 1 11.5 12H8",
+            "M8 15H11.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M9.5 16.75V7.25\"/> <path d=\"M9.5 7.25H11.5A3 2 0 0 1 14.5 9.25V10A3 2 0 0 1 11.5 12H8\"/> <path d=\"M8 15H11.5\"/>",
+          "mark": false,
+          "tags": [
+            "ruble",
+            "rouble",
+            "rub",
+            "russian ruble",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "oval",
+            "square",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 8,
+            "h": 11
+          },
+          "ratio": {
+            "w": 0.4,
+            "h": 0.55
+          },
+          "gap": null
+        },
+        "ruble-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 7.25A0.75 0.75 0 0 1 9.5 6.5H11.5A3.95 2.75 0 0 1 15.45 9.25V10A3.95 2.75 0 0 1 11.5 12.75H10.25V14.25H11.5A0.75 0.75 0 0 1 11.5 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V12.75H8A0.75 0.75 0 0 1 8 11.25H8.75ZM10.25 8H11.5A2.25 1.25 0 0 1 13.75 9.25V10A2.25 1.25 0 0 1 11.5 11.25H10.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8.75 7.25A0.75 0.75 0 0 1 9.5 6.5H11.5A3.95 2.75 0 0 1 15.45 9.25V10A3.95 2.75 0 0 1 11.5 12.75H10.25V14.25H11.5A0.75 0.75 0 0 1 11.5 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V12.75H8A0.75 0.75 0 0 1 8 11.25H8.75ZM10.25 8H11.5A2.25 1.25 0 0 1 13.75 9.25V10A2.25 1.25 0 0 1 11.5 11.25H10.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "ruble",
+            "rouble",
+            "rub",
+            "russian ruble",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "oval",
+            "square",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "ruble-filled": {
           "paths": [
             "M8.5 18.75V5.25",
@@ -425325,10 +425889,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 567,
