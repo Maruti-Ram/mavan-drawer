@@ -709,7 +709,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 249. `shopping-basket-plus` · Commerce & Payments · variant of `shopping-basket` — Basket with a plus (fill-in) · approved 2026-10-21
 - [ ] 250. `signal` · Devices & Hardware
 - [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
-- [~] 252. `ticket` · Commerce & Payments
+- [x] 252. `ticket` · Commerce & Payments — approved 2026-10-21
+- [x] 252. `ticket-2` · Commerce & Payments · variant of `ticket` — Stub, edge notches · approved 2026-10-21
 - [ ] 253. `vector` · Design Tools
 - [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
 - [x] 254. `activity-2` · Charts & Data · variant of `activity` — Square pulse · approved 2026-10-18
@@ -1053,3 +1054,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 527. `phone-contactless` — added 2026-10-21 · approved 2026-10-21
 - [x] 528. `badge-check` — added 2026-10-21 · approved 2026-10-21
 - [x] 529. `piggy-bank` — added 2026-10-21 · approved 2026-10-21
+- [~] 530. `ticket-percent` — added 2026-10-21
+- [~] 531. `tickets` — added 2026-10-21
