@@ -374,8 +374,7 @@ between `alert-circle-filled`'s bar and its dot, the card between `id-card`'s he
 cannot tell whether that material stands for the outline's air (a knocked-out character's gap) or for one
 of its lines (the tick between `window-2-filled`'s two tab cells, 1.25 at 16), so it floors at the
 thinnest either allows — the master's line weight, 1.5 · 1.5 · 1.25, lowered by the file's agreed gap — or C19's
-1 under `glyph: dot` (the dot to its body), and prints the reading as an info line. Proposed 2026-10-20, for
-Maruti's ruling with `plans/lint-air-gaps.md`.
+1 under `glyph: dot` (the dot to its body), and prints the reading as an info line (Maruti, 2026-10-21; `plans/lint-air-gaps.md`).
 
 One carve-out, declared per file and checked by lint: **C19's glyph gap of 1 unit**
 for the inside of one character — a dot to its body (`<!-- glyph: dot -->`), a `?`'s
