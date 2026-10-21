@@ -1915,3 +1915,28 @@ test('lint §5f: the material between two cut-outs is printed, and warns under C
   assert.match(betweenLines(F(24, [PLATE(1.25)]))[0] ?? '', /^1\.25 of material between two cut-outs of one shape at 5\.63,[\d.]+ — §6 needs 1\.5$/);
 });
 
+// --- gap 2 of 2026-10-20, which did not reproduce: a bolt's inner-corner "pinch" --------------------
+// The zap draft's notes said a Z-bolt's tightest white is at each inner corner, across the waist to the
+// far long edge (1.65 at 16 for A, 1.10 for a narrower bolt), and that lint reads only square-on air.
+// Read off a distance grid, the white inside the bolt has ONE throat — between the two inner-corner
+// rounds, which face each other diagonally — and facingGap reads it exactly, as two bulges. The chord
+// the generator measured runs through the step's own ink. These pin the readings: the A bolt as drawn,
+// and the same bolt narrowed to where its waist really is under 1.5, which lint warns on.
+const ZAP_A16 = 'M8.5 2.25A0.625 0.625 0 0 0 7.875 1.625A0.625 0.625 0 0 0 7.329 1.946L3.704 8.446A0.625 0.625 0 0 0 3.625 8.75A0.625 0.625 0 0 0 4.25 9.375L6.875 9.375A0.625 0.625 0 0 1 7.5 10L7.5 13.75A0.625 0.625 0 0 0 8.125 14.375A0.625 0.625 0 0 0 8.671 14.054L12.296 7.554A0.625 0.625 0 0 0 12.375 7.25A0.625 0.625 0 0 0 11.75 6.625L9.125 6.625A0.625 0.625 0 0 1 8.5 6Z';
+// an 8×14 bolt, half-lean 0.25, step 2 (built by the reproduction's generator): its two inner rounds,
+// centred (7.125, 9.625) and (8.875, 6.375), r 0.625 + 0.625 of stroke, stand 1.19 apart
+const ZAP_NARROW16 = 'M8.25 2.25A0.625 0.625 0 0 0 8.25 1.625A0.625 0.625 0 0 0 7.689 1.975L4.689 8.1A0.625 0.625 0 0 0 5.25 9L7.125 9A0.625 0.625 0 0 1 7.75 9.625L7.75 13.75A0.625 0.625 0 0 0 7.75 14.375A0.625 0.625 0 0 0 8.311 14.025L11.311 7.9A0.625 0.625 0 0 0 10.75 7L8.875 7A0.625 0.625 0 0 1 8.25 6.375Z';
+
+test('a Z-bolt\'s waist is the diagonal between its two inner rounds, and facingGap reads it exactly', () => {
+  // A at 16: centres (6.875, 10) and (9.125, 6) are 4.589 apart, less two ink radii of 1.25: 2.089
+  const [waist] = facingGap([ZAP_A16], 1.25, [], { cap: 5 }).self;
+  near(waist.gap, Math.hypot(2.25, 4) - 2.5, 0.01);
+  assert.deepEqual(waist.at, [8, 8]);
+  // the widest circle sits in the body, not at the waist, and lint is rightly silent on both
+  assert.ok(insideAir([ZAP_A16], 1.25).paths[0].air > 2.8);
+  assert.deepEqual(airLines(lintSource(16, 'zap.svg', ONE(ROOT16, [ZAP_A16]))), []);
+  // narrowed until the rounds stand 1.19 apart, the same measure warns
+  const [narrow] = facingGap([ZAP_NARROW16], 1.25).self;
+  near(narrow.gap, Math.hypot(1.75, 3.25) - 2.5, 0.01);
+  assert.deepEqual(airLines(lintSource(16, 'zap.svg', ONE(ROOT16, [ZAP_NARROW16]))), [`path 1 faces itself across ${narrow.gap} of air at ${narrow.at.join(',')} — §6 needs 1.5`]);
+});
