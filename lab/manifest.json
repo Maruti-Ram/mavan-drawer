@@ -660,6 +660,8 @@
     "form-3-filled",
     "form-filled",
     "franc",
+    "franc-circle",
+    "franc-circle-filled",
     "franc-filled",
     "gauge",
     "gauge-filled",
@@ -39991,6 +39993,137 @@
           "geometric": 4,
           "recession": 0.04,
           "optical": 4.03
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "franc-circle": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M14.5 7.25H10.25A0.75 0.75 0 0 0 9.5 8V16.75",
+        "M9.5 11.75H14.25",
+        "M8 15H12.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M14.5 7.25H10.25A0.75 0.75 0 0 0 9.5 8V16.75\"/> <path d=\"M9.5 11.75H14.25\"/> <path d=\"M8 15H12.75\"/>",
+      "mark": false,
+      "tags": [
+        "franc",
+        "swiss franc",
+        "chf",
+        "currency",
+        "money",
+        "sign",
+        "coin",
+        "circle"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 8,
+        "h": 11
+      },
+      "ratio": {
+        "w": 0.4,
+        "h": 0.55
+      },
+      "gap": null
+    },
+    "franc-circle-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.25 6.5H14.5A0.75 0.75 0 0 1 14.5 8H10.25V11H14.25A0.75 0.75 0 0 1 14.25 12.5H10.25V14.25H12.75A0.75 0.75 0 0 1 12.75 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V8A1.5 1.5 0 0 1 10.25 6.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.25 6.5H14.5A0.75 0.75 0 0 1 14.5 8H10.25V11H14.25A0.75 0.75 0 0 1 14.25 12.5H10.25V14.25H12.75A0.75 0.75 0 0 1 12.75 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V8A1.5 1.5 0 0 1 10.25 6.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "franc",
+        "swiss franc",
+        "chf",
+        "currency",
+        "money",
+        "sign",
+        "coin",
+        "circle"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -103265,6 +103398,8 @@
         "form-3-filled",
         "form-filled",
         "franc",
+        "franc-circle",
+        "franc-circle-filled",
         "franc-filled",
         "gauge",
         "gauge-filled",
@@ -142539,6 +142674,137 @@
               "geometric": 2,
               "recession": 0.02,
               "optical": 2.01
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "franc-circle": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M9.625 4.625H7A0.625 0.625 0 0 0 6.375 5.25V11.375",
+            "M6.375 7.625H9.375",
+            "M5.375 10.625H8.625"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M9.625 4.625H7A0.625 0.625 0 0 0 6.375 5.25V11.375\"/> <path d=\"M6.375 7.625H9.375\"/> <path d=\"M5.375 10.625H8.625\"/>",
+          "mark": false,
+          "tags": [
+            "franc",
+            "swiss franc",
+            "chf",
+            "currency",
+            "money",
+            "sign",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 5.5,
+            "h": 8
+          },
+          "ratio": {
+            "w": 0.39,
+            "h": 0.57
+          },
+          "gap": null
+        },
+        "franc-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7 3.875H9.625A0.75 0.75 0 0 1 9.625 5.375H7.125V6.875H9.375A0.75 0.75 0 0 1 9.375 8.375H7.125V9.875H8.625A0.75 0.75 0 0 1 8.625 11.375H7.125V11.375A0.75 0.75 0 0 1 5.625 11.375V11.375H5.375A0.75 0.75 0 0 1 5.375 9.875H5.625V5.25A1.375 1.375 0 0 1 7 3.875Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7 3.875H9.625A0.75 0.75 0 0 1 9.625 5.375H7.125V6.875H9.375A0.75 0.75 0 0 1 9.375 8.375H7.125V9.875H8.625A0.75 0.75 0 0 1 8.625 11.375H7.125V11.375A0.75 0.75 0 0 1 5.625 11.375V11.375H5.375A0.75 0.75 0 0 1 5.375 9.875H5.625V5.25A1.375 1.375 0 0 1 7 3.875Z\"/>",
+          "mark": false,
+          "tags": [
+            "franc",
+            "swiss franc",
+            "chf",
+            "currency",
+            "money",
+            "sign",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -205767,6 +206033,8 @@
         "form-3-filled",
         "form-filled",
         "franc",
+        "franc-circle",
+        "franc-circle-filled",
         "franc-filled",
         "gauge",
         "gauge-filled",
@@ -245063,6 +245331,137 @@
               "geometric": 3.5,
               "recession": 0.92,
               "optical": 4.19
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "franc-circle": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M11.75 6.25H9A0.75 0.75 0 0 0 8.25 7V13.75",
+            "M8.25 9.5H11.5",
+            "M7.25 12.5H10.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M11.75 6.25H9A0.75 0.75 0 0 0 8.25 7V13.75\"/> <path d=\"M8.25 9.5H11.5\"/> <path d=\"M7.25 12.5H10.5\"/>",
+          "mark": false,
+          "tags": [
+            "franc",
+            "swiss franc",
+            "chf",
+            "currency",
+            "money",
+            "sign",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 6,
+            "h": 9
+          },
+          "ratio": {
+            "w": 0.38,
+            "h": 0.56
+          },
+          "gap": null
+        },
+        "franc-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM9 5.5H11.75A0.75 0.75 0 0 1 11.75 7H9V8.75H11.5A0.75 0.75 0 0 1 11.5 10.25H9V11.75H10.5A0.75 0.75 0 0 1 10.5 13.25H9V13.75A0.75 0.75 0 0 1 7.5 13.75V13.25H7.25A0.75 0.75 0 0 1 7.25 11.75H7.5V7A1.5 1.5 0 0 1 9 5.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM9 5.5H11.75A0.75 0.75 0 0 1 11.75 7H9V8.75H11.5A0.75 0.75 0 0 1 11.5 10.25H9V11.75H10.5A0.75 0.75 0 0 1 10.5 13.25H9V13.75A0.75 0.75 0 0 1 7.5 13.75V13.25H7.25A0.75 0.75 0 0 1 7.25 11.75H7.5V7A1.5 1.5 0 0 1 9 5.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "franc",
+            "swiss franc",
+            "chf",
+            "currency",
+            "money",
+            "sign",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -308317,6 +308716,8 @@
         "form-3-filled",
         "form-filled",
         "franc",
+        "franc-circle",
+        "franc-circle-filled",
         "franc-filled",
         "gauge",
         "gauge-filled",
@@ -347648,6 +348049,137 @@
               "geometric": 4,
               "recession": 0.04,
               "optical": 4.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "franc-circle": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M14.5 7.25H10.25A0.75 0.75 0 0 0 9.5 8V16.75",
+            "M9.5 11.75H14.25",
+            "M8 15H12.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M14.5 7.25H10.25A0.75 0.75 0 0 0 9.5 8V16.75\"/> <path d=\"M9.5 11.75H14.25\"/> <path d=\"M8 15H12.75\"/>",
+          "mark": false,
+          "tags": [
+            "franc",
+            "swiss franc",
+            "chf",
+            "currency",
+            "money",
+            "sign",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 8,
+            "h": 11
+          },
+          "ratio": {
+            "w": 0.4,
+            "h": 0.55
+          },
+          "gap": null
+        },
+        "franc-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.25 6.5H14.5A0.75 0.75 0 0 1 14.5 8H10.25V11H14.25A0.75 0.75 0 0 1 14.25 12.5H10.25V14.25H12.75A0.75 0.75 0 0 1 12.75 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V8A1.5 1.5 0 0 1 10.25 6.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.25 6.5H14.5A0.75 0.75 0 0 1 14.5 8H10.25V11H14.25A0.75 0.75 0 0 1 14.25 12.5H10.25V14.25H12.75A0.75 0.75 0 0 1 12.75 15.75H10.25V16.75A0.75 0.75 0 0 1 8.75 16.75V15.75H8A0.75 0.75 0 0 1 8 14.25H8.75V8A1.5 1.5 0 0 1 10.25 6.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "franc",
+            "swiss franc",
+            "chf",
+            "currency",
+            "money",
+            "sign",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -421895,10 +422427,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 559,
