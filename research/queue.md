@@ -1057,4 +1057,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 529. `piggy-bank` — added 2026-10-21 · approved 2026-10-21
 - [~] 530. `ticket-percent` — added 2026-10-21
 - [~] 531. `tickets` — added 2026-10-21
-- [~] 532. `van` — added 2026-10-21
+- [x] 532. `van` — added 2026-10-21 · approved 2026-10-21
