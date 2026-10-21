@@ -754,7 +754,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 276. `viewport-wide` · UI & Layout — approved 2026-10-20
 - [x] 276. `viewport-wide-2` · UI & Layout · variant of `viewport-wide` — Capsule, heads out · approved 2026-10-20
 - [x] 276. `viewport-wide-3` · UI & Layout · variant of `viewport-wide` — Dimension arrow, out · approved 2026-10-20
-- [~] 277. `atm` · Commerce & Payments
+- [x] 277. `atm` · Commerce & Payments — approved 2026-10-21
 - [ ] 278. `channels` · Development & Infra
 - [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
 - [ ] 280. `replay` · Media & Playback

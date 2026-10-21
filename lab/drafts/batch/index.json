@@ -44,12 +44,13 @@
     {
       "name": "receipt",
       "concept": "receipt",
-      "candidates": 4,
+      "candidates": 5,
       "ids": [
-        "A",
         "A1",
-        "A2",
-        "A3"
+        "A1a",
+        "A1b",
+        "A1c",
+        "A1d"
       ],
       "status": "review"
     },
@@ -69,9 +70,12 @@
     {
       "name": "warehouse",
       "concept": "warehouse",
-      "candidates": 1,
+      "candidates": 4,
       "ids": [
-        "B"
+        "B",
+        "B1",
+        "B2",
+        "B3"
       ],
       "status": "done"
     },
@@ -89,9 +93,12 @@
     {
       "name": "scale",
       "concept": "scale",
-      "candidates": 1,
+      "candidates": 4,
       "ids": [
-        "A"
+        "A",
+        "A1",
+        "A2",
+        "A3"
       ],
       "status": "review"
     },
@@ -120,24 +127,14 @@
       "status": "review"
     },
     {
-      "name": "atm",
-      "concept": "atm",
-      "candidates": 5,
-      "ids": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "status": "review"
-    },
-    {
       "name": "contactless",
       "concept": "contactless",
-      "candidates": 1,
+      "candidates": 4,
       "ids": [
-        "B"
+        "B",
+        "B1",
+        "B2",
+        "B3"
       ],
       "status": "done"
     },
