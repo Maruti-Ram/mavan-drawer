@@ -688,7 +688,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 235. `aspect-ratio` · Design Tools
 - [ ] 236. `devices` · Devices & Hardware
 - [ ] 237. `gem` · Design Tools
-- [x] 238. `handshake` · Commerce & Payments — approved 2026-10-21
+- [~] 238. `handshake` · Commerce & Payments
 - [ ] 239. `laptop` · Devices & Hardware
 - [ ] 240. `microscope` · Development & Infra
 - [ ] 241. `network` · Development & Infra
@@ -707,7 +707,6 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 250. `signal` · Devices & Hardware
 - [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
 - [~] 252. `ticket` · Commerce & Payments
-- [x] 252. `ticket-percent` · Commerce & Payments · variant of `ticket` — Coupon % · approved 2026-10-21
 - [ ] 253. `vector` · Design Tools
 - [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
 - [x] 254. `activity-2` · Charts & Data · variant of `activity` — Square pulse · approved 2026-10-18
@@ -1046,7 +1045,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
 - [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
-- [x] 525. `tickets` — added 2026-10-21 · approved 2026-10-21
 - [x] 526. `credit-card-contactless` — added 2026-10-21 · approved 2026-10-21
 - [x] 527. `phone-contactless` — added 2026-10-21 · approved 2026-10-21
-- [x] 528. `heart-handshake` — added 2026-10-21 · approved 2026-10-21
