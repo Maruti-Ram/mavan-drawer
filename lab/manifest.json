@@ -566,6 +566,8 @@
     "dollar-sign-2-filled",
     "dollar-sign-filled",
     "dong",
+    "dong-circle",
+    "dong-circle-filled",
     "dong-filled",
     "download",
     "download-2",
@@ -34406,6 +34408,144 @@
           "geometric": 3,
           "recession": 0.05,
           "optical": 3.04
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "dong-circle": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M14 12.25A2 2 0 0 0 12 10.25A2 2 0 0 0 10 12.25V12.75A2 2 0 0 0 12 14.75A2 2 0 0 0 14 12.75V12.25Z",
+        "M14 6.25V14.75",
+        "M11.25 7.25H15.5",
+        "M10 17.75H14"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M14 12.25A2 2 0 0 0 12 10.25A2 2 0 0 0 10 12.25V12.75A2 2 0 0 0 12 14.75A2 2 0 0 0 14 12.75V12.25Z\"/> <path d=\"M14 6.25V14.75\"/> <path d=\"M11.25 7.25H15.5\"/> <path d=\"M10 17.75H14\"/>",
+      "mark": false,
+      "tags": [
+        "dong",
+        "vnd",
+        "vietnamese dong",
+        "vietnam",
+        "currency",
+        "money",
+        "sign",
+        "long bar",
+        "oval",
+        "coin",
+        "circle"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 7,
+        "h": 13
+      },
+      "ratio": {
+        "w": 0.35,
+        "h": 0.65
+      },
+      "gap": null
+    },
+    "dong-circle-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM13.25 6.25A0.75 0.75 0 0 1 14.75 6.25V6.5H15.5A0.75 0.75 0 0 1 15.5 8H14.75V14.75A0.75 0.75 0 0 1 13.36 15.14A2.75 2.75 0 0 1 9.25 12.75V12.25A2.75 2.75 0 0 1 13.25 9.8V8H11.25A0.75 0.75 0 0 1 11.25 6.5H13.25ZM10.75 12.25A1.25 1.25 0 0 1 13.25 12.25V12.75A1.25 1.25 0 0 1 10.75 12.75ZM10 17H14A0.75 0.75 0 0 1 14 18.5H10A0.75 0.75 0 0 1 10 17Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM13.25 6.25A0.75 0.75 0 0 1 14.75 6.25V6.5H15.5A0.75 0.75 0 0 1 15.5 8H14.75V14.75A0.75 0.75 0 0 1 13.36 15.14A2.75 2.75 0 0 1 9.25 12.75V12.25A2.75 2.75 0 0 1 13.25 9.8V8H11.25A0.75 0.75 0 0 1 11.25 6.5H13.25ZM10.75 12.25A1.25 1.25 0 0 1 13.25 12.25V12.75A1.25 1.25 0 0 1 10.75 12.75ZM10 17H14A0.75 0.75 0 0 1 14 18.5H10A0.75 0.75 0 0 1 10 17Z\"/>",
+      "mark": false,
+      "tags": [
+        "dong",
+        "vnd",
+        "vietnamese dong",
+        "vietnam",
+        "currency",
+        "money",
+        "sign",
+        "long bar",
+        "oval",
+        "coin",
+        "circle"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -103460,6 +103600,8 @@
         "dollar-sign-2-filled",
         "dollar-sign-filled",
         "dong",
+        "dong-circle",
+        "dong-circle-filled",
         "dong-filled",
         "download",
         "download-2",
@@ -137248,6 +137390,143 @@
               "geometric": 2,
               "recession": 0.31,
               "optical": 2.23
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dong-circle": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M8.625 9.625A1.625 1.625 0 0 0 7 8A1.625 1.625 0 0 0 5.375 9.625A1.625 1.625 0 0 0 7 11.25A1.625 1.625 0 0 0 8.625 9.625Z",
+            "M8.625 4.5V11.25",
+            "M6.875 5H9.625"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M8.625 9.625A1.625 1.625 0 0 0 7 8A1.625 1.625 0 0 0 5.375 9.625A1.625 1.625 0 0 0 7 11.25A1.625 1.625 0 0 0 8.625 9.625Z\"/> <path d=\"M8.625 4.5V11.25\"/> <path d=\"M6.875 5H9.625\"/>",
+          "mark": false,
+          "tags": [
+            "dong",
+            "vnd",
+            "vietnamese dong",
+            "vietnam",
+            "currency",
+            "money",
+            "sign",
+            "long bar",
+            "oval",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 5.5,
+            "h": 8
+          },
+          "ratio": {
+            "w": 0.39,
+            "h": 0.57
+          },
+          "gap": null
+        },
+        "dong-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7.918 4.25A0.75 0.75 0 0 1 9.332 4.25H9.625A0.75 0.75 0 0 1 9.625 5.75H9.375V11.25A0.75 0.75 0 0 1 8.064 11.748A2.375 2.375 0 0 1 4.625 9.625A2.375 2.375 0 0 1 7.875 7.417V5.75H6.875A0.75 0.75 0 0 1 6.875 4.25H7.918ZM6.125 9.625A0.875 0.875 0 0 1 7.875 9.625A0.875 0.875 0 0 1 6.125 9.625Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7.918 4.25A0.75 0.75 0 0 1 9.332 4.25H9.625A0.75 0.75 0 0 1 9.625 5.75H9.375V11.25A0.75 0.75 0 0 1 8.064 11.748A2.375 2.375 0 0 1 4.625 9.625A2.375 2.375 0 0 1 7.875 7.417V5.75H6.875A0.75 0.75 0 0 1 6.875 4.25H7.918ZM6.125 9.625A0.875 0.875 0 0 1 7.875 9.625A0.875 0.875 0 0 1 6.125 9.625Z\"/>",
+          "mark": false,
+          "tags": [
+            "dong",
+            "vnd",
+            "vietnamese dong",
+            "vietnam",
+            "currency",
+            "money",
+            "sign",
+            "long bar",
+            "oval",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -206251,6 +206530,8 @@
         "dollar-sign-2-filled",
         "dollar-sign-filled",
         "dong",
+        "dong-circle",
+        "dong-circle-filled",
         "dong-filled",
         "download",
         "download-2",
@@ -240058,6 +240339,143 @@
               "geometric": 3,
               "recession": 0.07,
               "optical": 3.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dong-circle": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M10.75 11.5A1.75 1.75 0 0 0 9 9.75A1.75 1.75 0 0 0 7.25 11.5V12A1.75 1.75 0 0 0 9 13.75A1.75 1.75 0 0 0 10.75 12V11.5Z",
+            "M10.75 6V13.75",
+            "M8.5 6.75H12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M10.75 11.5A1.75 1.75 0 0 0 9 9.75A1.75 1.75 0 0 0 7.25 11.5V12A1.75 1.75 0 0 0 9 13.75A1.75 1.75 0 0 0 10.75 12V11.5Z\"/> <path d=\"M10.75 6V13.75\"/> <path d=\"M8.5 6.75H12\"/>",
+          "mark": false,
+          "tags": [
+            "dong",
+            "vnd",
+            "vietnamese dong",
+            "vietnam",
+            "currency",
+            "money",
+            "sign",
+            "long bar",
+            "oval",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 6.25,
+            "h": 9.25
+          },
+          "ratio": {
+            "w": 0.39,
+            "h": 0.58
+          },
+          "gap": null
+        },
+        "dong-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM10 6A0.75 0.75 0 0 1 11.5 6H12A0.75 0.75 0 0 1 12 7.5H11.5V13.75A0.75 0.75 0 0 1 10.16 14.21A2.5 2.5 0 0 1 6.5 12V11.5A2.5 2.5 0 0 1 10 9.21V7.5H8.5A0.75 0.75 0 0 1 8.5 6H10ZM8 11.5A1 1 0 0 1 10 11.5V12A1 1 0 0 1 8 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM10 6A0.75 0.75 0 0 1 11.5 6H12A0.75 0.75 0 0 1 12 7.5H11.5V13.75A0.75 0.75 0 0 1 10.16 14.21A2.5 2.5 0 0 1 6.5 12V11.5A2.5 2.5 0 0 1 10 9.21V7.5H8.5A0.75 0.75 0 0 1 8.5 6H10ZM8 11.5A1 1 0 0 1 10 11.5V12A1 1 0 0 1 8 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "dong",
+            "vnd",
+            "vietnamese dong",
+            "vietnam",
+            "currency",
+            "money",
+            "sign",
+            "long bar",
+            "oval",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -309090,6 +309508,8 @@
         "dollar-sign-2-filled",
         "dollar-sign-filled",
         "dong",
+        "dong-circle",
+        "dong-circle-filled",
         "dong-filled",
         "download",
         "download-2",
@@ -342930,6 +343350,144 @@
               "geometric": 3,
               "recession": 0.05,
               "optical": 3.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dong-circle": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M14 12.25A2 2 0 0 0 12 10.25A2 2 0 0 0 10 12.25V12.75A2 2 0 0 0 12 14.75A2 2 0 0 0 14 12.75V12.25Z",
+            "M14 6.25V14.75",
+            "M11.25 7.25H15.5",
+            "M10 17.75H14"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M14 12.25A2 2 0 0 0 12 10.25A2 2 0 0 0 10 12.25V12.75A2 2 0 0 0 12 14.75A2 2 0 0 0 14 12.75V12.25Z\"/> <path d=\"M14 6.25V14.75\"/> <path d=\"M11.25 7.25H15.5\"/> <path d=\"M10 17.75H14\"/>",
+          "mark": false,
+          "tags": [
+            "dong",
+            "vnd",
+            "vietnamese dong",
+            "vietnam",
+            "currency",
+            "money",
+            "sign",
+            "long bar",
+            "oval",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 7,
+            "h": 13
+          },
+          "ratio": {
+            "w": 0.35,
+            "h": 0.65
+          },
+          "gap": null
+        },
+        "dong-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM13.25 6.25A0.75 0.75 0 0 1 14.75 6.25V6.5H15.5A0.75 0.75 0 0 1 15.5 8H14.75V14.75A0.75 0.75 0 0 1 13.36 15.14A2.75 2.75 0 0 1 9.25 12.75V12.25A2.75 2.75 0 0 1 13.25 9.8V8H11.25A0.75 0.75 0 0 1 11.25 6.5H13.25ZM10.75 12.25A1.25 1.25 0 0 1 13.25 12.25V12.75A1.25 1.25 0 0 1 10.75 12.75ZM10 17H14A0.75 0.75 0 0 1 14 18.5H10A0.75 0.75 0 0 1 10 17Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM13.25 6.25A0.75 0.75 0 0 1 14.75 6.25V6.5H15.5A0.75 0.75 0 0 1 15.5 8H14.75V14.75A0.75 0.75 0 0 1 13.36 15.14A2.75 2.75 0 0 1 9.25 12.75V12.25A2.75 2.75 0 0 1 13.25 9.8V8H11.25A0.75 0.75 0 0 1 11.25 6.5H13.25ZM10.75 12.25A1.25 1.25 0 0 1 13.25 12.25V12.75A1.25 1.25 0 0 1 10.75 12.75ZM10 17H14A0.75 0.75 0 0 1 14 18.5H10A0.75 0.75 0 0 1 10 17Z\"/>",
+          "mark": false,
+          "tags": [
+            "dong",
+            "vnd",
+            "vietnamese dong",
+            "vietnam",
+            "currency",
+            "money",
+            "sign",
+            "long bar",
+            "oval",
+            "coin",
+            "circle"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -423084,10 +423642,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 562,
