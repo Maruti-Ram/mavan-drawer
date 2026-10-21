@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: ticks, spinner, radial, nucleo, lucide -->
+  <!-- Eight ticks: Round one’s A, unchanged, as the control. At 1× the four axis ticks read lighter than the four diagonal ones: their darkest pixel is 0.75 · 0.75 · 0.62 (24 · 20 · 16) against 1.00 on every diagonal, because a 1.5 stroke on a whole-unit centreline straddles two columns. Tick centrelines 4.5 · 2.75 · 2.125 long (ink 6 · 4.25 · 3.375); inner ends at radius 4.75 · 4.5 · 4.25; filled 2.5 · 2 · 2 with the ends pulled in, inner-cap air 1.52 · 1.64 · 1.54 (outline 2.14 · 1.94 · 2.0). Ink box 20×20 · 16×16 · 14×14, filled identical. -->
+  <path d="M12 2.75V7.25"/>
+  <path d="M12 21.25V16.75"/>
+  <path d="M2.75 12H7.25"/>
+  <path d="M21.25 12H16.75"/>
+  <path d="M5.46 5.46L8.64 8.64"/>
+  <path d="M18.54 5.46L15.36 8.64"/>
+  <path d="M18.54 18.54L15.36 15.36"/>
+  <path d="M5.46 18.54L8.64 15.36"/>
+</svg>

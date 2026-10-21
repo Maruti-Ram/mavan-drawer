@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: shrinking dots, dots, ring, beads, fade -->
+  <!-- Dots that shrink: Round two’s G, unchanged, as the control. Eight dots, every outer edge on the circle keyline, shrinking from more-horizontal’s dot at the head (⌀ 3 · 2.7 · 2.4) to the bare stroke at the tail (1.5 · 1.5 · 1.25). Levels in pairs at 24 (3, 2.5, 2, 1.5: steps 0.5) and threes at 20 and 16 (2.7, 2, 1.5: 0.7 · 0.5; 2.4, 1.75, 1.25: 0.65 · 0.5). Air between neighbours: outline 3.51 · 2.39 · 2.04 at the head; filled 2.13 · 1.70 · 1.56, with the lead’s path radius dropped to 0.375 at 16 for that air. Filled ink ⌀ 4, 3.5, 3, 2.5 · 3.2, 2.5, 2 · 2.75, 2.5, 2 — the added weight compresses the fade to a 0.25 step at 16. Ink box 20×20 · 16×16 · 14×14, filled identical. Seen in Chrome every dot between the stroke and twice the stroke shows a pinhole: Chrome strokes a circle narrower than its stroke as a ring with a hole of (stroke − 2r), so only the ⌀ 2w lead and the zero-length speck are solid there (measured this session; 187 shipped files draw dots the same way). A set-wide question for the main session, not this board’s; a tiny closed square renders solid and lints clean if it is wanted. -->
+  <path d="M11.25 3.5A0.75 0.75 0 1 0 12.75 3.5A0.75 0.75 0 1 0 11.25 3.5Z"/>
+  <path d="M5.24 5.99A0.75 0.75 0 1 0 6.74 5.99A0.75 0.75 0 1 0 5.24 5.99Z"/>
+  <path d="M2.75 12A0.5 0.5 0 1 0 3.75 12A0.5 0.5 0 1 0 2.75 12Z"/>
+  <path d="M5.31 18.19A0.5 0.5 0 1 0 6.31 18.19A0.5 0.5 0 1 0 5.31 18.19Z"/>
+  <path d="M11.75 21A0.25 0.25 0 1 0 12.25 21A0.25 0.25 0 1 0 11.75 21Z"/>
+  <path d="M18.11 18.36A0.25 0.25 0 1 0 18.61 18.36A0.25 0.25 0 1 0 18.11 18.36Z"/>
+  <path d="M21.25 12L21.25 12"/>
+  <path d="M18.54 5.46L18.54 5.46"/>
+</svg>

@@ -489,7 +489,10 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 137. `tablet` · Devices & Hardware
 - [ ] 138. `truck` · Commerce & Payments
 - [ ] 139. `wifi` · Devices & Hardware
-- [ ] 140. `alert-octagon` · Status & Feedback
+- [x] 140. `alert-octagon` · Status & Feedback — approved 2026-10-20
+- [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
+- [x] 140. `alert-octagon-3` · Status & Feedback · variant of `alert-octagon` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
+- [x] 140. `alert-octagon-4` · Status & Feedback · variant of `alert-octagon` — Wedge + dash (alert-circle-4's mark) · approved 2026-10-20
 - [ ] 141. `backspace` · Editing & Text
 - [x] 142. `columns` · UI & Layout — mvp · approved 2026-10-18
 - [x] 142. `columns-2` · UI & Layout · variant of `columns` — Two column boxes · approved 2026-10-18
@@ -551,7 +554,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 173. `arrows-swap-2` · Arrows & Direction · variant of `arrows-swap` — Right on top · approved 2026-10-17
 - [x] 174. `chevron-first` · Arrows & Direction — approved 2026-10-17
 - [x] 175. `chevron-last` · Arrows & Direction — approved 2026-10-17
-- [ ] 176. `confetti` · Status & Feedback
+- [x] 176. `confetti` · Status & Feedback — approved 2026-10-20
 - [x] 177. `drag-handle` · UI & Layout — mvp · approved 2026-10-18
 - [x] 177. `drag-handle-2` · UI & Layout · variant of `drag-handle` — Six dots, lying · approved 2026-10-18
 - [x] 177. `drag-handle-3` · UI & Layout · variant of `drag-handle` — Three short lines · approved 2026-10-18
@@ -574,23 +577,28 @@ Bases before their variants; within that, highest evidence first.
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
 - [ ] 186. `bank` · Commerce & Payments
 - [ ] 187. `warehouse` · Commerce & Payments
-- [ ] 188. `award` · Status & Feedback
+- [x] 188. `award` · Status & Feedback — approved 2026-10-20
+- [x] 521. `trophy` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 522. `crown` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 523. `medal` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 524. `rosette` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 189. `bookmark` · Status & Feedback — mvp · approved 2026-10-18
 - [x] 189. `bookmark-2` · Status & Feedback · variant of `bookmark` — Round head · approved 2026-10-18
 - [x] 189. `bookmark-3` · Status & Feedback · variant of `bookmark` — Crisp ribbon · approved 2026-10-18
-- [ ] 190. `crosshair` · Status & Feedback
+- [x] 190. `crosshair` · Status & Feedback — approved 2026-10-20
 - [x] 191. `download` · Files & Folders — mvp · approved 2026-10-18
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
-- [ ] 192. `gift` · Status & Feedback
+- [x] 192. `gift` · Status & Feedback — approved 2026-10-20
 - [x] 193. `headphones` · Communication — approved 2026-10-20
 - [x] 193. `headphones-2` · Communication · variant of `headphones` — Capsule cups · approved 2026-10-20
 - [x] 193. `headphones-4` · Communication · variant of `headphones` — Wired earbuds · approved 2026-10-20
 - [x] 193. `headphones-3` · Communication · variant of `headphones` — Ring heads, slim solid stems · approved 2026-10-20
 - [x] 193. `headphones-5` · Communication · variant of `headphones` — Teardrop heads, slim solid stems · approved 2026-10-20
 - [x] 194. `inbox` · Communication — mvp · approved 2026-10-18
-- [ ] 195. `life-buoy` · Status & Feedback
-- [ ] 196. `loader` · Status & Feedback — mvp
+- [x] 195. `life-buoy` · Status & Feedback — approved 2026-10-20
+- [x] 196. `loader` · Status & Feedback — mvp · approved 2026-10-20
+- [x] 196. `loader-2` · Status & Feedback · variant of `loader` — Dots that shrink · approved 2026-10-20
 - [x] 197. `repeat` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 197. `repeat-2` · Arrows & Direction · variant of `repeat` — Closed ring, mid-rail heads · approved 2026-10-17
 - [x] 197. `repeat-3` · Arrows & Direction · variant of `repeat` — Stadium, heads into the turns · approved 2026-10-17
@@ -606,7 +614,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 200. `video-2` · Files & Folders · variant of `video` — Film strip · approved 2026-10-20
 - [x] 200. `video-3` · Files & Folders · variant of `video` — TV with play · approved 2026-10-20
 - [x] 200. `video-4` · Files & Folders · variant of `video` — Clapperboard, hinged at the corner; hinge segment hollow when filled · approved 2026-10-20
-- [ ] 201. `zap` · Status & Feedback
+- [x] 201. `bolt` · Status & Feedback — approved 2026-10-20
+- [x] 201. `bolt-2` · Status & Feedback · variant of `bolt` — Narrow bolt · approved 2026-10-20
+- [x] 201. `bolt-3` · Status & Feedback · variant of `bolt` — Wide 45° bolt · approved 2026-10-20
 - [x] 202. `zoom-in` · UI & Layout — approved 2026-10-20
 - [x] 202. `zoom-in-2` · UI & Layout · variant of `zoom-in` — Big lens, ring kept, thin mark · approved 2026-10-20
 - [x] 203. `zoom-out` · UI & Layout — approved 2026-10-20
@@ -707,7 +717,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 263. `caret-down-2` · Arrows & Direction · variant of `caret-down` — Near-equilateral · caret-down · approved 2026-10-17
 - [x] 264. `caret-up` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 264. `caret-up-2` · Arrows & Direction · variant of `caret-up` — Near-equilateral · caret-up · approved 2026-10-17
-- [ ] 265. `live` · Media & Playback
+- [x] 265. `live` · Media & Playback — approved 2026-10-20
 - [x] 266. `categories` · Files & Folders — approved 2026-10-20
 - [x] 266. `categories-2` · Files & Folders · variant of `categories` — Stacked cards · approved 2026-10-20
 - [x] 266. `categories-3` · Files & Folders · variant of `categories` — Tiles: rings and squares on the diagonals · approved 2026-10-20
@@ -718,7 +728,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 269. `newsletter-2` · Communication · variant of `newsletter` — Letter rising from an open envelope · approved 2026-10-20
 - [x] 270. `passkey` · Users & Access — approved 2026-10-19
 - [x] 270. `passkey-2` · Users & Access · variant of `passkey` — Key standing in the corner · approved 2026-10-19
-- [ ] 271. `status` · Status & Feedback
+- [x] 271. `status` · Status & Feedback — approved 2026-10-20
 - [x] 272. `translate` · Communication — approved 2026-10-20
 - [x] 272. `translate-2` · Communication · variant of `translate` — Two speech bubbles · approved 2026-10-20
 - [x] 273. `viewport-narrow` · UI & Layout — approved 2026-10-20
@@ -740,13 +750,20 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 281. `reset` · Media & Playback
 - [ ] 282. `reward` · Commerce & Payments
 - [ ] 283. `sandbox` · Development & Infra
-- [ ] 284. `alert-square` · Status & Feedback
+- [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
+- [x] 284. `alert-square-2` · Status & Feedback · variant of `alert-square` — Wedge (alert-circle-2's mark) · approved 2026-10-20
+- [x] 284. `alert-square-3` · Status & Feedback · variant of `alert-square` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
+- [x] 284. `alert-square-4` · Status & Feedback · variant of `alert-square` — Wedge + dash (alert-circle-4's mark) · approved 2026-10-20
 - [x] 285. `bookmarks` · Files & Folders — approved 2026-10-20
 - [x] 285. `bookmarks-3` · Files & Folders · variant of `bookmarks` — A ribbon beside a list · approved 2026-10-20
 - [x] 285. `bookmarks-4` · Files & Folders · variant of `bookmarks` — A star beside a list · approved 2026-10-20
 - [x] 285. `bookmarks-2` · Files & Folders · variant of `bookmarks` — Ribbon hung from the step, one size up · approved 2026-10-20
-- [ ] 286. `progress-bar` · Status & Feedback
-- [ ] 287. `saved-items` · Status & Feedback
+- [x] 286. `progress-bar` · Status & Feedback — approved 2026-10-20
+- [x] 286. `progress-bar-low` · Status & Feedback · variant of `progress-bar` — Fill at 40% · approved 2026-10-20
+- [x] 286. `progress-bar-high` · Status & Feedback · variant of `progress-bar` — Fill at ~70% · approved 2026-10-20
+- [x] 287. `saved-items` · Status & Feedback — approved 2026-10-20
+- [x] 287. `saved-items-2` · Status & Feedback · variant of `saved-items` — Ribbon with a tick (bookmark-2) · approved 2026-10-20
+- [x] 520. `library` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [ ] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
@@ -896,7 +913,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 411. `phone-call` · Communication · variant of `phone`
 - [ ] 412. `plus-square` · UI & Layout · variant of `plus`
 - [ ] 413. `x-square` · UI & Layout · variant of `x`
-- [ ] 414. `zap-off` · Status & Feedback · variant of `zap`
+- [ ] 414. `bolt-off` · Status & Feedback · variant of `bolt`
 - [ ] 415. `battery-charging` · Devices & Hardware · variant of `battery`
 - [ ] 417. `activity-square` · Charts & Data · variant of `activity`
 - [ ] 418. `bell-plus` · Communication · variant of `bell`
