@@ -1075,7 +1075,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 540. `yen` — added 2026-10-21 · approved 2026-10-21
 - [x] 541. `rupee` — added 2026-10-21 · approved 2026-10-21
 - [x] 542. `bitcoin` — added 2026-10-21 · approved 2026-10-21
-- [~] 543. `won` — added 2026-10-21
+- [x] 543. `won` — added 2026-10-21 · approved 2026-10-21
 - [x] 544. `ruble` — added 2026-10-21 · approved 2026-10-21
 - [x] 545. `lira` — added 2026-10-21 · approved 2026-10-21
 - [x] 546. `franc` — added 2026-10-21 · approved 2026-10-21
