@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, insideAir, encloses, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, insideAir, encloses, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -589,10 +589,11 @@ export function lintSource(canvas, file, src) {
       warnings.push(`${i === j ? `path ${i + 1} crosses itself` : `paths ${i + 1}/${j + 1} cross`} at ${Math.round(angle)}° with ${r2(g)} of air at the arm tips at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
   };
   const crossed = (i, j) => { const t = armsAt.get(`${i}/${j}`); if (t) { armsAt.delete(`${i}/${j}`); judgeArms(t); } };
+  const joined = new Set();   // pairs of paths §5 reads as crossing or touching, and so measures nothing between: 5j's
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
     const onBadge = !!inBadge[i] || !!inBadge[j], toBase = !!inBadge[i] !== !!inBadge[j];
     const met = `paths ${i + 1}/${j + 1} meet — C33 cuts the base back with ${MIN_GAP} of air from the badge's ink`;
-    if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else crossed(i, j); continue; } // paths that cross (x, plus) join by design; their arms' tips are judged
+    if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else { crossed(i, j); joined.add(`${i}/${j}`); } continue; } // paths that cross (x, plus) join by design; their arms' tips are judged, and a bar's air to the rest of the other (5j)
     // the badge is read first, so no badge path ever takes the glyph's floor of 1 (and a ring
     // badge beside `glyph: dot` is not the glyph's dot either way: it is not solid)
     const glyphPair = !onBadge && isGlyph && isSolidDot(ds[i], W[i]) !== isSolidDot(ds[j], W[j]) && !isShell(spans[i]) && !isShell(spans[j]);
@@ -602,7 +603,7 @@ export function lintSource(canvas, file, src) {
     // Point-to-SEGMENT, both ways: point-to-point read a stem standing on a bar as 0.13
     // apart whenever the bar's samples straddled the stem (info-3 at 16, on the eighth grid).
     const min = Math.min(polyGap(sampled[i], sampled[j]), polyGap(sampled[j], sampled[i]));
-    if (min <= 0.1) { if (toBase) warnings.push(met); continue; }
+    if (min <= 0.1) { if (toBase) warnings.push(met); else joined.add(`${i}/${j}`); continue; }
     if (toBase) badgeAir = Math.min(badgeAir, r2(min - pen));
     if (!glyphPair && !onBadge) measured.push(r2(min - pen));
     if (min < need - 0.01)
@@ -610,6 +611,23 @@ export function lintSource(canvas, file, src) {
   }
   // a path crossing itself, and any crossing the sampled test above did not see
   for (const t of armsAt.values()) judgeArms(t);
+
+  // --- 5j. advisory: a bar's air to the rest of a stroke it crosses ----------------
+  // (2026-10-21; plans/lint-currency-fixes.md card 2.) The pair loop above reads two crossing paths
+  // as joined and measures nothing between them, so where a straight bar crosses a bowl, the white it
+  // leaves to the rest of that bowl went unread — ₱'s bars to its bowl's top and bottom runs (1.25 at
+  // 20, 1.375 at 16, measured by hand). `barGap` walks the crossed path away from each crossing and
+  // reads where it comes back toward the bar or runs beside it, each path at its own weight (the wedge
+  // at the crossing itself is the arms' tips, above). Read only for pairs this loop calls crossing or
+  // touching (a crossing exactly on a sample reads as a touch), so no air is read twice. It floors as any two paths do: this file's agreed gap, else MIN_GAP; a C33
+  // badge's own paths keep MIN_GAP, and a badge crossing its base already warns that they meet. WARNINGS.
+  for (const { paths: [b, c], gap: g, at } of barGap(ds, W)) {
+    if (!joined.has(`${Math.min(b, c)}/${Math.max(b, c)}`) || !!inBadge[b] !== !!inBadge[c]) continue;
+    const onBadge = !!inBadge[b], floor = onBadge ? MIN_GAP : GAP;
+    if (!onBadge) measured.push(r2(g));
+    if (g < floor - 0.01)
+      warnings.push(`path ${b + 1}'s bar crosses path ${c + 1} and comes within ${r3(g)} of it at ${at.join(',')} — ${!onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+  }
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
   // §6's corollary "no enclosed shape smaller than 1.5 units across" was not in code

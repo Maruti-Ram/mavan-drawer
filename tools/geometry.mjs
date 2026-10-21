@@ -1491,6 +1491,120 @@ export function armTipGap(ds, stroke, areas = [], { weight } = {}) {
   return { cross, notch };
 }
 
+// ── barGap ─────────────────────────────────────────────────────────────────
+// The air between a straight BAR and another stroke it crosses (2026-10-21; plans/lint-currency-
+// fixes.md card 2). Lint §5 reads two crossing paths as joined by design and measures nothing between
+// them, and armTipGap reads only the wedge at the crossing. So where a bar crosses a bowl, the white
+// it leaves to the REST of that bowl went unread: ₱'s two bars to its bowl's top and bottom runs
+// (2 · 1.25 · 1.375 at 24 · 20 · 16, measured by hand at approval), ₺'s lower bar's end to its bowl.
+//
+// How. A bar is any straight run of a path at least BAR_MIN long. Where another path's centreline
+// crosses it (strictly inside the bar, through a sample or between two), that path is walked away
+// from the crossing on each side, until it crosses the bar's line again, comes back round (closed),
+// or ends. Along the walk D is its distance to the bar (the segment, so a bar's round end counts as
+// the end it is). Leaving the crossing D grows; the air is read where the walk comes back toward the
+// bar or runs beside it — at each point where D stops falling (a parallel run, a bulge's closest
+// approach, an open end arriving) — less half of each path's own weight. A walk that only grows (a
+// straight line, an arm leaving), or that falls only into the next crossing (a ring crossed twice),
+// has nothing to read: those are the crossing's own wedges, armTipGap's. A stroke that meets the bar
+// within its ink of the bar's end is a corner or a T-join, not a crossing; an open end that lands on
+// another path is a join there, not an end arriving. Where the two inks meet
+// again (no white between them: a dot the bar runs into, a keyhole's stem, a bowl ending on the
+// path beside the bar) it is a join, not air, and is not read.
+//
+// `stroke` is one weight or one per path (C32, C33). Returns [{ paths: [bar, other], gap, at }],
+// one per pair of paths (0-based, the bar's path first), the tightest, `gap` to 3 dp, `at` the middle
+// of the span to 2. Different paths only: a path's own runs are §5b's and §5f's.
+const BAR_MIN = 1;         // a straight run this long is a bar
+const BAR_STEP = 0.02;     // the walk samples the crossing path this finely
+
+/** A subpath's primitives as points no more than BAR_STEP apart, curves on their curve. */
+function densePoints(prims) {
+  const pts = [prims[0].p0];
+  for (const p of prims) {
+    let len, at;
+    if (p.k === 'L') { len = hyp(p.p0, p.p1); at = (t) => [p.p0[0] + t * (p.p1[0] - p.p0[0]), p.p0[1] + t * (p.p1[1] - p.p0[1])]; }
+    else if (p.k === 'A') { len = Math.abs(p.dt) * Math.max(p.rx, p.ry); at = (t) => arcAt(p, p.t1 + p.dt * t); }
+    else {
+      len = hyp(p.p0, p.c1) + hyp(p.c1, p.c2) + hyp(p.c2, p.p1);
+      at = (t) => { const m = 1 - t; return [0, 1].map((j) => m ** 3 * p.p0[j] + 3 * m * m * t * p.c1[j] + 3 * m * t * t * p.c2[j] + t ** 3 * p.p1[j]); };
+    }
+    const n = Math.max(1, Math.ceil(len / BAR_STEP));
+    for (let k = 1; k < n; k++) pts.push(at(k / n));
+    pts.push(p.p1);
+  }
+  return pts.filter((q, i) => i === 0 || hyp(q, pts[i - 1]) > 1e-9);
+}
+
+export function barGap(ds, stroke) {
+  const wOf = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  const subs = [];
+  ds.forEach((d, path) => primitivesOf(d).forEach((sp) => {
+    if (!sp.prims.length) return;
+    let pts = densePoints(sp.prims);
+    const closed = sp.closed || (pts.length > 2 && hyp(pts[0], pts.at(-1)) < 1e-6);
+    if (closed && hyp(pts[0], pts.at(-1)) < 1e-6) pts = pts.slice(0, -1);
+    subs.push({ path, pts, closed, prims: sp.prims });
+  }));
+  const best = new Map();
+  for (const B of subs) for (const bar of B.prims) {
+    const len = bar.k === 'L' ? hyp(bar.p0, bar.p1) : 0;
+    if (len < BAR_MIN) continue;
+    const u = [(bar.p1[0] - bar.p0[0]) / len, (bar.p1[1] - bar.p0[1]) / len];
+    for (const C of subs) {
+      if (C.path === B.path) continue;
+      const P = C.pts, n = P.length, pen = (wOf(B.path) + wOf(C.path)) / 2;
+      const side = P.map((q) => { const f = (q[0] - bar.p0[0]) * -u[1] + (q[1] - bar.p0[1]) * u[0]; return Math.abs(f) < 1e-9 ? 0 : Math.sign(f); });
+      const along = (q) => (q[0] - bar.p0[0]) * u[0] + (q[1] - bar.p0[1]) * u[1];
+      const D = P.map((q) => segDist(q, bar.p0, bar.p1)[0]);
+      const idx = (k) => (C.closed ? modP(k, n) : k);
+      // the crossings: two samples on opposite sides (only zeros between), the line met inside the bar
+      const crossings = [];
+      for (let i = 0; i < (C.closed ? n : n - 1); i++) {
+        if (!side[i]) continue;
+        let j = i + 1;
+        while ((C.closed ? j < i + n : j < n) && !side[idx(j)]) j++;
+        if (!(C.closed ? j < i + n : j < n) || side[idx(j)] === side[i]) continue;
+        const [qi, qj] = [P[i], P[idx(j)]], fi = Math.abs((qi[0] - bar.p0[0]) * -u[1] + (qi[1] - bar.p0[1]) * u[0]);
+        const fj = Math.abs((qj[0] - bar.p0[0]) * -u[1] + (qj[1] - bar.p0[1]) * u[0]), t = fi / (fi + fj);
+        const s = along([qi[0] + t * (qj[0] - qi[0]), qi[1] + t * (qj[1] - qi[1])]);
+        // inside the bar past the crossing stroke's ink: a stroke meeting the bar's very end is a corner
+        // or a T-join (wheelchair-3's arm starts on its body), not a crossing
+        const m = Math.max(wOf(B.path), wOf(C.path)) / 2;
+        if (s > m && s < len - m) crossings.push([i, j]);
+      }
+      for (const [i, j] of crossings) for (const [start, dir] of [[j, 1], [i, -1]]) {
+        const s0 = side[idx(start)], walk = [];
+        let k = start, ended = 'end';
+        for (let step = 0; step < n; step++, k += dir) {
+          if (!C.closed && (k < 0 || k >= n)) break;
+          const sk = side[idx(k)];
+          if (sk === -s0) { ended = 'cross'; break; }
+          walk.push(idx(k));
+        }
+        if (C.closed && ended === 'end') ended = 'lap';
+        const read = (m) => {
+          const q = P[walk[m]], dm = D[walk[m]];
+          if (dm - pen <= 0.005) return;   // the inks meet: a join (a hub, a keyhole, a bowl's end on its neighbour)
+          const g = dm - pen, foot = segDist(q, bar.p0, bar.p1)[2], key = `${B.path}/${C.path}`;
+          if (!best.has(key) || g < best.get(key).gap)
+            best.set(key, { paths: [B.path, C.path], gap: g, at: [(q[0] + foot[0]) / 2, (q[1] + foot[1]) / 2] });
+        };
+        // D stops falling: a weak local minimum inside the walk (a parallel run, a bulge's nearest
+        // point), and the walk's last point where an open end arrives
+        for (let m = 1; m < walk.length - 1; m++)
+          if (D[walk[m - 1]] >= D[walk[m]] - 1e-9 && D[walk[m]] <= D[walk[m + 1]] + 1e-9) read(m);
+        // an open end that lands on another path is a join there (bitcoin's upper bowl ends on the lower
+        // bowl's run), and the white it seems to leave is that path's ink
+        const free = (q) => !subs.some((o) => o.path !== C.path && o.pts.some((p, k) => k && segDist(q, o.pts[k - 1], p)[0] <= wOf(o.path) / 2));
+        if (ended === 'end' && walk.length > 1 && D[walk.at(-1)] <= D[walk.at(-2)] + 1e-9 && free(P[walk.at(-1)])) read(walk.length - 1);
+      }
+    }
+  }
+  return [...best.values()].sort((a, b) => a.paths[0] - b.paths[0] || a.paths[1] - b.paths[1])
+    .map((g) => ({ paths: g.paths, gap: r3(g.gap), at: g.at.map(r2) }));
+}
+
 // ── insideAir ──────────────────────────────────────────────────────────────
 // The INSIDE AIR of a closed shape (Maruti, 2026-10-20; docs/01 §6's "no enclosed shape smaller
 // than 1.5 units across"): the diameter of the widest circle that fits in the white ONE closed

@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, facingGap, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, armTipGap, barGap, facingGap, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -2022,4 +2022,59 @@ test('armTipGap: a bar through a fork\'s point is a crossing — ¥ reads its dr
   assert.deepEqual(tipsOf(['M6.5 4.75L12 12L17.5 4.75', 'M8.25 12H15.75'], 1.5).cross, []);
   // nor is a corner that only touches a line at an open end (a T-join, an arrowhead's shaft)
   assert.deepEqual(tipsOf(['M6.5 4.75L12 12L17.5 4.75', 'M12 12V19.25'], 1.5).cross, []);
+});
+
+// Card 2. A straight bar that crosses a curved stroke: §5 reads two crossing paths as joined and
+// measures nothing between them, so the white the bar leaves to the rest of the curve went unread —
+// ₱'s bars to its bowl's top and bottom runs, 2 · 1.25 · 1.375 (measured by hand at approval), ₺'s
+// lower bar's end to its bowl. `barGap` walks the curve away from each crossing, on each side, and
+// reads the closest the curve comes back to the bar (a run parallel to it, a bulge toward it, an
+// open end), each path at its own weight; the wedge at the crossing itself is armTipGap's.
+const PESO = {
+  24: { w: 1.5, ds: ['M8 4.75V19.25', 'M8 4.75H11A5 4.75 0 0 1 16 9.5V10.5A5 4.75 0 0 1 11 15.25H8', 'M5.75 8.25H18.25', 'M5.75 11.75H18.25'], air: 2 },
+  20: { w: 1.5, ds: ['M6.75 4.25V15.75', 'M6.75 4.25H9.25A4 4 0 0 1 13.25 8.25V8.75A4 4 0 0 1 9.25 12.75H6.75', 'M5 7H15', 'M5 10H15'], air: 1.25 },
+  16: { w: 1.25, ds: ['M5 2.625V13.375', 'M5 2.625H7.25A3.75 3.75 0 0 1 11 6.375V6.875A3.75 3.75 0 0 1 7.25 10.625H5', 'M3.625 5.25H12.375', 'M3.625 8H12.375'], air: 1.375 },
+};
+const barLines = (r) => r.warnings.filter((w) => /bar crosses/.test(w));
+
+test('barGap: ₱\'s bars to its bowl read 2 · 1.25 · 1.375, and lint warns at 20 and 16', () => {
+  for (const [m, { w, ds, air }] of Object.entries(PESO)) {
+    const got = barGap(ds, w);
+    assert.deepEqual(got.map((g) => g.paths.join()), ['2,1', '3,1'], `${m}: ${JSON.stringify(got)}`);
+    for (const g of got) near(g.gap, air, 0.005);
+    const warned = barLines(lintSource(+m, 'peso.svg', drawn(+m, w, ds)));
+    if (air >= 1.5) assert.deepEqual(warned, [], `${m}`);
+    else {
+      assert.equal(warned.length, 2, warned.join(' | '));
+      assert.match(warned[0], new RegExp(`^path 3's bar crosses path 2 and comes within ${air} of it at [\\d.,]+ — §6 needs 1\\.5$`));
+    }
+  }
+  // a gap note governs it and is in use for it
+  const agreed = lintSource(20, 'peso.svg', drawn(20, 1.5, PESO[20].ds, { notes: ['keyline: mark', 'gap: 1.25'] }));
+  assert.deepEqual(barLines(agreed), []);
+  assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
+  assert.ok(agreed.notes.some((n) => /^agreed gap 1\.25 — smallest measured 1\.25$/.test(n)), agreed.notes.join(' | '));
+});
+
+test('barGap: ₺\'s lower bar to its bowl, ₹\'s bars to its bowl; a ring crossed by a bar, # and + read nothing', () => {
+  // ₺ at 24: the lower bar's right cap to the bowl, 2.65 (as drawn)
+  const LIRA24 = ['M7.5 4.75V19.25A9 6.75 0 0 0 16.5 12.5', 'M3.5 10.5L12.5 6.9M3.5 15L12.5 11.4'];
+  near(Math.min(...barGap(LIRA24, 1.5).map((g) => g.gap)), 2.65, 0.01);
+  // ₹ at 24, outline 2.5 and filled 1.5: the second bar to the bowl's foot run
+  const RUPEE24 = ['M8.5 4.75H17.5M8.5 8.75H17.5', 'M10.75 4.75A4.5 4 0 0 1 15.25 8.75A4.5 4 0 0 1 10.75 12.75H9.25A0.75 0.75 0 0 0 8.5 13.5A0.75 0.75 0 0 0 8.72 14.03L13.94 19.25'];
+  near(Math.min(...barGap(RUPEE24, 1.5).map((g) => g.gap)), 2.5, 0.01);
+  const RUPEE24F = ['M9 5.25H17M9 9.25H17', 'M10.75 5.25A4 4 0 0 1 14.75 9.25A4 4 0 0 1 10.75 13.25H10.25A1.25 1.25 0 0 0 9 14.5A1.25 1.25 0 0 0 9.37 15.38L12.73 18.75'];
+  near(Math.min(...barGap(RUPEE24F, 2.5).map((g) => g.gap)), 1.5, 0.01);
+  // a bar across a ring (ban): the ring runs away from it and comes back to cross it again — no air to read
+  assert.deepEqual(barGap([RING(12, 12, 9.25), 'M5.46 5.46L18.54 18.54'], 1.5), []);
+  assert.deepEqual(barGap([RING(12, 12, 9.25), 'M2.75 12H21.25'], 1.5), []);
+  // straight lines crossing straight lines: nothing comes back
+  assert.deepEqual(barGap(['M9 5.25L9 18.75', 'M15 5.25L15 18.75', 'M5.25 9H18.75', 'M5.25 15H18.75'], 1.5), []);
+  assert.deepEqual(barGap(['M12 5.25v13.5', 'M5.25 12h13.5'], 1.5), []);
+  // a hook that crosses a bar and curls back to within 0.5 of it warns; curled into the bar's ink it is a join
+  const HOOK = ['M6 10H18', 'M9 7V12A2 2 0 0 0 11 14H14A1 1 0 0 0 14 12'];
+  assert.deepEqual(barGap(HOOK, 1.5), [{ paths: [0, 1], gap: 0.5, at: [14, 11] }]);
+  // (what is left is its foot run, 4 below the bar: 2.5 of air)
+  assert.deepEqual(barGap(['M6 10H18', 'M9 7V12A2 2 0 0 0 11 14H14A1.5 1.5 0 0 0 14 11'], 1.5).map((g) => g.gap), [2.5]);
+  assert.equal(barLines(lintSource(24, 'mark.svg', drawn(24, 1.5, HOOK))).length, 1);
 });
