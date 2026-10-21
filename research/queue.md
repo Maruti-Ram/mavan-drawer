@@ -688,7 +688,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 235. `aspect-ratio` · Design Tools
 - [ ] 236. `devices` · Devices & Hardware
 - [ ] 237. `gem` · Design Tools
-- [ ] 238. `handshake` · Commerce & Payments
+- [x] 238. `handshake` · Commerce & Payments — approved 2026-10-21
 - [ ] 239. `laptop` · Devices & Hardware
 - [ ] 240. `microscope` · Development & Infra
 - [ ] 241. `network` · Development & Infra
@@ -1049,3 +1049,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 525. `tickets` — added 2026-10-21 · approved 2026-10-21
 - [x] 526. `credit-card-contactless` — added 2026-10-21 · approved 2026-10-21
 - [x] 527. `phone-contactless` — added 2026-10-21 · approved 2026-10-21
+- [~] 528. `heart-handshake` — added 2026-10-21
