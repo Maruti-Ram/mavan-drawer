@@ -103,7 +103,8 @@ export function parseGrowsNote(src) {
 // proximity checks below (path-vs-path in §5 and the tips of arms that cross there,
 // path-vs-itself in §5b, facing walls in §5f, the tips of arms traced as one filled shape in
 // §5h, the inside air of one closed shape in §5i) and for that file alone; C19's glyph pairs and a character's own arms keep GLYPH_GAP,
-// a C33 badge keeps MIN_GAP, and the knockout check keeps MIN_GAP.
+// and a C33 badge keeps MIN_GAP. The material a knockout leaves (§5c) and the material between two
+// cut-outs (§5f) floor at the line weight, which the note lowers but never raises (2026-10-21).
 // Agreed by eye at approval (attachment-4-filled, 2026-09-20: the filled clip keeps all
 // four legs, so the path passes within 1.04 of itself at 24 and 1.0 at 20).
 // Same spirit as `box:` and `grows:` — a declared deviation is held to its own number
@@ -671,14 +672,21 @@ export function lintSource(canvas, file, src) {
   // read as air in 5f and 5i; no numeral has been knocked out of a shape yet.
   // The material between two DIFFERENT holes of one path is not this check's: 5f reads it
   // (`holeGap`, 2026-10-20).
+  // THE FLOOR (Maruti, 2026-10-21; plans/lint-currency-fixes.md card 1): the same as 5f's material
+  // between two cut-outs — this master's OUTLINE weight (1.5 · 1.5 · 1.25), lowered (never raised) by
+  // the file's agreed gap, and C19's GLYPH_GAP under `glyph: dot`. Until then it was MIN_GAP at every
+  // master, so ruble-circle-filled's 1.25 at 16, the 16 line weight, warned. The reading feeds 5d's
+  // "is the note still needed" where the floor without the note would bite, as 5f's does.
+  const materialFloor = isGlyph ? GLYPH_GAP : gap ? Math.min(gap.n, OUTLINE) : OUTLINE;
+  const materialRule = isGlyph ? 'C19 glyph gap' : gap && gap.n < OUTLINE ? `agreed gap ${gap.n}` : OUTLINE < MIN_GAP ? `the ${canvas} line weight` : '§6';
   if (areas.length && ds.length === 0) {
     const left = materialGap(areas);
-    const floor = isGlyph ? GLYPH_GAP : MIN_GAP;
     // Printed whenever there is a reading, so a drawing that stops being measured (the
     // measure returns null when no cut faces itself) shows up as a line that went missing.
     if (left) notes.splice(-1, 0, `knockout leaves ${left.gap} at ${left.at.join(',')}`);
-    if (left && left.gap < floor - 0.01)
-      warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : '§6'} needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
+    if (left && !isGlyph && left.gap < OUTLINE - 0.01) measured.push(left.gap);
+    if (left && left.gap < materialFloor - 0.01)
+      warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${materialRule} needs ${materialFloor}: a knockout may not be cut wider than the counter it sits in`);
   }
 
   // --- 5f. advisory: walls facing each other across air, where 5–5c cannot see ---
@@ -780,11 +788,10 @@ export function lintSource(canvas, file, src) {
     // the material between two holes of one path (see above)
     const between = areas.length ? holeGap(areas) : null;
     if (between) {
-      const floor = isGlyph ? GLYPH_GAP : gap ? Math.min(gap.n, OUTLINE) : OUTLINE;
       if (!isGlyph && between.gap < OUTLINE - 0.01) measured.push(between.gap);
       notes.splice(-1, 0, `material between two cut-outs ${between.gap} at ${between.at.join(',')}`);
-      if (between.gap < floor - 0.01)
-        warnings.push(`${between.gap} of material between two cut-outs of one shape at ${between.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : gap && gap.n < OUTLINE ? `agreed gap ${gap.n}` : OUTLINE < MIN_GAP ? `the ${canvas} line weight` : '§6'} needs ${floor}`);
+      if (between.gap < materialFloor - 0.01)
+        warnings.push(`${between.gap} of material between two cut-outs of one shape at ${between.at.join(',')} — ${materialRule} needs ${materialFloor}`);
     }
   }
 

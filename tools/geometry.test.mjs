@@ -1940,3 +1940,30 @@ test('a Z-bolt\'s waist is the diagonal between its two inner rounds, and facing
   near(narrow.gap, Math.hypot(1.75, 3.25) - 2.5, 0.01);
   assert.deepEqual(airLines(lintSource(16, 'zap.svg', ONE(ROOT16, [ZAP_NARROW16]))), [`path 1 faces itself across ${narrow.gap} of air at ${narrow.at.join(',')} — §6 needs 1.5`]);
 });
+
+// --- lint fixes from the commerce and currency rounds (plans/lint-currency-fixes.md) --------------
+// Card 1. The knockout check (§5c) asked 1.5 of disc between two parts of one cut-out at every
+// master. Maruti's 2026-10-21 ruling floors the material between cut-outs at the master's line
+// weight (1.5 · 1.5 · 1.25), lowered by a file's `gap:` note and at C19's 1 under `glyph: dot` —
+// holeGap's floor. ruble-circle-filled at 16 leaves 1.25 between its bowl and its bar slot.
+const knockWarn = (r) => r.warnings.filter((w) => /the knockout leaves/.test(w));
+const UPLATE = (tongue) => `M1 1H15V15H1ZM4 4H5V9H${5 + tongue}V4H${6 + tongue}V10H4Z`;   // legs 1 wide, `tongue` apart
+
+test('§5c: a knockout\'s material floors at the line weight — 1.25 at 16, 1.5 at 24 and 20 — as holeGap does', () => {
+  const F = (m, areas, notes = []) => lintSource(m, 'mark-filled.svg', drawn(m, strokeOf(m), [], { areas, notes: ['keyline: mark', ...notes] }));
+  assert.equal(materialGap(UPLATE(1.25)).gap, 1.25);
+  assert.deepEqual(knockWarn(F(16, [UPLATE(1.25)])), [], 'ruble-circle-filled at 16: 1.25 is the 16 line weight');
+  assert.ok(F(16, [UPLATE(1.25)]).notes.some((n) => /^knockout leaves 1\.25 at /.test(n)));
+  assert.match(knockWarn(F(16, [UPLATE(1.125)]))[0] ?? '', /^the knockout leaves 1\.13 of material between two parts of itself at [\d.,]+ — the 16 line weight needs 1\.25: /);
+  for (const m of [24, 20]) assert.match(knockWarn(F(m, [UPLATE(1.25)]))[0] ?? '', /^the knockout leaves 1\.25 of material between two parts of itself at [\d.,]+ — §6 needs 1\.5: /);
+  assert.deepEqual(knockWarn(F(24, [UPLATE(1.5)])), []);
+  // C19's 1 under `glyph: dot`, as before
+  assert.deepEqual(knockWarn(F(24, [UPLATE(1)], ['glyph: dot'])), []);
+  // an agreed gap lowers it (never raises it) and is in use for it
+  const agreed = F(16, [UPLATE(1)], ['gap: 1']);
+  assert.deepEqual(knockWarn(agreed), []);
+  assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
+  assert.ok(agreed.notes.some((n) => /^agreed gap 1 — smallest measured 1$/.test(n)), agreed.notes.join(' | '));
+  assert.match(knockWarn(F(16, [UPLATE(0.75)], ['gap: 1']))[0] ?? '', /— agreed gap 1 needs 1: /);
+  assert.deepEqual(knockWarn(F(16, [UPLATE(1.25)], ['gap: 1.4'])), [], 'a note never raises the floor');
+});
