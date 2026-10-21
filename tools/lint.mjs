@@ -571,7 +571,7 @@ export function lintSource(canvas, file, src) {
   // own paths keep MIN_GAP too. A badge that touches or crosses its base has no air at all, so
   // it warns instead of passing as a join. The tightest badge-to-base air is printed (5g).
   // ARMS THAT CROSS (2026-10-20, docs/01 §6): two paths that cross join by design, but where
-  // two neighbouring arms meet at under 86 degrees, where they leave the crossing and where they end up (only the latter where both curl toward each other), the wedge between them fills
+  // two neighbouring arms meet at under 86 degrees, tip to tip, and the air between them really closes (a tip faces its neighbour along it, not only at the crossing: the £'s square corner whose stem sweeps away is not judged), the wedge between them fills
   // in at 16 when the arms are short (password-3 shipped 0.62 of air at 16). `armTipGap`
   // measures the tip air at equal reach: the shorter arm's cap centre, r from the crossing,
   // to the point r along its neighbour, less half of each weight. A character's own arms floor

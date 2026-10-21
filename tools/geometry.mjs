@@ -1080,12 +1080,12 @@ const airKind = (a, b, depth) => {
 // centreline turns more than ARM_TURN off its first direction. For two NEIGHBOURING arms
 // (no third arm between them) whose angle at P is under ARM_ANGLE: take the SHORTER arm's
 // cap centre, r from P; find the point on the neighbour r from P; the tip air is the distance
-// between those two points less half of each arm's weight. The wedge must be acute where the
-// arms leave P, each read by its tangent there, and where they end up (tip to tip, and at equal
-// reach), so a stem crossed square that curves only after the crossing (the £) is square and not
-// judged (2026-10-21; tip to tip alone until then). Where BOTH arms curl toward each other on
-// their way out, like `language`'s 撇 and 捺, the wedge closes as they go and is read only where
-// they end up. The longer arm's extra length is ignored. For two arms
+// between those two points less half of each arm's weight. The angle is read tip to tip, so an
+// arm that curves on its way out, like `language`'s 撇 and 捺, is read where it ends up. And the air
+// must really close (2026-10-21): at least one tip's nearest point on its neighbour lies along the
+// neighbour, not at the crossing or the neighbour's far end — so the £, a square corner whose stem
+// sweeps away after the crossing, is not judged, while a $ whose S terminal curls back beside its
+// bar is. The longer arm's extra length is ignored. For two arms
 // of one length this is exactly the drawer's "tip air": password-2's asterisk measures
 // 2.25 · 1.5 · 1.5 at 24 · 20 · 16, and its filled twin, which traces those arms, the same.
 //
@@ -1121,16 +1121,16 @@ const airKind = (a, b, depth) => {
 // path's). Returns { cross: [{ paths: [i, j], angle, gap, at, reach }], notch: [{ area,
 // angle, gap, at, reach }] }: per pair of paths (i ≤ j, 0-based; i = j when one path
 // crosses itself) the tightest wedge between their arms, and per area its tightest notch.
-// `angle` is the widest of those readings, in degrees, `gap` the tip air (negative when the tips
+// `angle` is the tip-to-tip angle in degrees, `gap` the tip air (negative when the tips
 // overlap), `at` the middle of the span, `reach` r. Only judged wedges come back; whether
 // one is too tight is lint's call, against the file's floor.
-const ARM_ANGLE = 86;      // deg, at the crossing and where they end: neighbouring arms closer than this are judged
+const ARM_ANGLE = 86;      // deg, tip to tip: neighbouring arms closer than this are judged
 const ARM_TURN = 60;       // deg: an arm ends where its centreline turns this far off its start
 const ARM_RUN = 0.3;       // an arm's direction is read over its first 0.3
 const ARM_GATHER = 95;     // deg: a bend sharper than this joins a junction; a notch is looked at
 const CAP_SWEEP = 150;     // deg: an arc at a wall's end sweeping more than this is a round tip
 const WALL_STRAIGHT = 3;   // deg: a notch wall runs straight to within this
-const ARM_CURL = 1;        // deg: an arm whose tip has turned this far toward its neighbour curls
+const ALONG_MIN = 0.005;   // a tip faces its neighbour where it comes this much nearer it along it than at either end
 const THROUGH_MIN = 10;    // deg: a line through another's point must leave it at least this far off it
 const BEND_R = 2.6, BEND_SWEEP = 170;   // a corner arc this tight is read as its sharp corner
 const BEZ_STEPS = 24, ARC_STEP = 5;     // flattening: steps per Bézier, degrees per arc step
@@ -1323,20 +1323,7 @@ function armOf(line, s0, dir, X) {
     if (Math.max(-1, Math.min(1, u[0] * u0[0] + u[1] * u0[1])) < COS) { tip = pts[i - 1]; kind = 'turn'; break; }
     poly.push(pts[i]);
   }
-  // the tangent AT the crossing: the first chord's direction, extrapolated back to s = 0 from the turn
-  // between the first two chords (a chord's direction is the curve's at its middle), so a curve leaving
-  // X reads its true tangent there, not its direction 0.3 on (2026-10-21)
-  let t0 = unitOf(pts[0], pts[1]) ?? u0;
-  const u2 = pts.length > 2 ? unitOf(pts[1], pts[2]) : null;
-  if (u2) {
-    const l1 = hyp(pts[0], pts[1]), l2 = hyp(pts[1], pts[2]);
-    const turn = Math.atan2(t0[0] * u2[1] - t0[1] * u2[0], t0[0] * u2[0] + t0[1] * u2[1]);
-    if (Math.abs(turn) < Math.PI / 6) {   // a smooth run; a corner just past X is not the tangent
-      const back = -turn * (l1 / 2) / ((l1 + l2) / 2), c = Math.cos(back), sn = Math.sin(back);
-      t0 = [t0[0] * c - t0[1] * sn, t0[0] * sn + t0[1] * c];
-    }
-  }
-  return { u: u0, t: t0, a: degOf(u0), tip, kind, L: hyp(tip, X), run: hyp(tip, pts[0]), poly, h: line.w / 2, path: line.path };
+  return { u: u0, a: degOf(u0), tip, kind, L: hyp(tip, X), run: hyp(tip, pts[0]), poly, h: line.w / 2, path: line.path };
 }
 
 /** Tip air at equal reach between arms A and B meeting at X (the census's measure "c1"),
@@ -1354,21 +1341,33 @@ function tipAir(A, B, X) {
   }
   if (!P) P = [X[0] + L.u[0] * r, X[1] + L.u[1] * r];
   const near = poly.length > 1 ? Math.min(...poly.slice(1).map((q, i) => segDist(S.tip, poly[i], q)[0])) : hyp(S.tip, L.tip);
-  // The angle the two arms make. Where BOTH arms curl toward each other on their way out (language's
-  // 撇 and 捺: arcs that leave 86° apart and end 57° apart with 0.5 of air), the wedge closes as they
-  // go, and it is read where they end up: the wider of tip to tip and within the reach (the shorter
-  // arm's tip to the point at equal reach on the longer one). Otherwise a wedge must ALSO be acute
-  // where the arms leave X, each arm read by its tangent there — so a stem crossed square that curves
-  // only after the crossing (the £'s swan neck, upright where its bar crosses; the swept stem curving
-  // 2 below it) is square and not judged (2026-10-21; tip to tip until then, which judged both).
-  // Either way the angle is never narrower than tip to tip, so nothing tip to tip passed is judged now.
-  const ang = (p, q) => { const t = Math.abs(((Math.atan2(p[1] - X[1], p[0] - X[0]) - Math.atan2(q[1] - X[1], q[0] - X[0])) * 180) / Math.PI) % 360; return Math.min(t, 360 - t); };
-  const angV = (u, v) => (Math.acos(Math.max(-1, Math.min(1, u[0] * v[0] + u[1] * v[1]))) * 180) / Math.PI;
-  const toTip = (a) => unitOf(X, a.tip) ?? a.u;
-  const curls = (a, b) => angV(toTip(a), b.u) < angV(a.u, b.u) - ARM_CURL;   // its tip has turned toward b
-  const ended = Math.max(ang(A.tip, B.tip), ang(S.tip, P));
-  const angle = curls(A, B) && curls(B, A) ? ended : Math.max(ended, angV(A.t ?? A.u, B.t ?? B.u));
-  return { S, gap: hyp(S.tip, P) - hh, buried: near - hh <= -hh / 2, angle, at: [(S.tip[0] + P[0]) / 2, (S.tip[1] + P[1]) / 2], reach: r };
+  // the angle the two arms make at X, tip to tip (the census's gate)
+  const turn = Math.abs(((Math.atan2(A.tip[1] - X[1], A.tip[0] - X[0]) - Math.atan2(B.tip[1] - X[1], B.tip[0] - X[0])) * 180) / Math.PI) % 360;
+  const angle = Math.min(turn, 360 - turn);
+  // The air a tip really sees (2026-10-21). Walk the neighbour from X and find where it comes nearest
+  // the tip: in a wedge that closes — straight arms at an acute angle, ¥'s fork, an S terminal curling
+  // back beside its bar ($), two arcs curling toward each other (文) — that is somewhere ALONG the
+  // neighbour for at least one tip, and its distance there, less half of each weight, is air the tip
+  // faces. Where for both tips it is the crossing itself or the neighbour's far end, the arms only part
+  // and nothing closes: not judged. And where the air a tip faces is wider than the reading at equal
+  // reach, the neighbour has bent away from the tip after the crossing (the £'s stem, upright where its
+  // bar crosses, sweeping off to the foot): the wedge's air is that wider reading, never the square
+  // corner's. Straight arms always face less than at equal reach, so the census's reading stands there.
+  const facing = (a, b) => {
+    const q = b.poly;
+    let best = Infinity, at = 0, run = 0;
+    for (let i = 1; i < q.length; i++) {
+      const seg = hyp(q[i - 1], q[i]), [d, t] = segDist(a.tip, q[i - 1], q[i]);
+      if (d < best - 1e-9) { best = d; at = run + t * seg; }
+      run += seg;
+    }
+    const ends = Math.min(hyp(a.tip, q[0]), hyp(a.tip, q.at(-1)));
+    return at > ALONG_MIN && at < run - ALONG_MIN && best < ends - ALONG_MIN ? best - hh : null;
+  };
+  const faced = [facing(A, B), facing(B, A)].filter((v) => v !== null);
+  const closes = faced.length > 0;
+  const equal = hyp(S.tip, P) - hh;
+  return { S, gap: closes ? Math.max(equal, Math.min(...faced)) : equal, buried: near - hh <= -hh / 2, angle, closes, at: [(S.tip[0] + P[0]) / 2, (S.tip[1] + P[1]) / 2], reach: r };
 }
 
 /** Where stroked centrelines cross: each junction's neighbouring arms that are judged
@@ -1475,7 +1474,7 @@ function crossingWedges(lines, weight) {
       const A = arms[q], B = arms[(q + 1) % n];
       if (modP(B.a - A.a, 360) < 0.5) continue;   // one arm counted twice
       const m = tipAir(A, B, X);
-      if (m.S.kind !== 'cap' || m.buried || m.angle >= ARM_ANGLE) continue;
+      if (m.S.kind !== 'cap' || m.buried || m.angle >= ARM_ANGLE || !m.closes) continue;
       out.push({ paths: [A.path, B.path].sort((x, y) => x - y), angle: m.angle, gap: m.gap, at: m.at, reach: m.reach });
     }
   }

@@ -403,10 +403,10 @@ Corollaries:
   first (`docs/08-refinement.md` §6.5).
 - **Arms that cross keep 1.5 at their tips** (2026-10-20). Where two strokes cross (a line through
   another's corner or joint counts, as ¥'s bar through its fork, 2026-10-21) and two neighbouring arms
-  meet at under 86° — read by each arm's tangent where it leaves the crossing and by where it ends up
-  (tip to tip, and at equal reach), both under 86°, so a stem crossed square that curves only after the
-  crossing (the £) is not judged; where both arms curl toward each other (`language`'s 文) only where
-  they end up is read (2026-10-21) — the wedge between them fills in at 16
+  meet at under 86°, measured tip to tip, and the air between them really closes — one tip comes
+  nearest the other arm somewhere along it, not at the crossing; the reading is then the wider of that
+  air and the air at equal reach, so the £'s square corner, whose stem sweeps away from the bar, is not
+  judged, while the $'s S curling back beside its bar is (2026-10-21) — the wedge between them fills in at 16
   unless the arms reach far enough apart: the shorter arm's cap centre, r from the crossing, and the
   point r along its neighbour stand 1.5 apart, edge to edge ("tip air at equal reach"; `password-2`'s
   asterisk holds 2.25 · 1.5 · 1.5). Lint §5 measures it, and §5h the same arms where a filled twin

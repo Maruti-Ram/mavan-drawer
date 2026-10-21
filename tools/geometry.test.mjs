@@ -1985,14 +1985,17 @@ test('armTipGap: a stem that curves after a square crossing is not an acute arm 
   near(acute.angle, 59, 0.1);
   near(acute.gap, 0.798, 0.005);
   assert.equal(armWarn(lintSource(24, 'mark.svg', drawn(24, 1.5, ['M12 4V16', 'M10 6.5L15 9.5']))).length, 1);
-  // a stem that leaves the bar square and turns soon after is still square at the crossing
-  assert.deepEqual(tipsOf(['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15'], 1.5).cross, []);
+  // a stem that leaves the bar square and curls back under its arm is read by the air its tip faces,
+  // 3.1 below the bar less the stroke: 1.6, not the square corner's 0.78 at equal reach — no warning
+  const [curl] = tipsOf(['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15'], 1.5).cross;
+  near(curl.gap, 1.598, 0.005);
+  assert.deepEqual(armWarn(lintSource(24, 'mark.svg', drawn(24, 1.5, ['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15']))), []);
 });
 
 // The shipped £ (swan neck): the stem stands upright exactly where the bar crosses it, at the joint
-// of two Béziers, and curves down-left at once below it. Once card 3 read crossings at a joint, the
-// reach-or-tips angle judged it at 81–86° and seven drawings warned; at the crossing the stem's
-// tangent is vertical on both sides — a right angle, never judged.
+// of two Béziers, and curves down-left at once below it. Once card 3 read crossings at a joint, tip
+// to tip it read 81–86° and seven drawings warned at the square corner's equal-reach air; the stem
+// sweeps away from the bar's tip, so no air closes there.
 const POUND = {
   24: ['M17 6.7A4.25 4.5 0 0 0 9.25 9.25C9.25 10.88 10.25 10.88 10.25 12.5C10.25 16.21 7.77 18.61 7 19.25', 'M8 12.5H15.25', 'M7 19.25H17'],
   '24f': ['M16.5 6.85A3.75 4 0 0 0 9.75 9.25C9.75 10.88 10.75 10.88 10.75 12.5C10.75 15.94 8.27 18.11 7.5 18.75', 'M8.5 12.5H14.75', 'M7.5 18.75H16.5'],
@@ -2003,10 +2006,31 @@ const POUND = {
   '20c': [RING(10, 10, 7.25), 'M12.25 7.18A2 2 0 0 0 8.75 8.5C8.75 9.25 9 9.25 9 10C9 11.65 8.32 12.52 7.75 13', 'M8 10H11', 'M7.75 13H12.25'],
 };
 
+// dollar-sign-2-filled: the S's terminal curls back beside the bar, so the air closes along the bar —
+// 0.94 · 1.09 · 1.47 at equal reach, the readings its agreed gap notes were written for
+const DOLLAR2F = {
+  24: ['M14.91 7.91A3.31 2.45 0 0 0 11.91 6.5A3.31 2.45 0 0 0 8.6 8.95A3.31 2.45 0 0 0 10.31 11.1L13.54 12.41A3.49 2.7 0 0 1 15.4 14.8A3.49 2.7 0 0 1 11.91 17.5A3.49 2.7 0 0 1 8.75 15.94', 'M12 4.25V19.75'],
+  20: ['M12.57 6.82A2.92 1.85 0 0 0 9.92 5.75A2.92 1.85 0 0 0 7 7.6A2.92 1.85 0 0 0 8.34 9.16L11.53 10.45A3.08 2.05 0 0 1 13 12.2A3.08 2.05 0 0 1 9.92 14.25A3.08 2.05 0 0 1 7.13 13.07', 'M10 4V16'],
+  16: ['M10.787 5.212A3.167 1.45 0 0 0 7.917 4.375A3.167 1.45 0 0 0 4.75 5.825A3.167 1.45 0 0 0 5.665 6.844L10.269 8.977A3.333 1.55 0 0 1 11.25 10.075A3.333 1.55 0 0 1 7.917 11.625A3.333 1.55 0 0 1 4.896 10.73', 'M8 3V13'],
+};
+
+test('armTipGap: the $\'s S curls back beside its bar — 0.94 · 1.09 · 1.47, and its agreed gap notes hold', () => {
+  for (const [m, ds] of Object.entries(DOLLAR2F)) {
+    const [t] = tipsOf(ds, FILLED_WEIGHT[m]).cross;
+    near(t.gap, { 24: 0.935, 20: 1.09, 16: 1.474 }[m], 0.005);
+    const note = { 24: 0.94, 20: 1.09, 16: 1.47 }[m];
+    const r = lintSource(+m, 'dollar-sign-2-filled.svg', drawn(+m, FILLED_WEIGHT[m], ds, { notes: ['keyline: mark', `gap: ${note}`] }));
+    assert.deepEqual(r.errors, [], r.errors.join(' | '));
+    assert.deepEqual(armWarn(r), [], r.warnings.join(' | '));
+    assert.ok(r.notes.some((n) => n.startsWith(`agreed gap ${note} — smallest measured`)), r.notes.join(' | '));
+  }
+});
+
 test('armTipGap: the shipped £ is square where its bar crosses the stem — no warning at any master or style', () => {
   for (const [k, ds] of Object.entries(POUND)) {
     const m = parseInt(k, 10), w = k.endsWith('f') ? FILLED_WEIGHT[m] : strokeOf(m);
-    assert.deepEqual(tipsOf(ds, w).cross, [], `${k}: ${JSON.stringify(tipsOf(ds, w).cross)}`);
+    // read, where a tip faces the other arm at all, by the air it faces — never the corner's
+    assert.ok(tipsOf(ds, w).cross.every((t) => t.gap >= 1.5), `${k}: ${JSON.stringify(tipsOf(ds, w).cross)}`);
     assert.deepEqual(armWarn(lintSource(m, 'pound.svg', drawn(m, w, ds))), [], k);
   }
 });

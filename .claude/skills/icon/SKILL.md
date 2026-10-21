@@ -77,10 +77,10 @@ export default {
     widest circle that fits in the white one closed shape leaves (a closed path, a filled file's
     hole) is 1.5 too — a small triangle reads its incircle, so a play or rewind triangle at 16 or 20
     closes up before its corners look tight (lint §5i, 2026-10-20). **Arms that cross**
-    keep 1.5 at their tips where two neighbouring arms meet at under 86° — at the crossing, each arm by
-    its tangent there, and where they end up; a stem crossed square that curves after the crossing (£)
-    is not judged, two arms curling toward each other (the 文 of `language`) are read where they end;
-    a bar through a fork's point (¥) crosses it (an asterisk, a slanted #, 2026-10-21): the shorter arm's cap centre to the point as far along its
+    keep 1.5 at their tips where two neighbouring arms meet at under 86°, tip to tip, and the air between
+    them really closes (a tip faces the other arm along it): a stem that sweeps away after a square
+    crossing (£) is not judged, an S curling back beside its bar ($) is; a bar through a fork's point
+    (¥) crosses it (an asterisk, a slanted #, the 文 of `language`; 2026-10-21): the shorter arm's cap centre to the point as far along its
     neighbour (docs/01 §6, 2026-10-20). Lint §5 warns on it, and §5h on the same arms traced filled.
   - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
     on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
