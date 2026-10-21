@@ -577,8 +577,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 185. `transfer` · Arrows & Direction — approved 2026-10-17
 - [x] 185. `transfer-2` · Arrows & Direction · variant of `transfer` — Half heads · approved 2026-10-17
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
-- [ ] 186. `bank` · Commerce & Payments
-- [ ] 187. `warehouse` · Commerce & Payments
+- [~] 186. `bank` · Commerce & Payments
+- [x] 187. `warehouse` · Commerce & Payments — approved 2026-10-21
 - [x] 188. `award` · Status & Feedback — approved 2026-10-20
 - [x] 521. `trophy` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 522. `crown` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
@@ -635,8 +635,13 @@ Bases before their variants; within that, highest evidence first.
 - [x] 210. `map-pinned` · Maps & Location · variant of `map` — Pin badge · approved 2026-10-18
 - [x] 210. `map-target` · Maps & Location · variant of `map` — You-are-here badge · approved 2026-10-18
 - [ ] 211. `pen-tool` · Design Tools
-- [ ] 212. `shopping-bag` · Commerce & Payments
-- [ ] 213. `tag` · Commerce & Payments
+- [x] 212. `shopping-bag` · Commerce & Payments — approved 2026-10-21
+- [x] 212. `shopping-bag-2` · Commerce & Payments · variant of `shopping-bag` — Tapered tote, handle on the rim · approved 2026-10-21
+- [x] 212. `shopping-bag-3` · Commerce & Payments · variant of `shopping-bag` — Box, fold band, smile handle · approved 2026-10-21
+- [x] 212. `shopping-bag-4` · Commerce & Payments · variant of `shopping-bag` — Soft pouch, low handle · approved 2026-10-21
+- [x] 213. `tag` · Commerce & Payments — approved 2026-10-21
+- [x] 213. `tag-2` · Commerce & Payments · variant of `tag` — Tag on a string · approved 2026-10-21
+- [x] 213. `tag-3` · Commerce & Payments · variant of `tag` — Price tag with lines · approved 2026-10-21
 - [x] 214. `accessibility` · Users & Access — approved 2026-10-19
 - [x] 214. `accessibility-2` · Users & Access · variant of `accessibility` — Two-line body · approved 2026-10-19
 - [x] 215. `alarm-clock` · Time & Calendar — mvp · approved 2026-10-17
@@ -692,12 +697,17 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 244. `rocket` · Development & Infra
 - [ ] 245. `rotation` · Design Tools
 - [ ] 246. `satellite` · Devices & Hardware
-- [ ] 247. `scale` · Commerce & Payments
+- [~] 247. `scale` · Commerce & Payments
+- [x] 247. `scale-2` · Commerce & Payments · variant of `scale` — Kitchen scale · approved 2026-10-21
+- [x] 247. `scale-3` · Commerce & Payments · variant of `scale` — Parcel scale · approved 2026-10-21
 - [ ] 248. `shapes` · Design Tools
-- [ ] 249. `shopping-basket` · Commerce & Payments
+- [x] 249. `shopping-basket` · Commerce & Payments — approved 2026-10-21
+- [x] 249. `shopping-basket-2` · Commerce & Payments · variant of `shopping-basket` — Slatted basket · approved 2026-10-21
+- [x] 249. `shopping-basket-plus` · Commerce & Payments · variant of `shopping-basket` — Basket with a plus (fill-in) · approved 2026-10-21
 - [ ] 250. `signal` · Devices & Hardware
 - [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
-- [ ] 252. `ticket` · Commerce & Payments
+- [~] 252. `ticket` · Commerce & Payments
+- [x] 252. `ticket-percent` · Commerce & Payments · variant of `ticket` — Coupon % · approved 2026-10-21
 - [ ] 253. `vector` · Design Tools
 - [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
 - [x] 254. `activity-2` · Charts & Data · variant of `activity` — Square pulse · approved 2026-10-18
@@ -710,7 +720,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 258. `scan` · Devices & Hardware
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
-- [ ] 260. `currency` · Commerce & Payments
+- [~] 260. `currency` · Commerce & Payments
 - [ ] 261. `blog` · Editing & Text
 - [x] 262. `button` · UI & Layout — approved 2026-10-20
 - [x] 262. `button-2` · UI & Layout · variant of `button` — Raised button · approved 2026-10-20
@@ -745,12 +755,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 276. `viewport-wide` · UI & Layout — approved 2026-10-20
 - [x] 276. `viewport-wide-2` · UI & Layout · variant of `viewport-wide` — Capsule, heads out · approved 2026-10-20
 - [x] 276. `viewport-wide-3` · UI & Layout · variant of `viewport-wide` — Dimension arrow, out · approved 2026-10-20
-- [ ] 277. `atm` · Commerce & Payments
+- [~] 277. `atm` · Commerce & Payments
 - [ ] 278. `channels` · Development & Infra
-- [ ] 279. `contactless` · Commerce & Payments
+- [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
 - [ ] 280. `replay` · Media & Playback
 - [ ] 281. `reset` · Media & Playback
-- [ ] 282. `reward` · Commerce & Payments
+- [~] 282. `reward` · Commerce & Payments
 - [ ] 283. `sandbox` · Development & Infra
 - [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
 - [x] 284. `alert-square-2` · Status & Feedback · variant of `alert-square` — Wedge (alert-circle-2's mark) · approved 2026-10-20
@@ -775,14 +785,16 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 292. `decision-process` · Development & Infra
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
 - [ ] 294. `filters` · Design Tools
-- [ ] 295. `label` · Commerce & Payments
+- [x] 295. `label` · Commerce & Payments — approved 2026-10-21
+- [x] 295. `label-2` · Commerce & Payments · variant of `label` — Upright hang tag · approved 2026-10-21
+- [x] 295. `label-important` · Commerce & Payments · variant of `label` — Important label · approved 2026-10-21
 - [x] 296. `roadmap` · Maps & Location — approved 2026-10-18
 - [x] 296. `roadmap-2` · Maps & Location · variant of `roadmap` — One board on a post · approved 2026-10-18
 - [x] 296. `roadmap-3` · Maps & Location · variant of `roadmap` — Two bars (Jira) · approved 2026-10-19
 - [x] 296. `roadmap-4` · Maps & Location · variant of `roadmap` — Route (maps) · approved 2026-10-19
 - [ ] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
-- [ ] 299. `subscription` · Commerce & Payments
+- [~] 299. `subscription` · Commerce & Payments
 - [x] 300. `airplay` · Arrows & Direction — approved 2026-10-17
 - [x] 301. `arrow-down-left` · Arrows & Direction — approved 2026-10-17
 - [x] 302. `arrow-down-right` · Arrows & Direction — approved 2026-10-17
@@ -838,7 +850,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
 - [ ] 335. `disc` · Devices & Hardware
-- [ ] 336. `dollar-sign` · Commerce & Payments
+- [~] 336. `dollar-sign` · Commerce & Payments
 - [ ] 337. `fast-forward` · Media & Playback
 - [ ] 338. `git-branch` · Development & Infra
 - [ ] 339. `git-merge` · Development & Infra
