@@ -1057,6 +1057,8 @@
     "phone-contactless",
     "phone-contactless-filled",
     "phone-filled",
+    "piggy-bank",
+    "piggy-bank-filled",
     "pin",
     "pin-2",
     "pin-2-filled",
@@ -63968,6 +63970,130 @@
       "ratio": null,
       "gap": null
     },
+    "piggy-bank": {
+      "paths": [
+        "M11.5 6.01L13.8 3.94A0.75 0.75 0 0 1 14.3 3.75A0.75 0.75 0 0 1 15.03 4.33L15.75 7.47A7.25 6 0 0 1 17.93 10.25L19.5 10.25A0.75 0.75 0 0 1 20.25 11L20.25 13A0.75 0.75 0 0 1 19.5 13.75L17.93 13.75A7.25 6 0 0 1 11 18A7.25 6 0 0 1 3.75 12A7.25 6 0 0 1 11 6A7.25 6 0 0 1 11.5 6.01Z",
+        "M7.25 17.14V20.25",
+        "M14.75 17.14V20.25",
+        "M9.25 9.5H11.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M11.5 6.01L13.8 3.94A0.75 0.75 0 0 1 14.3 3.75A0.75 0.75 0 0 1 15.03 4.33L15.75 7.47A7.25 6 0 0 1 17.93 10.25L19.5 10.25A0.75 0.75 0 0 1 20.25 11L20.25 13A0.75 0.75 0 0 1 19.5 13.75L17.93 13.75A7.25 6 0 0 1 11 18A7.25 6 0 0 1 3.75 12A7.25 6 0 0 1 11 6A7.25 6 0 0 1 11.5 6.01Z\"/> <path d=\"M7.25 17.14V20.25\"/> <path d=\"M14.75 17.14V20.25\"/> <path d=\"M9.25 9.5H11.75\"/>",
+      "mark": false,
+      "tags": [
+        "savings",
+        "piggy",
+        "save",
+        "deposit",
+        "central",
+        "untitled"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.85,
+          "optical": 3.64
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.15,
+          "optical": 3.86
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.27,
+          "optical": 3.95
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "piggy-bank-filled": {
+      "paths": [
+        "M7.25 17.14V20.25",
+        "M14.75 17.14V20.25"
+      ],
+      "areas": [
+        "M11.23 5.25L13.3 3.39A1.5 1.5 0 0 1 14.3 3A1.5 1.5 0 0 1 15.77 4.17L16.42 7.04A8 6.75 0 0 1 18.43 9.5L19.5 9.5A1.5 1.5 0 0 1 21 11L21 13A1.5 1.5 0 0 1 19.5 14.5L18.43 14.5A8 6.75 0 0 1 11 18.75A8 6.75 0 0 1 3 12A8 6.75 0 0 1 11 5.25A8 6.75 0 0 1 11.23 5.25ZM9.25 8.75A0.75 0.75 0 0 0 9.25 10.25H11.75A0.75 0.75 0 0 0 11.75 8.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.23 5.25L13.3 3.39A1.5 1.5 0 0 1 14.3 3A1.5 1.5 0 0 1 15.77 4.17L16.42 7.04A8 6.75 0 0 1 18.43 9.5L19.5 9.5A1.5 1.5 0 0 1 21 11L21 13A1.5 1.5 0 0 1 19.5 14.5L18.43 14.5A8 6.75 0 0 1 11 18.75A8 6.75 0 0 1 3 12A8 6.75 0 0 1 11 5.25A8 6.75 0 0 1 11.23 5.25ZM9.25 8.75A0.75 0.75 0 0 0 9.25 10.25H11.75A0.75 0.75 0 0 0 11.75 8.75Z\"/> <path d=\"M7.25 17.14V20.25\"/> <path d=\"M14.75 17.14V20.25\"/>",
+      "mark": false,
+      "tags": [
+        "savings",
+        "piggy",
+        "save",
+        "deposit",
+        "central",
+        "untitled"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "pin": {
       "paths": [
         "M15.25 4.25L15.25 10.44A0.75 0.75 0 0 0 15.47 10.97L18.96 14.46A1 1 0 0 1 19.25 15.16L19.25 15.25A1 1 0 0 1 18.25 16.25L5.75 16.25A1 1 0 0 1 4.75 15.25L4.75 15.16A1 1 0 0 1 5.04 14.46L8.53 10.97A0.75 0.75 0 0 0 8.75 10.44L8.75 4.25A1.5 1.5 0 0 1 10.25 2.75L13.75 2.75A1.5 1.5 0 0 1 15.25 4.25Z",
@@ -98154,6 +98280,8 @@
         "phone-contactless",
         "phone-contactless-filled",
         "phone-filled",
+        "piggy-bank",
+        "piggy-bank-filled",
         "pin",
         "pin-2",
         "pin-2-filled",
@@ -160996,6 +161124,130 @@
           "ratio": null,
           "gap": null
         },
+        "piggy-bank": {
+          "paths": [
+            "M7.625 4.387L8.8 2.868A0.625 0.625 0 0 1 9.294 2.625A0.625 0.625 0 0 1 9.906 3.12L10.375 5.328A4.625 3.625 0 0 1 11.529 6.625L12.75 6.625A0.625 0.625 0 0 1 13.375 7.25L13.375 8.75A0.625 0.625 0 0 1 12.75 9.375L11.529 9.375A4.625 3.625 0 0 1 7.25 11.625A4.625 3.625 0 0 1 2.625 8A4.625 3.625 0 0 1 7.25 4.375A4.625 3.625 0 0 1 7.625 4.387Z",
+            "M4.625 10.985V13.375",
+            "M9.875 10.985V13.375",
+            "M5.75 7.75H7.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.625 4.387L8.8 2.868A0.625 0.625 0 0 1 9.294 2.625A0.625 0.625 0 0 1 9.906 3.12L10.375 5.328A4.625 3.625 0 0 1 11.529 6.625L12.75 6.625A0.625 0.625 0 0 1 13.375 7.25L13.375 8.75A0.625 0.625 0 0 1 12.75 9.375L11.529 9.375A4.625 3.625 0 0 1 7.25 11.625A4.625 3.625 0 0 1 2.625 8A4.625 3.625 0 0 1 7.25 4.375A4.625 3.625 0 0 1 7.625 4.387Z\"/> <path d=\"M4.625 10.985V13.375\"/> <path d=\"M9.875 10.985V13.375\"/> <path d=\"M5.75 7.75H7.25\"/>",
+          "mark": false,
+          "tags": [
+            "savings",
+            "piggy",
+            "save",
+            "deposit",
+            "central",
+            "untitled"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.66,
+              "optical": 2.5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.9,
+              "optical": 2.68
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.02,
+              "optical": 2.76
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "piggy-bank-filled": {
+          "paths": [
+            "M4.625 10.985V13.375",
+            "M9.875 10.985V13.375"
+          ],
+          "areas": [
+            "M7.327 3.75L8.305 2.485A1.25 1.25 0 0 1 9.294 2A1.25 1.25 0 0 1 10.517 2.99L10.939 4.976A5.25 4.25 0 0 1 11.882 6L12.75 6A1.25 1.25 0 0 1 14 7.25L14 8.75A1.25 1.25 0 0 1 12.75 10L11.882 10A5.25 4.25 0 0 1 7.25 12.25A5.25 4.25 0 0 1 2 8A5.25 4.25 0 0 1 7.25 3.75A5.25 4.25 0 0 1 7.327 3.75ZM5.75 7A0.75 0.75 0 0 0 5.75 8.5H7.25A0.75 0.75 0 0 0 7.25 7Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.327 3.75L8.305 2.485A1.25 1.25 0 0 1 9.294 2A1.25 1.25 0 0 1 10.517 2.99L10.939 4.976A5.25 4.25 0 0 1 11.882 6L12.75 6A1.25 1.25 0 0 1 14 7.25L14 8.75A1.25 1.25 0 0 1 12.75 10L11.882 10A5.25 4.25 0 0 1 7.25 12.25A5.25 4.25 0 0 1 2 8A5.25 4.25 0 0 1 7.25 3.75A5.25 4.25 0 0 1 7.327 3.75ZM5.75 7A0.75 0.75 0 0 0 5.75 8.5H7.25A0.75 0.75 0 0 0 7.25 7Z\"/> <path d=\"M4.625 10.985V13.375\"/> <path d=\"M9.875 10.985V13.375\"/>",
+          "mark": false,
+          "tags": [
+            "savings",
+            "piggy",
+            "save",
+            "deposit",
+            "central",
+            "untitled"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "pin": {
           "paths": [
             "M10.375 2.625L10.375 6.866A0.625 0.625 0 0 0 10.558 7.308L12.155 8.905A0.75 0.75 0 0 1 12.375 9.436L12.375 9.625A0.75 0.75 0 0 1 11.625 10.375L4.375 10.375A0.75 0.75 0 0 1 3.625 9.625L3.625 9.436A0.75 0.75 0 0 1 3.845 8.905L5.442 7.308A0.625 0.625 0 0 0 5.625 6.866L5.625 2.625A1 1 0 0 1 6.625 1.625L9.375 1.625A1 1 0 0 1 10.375 2.625Z",
@@ -195155,6 +195407,8 @@
         "phone-contactless",
         "phone-contactless-filled",
         "phone-filled",
+        "piggy-bank",
+        "piggy-bank-filled",
         "pin",
         "pin-2",
         "pin-2-filled",
@@ -258024,6 +258278,130 @@
           "ratio": null,
           "gap": null
         },
+        "piggy-bank": {
+          "paths": [
+            "M9.5 5.5L11.28 3.94A0.75 0.75 0 0 1 11.78 3.75A0.75 0.75 0 0 1 12.51 4.35L13 6.71A5.5 4.5 0 0 1 14.44 8.5L15.5 8.5A0.75 0.75 0 0 1 16.25 9.25L16.25 10.75A0.75 0.75 0 0 1 15.5 11.5L14.44 11.5A5.5 4.5 0 0 1 9.25 14.5A5.5 4.5 0 0 1 3.75 10A5.5 4.5 0 0 1 9.25 5.5A5.5 4.5 0 0 1 9.5 5.5Z",
+            "M6.25 13.77V16.25",
+            "M12.25 13.77V16.25",
+            "M7.25 9.25H9.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9.5 5.5L11.28 3.94A0.75 0.75 0 0 1 11.78 3.75A0.75 0.75 0 0 1 12.51 4.35L13 6.71A5.5 4.5 0 0 1 14.44 8.5L15.5 8.5A0.75 0.75 0 0 1 16.25 9.25L16.25 10.75A0.75 0.75 0 0 1 15.5 11.5L14.44 11.5A5.5 4.5 0 0 1 9.25 14.5A5.5 4.5 0 0 1 3.75 10A5.5 4.5 0 0 1 9.25 5.5A5.5 4.5 0 0 1 9.5 5.5Z\"/> <path d=\"M6.25 13.77V16.25\"/> <path d=\"M12.25 13.77V16.25\"/> <path d=\"M7.25 9.25H9.25\"/>",
+          "mark": false,
+          "tags": [
+            "savings",
+            "piggy",
+            "save",
+            "deposit",
+            "central",
+            "untitled"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.8,
+              "optical": 3.6
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.1,
+              "optical": 3.83
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.23,
+              "optical": 3.92
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.52,
+              "optical": 3.39
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "piggy-bank-filled": {
+          "paths": [
+            "M6.25 13.77V16.25",
+            "M12.25 13.77V16.25"
+          ],
+          "areas": [
+            "M9.22 4.75L10.79 3.37A1.5 1.5 0 0 1 11.78 3A1.5 1.5 0 0 1 13.25 4.2L13.68 6.3A6.25 5.25 0 0 1 14.9 7.75L15.5 7.75A1.5 1.5 0 0 1 17 9.25L17 10.75A1.5 1.5 0 0 1 15.5 12.25L14.9 12.25A6.25 5.25 0 0 1 9.25 15.25A6.25 5.25 0 0 1 3 10A6.25 5.25 0 0 1 9.22 4.75ZM7.25 8.5A0.75 0.75 0 0 0 7.25 10H9.25A0.75 0.75 0 0 0 9.25 8.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.22 4.75L10.79 3.37A1.5 1.5 0 0 1 11.78 3A1.5 1.5 0 0 1 13.25 4.2L13.68 6.3A6.25 5.25 0 0 1 14.9 7.75L15.5 7.75A1.5 1.5 0 0 1 17 9.25L17 10.75A1.5 1.5 0 0 1 15.5 12.25L14.9 12.25A6.25 5.25 0 0 1 9.25 15.25A6.25 5.25 0 0 1 3 10A6.25 5.25 0 0 1 9.22 4.75ZM7.25 8.5A0.75 0.75 0 0 0 7.25 10H9.25A0.75 0.75 0 0 0 9.25 8.5Z\"/> <path d=\"M6.25 13.77V16.25\"/> <path d=\"M12.25 13.77V16.25\"/>",
+          "mark": false,
+          "tags": [
+            "savings",
+            "piggy",
+            "save",
+            "deposit",
+            "central",
+            "untitled"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "pin": {
           "paths": [
             "M12.25 4L12.25 8.44A0.75 0.75 0 0 0 12.47 8.97L14.96 11.46A1 1 0 0 1 15.25 12.16L15.25 12.25A1 1 0 0 1 14.25 13.25L5.75 13.25A1 1 0 0 1 4.75 12.25L4.75 12.16A1 1 0 0 1 5.04 11.46L7.53 8.97A0.75 0.75 0 0 0 7.75 8.44L7.75 4A1.25 1.25 0 0 1 9 2.75L11 2.75A1.25 1.25 0 0 1 12.25 4Z",
@@ -292202,6 +292580,8 @@
         "phone-contactless",
         "phone-contactless-filled",
         "phone-filled",
+        "piggy-bank",
+        "piggy-bank-filled",
         "pin",
         "pin-2",
         "pin-2-filled",
@@ -355113,6 +355493,130 @@
           "ratio": null,
           "gap": null
         },
+        "piggy-bank": {
+          "paths": [
+            "M11.5 6.01L13.8 3.94A0.75 0.75 0 0 1 14.3 3.75A0.75 0.75 0 0 1 15.03 4.33L15.75 7.47A7.25 6 0 0 1 17.93 10.25L19.5 10.25A0.75 0.75 0 0 1 20.25 11L20.25 13A0.75 0.75 0 0 1 19.5 13.75L17.93 13.75A7.25 6 0 0 1 11 18A7.25 6 0 0 1 3.75 12A7.25 6 0 0 1 11 6A7.25 6 0 0 1 11.5 6.01Z",
+            "M7.25 17.14V20.25",
+            "M14.75 17.14V20.25",
+            "M9.25 9.5H11.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.5 6.01L13.8 3.94A0.75 0.75 0 0 1 14.3 3.75A0.75 0.75 0 0 1 15.03 4.33L15.75 7.47A7.25 6 0 0 1 17.93 10.25L19.5 10.25A0.75 0.75 0 0 1 20.25 11L20.25 13A0.75 0.75 0 0 1 19.5 13.75L17.93 13.75A7.25 6 0 0 1 11 18A7.25 6 0 0 1 3.75 12A7.25 6 0 0 1 11 6A7.25 6 0 0 1 11.5 6.01Z\"/> <path d=\"M7.25 17.14V20.25\"/> <path d=\"M14.75 17.14V20.25\"/> <path d=\"M9.25 9.5H11.75\"/>",
+          "mark": false,
+          "tags": [
+            "savings",
+            "piggy",
+            "save",
+            "deposit",
+            "central",
+            "untitled"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.85,
+              "optical": 3.64
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.15,
+              "optical": 3.86
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.27,
+              "optical": 3.95
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "piggy-bank-filled": {
+          "paths": [
+            "M7.25 17.14V20.25",
+            "M14.75 17.14V20.25"
+          ],
+          "areas": [
+            "M11.23 5.25L13.3 3.39A1.5 1.5 0 0 1 14.3 3A1.5 1.5 0 0 1 15.77 4.17L16.42 7.04A8 6.75 0 0 1 18.43 9.5L19.5 9.5A1.5 1.5 0 0 1 21 11L21 13A1.5 1.5 0 0 1 19.5 14.5L18.43 14.5A8 6.75 0 0 1 11 18.75A8 6.75 0 0 1 3 12A8 6.75 0 0 1 11 5.25A8 6.75 0 0 1 11.23 5.25ZM9.25 8.75A0.75 0.75 0 0 0 9.25 10.25H11.75A0.75 0.75 0 0 0 11.75 8.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.23 5.25L13.3 3.39A1.5 1.5 0 0 1 14.3 3A1.5 1.5 0 0 1 15.77 4.17L16.42 7.04A8 6.75 0 0 1 18.43 9.5L19.5 9.5A1.5 1.5 0 0 1 21 11L21 13A1.5 1.5 0 0 1 19.5 14.5L18.43 14.5A8 6.75 0 0 1 11 18.75A8 6.75 0 0 1 3 12A8 6.75 0 0 1 11 5.25A8 6.75 0 0 1 11.23 5.25ZM9.25 8.75A0.75 0.75 0 0 0 9.25 10.25H11.75A0.75 0.75 0 0 0 11.75 8.75Z\"/> <path d=\"M7.25 17.14V20.25\"/> <path d=\"M14.75 17.14V20.25\"/>",
+          "mark": false,
+          "tags": [
+            "savings",
+            "piggy",
+            "save",
+            "deposit",
+            "central",
+            "untitled"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "pin": {
           "paths": [
             "M15.25 4.25L15.25 10.44A0.75 0.75 0 0 0 15.47 10.97L18.96 14.46A1 1 0 0 1 19.25 15.16L19.25 15.25A1 1 0 0 1 18.25 16.25L5.75 16.25A1 1 0 0 1 4.75 15.25L4.75 15.16A1 1 0 0 1 5.04 14.46L8.53 10.97A0.75 0.75 0 0 0 8.75 10.44L8.75 4.25A1.5 1.5 0 0 1 10.25 2.75L13.75 2.75A1.5 1.5 0 0 1 15.25 4.25Z",
@@ -399446,10 +399950,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     }
   ],
   "next": {
