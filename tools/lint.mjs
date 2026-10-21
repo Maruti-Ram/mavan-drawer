@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, insideAir, encloses, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, hiddenFills, insideAir, encloses, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -374,6 +374,18 @@ export function lintSource(canvas, file, src) {
 
   const ds = [...stripped.matchAll(/<path[^>]*\bd="([^"]+)"/g)].map((m) => m[1]);
   if (!ds.length && !areas.length) errors.push('no <path> found');
+
+  // --- 2a. a fill path that paints nothing (2026-10-21; plans/lint-currency-fixes.md card 6) ---
+  // Coins round 1 drew a $ as its own fill path on top of the disc instead of cutting it out: every
+  // point it painted the disc already painted, so the filled coin showed a plain disc, and lint
+  // passed it. A fill path whose removal changes nothing is an ERROR; an island standing in another
+  // area's hole paints, and is fine (`hiddenFills`).
+  if (areas.length > 1) for (const { area, under } of hiddenFills(areas)) {
+    const by = under.map((k) => k + 1);
+    errors.push(by.length
+      ? `fill path ${area + 1} paints nothing: every point it fills, fill path${by.length > 1 ? 's' : ''} ${by.join(' and ')} already fill${by.length > 1 ? '' : 's'} — a mark on a shape is cut out of it (evenodd), never drawn on top`
+      : `fill path ${area + 1} paints nothing: it encloses no area — delete it`);
+  }
 
   // --- 2b. a path's own weight (C32) -----------------------------------------
   // Every stroke attribute belongs on the root, bar one: in a file that declares

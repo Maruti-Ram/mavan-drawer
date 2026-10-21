@@ -531,6 +531,56 @@ function materialSpan(P, Q, filled, min = Infinity) {
   return found;
 }
 
+// ── hiddenFills ────────────────────────────────────────────────────────────
+// A fill path that PAINTS NOTHING (2026-10-21; plans/lint-currency-fixes.md card 6): one whose every
+// painted point another fill path already paints, so removing it changes nothing. Coins round 1 drew
+// a $ as its own fill on top of the disc instead of cutting it out of the disc: the filled coin showed
+// a plain disc, and lint passed it. An island standing in another area's hole paints, and is fine.
+// Read exactly along horizontal scanlines HIDE_STEP apart (offset so none runs along an edge): on each,
+// the spans this area paints (evenodd), less the union of the spans every other area paints; a piece
+// left over wider than HIDE_MIN means the area paints something. Returns [{ area, under: [k…] }] —
+// the hidden areas, 0-based, with the areas painted where it paints.
+const HIDE_STEP = 0.05, HIDE_MIN = 0.02;
+export function hiddenFills(areas) {
+  const rings = areas.map((d) => subpathsOf(d).map((s) => ringOf(s)).filter((r) => r.length > 2));
+  const spansAt = (rs, y) => {
+    const xs = [];
+    for (const r of rs) for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+      const [xi, yi] = r[i], [xj, yj] = r[j];
+      if ((yi > y) !== (yj > y)) xs.push(xi + ((y - yi) * (xj - xi)) / (yj - yi));
+    }
+    xs.sort((a, b) => a - b);
+    const out = [];
+    for (let k = 0; k + 1 < xs.length; k += 2) out.push([xs[k], xs[k + 1]]);
+    return out;
+  };
+  const out = [];
+  rings.forEach((rs, i) => {
+    const b = bbox([areas[i]]), under = new Set();
+    let paints = false;
+    for (let y = b.y0 + HIDE_STEP / 2 + 1.234e-4; y < b.y1 && !paints; y += HIDE_STEP) {
+      const mine = spansAt(rs, y);
+      if (!mine.length) continue;
+      const others = [];
+      rings.forEach((o, k) => { if (k !== i) for (const sp of spansAt(o, y)) others.push([...sp, k]); });
+      others.sort((p, q) => p[0] - q[0]);
+      for (const [a, c] of mine) {
+        let x = a;   // how far along [a, c] the others have covered without a gap
+        for (const [p, q, k] of others) {
+          if (q <= a || p >= c) continue;
+          under.add(k);
+          if (p > x + HIDE_MIN) break;
+          x = Math.max(x, q);
+          if (x >= c) break;
+        }
+        if (x < c - HIDE_MIN) { paints = true; break; }
+      }
+    }
+    if (!paints) out.push({ area: i, under: [...under].sort((p, q) => p - q) });
+  });
+  return out;
+}
+
 /** Every area's rings, and "is (x, y) painted by any of them" (evenodd per area). */
 function materialRings(areas) {
   const list = (Array.isArray(areas) ? areas : [areas]).map((d) => subpathsOf(d).map(ringOf));

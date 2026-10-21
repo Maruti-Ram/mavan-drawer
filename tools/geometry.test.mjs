@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, barGap, facingGap, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, armTipGap, barGap, facingGap, hiddenFills, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -2077,4 +2077,33 @@ test('barGap: ₺\'s lower bar to its bowl, ₹\'s bars to its bowl; a ring cros
   // (what is left is its foot run, 4 below the bar: 2.5 of air)
   assert.deepEqual(barGap(['M6 10H18', 'M9 7V12A2 2 0 0 0 11 14H14A1.5 1.5 0 0 0 14 11'], 1.5).map((g) => g.gap), [2.5]);
   assert.equal(barLines(lintSource(24, 'mark.svg', drawn(24, 1.5, HOOK))).length, 1);
+});
+
+// Card 6. Coins round 1 drew a $ as its own fill path ON TOP of the disc instead of cutting it out:
+// every point the $ paints the disc already paints, so the filled coin showed a plain disc, and lint
+// passed it. A fill path whose removal changes nothing is now an ERROR; an island inside a hole (a
+// dot in a ring, a $ left standing in a cut-out) paints something and is fine.
+const DISC24 = 'M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z';
+const SBAR = 'M11.25 5H12.75V19H11.25Z';   // a bar standing in for the $'s mark
+
+test('hiddenFills: a fill drawn wholly on another is found; an island in a hole, a neighbour and an overlap are not', () => {
+  assert.deepEqual(hiddenFills([DISC24, SBAR]), [{ area: 1, under: [0] }]);
+  assert.deepEqual(hiddenFills([SBAR, DISC24]), [{ area: 0, under: [1] }], 'whichever comes first');
+  // the same mark cut out of the disc, with an island left standing in the cut: both paint
+  assert.deepEqual(hiddenFills([`${DISC24}M10.5 4.5H13.5V19.5H10.5Z`, SBAR]), []);
+  // two shapes side by side, and two that overlap only in part
+  assert.deepEqual(hiddenFills(['M2 2H10V10H2Z', 'M12 2H20V10H12Z']), []);
+  assert.deepEqual(hiddenFills(['M2 2H10V10H2Z', 'M8 2H16V10H8Z']), []);
+  // a mark covered by two shapes together is still hidden; one drawn twice hides its copy
+  assert.deepEqual(hiddenFills(['M2 2H12V20H2Z', 'M12 2H22V20H12Z', 'M10 5H14V15H10Z']), [{ area: 2, under: [0, 1] }]);
+  assert.deepEqual(hiddenFills([DISC24, DISC24]), [{ area: 0, under: [1] }, { area: 1, under: [0] }]);
+  assert.deepEqual(hiddenFills([DISC24]), []);
+});
+
+test('lint: a fill path that paints nothing is an error; the cut-out drawing passes', () => {
+  const F = (areas) => lintSource(24, 'dollar-circle-filled.svg', drawn(24, 1.5, [], { areas, notes: [] }));
+  const onTop = F([DISC24, SBAR]);
+  assert.deepEqual(onTop.errors.filter((e) => /paints nothing/.test(e)),
+    ['fill path 2 paints nothing: every point it fills, fill path 1 already fills — a mark on a shape is cut out of it (evenodd), never drawn on top']);
+  assert.deepEqual(F([`${DISC24}${SBAR}`]).errors.filter((e) => /paints nothing/.test(e)), []);
 });
