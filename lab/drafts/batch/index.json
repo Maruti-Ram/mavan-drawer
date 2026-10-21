@@ -3,19 +3,6 @@
   "board": null,
   "icons": [
     {
-      "name": "truck",
-      "concept": "truck",
-      "candidates": 5,
-      "ids": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ],
-      "status": "review"
-    },
-    {
       "name": "card-reader",
       "concept": "card-reader",
       "candidates": 5,
@@ -109,13 +96,19 @@
     {
       "name": "dollar-sign",
       "concept": "dollar-sign",
-      "candidates": 5,
+      "candidates": 11,
       "ids": [
         "A",
         "B",
         "C",
         "D",
-        "E"
+        "E",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "E2",
+        "F"
       ],
       "status": "review"
     },
@@ -134,6 +127,15 @@
       "candidates": 1,
       "ids": [
         "E1"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "van",
+      "concept": "van",
+      "candidates": 1,
+      "ids": [
+        "C"
       ],
       "status": "review"
     }

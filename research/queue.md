@@ -489,7 +489,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 135. `percent-circle` · Commerce & Payments · variant of `percent` — In a circle · approved 2026-10-21
 - [ ] 136. `stop-circle` · Media & Playback
 - [ ] 137. `tablet` · Devices & Hardware
-- [~] 138. `truck` · Commerce & Payments
+- [x] 138. `truck` · Commerce & Payments — approved 2026-10-21
+- [x] 138. `truck-fast` · Commerce & Payments · variant of `truck` — In motion — filled: every line cut white · approved 2026-10-21
 - [ ] 139. `wifi` · Devices & Hardware
 - [x] 140. `alert-octagon` · Status & Feedback — approved 2026-10-20
 - [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
@@ -1056,3 +1057,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 529. `piggy-bank` — added 2026-10-21 · approved 2026-10-21
 - [~] 530. `ticket-percent` — added 2026-10-21
 - [~] 531. `tickets` — added 2026-10-21
+- [~] 532. `van` — added 2026-10-21
