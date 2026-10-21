@@ -1090,7 +1090,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 554. `pound-circle` — added 2026-10-21 · approved 2026-10-21
 - [x] 555. `yen-circle` — added 2026-10-21 · approved 2026-10-21
 - [~] 556. `rupee-circle` — added 2026-10-21
-- [~] 557. `bitcoin-circle` — added 2026-10-21
+- [x] 557. `bitcoin-circle` — added 2026-10-21 · approved 2026-10-21
 - [x] 558. `franc-circle` — added 2026-10-21 · approved 2026-10-21
 - [x] 559. `shekel-circle` — added 2026-10-21 · approved 2026-10-21
 - [x] 560. `naira-circle` — added 2026-10-21 · approved 2026-10-21
