@@ -3,7 +3,8 @@
 Status: **landed** — written 2026-10-20 in a side session, committed 2026-10-21 on Maruti's "lets go commit".
 Ruled 2026-10-21 (Maruti): the floor at 16 is **1.25**, the line weight, as built; the four filled question marks
 (`help-circle`, `-2`, `-3`, `-4`) are **redrawn to hold C19's 1** — a board for the main session, which owns
-`src/icons/`. Still open: the three filled id-cards at 16 (a `gap: 1` note, or a redraw).
+`src/icons/`. The three filled id-cards at 16 take the outline's **`gap: 1` note** (Maruti, 2026-10-21: "yes add
+the note"), added by the main session; tested on copies, each then prints "agreed gap 1 — smallest measured 1".
 
 - [x] Gap 1 reproduced: a copy of `alert-circle-filled` with the dot moved up passes lint silent
 - [x] Gap 1 measured: `holeGap` in `tools/geometry.mjs`, read by lint §5f, warns on the copy, prints an info line
