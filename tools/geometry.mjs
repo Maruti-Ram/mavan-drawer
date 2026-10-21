@@ -1080,6 +1080,7 @@ const ARM_RUN = 0.3;       // an arm's direction is read over its first 0.3
 const ARM_GATHER = 95;     // deg: a bend sharper than this joins a junction; a notch is looked at
 const CAP_SWEEP = 150;     // deg: an arc at a wall's end sweeping more than this is a round tip
 const WALL_STRAIGHT = 3;   // deg: a notch wall runs straight to within this
+const THROUGH_MIN = 10;    // deg: a line through another's point must leave it at least this far off it
 const BEND_R = 2.6, BEND_SWEEP = 170;   // a corner arc this tight is read as its sharp corner
 const BEZ_STEPS = 24, ARC_STEP = 5;     // flattening: steps per Bézier, degrees per arc step
 
@@ -1328,6 +1329,34 @@ function crossingWedges(lines, weight) {
       const [t, u] = r, p = A.p[a - 1], q = A.p[a];
       J.push([[p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1])],
         [[i, A.S[a - 1] + t * (A.S[a] - A.S[a - 1]), false], [j, B.S[b - 1] + u * (B.S[b] - B.S[b - 1]), false]], 'cross']);
+    }
+  }
+  // through a corner (2026-10-21, ¥): a line that passes through another line's point — a fork's
+  // tip, a corner, or a flattened curve's sample — crosses it there, though `segCross` (strictly
+  // inside both segments) never sees it. Read as a crossing; it is judged only where the arms go all
+  // the way round, so a V standing on a line, a tangent, and an arrowhead's shaft poking through its
+  // point stay out. A point on the line's open END is a touch (below), not this, and so is a line
+  // that only grazes the other — either side of the point within THROUGH_MIN of its direction (at-
+  // sign's stem running down the side of its bowl).
+  const SIN_THROUGH = Math.sin((THROUGH_MIN * Math.PI) / 180);
+  const offLine = (u, v) => u && Math.abs(u[0] * v[1] - u[1] * v[0]) >= SIN_THROUGH;
+  for (let i = 0; i < lines.length; i++) for (let j = 0; j < lines.length; j++) {
+    if (i === j) continue;
+    const A = lines[i], B = lines[j], [a0, b0] = [box[i], box[j]];
+    if (a0[0] > b0[2] + 1e-6 || b0[0] > a0[2] + 1e-6 || a0[1] > b0[3] + 1e-6 || b0[1] > a0[3] + 1e-6) continue;
+    const n = A.p.length;
+    for (let a = A.closed ? 0 : 1; a < n - 1; a++) {
+      const q = A.p[a], prev = a > 0 ? A.p[a - 1] : A.p[n - 2];
+      for (let b = 1; b < B.p.length; b++) {
+        const [d, t] = segDist(q, B.p[b - 1], B.p[b]);
+        if (d > 1e-6) continue;
+        const s = B.S[b - 1] + t * (B.S[b] - B.S[b - 1]);
+        if (!B.closed && (s < 1e-6 || s > B.L - 1e-6)) continue;   // B's own open end: a touch
+        const along = unitOf(B.p[b - 1], B.p[b]);
+        if (!along || !offLine(unitOf(prev, q), along) || !offLine(unitOf(q, A.p[a + 1]), along)) break;   // a graze
+        J.push([q, [[i, A.S[a], !!A.v[a]], [j, s, false]], 'cross']);
+        break;
+      }
     }
   }
   // touches: an open end inside another stroke's ink (a T-join's stem, a wall poking a scallop)

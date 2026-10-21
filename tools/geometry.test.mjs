@@ -1989,3 +1989,37 @@ test('armTipGap: a stem that curves after a square crossing is not an acute arm 
   const [early] = tipsOf(['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15'], 1.5).cross;
   assert.ok(early && early.angle < 86, JSON.stringify(early));
 });
+
+// Card 3. ¥: the top bar passes through the fork's point, where the two arms meet and the stem
+// starts. No centreline crosses another anywhere but AT a vertex, which the crossing test (strictly
+// inside both segments) never saw, so the wedge between each arm and the bar went unread — 0.42 ·
+// 0.38 · 0.06 of tip air in the filled twin (measured by hand at approval). A line passing through
+// another line's corner is now a crossing; it is judged, as any crossing, only where the arms go
+// all the way round (here the stem fills the side under the bar).
+const YEN = {
+  24: { o: ['M6.5 4.75L12 12L17.5 4.75', 'M12 12V19.25', 'M8.25 12H15.75', 'M8.25 16H15.75'],
+    f: ['M7 5.25L12 12L17 5.25', 'M12 12V18.75', 'M8.75 12H15.25', 'M8.75 16H15.25'], air: [1.84, 0.42] },
+  20: { o: ['M5.75 4.25L10 9.5L14.25 4.25', 'M10 9.5V15.75', 'M7 9.5H13', 'M7 13H13'],
+    f: ['M6 4.5L10 9.5L14 4.5', 'M10 9.5V15.5', 'M7.25 9.5H12.75', 'M7.25 13H12.75'], air: [1.08, 0.38] },
+  16: { o: ['M4.125 2.625L8 7.375L11.875 2.625', 'M8 7.375V13.375', 'M5.25 7.375H10.75', 'M5.25 10.875H10.75'],
+    f: ['M4.5 3L8 7.375L11.5 3', 'M8 7.375V13', 'M5.625 7.375H10.375', 'M5.625 10.875H10.375'], air: [1.11, 0.06] },
+};
+
+test('armTipGap: a bar through a fork\'s point is a crossing — ¥ reads its drawn tip air, outline and filled', () => {
+  for (const [m, { o, f, air }] of Object.entries(YEN)) {
+    const [wo, wf] = [strokeOf(+m), FILLED_WEIGHT[m]];
+    for (const [ds, w, want] of [[o, wo, air[0]], [f, wf, air[1]]]) {
+      const bar = tipsOf(ds, w).cross.filter((t) => t.paths.join() === '0,2');
+      assert.equal(bar.length, 1, `${m} at ${w}: the bar and the arms are read, ${JSON.stringify(tipsOf(ds, w).cross)}`);
+      near(bar[0].gap, want, 0.01);
+    }
+    const warned = armWarn(lintSource(+m, 'yen-filled.svg', drawn(+m, wf, f)));
+    assert.equal(warned.length, 1, warned.join(' | '));
+    assert.match(warned[0], /^paths 1\/3 cross at \d+° with [\d.]+ of air at the arm tips at [\d.,]+ — §6 needs 1\.5$/);
+  }
+  assert.deepEqual(armWarn(lintSource(24, 'yen.svg', drawn(24, 1.5, YEN[24].o))), [], 'the outline at 24 holds 1.84');
+  // a V standing on a line with nothing under it is not judged: its arms do not go all the way round
+  assert.deepEqual(tipsOf(['M6.5 4.75L12 12L17.5 4.75', 'M8.25 12H15.75'], 1.5).cross, []);
+  // nor is a corner that only touches a line at an open end (a T-join, an arrowhead's shaft)
+  assert.deepEqual(tipsOf(['M6.5 4.75L12 12L17.5 4.75', 'M12 12V19.25'], 1.5).cross, []);
+});
