@@ -579,6 +579,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 185. `transfer-3` · Arrows & Direction · variant of `transfer` — Toward each other · approved 2026-10-17
 - [~] 186. `bank` · Commerce & Payments
 - [x] 187. `warehouse` · Commerce & Payments — approved 2026-10-21
+- [x] 187. `warehouse-2` · Commerce & Payments · variant of `warehouse` — Roof resting on the stack · approved 2026-10-21
+- [x] 187. `warehouse-3` · Commerce & Payments · variant of `warehouse` — Open shed, two boxes · approved 2026-10-21
 - [x] 188. `award` · Status & Feedback — approved 2026-10-20
 - [x] 521. `trophy` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 522. `crown` · Status & Feedback — added 2026-10-20 · approved 2026-10-20

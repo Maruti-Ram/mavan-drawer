@@ -1534,6 +1534,10 @@
     "wand-3-filled",
     "wand-filled",
     "warehouse",
+    "warehouse-2",
+    "warehouse-2-filled",
+    "warehouse-3",
+    "warehouse-3-filled",
     "warehouse-filled",
     "watch",
     "watch-2",
@@ -93412,6 +93416,263 @@
       },
       "gap": null
     },
+    "warehouse-2": {
+      "paths": [
+        "M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7",
+        "M5.5 14.5H18.5V20.25H5.5ZM12 14.5V20.25",
+        "M8.75 14.5V8.75H15.25V14.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7\"/> <path d=\"M5.5 14.5H18.5V20.25H5.5ZM12 14.5V20.25\"/> <path d=\"M8.75 14.5V8.75H15.25V14.5\"/>",
+      "mark": false,
+      "tags": [
+        "inventory",
+        "stock",
+        "boxes",
+        "stacked",
+        "storage",
+        "polaris",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.33,
+          "optical": 3.25
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.33,
+          "optical": 3.25
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.17,
+          "optical": 3.88
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "warehouse-2-filled": {
+      "paths": [
+        "M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7"
+      ],
+      "areas": [
+        "M4.75 15.5A0.25 0.25 0 0 1 5 15.25H11A0.25 0.25 0 0 1 11.25 15.5V20.75A0.25 0.25 0 0 1 11 21H5.5A0.75 0.75 0 0 1 4.75 20.25V15.5Z",
+        "M12.75 15.5A0.25 0.25 0 0 1 13 15.25H19A0.25 0.25 0 0 1 19.25 15.5V20.25A0.75 0.75 0 0 1 18.5 21H13A0.25 0.25 0 0 1 12.75 20.75V15.5Z",
+        "M8 8.75A0.75 0.75 0 0 1 8.75 8H15.25A0.75 0.75 0 0 1 16 8.75V13.5A0.25 0.25 0 0 1 15.75 13.75H8.25A0.25 0.25 0 0 1 8 13.5V8.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 15.5A0.25 0.25 0 0 1 5 15.25H11A0.25 0.25 0 0 1 11.25 15.5V20.75A0.25 0.25 0 0 1 11 21H5.5A0.75 0.75 0 0 1 4.75 20.25V15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 15.5A0.25 0.25 0 0 1 13 15.25H19A0.25 0.25 0 0 1 19.25 15.5V20.25A0.75 0.75 0 0 1 18.5 21H13A0.25 0.25 0 0 1 12.75 20.75V15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 8.75A0.75 0.75 0 0 1 8.75 8H15.25A0.75 0.75 0 0 1 16 8.75V13.5A0.25 0.25 0 0 1 15.75 13.75H8.25A0.25 0.25 0 0 1 8 13.5V8.75Z\"/> <path d=\"M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7\"/>",
+      "mark": false,
+      "tags": [
+        "inventory",
+        "stock",
+        "boxes",
+        "stacked",
+        "storage",
+        "polaris",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "warehouse-3": {
+      "paths": [
+        "M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25",
+        "M6.75 15H17.25V20.25H6.75Z",
+        "M8.25 15V10.75H15.75V15"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25\"/> <path d=\"M6.75 15H17.25V20.25H6.75Z\"/> <path d=\"M8.25 15V10.75H15.75V15\"/>",
+      "mark": false,
+      "tags": [
+        "inventory",
+        "stock",
+        "boxes",
+        "stacked",
+        "storage",
+        "polaris",
+        "shed"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.36,
+          "optical": 3.27
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.36,
+          "optical": 3.27
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.17,
+          "optical": 3.88
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 12,
+        "h": 11
+      },
+      "ratio": {
+        "w": 0.67,
+        "h": 0.61
+      },
+      "gap": null
+    },
+    "warehouse-3-filled": {
+      "paths": [
+        "M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25"
+      ],
+      "areas": [
+        "M6 16A0.25 0.25 0 0 1 6.25 15.75H17.75A0.25 0.25 0 0 1 18 16V20.25A0.75 0.75 0 0 1 17.25 21H6.75A0.75 0.75 0 0 1 6 20.25V16Z",
+        "M7.5 10.75A0.75 0.75 0 0 1 8.25 10H15.75A0.75 0.75 0 0 1 16.5 10.75V14A0.25 0.25 0 0 1 16.25 14.25H7.75A0.25 0.25 0 0 1 7.5 14V10.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 16A0.25 0.25 0 0 1 6.25 15.75H17.75A0.25 0.25 0 0 1 18 16V20.25A0.75 0.75 0 0 1 17.25 21H6.75A0.75 0.75 0 0 1 6 20.25V16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 10.75A0.75 0.75 0 0 1 8.25 10H15.75A0.75 0.75 0 0 1 16.5 10.75V14A0.25 0.25 0 0 1 16.25 14.25H7.75A0.25 0.25 0 0 1 7.5 14V10.75Z\"/> <path d=\"M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25\"/>",
+      "mark": false,
+      "tags": [
+        "inventory",
+        "stock",
+        "boxes",
+        "stacked",
+        "storage",
+        "polaris",
+        "shed"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "warehouse-filled": {
       "paths": [],
       "areas": [
@@ -97564,6 +97825,10 @@
         "wand-3-filled",
         "wand-filled",
         "warehouse",
+        "warehouse-2",
+        "warehouse-2-filled",
+        "warehouse-3",
+        "warehouse-3-filled",
         "warehouse-filled",
         "watch",
         "watch-2",
@@ -189348,6 +189613,263 @@
           },
           "gap": null
         },
+        "warehouse-2": {
+          "paths": [
+            "M2.625 5.194L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L13.375 5.194",
+            "M4 10H12V13.375H4ZM8 10V13.375",
+            "M6 10V6.625H10V10"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 5.194L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L13.375 5.194\"/> <path d=\"M4 10H12V13.375H4ZM8 10V13.375\"/> <path d=\"M6 10V6.625H10V10\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.92,
+              "optical": 2.69
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "warehouse-2-filled": {
+          "paths": [
+            "M2.625 5.194L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L13.375 5.194"
+          ],
+          "areas": [
+            "M3.375 11A0.25 0.25 0 0 1 3.625 10.75H7A0.25 0.25 0 0 1 7.25 11V13.75A0.25 0.25 0 0 1 7 14H4A0.625 0.625 0 0 1 3.375 13.375V11Z",
+            "M8.75 11A0.25 0.25 0 0 1 9 10.75H12.375A0.25 0.25 0 0 1 12.625 11V13.375A0.625 0.625 0 0 1 12 14H9A0.25 0.25 0 0 1 8.75 13.75V11Z",
+            "M5.375 6.625A0.625 0.625 0 0 1 6 6H10A0.625 0.625 0 0 1 10.625 6.625V9A0.25 0.25 0 0 1 10.375 9.25H5.625A0.25 0.25 0 0 1 5.375 9V6.625Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.375 11A0.25 0.25 0 0 1 3.625 10.75H7A0.25 0.25 0 0 1 7.25 11V13.75A0.25 0.25 0 0 1 7 14H4A0.625 0.625 0 0 1 3.375 13.375V11Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.75 11A0.25 0.25 0 0 1 9 10.75H12.375A0.25 0.25 0 0 1 12.625 11V13.375A0.625 0.625 0 0 1 12 14H9A0.25 0.25 0 0 1 8.75 13.75V11Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.375 6.625A0.625 0.625 0 0 1 6 6H10A0.625 0.625 0 0 1 10.625 6.625V9A0.25 0.25 0 0 1 10.375 9.25H5.625A0.25 0.25 0 0 1 5.375 9V6.625Z\"/> <path d=\"M2.625 5.194L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L13.375 5.194\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "warehouse-3": {
+          "paths": [
+            "M2.625 13.375V5.813A1 1 0 0 1 3.178 4.918L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L12.822 4.918A1 1 0 0 1 13.375 5.813V13.375",
+            "M5.375 10.375H10.625V13.375H5.375Z",
+            "M6.125 10.375V7.625H9.875V10.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 13.375V5.813A1 1 0 0 1 3.178 4.918L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L12.822 4.918A1 1 0 0 1 13.375 5.813V13.375\"/> <path d=\"M5.375 10.375H10.625V13.375H5.375Z\"/> <path d=\"M6.125 10.375V7.625H9.875V10.375\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "shed"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.3,
+              "optical": 2.22
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.3,
+              "optical": 2.22
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.92,
+              "optical": 2.69
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 6.5,
+            "h": 7
+          },
+          "ratio": {
+            "w": 0.54,
+            "h": 0.58
+          },
+          "gap": null
+        },
+        "warehouse-3-filled": {
+          "paths": [
+            "M2.625 13.375V5.813A1 1 0 0 1 3.178 4.918L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L12.822 4.918A1 1 0 0 1 13.375 5.813V13.375"
+          ],
+          "areas": [
+            "M4.75 11.375A0.25 0.25 0 0 1 5 11.125H11A0.25 0.25 0 0 1 11.25 11.375V13.375A0.625 0.625 0 0 1 10.625 14H5.375A0.625 0.625 0 0 1 4.75 13.375V11.375Z",
+            "M5.5 7.625A0.625 0.625 0 0 1 6.125 7H9.875A0.625 0.625 0 0 1 10.5 7.625V9.375A0.25 0.25 0 0 1 10.25 9.625H5.75A0.25 0.25 0 0 1 5.5 9.375V7.625Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 11.375A0.25 0.25 0 0 1 5 11.125H11A0.25 0.25 0 0 1 11.25 11.375V13.375A0.625 0.625 0 0 1 10.625 14H5.375A0.625 0.625 0 0 1 4.75 13.375V11.375Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.5 7.625A0.625 0.625 0 0 1 6.125 7H9.875A0.625 0.625 0 0 1 10.5 7.625V9.375A0.25 0.25 0 0 1 10.25 9.625H5.75A0.25 0.25 0 0 1 5.5 9.375V7.625Z\"/> <path d=\"M2.625 13.375V5.813A1 1 0 0 1 3.178 4.918L7.553 2.731A1 1 0 0 1 8 2.625A1 1 0 0 1 8.447 2.731L12.822 4.918A1 1 0 0 1 13.375 5.813V13.375\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "shed"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "warehouse-filled": {
           "paths": [],
           "areas": [
@@ -193498,6 +194020,10 @@
         "wand-3-filled",
         "wand-filled",
         "warehouse",
+        "warehouse-2",
+        "warehouse-2-filled",
+        "warehouse-3",
+        "warehouse-3-filled",
         "warehouse-filled",
         "watch",
         "watch-2",
@@ -285326,6 +285852,263 @@
           },
           "gap": null
         },
+        "warehouse-2": {
+          "paths": [
+            "M3.75 6.73L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L16.25 6.73",
+            "M5 12.25H15V16.25H5ZM10 12.25V16.25",
+            "M7.5 12.25V8.25H12.5V12.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 6.73L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L16.25 6.73\"/> <path d=\"M5 12.25H15V16.25H5ZM10 12.25V16.25\"/> <path d=\"M7.5 12.25V8.25H12.5V12.25\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.33,
+              "optical": 3.25
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.33,
+              "optical": 3.25
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.09,
+              "optical": 3.82
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "warehouse-2-filled": {
+          "paths": [
+            "M3.75 6.73L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L16.25 6.73"
+          ],
+          "areas": [
+            "M4.25 13.25A0.25 0.25 0 0 1 4.5 13H9A0.25 0.25 0 0 1 9.25 13.25V16.75A0.25 0.25 0 0 1 9 17H5A0.75 0.75 0 0 1 4.25 16.25V13.25Z",
+            "M10.75 13.25A0.25 0.25 0 0 1 11 13H15.5A0.25 0.25 0 0 1 15.75 13.25V16.25A0.75 0.75 0 0 1 15 17H11A0.25 0.25 0 0 1 10.75 16.75V13.25Z",
+            "M6.75 8.25A0.75 0.75 0 0 1 7.5 7.5H12.5A0.75 0.75 0 0 1 13.25 8.25V11.25A0.25 0.25 0 0 1 13 11.5H7A0.25 0.25 0 0 1 6.75 11.25V8.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.25 13.25A0.25 0.25 0 0 1 4.5 13H9A0.25 0.25 0 0 1 9.25 13.25V16.75A0.25 0.25 0 0 1 9 17H5A0.75 0.75 0 0 1 4.25 16.25V13.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.75 13.25A0.25 0.25 0 0 1 11 13H15.5A0.25 0.25 0 0 1 15.75 13.25V16.25A0.75 0.75 0 0 1 15 17H11A0.25 0.25 0 0 1 10.75 16.75V13.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 8.25A0.75 0.75 0 0 1 7.5 7.5H12.5A0.75 0.75 0 0 1 13.25 8.25V11.25A0.25 0.25 0 0 1 13 11.5H7A0.25 0.25 0 0 1 6.75 11.25V8.25Z\"/> <path d=\"M3.75 6.73L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L16.25 6.73\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "warehouse-3": {
+          "paths": [
+            "M3.75 16.25V7.5A1.25 1.25 0 0 1 4.44 6.38L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L15.56 6.38A1.25 1.25 0 0 1 16.25 7.5V16.25",
+            "M6.75 12.25H13.25V16.25H6.75Z",
+            "M7.75 12.25V9H12.25V12.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 16.25V7.5A1.25 1.25 0 0 1 4.44 6.38L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L15.56 6.38A1.25 1.25 0 0 1 16.25 7.5V16.25\"/> <path d=\"M6.75 12.25H13.25V16.25H6.75Z\"/> <path d=\"M7.75 12.25V9H12.25V12.25\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "shed"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.35,
+              "optical": 3.26
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.35,
+              "optical": 3.26
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.09,
+              "optical": 3.82
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 8,
+            "h": 8.75
+          },
+          "ratio": {
+            "w": 0.57,
+            "h": 0.63
+          },
+          "gap": null
+        },
+        "warehouse-3-filled": {
+          "paths": [
+            "M3.75 16.25V7.5A1.25 1.25 0 0 1 4.44 6.38L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L15.56 6.38A1.25 1.25 0 0 1 16.25 7.5V16.25"
+          ],
+          "areas": [
+            "M6 13.25A0.25 0.25 0 0 1 6.25 13H13.75A0.25 0.25 0 0 1 14 13.25V16.25A0.75 0.75 0 0 1 13.25 17H6.75A0.75 0.75 0 0 1 6 16.25V13.25Z",
+            "M7 9A0.75 0.75 0 0 1 7.75 8.25H12.25A0.75 0.75 0 0 1 13 9V11.25A0.25 0.25 0 0 1 12.75 11.5H7.25A0.25 0.25 0 0 1 7 11.25V9Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 13.25A0.25 0.25 0 0 1 6.25 13H13.75A0.25 0.25 0 0 1 14 13.25V16.25A0.75 0.75 0 0 1 13.25 17H6.75A0.75 0.75 0 0 1 6 16.25V13.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7 9A0.75 0.75 0 0 1 7.75 8.25H12.25A0.75 0.75 0 0 1 13 9V11.25A0.25 0.25 0 0 1 12.75 11.5H7.25A0.25 0.25 0 0 1 7 11.25V9Z\"/> <path d=\"M3.75 16.25V7.5A1.25 1.25 0 0 1 4.44 6.38L9.44 3.88A1.25 1.25 0 0 1 10 3.75A1.25 1.25 0 0 1 10.56 3.88L15.56 6.38A1.25 1.25 0 0 1 16.25 7.5V16.25\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "shed"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "warehouse-filled": {
           "paths": [],
           "areas": [
@@ -289478,6 +290261,10 @@
         "wand-3-filled",
         "wand-filled",
         "warehouse",
+        "warehouse-2",
+        "warehouse-2-filled",
+        "warehouse-3",
+        "warehouse-3-filled",
         "warehouse-filled",
         "watch",
         "watch-2",
@@ -381356,6 +382143,263 @@
           },
           "gap": null
         },
+        "warehouse-2": {
+          "paths": [
+            "M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7",
+            "M5.5 14.5H18.5V20.25H5.5ZM12 14.5V20.25",
+            "M8.75 14.5V8.75H15.25V14.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7\"/> <path d=\"M5.5 14.5H18.5V20.25H5.5ZM12 14.5V20.25\"/> <path d=\"M8.75 14.5V8.75H15.25V14.5\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.33,
+              "optical": 3.25
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.33,
+              "optical": 3.25
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.17,
+              "optical": 3.88
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "warehouse-2-filled": {
+          "paths": [
+            "M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7"
+          ],
+          "areas": [
+            "M4.75 15.5A0.25 0.25 0 0 1 5 15.25H11A0.25 0.25 0 0 1 11.25 15.5V20.75A0.25 0.25 0 0 1 11 21H5.5A0.75 0.75 0 0 1 4.75 20.25V15.5Z",
+            "M12.75 15.5A0.25 0.25 0 0 1 13 15.25H19A0.25 0.25 0 0 1 19.25 15.5V20.25A0.75 0.75 0 0 1 18.5 21H13A0.25 0.25 0 0 1 12.75 20.75V15.5Z",
+            "M8 8.75A0.75 0.75 0 0 1 8.75 8H15.25A0.75 0.75 0 0 1 16 8.75V13.5A0.25 0.25 0 0 1 15.75 13.75H8.25A0.25 0.25 0 0 1 8 13.5V8.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 15.5A0.25 0.25 0 0 1 5 15.25H11A0.25 0.25 0 0 1 11.25 15.5V20.75A0.25 0.25 0 0 1 11 21H5.5A0.75 0.75 0 0 1 4.75 20.25V15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 15.5A0.25 0.25 0 0 1 13 15.25H19A0.25 0.25 0 0 1 19.25 15.5V20.25A0.75 0.75 0 0 1 18.5 21H13A0.25 0.25 0 0 1 12.75 20.75V15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 8.75A0.75 0.75 0 0 1 8.75 8H15.25A0.75 0.75 0 0 1 16 8.75V13.5A0.25 0.25 0 0 1 15.75 13.75H8.25A0.25 0.25 0 0 1 8 13.5V8.75Z\"/> <path d=\"M3.75 7.7L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L20.25 7.7\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "warehouse-3": {
+          "paths": [
+            "M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25",
+            "M6.75 15H17.25V20.25H6.75Z",
+            "M8.25 15V10.75H15.75V15"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25\"/> <path d=\"M6.75 15H17.25V20.25H6.75Z\"/> <path d=\"M8.25 15V10.75H15.75V15\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "shed"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.36,
+              "optical": 3.27
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.36,
+              "optical": 3.27
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.17,
+              "optical": 3.88
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 12,
+            "h": 11
+          },
+          "ratio": {
+            "w": 0.67,
+            "h": 0.61
+          },
+          "gap": null
+        },
+        "warehouse-3-filled": {
+          "paths": [
+            "M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25"
+          ],
+          "areas": [
+            "M6 16A0.25 0.25 0 0 1 6.25 15.75H17.75A0.25 0.25 0 0 1 18 16V20.25A0.75 0.75 0 0 1 17.25 21H6.75A0.75 0.75 0 0 1 6 20.25V16Z",
+            "M7.5 10.75A0.75 0.75 0 0 1 8.25 10H15.75A0.75 0.75 0 0 1 16.5 10.75V14A0.25 0.25 0 0 1 16.25 14.25H7.75A0.25 0.25 0 0 1 7.5 14V10.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 16A0.25 0.25 0 0 1 6.25 15.75H17.75A0.25 0.25 0 0 1 18 16V20.25A0.75 0.75 0 0 1 17.25 21H6.75A0.75 0.75 0 0 1 6 20.25V16Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 10.75A0.75 0.75 0 0 1 8.25 10H15.75A0.75 0.75 0 0 1 16.5 10.75V14A0.25 0.25 0 0 1 16.25 14.25H7.75A0.25 0.25 0 0 1 7.5 14V10.75Z\"/> <path d=\"M3.75 20.25V8.63A1.5 1.5 0 0 1 4.58 7.28L11.33 3.91A1.5 1.5 0 0 1 12 3.75A1.5 1.5 0 0 1 12.67 3.91L19.42 7.28A1.5 1.5 0 0 1 20.25 8.63V20.25\"/>",
+          "mark": false,
+          "tags": [
+            "inventory",
+            "stock",
+            "boxes",
+            "stacked",
+            "storage",
+            "polaris",
+            "shed"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "warehouse-filled": {
           "paths": [],
           "areas": [
@@ -390020,6 +391064,28 @@
       "category": "Commerce & Payments",
       "base": null,
       "note": "approved 2026-10-21",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-21"
+    },
+    {
+      "n": 187,
+      "name": "warehouse-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Commerce & Payments",
+      "base": "warehouse",
+      "note": "Roof resting on the stack · approved 2026-10-21",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-21"
+    },
+    {
+      "n": 187,
+      "name": "warehouse-3",
+      "section": "D · The rest, by audit rank",
+      "category": "Commerce & Payments",
+      "base": "warehouse",
+      "note": "Open shed, two boxes · approved 2026-10-21",
       "status": "done",
       "mvp": false,
       "date": "2026-10-21"
