@@ -1097,6 +1097,8 @@
     "percent-circle",
     "percent-circle-filled",
     "percent-filled",
+    "peso",
+    "peso-filled",
     "phone",
     "phone-contactless",
     "phone-contactless-filled",
@@ -66541,6 +66543,140 @@
       },
       "gap": null
     },
+    "peso": {
+      "paths": [
+        "M8 4.75V19.25",
+        "M8 4.75H11A5 4.75 0 0 1 16 9.5V10.5A5 4.75 0 0 1 11 15.25H8",
+        "M5.75 8.25H18.25",
+        "M5.75 11.75H18.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8 4.75V19.25\"/> <path d=\"M8 4.75H11A5 4.75 0 0 1 16 9.5V10.5A5 4.75 0 0 1 11 15.25H8\"/> <path d=\"M5.75 8.25H18.25\"/> <path d=\"M5.75 11.75H18.25\"/>",
+      "mark": true,
+      "tags": [
+        "peso",
+        "php",
+        "philippine peso",
+        "piso",
+        "currency",
+        "money",
+        "sign",
+        "two bars",
+        "through",
+        "cut out"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 5,
+        "y": 4,
+        "w": 14,
+        "h": 16
+      },
+      "bearing": {
+        "left": 5,
+        "top": 4,
+        "right": 5,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 5,
+          "recession": 1.24,
+          "optical": 5.93
+        },
+        "right": {
+          "geometric": 5,
+          "recession": 0.03,
+          "optical": 5.02
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.59,
+          "optical": 4.44
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.03,
+          "optical": 4.03
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "peso-filled": {
+      "paths": [
+        "M5.75 7.75H7.5",
+        "M18.25 7.75H15.75",
+        "M5.75 12.25H7.5",
+        "M18.25 12.25H15.75"
+      ],
+      "areas": [
+        "M7.25 4.75A0.75 0.75 0 0 1 8 4H11A5.75 5.5 0 0 1 16.75 9.5V10.5A5.75 5.5 0 0 1 11 16H9.75V18.75A1.25 1.25 0 0 1 7.25 18.75ZM9.5 7H13.75A0.75 0.75 0 0 1 13.75 8.5H9.5A0.75 0.75 0 0 1 9.5 7ZM9.5 11.5H13.75A0.75 0.75 0 0 1 13.75 13H9.5A0.75 0.75 0 0 1 9.5 11.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 4.75A0.75 0.75 0 0 1 8 4H11A5.75 5.5 0 0 1 16.75 9.5V10.5A5.75 5.5 0 0 1 11 16H9.75V18.75A1.25 1.25 0 0 1 7.25 18.75ZM9.5 7H13.75A0.75 0.75 0 0 1 13.75 8.5H9.5A0.75 0.75 0 0 1 9.5 7ZM9.5 11.5H13.75A0.75 0.75 0 0 1 13.75 13H9.5A0.75 0.75 0 0 1 9.5 11.5Z\"/> <path d=\"M5.75 7.75H7.5\"/> <path d=\"M18.25 7.75H15.75\"/> <path d=\"M5.75 12.25H7.5\"/> <path d=\"M18.25 12.25H15.75\"/>",
+      "mark": true,
+      "tags": [
+        "peso",
+        "php",
+        "philippine peso",
+        "piso",
+        "currency",
+        "money",
+        "sign",
+        "two bars",
+        "through",
+        "cut out"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 5,
+        "y": 4,
+        "w": 14,
+        "h": 16
+      },
+      "bearing": {
+        "left": 5,
+        "top": 4,
+        "right": 5,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 5,
+          "recession": 0,
+          "optical": 5
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "phone": {
       "paths": [
         "M7.85 16.15A14 14 0 0 1 3.75 6.25A2.5 2.5 0 0 1 6.25 3.75L7.25 3.75A2.5 2.5 0 0 1 9.75 6.25L9.75 7.13A1.5 1.5 0 0 1 9.31 8.19L8.16 9.34A0.75 0.75 0 0 0 8 10.14A10.5 10.5 0 0 0 10.33 13.67A10.5 10.5 0 0 0 13.86 16A0.75 0.75 0 0 0 14.66 15.84L15.81 14.69A1.5 1.5 0 0 1 16.87 14.25L17.75 14.25A2.5 2.5 0 0 1 20.25 16.75L20.25 17.75A2.5 2.5 0 0 1 17.75 20.25A14 14 0 0 1 7.85 16.15Z"
@@ -103038,6 +103174,8 @@
         "percent-circle",
         "percent-circle-filled",
         "percent-filled",
+        "peso",
+        "peso-filled",
         "phone",
         "phone-contactless",
         "phone-contactless-filled",
@@ -168409,6 +168547,140 @@
           },
           "gap": null
         },
+        "peso": {
+          "paths": [
+            "M5 2.625V13.375",
+            "M5 2.625H7.25A3.75 3.75 0 0 1 11 6.375V6.875A3.75 3.75 0 0 1 7.25 10.625H5",
+            "M3.625 5.25H12.375",
+            "M3.625 8H12.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5 2.625V13.375\"/> <path d=\"M5 2.625H7.25A3.75 3.75 0 0 1 11 6.375V6.875A3.75 3.75 0 0 1 7.25 10.625H5\"/> <path d=\"M3.625 5.25H12.375\"/> <path d=\"M3.625 8H12.375\"/>",
+          "mark": true,
+          "tags": [
+            "peso",
+            "php",
+            "philippine peso",
+            "piso",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "through",
+            "cut out"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 10,
+            "h": 12
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.02,
+              "optical": 3.76
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.18,
+              "optical": 3.13
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.35
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "peso-filled": {
+          "paths": [
+            "M3.625 4.875H4.5",
+            "M12.375 4.875H10.875",
+            "M3.625 8.375H4.5",
+            "M12.375 8.375H10.875"
+          ],
+          "areas": [
+            "M4.375 2.625A0.625 0.625 0 0 1 5 2H7.25A4.375 4.375 0 0 1 11.625 6.375V6.875A4.375 4.375 0 0 1 7.25 11.25H6.375V13A1 1 0 0 1 4.375 13ZM6.375 4.125H9A0.75 0.75 0 0 1 9 5.625H6.375A0.75 0.75 0 0 1 6.375 4.125ZM6.375 7.625H9A0.75 0.75 0 0 1 9 9.125H6.375A0.75 0.75 0 0 1 6.375 7.625Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.375 2.625A0.625 0.625 0 0 1 5 2H7.25A4.375 4.375 0 0 1 11.625 6.375V6.875A4.375 4.375 0 0 1 7.25 11.25H6.375V13A1 1 0 0 1 4.375 13ZM6.375 4.125H9A0.75 0.75 0 0 1 9 5.625H6.375A0.75 0.75 0 0 1 6.375 4.125ZM6.375 7.625H9A0.75 0.75 0 0 1 9 9.125H6.375A0.75 0.75 0 0 1 6.375 7.625Z\"/> <path d=\"M3.625 4.875H4.5\"/> <path d=\"M12.375 4.875H10.875\"/> <path d=\"M3.625 8.375H4.5\"/> <path d=\"M12.375 8.375H10.875\"/>",
+          "mark": true,
+          "tags": [
+            "peso",
+            "php",
+            "philippine peso",
+            "piso",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "through",
+            "cut out"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 10,
+            "h": 12
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "phone": {
           "paths": [
             "M5.334 10.666A9.25 9.25 0 0 1 2.625 4.125A1.5 1.5 0 0 1 4.125 2.625L5.125 2.625A1.5 1.5 0 0 1 6.625 4.125L6.625 4.211A1 1 0 0 1 6.332 4.918L5.823 5.427A0.625 0.625 0 0 0 5.668 6.055A6.5 6.5 0 0 0 7.279 8.721A6.5 6.5 0 0 0 9.945 10.332A0.625 0.625 0 0 0 10.573 10.177L11.082 9.668A1 1 0 0 1 11.789 9.375L11.875 9.375A1.5 1.5 0 0 1 13.375 10.875L13.375 11.875A1.5 1.5 0 0 1 11.875 13.375A9.25 9.25 0 0 1 5.334 10.666Z"
@@ -204876,6 +205148,8 @@
         "percent-circle",
         "percent-circle-filled",
         "percent-filled",
+        "peso",
+        "peso-filled",
         "phone",
         "phone-contactless",
         "phone-contactless-filled",
@@ -270276,6 +270550,140 @@
           },
           "gap": null
         },
+        "peso": {
+          "paths": [
+            "M6.75 4.25V15.75",
+            "M6.75 4.25H9.25A4 4 0 0 1 13.25 8.25V8.75A4 4 0 0 1 9.25 12.75H6.75",
+            "M5 7H15",
+            "M5 10H15"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.75 4.25V15.75\"/> <path d=\"M6.75 4.25H9.25A4 4 0 0 1 13.25 8.25V8.75A4 4 0 0 1 9.25 12.75H6.75\"/> <path d=\"M5 7H15\"/> <path d=\"M5 10H15\"/>",
+          "mark": true,
+          "tags": [
+            "peso",
+            "php",
+            "philippine peso",
+            "piso",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "through",
+            "cut out"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.25,
+            "y": 3.5,
+            "w": 11.5,
+            "h": 13
+          },
+          "bearing": {
+            "left": 4.25,
+            "top": 3.5,
+            "right": 4.25,
+            "bottom": 3.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.25,
+              "recession": 1.18,
+              "optical": 5.13
+            },
+            "right": {
+              "geometric": 4.25,
+              "recession": 0.22,
+              "optical": 4.41
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 0.56,
+              "optical": 3.92
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 0.04,
+              "optical": 3.53
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "peso-filled": {
+          "paths": [
+            "M5 6.5H6.25",
+            "M15 6.5H13",
+            "M5 10.5H6.25",
+            "M15 10.5H13"
+          ],
+          "areas": [
+            "M6 4.25A0.75 0.75 0 0 1 6.75 3.5H9.25A4.75 4.75 0 0 1 14 8.25V8.75A4.75 4.75 0 0 1 9.25 13.5H8V15.5A1 1 0 0 1 6 15.5ZM8.25 5.75H11A0.75 0.75 0 0 1 11 7.25H8.25A0.75 0.75 0 0 1 8.25 5.75ZM8.25 9.75H11A0.75 0.75 0 0 1 11 11.25H8.25A0.75 0.75 0 0 1 8.25 9.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 4.25A0.75 0.75 0 0 1 6.75 3.5H9.25A4.75 4.75 0 0 1 14 8.25V8.75A4.75 4.75 0 0 1 9.25 13.5H8V15.5A1 1 0 0 1 6 15.5ZM8.25 5.75H11A0.75 0.75 0 0 1 11 7.25H8.25A0.75 0.75 0 0 1 8.25 5.75ZM8.25 9.75H11A0.75 0.75 0 0 1 11 11.25H8.25A0.75 0.75 0 0 1 8.25 9.75Z\"/> <path d=\"M5 6.5H6.25\"/> <path d=\"M15 6.5H13\"/> <path d=\"M5 10.5H6.25\"/> <path d=\"M15 10.5H13\"/>",
+          "mark": true,
+          "tags": [
+            "peso",
+            "php",
+            "philippine peso",
+            "piso",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "through",
+            "cut out"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.25,
+            "y": 3.5,
+            "w": 11.5,
+            "h": 13
+          },
+          "bearing": {
+            "left": 4.25,
+            "top": 3.5,
+            "right": 4.25,
+            "bottom": 3.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.25,
+              "recession": 0,
+              "optical": 4.25
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 0,
+              "optical": 3.5
+            },
+            "right": {
+              "geometric": 4.25,
+              "recession": 0,
+              "optical": 4.25
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 0,
+              "optical": 3.5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "phone": {
           "paths": [
             "M6.83 13.17A10.5 10.5 0 0 1 3.75 5.75A2 2 0 0 1 5.75 3.75L6.25 3.75A2 2 0 0 1 8.25 5.75L8.25 5.98A1.25 1.25 0 0 1 7.88 6.87L7.34 7.41A0.75 0.75 0 0 0 7.16 8.19A7.5 7.5 0 0 0 8.95 11.05A7.5 7.5 0 0 0 11.81 12.84A0.75 0.75 0 0 0 12.59 12.66L13.13 12.12A1.25 1.25 0 0 1 14.02 11.75L14.25 11.75A2 2 0 0 1 16.25 13.75L16.25 14.25A2 2 0 0 1 14.25 16.25A10.5 10.5 0 0 1 6.83 13.17Z"
@@ -306762,6 +307170,8 @@
         "percent-circle",
         "percent-circle-filled",
         "percent-filled",
+        "peso",
+        "peso-filled",
         "phone",
         "phone-contactless",
         "phone-contactless-filled",
@@ -372206,6 +372616,140 @@
           },
           "gap": null
         },
+        "peso": {
+          "paths": [
+            "M8 4.75V19.25",
+            "M8 4.75H11A5 4.75 0 0 1 16 9.5V10.5A5 4.75 0 0 1 11 15.25H8",
+            "M5.75 8.25H18.25",
+            "M5.75 11.75H18.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8 4.75V19.25\"/> <path d=\"M8 4.75H11A5 4.75 0 0 1 16 9.5V10.5A5 4.75 0 0 1 11 15.25H8\"/> <path d=\"M5.75 8.25H18.25\"/> <path d=\"M5.75 11.75H18.25\"/>",
+          "mark": true,
+          "tags": [
+            "peso",
+            "php",
+            "philippine peso",
+            "piso",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "through",
+            "cut out"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5,
+            "y": 4,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 5,
+            "top": 4,
+            "right": 5,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 1.24,
+              "optical": 5.93
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0.03,
+              "optical": 5.02
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.59,
+              "optical": 4.44
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.03,
+              "optical": 4.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "peso-filled": {
+          "paths": [
+            "M5.75 7.75H7.5",
+            "M18.25 7.75H15.75",
+            "M5.75 12.25H7.5",
+            "M18.25 12.25H15.75"
+          ],
+          "areas": [
+            "M7.25 4.75A0.75 0.75 0 0 1 8 4H11A5.75 5.5 0 0 1 16.75 9.5V10.5A5.75 5.5 0 0 1 11 16H9.75V18.75A1.25 1.25 0 0 1 7.25 18.75ZM9.5 7H13.75A0.75 0.75 0 0 1 13.75 8.5H9.5A0.75 0.75 0 0 1 9.5 7ZM9.5 11.5H13.75A0.75 0.75 0 0 1 13.75 13H9.5A0.75 0.75 0 0 1 9.5 11.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 4.75A0.75 0.75 0 0 1 8 4H11A5.75 5.5 0 0 1 16.75 9.5V10.5A5.75 5.5 0 0 1 11 16H9.75V18.75A1.25 1.25 0 0 1 7.25 18.75ZM9.5 7H13.75A0.75 0.75 0 0 1 13.75 8.5H9.5A0.75 0.75 0 0 1 9.5 7ZM9.5 11.5H13.75A0.75 0.75 0 0 1 13.75 13H9.5A0.75 0.75 0 0 1 9.5 11.5Z\"/> <path d=\"M5.75 7.75H7.5\"/> <path d=\"M18.25 7.75H15.75\"/> <path d=\"M5.75 12.25H7.5\"/> <path d=\"M18.25 12.25H15.75\"/>",
+          "mark": true,
+          "tags": [
+            "peso",
+            "php",
+            "philippine peso",
+            "piso",
+            "currency",
+            "money",
+            "sign",
+            "two bars",
+            "through",
+            "cut out"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 5,
+            "y": 4,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 5,
+            "top": 4,
+            "right": 5,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "phone": {
           "paths": [
             "M7.85 16.15A14 14 0 0 1 3.75 6.25A2.5 2.5 0 0 1 6.25 3.75L7.25 3.75A2.5 2.5 0 0 1 9.75 6.25L9.75 7.13A1.5 1.5 0 0 1 9.31 8.19L8.16 9.34A0.75 0.75 0 0 0 8 10.14A10.5 10.5 0 0 0 10.33 13.67A10.5 10.5 0 0 0 13.86 16A0.75 0.75 0 0 0 14.66 15.84L15.81 14.69A1.5 1.5 0 0 1 16.87 14.25L17.75 14.25A2.5 2.5 0 0 1 20.25 16.75L20.25 17.75A2.5 2.5 0 0 1 17.75 20.25A14 14 0 0 1 7.85 16.15Z"
@@ -419129,10 +419673,10 @@
       "section": "E · Added on request",
       "category": null,
       "base": null,
-      "note": "added 2026-10-21",
-      "status": "review",
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-21"
     },
     {
       "n": 550,
