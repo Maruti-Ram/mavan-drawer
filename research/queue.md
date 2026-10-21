@@ -1097,7 +1097,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 561. `dong-circle` — added 2026-10-21 · approved 2026-10-21
 - [~] 562. `baht-circle` — added 2026-10-21
 - [~] 563. `real-circle` — added 2026-10-21
-- [~] 564. `riyal-circle` — added 2026-10-21
+- [x] 564. `riyal-circle` — added 2026-10-21 · approved 2026-10-21
 - [~] 565. `lira-circle` — added 2026-10-21
 - [x] 566. `ruble-circle` — added 2026-10-21 · approved 2026-10-21
 - [~] 567. `peso-circle` — added 2026-10-21
