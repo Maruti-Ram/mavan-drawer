@@ -32,7 +32,8 @@
 //
 // Units: a position (x, y) is in units of the family default at 24, SVG signs (x + right,
 // y + down). Each master and size variant moves by x × (its ink width ÷ the default's) and
-// y × (its ink height ÷ the default's). Row ids read <id><x><y> in hundredths with r/l and d/u,
+// y × (its ink height ÷ the default's), snapped to that master's grid (quarter units at 24 and 20,
+// eighths at 16; the row's label says where each landed). Row ids read <id><x><y> in hundredths with r/l and d/u,
 // e.g. C r45 u20 → "Cr45u20"; a centred axis is left out ("C0" is box-centred).
 //
 // Measured recommendation (single-bend marks): the eye reads a bent mark's centre as the centre
@@ -41,19 +42,82 @@
 // picks (classic 0.50 · steep 0.47 · flat 0.70 of their vertical offsets). An axis the file has
 // already been placed on keeps its shipped value as the recommendation. The shipped position,
 // the box centre and every grid position are rows; the eye makes the pick.
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
-import { sizeBase, strokeOf } from './masters.mjs';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { gridOf, sizeBase, strokeOf } from './masters.mjs';
 import { samplePath, bbox } from './geometry.mjs';
 
 const MASTERS = [24, 20, 16];
 const K = 0.5;
 const r2 = (v) => Math.round(v * 100) / 100 || 0;
 const r05 = (v) => Math.round(v * 20) / 20 || 0;
+const r3 = (v) => Math.round(v * 1000) / 1000 || 0;
 const die = (msg) => { console.error(msg); process.exit(1); };
 
-const args = process.argv.slice(2);
+// Move an SVG path by (dx, dy). Absolute commands move every coordinate; relative ones only
+// need their opening `m` moved. Kept to 3 dp (2026-10-21): 2 dp rounded the 16 master's eighths
+// (x.375 → x.38) and bent its construction even at a zero shift.
+export function move(d, dx, dy) {
+  let first = true;
+  return d.replace(/([MLHVCSQTAZmlhvcsqtaz])([^MLHVCSQTAZmlhvcsqtaz]*)/g, (_, c, a) => {
+    const n = a.trim() ? a.trim().split(/[\s,]+|(?=-)/).map(Number) : [];
+    const rel = c === c.toLowerCase() && !(c === 'm' && first);
+    first = false;
+    if (!rel) {
+      const C = c.toUpperCase();
+      if (C === 'H') for (let i = 0; i < n.length; i++) n[i] += dx;
+      else if (C === 'V') for (let i = 0; i < n.length; i++) n[i] += dy;
+      else if (C === 'A') for (let i = 0; i < n.length; i += 7) { n[i + 5] += dx; n[i + 6] += dy; }
+      else for (let i = 0; i < n.length; i += 2) { n[i] += dx; n[i + 1] += dy; }
+    }
+    return c + n.map(r3).join(' ');
+  });
+}
+
+// A shift at one master, snapped to that master's grid (masters.mjs: quarter units at 24 and 20,
+// eighths at 16), so a moved drawing keeps its construction on the grid (2026-10-21). A row's label
+// says where each master's shift landed, since a small asked shift may snap to nothing at one master.
+export const snapShift = (v, m) => { const g = gridOf(m); return Math.round(v / g) * g || 0; };
+
+// The per-icon notes a board candidate carries (tools/draft-svg.mjs reads them): what lint holds a
+// drawing to beyond the set's rules. Until 2026-10-21 the sheet dropped them, so an icon with an agreed
+// gap or box linted differently on the sheet than on its own board. `keyline`, `anchor` and `base` are
+// the sheet's own business: it moves the ink, which an anchored member or a composite's base may not.
+const NOTE_KEYS = ['glyph', 'badge', 'box', 'grows', 'gap'];
+export const draftNotes = (draft, c) => Object.fromEntries(NOTE_KEYS
+  .map((k) => [k, c[k] ?? draft[k] ?? null]).filter(([, v]) => v != null));
+
+// The same notes read off a shipped icon's six files: { [master]: { outline: src, filled: src } }.
+export function fileNotes(files) {
+  const out = {}, put = (k, m, v) => { (out[k] ??= {})[m] = v; };
+  const note = (src, k) => src.match(new RegExp(`<!--\\s*${k}:\\s*([^>]*?)\\s*-->`))?.[1] ?? null;
+  const gap = { outline: {}, filled: {} };
+  for (const [m, { outline = '', filled = '' }] of Object.entries(files)) {
+    out.glyph ??= note(outline, 'glyph') ?? note(filled, 'glyph') ?? undefined;
+    out.badge ??= note(filled, 'badge') ?? undefined;
+    const box = note(outline, 'box')?.match(/^([\d.]+)\s*[x×]\s*([\d.]+)$/);
+    if (box) put('box', m, [+box[1], +box[2]]);
+    const grows = note(filled, 'grows');
+    if (grows) put('grows', m, grows.split(/\s+/).map(Number));
+    for (const [style, src] of [['outline', outline], ['filled', filled]]) { const g = note(src, 'gap'); if (g) gap[style][m] = +g; }
+  }
+  if (Object.keys(gap.outline).length || Object.keys(gap.filled).length)
+    out.gap = Object.fromEntries(Object.entries(gap).filter(([, v]) => Object.keys(v).length));
+  for (const k of Object.keys(out)) if (out[k] == null) delete out[k];
+  return Object.fromEntries(NOTE_KEYS.filter((k) => k in out).map((k) => [k, out[k]]));
+}
+
+if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
+  const { text, rows, shapes } = await sheet(process.argv.slice(2));
+  writeFileSync('lab/drafts/current.js', text);
+  console.log(`${rows} rows · ${shapes} shapes → lab/drafts/current.js · open /lab/optical-shift.html`);
+}
+
+// The sheet as data: `argv` as the command takes it, and optionally a board object in place of
+// `--draft <file>` (the test hands one in). Returns { board, text, rows, shapes }; writes nothing.
+export async function sheet(argv, { board: given = null } = {}) {
+const args = [...argv];
 const opt = (k, d) => { const i = args.indexOf(`--${k}`); return i < 0 ? d : args.splice(i, 2)[1]; };
 if (args.includes('--dir')) die('--dir is retired: the judged axes come from the shape\'s symmetry (C15). Use --axes, --rec x:y, --xs, --ys.');
 const list = (s) => s.split(',').map(Number);
@@ -71,13 +135,14 @@ const hold = Number(opt('hold', 0));
 const shapes = args;
 if (!shapes.length) die('Name at least one shape, e.g. check check-2');
 
-const man = JSON.parse(readFileSync('lab/manifest.json', 'utf8')).masters;
+let man = null;   // read on first use: a sheet of drafted shapes needs no build
+const manifest = () => (man ??= JSON.parse(readFileSync('lab/manifest.json', 'utf8')).masters);
 
 // --draft: shapes that are drawn but not shipped (a family turned or mirrored from a shipped one).
 // Each is measured the way build.mjs measures a file, so the sheet treats it like a shipped icon.
 const draftFile = opt('draft', null);
-const drafted = {}, draftSaid = {};
-if (draftFile) {
+const drafted = {}, draftSaid = {}, draftNoted = {};
+if (draftFile || given) {
   const measure = (paths, areas, stroke, shift, tags) => {
     const boxes = [];
     if (paths.length) { const b = bbox(paths); boxes.push([b.x0 - stroke / 2, b.y0 - stroke / 2, b.x1 + stroke / 2, b.y1 + stroke / 2]); }
@@ -85,13 +150,18 @@ if (draftFile) {
     const [x0, y0, x1, y1] = [0, 1, 2, 3].map((i) => (i < 2 ? Math.min : Math.max)(...boxes.map((b) => b[i])));
     return { paths, areas, stroke, shift, tags, ink: { x: r2(x0), y: r2(y0), w: r2(x1 - x0), h: r2(y1 - y0) } };
   };
-  for (const c of (await import(pathToFileURL(resolve(draftFile)).href)).default.candidates) {
+  const board = given ?? (await import(pathToFileURL(resolve(draftFile)).href)).default;
+  for (const c of board.candidates) {
     const name = c.label.split(' · ')[0];
     draftSaid[name] = [c.label, c.note].filter(Boolean).join(': ');
+    draftNoted[name] = draftNotes(board, c);
     for (const m of MASTERS) {
       const shift = c.optical?.[m] ?? [0, 0], f = c.filled[m];
       (drafted[m] ??= {})[name] = measure(c.masters[m], [], strokeOf(m), shift, c.tags ?? []);
-      drafted[m][`${name}-filled`] = measure(f.stroke ?? [], f.fill ?? [], f.weight ?? strokeOf(m), shift, c.tags ?? []);
+      // a C32 numeral or letter and a C33 line badge keep the outline weight: carried, not measured
+      // into the filled ink (the outline twin holds the same box)
+      drafted[m][`${name}-filled`] = { ...measure(f.stroke ?? [], f.fill ?? [], f.weight ?? strokeOf(m), shift, c.tags ?? []),
+        glyphs: f.glyph ?? [], badges: f.badge ?? [] };
     }
   }
 }
@@ -102,26 +172,11 @@ const markInk = (i) => {
   const b = bbox(i.paths.slice(hold)), h = i.stroke / 2;
   return { x: b.x0 - h, y: b.y0 - h, w: b.x1 - b.x0 + i.stroke, h: b.y1 - b.y0 + i.stroke };
 };
-const at = (m, n) => drafted[m]?.[n] ?? man[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
-
-// Move an SVG path by (dx, dy). Absolute commands move every coordinate; relative ones only
-// need their opening `m` moved.
-function move(d, dx, dy) {
-  let first = true;
-  return d.replace(/([MLHVCSQTAZmlhvcsqtaz])([^MLHVCSQTAZmlhvcsqtaz]*)/g, (_, c, a) => {
-    const n = a.trim() ? a.trim().split(/[\s,]+|(?=-)/).map(Number) : [];
-    const rel = c === c.toLowerCase() && !(c === 'm' && first);
-    first = false;
-    if (!rel) {
-      const C = c.toUpperCase();
-      if (C === 'H') for (let i = 0; i < n.length; i++) n[i] += dx;
-      else if (C === 'V') for (let i = 0; i < n.length; i++) n[i] += dy;
-      else if (C === 'A') for (let i = 0; i < n.length; i += 7) { n[i + 5] += dx; n[i + 6] += dy; }
-      else for (let i = 0; i < n.length; i += 2) { n[i] += dx; n[i + 1] += dy; }
-    }
-    return c + n.map(r2).join(' ');
-  });
-}
+const at = (m, n) => drafted[m]?.[n] ?? manifest()[m]?.icons[n] ?? die(`${n} is not in the ${m} master (run npm run build?)`);
+// The notes the sheet's rows carry: a draft's own, else the shipped files' (2026-10-21).
+const read = (f) => (existsSync(f) ? readFileSync(f, 'utf8') : '');
+const notesOf = (n) => draftNoted[n] ?? fileNotes(Object.fromEntries(MASTERS.map((m) =>
+  [m, { outline: read(`src/icons/${m}/${n}.svg`), filled: read(`src/icons/${m}/${n}-filled.svg`) }])));
 
 // Triangle through a single-bend mark's ends and bend apex; its centre's offset from the ink box
 // centre, measured on the box-centred drawing. null when the mark isn't one open bend.
@@ -203,13 +258,13 @@ shapes.forEach((name, k) => {
   for (const pos of positions) {
     const c = { id: `${id}${code(pos[0], 'r', 'l')}${code(pos[1], 'd', 'u')}` || id, label: own, tags: base.tags ?? [],
       group: `${name} · ${tag}`, axes: axesSaid, pos, name: names.get(pos.join()), shipped: same(pos, ship), recommended: same(pos, want),
-      optical: {}, masters: {}, filled: {} };
+      ...notesOf(name), optical: {}, masters: {}, filled: {} };
     if (c.id === id) c.id = `${id}0`;
     const by = [];
     for (const m of MASTERS) {
       const o = at(m, name), f = at(m, `${name}-filled`);
       const oInk = markInk(o);
-      const [dx, dy] = [r2(pos[0] * oInk.w / rInk.w), r2(pos[1] * oInk.h / rInk.h)];
+      const [dx, dy] = [snapShift(pos[0] * oInk.w / rInk.w, m), snapShift(pos[1] * oInk.h / rInk.h, m)];
       by.push(arrow([dx, dy]));
       c.optical[m] = [dx, dy];
       c.masters[m] = o.paths.map((d, j) => (j < hold ? d : move(d, dx - o.shift[0], dy - o.shift[1])));
@@ -219,24 +274,38 @@ shapes.forEach((name, k) => {
       c.filled[m] = f.areas.length
         ? { fill: f.areas.map(backArea), stroke: f.paths.map(back) }
         : { weight: f.stroke, stroke: f.paths.map(back) };
+      if (f.glyphs?.length) c.filled[m].glyph = f.glyphs.map(back);   // C32: a draft's numeral or letter
+      if (f.badges?.length) c.filled[m].badge = f.badges.map(back);   // C33: a draft's line badge
     }
-    if (!c.optical[24][0] && !c.optical[24][1]) delete c.optical;   // centred: no optical comment
-    c.at = arrow(pos);
+    // the asked position, and where it snapped at each master when that is not just the asked one scaled
+    const exact = MASTERS.map((m) => { const o = markInk(at(m, name)); return [pos[0] * o.w / rInk.w, pos[1] * o.h / rInk.h]; });
+    const snapped = MASTERS.some((m, k) => c.optical[m].some((v, a) => Math.abs(v - exact[k][a]) > 1e-9));
+    c.at = snapped ? `${arrow(pos)} · snapped ${by.join(' / ')} at 24 / 20 / 16` : arrow(pos);
+    // centred at every master: no optical comment (24 alone used to decide, so a row that snapped to
+    // the centre at 24 but moved at 16 lost the comment its 16 drawing needs)
+    if (MASTERS.every((m) => !c.optical[m][0] && !c.optical[m][1])) delete c.optical;
     c.by = by;
     c.note = [detail, pos[0] || pos[1] ? `optical ${by.join(' / ')} at 24 / 20 / 16 (C14, C15)` : ''].filter(Boolean).join(' · ');
     candidates.push(c);
   }
 });
 
+// A mark keyline on the board would clash with a row's agreed box (lint: pick one), so where any row
+// carries a box, the mark keyline goes on each row without one instead.
+const boxed = candidates.some((c) => c.box);
+if (boxed && !hold) for (const c of candidates) if (!c.box) c.keyline = 'mark';
 const family = (n) => sizeBase(n).replace(/-\d+$/, '');
 const concept = family(shapes[0]);
 const concepts = [...new Set(shapes.map(family))];
-writeFileSync('lab/drafts/current.js',
-  `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each row is an (x, y)\n` +
+const board = {
+  concept, ...(concepts.length > 1 ? { concepts } : {}), ...(draftFile || given ? { drafted: true } : {}),
+  ...(hold || boxed ? {} : { keyline: 'mark' }),   // a held container is the silhouette, not a mark
+  ...(context ? { context } : {}),
+  question: 'Optical placement (C15): which position reads balanced in the canvas — top, bottom, left and right — for each shape? Open /lab/optical-shift.html.',
+  candidates,
+};
+const text = `// ${concept} — optical placement sheet, written by tools/optical-sheet.mjs. Each row is an (x, y)\n` +
   `// position in family-default units at 24; judge the balance in the canvas against all four edges.\n` +
-  `export default ${JSON.stringify({
-    concept, ...(concepts.length > 1 ? { concepts } : {}), ...(draftFile ? { drafted: true } : {}), ...(hold ? {} : { keyline: 'mark' }),   // a held container is the silhouette, not a mark ...(context ? { context } : {}),
-    question: 'Optical placement (C15): which position reads balanced in the canvas — top, bottom, left and right — for each shape? Open /lab/optical-shift.html.',
-    candidates,
-  }, null, 2)};\n`);
-console.log(`${candidates.length} rows · ${shapes.length} shapes → lab/drafts/current.js · open /lab/optical-shift.html`);
+  `export default ${JSON.stringify(board, null, 2)};\n`;
+return { board, text, rows: candidates.length, shapes: shapes.length };
+}

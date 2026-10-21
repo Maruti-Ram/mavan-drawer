@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, facingGap, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, armTipGap, barGap, facingGap, hiddenFills, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -1939,4 +1939,276 @@ test('a Z-bolt\'s waist is the diagonal between its two inner rounds, and facing
   const [narrow] = facingGap([ZAP_NARROW16], 1.25).self;
   near(narrow.gap, Math.hypot(1.75, 3.25) - 2.5, 0.01);
   assert.deepEqual(airLines(lintSource(16, 'zap.svg', ONE(ROOT16, [ZAP_NARROW16]))), [`path 1 faces itself across ${narrow.gap} of air at ${narrow.at.join(',')} — §6 needs 1.5`]);
+});
+
+// --- lint fixes from the commerce and currency rounds (plans/lint-currency-fixes.md) --------------
+// Card 1. The knockout check (§5c) asked 1.5 of disc between two parts of one cut-out at every
+// master. Maruti's 2026-10-21 ruling floors the material between cut-outs at the master's line
+// weight (1.5 · 1.5 · 1.25), lowered by a file's `gap:` note and at C19's 1 under `glyph: dot` —
+// holeGap's floor. ruble-circle-filled at 16 leaves 1.25 between its bowl and its bar slot.
+const knockWarn = (r) => r.warnings.filter((w) => /the knockout leaves/.test(w));
+const UPLATE = (tongue) => `M1 1H15V15H1ZM4 4H5V9H${5 + tongue}V4H${6 + tongue}V10H4Z`;   // legs 1 wide, `tongue` apart
+
+test('§5c: a knockout\'s material floors at the line weight — 1.25 at 16, 1.5 at 24 and 20 — as holeGap does', () => {
+  const F = (m, areas, notes = []) => lintSource(m, 'mark-filled.svg', drawn(m, strokeOf(m), [], { areas, notes: ['keyline: mark', ...notes] }));
+  assert.equal(materialGap(UPLATE(1.25)).gap, 1.25);
+  assert.deepEqual(knockWarn(F(16, [UPLATE(1.25)])), [], 'ruble-circle-filled at 16: 1.25 is the 16 line weight');
+  assert.ok(F(16, [UPLATE(1.25)]).notes.some((n) => /^knockout leaves 1\.25 at /.test(n)));
+  assert.match(knockWarn(F(16, [UPLATE(1.125)]))[0] ?? '', /^the knockout leaves 1\.13 of material between two parts of itself at [\d.,]+ — the 16 line weight needs 1\.25: /);
+  for (const m of [24, 20]) assert.match(knockWarn(F(m, [UPLATE(1.25)]))[0] ?? '', /^the knockout leaves 1\.25 of material between two parts of itself at [\d.,]+ — §6 needs 1\.5: /);
+  assert.deepEqual(knockWarn(F(24, [UPLATE(1.5)])), []);
+  // C19's 1 under `glyph: dot`, as before
+  assert.deepEqual(knockWarn(F(24, [UPLATE(1)], ['glyph: dot'])), []);
+  // an agreed gap lowers it (never raises it) and is in use for it
+  const agreed = F(16, [UPLATE(1)], ['gap: 1']);
+  assert.deepEqual(knockWarn(agreed), []);
+  assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
+  assert.ok(agreed.notes.some((n) => /^agreed gap 1 — smallest measured 1$/.test(n)), agreed.notes.join(' | '));
+  assert.match(knockWarn(F(16, [UPLATE(0.75)], ['gap: 1']))[0] ?? '', /— agreed gap 1 needs 1: /);
+  assert.deepEqual(knockWarn(F(16, [UPLATE(1.25)], ['gap: 1.4'])), [], 'a note never raises the floor');
+});
+
+// Card 4. The £ "swept stem" (lab draft pound B, since cleared): a straight stem crossed square by a
+// bar, the stem curving left 2 below the bar. Its lower arm ended where it turned, down-left of the
+// crossing, so tip to tip it read 65.7° from the bar's left arm and was judged, 0.98 of "tip air" at a
+// reach of 1.75 — the air of a right angle, which is never judged. The angle is now read within the
+// reach, from the shorter arm's tip to the point at equal reach on the longer arm: where the arms are.
+const POUND_SWEPT = ['M12 4V10C12 13 10 15 7 16', 'M10.25 8H15'];
+
+test('armTipGap: a stem that curves after a square crossing is not an acute arm (the £ swept stem)', () => {
+  assert.deepEqual(tipsOf(POUND_SWEPT, 1.5).cross, []);
+  assert.deepEqual(armWarn(lintSource(24, 'pound.svg', drawn(24, 1.5, POUND_SWEPT))), []);
+  // the same with the curve drawn as an arc
+  assert.deepEqual(tipsOf(['M12 4V10A5 5 0 0 1 7 15', 'M10.25 8H15'], 1.5).cross, []);
+  // a bar that really crosses at 59° is still judged, and warns: 0.8 of air at a reach of 2.33
+  const [acute] = tipsOf(['M12 4V16', 'M10 6.5L15 9.5'], 1.5).cross;
+  near(acute.angle, 59, 0.1);
+  near(acute.gap, 0.798, 0.005);
+  assert.equal(armWarn(lintSource(24, 'mark.svg', drawn(24, 1.5, ['M12 4V16', 'M10 6.5L15 9.5']))).length, 1);
+  // a stem that leaves the bar square and curls back under its arm is read by the air its tip faces,
+  // 3.1 below the bar less the stroke: 1.6, not the square corner's 0.78 at equal reach — no warning
+  const [curl] = tipsOf(['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15'], 1.5).cross;
+  near(curl.gap, 1.598, 0.005);
+  assert.deepEqual(armWarn(lintSource(24, 'mark.svg', drawn(24, 1.5, ['M12 4V8.5A3 3 0 0 1 9 11.5', 'M10.25 8H15']))), []);
+});
+
+// The shipped £ (swan neck): the stem stands upright exactly where the bar crosses it, at the joint
+// of two Béziers, and curves down-left at once below it. Once card 3 read crossings at a joint, tip
+// to tip it read 81–86° and seven drawings warned at the square corner's equal-reach air; the stem
+// sweeps away from the bar's tip, so no air closes there.
+const POUND = {
+  24: ['M17 6.7A4.25 4.5 0 0 0 9.25 9.25C9.25 10.88 10.25 10.88 10.25 12.5C10.25 16.21 7.77 18.61 7 19.25', 'M8 12.5H15.25', 'M7 19.25H17'],
+  '24f': ['M16.5 6.85A3.75 4 0 0 0 9.75 9.25C9.75 10.88 10.75 10.88 10.75 12.5C10.75 15.94 8.27 18.11 7.5 18.75', 'M8.5 12.5H14.75', 'M7.5 18.75H16.5'],
+  20: ['M14 5.78A3.6 3.75 0 0 0 7.5 8C7.5 9.25 8.25 9.25 8.25 10.5C8.25 13.39 6.61 15.24 6 15.75', 'M6.5 10.5H12.25', 'M6 15.75H14'],
+  '20f': ['M13.75 5.86A3.35 3.5 0 0 0 7.75 8C7.75 9.25 8.5 9.25 8.5 10.5C8.5 13.25 6.86 14.99 6.25 15.5', 'M6.75 10.5H12', 'M6.25 15.5H13.75'],
+  '16f': ['M11.5 4.488A3.375 3.125 0 0 0 5.25 6.125C5.25 7.25 6 7.25 6 8.375C6 10.919 5.036 12.55 4.5 13', 'M4.625 8.375H9', 'M4.5 13H11.5'],
+  '24c': [RING(12, 12, 9.25), 'M15 8.17A2.75 2.75 0 0 0 10 9.75C10 10.75 10.75 10.75 10.75 11.75C10.75 14.09 9.23 15.6 8.75 16', 'M9.25 11.75H13.75', 'M8.75 16H15'],
+  '20c': [RING(10, 10, 7.25), 'M12.25 7.18A2 2 0 0 0 8.75 8.5C8.75 9.25 9 9.25 9 10C9 11.65 8.32 12.52 7.75 13', 'M8 10H11', 'M7.75 13H12.25'],
+};
+
+// dollar-sign-2-filled: the S's terminal curls back beside the bar, so the air closes along the bar —
+// 0.94 · 1.09 · 1.47 at equal reach, the readings its agreed gap notes were written for
+const DOLLAR2F = {
+  24: ['M14.91 7.91A3.31 2.45 0 0 0 11.91 6.5A3.31 2.45 0 0 0 8.6 8.95A3.31 2.45 0 0 0 10.31 11.1L13.54 12.41A3.49 2.7 0 0 1 15.4 14.8A3.49 2.7 0 0 1 11.91 17.5A3.49 2.7 0 0 1 8.75 15.94', 'M12 4.25V19.75'],
+  20: ['M12.57 6.82A2.92 1.85 0 0 0 9.92 5.75A2.92 1.85 0 0 0 7 7.6A2.92 1.85 0 0 0 8.34 9.16L11.53 10.45A3.08 2.05 0 0 1 13 12.2A3.08 2.05 0 0 1 9.92 14.25A3.08 2.05 0 0 1 7.13 13.07', 'M10 4V16'],
+  16: ['M10.787 5.212A3.167 1.45 0 0 0 7.917 4.375A3.167 1.45 0 0 0 4.75 5.825A3.167 1.45 0 0 0 5.665 6.844L10.269 8.977A3.333 1.55 0 0 1 11.25 10.075A3.333 1.55 0 0 1 7.917 11.625A3.333 1.55 0 0 1 4.896 10.73', 'M8 3V13'],
+};
+
+test('armTipGap: the $\'s S curls back beside its bar — 0.94 · 1.09 · 1.47, and its agreed gap notes hold', () => {
+  for (const [m, ds] of Object.entries(DOLLAR2F)) {
+    const [t] = tipsOf(ds, FILLED_WEIGHT[m]).cross;
+    near(t.gap, { 24: 0.935, 20: 1.09, 16: 1.474 }[m], 0.005);
+    const note = { 24: 0.94, 20: 1.09, 16: 1.47 }[m];
+    const r = lintSource(+m, 'dollar-sign-2-filled.svg', drawn(+m, FILLED_WEIGHT[m], ds, { notes: ['keyline: mark', `gap: ${note}`] }));
+    assert.deepEqual(r.errors, [], r.errors.join(' | '));
+    assert.deepEqual(armWarn(r), [], r.warnings.join(' | '));
+    assert.ok(r.notes.some((n) => n.startsWith(`agreed gap ${note} — smallest measured`)), r.notes.join(' | '));
+  }
+});
+
+test('armTipGap: the shipped £ is square where its bar crosses the stem — no warning at any master or style', () => {
+  for (const [k, ds] of Object.entries(POUND)) {
+    const m = parseInt(k, 10), w = k.endsWith('f') ? FILLED_WEIGHT[m] : strokeOf(m);
+    // read, where a tip faces the other arm at all, by the air it faces — never the corner's
+    assert.ok(tipsOf(ds, w).cross.every((t) => t.gap >= 1.5), `${k}: ${JSON.stringify(tipsOf(ds, w).cross)}`);
+    assert.deepEqual(armWarn(lintSource(m, 'pound.svg', drawn(m, w, ds))), [], k);
+  }
+});
+
+// Card 3. ¥: the top bar passes through the fork's point, where the two arms meet and the stem
+// starts. No centreline crosses another anywhere but AT a vertex, which the crossing test (strictly
+// inside both segments) never saw, so the wedge between each arm and the bar went unread — 0.42 ·
+// 0.38 · 0.06 of tip air in the filled twin (measured by hand at approval). A line passing through
+// another line's corner is now a crossing; it is judged, as any crossing, only where the arms go
+// all the way round (here the stem fills the side under the bar).
+const YEN = {
+  24: { o: ['M6.5 4.75L12 12L17.5 4.75', 'M12 12V19.25', 'M8.25 12H15.75', 'M8.25 16H15.75'],
+    f: ['M7 5.25L12 12L17 5.25', 'M12 12V18.75', 'M8.75 12H15.25', 'M8.75 16H15.25'], air: [1.84, 0.42] },
+  20: { o: ['M5.75 4.25L10 9.5L14.25 4.25', 'M10 9.5V15.75', 'M7 9.5H13', 'M7 13H13'],
+    f: ['M6 4.5L10 9.5L14 4.5', 'M10 9.5V15.5', 'M7.25 9.5H12.75', 'M7.25 13H12.75'], air: [1.08, 0.38] },
+  16: { o: ['M4.125 2.625L8 7.375L11.875 2.625', 'M8 7.375V13.375', 'M5.25 7.375H10.75', 'M5.25 10.875H10.75'],
+    f: ['M4.5 3L8 7.375L11.5 3', 'M8 7.375V13', 'M5.625 7.375H10.375', 'M5.625 10.875H10.375'], air: [1.11, 0.06] },
+};
+
+test('armTipGap: a bar through a fork\'s point is a crossing — ¥ reads its drawn tip air, outline and filled', () => {
+  for (const [m, { o, f, air }] of Object.entries(YEN)) {
+    const [wo, wf] = [strokeOf(+m), FILLED_WEIGHT[m]];
+    for (const [ds, w, want] of [[o, wo, air[0]], [f, wf, air[1]]]) {
+      const bar = tipsOf(ds, w).cross.filter((t) => t.paths.join() === '0,2');
+      assert.equal(bar.length, 1, `${m} at ${w}: the bar and the arms are read, ${JSON.stringify(tipsOf(ds, w).cross)}`);
+      near(bar[0].gap, want, 0.01);
+    }
+    const warned = armWarn(lintSource(+m, 'yen-filled.svg', drawn(+m, wf, f)));
+    assert.equal(warned.length, 1, warned.join(' | '));
+    assert.match(warned[0], /^paths 1\/3 cross at \d+° with [\d.]+ of air at the arm tips at [\d.,]+ — §6 needs 1\.5$/);
+  }
+  assert.deepEqual(armWarn(lintSource(24, 'yen.svg', drawn(24, 1.5, YEN[24].o))), [], 'the outline at 24 holds 1.84');
+  // a V standing on a line with nothing under it is not judged: its arms do not go all the way round
+  assert.deepEqual(tipsOf(['M6.5 4.75L12 12L17.5 4.75', 'M8.25 12H15.75'], 1.5).cross, []);
+  // nor is a corner that only touches a line at an open end (a T-join, an arrowhead's shaft)
+  assert.deepEqual(tipsOf(['M6.5 4.75L12 12L17.5 4.75', 'M12 12V19.25'], 1.5).cross, []);
+});
+
+// Card 2. A straight bar that crosses a curved stroke: §5 reads two crossing paths as joined and
+// measures nothing between them, so the white the bar leaves to the rest of the curve went unread —
+// ₱'s bars to its bowl's top and bottom runs, 2 · 1.25 · 1.375 (measured by hand at approval), ₺'s
+// lower bar's end to its bowl. `barGap` walks the curve away from each crossing, on each side, and
+// reads the closest the curve comes back to the bar (a run parallel to it, a bulge toward it, an
+// open end), each path at its own weight; the wedge at the crossing itself is armTipGap's.
+const PESO = {
+  24: { w: 1.5, ds: ['M8 4.75V19.25', 'M8 4.75H11A5 4.75 0 0 1 16 9.5V10.5A5 4.75 0 0 1 11 15.25H8', 'M5.75 8.25H18.25', 'M5.75 11.75H18.25'], air: 2 },
+  20: { w: 1.5, ds: ['M6.75 4.25V15.75', 'M6.75 4.25H9.25A4 4 0 0 1 13.25 8.25V8.75A4 4 0 0 1 9.25 12.75H6.75', 'M5 7H15', 'M5 10H15'], air: 1.25 },
+  16: { w: 1.25, ds: ['M5 2.625V13.375', 'M5 2.625H7.25A3.75 3.75 0 0 1 11 6.375V6.875A3.75 3.75 0 0 1 7.25 10.625H5', 'M3.625 5.25H12.375', 'M3.625 8H12.375'], air: 1.375 },
+};
+const barLines = (r) => r.warnings.filter((w) => /bar crosses/.test(w));
+
+test('barGap: ₱\'s bars to its bowl read 2 · 1.25 · 1.375, and lint warns at 20 and 16', () => {
+  for (const [m, { w, ds, air }] of Object.entries(PESO)) {
+    const got = barGap(ds, w);
+    assert.deepEqual(got.map((g) => g.paths.join()), ['2,1', '3,1'], `${m}: ${JSON.stringify(got)}`);
+    for (const g of got) near(g.gap, air, 0.005);
+    const warned = barLines(lintSource(+m, 'peso.svg', drawn(+m, w, ds)));
+    if (air >= 1.5) assert.deepEqual(warned, [], `${m}`);
+    else {
+      assert.equal(warned.length, 2, warned.join(' | '));
+      assert.match(warned[0], new RegExp(`^path 3's bar crosses path 2 and comes within ${air} of it at [\\d.,]+ — §6 needs 1\\.5$`));
+    }
+  }
+  // a gap note governs it and is in use for it
+  const agreed = lintSource(20, 'peso.svg', drawn(20, 1.5, PESO[20].ds, { notes: ['keyline: mark', 'gap: 1.25'] }));
+  assert.deepEqual(barLines(agreed), []);
+  assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
+  assert.ok(agreed.notes.some((n) => /^agreed gap 1\.25 — smallest measured 1\.25$/.test(n)), agreed.notes.join(' | '));
+});
+
+test('barGap: ₺\'s lower bar to its bowl, ₹\'s bars to its bowl; a ring crossed by a bar, # and + read nothing', () => {
+  // ₺ at 24: the lower bar's right cap to the bowl, 2.65 (as drawn)
+  const LIRA24 = ['M7.5 4.75V19.25A9 6.75 0 0 0 16.5 12.5', 'M3.5 10.5L12.5 6.9M3.5 15L12.5 11.4'];
+  near(Math.min(...barGap(LIRA24, 1.5).map((g) => g.gap)), 2.65, 0.01);
+  // ₹ at 24, outline 2.5 and filled 1.5: the second bar to the bowl's foot run
+  const RUPEE24 = ['M8.5 4.75H17.5M8.5 8.75H17.5', 'M10.75 4.75A4.5 4 0 0 1 15.25 8.75A4.5 4 0 0 1 10.75 12.75H9.25A0.75 0.75 0 0 0 8.5 13.5A0.75 0.75 0 0 0 8.72 14.03L13.94 19.25'];
+  near(Math.min(...barGap(RUPEE24, 1.5).map((g) => g.gap)), 2.5, 0.01);
+  const RUPEE24F = ['M9 5.25H17M9 9.25H17', 'M10.75 5.25A4 4 0 0 1 14.75 9.25A4 4 0 0 1 10.75 13.25H10.25A1.25 1.25 0 0 0 9 14.5A1.25 1.25 0 0 0 9.37 15.38L12.73 18.75'];
+  near(Math.min(...barGap(RUPEE24F, 2.5).map((g) => g.gap)), 1.5, 0.01);
+  // a bar across a ring (ban): the ring runs away from it and comes back to cross it again — no air to read
+  assert.deepEqual(barGap([RING(12, 12, 9.25), 'M5.46 5.46L18.54 18.54'], 1.5), []);
+  assert.deepEqual(barGap([RING(12, 12, 9.25), 'M2.75 12H21.25'], 1.5), []);
+  // straight lines crossing straight lines: nothing comes back
+  assert.deepEqual(barGap(['M9 5.25L9 18.75', 'M15 5.25L15 18.75', 'M5.25 9H18.75', 'M5.25 15H18.75'], 1.5), []);
+  assert.deepEqual(barGap(['M12 5.25v13.5', 'M5.25 12h13.5'], 1.5), []);
+  // a hook that crosses a bar and curls back to within 0.5 of it warns; curled into the bar's ink it is a join
+  const HOOK = ['M6 10H18', 'M9 7V12A2 2 0 0 0 11 14H14A1 1 0 0 0 14 12'];
+  assert.deepEqual(barGap(HOOK, 1.5), [{ paths: [0, 1], gap: 0.5, at: [14, 11] }]);
+  // (what is left is its foot run, 4 below the bar: 2.5 of air)
+  assert.deepEqual(barGap(['M6 10H18', 'M9 7V12A2 2 0 0 0 11 14H14A1.5 1.5 0 0 0 14 11'], 1.5).map((g) => g.gap), [2.5]);
+  assert.equal(barLines(lintSource(24, 'mark.svg', drawn(24, 1.5, HOOK))).length, 1);
+});
+
+// Card 6. Coins round 1 drew a $ as its own fill path ON TOP of the disc instead of cutting it out:
+// every point the $ paints the disc already paints, so the filled coin showed a plain disc, and lint
+// passed it. A fill path whose removal changes nothing is now an ERROR; an island inside a hole (a
+// dot in a ring, a $ left standing in a cut-out) paints something and is fine.
+const DISC24 = 'M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z';
+const SBAR = 'M11.25 5H12.75V19H11.25Z';   // a bar standing in for the $'s mark
+
+test('hiddenFills: a fill drawn wholly on another is found; an island in a hole, a neighbour and an overlap are not', () => {
+  assert.deepEqual(hiddenFills([DISC24, SBAR]), [{ area: 1, under: [0] }]);
+  assert.deepEqual(hiddenFills([SBAR, DISC24]), [{ area: 0, under: [1] }], 'whichever comes first');
+  // the same mark cut out of the disc, with an island left standing in the cut: both paint
+  assert.deepEqual(hiddenFills([`${DISC24}M10.5 4.5H13.5V19.5H10.5Z`, SBAR]), []);
+  // two shapes side by side, and two that overlap only in part
+  assert.deepEqual(hiddenFills(['M2 2H10V10H2Z', 'M12 2H20V10H12Z']), []);
+  assert.deepEqual(hiddenFills(['M2 2H10V10H2Z', 'M8 2H16V10H8Z']), []);
+  // a mark covered by two shapes together is still hidden; one drawn twice hides its copy
+  assert.deepEqual(hiddenFills(['M2 2H12V20H2Z', 'M12 2H22V20H12Z', 'M10 5H14V15H10Z']), [{ area: 2, under: [0, 1] }]);
+  assert.deepEqual(hiddenFills([DISC24, DISC24]), [{ area: 0, under: [1] }, { area: 1, under: [0] }]);
+  assert.deepEqual(hiddenFills([DISC24]), []);
+});
+
+test('lint: a fill path that paints nothing is an error; the cut-out drawing passes', () => {
+  const F = (areas) => lintSource(24, 'dollar-circle-filled.svg', drawn(24, 1.5, [], { areas, notes: [] }));
+  const onTop = F([DISC24, SBAR]);
+  assert.deepEqual(onTop.errors.filter((e) => /paints nothing/.test(e)),
+    ['fill path 2 paints nothing: every point it fills, fill path 1 already fills — a mark on a shape is cut out of it (evenodd), never drawn on top']);
+  assert.deepEqual(F([`${DISC24}${SBAR}`]).errors.filter((e) => /paints nothing/.test(e)), []);
+});
+
+// Card 5. tools/optical-sheet.mjs moved every path by rounding to 2 dp, which bent the 16 master's
+// eighth-grid coordinates (x.375 → x.38) even at a zero shift, and its `--draft` board dropped the
+// per-icon notes (gap, box, glyph…), so a drafted icon linted differently on the sheet than on its
+// own board. It now keeps 3 dp, snaps each shift to its master's grid (quarter units at 24 and 20,
+// eighths at 16) and says the snapped value in the row's label, and carries the notes.
+test('optical-sheet: a move keeps 16\'s eighths, a shift keeps its master\'s precision, the notes travel', async () => {
+  const { move, snapShift, draftNotes, fileNotes } = await import('./optical-sheet.mjs');
+  assert.equal(move('M4.125 2.625L8 7.375L11.875 2.625', 0, 0), 'M4.125 2.625L8 7.375L11.875 2.625');
+  assert.equal(move('M5 2.625V13.375H8.625A1.875 1.875 0 0 1 10.5 15.25', 0.125, -0.25), 'M5.125 2.375V13.125H8.75A1.875 1.875 0 0 1 10.625 15');
+  assert.equal(move('M3.75 12h16.5', 0.47, 0), 'M4.22 12h16.5', 'a relative command keeps its own numbers');
+  // a shift lands on its master's grid: quarter units at 24 and 20, eighths at 16
+  assert.equal(snapShift(0.46666, 24), 0.5);
+  assert.equal(snapShift(0.1, 20), 0);
+  assert.equal(snapShift(-0.2, 24), -0.25);
+  assert.equal(snapShift(0.075, 16), 0.125);
+  assert.equal(snapShift(0.3, 16), 0.25);
+  // a draft candidate's own notes win over the board's; nothing it does not say is invented
+  const board = { keyline: 'mark', glyph: 'dot', gap: { 16: 1.25 } };
+  assert.deepEqual(draftNotes(board, { box: { 24: [20, 18] }, grows: { 24: [0, 0, 0.25, 0.25] } }),
+    { glyph: 'dot', box: { 24: [20, 18] }, grows: { 24: [0, 0, 0.25, 0.25] }, gap: { 16: 1.25 } });
+  assert.deepEqual(draftNotes({}, { gap: { filled: { 24: 1 } }, badge: 'line' }), { badge: 'line', gap: { filled: { 24: 1 } } });
+  assert.deepEqual(draftNotes({}, {}), {});
+  // a shipped icon's notes, read from its six files
+  const file = (notes) => `<svg>\n${notes.map((n) => `  <!-- ${n} -->`).join('\n')}\n</svg>\n`;
+  assert.deepEqual(fileNotes({
+    24: { outline: file(['keyline: mark', 'glyph: numeral']), filled: file(['keyline: mark', 'glyph: numeral', 'gap: 1']) },
+    20: { outline: file(['box: 14x12', 'gap: 1.25']), filled: file(['box: 14x12', 'grows: 0 0 0.25 0.25', 'gap: 1.25', 'badge: line']) },
+    16: { outline: file([]), filled: file([]) },
+  }), { glyph: 'numeral', badge: 'line', box: { 20: [14, 12] }, grows: { 20: [0, 0, 0.25, 0.25] }, gap: { outline: { 20: 1.25 }, filled: { 24: 1, 20: 1.25 } } });
+  assert.deepEqual(fileNotes({ 24: { outline: file(['keyline: mark']), filled: file([]) } }), {});
+});
+
+test('optical-sheet: every row carries its icon\'s gap, box and glyph notes, and says where its shift snapped', async () => {
+  const { sheet } = await import('./optical-sheet.mjs');
+  const Y = YEN;
+  const board = { candidates: [{ id: 'A', label: 'yen-x · test', tags: ['test'], glyph: 'dot', gap: { filled: { 16: 1 } },
+    box: { 24: [12.5, 16], 20: [10, 13], 16: [9, 12] },
+    masters: { 24: Y[24].o, 20: Y[20].o, 16: Y[16].o },
+    filled: { 24: { weight: 2.5, stroke: Y[24].f }, 20: { weight: 2, stroke: Y[20].f }, 16: { weight: 2, stroke: Y[16].f } } }] };
+  const { board: out, text } = await sheet(['yen-x', '--axes', 'y'], { board });
+  assert.equal(out.candidates.length, 5);
+  for (const c of out.candidates) {
+    assert.deepEqual(c.gap, { filled: { 16: 1 } });
+    assert.equal(c.glyph, 'dot');
+    assert.deepEqual(c.box, { 24: [12.5, 16], 20: [10, 13], 16: [9, 12] });
+    assert.equal(c.keyline, undefined, 'a row with an agreed box takes no mark keyline');
+  }
+  assert.equal(out.keyline, undefined, 'nor does the board, where a row has a box');
+  assert.match(text, /^\/\/ yen-x — optical placement sheet/);
+  // ↓ 0.1 at 24 is 0.1 · 0.08 · 0.075 by ink height: on the grid 0 · 0 · 0.125, and the label says so
+  const down = out.candidates.find((c) => c.pos[1] === 0.1);
+  assert.deepEqual(down.optical, { 24: [0, 0], 20: [0, 0], 16: [0, 0.125] });
+  assert.equal(down.at, '↓ 0.1 · snapped centred / centred / ↓ 0.125 at 24 / 20 / 16');
+  const two = out.candidates.find((c) => c.pos[1] === 0.2);
+  assert.deepEqual(two.optical, { 24: [0, 0.25], 20: [0, 0.25], 16: [0, 0.125] });
+  // every coordinate stays on 2 dp at 24 and 20, 3 at 16
+  for (const c of out.candidates) for (const m of [24, 20, 16]) for (const d of c.masters[m])
+    for (const n of d.match(/-?[\d.]+/g)) assert.ok((n.split('.')[1]?.length ?? 0) <= (m === 16 ? 3 : 2), `${m}: ${n}`);
 });

@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, insideAir, encloses, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, hiddenFills, insideAir, encloses, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -103,7 +103,8 @@ export function parseGrowsNote(src) {
 // proximity checks below (path-vs-path in §5 and the tips of arms that cross there,
 // path-vs-itself in §5b, facing walls in §5f, the tips of arms traced as one filled shape in
 // §5h, the inside air of one closed shape in §5i) and for that file alone; C19's glyph pairs and a character's own arms keep GLYPH_GAP,
-// a C33 badge keeps MIN_GAP, and the knockout check keeps MIN_GAP.
+// and a C33 badge keeps MIN_GAP. The material a knockout leaves (§5c) and the material between two
+// cut-outs (§5f) floor at the line weight, which the note lowers but never raises (2026-10-21).
 // Agreed by eye at approval (attachment-4-filled, 2026-09-20: the filled clip keeps all
 // four legs, so the path passes within 1.04 of itself at 24 and 1.0 at 20).
 // Same spirit as `box:` and `grows:` — a declared deviation is held to its own number
@@ -374,6 +375,18 @@ export function lintSource(canvas, file, src) {
   const ds = [...stripped.matchAll(/<path[^>]*\bd="([^"]+)"/g)].map((m) => m[1]);
   if (!ds.length && !areas.length) errors.push('no <path> found');
 
+  // --- 2a. a fill path that paints nothing (2026-10-21; plans/lint-currency-fixes.md card 6) ---
+  // Coins round 1 drew a $ as its own fill path on top of the disc instead of cutting it out: every
+  // point it painted the disc already painted, so the filled coin showed a plain disc, and lint
+  // passed it. A fill path whose removal changes nothing is an ERROR; an island standing in another
+  // area's hole paints, and is fine (`hiddenFills`).
+  if (areas.length > 1) for (const { area, under } of hiddenFills(areas)) {
+    const by = under.map((k) => k + 1);
+    errors.push(by.length
+      ? `fill path ${area + 1} paints nothing: every point it fills, fill path${by.length > 1 ? 's' : ''} ${by.join(' and ')} already fill${by.length > 1 ? '' : 's'} — a mark on a shape is cut out of it (evenodd), never drawn on top`
+      : `fill path ${area + 1} paints nothing: it encloses no area — delete it`);
+  }
+
   // --- 2b. a path's own weight (C32) -----------------------------------------
   // Every stroke attribute belongs on the root, bar one: in a file that declares
   // `<!-- glyph: numeral -->`, a numeral's path may carry `stroke-width` at this master's
@@ -558,7 +571,7 @@ export function lintSource(canvas, file, src) {
   // own paths keep MIN_GAP too. A badge that touches or crosses its base has no air at all, so
   // it warns instead of passing as a join. The tightest badge-to-base air is printed (5g).
   // ARMS THAT CROSS (2026-10-20, docs/01 §6): two paths that cross join by design, but where
-  // two neighbouring arms meet at under 86 degrees, tip to tip, the wedge between them fills
+  // two neighbouring arms meet at under 86 degrees, tip to tip, and the air between them really closes (a tip faces its neighbour along it, not only at the crossing: the £'s square corner whose stem sweeps away is not judged), the wedge between them fills
   // in at 16 when the arms are short (password-3 shipped 0.62 of air at 16). `armTipGap`
   // measures the tip air at equal reach: the shorter arm's cap centre, r from the crossing,
   // to the point r along its neighbour, less half of each weight. A character's own arms floor
@@ -588,10 +601,11 @@ export function lintSource(canvas, file, src) {
       warnings.push(`${i === j ? `path ${i + 1} crosses itself` : `paths ${i + 1}/${j + 1} cross`} at ${Math.round(angle)}° with ${r2(g)} of air at the arm tips at ${at.join(',')} — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : !onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
   };
   const crossed = (i, j) => { const t = armsAt.get(`${i}/${j}`); if (t) { armsAt.delete(`${i}/${j}`); judgeArms(t); } };
+  const joined = new Set();   // pairs of paths §5 reads as crossing or touching, and so measures nothing between: 5j's
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
     const onBadge = !!inBadge[i] || !!inBadge[j], toBase = !!inBadge[i] !== !!inBadge[j];
     const met = `paths ${i + 1}/${j + 1} meet — C33 cuts the base back with ${MIN_GAP} of air from the badge's ink`;
-    if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else crossed(i, j); continue; } // paths that cross (x, plus) join by design; their arms' tips are judged
+    if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else { crossed(i, j); joined.add(`${i}/${j}`); } continue; } // paths that cross (x, plus) join by design; their arms' tips are judged, and a bar's air to the rest of the other (5j)
     // the badge is read first, so no badge path ever takes the glyph's floor of 1 (and a ring
     // badge beside `glyph: dot` is not the glyph's dot either way: it is not solid)
     const glyphPair = !onBadge && isGlyph && isSolidDot(ds[i], W[i]) !== isSolidDot(ds[j], W[j]) && !isShell(spans[i]) && !isShell(spans[j]);
@@ -601,7 +615,7 @@ export function lintSource(canvas, file, src) {
     // Point-to-SEGMENT, both ways: point-to-point read a stem standing on a bar as 0.13
     // apart whenever the bar's samples straddled the stem (info-3 at 16, on the eighth grid).
     const min = Math.min(polyGap(sampled[i], sampled[j]), polyGap(sampled[j], sampled[i]));
-    if (min <= 0.1) { if (toBase) warnings.push(met); continue; }
+    if (min <= 0.1) { if (toBase) warnings.push(met); else joined.add(`${i}/${j}`); continue; }
     if (toBase) badgeAir = Math.min(badgeAir, r2(min - pen));
     if (!glyphPair && !onBadge) measured.push(r2(min - pen));
     if (min < need - 0.01)
@@ -609,6 +623,23 @@ export function lintSource(canvas, file, src) {
   }
   // a path crossing itself, and any crossing the sampled test above did not see
   for (const t of armsAt.values()) judgeArms(t);
+
+  // --- 5j. advisory: a bar's air to the rest of a stroke it crosses ----------------
+  // (2026-10-21; plans/lint-currency-fixes.md card 2.) The pair loop above reads two crossing paths
+  // as joined and measures nothing between them, so where a straight bar crosses a bowl, the white it
+  // leaves to the rest of that bowl went unread — ₱'s bars to its bowl's top and bottom runs (1.25 at
+  // 20, 1.375 at 16, measured by hand). `barGap` walks the crossed path away from each crossing and
+  // reads where it comes back toward the bar or runs beside it, each path at its own weight (the wedge
+  // at the crossing itself is the arms' tips, above). Read only for pairs this loop calls crossing or
+  // touching (a crossing exactly on a sample reads as a touch), so no air is read twice. It floors as any two paths do: this file's agreed gap, else MIN_GAP; a C33
+  // badge's own paths keep MIN_GAP, and a badge crossing its base already warns that they meet. WARNINGS.
+  for (const { paths: [b, c], gap: g, at } of barGap(ds, W)) {
+    if (!joined.has(`${Math.min(b, c)}/${Math.max(b, c)}`) || !!inBadge[b] !== !!inBadge[c]) continue;
+    const onBadge = !!inBadge[b], floor = onBadge ? MIN_GAP : GAP;
+    if (!onBadge) measured.push(r2(g));
+    if (g < floor - 0.01)
+      warnings.push(`path ${b + 1}'s bar crosses path ${c + 1} and comes within ${r3(g)} of it at ${at.join(',')} — ${!onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+  }
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
   // §6's corollary "no enclosed shape smaller than 1.5 units across" was not in code
@@ -671,14 +702,21 @@ export function lintSource(canvas, file, src) {
   // read as air in 5f and 5i; no numeral has been knocked out of a shape yet.
   // The material between two DIFFERENT holes of one path is not this check's: 5f reads it
   // (`holeGap`, 2026-10-20).
+  // THE FLOOR (Maruti, 2026-10-21; plans/lint-currency-fixes.md card 1): the same as 5f's material
+  // between two cut-outs — this master's OUTLINE weight (1.5 · 1.5 · 1.25), lowered (never raised) by
+  // the file's agreed gap, and C19's GLYPH_GAP under `glyph: dot`. Until then it was MIN_GAP at every
+  // master, so ruble-circle-filled's 1.25 at 16, the 16 line weight, warned. The reading feeds 5d's
+  // "is the note still needed" where the floor without the note would bite, as 5f's does.
+  const materialFloor = isGlyph ? GLYPH_GAP : gap ? Math.min(gap.n, OUTLINE) : OUTLINE;
+  const materialRule = isGlyph ? 'C19 glyph gap' : gap && gap.n < OUTLINE ? `agreed gap ${gap.n}` : OUTLINE < MIN_GAP ? `the ${canvas} line weight` : '§6';
   if (areas.length && ds.length === 0) {
     const left = materialGap(areas);
-    const floor = isGlyph ? GLYPH_GAP : MIN_GAP;
     // Printed whenever there is a reading, so a drawing that stops being measured (the
     // measure returns null when no cut faces itself) shows up as a line that went missing.
     if (left) notes.splice(-1, 0, `knockout leaves ${left.gap} at ${left.at.join(',')}`);
-    if (left && left.gap < floor - 0.01)
-      warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : '§6'} needs ${floor}: a knockout may not be cut wider than the counter it sits in`);
+    if (left && !isGlyph && left.gap < OUTLINE - 0.01) measured.push(left.gap);
+    if (left && left.gap < materialFloor - 0.01)
+      warnings.push(`the knockout leaves ${left.gap} of material between two parts of itself at ${left.at.join(',')} — ${materialRule} needs ${materialFloor}: a knockout may not be cut wider than the counter it sits in`);
   }
 
   // --- 5f. advisory: walls facing each other across air, where 5–5c cannot see ---
@@ -780,11 +818,10 @@ export function lintSource(canvas, file, src) {
     // the material between two holes of one path (see above)
     const between = areas.length ? holeGap(areas) : null;
     if (between) {
-      const floor = isGlyph ? GLYPH_GAP : gap ? Math.min(gap.n, OUTLINE) : OUTLINE;
       if (!isGlyph && between.gap < OUTLINE - 0.01) measured.push(between.gap);
       notes.splice(-1, 0, `material between two cut-outs ${between.gap} at ${between.at.join(',')}`);
-      if (between.gap < floor - 0.01)
-        warnings.push(`${between.gap} of material between two cut-outs of one shape at ${between.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : gap && gap.n < OUTLINE ? `agreed gap ${gap.n}` : OUTLINE < MIN_GAP ? `the ${canvas} line weight` : '§6'} needs ${floor}`);
+      if (between.gap < materialFloor - 0.01)
+        warnings.push(`${between.gap} of material between two cut-outs of one shape at ${between.at.join(',')} — ${materialRule} needs ${materialFloor}`);
     }
   }
 

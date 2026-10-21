@@ -531,6 +531,56 @@ function materialSpan(P, Q, filled, min = Infinity) {
   return found;
 }
 
+// ── hiddenFills ────────────────────────────────────────────────────────────
+// A fill path that PAINTS NOTHING (2026-10-21; plans/lint-currency-fixes.md card 6): one whose every
+// painted point another fill path already paints, so removing it changes nothing. Coins round 1 drew
+// a $ as its own fill on top of the disc instead of cutting it out of the disc: the filled coin showed
+// a plain disc, and lint passed it. An island standing in another area's hole paints, and is fine.
+// Read exactly along horizontal scanlines HIDE_STEP apart (offset so none runs along an edge): on each,
+// the spans this area paints (evenodd), less the union of the spans every other area paints; a piece
+// left over wider than HIDE_MIN means the area paints something. Returns [{ area, under: [k…] }] —
+// the hidden areas, 0-based, with the areas painted where it paints.
+const HIDE_STEP = 0.05, HIDE_MIN = 0.02;
+export function hiddenFills(areas) {
+  const rings = areas.map((d) => subpathsOf(d).map((s) => ringOf(s)).filter((r) => r.length > 2));
+  const spansAt = (rs, y) => {
+    const xs = [];
+    for (const r of rs) for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+      const [xi, yi] = r[i], [xj, yj] = r[j];
+      if ((yi > y) !== (yj > y)) xs.push(xi + ((y - yi) * (xj - xi)) / (yj - yi));
+    }
+    xs.sort((a, b) => a - b);
+    const out = [];
+    for (let k = 0; k + 1 < xs.length; k += 2) out.push([xs[k], xs[k + 1]]);
+    return out;
+  };
+  const out = [];
+  rings.forEach((rs, i) => {
+    const b = bbox([areas[i]]), under = new Set();
+    let paints = false;
+    for (let y = b.y0 + HIDE_STEP / 2 + 1.234e-4; y < b.y1 && !paints; y += HIDE_STEP) {
+      const mine = spansAt(rs, y);
+      if (!mine.length) continue;
+      const others = [];
+      rings.forEach((o, k) => { if (k !== i) for (const sp of spansAt(o, y)) others.push([...sp, k]); });
+      others.sort((p, q) => p[0] - q[0]);
+      for (const [a, c] of mine) {
+        let x = a;   // how far along [a, c] the others have covered without a gap
+        for (const [p, q, k] of others) {
+          if (q <= a || p >= c) continue;
+          under.add(k);
+          if (p > x + HIDE_MIN) break;
+          x = Math.max(x, q);
+          if (x >= c) break;
+        }
+        if (x < c - HIDE_MIN) { paints = true; break; }
+      }
+    }
+    if (!paints) out.push({ area: i, under: [...under].sort((p, q) => p - q) });
+  });
+  return out;
+}
+
 /** Every area's rings, and "is (x, y) painted by any of them" (evenodd per area). */
 function materialRings(areas) {
   const list = (Array.isArray(areas) ? areas : [areas]).map((d) => subpathsOf(d).map(ringOf));
@@ -1028,11 +1078,14 @@ const airKind = (a, b, depth) => {
 // "Tip air at equal reach". Every place where stroked centrelines cross is split at the
 // crossing point P into ARMS, each running from P to its round cap, or to where its
 // centreline turns more than ARM_TURN off its first direction. For two NEIGHBOURING arms
-// (no third arm between them) whose angle at P, measured tip to tip — so an arm that
-// curves on its way out, like `language`'s 撇 and 捺, is read where it ends up, not where
-// it leaves — is under ARM_ANGLE: take the SHORTER arm's cap centre, r from P; find the
-// point on the neighbour r from P; the tip air is the distance between those two points
-// less half of each arm's weight. The longer arm's extra length is ignored. For two arms
+// (no third arm between them) whose angle at P is under ARM_ANGLE: take the SHORTER arm's
+// cap centre, r from P; find the point on the neighbour r from P; the tip air is the distance
+// between those two points less half of each arm's weight. The angle is read tip to tip, so an
+// arm that curves on its way out, like `language`'s 撇 and 捺, is read where it ends up. And the air
+// must really close (2026-10-21): at least one tip's nearest point on its neighbour lies along the
+// neighbour, not at the crossing or the neighbour's far end — so the £, a square corner whose stem
+// sweeps away after the crossing, is not judged, while a $ whose S terminal curls back beside its
+// bar is. The longer arm's extra length is ignored. For two arms
 // of one length this is exactly the drawer's "tip air": password-2's asterisk measures
 // 2.25 · 1.5 · 1.5 at 24 · 20 · 16, and its filled twin, which traces those arms, the same.
 //
@@ -1077,6 +1130,8 @@ const ARM_RUN = 0.3;       // an arm's direction is read over its first 0.3
 const ARM_GATHER = 95;     // deg: a bend sharper than this joins a junction; a notch is looked at
 const CAP_SWEEP = 150;     // deg: an arc at a wall's end sweeping more than this is a round tip
 const WALL_STRAIGHT = 3;   // deg: a notch wall runs straight to within this
+const ALONG_MIN = 0.005;   // a tip faces its neighbour where it comes this much nearer it along it than at either end
+const THROUGH_MIN = 10;    // deg: a line through another's point must leave it at least this far off it
 const BEND_R = 2.6, BEND_SWEEP = 170;   // a corner arc this tight is read as its sharp corner
 const BEZ_STEPS = 24, ARC_STEP = 5;     // flattening: steps per Bézier, degrees per arc step
 
@@ -1286,10 +1341,33 @@ function tipAir(A, B, X) {
   }
   if (!P) P = [X[0] + L.u[0] * r, X[1] + L.u[1] * r];
   const near = poly.length > 1 ? Math.min(...poly.slice(1).map((q, i) => segDist(S.tip, poly[i], q)[0])) : hyp(S.tip, L.tip);
-  // the angle the two arms make at X, tip to tip
+  // the angle the two arms make at X, tip to tip (the census's gate)
   const turn = Math.abs(((Math.atan2(A.tip[1] - X[1], A.tip[0] - X[0]) - Math.atan2(B.tip[1] - X[1], B.tip[0] - X[0])) * 180) / Math.PI) % 360;
   const angle = Math.min(turn, 360 - turn);
-  return { S, gap: hyp(S.tip, P) - hh, buried: near - hh <= -hh / 2, angle, at: [(S.tip[0] + P[0]) / 2, (S.tip[1] + P[1]) / 2], reach: r };
+  // The air a tip really sees (2026-10-21). Walk the neighbour from X and find where it comes nearest
+  // the tip: in a wedge that closes — straight arms at an acute angle, ¥'s fork, an S terminal curling
+  // back beside its bar ($), two arcs curling toward each other (文) — that is somewhere ALONG the
+  // neighbour for at least one tip, and its distance there, less half of each weight, is air the tip
+  // faces. Where for both tips it is the crossing itself or the neighbour's far end, the arms only part
+  // and nothing closes: not judged. And where the air a tip faces is wider than the reading at equal
+  // reach, the neighbour has bent away from the tip after the crossing (the £'s stem, upright where its
+  // bar crosses, sweeping off to the foot): the wedge's air is that wider reading, never the square
+  // corner's. Straight arms always face less than at equal reach, so the census's reading stands there.
+  const facing = (a, b) => {
+    const q = b.poly;
+    let best = Infinity, at = 0, run = 0;
+    for (let i = 1; i < q.length; i++) {
+      const seg = hyp(q[i - 1], q[i]), [d, t] = segDist(a.tip, q[i - 1], q[i]);
+      if (d < best - 1e-9) { best = d; at = run + t * seg; }
+      run += seg;
+    }
+    const ends = Math.min(hyp(a.tip, q[0]), hyp(a.tip, q.at(-1)));
+    return at > ALONG_MIN && at < run - ALONG_MIN && best < ends - ALONG_MIN ? best - hh : null;
+  };
+  const faced = [facing(A, B), facing(B, A)].filter((v) => v !== null);
+  const closes = faced.length > 0;
+  const equal = hyp(S.tip, P) - hh;
+  return { S, gap: closes ? Math.max(equal, Math.min(...faced)) : equal, buried: near - hh <= -hh / 2, angle, closes, at: [(S.tip[0] + P[0]) / 2, (S.tip[1] + P[1]) / 2], reach: r };
 }
 
 /** Where stroked centrelines cross: each junction's neighbouring arms that are judged
@@ -1319,6 +1397,34 @@ function crossingWedges(lines, weight) {
       const [t, u] = r, p = A.p[a - 1], q = A.p[a];
       J.push([[p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1])],
         [[i, A.S[a - 1] + t * (A.S[a] - A.S[a - 1]), false], [j, B.S[b - 1] + u * (B.S[b] - B.S[b - 1]), false]], 'cross']);
+    }
+  }
+  // through a corner (2026-10-21, ¥): a line that passes through another line's point — a fork's
+  // tip, a corner, or a flattened curve's sample — crosses it there, though `segCross` (strictly
+  // inside both segments) never sees it. Read as a crossing; it is judged only where the arms go all
+  // the way round, so a V standing on a line, a tangent, and an arrowhead's shaft poking through its
+  // point stay out. A point on the line's open END is a touch (below), not this, and so is a line
+  // that only grazes the other — either side of the point within THROUGH_MIN of its direction (at-
+  // sign's stem running down the side of its bowl).
+  const SIN_THROUGH = Math.sin((THROUGH_MIN * Math.PI) / 180);
+  const offLine = (u, v) => u && Math.abs(u[0] * v[1] - u[1] * v[0]) >= SIN_THROUGH;
+  for (let i = 0; i < lines.length; i++) for (let j = 0; j < lines.length; j++) {
+    if (i === j) continue;
+    const A = lines[i], B = lines[j], [a0, b0] = [box[i], box[j]];
+    if (a0[0] > b0[2] + 1e-6 || b0[0] > a0[2] + 1e-6 || a0[1] > b0[3] + 1e-6 || b0[1] > a0[3] + 1e-6) continue;
+    const n = A.p.length;
+    for (let a = A.closed ? 0 : 1; a < n - 1; a++) {
+      const q = A.p[a], prev = a > 0 ? A.p[a - 1] : A.p[n - 2];
+      for (let b = 1; b < B.p.length; b++) {
+        const [d, t] = segDist(q, B.p[b - 1], B.p[b]);
+        if (d > 1e-6) continue;
+        const s = B.S[b - 1] + t * (B.S[b] - B.S[b - 1]);
+        if (!B.closed && (s < 1e-6 || s > B.L - 1e-6)) continue;   // B's own open end: a touch
+        const along = unitOf(B.p[b - 1], B.p[b]);
+        if (!along || !offLine(unitOf(prev, q), along) || !offLine(unitOf(q, A.p[a + 1]), along)) break;   // a graze
+        J.push([q, [[i, A.S[a], !!A.v[a]], [j, s, false]], 'cross']);
+        break;
+      }
     }
   }
   // touches: an open end inside another stroke's ink (a T-join's stem, a wall poking a scallop)
@@ -1368,7 +1474,7 @@ function crossingWedges(lines, weight) {
       const A = arms[q], B = arms[(q + 1) % n];
       if (modP(B.a - A.a, 360) < 0.5) continue;   // one arm counted twice
       const m = tipAir(A, B, X);
-      if (m.S.kind !== 'cap' || m.buried || m.angle >= ARM_ANGLE) continue;
+      if (m.S.kind !== 'cap' || m.buried || m.angle >= ARM_ANGLE || !m.closes) continue;
       out.push({ paths: [A.path, B.path].sort((x, y) => x - y), angle: m.angle, gap: m.gap, at: m.at, reach: m.reach });
     }
   }
@@ -1451,6 +1557,120 @@ export function armTipGap(ds, stroke, areas = [], { weight } = {}) {
   const notch = tightest(areas.length ? notchWedges(areas) : [], (w) => w.area)
     .sort((a, b) => a.area - b.area).map((w) => ({ area: w.area, ...said(w) }));
   return { cross, notch };
+}
+
+// ── barGap ─────────────────────────────────────────────────────────────────
+// The air between a straight BAR and another stroke it crosses (2026-10-21; plans/lint-currency-
+// fixes.md card 2). Lint §5 reads two crossing paths as joined by design and measures nothing between
+// them, and armTipGap reads only the wedge at the crossing. So where a bar crosses a bowl, the white
+// it leaves to the REST of that bowl went unread: ₱'s two bars to its bowl's top and bottom runs
+// (2 · 1.25 · 1.375 at 24 · 20 · 16, measured by hand at approval), ₺'s lower bar's end to its bowl.
+//
+// How. A bar is any straight run of a path at least BAR_MIN long. Where another path's centreline
+// crosses it (strictly inside the bar, through a sample or between two), that path is walked away
+// from the crossing on each side, until it crosses the bar's line again, comes back round (closed),
+// or ends. Along the walk D is its distance to the bar (the segment, so a bar's round end counts as
+// the end it is). Leaving the crossing D grows; the air is read where the walk comes back toward the
+// bar or runs beside it — at each point where D stops falling (a parallel run, a bulge's closest
+// approach, an open end arriving) — less half of each path's own weight. A walk that only grows (a
+// straight line, an arm leaving), or that falls only into the next crossing (a ring crossed twice),
+// has nothing to read: those are the crossing's own wedges, armTipGap's. A stroke that meets the bar
+// within its ink of the bar's end is a corner or a T-join, not a crossing; an open end that lands on
+// another path is a join there, not an end arriving. Where the two inks meet
+// again (no white between them: a dot the bar runs into, a keyhole's stem, a bowl ending on the
+// path beside the bar) it is a join, not air, and is not read.
+//
+// `stroke` is one weight or one per path (C32, C33). Returns [{ paths: [bar, other], gap, at }],
+// one per pair of paths (0-based, the bar's path first), the tightest, `gap` to 3 dp, `at` the middle
+// of the span to 2. Different paths only: a path's own runs are §5b's and §5f's.
+const BAR_MIN = 1;         // a straight run this long is a bar
+const BAR_STEP = 0.02;     // the walk samples the crossing path this finely
+
+/** A subpath's primitives as points no more than BAR_STEP apart, curves on their curve. */
+function densePoints(prims) {
+  const pts = [prims[0].p0];
+  for (const p of prims) {
+    let len, at;
+    if (p.k === 'L') { len = hyp(p.p0, p.p1); at = (t) => [p.p0[0] + t * (p.p1[0] - p.p0[0]), p.p0[1] + t * (p.p1[1] - p.p0[1])]; }
+    else if (p.k === 'A') { len = Math.abs(p.dt) * Math.max(p.rx, p.ry); at = (t) => arcAt(p, p.t1 + p.dt * t); }
+    else {
+      len = hyp(p.p0, p.c1) + hyp(p.c1, p.c2) + hyp(p.c2, p.p1);
+      at = (t) => { const m = 1 - t; return [0, 1].map((j) => m ** 3 * p.p0[j] + 3 * m * m * t * p.c1[j] + 3 * m * t * t * p.c2[j] + t ** 3 * p.p1[j]); };
+    }
+    const n = Math.max(1, Math.ceil(len / BAR_STEP));
+    for (let k = 1; k < n; k++) pts.push(at(k / n));
+    pts.push(p.p1);
+  }
+  return pts.filter((q, i) => i === 0 || hyp(q, pts[i - 1]) > 1e-9);
+}
+
+export function barGap(ds, stroke) {
+  const wOf = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  const subs = [];
+  ds.forEach((d, path) => primitivesOf(d).forEach((sp) => {
+    if (!sp.prims.length) return;
+    let pts = densePoints(sp.prims);
+    const closed = sp.closed || (pts.length > 2 && hyp(pts[0], pts.at(-1)) < 1e-6);
+    if (closed && hyp(pts[0], pts.at(-1)) < 1e-6) pts = pts.slice(0, -1);
+    subs.push({ path, pts, closed, prims: sp.prims });
+  }));
+  const best = new Map();
+  for (const B of subs) for (const bar of B.prims) {
+    const len = bar.k === 'L' ? hyp(bar.p0, bar.p1) : 0;
+    if (len < BAR_MIN) continue;
+    const u = [(bar.p1[0] - bar.p0[0]) / len, (bar.p1[1] - bar.p0[1]) / len];
+    for (const C of subs) {
+      if (C.path === B.path) continue;
+      const P = C.pts, n = P.length, pen = (wOf(B.path) + wOf(C.path)) / 2;
+      const side = P.map((q) => { const f = (q[0] - bar.p0[0]) * -u[1] + (q[1] - bar.p0[1]) * u[0]; return Math.abs(f) < 1e-9 ? 0 : Math.sign(f); });
+      const along = (q) => (q[0] - bar.p0[0]) * u[0] + (q[1] - bar.p0[1]) * u[1];
+      const D = P.map((q) => segDist(q, bar.p0, bar.p1)[0]);
+      const idx = (k) => (C.closed ? modP(k, n) : k);
+      // the crossings: two samples on opposite sides (only zeros between), the line met inside the bar
+      const crossings = [];
+      for (let i = 0; i < (C.closed ? n : n - 1); i++) {
+        if (!side[i]) continue;
+        let j = i + 1;
+        while ((C.closed ? j < i + n : j < n) && !side[idx(j)]) j++;
+        if (!(C.closed ? j < i + n : j < n) || side[idx(j)] === side[i]) continue;
+        const [qi, qj] = [P[i], P[idx(j)]], fi = Math.abs((qi[0] - bar.p0[0]) * -u[1] + (qi[1] - bar.p0[1]) * u[0]);
+        const fj = Math.abs((qj[0] - bar.p0[0]) * -u[1] + (qj[1] - bar.p0[1]) * u[0]), t = fi / (fi + fj);
+        const s = along([qi[0] + t * (qj[0] - qi[0]), qi[1] + t * (qj[1] - qi[1])]);
+        // inside the bar past the crossing stroke's ink: a stroke meeting the bar's very end is a corner
+        // or a T-join (wheelchair-3's arm starts on its body), not a crossing
+        const m = Math.max(wOf(B.path), wOf(C.path)) / 2;
+        if (s > m && s < len - m) crossings.push([i, j]);
+      }
+      for (const [i, j] of crossings) for (const [start, dir] of [[j, 1], [i, -1]]) {
+        const s0 = side[idx(start)], walk = [];
+        let k = start, ended = 'end';
+        for (let step = 0; step < n; step++, k += dir) {
+          if (!C.closed && (k < 0 || k >= n)) break;
+          const sk = side[idx(k)];
+          if (sk === -s0) { ended = 'cross'; break; }
+          walk.push(idx(k));
+        }
+        if (C.closed && ended === 'end') ended = 'lap';
+        const read = (m) => {
+          const q = P[walk[m]], dm = D[walk[m]];
+          if (dm - pen <= 0.005) return;   // the inks meet: a join (a hub, a keyhole, a bowl's end on its neighbour)
+          const g = dm - pen, foot = segDist(q, bar.p0, bar.p1)[2], key = `${B.path}/${C.path}`;
+          if (!best.has(key) || g < best.get(key).gap)
+            best.set(key, { paths: [B.path, C.path], gap: g, at: [(q[0] + foot[0]) / 2, (q[1] + foot[1]) / 2] });
+        };
+        // D stops falling: a weak local minimum inside the walk (a parallel run, a bulge's nearest
+        // point), and the walk's last point where an open end arrives
+        for (let m = 1; m < walk.length - 1; m++)
+          if (D[walk[m - 1]] >= D[walk[m]] - 1e-9 && D[walk[m]] <= D[walk[m + 1]] + 1e-9) read(m);
+        // an open end that lands on another path is a join there (bitcoin's upper bowl ends on the lower
+        // bowl's run), and the white it seems to leave is that path's ink
+        const free = (q) => !subs.some((o) => o.path !== C.path && o.pts.some((p, k) => k && segDist(q, o.pts[k - 1], p)[0] <= wOf(o.path) / 2));
+        if (ended === 'end' && walk.length > 1 && D[walk.at(-1)] <= D[walk.at(-2)] + 1e-9 && free(P[walk.at(-1)])) read(walk.length - 1);
+      }
+    }
+  }
+  return [...best.values()].sort((a, b) => a.paths[0] - b.paths[0] || a.paths[1] - b.paths[1])
+    .map((g) => ({ paths: g.paths, gap: r3(g.gap), at: g.at.map(r2) }));
 }
 
 // ── insideAir ──────────────────────────────────────────────────────────────
