@@ -860,6 +860,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 334. `cpu` · Development & Infra
 - [ ] 335. `disc` · Devices & Hardware
 - [x] 336. `dollar-sign` · Commerce & Payments — approved 2026-10-21
+- [x] 336. `dollar-sign-2` · Commerce & Payments · variant of `dollar-sign` — F, bar through · approved 2026-10-21
 - [ ] 337. `fast-forward` · Media & Playback
 - [ ] 338. `git-branch` · Development & Infra
 - [ ] 339. `git-merge` · Development & Infra
@@ -1066,3 +1067,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 534. `euro` — added 2026-10-21 · approved 2026-10-21
 - [x] 535. `euro-circle` — added 2026-10-21 · approved 2026-10-21
 - [x] 536. `gift-card` — added 2026-10-21 · approved 2026-10-21
+- [~] 537. `dollar-circle` — added 2026-10-21
