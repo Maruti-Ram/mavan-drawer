@@ -369,6 +369,13 @@ filled shape, a band separating two filled parts, a notch in the outline and the
 a shape and a line all hold 1.5 of white at every master — at 16 that is wider than the 1.25 line
 it replaces, because a white line reads thinner than a drawn one (C18, C22). Lint §5f measures
 these and the air inside a closed path; an agreed exception is declared with `<!-- gap: N -->`.
+**The material left between two cut-outs of one shape** is read too (2026-10-20, `holeGap`): the disc
+between `alert-circle-filled`'s bar and its dot, the card between `id-card`'s head and shoulders. Lint
+cannot tell whether that material stands for the outline's air (a knocked-out character's gap) or for one
+of its lines (the tick between `window-2-filled`'s two tab cells, 1.25 at 16), so it floors at the
+thinnest either allows — the master's line weight, 1.5 · 1.5 · 1.25, lowered by the file's agreed gap — or C19's
+1 under `glyph: dot` (the dot to its body), and prints the reading as an info line. Proposed 2026-10-20, for
+Maruti's ruling with `plans/lint-air-gaps.md`.
 
 One carve-out, declared per file and checked by lint: **C19's glyph gap of 1 unit**
 for the inside of one character — a dot to its body (`<!-- glyph: dot -->`), a `?`'s

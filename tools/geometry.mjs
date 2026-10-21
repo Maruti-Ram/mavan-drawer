@@ -437,6 +437,107 @@ function inside(ring, x, y) {
   return odd;
 }
 
+// ── materialGap · holeGap ────────────────────────────────────────────────────
+// Both read the MATERIAL of an evenodd area, where every other measure reads its air.
+// `materialGap` (lint §5c): the narrowest filled span between two parts of ONE boundary — a
+// knockout folding back on itself, the mouth of a `?`. `holeGap` (lint §5f, 2026-10-20): the
+// narrowest filled span between two DIFFERENT holes of one path — the disc left between
+// alert-circle-filled's bar slot and its dot. Until then nothing read that disc: each hole's
+// air is read (§5f, §5i) and what a hole leaves between its own two sides is read (§5c), but a
+// dot moved up to 0.25 from its bar passed clean. Both take the same reading: from every point
+// of a hole's boundary, out into the material square-on (within FACING of the wall's normal),
+// to the first point of the far boundary that faces back square-on, solid all the way across.
+// Square-on at both ends is what keeps the inside of a corner from reading short (as in
+// `facingGap`), and the closest approach of two convex holes is always square-on at both.
+
+/** A ring of a `d`, prepared for the material readings: refined to FINE, with each edge's tangent,
+ *  its normal into material, and the boundary length to each vertex. Null for the shape itself. */
+function materialRing(coarse, rings) {
+  if (coarse.length < 3) return null;
+  // How many of its d's other subpaths it sits inside. 0 is the shape itself and is
+  // not judged; odd is a hole (material outside it); even is an island (material inside).
+  const depth = rings.filter((o) => o !== coarse && o.length > 2 && inside(o, coarse[0][0], coarse[0][1])).length;
+  if (!depth) return null;
+  const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
+  const ring = refine(coarse, FINE), n = ring.length;
+  let area = 0;
+  for (let i = 0; i < n; i++) area += cross(ring[i], ring[(i + 1) % n]);
+  if (depth % 2 === 0) area = -area; // an island is a hole inside out
+  // edge k runs ring[k] → ring[k+1]; its normal points into material
+  const tan = [], nor = [], run = [0];
+  for (let k = 0; k < n; k++) {
+    const [ax, ay] = ring[k], [bx, by] = ring[(k + 1) % n], L = Math.hypot(bx - ax, by - ay);
+    const t = [(bx - ax) / L, (by - ay) / L];
+    run.push(run[k] + L); // run[k] = boundary length up to ring[k]; run[n] = all the way round
+    tan.push(t);
+    nor.push(area > 0 ? [t[1], -t[0]] : [-t[1], t[0]]);
+  }
+  return { ring, n, tan, nor, run, area, depth };
+}
+
+/**
+ * The narrowest solid span from a point of P's boundary, square-on, to Q's boundary, square-on,
+ * solid all the way (`filled`). P and Q are `materialRing`s; when they are the same ring the two
+ * ends must be further than NEIGHBOUR apart along it. Only spans under `min` are looked for.
+ * Returns { gap, at } or null.
+ */
+function materialSpan(P, Q, filled, min = Infinity) {
+  const COS = Math.cos((FACING * Math.PI) / 180);
+  const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1];
+  // Is `dir` square-on to R's wall at vertex v? Within FACING of either edge that meets
+  // there, or - at a corner pointing into the material - anywhere between the two.
+  const squareOn = (R, v, dir) => {
+    const ka = (v - 1 + R.n) % R.n, na = R.nor[ka], nb = R.nor[v], fan = cross(na, nb);
+    return dot(dir, na) >= COS || dot(dir, nb) >= COS
+      || (cross(R.tan[ka], R.tan[v]) * R.area > 0 && cross(na, dir) * fan >= 0 && cross(dir, nb) * fan >= 0);
+  };
+  // the way out of the material from vertex v (between its two edges, so it holds at a
+  // point too), and whether it really is empty a hair's breadth that way
+  const into = (R, v) => {
+    const na = R.nor[(v - 1 + R.n) % R.n], nb = R.nor[v], L = Math.hypot(na[0] + nb[0], na[1] + nb[1]) || 1;
+    return [-(na[0] + nb[0]) / L, -(na[1] + nb[1]) / L];
+  };
+  const open = (pt, way) => !filled(pt[0] + way[0] * 0.02, pt[1] + way[1] * 0.02);
+  const same = P === Q, n = P.n, m = Q.n;
+  let found = null;
+  for (let i = 0; i < n; i++) {
+    const p = P.ring[i];
+    for (let k = 0; k < m; k++) {
+      if (same && (k === (i - 1 + n) % n || k === i)) continue;
+      const a = Q.ring[k], b = Q.ring[(k + 1) % m];
+      const ex = b[0] - a[0], ey = b[1] - a[1];
+      const u = Math.max(0, Math.min(1, ((p[0] - a[0]) * ex + (p[1] - a[1]) * ey) / (ex * ex + ey * ey)));
+      const q = [a[0] + u * ex, a[1] + u * ey];
+      const dist = Math.hypot(q[0] - p[0], q[1] - p[1]);
+      if (dist < 1e-6 || dist >= min) continue;
+      if (same) {
+        const along = Math.abs(Q.run[k] + u * (Q.run[k + 1] - Q.run[k]) - P.run[i]);
+        if (Math.min(along, P.run[n] - along) < NEIGHBOUR) continue;
+      }
+      const dir = [(q[0] - p[0]) / dist, (q[1] - p[1]) / dist], back = [-dir[0], -dir[1]];
+      // the far end is the foot of a perpendicular, or one of the edge's own corners
+      const arrives = u > 0 && u < 1 ? dot(back, Q.nor[k]) >= COS : squareOn(Q, u === 0 ? k : (k + 1) % m, back);
+      if (!arrives || !squareOn(P, i, dir)) continue;
+      const steps = Math.max(5, Math.ceil(dist / 0.1));
+      let solid = true;
+      for (let s = 1; s < steps && solid; s++) solid = filled(p[0] + (dir[0] * dist * s) / steps, p[1] + (dir[1] * dist * s) / steps);
+      // both ends must be a real edge of the ink: another area painted over the hole
+      // (a file's areas are drawn together) turns its wall into the middle of a solid
+      if (!solid || !open(p, into(P, i)) || !open(q, u > 0 && u < 1 ? [-Q.nor[k][0], -Q.nor[k][1]] : into(Q, u === 0 ? k : (k + 1) % m))) continue;
+      min = dist; found = { gap: dist, at: [r2((p[0] + q[0]) / 2), r2((p[1] + q[1]) / 2)] };
+    }
+  }
+  return found;
+}
+
+/** Every area's rings, and "is (x, y) painted by any of them" (evenodd per area). */
+function materialRings(areas) {
+  const list = (Array.isArray(areas) ? areas : [areas]).map((d) => subpathsOf(d).map(ringOf));
+  const filled = (x, y) => list.some((rings) => rings.filter((r) => r.length > 2 && inside(r, x, y)).length % 2 === 1);
+  return { list, filled };
+}
+
 /**
  * The narrowest filled span between two parts of one boundary, across every hole (and
  * every island inside a hole) of the given evenodd area(s). `areas` is one `d` or a
@@ -446,72 +547,36 @@ function inside(ring, x, y) {
  * single bend).
  */
 export function materialGap(areas) {
-  const list = (Array.isArray(areas) ? areas : [areas]).map((d) => subpathsOf(d).map(ringOf));
-  const filled = (x, y) => list.some((rings) => rings.filter((r) => r.length > 2 && inside(r, x, y)).length % 2 === 1);
-  const COS = Math.cos((FACING * Math.PI) / 180);
-  const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
-  const dot = (a, b) => a[0] * b[0] + a[1] * b[1];
+  const { list, filled } = materialRings(areas);
   let min = Infinity, found = null;
-
   list.forEach((rings, ai) => rings.forEach((coarse, s) => {
-    if (coarse.length < 3) return;
-    // How many of its d's other subpaths it sits inside. 0 is the shape itself and is
-    // not judged; odd is a hole (material outside it); even is an island (material inside).
-    const depth = rings.filter((o) => o !== coarse && o.length > 2 && inside(o, coarse[0][0], coarse[0][1])).length;
-    if (!depth) return;
-    const ring = refine(coarse, FINE), n = ring.length;
-    let area = 0;
-    for (let i = 0; i < n; i++) area += cross(ring[i], ring[(i + 1) % n]);
-    if (depth % 2 === 0) area = -area; // an island is a hole inside out
-    // edge k runs ring[k] → ring[k+1]; its normal points into material
-    const tan = [], nor = [], run = [0];
-    for (let k = 0; k < n; k++) {
-      const [ax, ay] = ring[k], [bx, by] = ring[(k + 1) % n], L = Math.hypot(bx - ax, by - ay);
-      const t = [(bx - ax) / L, (by - ay) / L];
-      run.push(run[k] + L); // run[k] = boundary length up to ring[k]; run[n] = all the way round
-      tan.push(t);
-      nor.push(area > 0 ? [t[1], -t[0]] : [-t[1], t[0]]);
-    }
-    // Is `dir` square-on to the wall at vertex v? Within FACING of either edge that meets
-    // there, or - at a corner pointing into the material - anywhere between the two.
-    const squareOn = (v, dir) => {
-      const ka = (v - 1 + n) % n, na = nor[ka], nb = nor[v], fan = cross(na, nb);
-      return dot(dir, na) >= COS || dot(dir, nb) >= COS
-        || (cross(tan[ka], tan[v]) * area > 0 && cross(na, dir) * fan >= 0 && cross(dir, nb) * fan >= 0);
-    };
-    // the way out of the material from vertex v (between its two edges, so it holds at a
-    // point too), and whether it really is empty a hair's breadth that way
-    const into = (v) => {
-      const na = nor[(v - 1 + n) % n], nb = nor[v], L = Math.hypot(na[0] + nb[0], na[1] + nb[1]) || 1;
-      return [-(na[0] + nb[0]) / L, -(na[1] + nb[1]) / L];
-    };
-    const open = (pt, way) => !filled(pt[0] + way[0] * 0.02, pt[1] + way[1] * 0.02);
-    for (let i = 0; i < n; i++) {
-      const p = ring[i];
-      for (let k = 0; k < n; k++) {
-        if (k === (i - 1 + n) % n || k === i) continue;
-        const a = ring[k], b = ring[(k + 1) % n];
-        const ex = b[0] - a[0], ey = b[1] - a[1];
-        const u = Math.max(0, Math.min(1, ((p[0] - a[0]) * ex + (p[1] - a[1]) * ey) / (ex * ex + ey * ey)));
-        const q = [a[0] + u * ex, a[1] + u * ey];
-        const dist = Math.hypot(q[0] - p[0], q[1] - p[1]);
-        if (dist < 1e-6 || dist >= min) continue;
-        const along = Math.abs(run[k] + u * (run[k + 1] - run[k]) - run[i]);
-        if (Math.min(along, run[n] - along) < NEIGHBOUR) continue;
-        const dir = [(q[0] - p[0]) / dist, (q[1] - p[1]) / dist], back = [-dir[0], -dir[1]];
-        // the far end is the foot of a perpendicular, or one of the edge's own corners
-        const arrives = u > 0 && u < 1 ? dot(back, nor[k]) >= COS : squareOn(u === 0 ? k : (k + 1) % n, back);
-        if (!arrives || !squareOn(i, dir)) continue;
-        const steps = Math.max(5, Math.ceil(dist / 0.1));
-        let solid = true;
-        for (let m = 1; m < steps && solid; m++) solid = filled(p[0] + (dir[0] * dist * m) / steps, p[1] + (dir[1] * dist * m) / steps);
-        // both ends must be a real edge of the ink: another area painted over the hole
-        // (a file's areas are drawn together) turns its wall into the middle of a solid
-        if (!solid || !open(p, into(i)) || !open(q, u > 0 && u < 1 ? [-nor[k][0], -nor[k][1]] : into(u === 0 ? k : (k + 1) % n))) continue;
-        min = dist; found = { at: [r2((p[0] + q[0]) / 2), r2((p[1] + q[1]) / 2)], area: ai, sub: s };
-      }
-    }
+    const R = materialRing(coarse, rings);
+    if (!R) return;
+    const got = materialSpan(R, R, filled, min);
+    if (got) { min = got.gap; found = { at: got.at, area: ai, sub: s }; }
   }));
+  return found ? { gap: r2(min), ...found } : null;
+}
+
+/**
+ * The narrowest filled span between two DIFFERENT holes of one evenodd path (2026-10-20): the
+ * disc alert-circle-filled leaves between its bar slot and its dot. Every hole (a subpath at odd
+ * depth) is paired with every other hole of the same `d`; an island is paired with nothing (it
+ * stands in air). `areas` as in `materialGap`. Returns { gap, at, area, subs: [s, t] } (s < t,
+ * the two holes' subpath indices within `areas[area]`) or null when no path has two holes that
+ * face each other across material.
+ */
+export function holeGap(areas) {
+  const { list, filled } = materialRings(areas);
+  let min = Infinity, found = null;
+  list.forEach((rings, ai) => {
+    const holes = rings.map((coarse, s) => ({ s, R: materialRing(coarse, rings) })).filter(({ R }) => R && R.depth % 2 === 1);
+    for (let x = 0; x < holes.length; x++) for (let y = 0; y < holes.length; y++) {
+      if (x === y) continue;
+      const got = materialSpan(holes[x].R, holes[y].R, filled, min);
+      if (got) { min = got.gap; found = { at: got.at, area: ai, subs: [holes[x].s, holes[y].s].sort((p, q) => p - q) }; }
+    }
+  });
   return found ? { gap: r2(min), ...found } : null;
 }
 

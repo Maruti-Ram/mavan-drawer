@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, facingGap, armTipGap, insideAir, encloses, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, insideAir, encloses, subpathsOf } from './geometry.mjs';
 import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -669,6 +669,8 @@ export function lintSource(canvas, file, src) {
   // `glyph: numeral` does not reach here: a numeral stroked in the filled twin has its
   // openings read by 5b, and one painted as a shape (sort-numeric's 0 and 9) has its hole
   // read as air in 5f and 5i; no numeral has been knocked out of a shape yet.
+  // The material between two DIFFERENT holes of one path is not this check's: 5f reads it
+  // (`holeGap`, 2026-10-20).
   if (areas.length && ds.length === 0) {
     const left = materialGap(areas);
     const floor = isGlyph ? GLYPH_GAP : MIN_GAP;
@@ -716,6 +718,25 @@ export function lintSource(canvas, file, src) {
   // which reads the same hole but, in a glyph file, floors it as a character's opening.)
   // Any other closed two-arc path (globe's meridians, database's lid, the moon) is read by
   // `facingGap` below like any closed path.
+  // THE MATERIAL BETWEEN TWO HOLES (2026-10-20): alert-circle-filled's "!" is a bar slot and a dot
+  // hole cut from one disc, and the disc left between them was read by nothing — each hole's air
+  // is read here and in 5i, what one hole leaves between its own two sides in 5c, but a dot moved
+  // up to 0.25 from its bar passed clean (found drafting alert-octagon). `holeGap` pairs every hole
+  // of one path with every other and reads the narrowest solid span between them, square-on at both
+  // ends. What that material IS differs by drawing, and lint cannot tell from the geometry: in a
+  // knockout it is the outline's AIR (alert-circle's dot to its bar, id-card's head to its shoulders),
+  // in a plate with cells cut out it is the outline's LINE (window-2's tick between two tab cells,
+  // video-2's bar between two sprocket holes — 1.25 at 16, the line weight). So the floor is the
+  // thinnest material either reading allows: this master's OUTLINE weight (1.5 · 1.5 · 1.25 — at 24
+  // and 20 that is MIN_GAP), lowered further by the file's agreed gap where it has one (never raised
+  // by it: a note only ever lowers a floor), and C19's GLYPH_GAP under `glyph: dot` (the dot to its
+  // body is the pair C19 names). Not under `glyph: numeral`: a numeral knocked out of a plate is one
+  // hole, so two holes of one path there are two numerals, and numeral to numeral keeps the ordinary
+  // floor (C19). A gap of the outline's air at 16 that holds 1.25 but not 1.5 therefore passes here —
+  // the outline twin's own §5 is where that air is held to 1.5. The reading feeds 5d's "is the note
+  // still needed" only where the floor without the note would bite (under OUTLINE), since at 16 that
+  // floor is below §6's. Printed as an info line whenever there is a reading, as 5c's knockout line
+  // is, so a drawing that stops being measured shows up.
   // What 5f warned on, and where, so 5i does not warn a second time on the same white.
   const warned5f = { ring: new Set(), self: [], area: [] };
   {
@@ -755,6 +776,15 @@ export function lintSource(canvas, file, src) {
         warned5f.area.push(at);
         warnings.push(`${g} of air ${AIR[kind]} at ${at.join(',')} — ${own ? 'C19 numeral gap' : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
       }
+    }
+    // the material between two holes of one path (see above)
+    const between = areas.length ? holeGap(areas) : null;
+    if (between) {
+      const floor = isGlyph ? GLYPH_GAP : gap ? Math.min(gap.n, OUTLINE) : OUTLINE;
+      if (!isGlyph && between.gap < OUTLINE - 0.01) measured.push(between.gap);
+      notes.splice(-1, 0, `material between two cut-outs ${between.gap} at ${between.at.join(',')}`);
+      if (between.gap < floor - 0.01)
+        warnings.push(`${between.gap} of material between two cut-outs of one shape at ${between.at.join(',')} — ${isGlyph ? 'C19 glyph gap' : gap && gap.n < OUTLINE ? `agreed gap ${gap.n}` : OUTLINE < MIN_GAP ? `the ${canvas} line weight` : '§6'} needs ${floor}`);
     }
   }
 

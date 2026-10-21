@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, facingGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, armTipGap, facingGap, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -1855,3 +1855,63 @@ test('5e reports the numeral readings of 5f and 5i: a bowl left open, a round 0,
     assert.ok(!noted.notes.some((n) => /not in use/.test(n)), label);
   }
 });
+
+// --- the material between two holes (lint §5f, 2026-10-20) --------------------------------------
+// Found drafting alert-octagon: alert-circle-filled's "!" is a bar slot and a dot hole cut from one
+// disc, and nothing read the disc left between them — each hole's air is read, what one hole leaves
+// between its own sides is read (§5c), but a dot moved up to 0.25 from its bar passed clean.
+const ALERT24 = 'M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM11 13.5A1 1 0 0 0 13 13.5L13 7A1 1 0 0 0 11 7ZM10.75 16.75A1.25 1.25 0 1 0 13.25 16.75A1.25 1.25 0 1 0 10.75 16.75Z';
+const ALERT20 = 'M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM9.13 10.75A0.88 0.88 0 0 0 10.88 10.75L10.88 6.25A0.88 0.88 0 0 0 9.13 6.25ZM9 13.62A1 1 0 1 0 11 13.62A1 1 0 1 0 9 13.62Z';
+const betweenLines = (r) => r.warnings.filter((w) => /between two cut-outs/.test(w));
+
+test('holeGap: the disc between alert-circle-filled\'s bar and its dot, shipped and with the dot moved up', () => {
+  // shipped 24: bar slot ends at 14.5 (13.5 + r 1), dot starts at 15.5 (16.75 − r 1.25): 1.0, the C19 pair
+  assert.deepEqual(holeGap([ALERT24]), { gap: 1, at: [12, 15], area: 0, subs: [1, 2] });
+  // the dot moved up 0.75: 0.25 of disc — and the pair is still the slot and the dot, not the disc's rim
+  assert.deepEqual(holeGap([ALERT24.replaceAll('16.75', '16')]), { gap: 0.25, at: [12, 14.63], area: 0, subs: [1, 2] });
+  // shipped 20: the slot's end is an r 0.88 arc over a 1.75 chord, whose centre sits 0.09 inside, so the
+  // slot ends at 11.54, not 11.63 — the reading is exact, 1.08, where a ruler on the numbers says 0.99
+  near(holeGap([ALERT20]).gap, 1.084, 0.01);
+  near(holeGap([ALERT20.replaceAll('13.62', '13.12')]).gap, 0.584, 0.01);
+  // one hole, or holes in two different paths, have no disc between them
+  assert.equal(holeGap(['M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM11 13.5A1 1 0 0 0 13 13.5L13 7A1 1 0 0 0 11 7Z']), null);
+  assert.equal(holeGap(['M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM11 13.5A1 1 0 0 0 13 13.5L13 7A1 1 0 0 0 11 7Z', 'M10.75 16.75A1.25 1.25 0 1 0 13.25 16.75A1.25 1.25 0 1 0 10.75 16.75Z']), null);
+  // materialGap still reads nothing here: a convex slot and a round dot face themselves across nothing
+  assert.equal(materialGap([ALERT24]), null);
+});
+
+test('lint §5f: the material between two cut-outs is printed, and warns under C19\'s 1 in a dot glyph, the agreed gap, else the line weight', () => {
+  const F = (m, areas, notes = []) => lintSource(m, 'alert-circle-filled.svg', drawn(m, strokeOf(m), [], { areas, notes: ['keyline: mark', ...notes] }));
+  const shipped = F(24, [ALERT24], ['glyph: dot']);
+  assert.deepEqual(betweenLines(shipped), []);
+  assert.ok(shipped.notes.includes('material between two cut-outs 1 at 12,15'), shipped.notes.join(' | '));
+  // the reproduction: before 2026-10-20 lint printed nothing for either of these
+  assert.deepEqual(betweenLines(F(24, [ALERT24.replaceAll('16.75', '16')], ['glyph: dot'])),
+    ['0.25 of material between two cut-outs of one shape at 12,14.63 — C19 glyph gap needs 1']);
+  assert.deepEqual(betweenLines(F(20, [ALERT20.replaceAll('13.62', '13.12')], ['glyph: dot'])).map((w) => w.replace(/at [\d.,]+/, 'at …')),
+    ['0.58 of material between two cut-outs of one shape at … — C19 glyph gap needs 1']);
+  // without the glyph note the same 1.0 is two marks' clearance: §6's 1.5 at 24
+  assert.deepEqual(betweenLines(F(24, [ALERT24])), ['1 of material between two cut-outs of one shape at 12,15 — §6 needs 1.5']);
+  // an agreed gap governs it and is in use for it (5d prints the note in force, no "not needed" error)
+  const agreed = F(24, [ALERT24], ['gap: 1']);
+  assert.deepEqual(betweenLines(agreed), []);
+  assert.deepEqual(agreed.errors, [], agreed.errors.join(' | '));
+  assert.ok(agreed.notes.some((n) => /^agreed gap 1 — smallest measured 1$/.test(n)), agreed.notes.join(' | '));
+  // at 16 the material may be a drawn line — window-2-filled's tick between two tab cells is 1.25 — so
+  // the floor there is the line weight, not §6's 1.5: 1.25 passes, 1 warns against 1.25
+  const PLATE = (gap) => `M1 2H15V8H1ZM2.5 3.5H5V6.5H2.5ZM${5 + gap} 3.5H${7.5 + gap}V6.5H${5 + gap}Z`;
+  assert.deepEqual(betweenLines(F(16, [PLATE(1.25)])), []);
+  // a note never raises the floor: `gap: 1.4` at 16 leaves 1.25 in force, and a 1.3 reading does not keep a note alive
+  assert.deepEqual(betweenLines(F(16, [PLATE(1.3)], ['gap: 1.4'])), []);
+  const stale = F(16, [PLATE(1.3)], ['gap: 1']);
+  assert.ok(stale.errors.some((e) => /declares gap 1 but nothing in this drawing comes within/.test(e)), stale.errors.join(' | '));
+  const used = F(16, [PLATE(1)], ['gap: 1']);
+  assert.deepEqual(betweenLines(used), []);
+  assert.ok(used.notes.some((n) => /^agreed gap 1 — smallest measured 1$/.test(n)), used.notes.join(' | '));
+  // under `glyph: numeral` two holes of one path are two numerals: the ordinary floor, not C19's 1
+  assert.match(betweenLines(F(24, [PLATE(1.25)], ['glyph: numeral']))[0] ?? '', /— §6 needs 1\.5$/);
+  assert.ok(F(16, [PLATE(1.25)]).notes.some((n) => /^material between two cut-outs 1\.25 at 5\.63,[\d.]+$/.test(n)));
+  assert.match(betweenLines(F(16, [PLATE(1)]))[0] ?? '', /^1 of material between two cut-outs of one shape at 5\.5,[\d.]+ — the 16 line weight needs 1\.25$/);
+  assert.match(betweenLines(F(24, [PLATE(1.25)]))[0] ?? '', /^1\.25 of material between two cut-outs of one shape at 5\.63,[\d.]+ — §6 needs 1\.5$/);
+});
+
