@@ -1083,6 +1083,6 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 548. `naira` — added 2026-10-21 · approved 2026-10-21
 - [x] 549. `peso` — added 2026-10-21 · approved 2026-10-21
 - [x] 550. `dong` — added 2026-10-21 · approved 2026-10-21
-- [~] 551. `baht` — added 2026-10-21
+- [x] 551. `baht` — added 2026-10-21 · approved 2026-10-21
 - [~] 552. `real` — added 2026-10-21
 - [~] 553. `riyal` — added 2026-10-21
