@@ -1062,3 +1062,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 531. `tickets` — added 2026-10-21
 - [x] 532. `van` — added 2026-10-21 · approved 2026-10-21
 - [x] 533. `hand-coins` — added 2026-10-21 · approved 2026-10-21
+- [x] 534. `euro` — added 2026-10-21 · approved 2026-10-21

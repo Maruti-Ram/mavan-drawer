@@ -565,6 +565,8 @@
     "drag-handle-3",
     "drag-handle-3-filled",
     "drag-handle-filled",
+    "euro",
+    "euro-filled",
     "expand",
     "expand-2",
     "expand-2-filled",
@@ -34234,6 +34236,126 @@
           "geometric": 5.25,
           "recession": 0.49,
           "optical": 5.62
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "euro": {
+      "paths": [
+        "M16.54 6.27A5.5 6.5 0 0 0 7.5 11.25V12.75A5.5 6.5 0 0 0 16.54 17.73",
+        "M5.25 10H12.5M5.25 14H12.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M16.54 6.27A5.5 6.5 0 0 0 7.5 11.25V12.75A5.5 6.5 0 0 0 16.54 17.73\"/> <path d=\"M5.25 10H12.5M5.25 14H12.5\"/>",
+      "mark": true,
+      "tags": [
+        "euro",
+        "sign",
+        "oval",
+        "between",
+        "sf-symbols",
+        "central"
+      ],
+      "shift": [
+        -1,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4.5,
+        "y": 4,
+        "w": 12.79,
+        "h": 16.01
+      },
+      "bearing": {
+        "left": 4.5,
+        "top": 4,
+        "right": 6.71,
+        "bottom": 3.99
+      },
+      "optical": {
+        "left": {
+          "geometric": 4.5,
+          "recession": 0.02,
+          "optical": 4.51
+        },
+        "right": {
+          "geometric": 6.71,
+          "recession": 0.14,
+          "optical": 6.82
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.9,
+          "optical": 4.67
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.9,
+          "optical": 4.67
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "euro-filled": {
+      "paths": [
+        "M16.04 6.48A5 6 0 0 0 8 11.25V12.75A5 6 0 0 0 16.04 17.52",
+        "M5.75 10H12.5M5.75 14H12.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M16.04 6.48A5 6 0 0 0 8 11.25V12.75A5 6 0 0 0 16.04 17.52\"/> <path d=\"M5.75 10H12.5M5.75 14H12.5\"/>",
+      "mark": true,
+      "tags": [
+        "euro",
+        "sign",
+        "oval",
+        "between",
+        "sf-symbols",
+        "central"
+      ],
+      "shift": [
+        -1,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 4.5,
+        "y": 3.99,
+        "w": 12.79,
+        "h": 16.01
+      },
+      "bearing": {
+        "left": 4.5,
+        "top": 3.99,
+        "right": 6.71,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 4.5,
+          "recession": 1.8,
+          "optical": 5.85
+        },
+        "right": {
+          "geometric": 6.71,
+          "recession": 0.19,
+          "optical": 6.85
+        },
+        "top": {
+          "geometric": 3.99,
+          "recession": 1.25,
+          "optical": 4.93
+        },
+        "bottom": {
+          "geometric": 3.99,
+          "recession": 1.25,
+          "optical": 4.93
         }
       },
       "container": null,
@@ -99323,6 +99445,8 @@
         "drag-handle-3",
         "drag-handle-3-filled",
         "drag-handle-filled",
+        "euro",
+        "euro-filled",
         "expand",
         "expand-2",
         "expand-2-filled",
@@ -132943,6 +133067,126 @@
               "geometric": 2.75,
               "recession": 0.39,
               "optical": 3.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "euro": {
+          "paths": [
+            "M11.276 3.766A4.125 4.875 0 0 0 4.5 7.5V8.5A4.125 4.875 0 0 0 11.276 12.234",
+            "M3.125 6.25H8.75M3.125 9.75H8.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.276 3.766A4.125 4.875 0 0 0 4.5 7.5V8.5A4.125 4.875 0 0 0 11.276 12.234\"/> <path d=\"M3.125 6.25H8.75M3.125 9.75H8.75\"/>",
+          "mark": true,
+          "tags": [
+            "euro",
+            "sign",
+            "oval",
+            "between",
+            "sf-symbols",
+            "central"
+          ],
+          "shift": [
+            -0.75,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2.5,
+            "y": 2,
+            "w": 9.4,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2.5,
+            "top": 2,
+            "right": 4.1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.5,
+              "recession": 0.26,
+              "optical": 2.69
+            },
+            "right": {
+              "geometric": 4.1,
+              "recession": 0.09,
+              "optical": 4.17
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.71,
+              "optical": 2.53
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.71,
+              "optical": 2.53
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "euro-filled": {
+          "paths": [
+            "M10.901 3.924A3.75 4.5 0 0 0 4.875 7.5V8.5A3.75 4.5 0 0 0 10.901 12.076",
+            "M3.5 6.25H8.75M3.5 9.75H8.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.901 3.924A3.75 4.5 0 0 0 4.875 7.5V8.5A3.75 4.5 0 0 0 10.901 12.076\"/> <path d=\"M3.5 6.25H8.75M3.5 9.75H8.75\"/>",
+          "mark": true,
+          "tags": [
+            "euro",
+            "sign",
+            "oval",
+            "between",
+            "sf-symbols",
+            "central"
+          ],
+          "shift": [
+            -0.75,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2.5,
+            "y": 2,
+            "w": 9.4,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2.5,
+            "top": 2,
+            "right": 4.1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.5,
+              "recession": 1.33,
+              "optical": 3.5
+            },
+            "right": {
+              "geometric": 4.1,
+              "recession": 0.12,
+              "optical": 4.19
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.7
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.7
             }
           },
           "container": null,
@@ -197980,6 +198224,8 @@
         "drag-handle-3",
         "drag-handle-3-filled",
         "drag-handle-filled",
+        "euro",
+        "euro-filled",
         "expand",
         "expand-2",
         "expand-2-filled",
@@ -231618,6 +231864,126 @@
               "geometric": 4.1,
               "recession": 0.38,
               "optical": 4.38
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "euro": {
+          "paths": [
+            "M13.89 5.48A4.5 5.25 0 0 0 6.5 9.5V10.5A4.5 5.25 0 0 0 13.89 14.52",
+            "M4.75 8.25H10.75M4.75 11.75H10.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M13.89 5.48A4.5 5.25 0 0 0 6.5 9.5V10.5A4.5 5.25 0 0 0 13.89 14.52\"/> <path d=\"M4.75 8.25H10.75M4.75 11.75H10.75\"/>",
+          "mark": true,
+          "tags": [
+            "euro",
+            "sign",
+            "oval",
+            "between",
+            "sf-symbols",
+            "central"
+          ],
+          "shift": [
+            -0.75,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 3.5,
+            "w": 10.64,
+            "h": 12.99
+          },
+          "bearing": {
+            "left": 4,
+            "top": 3.5,
+            "right": 5.36,
+            "bottom": 3.51
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.48,
+              "optical": 4.36
+            },
+            "right": {
+              "geometric": 5.36,
+              "recession": 0.11,
+              "optical": 5.44
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 0.84,
+              "optical": 4.13
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 0.84,
+              "optical": 4.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "euro-filled": {
+          "paths": [
+            "M13.64 5.58A4.25 5 0 0 0 6.75 9.5V10.5A4.25 5 0 0 0 13.64 14.42",
+            "M5 8.25H10.75M5 11.75H10.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M13.64 5.58A4.25 5 0 0 0 6.75 9.5V10.5A4.25 5 0 0 0 13.64 14.42\"/> <path d=\"M5 8.25H10.75M5 11.75H10.75\"/>",
+          "mark": true,
+          "tags": [
+            "euro",
+            "sign",
+            "oval",
+            "between",
+            "sf-symbols",
+            "central"
+          ],
+          "shift": [
+            -0.75,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 4,
+            "y": 3.5,
+            "w": 10.64,
+            "h": 13
+          },
+          "bearing": {
+            "left": 4,
+            "top": 3.5,
+            "right": 5.36,
+            "bottom": 3.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 1.44,
+              "optical": 5.08
+            },
+            "right": {
+              "geometric": 5.36,
+              "recession": 0.17,
+              "optical": 5.49
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 1,
+              "optical": 4.25
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 1,
+              "optical": 4.25
             }
           },
           "container": null,
@@ -296685,6 +297051,8 @@
         "drag-handle-3",
         "drag-handle-3-filled",
         "drag-handle-filled",
+        "euro",
+        "euro-filled",
         "expand",
         "expand-2",
         "expand-2-filled",
@@ -330354,6 +330722,126 @@
               "geometric": 5.25,
               "recession": 0.49,
               "optical": 5.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "euro": {
+          "paths": [
+            "M16.54 6.27A5.5 6.5 0 0 0 7.5 11.25V12.75A5.5 6.5 0 0 0 16.54 17.73",
+            "M5.25 10H12.5M5.25 14H12.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M16.54 6.27A5.5 6.5 0 0 0 7.5 11.25V12.75A5.5 6.5 0 0 0 16.54 17.73\"/> <path d=\"M5.25 10H12.5M5.25 14H12.5\"/>",
+          "mark": true,
+          "tags": [
+            "euro",
+            "sign",
+            "oval",
+            "between",
+            "sf-symbols",
+            "central"
+          ],
+          "shift": [
+            -1,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4.5,
+            "y": 4,
+            "w": 12.79,
+            "h": 16.01
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 4,
+            "right": 6.71,
+            "bottom": 3.99
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 0.02,
+              "optical": 4.51
+            },
+            "right": {
+              "geometric": 6.71,
+              "recession": 0.14,
+              "optical": 6.82
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.9,
+              "optical": 4.67
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.9,
+              "optical": 4.67
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "euro-filled": {
+          "paths": [
+            "M16.04 6.48A5 6 0 0 0 8 11.25V12.75A5 6 0 0 0 16.04 17.52",
+            "M5.75 10H12.5M5.75 14H12.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M16.04 6.48A5 6 0 0 0 8 11.25V12.75A5 6 0 0 0 16.04 17.52\"/> <path d=\"M5.75 10H12.5M5.75 14H12.5\"/>",
+          "mark": true,
+          "tags": [
+            "euro",
+            "sign",
+            "oval",
+            "between",
+            "sf-symbols",
+            "central"
+          ],
+          "shift": [
+            -1,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 4.5,
+            "y": 3.99,
+            "w": 12.79,
+            "h": 16.01
+          },
+          "bearing": {
+            "left": 4.5,
+            "top": 3.99,
+            "right": 6.71,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 4.5,
+              "recession": 1.8,
+              "optical": 5.85
+            },
+            "right": {
+              "geometric": 6.71,
+              "recession": 0.19,
+              "optical": 6.85
+            },
+            "top": {
+              "geometric": 3.99,
+              "recession": 1.25,
+              "optical": 4.93
+            },
+            "bottom": {
+              "geometric": 3.99,
+              "recession": 1.25,
+              "optical": 4.93
             }
           },
           "container": null,
@@ -406178,6 +406666,17 @@
     {
       "n": 533,
       "name": "hand-coins",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-21 · approved 2026-10-21",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-21"
+    },
+    {
+      "n": 534,
+      "name": "euro",
       "section": "E · Added on request",
       "category": null,
       "base": null,
