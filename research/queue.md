@@ -1070,4 +1070,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 536. `gift-card` — added 2026-10-21 · approved 2026-10-21
 - [x] 537. `dollar-circle` — added 2026-10-21 · approved 2026-10-21
 - [x] 537. `dollar-circle-2` · variant of `dollar-circle` — G in a coin · approved 2026-10-21
-- [~] 538. `heart-handshake` — added 2026-10-21
+- [x] 538. `heart-handshake` — added 2026-10-21 · approved 2026-10-21
