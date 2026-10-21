@@ -14,10 +14,10 @@ Nothing he sees in a drawing. The checker stops warning about exceptions he alre
 
 Files owned: `tools/lint.mjs`, `tools/geometry.mjs`, `tools/geometry.test.mjs`, `tools/optical-sheet.mjs`. Model: a strong builder (Opus) for 1–6; a fresh reviewer (Opus) for 7.
 
-- [ ] **7. Review.** A fresh agent checks each card against this plan; `node --test tools/geometry.test.mjs` passes; `npm run check` before/after on every shipped file, every changed result listed (expected: fewer warnings from 1, any new findings from 2, 3, 6 listed by icon).
+- [x] **7. Review.** A fresh agent checks each card against this plan; `node --test tools/geometry.test.mjs` passes; `npm run check` before/after on every shipped file, every changed result listed (expected: fewer warnings from 1, any new findings from 2, 3, 6 listed by icon).
 
 ## How it's proven
 Tests for each card (a passing and a failing minimal case). The before/after lint diff across all shipped icons. Work on a branch in a worktree; merged to main only after Maruti has seen the summary.
 
 ## Status
-- [x] Built (worktree)  - [ ] Reviewed  - [ ] Maruti has seen the summary  - [ ] Merged
+- [x] Built (worktree)  - [x] Reviewed  - [x] Maruti has seen the summary  - [x] Merged (d8bcdb2, 2026-10-21)
