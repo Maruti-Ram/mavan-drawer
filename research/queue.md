@@ -824,7 +824,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 281. `reset-2` · Media & Playback · variant of `reset` — Lap back to a start dot · approved 2026-10-22
 - [x] 281. `reset-3` · Media & Playback · variant of `reset` — Undo run round into a ring · approved 2026-10-22
 - [x] 282. `reward` · Commerce & Payments — approved 2026-10-21
-- [~] 283. `sandbox` · Development & Infra
+- [x] 283. `sandbox` · Development & Infra — approved 2026-10-23
 - [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
 - [x] 284. `alert-square-2` · Status & Feedback · variant of `alert-square` — Wedge (alert-circle-2's mark) · approved 2026-10-20
 - [x] 284. `alert-square-3` · Status & Feedback · variant of `alert-square` — Dash foot (alert-circle-3's mark) · approved 2026-10-20

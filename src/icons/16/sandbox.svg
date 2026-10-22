@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+  <!-- tags: cube, box, isolated, dashed, container, environment -->
+  <!-- Cube in a dashed frame: Rhythm: C35's dashed square verbatim (drag-drop's frame, centred): square keyline 18 · 14 · 12, corner radius 2.5 · 2 · 1.5, dash 4 · 2.5 · 2.25 with 2.25 · 1.82 · 1.55 of air, one dash on each corner and one mid-side. Inside, package-2's 2:1 hexagon at 12 · 8 · 6.5 of ink (67 · 57 · 54% of the frame), corners r1 · 0.75 · 0.625, with exactly 1.5 of air to the frame on all four sides at every master (its upright edges face the mid-side dashes, which caps its size). Ink 18×18 · 14×14 · 12×12, box-centred. SEAMS AT 24 ONLY: with the seams, each face of the cube leaves a white 3.2 · 1.41 · 1.10 across, so they hold 1.5 only at 24. The rule removes the detail, so at 20 and 16 the cube is a plain hexagon (white 10.5 · 6.5 · 5.25 across). Within C35 that is the only way: holding 1.5 per face needs a cube of 8.2 ink at 20 and 7.4 at 16, but the frame leaves room for 8 and 6.5, and no dash spacing frees a side (only one side dash fits per side at 16, centred where the cube's upright edge is). In real pixels at 16 the hexagon reads as a hexagon or nut, not a cube, so this is a cube only at 24. A seamed cube would need the dashed frame moved out to the 20 · 16 · 14 box (faces 4.09 · 2.30 · 1.99), which is a C35 question for Maruti. Off-grid values: the 20 and 16 corner dashes' ends (drag-drop's, arc-derived) and the hexagon's corner tangents and seam ends (package-2's construction). Filled: the dashes stay lines at the outline weight (C35); at 24 the cube becomes three solid faces split by a 1.5 slot on the seams (Polaris sandbox's own construction), slot ends eased 0.5; at 20 and 16 a solid hexagon. Who: Polaris Sandbox and Material deployed_code draw the cube; the dashed boundary is Lucide's square-dashed family and box-select, Nucleo isolated-cube. -->
+  <path d="M2.626 4.072A1.5 1.5 0 0 1 4.072 2.626"/>
+  <path d="M6.875 2.625L9.125 2.625"/>
+  <path d="M11.928 2.626A1.5 1.5 0 0 1 13.374 4.072"/>
+  <path d="M13.375 6.875L13.375 9.125"/>
+  <path d="M13.374 11.928A1.5 1.5 0 0 1 11.928 13.374"/>
+  <path d="M9.125 13.375L6.875 13.375"/>
+  <path d="M4.072 13.374A1.5 1.5 0 0 1 2.626 11.928"/>
+  <path d="M2.625 9.125L2.625 6.875"/>
+  <path d="M8.28 5.441L10.28 6.441A0.625 0.625 0 0 1 10.625 7L10.625 9A0.625 0.625 0 0 1 10.28 9.559L8.28 10.559A0.625 0.625 0 0 1 7.72 10.559L5.72 9.559A0.625 0.625 0 0 1 5.375 9L5.375 7A0.625 0.625 0 0 1 5.72 6.441L7.72 5.441A0.625 0.625 0 0 1 8.28 5.441Z"/>
+</svg>
