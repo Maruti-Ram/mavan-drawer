@@ -546,7 +546,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 159. `undo-3` · Arrows & Direction · variant of `undo` — Squared return · undo · approved 2026-10-17
 - [x] 160. `barcode` · Devices & Hardware — approved 2026-10-22
 - [x] 160. `barcode-scan` · Devices & Hardware · variant of `barcode` — Bars in viewfinder · approved 2026-10-22
-- [x] 160. `barcode-scanner` · Devices & Hardware · variant of `barcode` — Handheld scanner · approved 2026-10-22
+- [x] 160. `scanner` · Devices & Hardware — Handheld scanner · approved 2026-10-22
 - [x] 161. `card-reader` · Commerce & Payments — approved 2026-10-21
 - [x] 161. `card-reader-contactless` · Commerce & Payments · variant of `card-reader` — Tap on the reader · approved 2026-10-21
 - [x] 162. `coins` · Commerce & Payments — approved 2026-10-21
