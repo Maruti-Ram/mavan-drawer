@@ -932,7 +932,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 337. `fast-forward` · Media & Playback — approved 2026-10-22
 - [x] 337. `fast-forward-2` · Media & Playback · variant of `fast-forward` — Stepped, rewind-2 mirrored · approved 2026-10-22
 - [x] 338. `git-branch` · Development & Infra — approved 2026-10-23
-- [~] 339. `git-merge` · Development & Infra
+- [x] 339. `git-merge` · Development & Infra — approved 2026-10-23
 - [~] 340. `git-pull-request` · Development & Infra
 - [ ] 341. `hexagon` · Design Tools
 - [ ] 342. `octagon` · Design Tools
