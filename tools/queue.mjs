@@ -396,7 +396,9 @@ async function approve(args) {
     written.push(`src/icons/${master}/${f}`);
   }
 
-  const check = spawnSync('npm', ['run', 'check', '--silent'], { encoding: 'utf8' });
+  // Lint's report passed spawnSync's 1 MB default on 2026-10-23 (5,730 drawings) and was cut off,
+  // which read as a failure; 64 MB leaves room for the whole set.
+  const check = spawnSync('npm', ['run', 'check', '--silent'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   const report = check.stdout.split('\n').filter((l) => plan.some(({ file }) => l.includes(` ${file}`)) || /warn|error|drawings/.test(l));
   console.log(report.join('\n'));
   if (check.status !== 0) die('Lint failed: the files are written but the sheet is NOT ticked. Fix the draft and approve again.');
