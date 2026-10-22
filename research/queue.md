@@ -572,8 +572,12 @@ Bases before their variants; within that, highest evidence first.
 - [x] 179. `id-card-2` · Users & Access · variant of `id-card` — Badge with a slot · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-3` · Users & Access · variant of `id-card` — Clip-on badge · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-4` · Users & Access · variant of `id-card` — Passport · approved 2026-10-19
-- [~] 180. `indent` · Editing & Text
-- [~] 181. `outdent` · Editing & Text
+- [x] 180. `indent` · Editing & Text — approved 2026-10-22
+- [x] 180. `indent-2` · Editing & Text · variant of `indent` — Chevron · approved 2026-10-22
+- [x] 180. `indent-3` · Editing & Text · variant of `indent` — Arrow · approved 2026-10-22
+- [x] 181. `outdent` · Editing & Text — approved 2026-10-22
+- [x] 181. `outdent-2` · Editing & Text · variant of `outdent` — Chevron · approved 2026-10-22
+- [x] 181. `outdent-3` · Editing & Text · variant of `outdent` — Arrow · approved 2026-10-22
 - [x] 182. `popup` · UI & Layout — approved 2026-10-20
 - [~] 183. `replace` · Editing & Text
 - [x] 184. `rows` · UI & Layout — approved 2026-10-20
