@@ -318,6 +318,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 79. `camera-4` · Media & Playback · variant of `camera` — Shutter tab · approved 2026-09-26
 - [x] 79. `camera-5` · Media & Playback · variant of `camera` — Large lens · approved 2026-09-26
 - [x] 79. `camera-6` · Media & Playback · variant of `camera` — No hump, flash dot, whole pixels at 16 · approved 2026-09-26
+- [x] 79. `camera-movie` · Media & Playback · variant of `camera` — Cine camera · approved 2026-10-22
 - [x] 80. `cart` · Commerce & Payments — approved 2026-09-26
 - [x] 80. `cart-2` · Commerce & Payments · variant of `cart` — Hook, square basket · approved 2026-09-26
 - [x] 80. `cart-3` · Commerce & Payments · variant of `cart` — Hook, tapered front · approved 2026-09-26
@@ -385,6 +386,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 97. `pin-6` · UI & Layout · variant of `pin` — Leaning tack, no cap · approved 2026-09-26
 - [x] 98. `presentation` · Charts & Data — approved 2026-09-26
 - [x] 98. `presentation-2` · Charts & Data · variant of `presentation` — Screen, easel legs, trend line · approved 2026-09-26
+- [x] 98. `presentation-play` · Charts & Data · variant of `presentation` — Projector and play · approved 2026-10-22
 - [x] 99. `sparkle` · Status & Feedback — mvp · approved 2026-09-26
 - [x] 99. `sparkle-2` · Status & Feedback · variant of `sparkle` — With a small sparkle · approved 2026-09-26
 - [x] 99. `sparkle-3` · Status & Feedback · variant of `sparkle` — With two small sparkles · approved 2026-09-26
@@ -487,7 +489,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 135. `percent` · Commerce & Payments — approved 2026-10-21
 - [x] 135. `percent-2` · Commerce & Payments · variant of `percent` — Typed glyph · approved 2026-10-21
 - [x] 135. `percent-circle` · Commerce & Payments · variant of `percent` — In a circle · approved 2026-10-21
-- [ ] 136. `stop-circle` · Media & Playback
+- [x] 136. `stop-circle` · Media & Playback — approved 2026-10-22
 - [ ] 137. `tablet` · Devices & Hardware
 - [x] 138. `truck` · Commerce & Payments — approved 2026-10-21
 - [x] 138. `truck-fast` · Commerce & Payments · variant of `truck` — In motion — filled: every line cut white · approved 2026-10-21
@@ -512,7 +514,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 146. `share-3` · Communication · variant of `share` — Forward arrow · approved 2026-10-19
 - [x] 147. `toggle-off` · UI & Layout — approved 2026-10-20
 - [x] 147. `toggle-off-2` · UI & Layout · variant of `toggle-off` — Big knob over a slim track, off · approved 2026-10-20
-- [ ] 148. `cast` · Media & Playback
+- [~] 148. `cast` · Media & Playback
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
@@ -555,7 +557,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
 - [x] 169. `receipt` · Commerce & Payments — approved 2026-10-21
 - [ ] 170. `ruler` · Design Tools
-- [ ] 171. `slideshow` · Media & Playback
+- [x] 171. `slideshow` · Media & Playback — approved 2026-10-22
 - [ ] 172. `workflow` · Development & Infra
 - [x] 173. `arrows-swap` · Arrows & Direction — approved 2026-10-17
 - [x] 173. `arrows-swap-2` · Arrows & Direction · variant of `arrows-swap` — Right on top · approved 2026-10-17
@@ -643,7 +645,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 205. `battery` · Devices & Hardware
 - [ ] 206. `cloud` · Development & Infra
 - [ ] 207. `droplet` · Design Tools
-- [ ] 208. `film` · Media & Playback
+- [x] 208. `film` · Media & Playback — approved 2026-10-22
+- [x] 208. `film-reel` · Media & Playback · variant of `film` — Reel · approved 2026-10-22
+- [x] 208. `film-roll` · Media & Playback · variant of `film` — 35 mm canister · approved 2026-10-22
 - [ ] 209. `layers` · Design Tools
 - [x] 210. `map` · Maps & Location — approved 2026-10-18
 - [x] 210. `map-pinned` · Maps & Location · variant of `map` — Pin badge · approved 2026-10-18
@@ -729,7 +733,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
 - [x] 254. `activity-2` · Charts & Data · variant of `activity` — Square pulse · approved 2026-10-18
 - [x] 254. `activity-circle` · Charts & Data · variant of `activity` — In a ring · approved 2026-10-18
-- [ ] 255. `pause` · Media & Playback
+- [x] 255. `pause` · Media & Playback — approved 2026-10-22
+- [x] 255. `pause-2` · Media & Playback · variant of `pause` — Rounded bars, close pair · approved 2026-10-22
 - [x] 256. `expand` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
 - [x] 257. `window` · UI & Layout — approved 2026-10-20
@@ -778,8 +783,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 278. `channels` · Development & Infra
 - [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
 - [x] 279. `contactless-circle` · Commerce & Payments · variant of `contactless` — Waves fitted to the disc (recommended) · approved 2026-10-21
-- [ ] 280. `replay` · Media & Playback
-- [ ] 281. `reset` · Media & Playback
+- [~] 280. `replay` · Media & Playback
+- [~] 281. `reset` · Media & Playback
 - [x] 282. `reward` · Commerce & Payments — approved 2026-10-21
 - [ ] 283. `sandbox` · Development & Infra
 - [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
@@ -823,14 +828,20 @@ Bases before their variants; within that, highest evidence first.
 - [x] 304. `command` · UI & Layout — approved 2026-10-20
 - [x] 305. `shuffle` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 305. `shuffle-2` · Arrows & Direction · variant of `shuffle` — Straight X · approved 2026-10-17
-- [ ] 306. `aperture` · Media & Playback
+- [x] 306. `aperture` · Media & Playback — approved 2026-10-22
+- [x] 306. `aperture-2` · Media & Playback · variant of `aperture` — Swirl, four curved blades · approved 2026-10-22
 - [ ] 307. `hard-drive` · Devices & Hardware
-- [ ] 308. `music` · Media & Playback
+- [x] 308. `music` · Media & Playback — approved 2026-10-22
+- [x] 308. `music-2` · Media & Playback · variant of `music` — Eighth note with a flag · approved 2026-10-22
+- [x] 308. `music-3` · Media & Playback · variant of `music` — Quarter note · approved 2026-10-22
 - [x] 309. `navigation` · Maps & Location — approved 2026-10-18
 - [x] 309. `navigation-circle` · Maps & Location · variant of `navigation` — Dart in an open ring · approved 2026-10-18
-- [ ] 310. `radio` · Media & Playback
+- [x] 310. `radio` · Media & Playback — approved 2026-10-22
+- [x] 310. `radio-2` · Media & Playback · variant of `radio` — Tabletop receiver · approved 2026-10-22
+- [x] 310. `radio-3` · Media & Playback · variant of `radio` — Dial radio · approved 2026-10-22
+- [x] 310. `radio-tower` · Media & Playback — Radio tower · approved 2026-10-22
 - [ ] 311. `server` · Development & Infra
-- [ ] 312. `speaker` · Media & Playback
+- [~] 312. `speaker` · Media & Playback
 - [x] 313. `terminal` · Development & Infra — approved 2026-10-20
 - [x] 313. `terminal-2` · Development & Infra · variant of `terminal` — Prompt in a window · approved 2026-10-20
 - [ ] 314. `tv` · Devices & Hardware
@@ -873,15 +884,16 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 335. `disc` · Devices & Hardware
 - [x] 336. `dollar-sign` · Currency — approved 2026-10-21
 - [x] 336. `dollar-sign-2` · Currency · variant of `dollar-sign` — F, bar through · approved 2026-10-21
-- [ ] 337. `fast-forward` · Media & Playback
+- [x] 337. `fast-forward` · Media & Playback — approved 2026-10-22
+- [x] 337. `fast-forward-2` · Media & Playback · variant of `fast-forward` — Stepped, rewind-2 mirrored · approved 2026-10-22
 - [ ] 338. `git-branch` · Development & Infra
 - [ ] 339. `git-merge` · Development & Infra
 - [ ] 340. `git-pull-request` · Development & Infra
 - [ ] 341. `hexagon` · Design Tools
 - [ ] 342. `octagon` · Design Tools
 - [ ] 343. `power` · Devices & Hardware
-- [ ] 344. `skip-back` · Media & Playback
-- [ ] 345. `skip-forward` · Media & Playback
+- [x] 344. `skip-back` · Media & Playback — approved 2026-10-22
+- [x] 345. `skip-forward` · Media & Playback — approved 2026-10-22
 - [ ] 346. `square` · Design Tools
 - [ ] 347. `triangle` · Design Tools
 - [ ] 348. `arrow-down-circle` · Arrows & Direction · variant of `arrow-down`
@@ -1115,3 +1127,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 569. `text-sparkle` · Editing & Text — added 2026-10-22 · approved 2026-10-22
 - [x] 570. `signature` · Editing & Text — added 2026-10-22 · approved 2026-10-22
 - [x] 571. `quill` · Editing & Text — added 2026-10-22 · approved 2026-10-22
+- [x] 572. `piano` · Media & Playback — added 2026-10-22 · approved 2026-10-22
+- [x] 573. `waveform` · Media & Playback — added 2026-10-22 · approved 2026-10-22
+- [x] 574. `podcast` · Media & Playback — added 2026-10-22 · approved 2026-10-22
+- [x] 575. `carousel` · UI & Layout — added 2026-10-22 · approved 2026-10-22
