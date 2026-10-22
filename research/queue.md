@@ -485,15 +485,15 @@ Bases before their variants; within that, highest evidence first.
 - [x] 131. `thumbs-down-2` · Communication · variant of `thumbs-down` — Turned · thumbs-down-2 · approved 2026-10-17
 - [x] 132. `underline` · Editing & Text — mvp · approved 2026-10-17
 - [ ] 133. `crop` · Design Tools
-- [ ] 134. `mobile` · Devices & Hardware
+- [~] 134. `mobile` · Devices & Hardware
 - [x] 135. `percent` · Commerce & Payments — approved 2026-10-21
 - [x] 135. `percent-2` · Commerce & Payments · variant of `percent` — Typed glyph · approved 2026-10-21
 - [x] 135. `percent-circle` · Commerce & Payments · variant of `percent` — In a circle · approved 2026-10-21
 - [x] 136. `stop-circle` · Media & Playback — approved 2026-10-22
-- [ ] 137. `tablet` · Devices & Hardware
+- [~] 137. `tablet` · Devices & Hardware
 - [x] 138. `truck` · Commerce & Payments — approved 2026-10-21
 - [x] 138. `truck-fast` · Commerce & Payments · variant of `truck` — In motion — filled: every line cut white · approved 2026-10-21
-- [ ] 139. `wifi` · Devices & Hardware
+- [~] 139. `wifi` · Devices & Hardware
 - [x] 140. `alert-octagon` · Status & Feedback — approved 2026-10-20
 - [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
 - [x] 140. `alert-octagon-3` · Status & Feedback · variant of `alert-octagon` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
@@ -544,7 +544,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 159. `undo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 159. `undo-2` · Arrows & Direction · variant of `undo` — U-turn · undo · approved 2026-10-17
 - [x] 159. `undo-3` · Arrows & Direction · variant of `undo` — Squared return · undo · approved 2026-10-17
-- [ ] 160. `barcode` · Devices & Hardware
+- [~] 160. `barcode` · Devices & Hardware
 - [x] 161. `card-reader` · Commerce & Payments — approved 2026-10-21
 - [x] 161. `card-reader-contactless` · Commerce & Payments · variant of `card-reader` — Tap on the reader · approved 2026-10-21
 - [x] 162. `coins` · Commerce & Payments — approved 2026-10-21
@@ -643,7 +643,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 204. `anchor` · Maps & Location — approved 2026-10-18
 - [x] 204. `anchor-2` · Maps & Location · variant of `anchor` — Minimal · approved 2026-10-18
 - [x] 204. `anchor-3` · Maps & Location · variant of `anchor` — Ball · approved 2026-10-18
-- [ ] 205. `battery` · Devices & Hardware
+- [~] 205. `battery` · Devices & Hardware
 - [ ] 206. `cloud` · Development & Infra
 - [ ] 207. `droplet` · Design Tools
 - [x] 208. `film` · Media & Playback — approved 2026-10-22
@@ -706,18 +706,19 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 233. `align-object-right` · Design Tools
 - [ ] 234. `align-object-top` · Design Tools
 - [ ] 235. `aspect-ratio` · Design Tools
-- [ ] 236. `devices` · Devices & Hardware
+- [~] 236. `devices` · Devices & Hardware
 - [ ] 237. `gem` · Design Tools
 - [x] 238. `handshake` · Commerce & Payments — approved 2026-10-21
 - [x] 238. `handshake-2` · Commerce & Payments · variant of `handshake` — Grip · approved 2026-10-21
-- [ ] 239. `laptop` · Devices & Hardware
+- [x] 239. `laptop` · Devices & Hardware — approved 2026-10-22
+- [x] 239. `laptop-2` · Devices & Hardware · variant of `laptop` — Screen on a base slab · approved 2026-10-22
 - [ ] 240. `microscope` · Development & Infra
 - [ ] 241. `network` · Development & Infra
 - [ ] 242. `pencil-ruler` · Design Tools
-- [ ] 243. `qr-code` · Devices & Hardware
+- [~] 243. `qr-code` · Devices & Hardware
 - [ ] 244. `rocket` · Development & Infra
 - [ ] 245. `rotation` · Design Tools
-- [ ] 246. `satellite` · Devices & Hardware
+- [~] 246. `satellite` · Devices & Hardware
 - [x] 247. `scale` · Commerce & Payments — approved 2026-10-21
 - [x] 247. `scale-2` · Commerce & Payments · variant of `scale` — Kitchen scale · approved 2026-10-21
 - [x] 247. `scale-3` · Commerce & Payments · variant of `scale` — Parcel scale · approved 2026-10-21
@@ -726,7 +727,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 249. `shopping-basket` · Commerce & Payments — approved 2026-10-21
 - [x] 249. `shopping-basket-2` · Commerce & Payments · variant of `shopping-basket` — Slatted basket · approved 2026-10-21
 - [x] 249. `shopping-basket-plus` · Commerce & Payments · variant of `shopping-basket` — Basket with a plus (fill-in) · approved 2026-10-21
-- [ ] 250. `signal` · Devices & Hardware
+- [~] 250. `signal` · Devices & Hardware
 - [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
 - [x] 252. `ticket` · Commerce & Payments — approved 2026-10-21
 - [x] 252. `ticket-2` · Commerce & Payments · variant of `ticket` — Stub, edge notches · approved 2026-10-21
@@ -740,7 +741,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
 - [x] 257. `window` · UI & Layout — approved 2026-10-20
 - [x] 257. `window-2` · UI & Layout · variant of `window` — Tabs · approved 2026-10-20
-- [ ] 258. `scan` · Devices & Hardware
+- [~] 258. `scan` · Devices & Hardware
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
 - [x] 261. `blog` · Editing & Text — approved 2026-10-22
@@ -834,7 +835,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 305. `shuffle-2` · Arrows & Direction · variant of `shuffle` — Straight X · approved 2026-10-17
 - [x] 306. `aperture` · Media & Playback — approved 2026-10-22
 - [x] 306. `aperture-2` · Media & Playback · variant of `aperture` — Swirl, four curved blades · approved 2026-10-22
-- [ ] 307. `hard-drive` · Devices & Hardware
+- [~] 307. `hard-drive` · Devices & Hardware
 - [x] 308. `music` · Media & Playback — approved 2026-10-22
 - [x] 308. `music-2` · Media & Playback · variant of `music` — Eighth note with a flag · approved 2026-10-22
 - [x] 308. `music-3` · Media & Playback · variant of `music` — Quarter note · approved 2026-10-22
@@ -849,8 +850,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 312. `speaker-2` · Media & Playback · variant of `speaker` — Speaker pair · approved 2026-10-22
 - [x] 313. `terminal` · Development & Infra — approved 2026-10-20
 - [x] 313. `terminal-2` · Development & Infra · variant of `terminal` — Prompt in a window · approved 2026-10-20
-- [ ] 314. `tv` · Devices & Hardware
-- [ ] 315. `voicemail` · Devices & Hardware
+- [~] 314. `tv` · Devices & Hardware
+- [~] 315. `voicemail` · Devices & Hardware
 - [x] 316. `chevrons-down` · Arrows & Direction — approved 2026-10-17
 - [x] 316. `chevrons-down-2` · Arrows & Direction · variant of `chevrons-down` — Small, tight · approved 2026-10-17
 - [x] 317. `chevrons-left` · Arrows & Direction — approved 2026-10-17
@@ -883,10 +884,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 330. `trending-down-2` · Charts & Data · variant of `trending-down` — One pull-back, soft · approved 2026-10-18
 - [x] 331. `trending-up` · Charts & Data — mvp · approved 2026-10-18
 - [x] 331. `trending-up-2` · Charts & Data · variant of `trending-up` — One pull-back, soft · approved 2026-10-18
-- [ ] 332. `bluetooth` · Devices & Hardware
+- [~] 332. `bluetooth` · Devices & Hardware
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
-- [ ] 335. `disc` · Devices & Hardware
+- [~] 335. `disc` · Devices & Hardware
 - [x] 336. `dollar-sign` · Currency — approved 2026-10-21
 - [x] 336. `dollar-sign-2` · Currency · variant of `dollar-sign` — F, bar through · approved 2026-10-21
 - [x] 337. `fast-forward` · Media & Playback — approved 2026-10-22
@@ -896,7 +897,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 340. `git-pull-request` · Development & Infra
 - [ ] 341. `hexagon` · Design Tools
 - [ ] 342. `octagon` · Design Tools
-- [ ] 343. `power` · Devices & Hardware
+- [~] 343. `power` · Devices & Hardware
 - [x] 344. `skip-back` · Media & Playback — approved 2026-10-22
 - [x] 345. `skip-forward` · Media & Playback — approved 2026-10-22
 - [ ] 346. `square` · Design Tools

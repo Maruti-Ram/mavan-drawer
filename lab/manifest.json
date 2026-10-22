@@ -867,6 +867,10 @@
     "label-important-filled",
     "language",
     "language-filled",
+    "laptop",
+    "laptop-2",
+    "laptop-2-filled",
+    "laptop-filled",
     "layout-footer",
     "layout-footer-2",
     "layout-footer-2-filled",
@@ -52910,6 +52914,239 @@
           "geometric": 2,
           "recession": 0.45,
           "optical": 2.34
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "laptop": {
+      "paths": [
+        "M7.25 5.25H16.75A2.5 2.5 0 0 1 19.25 7.75V12.75A2.5 2.5 0 0 1 16.75 15.25H7.25A2.5 2.5 0 0 1 4.75 12.75V7.75A2.5 2.5 0 0 1 7.25 5.25Z",
+        "M2.75 18.75H21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.25 5.25H16.75A2.5 2.5 0 0 1 19.25 7.75V12.75A2.5 2.5 0 0 1 16.75 15.25H7.25A2.5 2.5 0 0 1 4.75 12.75V7.75A2.5 2.5 0 0 1 7.25 5.25Z\"/> <path d=\"M2.75 18.75H21.25\"/>",
+      "mark": false,
+      "tags": [
+        "computer",
+        "notebook",
+        "base",
+        "floating"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4.5,
+        "w": 20,
+        "h": 15
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4.5,
+        "right": 2,
+        "bottom": 4.5
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.04,
+          "optical": 2.03
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.04,
+          "optical": 2.03
+        },
+        "top": {
+          "geometric": 4.5,
+          "recession": 0.21,
+          "optical": 4.66
+        },
+        "bottom": {
+          "geometric": 4.5,
+          "recession": 0.02,
+          "optical": 4.52
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "laptop-2": {
+      "paths": [
+        "M4.75 16.25V7.25A2.5 2.5 0 0 1 7.25 4.75H16.75A2.5 2.5 0 0 1 19.25 7.25V16.25",
+        "M2.75 16.25H21.25V17.75A1.5 1.5 0 0 1 19.75 19.25H4.25A1.5 1.5 0 0 1 2.75 17.75V16.25Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.75 16.25V7.25A2.5 2.5 0 0 1 7.25 4.75H16.75A2.5 2.5 0 0 1 19.25 7.25V16.25\"/> <path d=\"M2.75 16.25H21.25V17.75A1.5 1.5 0 0 1 19.75 19.25H4.25A1.5 1.5 0 0 1 2.75 17.75V16.25Z\"/>",
+      "mark": false,
+      "tags": [
+        "computer",
+        "notebook",
+        "slab",
+        "deck"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 1.15,
+          "optical": 2.86
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 1.15,
+          "optical": 2.86
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.12,
+          "optical": 4.09
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "laptop-2-filled": {
+      "paths": [],
+      "areas": [
+        "M7.25 4H16.75A3.25 3.25 0 0 1 20 7.25V15A0.5 0.5 0 0 1 19.5 15.5H4.5A0.5 0.5 0 0 1 4 15V7.25A3.25 3.25 0 0 1 7.25 4Z",
+        "M2.75 17H21.25A0.75 0.75 0 0 1 22 17.75A2.25 2.25 0 0 1 19.75 20H4.25A2.25 2.25 0 0 1 2 17.75A0.75 0.75 0 0 1 2.75 17Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 4H16.75A3.25 3.25 0 0 1 20 7.25V15A0.5 0.5 0 0 1 19.5 15.5H4.5A0.5 0.5 0 0 1 4 15V7.25A3.25 3.25 0 0 1 7.25 4Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.75 17H21.25A0.75 0.75 0 0 1 22 17.75A2.25 2.25 0 0 1 19.75 20H4.25A2.25 2.25 0 0 1 2 17.75A0.75 0.75 0 0 1 2.75 17Z\"/>",
+      "mark": false,
+      "tags": [
+        "computer",
+        "notebook",
+        "slab",
+        "deck"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "laptop-filled": {
+      "paths": [
+        "M2.75 18.75H21.25"
+      ],
+      "areas": [
+        "M7.25 4.5H16.75A3.25 3.25 0 0 1 20 7.75V12.75A3.25 3.25 0 0 1 16.75 16H7.25A3.25 3.25 0 0 1 4 12.75V7.75A3.25 3.25 0 0 1 7.25 4.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 4.5H16.75A3.25 3.25 0 0 1 20 7.75V12.75A3.25 3.25 0 0 1 16.75 16H7.25A3.25 3.25 0 0 1 4 12.75V7.75A3.25 3.25 0 0 1 7.25 4.5Z\"/> <path d=\"M2.75 18.75H21.25\"/>",
+      "mark": false,
+      "tags": [
+        "computer",
+        "notebook",
+        "base",
+        "floating"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4.5,
+        "w": 20,
+        "h": 15
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4.5,
+        "right": 2,
+        "bottom": 4.5
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4.5,
+          "recession": 0,
+          "optical": 4.5
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4.5,
+          "recession": 0,
+          "optical": 4.5
         }
       },
       "container": null,
@@ -113130,6 +113367,10 @@
         "label-important-filled",
         "language",
         "language-filled",
+        "laptop",
+        "laptop-2",
+        "laptop-2-filled",
+        "laptop-filled",
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
@@ -165101,6 +165342,239 @@
               "geometric": 1,
               "recession": 0.43,
               "optical": 1.32
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop": {
+          "paths": [
+            "M4.625 3.25H11.375A1.5 1.5 0 0 1 12.875 4.75V8.5A1.5 1.5 0 0 1 11.375 10H4.625A1.5 1.5 0 0 1 3.125 8.5V4.75A1.5 1.5 0 0 1 4.625 3.25Z",
+            "M1.625 12.75H14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.625 3.25H11.375A1.5 1.5 0 0 1 12.875 4.75V8.5A1.5 1.5 0 0 1 11.375 10H4.625A1.5 1.5 0 0 1 3.125 8.5V4.75A1.5 1.5 0 0 1 4.625 3.25Z\"/> <path d=\"M1.625 12.75H14.375\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "base",
+            "floating"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2.63,
+            "w": 14,
+            "h": 10.75
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2.63,
+            "right": 1,
+            "bottom": 2.62
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.04,
+              "optical": 1.03
+            },
+            "top": {
+              "geometric": 2.63,
+              "recession": 0.15,
+              "optical": 2.74
+            },
+            "bottom": {
+              "geometric": 2.63,
+              "recession": 0.03,
+              "optical": 2.64
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-2": {
+          "paths": [
+            "M2.625 10.625V4.125A1.5 1.5 0 0 1 4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V10.625",
+            "M1.625 10.625H14.375V12.375A1 1 0 0 1 13.375 13.375H2.625A1 1 0 0 1 1.625 12.375V10.625Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 10.625V4.125A1.5 1.5 0 0 1 4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V10.625\"/> <path d=\"M1.625 10.625H14.375V12.375A1 1 0 0 1 13.375 13.375H2.625A1 1 0 0 1 1.625 12.375V10.625Z\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "slab",
+            "deck"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.76,
+              "optical": 1.57
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.76,
+              "optical": 1.57
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.15,
+              "optical": 2.12
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.11,
+              "optical": 2.08
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-2-filled": {
+          "paths": [],
+          "areas": [
+            "M4.125 2H11.875A2.125 2.125 0 0 1 14 4.125V9.375A0.5 0.5 0 0 1 13.5 9.875H2.5A0.5 0.5 0 0 1 2 9.375V4.125A2.125 2.125 0 0 1 4.125 2Z",
+            "M1.625 11.375H14.375A0.625 0.625 0 0 1 15 12V12.375A1.625 1.625 0 0 1 13.375 14H2.625A1.625 1.625 0 0 1 1 12.375V12A0.625 0.625 0 0 1 1.625 11.375Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.125 2H11.875A2.125 2.125 0 0 1 14 4.125V9.375A0.5 0.5 0 0 1 13.5 9.875H2.5A0.5 0.5 0 0 1 2 9.375V4.125A2.125 2.125 0 0 1 4.125 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1.625 11.375H14.375A0.625 0.625 0 0 1 15 12V12.375A1.625 1.625 0 0 1 13.375 14H2.625A1.625 1.625 0 0 1 1 12.375V12A0.625 0.625 0 0 1 1.625 11.375Z\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "slab",
+            "deck"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-filled": {
+          "paths": [
+            "M1.625 12.75H14.375"
+          ],
+          "areas": [
+            "M4.625 2.625H11.375A2.125 2.125 0 0 1 13.5 4.75V8.5A2.125 2.125 0 0 1 11.375 10.625H4.625A2.125 2.125 0 0 1 2.5 8.5V4.75A2.125 2.125 0 0 1 4.625 2.625Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.625 2.625H11.375A2.125 2.125 0 0 1 13.5 4.75V8.5A2.125 2.125 0 0 1 11.375 10.625H4.625A2.125 2.125 0 0 1 2.5 8.5V4.75A2.125 2.125 0 0 1 4.625 2.625Z\"/> <path d=\"M1.625 12.75H14.375\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "base",
+            "floating"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2.63,
+            "w": 14,
+            "h": 10.75
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2.63,
+            "right": 1,
+            "bottom": 2.62
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 2.63,
+              "recession": 0,
+              "optical": 2.63
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 2.62,
+              "recession": 0,
+              "optical": 2.62
             }
           },
           "container": null,
@@ -225306,6 +225780,10 @@
         "label-important-filled",
         "language",
         "language-filled",
+        "laptop",
+        "laptop-2",
+        "laptop-2-filled",
+        "laptop-filled",
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
@@ -277303,6 +277781,239 @@
               "geometric": 2,
               "recession": 0.41,
               "optical": 2.31
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop": {
+          "paths": [
+            "M6.25 4.75H13.75A2 2 0 0 1 15.75 6.75V10.25A2 2 0 0 1 13.75 12.25H6.25A2 2 0 0 1 4.25 10.25V6.75A2 2 0 0 1 6.25 4.75Z",
+            "M2.75 15.25H17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.25 4.75H13.75A2 2 0 0 1 15.75 6.75V10.25A2 2 0 0 1 13.75 12.25H6.25A2 2 0 0 1 4.25 10.25V6.75A2 2 0 0 1 6.25 4.75Z\"/> <path d=\"M2.75 15.25H17.25\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "base",
+            "floating"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.03,
+              "optical": 4.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-2": {
+          "paths": [
+            "M4.25 12.75V6.25A2 2 0 0 1 6.25 4.25H13.75A2 2 0 0 1 15.75 6.25V12.75",
+            "M2.75 12.75H17.25V14.5A1.25 1.25 0 0 1 16 15.75H4A1.25 1.25 0 0 1 2.75 14.5V12.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 12.75V6.25A2 2 0 0 1 6.25 4.25H13.75A2 2 0 0 1 15.75 6.25V12.75\"/> <path d=\"M2.75 12.75H17.25V14.5A1.25 1.25 0 0 1 16 15.75H4A1.25 1.25 0 0 1 2.75 14.5V12.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "slab",
+            "deck"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3.5,
+            "w": 16,
+            "h": 13
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3.5,
+            "right": 2,
+            "bottom": 3.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 1.06,
+              "optical": 2.79
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 1.06,
+              "optical": 2.79
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 0.21,
+              "optical": 3.66
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 0.13,
+              "optical": 3.6
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-2-filled": {
+          "paths": [],
+          "areas": [
+            "M6.25 3.5H13.75A2.75 2.75 0 0 1 16.5 6.25V11.5A0.5 0.5 0 0 1 16 12H4A0.5 0.5 0 0 1 3.5 11.5V6.25A2.75 2.75 0 0 1 6.25 3.5Z",
+            "M2.75 13.5H17.25A0.75 0.75 0 0 1 18 14.25V14.5A2 2 0 0 1 16 16.5H4A2 2 0 0 1 2 14.5V14.25A0.75 0.75 0 0 1 2.75 13.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3.5H13.75A2.75 2.75 0 0 1 16.5 6.25V11.5A0.5 0.5 0 0 1 16 12H4A0.5 0.5 0 0 1 3.5 11.5V6.25A2.75 2.75 0 0 1 6.25 3.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.75 13.5H17.25A0.75 0.75 0 0 1 18 14.25V14.5A2 2 0 0 1 16 16.5H4A2 2 0 0 1 2 14.5V14.25A0.75 0.75 0 0 1 2.75 13.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "slab",
+            "deck"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3.5,
+            "w": 16,
+            "h": 13
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3.5,
+            "right": 2,
+            "bottom": 3.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 3.5,
+              "recession": 0,
+              "optical": 3.5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 3.5,
+              "recession": 0,
+              "optical": 3.5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-filled": {
+          "paths": [
+            "M2.75 15.25H17.25"
+          ],
+          "areas": [
+            "M6.25 4H13.75A2.75 2.75 0 0 1 16.5 6.75V10.25A2.75 2.75 0 0 1 13.75 13H6.25A2.75 2.75 0 0 1 3.5 10.25V6.75A2.75 2.75 0 0 1 6.25 4Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 4H13.75A2.75 2.75 0 0 1 16.5 6.75V10.25A2.75 2.75 0 0 1 13.75 13H6.25A2.75 2.75 0 0 1 3.5 10.25V6.75A2.75 2.75 0 0 1 6.25 4Z\"/> <path d=\"M2.75 15.25H17.25\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "base",
+            "floating"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
             }
           },
           "container": null,
@@ -337531,6 +338242,10 @@
         "label-important-filled",
         "language",
         "language-filled",
+        "laptop",
+        "laptop-2",
+        "laptop-2-filled",
+        "laptop-filled",
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
@@ -389574,6 +390289,239 @@
               "geometric": 2,
               "recession": 0.45,
               "optical": 2.34
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop": {
+          "paths": [
+            "M7.25 5.25H16.75A2.5 2.5 0 0 1 19.25 7.75V12.75A2.5 2.5 0 0 1 16.75 15.25H7.25A2.5 2.5 0 0 1 4.75 12.75V7.75A2.5 2.5 0 0 1 7.25 5.25Z",
+            "M2.75 18.75H21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 5.25H16.75A2.5 2.5 0 0 1 19.25 7.75V12.75A2.5 2.5 0 0 1 16.75 15.25H7.25A2.5 2.5 0 0 1 4.75 12.75V7.75A2.5 2.5 0 0 1 7.25 5.25Z\"/> <path d=\"M2.75 18.75H21.25\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "base",
+            "floating"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4.5,
+            "w": 20,
+            "h": 15
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4.5,
+            "right": 2,
+            "bottom": 4.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "top": {
+              "geometric": 4.5,
+              "recession": 0.21,
+              "optical": 4.66
+            },
+            "bottom": {
+              "geometric": 4.5,
+              "recession": 0.02,
+              "optical": 4.52
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-2": {
+          "paths": [
+            "M4.75 16.25V7.25A2.5 2.5 0 0 1 7.25 4.75H16.75A2.5 2.5 0 0 1 19.25 7.25V16.25",
+            "M2.75 16.25H21.25V17.75A1.5 1.5 0 0 1 19.75 19.25H4.25A1.5 1.5 0 0 1 2.75 17.75V16.25Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 16.25V7.25A2.5 2.5 0 0 1 7.25 4.75H16.75A2.5 2.5 0 0 1 19.25 7.25V16.25\"/> <path d=\"M2.75 16.25H21.25V17.75A1.5 1.5 0 0 1 19.75 19.25H4.25A1.5 1.5 0 0 1 2.75 17.75V16.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "slab",
+            "deck"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 1.15,
+              "optical": 2.86
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 1.15,
+              "optical": 2.86
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.12,
+              "optical": 4.09
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-2-filled": {
+          "paths": [],
+          "areas": [
+            "M7.25 4H16.75A3.25 3.25 0 0 1 20 7.25V15A0.5 0.5 0 0 1 19.5 15.5H4.5A0.5 0.5 0 0 1 4 15V7.25A3.25 3.25 0 0 1 7.25 4Z",
+            "M2.75 17H21.25A0.75 0.75 0 0 1 22 17.75A2.25 2.25 0 0 1 19.75 20H4.25A2.25 2.25 0 0 1 2 17.75A0.75 0.75 0 0 1 2.75 17Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 4H16.75A3.25 3.25 0 0 1 20 7.25V15A0.5 0.5 0 0 1 19.5 15.5H4.5A0.5 0.5 0 0 1 4 15V7.25A3.25 3.25 0 0 1 7.25 4Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.75 17H21.25A0.75 0.75 0 0 1 22 17.75A2.25 2.25 0 0 1 19.75 20H4.25A2.25 2.25 0 0 1 2 17.75A0.75 0.75 0 0 1 2.75 17Z\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "slab",
+            "deck"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "laptop-filled": {
+          "paths": [
+            "M2.75 18.75H21.25"
+          ],
+          "areas": [
+            "M7.25 4.5H16.75A3.25 3.25 0 0 1 20 7.75V12.75A3.25 3.25 0 0 1 16.75 16H7.25A3.25 3.25 0 0 1 4 12.75V7.75A3.25 3.25 0 0 1 7.25 4.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 4.5H16.75A3.25 3.25 0 0 1 20 7.75V12.75A3.25 3.25 0 0 1 16.75 16H7.25A3.25 3.25 0 0 1 4 12.75V7.75A3.25 3.25 0 0 1 7.25 4.5Z\"/> <path d=\"M2.75 18.75H21.25\"/>",
+          "mark": false,
+          "tags": [
+            "computer",
+            "notebook",
+            "base",
+            "floating"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4.5,
+            "w": 20,
+            "h": 15
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4.5,
+            "right": 2,
+            "bottom": 4.5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4.5,
+              "recession": 0,
+              "optical": 4.5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4.5,
+              "recession": 0,
+              "optical": 4.5
             }
           },
           "container": null,
@@ -453950,7 +454898,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -454005,7 +454953,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -454038,7 +454986,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -454599,7 +455547,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -455688,7 +456636,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -456381,7 +457329,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -456424,10 +457372,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Devices & Hardware",
       "base": null,
-      "note": null,
-      "status": "todo",
+      "note": "approved 2026-10-22",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-22"
+    },
+    {
+      "n": 239,
+      "name": "laptop-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Devices & Hardware",
+      "base": "laptop",
+      "note": "Screen on a base slab · approved 2026-10-22",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-22"
     },
     {
       "n": 240,
@@ -456469,7 +457428,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -456502,7 +457461,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -456601,7 +457560,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -456755,7 +457714,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -457789,7 +458748,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -457954,7 +458913,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -457965,7 +458924,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -458328,7 +459287,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -458361,7 +459320,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -458471,7 +459430,7 @@
       "category": "Devices & Hardware",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
