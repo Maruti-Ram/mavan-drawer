@@ -771,6 +771,8 @@
     "git-branch-filled",
     "git-merge",
     "git-merge-filled",
+    "git-pull-request",
+    "git-pull-request-filled",
     "globe",
     "globe-2",
     "globe-2-filled",
@@ -47279,6 +47281,143 @@
         "version control",
         "source control",
         "join",
+        "git",
+        "nodes",
+        "rings",
+        "elbow",
+        "octicons"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "git-pull-request": {
+      "paths": [
+        "M3.75 5.5A1.75 1.75 0 1 0 7.25 5.5A1.75 1.75 0 1 0 3.75 5.5Z",
+        "M3.75 18.5A1.75 1.75 0 1 0 7.25 18.5A1.75 1.75 0 1 0 3.75 18.5Z",
+        "M16.75 18.5A1.75 1.75 0 1 0 20.25 18.5A1.75 1.75 0 1 0 16.75 18.5Z",
+        "M5.5 7.25V16.75",
+        "M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5",
+        "M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 5.5A1.75 1.75 0 1 0 7.25 5.5A1.75 1.75 0 1 0 3.75 5.5Z\"/> <path d=\"M3.75 18.5A1.75 1.75 0 1 0 7.25 18.5A1.75 1.75 0 1 0 3.75 18.5Z\"/> <path d=\"M16.75 18.5A1.75 1.75 0 1 0 20.25 18.5A1.75 1.75 0 1 0 16.75 18.5Z\"/> <path d=\"M5.5 7.25V16.75\"/> <path d=\"M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5\"/> <path d=\"M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75\"/>",
+      "mark": false,
+      "tags": [
+        "pull request",
+        "pr",
+        "merge request",
+        "review",
+        "version control",
+        "git",
+        "nodes",
+        "rings",
+        "elbow",
+        "octicons"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.96,
+          "optical": 3.72
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.74,
+          "optical": 3.55
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.16,
+          "optical": 3.12
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.16,
+          "optical": 3.12
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "git-pull-request-filled": {
+      "paths": [
+        "M5.5 7.25V16.75",
+        "M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5",
+        "M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75"
+      ],
+      "areas": [
+        "M3 5.5A2.5 2.5 0 1 0 8 5.5A2.5 2.5 0 1 0 3 5.5Z",
+        "M3 18.5A2.5 2.5 0 1 0 8 18.5A2.5 2.5 0 1 0 3 18.5Z",
+        "M16 18.5A2.5 2.5 0 1 0 21 18.5A2.5 2.5 0 1 0 16 18.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 5.5A2.5 2.5 0 1 0 8 5.5A2.5 2.5 0 1 0 3 5.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 18.5A2.5 2.5 0 1 0 8 18.5A2.5 2.5 0 1 0 3 18.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16 18.5A2.5 2.5 0 1 0 21 18.5A2.5 2.5 0 1 0 16 18.5Z\"/> <path d=\"M5.5 7.25V16.75\"/> <path d=\"M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5\"/> <path d=\"M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75\"/>",
+      "mark": false,
+      "tags": [
+        "pull request",
+        "pr",
+        "merge request",
+        "review",
+        "version control",
         "git",
         "nodes",
         "rings",
@@ -122343,6 +122482,8 @@
         "git-branch-filled",
         "git-merge",
         "git-merge-filled",
+        "git-pull-request",
+        "git-pull-request-filled",
         "globe",
         "globe-2",
         "globe-2-filled",
@@ -168776,6 +168917,143 @@
             "version control",
             "source control",
             "join",
+            "git",
+            "nodes",
+            "rings",
+            "elbow",
+            "octicons"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1.63,
+            "y": 1.63,
+            "w": 12.75,
+            "h": 12.75
+          },
+          "bearing": {
+            "left": 1.63,
+            "top": 1.63,
+            "right": 1.62,
+            "bottom": 1.62
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.63,
+              "recession": 0,
+              "optical": 1.63
+            },
+            "top": {
+              "geometric": 1.63,
+              "recession": 0,
+              "optical": 1.63
+            },
+            "right": {
+              "geometric": 1.62,
+              "recession": 0,
+              "optical": 1.62
+            },
+            "bottom": {
+              "geometric": 1.62,
+              "recession": 0,
+              "optical": 1.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "git-pull-request": {
+          "paths": [
+            "M2.25 3.625A1.375 1.375 0 1 0 5 3.625A1.375 1.375 0 1 0 2.25 3.625Z",
+            "M2.25 12.375A1.375 1.375 0 1 0 5 12.375A1.375 1.375 0 1 0 2.25 12.375Z",
+            "M11 12.375A1.375 1.375 0 1 0 13.75 12.375A1.375 1.375 0 1 0 11 12.375Z",
+            "M3.625 5V11",
+            "M12.375 11V8.875A1.75 1.75 0 0 0 10.625 7.125H6.375",
+            "M8.866 9.875L6.558 7.567A0.625 0.625 0 0 1 6.558 6.683L8.866 4.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.25 3.625A1.375 1.375 0 1 0 5 3.625A1.375 1.375 0 1 0 2.25 3.625Z\"/> <path d=\"M2.25 12.375A1.375 1.375 0 1 0 5 12.375A1.375 1.375 0 1 0 2.25 12.375Z\"/> <path d=\"M11 12.375A1.375 1.375 0 1 0 13.75 12.375A1.375 1.375 0 1 0 11 12.375Z\"/> <path d=\"M3.625 5V11\"/> <path d=\"M12.375 11V8.875A1.75 1.75 0 0 0 10.625 7.125H6.375\"/> <path d=\"M8.866 9.875L6.558 7.567A0.625 0.625 0 0 1 6.558 6.683L8.866 4.375\"/>",
+          "mark": false,
+          "tags": [
+            "pull request",
+            "pr",
+            "merge request",
+            "review",
+            "version control",
+            "git",
+            "nodes",
+            "rings",
+            "elbow",
+            "octicons"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1.63,
+            "y": 1.63,
+            "w": 12.75,
+            "h": 12.75
+          },
+          "bearing": {
+            "left": 1.63,
+            "top": 1.63,
+            "right": 1.62,
+            "bottom": 1.62
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.63,
+              "recession": 0.73,
+              "optical": 2.17
+            },
+            "right": {
+              "geometric": 1.63,
+              "recession": 0.51,
+              "optical": 2.01
+            },
+            "top": {
+              "geometric": 1.63,
+              "recession": 0.15,
+              "optical": 1.74
+            },
+            "bottom": {
+              "geometric": 1.63,
+              "recession": 0.15,
+              "optical": 1.74
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "git-pull-request-filled": {
+          "paths": [
+            "M3.625 5V11",
+            "M12.375 11V8.875A1.75 1.75 0 0 0 10.625 7.125H6.375",
+            "M8.866 9.875L6.558 7.567A0.625 0.625 0 0 1 6.558 6.683L8.866 4.375"
+          ],
+          "areas": [
+            "M1.625 3.625A2 2 0 1 0 5.625 3.625A2 2 0 1 0 1.625 3.625Z",
+            "M1.625 12.375A2 2 0 1 0 5.625 12.375A2 2 0 1 0 1.625 12.375Z",
+            "M10.375 12.375A2 2 0 1 0 14.375 12.375A2 2 0 1 0 10.375 12.375Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1.625 3.625A2 2 0 1 0 5.625 3.625A2 2 0 1 0 1.625 3.625Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1.625 12.375A2 2 0 1 0 5.625 12.375A2 2 0 1 0 1.625 12.375Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.375 12.375A2 2 0 1 0 14.375 12.375A2 2 0 1 0 10.375 12.375Z\"/> <path d=\"M3.625 5V11\"/> <path d=\"M12.375 11V8.875A1.75 1.75 0 0 0 10.625 7.125H6.375\"/> <path d=\"M8.866 9.875L6.558 7.567A0.625 0.625 0 0 1 6.558 6.683L8.866 4.375\"/>",
+          "mark": false,
+          "tags": [
+            "pull request",
+            "pr",
+            "merge request",
+            "review",
+            "version control",
             "git",
             "nodes",
             "rings",
@@ -243807,6 +244085,8 @@
         "git-branch-filled",
         "git-merge",
         "git-merge-filled",
+        "git-pull-request",
+        "git-pull-request-filled",
         "globe",
         "globe-2",
         "globe-2-filled",
@@ -290267,6 +290547,143 @@
             "version control",
             "source control",
             "join",
+            "git",
+            "nodes",
+            "rings",
+            "elbow",
+            "octicons"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "git-pull-request": {
+          "paths": [
+            "M3.75 5.25A1.5 1.5 0 1 0 6.75 5.25A1.5 1.5 0 1 0 3.75 5.25Z",
+            "M3.75 14.75A1.5 1.5 0 1 0 6.75 14.75A1.5 1.5 0 1 0 3.75 14.75Z",
+            "M13.25 14.75A1.5 1.5 0 1 0 16.25 14.75A1.5 1.5 0 1 0 13.25 14.75Z",
+            "M5.25 6.75V13.25",
+            "M14.75 13.25V11A2 2 0 0 0 12.75 9H8.25",
+            "M10.94 12L8.47 9.53A0.75 0.75 0 0 1 8.47 8.47L10.94 6"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 5.25A1.5 1.5 0 1 0 6.75 5.25A1.5 1.5 0 1 0 3.75 5.25Z\"/> <path d=\"M3.75 14.75A1.5 1.5 0 1 0 6.75 14.75A1.5 1.5 0 1 0 3.75 14.75Z\"/> <path d=\"M13.25 14.75A1.5 1.5 0 1 0 16.25 14.75A1.5 1.5 0 1 0 13.25 14.75Z\"/> <path d=\"M5.25 6.75V13.25\"/> <path d=\"M14.75 13.25V11A2 2 0 0 0 12.75 9H8.25\"/> <path d=\"M10.94 12L8.47 9.53A0.75 0.75 0 0 1 8.47 8.47L10.94 6\"/>",
+          "mark": false,
+          "tags": [
+            "pull request",
+            "pr",
+            "merge request",
+            "review",
+            "version control",
+            "git",
+            "nodes",
+            "rings",
+            "elbow",
+            "octicons"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.85,
+              "optical": 3.64
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.47
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.17,
+              "optical": 3.13
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.17,
+              "optical": 3.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "git-pull-request-filled": {
+          "paths": [
+            "M5.25 6.75V13.25",
+            "M14.75 13.25V11A2 2 0 0 0 12.75 9H8.25",
+            "M10.94 12L8.47 9.53A0.75 0.75 0 0 1 8.47 8.47L10.94 6"
+          ],
+          "areas": [
+            "M3 5.25A2.25 2.25 0 1 0 7.5 5.25A2.25 2.25 0 1 0 3 5.25Z",
+            "M3 14.75A2.25 2.25 0 1 0 7.5 14.75A2.25 2.25 0 1 0 3 14.75Z",
+            "M12.5 14.75A2.25 2.25 0 1 0 17 14.75A2.25 2.25 0 1 0 12.5 14.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 5.25A2.25 2.25 0 1 0 7.5 5.25A2.25 2.25 0 1 0 3 5.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 14.75A2.25 2.25 0 1 0 7.5 14.75A2.25 2.25 0 1 0 3 14.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.5 14.75A2.25 2.25 0 1 0 17 14.75A2.25 2.25 0 1 0 12.5 14.75Z\"/> <path d=\"M5.25 6.75V13.25\"/> <path d=\"M14.75 13.25V11A2 2 0 0 0 12.75 9H8.25\"/> <path d=\"M10.94 12L8.47 9.53A0.75 0.75 0 0 1 8.47 8.47L10.94 6\"/>",
+          "mark": false,
+          "tags": [
+            "pull request",
+            "pr",
+            "merge request",
+            "review",
+            "version control",
             "git",
             "nodes",
             "rings",
@@ -365322,6 +365739,8 @@
         "git-branch-filled",
         "git-merge",
         "git-merge-filled",
+        "git-pull-request",
+        "git-pull-request-filled",
         "globe",
         "globe-2",
         "globe-2-filled",
@@ -411830,6 +412249,143 @@
             "version control",
             "source control",
             "join",
+            "git",
+            "nodes",
+            "rings",
+            "elbow",
+            "octicons"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "git-pull-request": {
+          "paths": [
+            "M3.75 5.5A1.75 1.75 0 1 0 7.25 5.5A1.75 1.75 0 1 0 3.75 5.5Z",
+            "M3.75 18.5A1.75 1.75 0 1 0 7.25 18.5A1.75 1.75 0 1 0 3.75 18.5Z",
+            "M16.75 18.5A1.75 1.75 0 1 0 20.25 18.5A1.75 1.75 0 1 0 16.75 18.5Z",
+            "M5.5 7.25V16.75",
+            "M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5",
+            "M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 5.5A1.75 1.75 0 1 0 7.25 5.5A1.75 1.75 0 1 0 3.75 5.5Z\"/> <path d=\"M3.75 18.5A1.75 1.75 0 1 0 7.25 18.5A1.75 1.75 0 1 0 3.75 18.5Z\"/> <path d=\"M16.75 18.5A1.75 1.75 0 1 0 20.25 18.5A1.75 1.75 0 1 0 16.75 18.5Z\"/> <path d=\"M5.5 7.25V16.75\"/> <path d=\"M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5\"/> <path d=\"M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75\"/>",
+          "mark": false,
+          "tags": [
+            "pull request",
+            "pr",
+            "merge request",
+            "review",
+            "version control",
+            "git",
+            "nodes",
+            "rings",
+            "elbow",
+            "octicons"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.96,
+              "optical": 3.72
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.74,
+              "optical": 3.55
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.16,
+              "optical": 3.12
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.16,
+              "optical": 3.12
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "git-pull-request-filled": {
+          "paths": [
+            "M5.5 7.25V16.75",
+            "M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5",
+            "M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75"
+          ],
+          "areas": [
+            "M3 5.5A2.5 2.5 0 1 0 8 5.5A2.5 2.5 0 1 0 3 5.5Z",
+            "M3 18.5A2.5 2.5 0 1 0 8 18.5A2.5 2.5 0 1 0 3 18.5Z",
+            "M16 18.5A2.5 2.5 0 1 0 21 18.5A2.5 2.5 0 1 0 16 18.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 5.5A2.5 2.5 0 1 0 8 5.5A2.5 2.5 0 1 0 3 5.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 18.5A2.5 2.5 0 1 0 8 18.5A2.5 2.5 0 1 0 3 18.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M16 18.5A2.5 2.5 0 1 0 21 18.5A2.5 2.5 0 1 0 16 18.5Z\"/> <path d=\"M5.5 7.25V16.75\"/> <path d=\"M18.5 16.75V12.25A2.5 2.5 0 0 0 16 9.75H8.5\"/> <path d=\"M11.19 12.75L8.72 10.28A0.75 0.75 0 0 1 8.72 9.22L11.19 6.75\"/>",
+          "mark": false,
+          "tags": [
+            "pull request",
+            "pr",
+            "merge request",
+            "review",
+            "version control",
             "git",
             "nodes",
             "rings",
