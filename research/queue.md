@@ -743,7 +743,14 @@ Bases before their variants; within that, highest evidence first.
 - [x] 249. `shopping-basket` · Commerce & Payments — approved 2026-10-21
 - [x] 249. `shopping-basket-2` · Commerce & Payments · variant of `shopping-basket` — Slatted basket · approved 2026-10-21
 - [x] 249. `shopping-basket-plus` · Commerce & Payments · variant of `shopping-basket` — Basket with a plus (fill-in) · approved 2026-10-21
-- [~] 250. `signal` · Devices & Hardware
+- [x] 250. `signal` · Devices & Hardware — approved 2026-10-23
+- [x] 250. `signal-high` · Devices & Hardware · variant of `signal` — Wedge, three quarters · approved 2026-10-23
+- [x] 250. `signal-medium` · Devices & Hardware · variant of `signal` — Wedge, half · approved 2026-10-23
+- [x] 250. `signal-low` · Devices & Hardware · variant of `signal` — Wedge, a quarter · approved 2026-10-23
+- [x] 250. `signal-2` · Devices & Hardware · variant of `signal` — Status-bar proportion · approved 2026-10-23
+- [x] 250. `signal-2-medium` · Devices & Hardware · variant of `signal` — Two of four bars · approved 2026-10-23
+- [x] 250. `signal-2-low` · Devices & Hardware · variant of `signal` — One of four bars · approved 2026-10-23
+- [x] 250. `signal-2-none` · Devices & Hardware · variant of `signal` — None of four bars · approved 2026-10-23
 - [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
 - [x] 252. `ticket` · Commerce & Payments — approved 2026-10-21
 - [x] 252. `ticket-2` · Commerce & Payments · variant of `ticket` — Stub, edge notches · approved 2026-10-21
