@@ -748,6 +748,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 250. `signal-medium` · Devices & Hardware · variant of `signal` — Wedge, half · approved 2026-10-23
 - [x] 250. `signal-low` · Devices & Hardware · variant of `signal` — Wedge, a quarter · approved 2026-10-23
 - [x] 250. `signal-2` · Devices & Hardware · variant of `signal` — Status-bar proportion · approved 2026-10-23
+- [x] 250. `signal-2-high` · Devices & Hardware · variant of `signal` — Three of four bars · approved 2026-10-23
 - [x] 250. `signal-2-medium` · Devices & Hardware · variant of `signal` — Two of four bars · approved 2026-10-23
 - [x] 250. `signal-2-low` · Devices & Hardware · variant of `signal` — One of four bars · approved 2026-10-23
 - [x] 250. `signal-2-none` · Devices & Hardware · variant of `signal` — None of four bars · approved 2026-10-23
