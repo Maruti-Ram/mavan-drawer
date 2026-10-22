@@ -570,7 +570,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 169. `receipt` · Commerce & Payments — approved 2026-10-21
 - [ ] 170. `ruler` · Design Tools
 - [x] 171. `slideshow` · Media & Playback — approved 2026-10-22
-- [ ] 172. `workflow` · Development & Infra
+- [~] 172. `workflow` · Development & Infra
 - [x] 173. `arrows-swap` · Arrows & Direction — approved 2026-10-17
 - [x] 173. `arrows-swap-2` · Arrows & Direction · variant of `arrows-swap` — Right on top · approved 2026-10-17
 - [x] 174. `chevron-first` · Arrows & Direction — approved 2026-10-17
@@ -659,7 +659,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 205. `battery-2` · Devices & Hardware · variant of `battery` — Three charge cells · approved 2026-10-23
 - [x] 205. `battery-2-medium` · Devices & Hardware · variant of `battery` — Two cells, medium · approved 2026-10-23
 - [x] 205. `battery-2-low` · Devices & Hardware · variant of `battery` — One cell, low · approved 2026-10-23
-- [ ] 206. `cloud` · Development & Infra
+- [x] 206. `cloud` · Development & Infra — approved 2026-10-23
+- [x] 206. `cloud-2` · Development & Infra · variant of `cloud` — Three puffs, leaning · approved 2026-10-23
+- [x] 206. `cloud-3` · Development & Infra · variant of `cloud` — Overlapping puffs · approved 2026-10-23
 - [ ] 207. `droplet` · Design Tools
 - [x] 208. `film` · Media & Playback — approved 2026-10-22
 - [x] 208. `film-reel` · Media & Playback · variant of `film` — Reel · approved 2026-10-22
@@ -728,11 +730,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 238. `handshake-2` · Commerce & Payments · variant of `handshake` — Grip · approved 2026-10-21
 - [x] 239. `laptop` · Devices & Hardware — approved 2026-10-22
 - [x] 239. `laptop-2` · Devices & Hardware · variant of `laptop` — Screen on a base slab · approved 2026-10-22
-- [ ] 240. `microscope` · Development & Infra
-- [ ] 241. `network` · Development & Infra
+- [~] 240. `microscope` · Development & Infra
+- [~] 241. `network` · Development & Infra
 - [ ] 242. `pencil-ruler` · Design Tools
 - [x] 243. `qr-code` · Devices & Hardware — approved 2026-10-22
-- [ ] 244. `rocket` · Development & Infra
+- [~] 244. `rocket` · Development & Infra
 - [ ] 245. `rotation` · Design Tools
 - [x] 246. `satellite` · Devices & Hardware — approved 2026-10-23
 - [x] 247. `scale` · Commerce & Payments — approved 2026-10-21
@@ -806,7 +808,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 276. `viewport-wide-2` · UI & Layout · variant of `viewport-wide` — Capsule, heads out · approved 2026-10-20
 - [x] 276. `viewport-wide-3` · UI & Layout · variant of `viewport-wide` — Dimension arrow, out · approved 2026-10-20
 - [x] 277. `atm` · Commerce & Payments — approved 2026-10-21
-- [ ] 278. `channels` · Development & Infra
+- [~] 278. `channels` · Development & Infra
 - [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
 - [x] 279. `contactless-circle` · Commerce & Payments · variant of `contactless` — Waves fitted to the disc (recommended) · approved 2026-10-21
 - [x] 280. `replay` · Media & Playback — approved 2026-10-22
@@ -815,7 +817,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 281. `reset-2` · Media & Playback · variant of `reset` — Lap back to a start dot · approved 2026-10-22
 - [x] 281. `reset-3` · Media & Playback · variant of `reset` — Undo run round into a ring · approved 2026-10-22
 - [x] 282. `reward` · Commerce & Payments — approved 2026-10-21
-- [ ] 283. `sandbox` · Development & Infra
+- [~] 283. `sandbox` · Development & Infra
 - [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
 - [x] 284. `alert-square-2` · Status & Feedback · variant of `alert-square` — Wedge (alert-circle-2's mark) · approved 2026-10-20
 - [x] 284. `alert-square-3` · Status & Feedback · variant of `alert-square` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
@@ -835,8 +837,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
 - [x] 290. `toggles` · UI & Layout — approved 2026-10-20
 - [x] 290. `toggles-2` · UI & Layout · variant of `toggles` — Big knob over a slim track, polished, on over off · approved 2026-10-20
-- [ ] 291. `blueprint` · Development & Infra
-- [ ] 292. `decision-process` · Development & Infra
+- [~] 291. `blueprint` · Development & Infra
+- [~] 292. `decision-process` · Development & Infra
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
 - [ ] 294. `filters` · Design Tools
 - [x] 295. `label` · Commerce & Payments — approved 2026-10-21
@@ -846,7 +848,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 296. `roadmap-2` · Maps & Location · variant of `roadmap` — One board on a post · approved 2026-10-18
 - [x] 296. `roadmap-3` · Maps & Location · variant of `roadmap` — Two bars (Jira) · approved 2026-10-19
 - [x] 296. `roadmap-4` · Maps & Location · variant of `roadmap` — Route (maps) · approved 2026-10-19
-- [ ] 297. `squares-connected` · Development & Infra
+- [~] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
 - [x] 299. `subscription` · Commerce & Payments — approved 2026-10-21
 - [x] 299. `subscription-2` · Commerce & Payments · variant of `subscription` — Box on repeat · approved 2026-10-21
@@ -870,7 +872,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 310. `radio-2` · Media & Playback · variant of `radio` — Tabletop receiver · approved 2026-10-22
 - [x] 310. `radio-3` · Media & Playback · variant of `radio` — Dial radio · approved 2026-10-22
 - [x] 310. `radio-tower` · Media & Playback — Radio tower · approved 2026-10-22
-- [ ] 311. `server` · Development & Infra
+- [~] 311. `server` · Development & Infra
 - [x] 312. `speaker` · Media & Playback — approved 2026-10-22
 - [x] 312. `speaker-2` · Media & Playback · variant of `speaker` — Speaker pair · approved 2026-10-22
 - [x] 313. `terminal` · Development & Infra — approved 2026-10-20
@@ -919,15 +921,15 @@ Bases before their variants; within that, highest evidence first.
 - [x] 332. `bluetooth-connected` · Devices & Hardware · variant of `bluetooth` — Connected, two dots, shifted · approved 2026-10-23
 - [x] 332. `bluetooth-searching` · Devices & Hardware · variant of `bluetooth` — Searching, two waves · approved 2026-10-23
 - [ ] 333. `circle` · Design Tools
-- [ ] 334. `cpu` · Development & Infra
+- [~] 334. `cpu` · Development & Infra
 - [x] 335. `disc` · Devices & Hardware — approved 2026-10-22
 - [x] 336. `dollar-sign` · Currency — approved 2026-10-21
 - [x] 336. `dollar-sign-2` · Currency · variant of `dollar-sign` — F, bar through · approved 2026-10-21
 - [x] 337. `fast-forward` · Media & Playback — approved 2026-10-22
 - [x] 337. `fast-forward-2` · Media & Playback · variant of `fast-forward` — Stepped, rewind-2 mirrored · approved 2026-10-22
-- [ ] 338. `git-branch` · Development & Infra
-- [ ] 339. `git-merge` · Development & Infra
-- [ ] 340. `git-pull-request` · Development & Infra
+- [~] 338. `git-branch` · Development & Infra
+- [~] 339. `git-merge` · Development & Infra
+- [~] 340. `git-pull-request` · Development & Infra
 - [ ] 341. `hexagon` · Design Tools
 - [ ] 342. `octagon` · Design Tools
 - [x] 343. `power` · Devices & Hardware — approved 2026-10-22
@@ -1110,7 +1112,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 502. `calendar-repeat-2` · Time & Calendar · variant of `calendar-repeat` — Badge proud, one head · approved 2026-10-18
 - [x] 503. `plane-2` — added 2026-10-18 · approved 2026-10-18
 - [x] 504. `plane-3` — added 2026-10-18 · approved 2026-10-18
-- [ ] 505. `cloud-download` · Development & Infra · variant of `cloud` — held from the download board (candidate E, 2026-10-18): draw it with cloud so the cloud is settled once; draft in lab/drafts/archive/cloud-download.js
+- [~] 505. `cloud-download` · Development & Infra · variant of `cloud` — held from the download board (candidate E, 2026-10-18): draw it with cloud so the cloud is settled once; draft in lab/drafts/archive/cloud-download.js
 - [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
@@ -1179,3 +1181,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 580. `orbit` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 581. `satellite-image` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 582. `car-battery` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
+- [~] 583. `cloud-upload` · Development & Infra · variant of `cloud` — added 2026-10-23
