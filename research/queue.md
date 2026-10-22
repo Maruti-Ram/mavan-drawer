@@ -734,7 +734,10 @@ Bases before their variants; within that, highest evidence first.
 - [~] 241. `network` · Development & Infra
 - [ ] 242. `pencil-ruler` · Design Tools
 - [x] 243. `qr-code` · Devices & Hardware — approved 2026-10-22
-- [~] 244. `rocket` · Development & Infra
+- [x] 244. `rocket` · Development & Infra — approved 2026-10-23
+- [x] 244. `rocket-2` · Development & Infra · variant of `rocket` — Upright, fins at the foot · approved 2026-10-23
+- [x] 244. `rocket-3` · Development & Infra · variant of `rocket` — Diagonal, Lucide fins, flame drop · approved 2026-10-23
+- [x] 244. `rocket-4` · Development & Infra · variant of `rocket` — Upright, lifting off over exhaust lines · approved 2026-10-23
 - [ ] 245. `rotation` · Design Tools
 - [x] 246. `satellite` · Devices & Hardware — approved 2026-10-23
 - [x] 247. `scale` · Commerce & Payments — approved 2026-10-21
