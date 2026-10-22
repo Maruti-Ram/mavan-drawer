@@ -684,7 +684,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 223. `messages-7` · Communication · variant of `messages` — Pair, soft · approved 2026-10-20
 - [x] 224. `password` · UI & Layout — approved 2026-10-20
 - [x] 224. `password-2` · UI & Layout · variant of `password` — Asterisks on one line, six arms, kept apart · approved 2026-10-20
-- [~] 225. `pen-sparkle` · Editing & Text
+- [x] 225. `pen-sparkle` · Editing & Text — approved 2026-10-22
 - [x] 226. `sticker` · Communication — approved 2026-10-20
 - [x] 226. `sticker-2` · Communication · variant of `sticker` — Square with face-smile's face, corner peeled · approved 2026-10-20
 - [x] 226. `sticker-3` · Communication · variant of `sticker` — Round, edge peeled · approved 2026-10-20
@@ -1108,5 +1108,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 566. `ruble-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 567. `peso-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 568. `won-circle` · Currency — added 2026-10-21 · approved 2026-10-21
-- [ ] 569. `text-sparkle` · Editing & Text — added 2026-10-22
+- [x] 569. `text-sparkle` · Editing & Text — added 2026-10-22 · approved 2026-10-22
 - [ ] 570. `signature` · Editing & Text — added 2026-10-22
