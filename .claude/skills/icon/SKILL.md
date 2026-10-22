@@ -101,7 +101,8 @@ export default {
 - **Level family (C28).** Each member other than the full one carries `anchor: 'volume'` (on the
   candidate; a board-level `anchor` works too, and a candidate's `anchor: null` opts out). It is
   written into both files as `<!-- anchor: volume -->`, and lint holds that member's ink inside the
-  full member's box at the same master and style, sharing its left or right edge (the body stays
+  full member's box at the same master and style, sharing its left or right edge — or its bottom
+  edge and centred across, when the body sits at the bottom (`wifi-low`) — (the body stays
   in place), instead of asking it to be centred on a keyline.
   Name what each candidate ships as with a board-level `set: { V2: 'volume', V1: 'volume-low' }`:
   a bare id in `draft-check` and in `approve` ships under its `set` name (an explicit `id=file`

@@ -593,7 +593,7 @@ test('an anchored member inside its full member: no keyline or centre warning, a
   const r = family({ 'volume.svg': FULL, 'volume-low.svg': LOW }).get('24/volume-low.svg');
   assert.deepEqual(r.errors, []);
   assert.deepEqual(r.warnings, []);
-  assert.ok(r.notes.includes('anchored to volume: ink 2,4 → 17,20 inside 2,4 → 22,20'), r.notes.join(' | '));
+  assert.ok(r.notes.includes('anchored to volume: ink 2,4 → 17,20 inside 2,4 → 22,20, body on its left edge'), r.notes.join(' | '));
   assert.ok(r.notes.includes("2 of 2 paths identical to volume's"), r.notes.join(' | '));
   assert.equal(r.notes.at(-1), '15×16  anchored to volume  centre 9.5,12', 'the headline stays last');
   // whitespace is not a difference; a moved point is
@@ -616,10 +616,35 @@ test('a member re-centred inside the full member\'s box is an ERROR: the body mo
   // the one-wave member slid 2.5 right: 4.5 → 19.5, centred on 12 and still inside 2 → 22
   const shift = (d) => d.replace(/([MHL])([\d.]+)/g, (_, c, x) => `${c}${+x + 2.5}`);
   const r = family({ 'volume.svg': FULL, 'volume-low.svg': icon([shift(SPEAKER), shift(WAVE1)], ['anchor: volume']) }).get('24/volume-low.svg');
-  assert.deepEqual(r.errors, ["ink x 4.5 → 19.5 shares neither side of volume's 2 → 22 — the body moves; a level family keeps it in place (C28)"]);
+  // (the speaker spans the full height, so the slid member still shares the top and bottom:
+  // the bottom holds a body only for a member that dropped from the top, centred across)
+  assert.deepEqual(r.errors, ["ink 4.5,4 → 19.5,20 keeps none of volume's 2,4 → 22,20 body edges (shares only its top and bottom edges; the bottom holds the body only when the top has dropped and the ink stays centred across) — the body moves; a level family keeps it on the full member's left, right or bottom edge (C28)"]);
   // sharing the right side instead is allowed (a body drawn on the right, waves to its left)
   const right = (d) => d.replace(/([MHL])([\d.]+)/g, (_, c, x) => `${c}${+x + 5}`);
   assert.deepEqual(family({ 'volume.svg': FULL, 'volume-low.svg': icon([right(SPEAKER), right(WAVE1)], ['anchor: volume']) }).get('24/volume-low.svg').errors, []);
+});
+
+// A body under the waves (wifi's dot, the arcs dropping outside-in above it): the members share
+// only the full member's bottom edge and stay centred across. Fixture: a dot-bar and three
+// straight "arcs"; the full member spans 3,5.75 → 21,19.25, the one-arc member 7.5,13.75 → 16.5,19.25.
+const WDOT = 'M11.25 18.5H12.75', WARC1 = 'M8.25 14.5H15.75', WARC2 = 'M5.25 10.5H18.75', WARC3 = 'M3.75 6.5H20.25';
+const WIFI = icon([WDOT, WARC1, WARC2, WARC3]);
+const wifi = (ds) => family({ 'wifi.svg': WIFI, 'wifi-low.svg': icon(ds, ['anchor: wifi']) }).get('24/wifi-low.svg');
+const nudge = (dx, dy) => (d) => d.replace(/M([\d.]+) ([\d.]+)H([\d.]+)/, (_, x, y, h) => `M${+x + dx} ${+y + dy}H${+h + dx}`);
+
+test('a member that keeps only the bottom edge, dropped from the top and centred across, passes', () => {
+  const r = wifi([WDOT, WARC1]);
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(r.warnings, []);
+  assert.ok(r.notes.includes('anchored to wifi: ink 7.5,13.75 → 16.5,19.25 inside 3,5.75 → 21,19.25, body on its bottom edge, centred across'), r.notes.join(' | '));
+  assert.deepEqual(wifi([WDOT]).errors, [], 'the dot alone (wifi-none)');
+});
+
+test('a bottom member that moved is an ERROR: off the bottom, or slid off centre', () => {
+  assert.deepEqual(wifi([WDOT, WARC1].map(nudge(0, -1))).errors,
+    ["ink 7.5,12.75 → 16.5,18.25 keeps none of wifi's 3,5.75 → 21,19.25 body edges (shares no edge at all) — the body moves; a level family keeps it on the full member's left, right or bottom edge (C28)"]);
+  assert.deepEqual(wifi([WDOT, WARC1].map(nudge(-1, 0))).errors,
+    ["ink 6.5,13.75 → 15.5,19.25 keeps none of wifi's 3,5.75 → 21,19.25 body edges (shares only its bottom edge; the bottom holds the body only when the top has dropped and the ink stays centred across, here 1 left of centre) — the body moves; a level family keeps it on the full member's left, right or bottom edge (C28)"]);
 });
 
 test('an anchor that is itself anchored, or has no ink, is an ERROR and the placement warnings come back', () => {

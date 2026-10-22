@@ -142,8 +142,9 @@ keeps the full member's canvas position, so only the full member (`volume`) is c
 on a keyline; the levels and `volume-x` (`volume-low`, `volume-none`, `volume-x`) declare
 `<!-- anchor: volume -->`. `volume-off` is a state, not a level: it is centred like any icon and
 carries no note.
-Lint then holds their ink inside the full member's box, sharing its left or right edge
-(the body has not moved) — same master, same style, as an error — instead of asking them
+Lint then holds their ink inside the full member's box, sharing its left or right edge —
+or its bottom edge and centred across, when the body sits at the bottom (`wifi-low`,
+2026-10-23) — (the body has not moved) — same master, same style, as an error — instead of asking them
 to be centred or to match a keyline; the margin, grid and gaps still apply, and `anchor`
 goes with neither `box` nor `keyline: mark`.
 

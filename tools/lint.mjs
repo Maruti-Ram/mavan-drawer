@@ -120,14 +120,15 @@ export function parseGapNote(src) {
 }
 
 // A member of a level family (C28) declares `<!-- anchor: NAME -->`: NAME is the family's
-// full member (`volume`), and this file keeps that member's canvas position instead of being
-// centred on a keyline — the body never moves, so the fewer waves, the more it leans toward
-// the body. The note names the outline; a filled file is held to `NAME-filled.svg`. Checked in
+// full member (`volume`, `wifi`), and this file keeps that member's canvas position instead of
+// being centred on a keyline — the body never moves, so the fewer waves, the more it leans toward
+// the body: sideways onto volume's speaker, down onto wifi's dot. The note names the outline; a filled file is held to `NAME-filled.svg`. Checked in
 // `checkAnchors` below, which reads the whole map because a file cannot see its anchor. Same
 // spirit as `box:`, `grows:` and `gap:` — it can never hide a mistake: a note lint cannot read,
 // one naming its own file, one whose anchor is missing, inkless or itself anchored, ink outside
-// the anchor's box, and ink that shares neither its left nor its right edge (the body moved)
-// are all ERRORS. Unlike those notes it is a declaration of membership, not a
+// the anchor's box, and ink that keeps none of its body edges (the body moved) are all ERRORS.
+// A body edge is the anchor's left or right edge (volume's speaker), or its bottom edge when the
+// member has dropped from the top and stays centred across (wifi's dot under fewer arcs). Unlike those notes it is a declaration of membership, not a
 // licence, so lint never asks for it to be removed.
 // Returns null (no note), {name, raw}, or {raw, bad: true}.
 export function parseAnchorNote(src) {
@@ -999,11 +1000,20 @@ export function checkAnchors(results) {
       continue;
     }
     // Inside the box is not enough: a member re-centred inside it has moved its body. The body
-    // (the speaker) runs to one side of the full member's ink and stays there, so the member
-    // shares that side exactly. Not path identity: `volume-off`'s C21 bar may cut the speaker
-    // and share no path, yet its speaker still starts at volume's left edge.
-    if (Math.abs(r.ink.x0 - a.ink.x0) > 0.01 && Math.abs(r.ink.x1 - a.ink.x1) > 0.01) {
-      r.errors.push(`ink x ${r3(r.ink.x0)} → ${r3(r.ink.x1)} shares neither side of ${name}'s ${r3(a.ink.x0)} → ${r3(a.ink.x1)} — the body moves; a level family keeps it in place (C28)`);
+    // runs to one edge of the full member's ink and stays there, so the member shares that edge
+    // exactly: the left or right for a body beside the waves (volume's speaker), the bottom for a
+    // body under them (wifi's dot, the arcs dropping outside-in above it). The bottom alone does
+    // not pin a member across, and a speaker spans the full height, so a volume member slid
+    // sideways would share it too: the bottom counts only when the member has dropped from the
+    // top and is centred across on the full member. Not path identity: `volume-off`'s C21 bar
+    // may cut the speaker and share no path, yet its speaker still starts at volume's left edge.
+    const shared = EDGES.filter((k) => Math.abs(out[k]) <= 0.01);
+    const across = (r.ink.x0 + r.ink.x1) / 2 - (a.ink.x0 + a.ink.x1) / 2;
+    const body = shared.filter((k) => k === 'l' || k === 'r'
+      || (k === 'b' && !shared.includes('t') && Math.abs(across) <= 0.01));
+    if (!body.length) {
+      const why = shared.includes('b') ? `; the bottom holds the body only when the top has dropped and the ink stays centred across${shared.includes('t') ? '' : `, here ${r3(Math.abs(across))} ${across < 0 ? 'left' : 'right'} of centre`}` : '';
+      r.errors.push(`ink ${fmtBox(r.ink)} keeps none of ${name}'s ${fmtBox(a.ink)} body edges (${shared.length ? `shares only its ${listed(shared)} edge${shared.length > 1 ? 's' : ''}` : 'shares no edge at all'}${why}) — the body moves; a level family keeps it on the full member's left, right or bottom edge (C28)`);
       continue;
     }
     // The note declares family membership (C28: every member but the full one carries it),
@@ -1012,7 +1022,7 @@ export function checkAnchors(results) {
     const own = Object.values(out).every((v) => Math.abs(v) <= 0.01);
     const mine = new Set(a.paths ?? []);
     const same = (r.paths ?? []).filter((d) => mine.has(d)).length;
-    r.notes.splice(-1, 0, own ? `anchored to ${name}: ink is ${name}'s own box (${fmtBox(r.ink)})` : `anchored to ${name}: ink ${fmtBox(r.ink)} inside ${fmtBox(a.ink)}`,
+    r.notes.splice(-1, 0, own ? `anchored to ${name}: ink is ${name}'s own box (${fmtBox(r.ink)})` : `anchored to ${name}: ink ${fmtBox(r.ink)} inside ${fmtBox(a.ink)}, body on its ${listed(body)} edge${body.length > 1 ? 's' : ''}${body.includes('b') ? ', centred across' : ''}`,
       `${same} of ${r.paths?.length ?? 0} paths identical to ${name}'s`);
   }
   return results;
