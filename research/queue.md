@@ -736,7 +736,10 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 258. `scan` · Devices & Hardware
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
-- [~] 261. `blog` · Editing & Text
+- [x] 261. `blog` · Editing & Text — approved 2026-10-22
+- [x] 261. `blog-2` · Editing & Text · variant of `blog` — Page and pen · approved 2026-10-22
+- [x] 261. `blog-3` · Editing & Text · variant of `blog` — Article page · approved 2026-10-22
+- [x] 261. `blog-4` · Editing & Text · variant of `blog` — Two-column article · approved 2026-10-22
 - [x] 262. `button` · UI & Layout — approved 2026-10-20
 - [x] 262. `button-2` · UI & Layout · variant of `button` — Raised button · approved 2026-10-20
 - [x] 262. `button-3` · UI & Layout · variant of `button` — Push-button · approved 2026-10-20
