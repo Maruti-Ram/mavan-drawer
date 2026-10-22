@@ -784,7 +784,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 278. `channels` · Development & Infra
 - [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
 - [x] 279. `contactless-circle` · Commerce & Payments · variant of `contactless` — Waves fitted to the disc (recommended) · approved 2026-10-21
-- [~] 280. `replay` · Media & Playback
+- [x] 280. `replay` · Media & Playback — approved 2026-10-22
 - [~] 281. `reset` · Media & Playback
 - [x] 282. `reward` · Commerce & Payments — approved 2026-10-21
 - [ ] 283. `sandbox` · Development & Infra
