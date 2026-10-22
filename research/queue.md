@@ -731,7 +731,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 239. `laptop` · Devices & Hardware — approved 2026-10-22
 - [x] 239. `laptop-2` · Devices & Hardware · variant of `laptop` — Screen on a base slab · approved 2026-10-22
 - [~] 240. `microscope` · Development & Infra
-- [~] 241. `network` · Development & Infra
+- [x] 241. `network` · Development & Infra — approved 2026-10-23
+- [x] 241. `network-2` · Development & Infra · variant of `network` — Ring of nodes · approved 2026-10-23
+- [x] 241. `network-3` · Development & Infra · variant of `network` — Mesh of nodes · approved 2026-10-23
+- [x] 241. `network-4` · Development & Infra · variant of `network` — Device hub · approved 2026-10-23
 - [ ] 242. `pencil-ruler` · Design Tools
 - [x] 243. `qr-code` · Devices & Hardware — approved 2026-10-22
 - [x] 244. `rocket` · Development & Infra — approved 2026-10-23
