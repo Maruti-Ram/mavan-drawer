@@ -757,6 +757,10 @@
     "handshake-2",
     "handshake-2-filled",
     "handshake-filled",
+    "hard-drive",
+    "hard-drive-2",
+    "hard-drive-2-filled",
+    "hard-drive-filled",
     "hash",
     "hash-2",
     "hash-2-filled",
@@ -46331,6 +46335,265 @@
         "agreement",
         "partner",
         "lucide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hard-drive": {
+      "paths": [
+        "M7.18 4.75H16.82A1.5 1.5 0 0 1 18.16 5.58L21.25 11.75V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V11.75L5.84 5.58A1.5 1.5 0 0 1 7.18 4.75Z",
+        "M2.75 11.75H21.25",
+        "M13.25 15.5A0.25 0.25 0 1 0 13.75 15.5A0.25 0.25 0 1 0 13.25 15.5Z",
+        "M17.25 15.5A0.25 0.25 0 1 0 17.75 15.5A0.25 0.25 0 1 0 17.25 15.5Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.18 4.75H16.82A1.5 1.5 0 0 1 18.16 5.58L21.25 11.75V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V11.75L5.84 5.58A1.5 1.5 0 0 1 7.18 4.75Z\"/> <path d=\"M2.75 11.75H21.25\"/> <path d=\"M13.25 15.5A0.25 0.25 0 1 0 13.75 15.5A0.25 0.25 0 1 0 13.25 15.5Z\"/> <path d=\"M17.25 15.5A0.25 0.25 0 1 0 17.75 15.5A0.25 0.25 0 1 0 17.25 15.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "storage",
+        "disk",
+        "hdd",
+        "drive",
+        "perspective",
+        "lid"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 16
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 4
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.71,
+          "optical": 2.53
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.71,
+          "optical": 2.53
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.56,
+          "optical": 4.42
+        },
+        "bottom": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 20,
+        "h": 5.5
+      },
+      "ratio": {
+        "w": 1,
+        "h": 0.28
+      },
+      "gap": null
+    },
+    "hard-drive-2": {
+      "paths": [
+        "M7.25 2.75H16.75A2.5 2.5 0 0 1 19.25 5.25V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z",
+        "M7.75 10A4.25 4.25 0 1 0 16.25 10A4.25 4.25 0 1 0 7.75 10Z",
+        "M11.75 10A0.25 0.25 0 1 0 12.25 10A0.25 0.25 0 1 0 11.75 10Z",
+        "M7.75 17.75H16.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.25 2.75H16.75A2.5 2.5 0 0 1 19.25 5.25V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M7.75 10A4.25 4.25 0 1 0 16.25 10A4.25 4.25 0 1 0 7.75 10Z\"/> <path d=\"M11.75 10A0.25 0.25 0 1 0 12.25 10A0.25 0.25 0 1 0 11.75 10Z\"/> <path d=\"M7.75 17.75H16.25\"/>",
+      "mark": false,
+      "tags": [
+        "storage",
+        "disk",
+        "hdd",
+        "platter",
+        "internal",
+        "disc"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.27,
+          "optical": 2.2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.27,
+          "optical": 2.2
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 10,
+        "h": 13.5
+      },
+      "ratio": {
+        "w": 0.5,
+        "h": 0.68
+      },
+      "gap": {
+        "size": 2.5,
+        "part": 2,
+        "ratio": 1.25
+      }
+    },
+    "hard-drive-2-filled": {
+      "paths": [],
+      "areas": [
+        "M7.25 2H16.75A3.25 3.25 0 0 1 20 5.25V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2ZM7 10A5 5 0 1 0 17 10A5 5 0 1 0 7 10ZM8.5 10A3.5 3.5 0 1 0 15.5 10A3.5 3.5 0 1 0 8.5 10ZM11 10A1 1 0 1 0 13 10A1 1 0 1 0 11 10ZM7.75 17H16.25A0.75 0.75 0 0 1 16.25 18.5H7.75A0.75 0.75 0 0 1 7.75 17Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H16.75A3.25 3.25 0 0 1 20 5.25V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2ZM7 10A5 5 0 1 0 17 10A5 5 0 1 0 7 10ZM8.5 10A3.5 3.5 0 1 0 15.5 10A3.5 3.5 0 1 0 8.5 10ZM11 10A1 1 0 1 0 13 10A1 1 0 1 0 11 10ZM7.75 17H16.25A0.75 0.75 0 0 1 16.25 18.5H7.75A0.75 0.75 0 0 1 7.75 17Z\"/>",
+      "mark": false,
+      "tags": [
+        "storage",
+        "disk",
+        "hdd",
+        "platter",
+        "internal",
+        "disc"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hard-drive-filled": {
+      "paths": [],
+      "areas": [
+        "M7.18 4H16.82A2.25 2.25 0 0 1 18.84 5.24L21.35 10.28A0.5 0.5 0 0 1 20.9 11H3.1A0.5 0.5 0 0 1 2.65 10.28L5.16 5.24A2.25 2.25 0 0 1 7.18 4Z",
+        "M22 13V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V13A0.5 0.5 0 0 1 2.5 12.5H21.5A0.5 0.5 0 0 1 22 13ZM12.5 15.5A1 1 0 1 0 14.5 15.5A1 1 0 1 0 12.5 15.5ZM16.5 15.5A1 1 0 1 0 18.5 15.5A1 1 0 1 0 16.5 15.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.18 4H16.82A2.25 2.25 0 0 1 18.84 5.24L21.35 10.28A0.5 0.5 0 0 1 20.9 11H3.1A0.5 0.5 0 0 1 2.65 10.28L5.16 5.24A2.25 2.25 0 0 1 7.18 4Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M22 13V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V13A0.5 0.5 0 0 1 2.5 12.5H21.5A0.5 0.5 0 0 1 22 13ZM12.5 15.5A1 1 0 1 0 14.5 15.5A1 1 0 1 0 12.5 15.5ZM16.5 15.5A1 1 0 1 0 18.5 15.5A1 1 0 1 0 16.5 15.5Z\"/>",
+      "mark": false,
+      "tags": [
+        "storage",
+        "disk",
+        "hdd",
+        "drive",
+        "perspective",
+        "lid"
       ],
       "shift": [
         0,
@@ -117770,6 +118033,10 @@
         "handshake-2",
         "handshake-2-filled",
         "handshake-filled",
+        "hard-drive",
+        "hard-drive-2",
+        "hard-drive-2-filled",
+        "hard-drive-filled",
         "hash",
         "hash-2",
         "hash-2-filled",
@@ -163306,6 +163573,260 @@
               "geometric": 2.08,
               "recession": 0,
               "optical": 2.08
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hard-drive": {
+          "paths": [
+            "M4.743 2.625H11.257A1 1 0 0 1 12.151 3.178L14.375 7.625V11.875A1.5 1.5 0 0 1 12.875 13.375H3.125A1.5 1.5 0 0 1 1.625 11.875V7.625L3.849 3.178A1 1 0 0 1 4.743 2.625Z",
+            "M1.625 7.625H14.375",
+            "M8.375 10.5A0.125 0.125 0 1 0 8.625 10.5A0.125 0.125 0 1 0 8.375 10.5Z",
+            "M11.375 10.5A0.125 0.125 0 1 0 11.625 10.5A0.125 0.125 0 1 0 11.375 10.5Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.743 2.625H11.257A1 1 0 0 1 12.151 3.178L14.375 7.625V11.875A1.5 1.5 0 0 1 12.875 13.375H3.125A1.5 1.5 0 0 1 1.625 11.875V7.625L3.849 3.178A1 1 0 0 1 4.743 2.625Z\"/> <path d=\"M1.625 7.625H14.375\"/> <path d=\"M8.375 10.5A0.125 0.125 0 1 0 8.625 10.5A0.125 0.125 0 1 0 8.375 10.5Z\"/> <path d=\"M11.375 10.5A0.125 0.125 0 1 0 11.625 10.5A0.125 0.125 0 1 0 11.375 10.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "drive",
+            "perspective",
+            "lid"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.53,
+              "optical": 1.4
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.53,
+              "optical": 1.4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.36
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.15,
+              "optical": 2.12
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 14,
+            "h": 4.25
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.3
+          },
+          "gap": null
+        },
+        "hard-drive-2": {
+          "paths": [
+            "M5.125 1.625H10.875A1.5 1.5 0 0 1 12.375 3.125V12.875A1.5 1.5 0 0 1 10.875 14.375H5.125A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625Z",
+            "M6.375 6A1.625 1.625 0 1 0 9.625 6A1.625 1.625 0 1 0 6.375 6Z",
+            "M6.375 11H9.625"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.125 1.625H10.875A1.5 1.5 0 0 1 12.375 3.125V12.875A1.5 1.5 0 0 1 10.875 14.375H5.125A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625Z\"/> <path d=\"M6.375 6A1.625 1.625 0 1 0 9.625 6A1.625 1.625 0 1 0 6.375 6Z\"/> <path d=\"M6.375 11H9.625\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "platter",
+            "internal",
+            "disc"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.21,
+              "optical": 1.16
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.21,
+              "optical": 1.16
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 4.5,
+            "h": 7.88
+          },
+          "ratio": {
+            "w": 0.32,
+            "h": 0.56
+          },
+          "gap": null
+        },
+        "hard-drive-2-filled": {
+          "paths": [],
+          "areas": [
+            "M5.125 1H10.875A2.125 2.125 0 0 1 13 3.125V12.875A2.125 2.125 0 0 1 10.875 15H5.125A2.125 2.125 0 0 1 3 12.875V3.125A2.125 2.125 0 0 1 5.125 1ZM5.75 6A2.25 2.25 0 1 0 10.25 6A2.25 2.25 0 1 0 5.75 6ZM7.25 6A0.75 0.75 0 1 0 8.75 6A0.75 0.75 0 1 0 7.25 6ZM6.375 10.25H9.625A0.75 0.75 0 0 1 9.625 11.75H6.375A0.75 0.75 0 0 1 6.375 10.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.125 1H10.875A2.125 2.125 0 0 1 13 3.125V12.875A2.125 2.125 0 0 1 10.875 15H5.125A2.125 2.125 0 0 1 3 12.875V3.125A2.125 2.125 0 0 1 5.125 1ZM5.75 6A2.25 2.25 0 1 0 10.25 6A2.25 2.25 0 1 0 5.75 6ZM7.25 6A0.75 0.75 0 1 0 8.75 6A0.75 0.75 0 1 0 7.25 6ZM6.375 10.25H9.625A0.75 0.75 0 0 1 9.625 11.75H6.375A0.75 0.75 0 0 1 6.375 10.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "platter",
+            "internal",
+            "disc"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hard-drive-filled": {
+          "paths": [],
+          "areas": [
+            "M4.743 2H11.257A1.625 1.625 0 0 1 12.71 2.898L14.337 6.151A0.5 0.5 0 0 1 13.89 6.875H2.11A0.5 0.5 0 0 1 1.663 6.151L3.29 2.898A1.625 1.625 0 0 1 4.743 2Z",
+            "M15 8.875V11.875A2.125 2.125 0 0 1 12.875 14H3.125A2.125 2.125 0 0 1 1 11.875V8.875A0.5 0.5 0 0 1 1.5 8.375H14.5A0.5 0.5 0 0 1 15 8.875ZM7.75 10.5A0.75 0.75 0 1 0 9.25 10.5A0.75 0.75 0 1 0 7.75 10.5ZM10.75 10.5A0.75 0.75 0 1 0 12.25 10.5A0.75 0.75 0 1 0 10.75 10.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.743 2H11.257A1.625 1.625 0 0 1 12.71 2.898L14.337 6.151A0.5 0.5 0 0 1 13.89 6.875H2.11A0.5 0.5 0 0 1 1.663 6.151L3.29 2.898A1.625 1.625 0 0 1 4.743 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15 8.875V11.875A2.125 2.125 0 0 1 12.875 14H3.125A2.125 2.125 0 0 1 1 11.875V8.875A0.5 0.5 0 0 1 1.5 8.375H14.5A0.5 0.5 0 0 1 15 8.875ZM7.75 10.5A0.75 0.75 0 1 0 9.25 10.5A0.75 0.75 0 1 0 7.75 10.5ZM10.75 10.5A0.75 0.75 0 1 0 12.25 10.5A0.75 0.75 0 1 0 10.75 10.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "drive",
+            "perspective",
+            "lid"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -234685,6 +235206,10 @@
         "handshake-2",
         "handshake-2-filled",
         "handshake-filled",
+        "hard-drive",
+        "hard-drive-2",
+        "hard-drive-2-filled",
+        "hard-drive-filled",
         "hash",
         "hash-2",
         "hash-2-filled",
@@ -280246,6 +280771,260 @@
               "geometric": 3.51,
               "recession": 0,
               "optical": 3.51
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hard-drive": {
+          "paths": [
+            "M6.52 3.75H13.48A1.25 1.25 0 0 1 14.6 4.44L17.25 9.75V14.25A2 2 0 0 1 15.25 16.25H4.75A2 2 0 0 1 2.75 14.25V9.75L5.4 4.44A1.25 1.25 0 0 1 6.52 3.75Z",
+            "M2.75 9.75H17.25",
+            "M10.25 13A0.25 0.25 0 1 0 10.75 13A0.25 0.25 0 1 0 10.25 13Z",
+            "M13.75 13A0.25 0.25 0 1 0 14.25 13A0.25 0.25 0 1 0 13.75 13Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.52 3.75H13.48A1.25 1.25 0 0 1 14.6 4.44L17.25 9.75V14.25A2 2 0 0 1 15.25 16.25H4.75A2 2 0 0 1 2.75 14.25V9.75L5.4 4.44A1.25 1.25 0 0 1 6.52 3.75Z\"/> <path d=\"M2.75 9.75H17.25\"/> <path d=\"M10.25 13A0.25 0.25 0 1 0 10.75 13A0.25 0.25 0 1 0 10.25 13Z\"/> <path d=\"M13.75 13A0.25 0.25 0 1 0 14.25 13A0.25 0.25 0 1 0 13.75 13Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "drive",
+            "perspective",
+            "lid"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.67,
+              "optical": 2.5
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.67,
+              "optical": 2.5
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.59,
+              "optical": 3.44
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.21,
+              "optical": 3.16
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 16,
+            "h": 5
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.31
+          },
+          "gap": null
+        },
+        "hard-drive-2": {
+          "paths": [
+            "M6.75 2.75H13.25A2 2 0 0 1 15.25 4.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z",
+            "M7.75 8A2.25 2.25 0 1 0 12.25 8A2.25 2.25 0 1 0 7.75 8Z",
+            "M7.75 13.75H12.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.75 2.75H13.25A2 2 0 0 1 15.25 4.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z\"/> <path d=\"M7.75 8A2.25 2.25 0 1 0 12.25 8A2.25 2.25 0 1 0 7.75 8Z\"/> <path d=\"M7.75 13.75H12.25\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "platter",
+            "internal",
+            "disc"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 6,
+            "h": 9.5
+          },
+          "ratio": {
+            "w": 0.38,
+            "h": 0.59
+          },
+          "gap": null
+        },
+        "hard-drive-2-filled": {
+          "paths": [],
+          "areas": [
+            "M6.75 2H13.25A2.75 2.75 0 0 1 16 4.75V15.25A2.75 2.75 0 0 1 13.25 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2ZM7 8A3 3 0 1 0 13 8A3 3 0 1 0 7 8ZM8.5 8A1.5 1.5 0 1 0 11.5 8A1.5 1.5 0 1 0 8.5 8ZM7.75 13H12.25A0.75 0.75 0 0 1 12.25 14.5H7.75A0.75 0.75 0 0 1 7.75 13Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 2H13.25A2.75 2.75 0 0 1 16 4.75V15.25A2.75 2.75 0 0 1 13.25 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2ZM7 8A3 3 0 1 0 13 8A3 3 0 1 0 7 8ZM8.5 8A1.5 1.5 0 1 0 11.5 8A1.5 1.5 0 1 0 8.5 8ZM7.75 13H12.25A0.75 0.75 0 0 1 12.25 14.5H7.75A0.75 0.75 0 0 1 7.75 13Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "platter",
+            "internal",
+            "disc"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hard-drive-filled": {
+          "paths": [],
+          "areas": [
+            "M6.52 3H13.48A2 2 0 0 1 15.27 4.11L17.35 8.28A0.5 0.5 0 0 1 16.9 9H3.1A0.5 0.5 0 0 1 2.65 8.28L4.73 4.11A2 2 0 0 1 6.52 3Z",
+            "M18 11V14.25A2.75 2.75 0 0 1 15.25 17H4.75A2.75 2.75 0 0 1 2 14.25V11A0.5 0.5 0 0 1 2.5 10.5H17.5A0.5 0.5 0 0 1 18 11ZM9.5 13A1 1 0 1 0 11.5 13A1 1 0 1 0 9.5 13ZM13 13A1 1 0 1 0 15 13A1 1 0 1 0 13 13Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.52 3H13.48A2 2 0 0 1 15.27 4.11L17.35 8.28A0.5 0.5 0 0 1 16.9 9H3.1A0.5 0.5 0 0 1 2.65 8.28L4.73 4.11A2 2 0 0 1 6.52 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18 11V14.25A2.75 2.75 0 0 1 15.25 17H4.75A2.75 2.75 0 0 1 2 14.25V11A0.5 0.5 0 0 1 2.5 10.5H17.5A0.5 0.5 0 0 1 18 11ZM9.5 13A1 1 0 1 0 11.5 13A1 1 0 1 0 9.5 13ZM13 13A1 1 0 1 0 15 13A1 1 0 1 0 13 13Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "drive",
+            "perspective",
+            "lid"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -351649,6 +352428,10 @@
         "handshake-2",
         "handshake-2-filled",
         "handshake-filled",
+        "hard-drive",
+        "hard-drive-2",
+        "hard-drive-2-filled",
+        "hard-drive-filled",
         "hash",
         "hash-2",
         "hash-2-filled",
@@ -397223,6 +398006,265 @@
             "agreement",
             "partner",
             "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hard-drive": {
+          "paths": [
+            "M7.18 4.75H16.82A1.5 1.5 0 0 1 18.16 5.58L21.25 11.75V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V11.75L5.84 5.58A1.5 1.5 0 0 1 7.18 4.75Z",
+            "M2.75 11.75H21.25",
+            "M13.25 15.5A0.25 0.25 0 1 0 13.75 15.5A0.25 0.25 0 1 0 13.25 15.5Z",
+            "M17.25 15.5A0.25 0.25 0 1 0 17.75 15.5A0.25 0.25 0 1 0 17.25 15.5Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.18 4.75H16.82A1.5 1.5 0 0 1 18.16 5.58L21.25 11.75V16.75A2.5 2.5 0 0 1 18.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V11.75L5.84 5.58A1.5 1.5 0 0 1 7.18 4.75Z\"/> <path d=\"M2.75 11.75H21.25\"/> <path d=\"M13.25 15.5A0.25 0.25 0 1 0 13.75 15.5A0.25 0.25 0 1 0 13.25 15.5Z\"/> <path d=\"M17.25 15.5A0.25 0.25 0 1 0 17.75 15.5A0.25 0.25 0 1 0 17.25 15.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "drive",
+            "perspective",
+            "lid"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 4
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.71,
+              "optical": 2.53
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.71,
+              "optical": 2.53
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.56,
+              "optical": 4.42
+            },
+            "bottom": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 20,
+            "h": 5.5
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.28
+          },
+          "gap": null
+        },
+        "hard-drive-2": {
+          "paths": [
+            "M7.25 2.75H16.75A2.5 2.5 0 0 1 19.25 5.25V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z",
+            "M7.75 10A4.25 4.25 0 1 0 16.25 10A4.25 4.25 0 1 0 7.75 10Z",
+            "M11.75 10A0.25 0.25 0 1 0 12.25 10A0.25 0.25 0 1 0 11.75 10Z",
+            "M7.75 17.75H16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 2.75H16.75A2.5 2.5 0 0 1 19.25 5.25V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M7.75 10A4.25 4.25 0 1 0 16.25 10A4.25 4.25 0 1 0 7.75 10Z\"/> <path d=\"M11.75 10A0.25 0.25 0 1 0 12.25 10A0.25 0.25 0 1 0 11.75 10Z\"/> <path d=\"M7.75 17.75H16.25\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "platter",
+            "internal",
+            "disc"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 10,
+            "h": 13.5
+          },
+          "ratio": {
+            "w": 0.5,
+            "h": 0.68
+          },
+          "gap": {
+            "size": 2.5,
+            "part": 2,
+            "ratio": 1.25
+          }
+        },
+        "hard-drive-2-filled": {
+          "paths": [],
+          "areas": [
+            "M7.25 2H16.75A3.25 3.25 0 0 1 20 5.25V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2ZM7 10A5 5 0 1 0 17 10A5 5 0 1 0 7 10ZM8.5 10A3.5 3.5 0 1 0 15.5 10A3.5 3.5 0 1 0 8.5 10ZM11 10A1 1 0 1 0 13 10A1 1 0 1 0 11 10ZM7.75 17H16.25A0.75 0.75 0 0 1 16.25 18.5H7.75A0.75 0.75 0 0 1 7.75 17Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H16.75A3.25 3.25 0 0 1 20 5.25V18.75A3.25 3.25 0 0 1 16.75 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2ZM7 10A5 5 0 1 0 17 10A5 5 0 1 0 7 10ZM8.5 10A3.5 3.5 0 1 0 15.5 10A3.5 3.5 0 1 0 8.5 10ZM11 10A1 1 0 1 0 13 10A1 1 0 1 0 11 10ZM7.75 17H16.25A0.75 0.75 0 0 1 16.25 18.5H7.75A0.75 0.75 0 0 1 7.75 17Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "platter",
+            "internal",
+            "disc"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hard-drive-filled": {
+          "paths": [],
+          "areas": [
+            "M7.18 4H16.82A2.25 2.25 0 0 1 18.84 5.24L21.35 10.28A0.5 0.5 0 0 1 20.9 11H3.1A0.5 0.5 0 0 1 2.65 10.28L5.16 5.24A2.25 2.25 0 0 1 7.18 4Z",
+            "M22 13V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V13A0.5 0.5 0 0 1 2.5 12.5H21.5A0.5 0.5 0 0 1 22 13ZM12.5 15.5A1 1 0 1 0 14.5 15.5A1 1 0 1 0 12.5 15.5ZM16.5 15.5A1 1 0 1 0 18.5 15.5A1 1 0 1 0 16.5 15.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.18 4H16.82A2.25 2.25 0 0 1 18.84 5.24L21.35 10.28A0.5 0.5 0 0 1 20.9 11H3.1A0.5 0.5 0 0 1 2.65 10.28L5.16 5.24A2.25 2.25 0 0 1 7.18 4Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M22 13V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V13A0.5 0.5 0 0 1 2.5 12.5H21.5A0.5 0.5 0 0 1 22 13ZM12.5 15.5A1 1 0 1 0 14.5 15.5A1 1 0 1 0 12.5 15.5ZM16.5 15.5A1 1 0 1 0 18.5 15.5A1 1 0 1 0 16.5 15.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "storage",
+            "disk",
+            "hdd",
+            "drive",
+            "perspective",
+            "lid"
           ],
           "shift": [
             0,
@@ -476909,10 +477951,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Devices & Hardware",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-23",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-23"
+    },
+    {
+      "n": 307,
+      "name": "hard-drive-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Devices & Hardware",
+      "base": "hard-drive",
+      "note": "Platter inside · approved 2026-10-23",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-23"
     },
     {
       "n": 308,

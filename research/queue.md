@@ -847,7 +847,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 305. `shuffle-2` · Arrows & Direction · variant of `shuffle` — Straight X · approved 2026-10-17
 - [x] 306. `aperture` · Media & Playback — approved 2026-10-22
 - [x] 306. `aperture-2` · Media & Playback · variant of `aperture` — Swirl, four curved blades · approved 2026-10-22
-- [~] 307. `hard-drive` · Devices & Hardware
+- [x] 307. `hard-drive` · Devices & Hardware — approved 2026-10-23
+- [x] 307. `hard-drive-2` · Devices & Hardware · variant of `hard-drive` — Platter inside · approved 2026-10-23
 - [x] 308. `music` · Media & Playback — approved 2026-10-22
 - [x] 308. `music-2` · Media & Playback · variant of `music` — Eighth note with a flag · approved 2026-10-22
 - [x] 308. `music-3` · Media & Playback · variant of `music` — Quarter note · approved 2026-10-22
