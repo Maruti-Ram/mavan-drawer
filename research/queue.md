@@ -654,7 +654,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 204. `anchor` · Maps & Location — approved 2026-10-18
 - [x] 204. `anchor-2` · Maps & Location · variant of `anchor` — Minimal · approved 2026-10-18
 - [x] 204. `anchor-3` · Maps & Location · variant of `anchor` — Ball · approved 2026-10-18
-- [~] 205. `battery` · Devices & Hardware
+- [x] 205. `battery` · Devices & Hardware — approved 2026-10-23
+- [x] 205. `battery-medium` · Devices & Hardware · variant of `battery` — Charge bar, medium · approved 2026-10-23
+- [x] 205. `battery-2` · Devices & Hardware · variant of `battery` — Three charge cells · approved 2026-10-23
+- [x] 205. `battery-2-medium` · Devices & Hardware · variant of `battery` — Two cells, medium · approved 2026-10-23
+- [x] 205. `battery-2-low` · Devices & Hardware · variant of `battery` — One cell, low · approved 2026-10-23
 - [ ] 206. `cloud` · Development & Infra
 - [ ] 207. `droplet` · Design Tools
 - [x] 208. `film` · Media & Playback — approved 2026-10-22
@@ -1012,8 +1016,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 433. `sort-alpha-descending-2` · UI & Layout · variant of `sort-alpha-descending` — lines left, characters right · approved 2026-10-03
 - [x] 433. `sort-alpha-descending-3` · UI & Layout · variant of `sort-alpha-descending` — characters left, lines right · approved 2026-10-03
 - [ ] 434. `user-search` · Users & Access · variant of `user`
-- [ ] 435. `battery-full` · Devices & Hardware · variant of `battery`
-- [ ] 436. `battery-low` · Devices & Hardware · variant of `battery`
+- [x] 435. `battery-full` · Devices & Hardware · variant of `battery` — approved 2026-10-23
+- [x] 436. `battery-low` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [ ] 437. `bug-off` · Development & Infra · variant of `bug`
 - [ ] 438. `compass-drafting` · Design Tools · variant of `compass`
 - [ ] 439. `desktop-download` · Devices & Hardware · variant of `desktop`
@@ -1166,4 +1170,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 579. `satellite-dish` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 580. `orbit` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 581. `satellite-image` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
-- [ ] 582. `car-battery` · Devices & Hardware — added 2026-10-23
+- [x] 582. `car-battery` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
