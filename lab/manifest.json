@@ -591,6 +591,8 @@
     "desktop-6",
     "desktop-6-filled",
     "desktop-filled",
+    "disc",
+    "disc-filled",
     "dollar-circle",
     "dollar-circle-2",
     "dollar-circle-2-filled",
@@ -1763,6 +1765,8 @@
     "viewport-wide-3",
     "viewport-wide-3-filled",
     "viewport-wide-filled",
+    "vinyl",
+    "vinyl-filled",
     "voicemail",
     "voicemail-2",
     "voicemail-2-filled",
@@ -36182,6 +36186,137 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "disc": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z",
+        "M7.08 11.13A5 5 0 0 1 11.13 7.08",
+        "M16.92 12.87A5 5 0 0 1 12.87 16.92"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z\"/> <path d=\"M7.08 11.13A5 5 0 0 1 11.13 7.08\"/> <path d=\"M16.92 12.87A5 5 0 0 1 12.87 16.92\"/>",
+      "mark": false,
+      "tags": [
+        "cd",
+        "dvd",
+        "optical",
+        "sheen",
+        "album",
+        "music"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 11.34,
+        "h": 11.34
+      },
+      "ratio": {
+        "w": 0.57,
+        "h": 0.57
+      },
+      "gap": {
+        "size": 2.75,
+        "part": 3,
+        "ratio": 0.92
+      }
+    },
+    "disc-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.5 12A1.5 1.5 0 1 0 13.5 12A1.5 1.5 0 1 0 10.5 12ZM6.34 11A5.75 5.75 0 0 1 11 6.34A0.75 0.75 0 0 1 11.26 7.81A4.25 4.25 0 0 0 7.81 11.26A0.75 0.75 0 0 1 6.34 11ZM17.66 13A5.75 5.75 0 0 1 13 17.66A0.75 0.75 0 0 1 12.74 16.19A4.25 4.25 0 0 0 16.19 12.74A0.75 0.75 0 0 1 17.66 13Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.5 12A1.5 1.5 0 1 0 13.5 12A1.5 1.5 0 1 0 10.5 12ZM6.34 11A5.75 5.75 0 0 1 11 6.34A0.75 0.75 0 0 1 11.26 7.81A4.25 4.25 0 0 0 7.81 11.26A0.75 0.75 0 0 1 6.34 11ZM17.66 13A5.75 5.75 0 0 1 13 17.66A0.75 0.75 0 0 1 12.74 16.19A4.25 4.25 0 0 0 16.19 12.74A0.75 0.75 0 0 1 17.66 13Z\"/>",
+      "mark": false,
+      "tags": [
+        "cd",
+        "dvd",
+        "optical",
+        "sheen",
+        "album",
+        "music"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -108092,6 +108227,136 @@
       "ratio": null,
       "gap": null
     },
+    "vinyl": {
+      "paths": [
+        "M21.23 11.35A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 15.69 3.52",
+        "M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z",
+        "M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z",
+        "M19.25 4.75L17.75 14L15.75 16"
+      ],
+      "areas": [],
+      "body": "<path d=\"M21.23 11.35A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 15.69 3.52\"/> <path d=\"M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z\"/> <path d=\"M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z\"/> <path d=\"M19.25 4.75L17.75 14L15.75 16\"/>",
+      "mark": false,
+      "tags": [
+        "vinyl",
+        "record",
+        "lp",
+        "turntable",
+        "tonearm",
+        "music"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.7
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.47,
+          "optical": 2.36
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.54,
+          "optical": 2.41
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.7
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 10.25,
+        "h": 13.5
+      },
+      "ratio": {
+        "w": 0.51,
+        "h": 0.68
+      },
+      "gap": null
+    },
+    "vinyl-filled": {
+      "paths": [
+        "M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z",
+        "M19.25 4.75L17.75 14L15.75 16"
+      ],
+      "areas": [
+        "M22 12.11A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 12 2A10 10 0 0 1 16.01 2.84A0.75 0.75 0 0 1 16.46 3.52A0.75 0.75 0 0 1 16.41 3.77A3 3 0 0 0 16.26 4.51L15.6 12.72A0.75 0.75 0 0 1 15.38 13.19L14.16 14.41A2.25 2.25 0 0 0 13.5 16A2.25 2.25 0 0 0 15.75 18.25A2.25 2.25 0 0 0 17.34 17.59L19.34 15.59A2.25 2.25 0 0 0 19.94 14.54L20.58 11.92A0.75 0.75 0 0 1 21.25 11.35L21.2 11.36A0.75 0.75 0 0 1 21.25 11.36A0.75 0.75 0 0 1 22 12.11A0.75 0.75 0 0 1 22 12.11ZM13.5 12A1.5 1.5 0 1 1 10.5 12A1.5 1.5 0 1 1 13.5 12Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M22 12.11A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 12 2A10 10 0 0 1 16.01 2.84A0.75 0.75 0 0 1 16.46 3.52A0.75 0.75 0 0 1 16.41 3.77A3 3 0 0 0 16.26 4.51L15.6 12.72A0.75 0.75 0 0 1 15.38 13.19L14.16 14.41A2.25 2.25 0 0 0 13.5 16A2.25 2.25 0 0 0 15.75 18.25A2.25 2.25 0 0 0 17.34 17.59L19.34 15.59A2.25 2.25 0 0 0 19.94 14.54L20.58 11.92A0.75 0.75 0 0 1 21.25 11.35L21.2 11.36A0.75 0.75 0 0 1 21.25 11.36A0.75 0.75 0 0 1 22 12.11A0.75 0.75 0 0 1 22 12.11ZM13.5 12A1.5 1.5 0 1 1 10.5 12A1.5 1.5 0 1 1 13.5 12Z\"/> <path d=\"M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z\"/> <path d=\"M19.25 4.75L17.75 14L15.75 16\"/>",
+      "mark": false,
+      "tags": [
+        "vinyl",
+        "record",
+        "lp",
+        "turntable",
+        "tonearm",
+        "music"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "voicemail": {
       "paths": [
         "M2.75 12A3.75 3.75 0 1 0 10.25 12A3.75 3.75 0 1 0 2.75 12Z",
@@ -114344,6 +114609,8 @@
         "desktop-6",
         "desktop-6-filled",
         "desktop-filled",
+        "disc",
+        "disc-filled",
         "dollar-circle",
         "dollar-circle-2",
         "dollar-circle-2-filled",
@@ -115516,6 +115783,8 @@
         "viewport-wide-3",
         "viewport-wide-3-filled",
         "viewport-wide-filled",
+        "vinyl",
+        "vinyl-filled",
         "voicemail",
         "voicemail-2",
         "voicemail-2-filled",
@@ -149878,6 +150147,137 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "disc": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M7.625 8A0.375 0.375 0 1 0 8.375 8A0.375 0.375 0 1 0 7.625 8Z",
+            "M4.676 7.414A3.375 3.375 0 0 1 7.414 4.676",
+            "M11.324 8.586A3.375 3.375 0 0 1 8.586 11.324"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M7.625 8A0.375 0.375 0 1 0 8.375 8A0.375 0.375 0 1 0 7.625 8Z\"/> <path d=\"M4.676 7.414A3.375 3.375 0 0 1 7.414 4.676\"/> <path d=\"M11.324 8.586A3.375 3.375 0 0 1 8.586 11.324\"/>",
+          "mark": false,
+          "tags": [
+            "cd",
+            "dvd",
+            "optical",
+            "sheen",
+            "album",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 7.9,
+            "h": 7.9
+          },
+          "ratio": {
+            "w": 0.56,
+            "h": 0.56
+          },
+          "gap": {
+            "size": 1.75,
+            "part": 2,
+            "ratio": 0.88
+          }
+        },
+        "disc-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7 8A1 1 0 1 0 9 8A1 1 0 1 0 7 8ZM3.938 7.284A4.125 4.125 0 0 1 7.284 3.938A0.75 0.75 0 0 1 7.544 5.415A2.625 2.625 0 0 0 5.415 7.544A0.75 0.75 0 0 1 3.938 7.284ZM12.062 8.716A4.125 4.125 0 0 1 8.716 12.062A0.75 0.75 0 0 1 8.456 10.585A2.625 2.625 0 0 0 10.585 8.456A0.75 0.75 0 0 1 12.062 8.716Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM7 8A1 1 0 1 0 9 8A1 1 0 1 0 7 8ZM3.938 7.284A4.125 4.125 0 0 1 7.284 3.938A0.75 0.75 0 0 1 7.544 5.415A2.625 2.625 0 0 0 5.415 7.544A0.75 0.75 0 0 1 3.938 7.284ZM12.062 8.716A4.125 4.125 0 0 1 8.716 12.062A0.75 0.75 0 0 1 8.456 10.585A2.625 2.625 0 0 0 10.585 8.456A0.75 0.75 0 0 1 12.062 8.716Z\"/>",
+          "mark": false,
+          "tags": [
+            "cd",
+            "dvd",
+            "optical",
+            "sheen",
+            "album",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -221756,6 +222156,139 @@
           "ratio": null,
           "gap": null
         },
+        "vinyl": {
+          "paths": [
+            "M14.341 7.341A6.375 6.375 0 0 1 14.375 8A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 1.625 8A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 9.898 1.914",
+            "M12.5 2.875A0.375 0.375 0 1 0 13.25 2.875A0.375 0.375 0 1 0 12.5 2.875Z",
+            "M12.875 2.875L10.875 9.125L9.875 10.125"
+          ],
+          "areas": [],
+          "body": "<path d=\"M14.341 7.341A6.375 6.375 0 0 1 14.375 8A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 1.625 8A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 9.898 1.914\"/> <path d=\"M12.5 2.875A0.375 0.375 0 1 0 13.25 2.875A0.375 0.375 0 1 0 12.5 2.875Z\"/> <path d=\"M12.875 2.875L10.875 9.125L9.875 10.125\"/>",
+          "mark": false,
+          "tags": [
+            "vinyl",
+            "record",
+            "lp",
+            "turntable",
+            "tonearm",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.38,
+              "optical": 1.28
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.4,
+              "optical": 1.3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 4.63,
+            "h": 8.88
+          },
+          "ratio": {
+            "w": 0.33,
+            "h": 0.63
+          },
+          "gap": {
+            "size": -1.14,
+            "part": 2,
+            "ratio": -0.57
+          }
+        },
+        "vinyl-filled": {
+          "paths": [
+            "M12.5 2.875A0.375 0.375 0 1 0 13.25 2.875A0.375 0.375 0 1 0 12.5 2.875Z",
+            "M12.875 2.875L10.875 9.125L9.875 10.125"
+          ],
+          "areas": [
+            "M15 7.963A7 7 0 0 1 15 8A7 7 0 0 1 8 15A7 7 0 0 1 1 8A7 7 0 0 1 8 1A7 7 0 0 1 10.087 1.318A0.625 0.625 0 0 1 10.526 1.915A0.625 0.625 0 0 1 10.496 2.107A2.5 2.5 0 0 0 10.454 2.25L9.005 7.867A0.625 0.625 0 0 1 8.842 8.153L8.372 8.622A2.125 2.125 0 0 0 7.75 10.125A2.125 2.125 0 0 0 9.875 12.25A2.125 2.125 0 0 0 11.378 11.628L12.377 10.628A2.125 2.125 0 0 0 12.859 9.887L13.679 7.754A0.625 0.625 0 0 1 14.197 7.356L14.31 7.344A0.625 0.625 0 0 1 14.375 7.341A0.625 0.625 0 0 1 15 7.963Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15 7.963A7 7 0 0 1 15 8A7 7 0 0 1 8 15A7 7 0 0 1 1 8A7 7 0 0 1 8 1A7 7 0 0 1 10.087 1.318A0.625 0.625 0 0 1 10.526 1.915A0.625 0.625 0 0 1 10.496 2.107A2.5 2.5 0 0 0 10.454 2.25L9.005 7.867A0.625 0.625 0 0 1 8.842 8.153L8.372 8.622A2.125 2.125 0 0 0 7.75 10.125A2.125 2.125 0 0 0 9.875 12.25A2.125 2.125 0 0 0 11.378 11.628L12.377 10.628A2.125 2.125 0 0 0 12.859 9.887L13.679 7.754A0.625 0.625 0 0 1 14.197 7.356L14.31 7.344A0.625 0.625 0 0 1 14.375 7.341A0.625 0.625 0 0 1 15 7.963Z\"/> <path d=\"M12.5 2.875A0.375 0.375 0 1 0 13.25 2.875A0.375 0.375 0 1 0 12.5 2.875Z\"/> <path d=\"M12.875 2.875L10.875 9.125L9.875 10.125\"/>",
+          "mark": false,
+          "tags": [
+            "vinyl",
+            "record",
+            "lp",
+            "turntable",
+            "tonearm",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "voicemail": {
           "paths": [
             "M1.625 8A2.375 2.375 0 1 0 6.375 8A2.375 2.375 0 1 0 1.625 8Z",
@@ -228000,6 +228533,8 @@
         "desktop-6",
         "desktop-6-filled",
         "desktop-filled",
+        "disc",
+        "disc-filled",
         "dollar-circle",
         "dollar-circle-2",
         "dollar-circle-2-filled",
@@ -229172,6 +229707,8 @@
         "viewport-wide-3",
         "viewport-wide-3-filled",
         "viewport-wide-filled",
+        "vinyl",
+        "vinyl-filled",
         "voicemail",
         "voicemail-2",
         "voicemail-2-filled",
@@ -263552,6 +264089,137 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "disc": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M9.75 10A0.25 0.25 0 1 0 10.25 10A0.25 0.25 0 1 0 9.75 10Z",
+            "M6.31 9.35A3.75 3.75 0 0 1 9.35 6.31",
+            "M13.69 10.65A3.75 3.75 0 0 1 10.65 13.69"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M9.75 10A0.25 0.25 0 1 0 10.25 10A0.25 0.25 0 1 0 9.75 10Z\"/> <path d=\"M6.31 9.35A3.75 3.75 0 0 1 9.35 6.31\"/> <path d=\"M13.69 10.65A3.75 3.75 0 0 1 10.65 13.69\"/>",
+          "mark": false,
+          "tags": [
+            "cd",
+            "dvd",
+            "optical",
+            "sheen",
+            "album",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 8.88,
+            "h": 8.88
+          },
+          "ratio": {
+            "w": 0.56,
+            "h": 0.56
+          },
+          "gap": {
+            "size": 2,
+            "part": 2,
+            "ratio": 1
+          }
+        },
+        "disc-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM9 10A1 1 0 1 0 11 10A1 1 0 1 0 9 10ZM5.57 9.22A4.5 4.5 0 0 1 9.22 5.57A0.75 0.75 0 0 1 9.48 7.05A3 3 0 0 0 7.05 9.48A0.75 0.75 0 0 1 5.57 9.22ZM14.43 10.78A4.5 4.5 0 0 1 10.78 14.43A0.75 0.75 0 0 1 10.52 12.95A3 3 0 0 0 12.95 10.52A0.75 0.75 0 0 1 14.43 10.78Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM9 10A1 1 0 1 0 11 10A1 1 0 1 0 9 10ZM5.57 9.22A4.5 4.5 0 0 1 9.22 5.57A0.75 0.75 0 0 1 9.48 7.05A3 3 0 0 0 7.05 9.48A0.75 0.75 0 0 1 5.57 9.22ZM14.43 10.78A4.5 4.5 0 0 1 10.78 14.43A0.75 0.75 0 0 1 10.52 12.95A3 3 0 0 0 12.95 10.52A0.75 0.75 0 0 1 14.43 10.78Z\"/>",
+          "mark": false,
+          "tags": [
+            "cd",
+            "dvd",
+            "optical",
+            "sheen",
+            "album",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -335459,6 +336127,139 @@
           "ratio": null,
           "gap": null
         },
+        "vinyl": {
+          "paths": [
+            "M17.22 9.33A7.25 7.25 0 0 1 17.25 10A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 2.75 10A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 12.42 3.16",
+            "M15.25 4.25A0.25 0.25 0 1 0 15.75 4.25A0.25 0.25 0 1 0 15.25 4.25Z",
+            "M15.5 4.25L13.5 11.5L12 13"
+          ],
+          "areas": [],
+          "body": "<path d=\"M17.22 9.33A7.25 7.25 0 0 1 17.25 10A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 2.75 10A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 12.42 3.16\"/> <path d=\"M15.25 4.25A0.25 0.25 0 1 0 15.75 4.25A0.25 0.25 0 1 0 15.25 4.25Z\"/> <path d=\"M15.5 4.25L13.5 11.5L12 13\"/>",
+          "mark": false,
+          "tags": [
+            "vinyl",
+            "record",
+            "lp",
+            "turntable",
+            "tonearm",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.44,
+              "optical": 2.33
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 5.25,
+            "h": 10.5
+          },
+          "ratio": {
+            "w": 0.33,
+            "h": 0.66
+          },
+          "gap": {
+            "size": -1.49,
+            "part": 2,
+            "ratio": -0.74
+          }
+        },
+        "vinyl-filled": {
+          "paths": [
+            "M15.25 4.25A0.25 0.25 0 1 0 15.75 4.25A0.25 0.25 0 1 0 15.25 4.25Z",
+            "M15.5 4.25L13.5 11.5L12 13"
+          ],
+          "areas": [
+            "M18 10.09A8 8 0 0 1 10 18A8 8 0 0 1 2 10A8 8 0 0 1 10 2A8 8 0 0 1 12.69 2.46A0.75 0.75 0 0 1 13.18 3.17A0.75 0.75 0 0 1 13.14 3.42A2.5 2.5 0 0 0 13.07 3.67L11.51 10.15A0.75 0.75 0 0 1 11.31 10.51L10.41 11.41A2.25 2.25 0 0 0 9.75 13A2.25 2.25 0 0 0 12 15.25A2.25 2.25 0 0 0 13.59 14.59L15.09 13.09A2.25 2.25 0 0 0 15.65 12.17L16.36 9.88A0.75 0.75 0 0 1 17.01 9.35L17.18 9.34A0.75 0.75 0 0 1 17.25 9.33A0.75 0.75 0 0 1 18 10.08A0.75 0.75 0 0 1 18 10.09Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M18 10.09A8 8 0 0 1 10 18A8 8 0 0 1 2 10A8 8 0 0 1 10 2A8 8 0 0 1 12.69 2.46A0.75 0.75 0 0 1 13.18 3.17A0.75 0.75 0 0 1 13.14 3.42A2.5 2.5 0 0 0 13.07 3.67L11.51 10.15A0.75 0.75 0 0 1 11.31 10.51L10.41 11.41A2.25 2.25 0 0 0 9.75 13A2.25 2.25 0 0 0 12 15.25A2.25 2.25 0 0 0 13.59 14.59L15.09 13.09A2.25 2.25 0 0 0 15.65 12.17L16.36 9.88A0.75 0.75 0 0 1 17.01 9.35L17.18 9.34A0.75 0.75 0 0 1 17.25 9.33A0.75 0.75 0 0 1 18 10.08A0.75 0.75 0 0 1 18 10.09Z\"/> <path d=\"M15.25 4.25A0.25 0.25 0 1 0 15.75 4.25A0.25 0.25 0 1 0 15.25 4.25Z\"/> <path d=\"M15.5 4.25L13.5 11.5L12 13\"/>",
+          "mark": false,
+          "tags": [
+            "vinyl",
+            "record",
+            "lp",
+            "turntable",
+            "tonearm",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "voicemail": {
           "paths": [
             "M2.75 10A2.75 2.75 0 1 0 8.25 10A2.75 2.75 0 1 0 2.75 10Z",
@@ -341705,6 +342506,8 @@
         "desktop-6",
         "desktop-6-filled",
         "desktop-filled",
+        "disc",
+        "disc-filled",
         "dollar-circle",
         "dollar-circle-2",
         "dollar-circle-2-filled",
@@ -342877,6 +343680,8 @@
         "viewport-wide-3",
         "viewport-wide-3-filled",
         "viewport-wide-filled",
+        "vinyl",
+        "vinyl-filled",
         "voicemail",
         "voicemail-2",
         "voicemail-2-filled",
@@ -377296,6 +378101,137 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "disc": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z",
+            "M7.08 11.13A5 5 0 0 1 11.13 7.08",
+            "M16.92 12.87A5 5 0 0 1 12.87 16.92"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z\"/> <path d=\"M7.08 11.13A5 5 0 0 1 11.13 7.08\"/> <path d=\"M16.92 12.87A5 5 0 0 1 12.87 16.92\"/>",
+          "mark": false,
+          "tags": [
+            "cd",
+            "dvd",
+            "optical",
+            "sheen",
+            "album",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 11.34,
+            "h": 11.34
+          },
+          "ratio": {
+            "w": 0.57,
+            "h": 0.57
+          },
+          "gap": {
+            "size": 2.75,
+            "part": 3,
+            "ratio": 0.92
+          }
+        },
+        "disc-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.5 12A1.5 1.5 0 1 0 13.5 12A1.5 1.5 0 1 0 10.5 12ZM6.34 11A5.75 5.75 0 0 1 11 6.34A0.75 0.75 0 0 1 11.26 7.81A4.25 4.25 0 0 0 7.81 11.26A0.75 0.75 0 0 1 6.34 11ZM17.66 13A5.75 5.75 0 0 1 13 17.66A0.75 0.75 0 0 1 12.74 16.19A4.25 4.25 0 0 0 16.19 12.74A0.75 0.75 0 0 1 17.66 13Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM10.5 12A1.5 1.5 0 1 0 13.5 12A1.5 1.5 0 1 0 10.5 12ZM6.34 11A5.75 5.75 0 0 1 11 6.34A0.75 0.75 0 0 1 11.26 7.81A4.25 4.25 0 0 0 7.81 11.26A0.75 0.75 0 0 1 6.34 11ZM17.66 13A5.75 5.75 0 0 1 13 17.66A0.75 0.75 0 0 1 12.74 16.19A4.25 4.25 0 0 0 16.19 12.74A0.75 0.75 0 0 1 17.66 13Z\"/>",
+          "mark": false,
+          "tags": [
+            "cd",
+            "dvd",
+            "optical",
+            "sheen",
+            "album",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -449206,6 +450142,136 @@
           "ratio": null,
           "gap": null
         },
+        "vinyl": {
+          "paths": [
+            "M21.23 11.35A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 15.69 3.52",
+            "M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z",
+            "M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z",
+            "M19.25 4.75L17.75 14L15.75 16"
+          ],
+          "areas": [],
+          "body": "<path d=\"M21.23 11.35A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 15.69 3.52\"/> <path d=\"M11.25 12A0.75 0.75 0 1 0 12.75 12A0.75 0.75 0 1 0 11.25 12Z\"/> <path d=\"M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z\"/> <path d=\"M19.25 4.75L17.75 14L15.75 16\"/>",
+          "mark": false,
+          "tags": [
+            "vinyl",
+            "record",
+            "lp",
+            "turntable",
+            "tonearm",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.7
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.54,
+              "optical": 2.41
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.7
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 10.25,
+            "h": 13.5
+          },
+          "ratio": {
+            "w": 0.51,
+            "h": 0.68
+          },
+          "gap": null
+        },
+        "vinyl-filled": {
+          "paths": [
+            "M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z",
+            "M19.25 4.75L17.75 14L15.75 16"
+          ],
+          "areas": [
+            "M22 12.11A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 12 2A10 10 0 0 1 16.01 2.84A0.75 0.75 0 0 1 16.46 3.52A0.75 0.75 0 0 1 16.41 3.77A3 3 0 0 0 16.26 4.51L15.6 12.72A0.75 0.75 0 0 1 15.38 13.19L14.16 14.41A2.25 2.25 0 0 0 13.5 16A2.25 2.25 0 0 0 15.75 18.25A2.25 2.25 0 0 0 17.34 17.59L19.34 15.59A2.25 2.25 0 0 0 19.94 14.54L20.58 11.92A0.75 0.75 0 0 1 21.25 11.35L21.2 11.36A0.75 0.75 0 0 1 21.25 11.36A0.75 0.75 0 0 1 22 12.11A0.75 0.75 0 0 1 22 12.11ZM13.5 12A1.5 1.5 0 1 1 10.5 12A1.5 1.5 0 1 1 13.5 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M22 12.11A10 10 0 0 1 12 22A10 10 0 0 1 2 12A10 10 0 0 1 12 2A10 10 0 0 1 16.01 2.84A0.75 0.75 0 0 1 16.46 3.52A0.75 0.75 0 0 1 16.41 3.77A3 3 0 0 0 16.26 4.51L15.6 12.72A0.75 0.75 0 0 1 15.38 13.19L14.16 14.41A2.25 2.25 0 0 0 13.5 16A2.25 2.25 0 0 0 15.75 18.25A2.25 2.25 0 0 0 17.34 17.59L19.34 15.59A2.25 2.25 0 0 0 19.94 14.54L20.58 11.92A0.75 0.75 0 0 1 21.25 11.35L21.2 11.36A0.75 0.75 0 0 1 21.25 11.36A0.75 0.75 0 0 1 22 12.11A0.75 0.75 0 0 1 22 12.11ZM13.5 12A1.5 1.5 0 1 1 10.5 12A1.5 1.5 0 1 1 13.5 12Z\"/> <path d=\"M18.5 4.75A0.75 0.75 0 1 0 20 4.75A0.75 0.75 0 1 0 18.5 4.75Z\"/> <path d=\"M19.25 4.75L17.75 14L15.75 16\"/>",
+          "mark": false,
+          "tags": [
+            "vinyl",
+            "record",
+            "lp",
+            "turntable",
+            "tonearm",
+            "music"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "voicemail": {
           "paths": [
             "M2.75 12A3.75 3.75 0 1 0 10.25 12A3.75 3.75 0 1 0 2.75 12Z",
@@ -464377,10 +465443,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Devices & Hardware",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-22",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-22"
     },
     {
       "n": 336,
@@ -467060,6 +468126,17 @@
       "name": "carousel",
       "section": "E · Added on request",
       "category": "UI & Layout",
+      "base": null,
+      "note": "added 2026-10-22 · approved 2026-10-22",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-22"
+    },
+    {
+      "n": 576,
+      "name": "vinyl",
+      "section": "E · Added on request",
+      "category": "Devices & Hardware",
       "base": null,
       "note": "added 2026-10-22 · approved 2026-10-22",
       "status": "done",

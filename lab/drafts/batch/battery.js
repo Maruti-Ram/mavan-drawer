@@ -1,7 +1,17 @@
 // battery: the body chosen here is the one battery-charging and the level family (-low, -full; C28) will be drawn on, so it decides whether three charge cells can ever fit at 20 and 16.
 export default {
   "concept": "battery",
-  "question": "Which picture says battery: the plain horizontal cell (A), the cell showing its charge as three cells (B) or as a filled level (C), the vertical cell (D), or the car battery (E)?",
+  "question": "Do the levels read as one battery losing charge: A's bar stepping 1/3 · 2/3 · full (battery-low, -medium, -full), and B's cells dropping right to left (battery-2-low, -medium)? E ships as car-battery.",
+  "set": {
+    "A": "battery",
+    "A1": "battery-low",
+    "A2": "battery-medium",
+    "A3": "battery-full",
+    "B": "battery-2",
+    "B2": "battery-2-medium",
+    "B1": "battery-2-low",
+    "E": "car-battery"
+  },
   "candidates": [
     {
       "id": "A",
@@ -65,6 +75,156 @@ export default {
       }
     },
     {
+      "id": "A1",
+      "label": "Charge bar, low",
+      "tags": [
+        "horizontal",
+        "level",
+        "low",
+        "charge",
+        "bar"
+      ],
+      "anchor": "battery",
+      "note": "Rhythm: one third of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (4 runs at 24, 1 rectangle at 20 and 16), so no white is left inside it; the outline format has no fills. Filled: A's solid body with a 1.5 white band cut round the bar (outer corners r2.25 · 2.25 · 2.125) and the bar solid inside it; to the right of the band the body stays solid, so the level reads as how far the white band reaches. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-low, SF battery.25percent, Material battery_horiz_025, Central battery-low.",
+      "masters": {
+        "16": [
+          "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
+          "M13.125 6.625H14.375V9.375H13.125Z",
+          "M4.375 7.375H5.5V8.625H4.375Z"
+        ],
+        "20": [
+          "M4.75 6.25H13.75A2 2 0 0 1 15.75 8.25V11.75A2 2 0 0 1 13.75 13.75H4.75A2 2 0 0 1 2.75 11.75V8.25A2 2 0 0 1 4.75 6.25Z",
+          "M15.75 8.5H17.25V11.5H15.75Z",
+          "M5.75 9.25H7V10.75H5.75Z"
+        ],
+        "24": [
+          "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
+          "M19.75 9.75H21.25V14.25H19.75Z",
+          "M5.75 9.75H8.25V11.25H5.75V12.75H8.25V14.25H5.75Z"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM4.375 5.25H5.5A2.125 2.125 0 0 1 7.625 7.375V8.625A2.125 2.125 0 0 1 5.5 10.75H4.375A2.125 2.125 0 0 1 2.25 8.625V7.375A2.125 2.125 0 0 1 4.375 5.25ZM4.375 6.75H5.5A0.625 0.625 0 0 1 6.125 7.375V8.625A0.625 0.625 0 0 1 5.5 9.25H4.375A0.625 0.625 0 0 1 3.75 8.625V7.375A0.625 0.625 0 0 1 4.375 6.75Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.75 7H7A2.25 2.25 0 0 1 9.25 9.25V10.75A2.25 2.25 0 0 1 7 13H5.75A2.25 2.25 0 0 1 3.5 10.75V9.25A2.25 2.25 0 0 1 5.75 7ZM5.75 8.5H7A0.75 0.75 0 0 1 7.75 9.25V10.75A0.75 0.75 0 0 1 7 11.5H5.75A0.75 0.75 0 0 1 5 10.75V9.25A0.75 0.75 0 0 1 5.75 8.5Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM5.75 7.5H8.25A2.25 2.25 0 0 1 10.5 9.75V14.25A2.25 2.25 0 0 1 8.25 16.5H5.75A2.25 2.25 0 0 1 3.5 14.25V9.75A2.25 2.25 0 0 1 5.75 7.5ZM5.75 9H8.25A0.75 0.75 0 0 1 9 9.75V14.25A0.75 0.75 0 0 1 8.25 15H5.75A0.75 0.75 0 0 1 5 14.25V9.75A0.75 0.75 0 0 1 5.75 9Z"
+          ],
+          "stroke": []
+        }
+      }
+    },
+    {
+      "id": "A2",
+      "label": "Charge bar, medium",
+      "tags": [
+        "horizontal",
+        "level",
+        "medium",
+        "charge",
+        "bar"
+      ],
+      "anchor": "battery",
+      "note": "Rhythm: two thirds of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (4 runs at 24, 1 rectangle at 20 and 16), so no white is left inside it; the outline format has no fills. Filled: A's solid body with a 1.5 white band cut round the bar (outer corners r2.25 · 2.25 · 2.125) and the bar solid inside it; to the right of the band the body stays solid, so the level reads as how far the white band reaches. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-medium, SF battery.50percent, Material battery_horiz_050, Central battery-medium.",
+      "masters": {
+        "16": [
+          "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
+          "M13.125 6.625H14.375V9.375H13.125Z",
+          "M4.375 7.375H7.875V8.625H4.375Z"
+        ],
+        "20": [
+          "M4.75 6.25H13.75A2 2 0 0 1 15.75 8.25V11.75A2 2 0 0 1 13.75 13.75H4.75A2 2 0 0 1 2.75 11.75V8.25A2 2 0 0 1 4.75 6.25Z",
+          "M15.75 8.5H17.25V11.5H15.75Z",
+          "M5.75 9.25H9.75V10.75H5.75Z"
+        ],
+        "24": [
+          "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
+          "M19.75 9.75H21.25V14.25H19.75Z",
+          "M5.75 9.75H12.25V11.25H5.75V12.75H12.25V14.25H5.75Z"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM4.375 5.25H7.875A2.125 2.125 0 0 1 10 7.375V8.625A2.125 2.125 0 0 1 7.875 10.75H4.375A2.125 2.125 0 0 1 2.25 8.625V7.375A2.125 2.125 0 0 1 4.375 5.25ZM4.375 6.75H7.875A0.625 0.625 0 0 1 8.5 7.375V8.625A0.625 0.625 0 0 1 7.875 9.25H4.375A0.625 0.625 0 0 1 3.75 8.625V7.375A0.625 0.625 0 0 1 4.375 6.75Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.75 7H9.75A2.25 2.25 0 0 1 12 9.25V10.75A2.25 2.25 0 0 1 9.75 13H5.75A2.25 2.25 0 0 1 3.5 10.75V9.25A2.25 2.25 0 0 1 5.75 7ZM5.75 8.5H9.75A0.75 0.75 0 0 1 10.5 9.25V10.75A0.75 0.75 0 0 1 9.75 11.5H5.75A0.75 0.75 0 0 1 5 10.75V9.25A0.75 0.75 0 0 1 5.75 8.5Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM5.75 7.5H12.25A2.25 2.25 0 0 1 14.5 9.75V14.25A2.25 2.25 0 0 1 12.25 16.5H5.75A2.25 2.25 0 0 1 3.5 14.25V9.75A2.25 2.25 0 0 1 5.75 7.5ZM5.75 9H12.25A0.75 0.75 0 0 1 13 9.75V14.25A0.75 0.75 0 0 1 12.25 15H5.75A0.75 0.75 0 0 1 5 14.25V9.75A0.75 0.75 0 0 1 5.75 9Z"
+          ],
+          "stroke": []
+        }
+      }
+    },
+    {
+      "id": "A3",
+      "label": "Charge bar, full",
+      "tags": [
+        "horizontal",
+        "level",
+        "full",
+        "charge",
+        "bar"
+      ],
+      "anchor": "battery",
+      "note": "Rhythm: all of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (4 runs at 24, 1 rectangle at 20 and 16), so no white is left inside it; the outline format has no fills. Filled: A's solid body with a 1.5 white band cut round the bar (outer corners r2.25 · 2.25 · 2.125) and the bar solid inside it; to the right of the band the body stays solid, so the level reads as how far the white band reaches. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-full, SF battery.100percent, Material battery_horiz_100, Central battery-full.",
+      "masters": {
+        "16": [
+          "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
+          "M13.125 6.625H14.375V9.375H13.125Z",
+          "M4.375 7.375H10.25V8.625H4.375Z"
+        ],
+        "20": [
+          "M4.75 6.25H13.75A2 2 0 0 1 15.75 8.25V11.75A2 2 0 0 1 13.75 13.75H4.75A2 2 0 0 1 2.75 11.75V8.25A2 2 0 0 1 4.75 6.25Z",
+          "M15.75 8.5H17.25V11.5H15.75Z",
+          "M5.75 9.25H12.5V10.75H5.75Z"
+        ],
+        "24": [
+          "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
+          "M19.75 9.75H21.25V14.25H19.75Z",
+          "M5.75 9.75H16.25V11.25H5.75V12.75H16.25V14.25H5.75Z"
+        ]
+      },
+      "filled": {
+        "16": {
+          "fill": [
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM4.375 5.25H10.25A2.125 2.125 0 0 1 12.375 7.375V8.625A2.125 2.125 0 0 1 10.25 10.75H4.375A2.125 2.125 0 0 1 2.25 8.625V7.375A2.125 2.125 0 0 1 4.375 5.25ZM4.375 6.75H10.25A0.625 0.625 0 0 1 10.875 7.375V8.625A0.625 0.625 0 0 1 10.25 9.25H4.375A0.625 0.625 0 0 1 3.75 8.625V7.375A0.625 0.625 0 0 1 4.375 6.75Z"
+          ],
+          "stroke": []
+        },
+        "20": {
+          "fill": [
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.75 7H12.5A2.25 2.25 0 0 1 14.75 9.25V10.75A2.25 2.25 0 0 1 12.5 13H5.75A2.25 2.25 0 0 1 3.5 10.75V9.25A2.25 2.25 0 0 1 5.75 7ZM5.75 8.5H12.5A0.75 0.75 0 0 1 13.25 9.25V10.75A0.75 0.75 0 0 1 12.5 11.5H5.75A0.75 0.75 0 0 1 5 10.75V9.25A0.75 0.75 0 0 1 5.75 8.5Z"
+          ],
+          "stroke": []
+        },
+        "24": {
+          "fill": [
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM5.75 7.5H16.25A2.25 2.25 0 0 1 18.5 9.75V14.25A2.25 2.25 0 0 1 16.25 16.5H5.75A2.25 2.25 0 0 1 3.5 14.25V9.75A2.25 2.25 0 0 1 5.75 7.5ZM5.75 9H16.25A0.75 0.75 0 0 1 17 9.75V14.25A0.75 0.75 0 0 1 16.25 15H5.75A0.75 0.75 0 0 1 5 14.25V9.75A0.75 0.75 0 0 1 5.75 9Z"
+          ],
+          "stroke": []
+        }
+      }
+    },
+    {
       "id": "B",
       "label": "Three charge cells",
       "tags": [
@@ -89,7 +249,7 @@ export default {
           12
         ]
       },
-      "note": "Rhythm: three bars on one even pitch, 4.25 · 3.25 · 2.875, with the same air between bars as from the end bars to the walls, 2.75 · 1.75 · 1.625, all four gaps equal at every master. The bars are line-wide (1.5 · 1.5 · 1.25) and 5 · 3 · 2.5 of ink tall, with 2 · 1.5 · 1.5 of air above and below. Body and nub are A's, unchanged: this is battery-full in A's level family (C28: one body, identical and in place), so -low and -medium drop bars from the right and keep the rest at their coordinates. Body 18.5×12 · 14.5×9 · 12.75×8, container radius 2.5 · 2 · 1.5 on the line (keyboard's and credit-card's; filled outer 3.25 · 2.75 · 2.125). Nub solid and joined to the wall, one line past it (1.5 · 1.5 · 1.25) and half the body's height (6 · 4.5 · 4), centred on the body; it is drawn as a closed bar on the wall's centreline so no white is left inside it. Off-grid values 20.49 · 16.45 · 13.746 in the filled files are where the corner arc meets the nub's edge (computed). Ink 20×12 · 16×9 · 14×8, box-centred, so the body sits 0.75 · 0.75 · 0.625 left of the canvas centre. Inside white 15.5×9 · 11.5×6 · 10.25×5.5. Filled: the body solid, the bars cut as white slots 1.5 wide at every master (at 16 wider than the 1.25 line, C22) at the outline bars' length, leaving 2.75 · 1.75 · 1.375 of material between slots (floor 1.25 at 16). Lint clean. Who: Lucide battery-full, Central battery-full, Untitled battery-full, Tabler battery-1…4, Phosphor BatteryHigh, Nucleo battery-high. At 16 at real size the three bars run together into one grey band; the outline still reads as a battery.",
+      "note": "Rhythm: three bars on one even pitch, 4.25 · 3.25 · 2.875, with the same air between bars as from the end bars to the walls, 2.75 · 1.75 · 1.625, all four gaps equal at every master. The bars are line-wide (1.5 · 1.5 · 1.25) and 5 · 3 · 2.5 of ink tall, with 2 · 1.5 · 1.5 of air above and below. Body and nub are battery's, unchanged; ships as battery-2 (the full member), with -medium and -low below (C28). Body 18.5×12 · 14.5×9 · 12.75×8, container radius 2.5 · 2 · 1.5 on the line (keyboard's and credit-card's; filled outer 3.25 · 2.75 · 2.125). Nub solid and joined to the wall, one line past it (1.5 · 1.5 · 1.25) and half the body's height (6 · 4.5 · 4), centred on the body; it is drawn as a closed bar on the wall's centreline so no white is left inside it. Off-grid values 20.49 · 16.45 · 13.746 in the filled files are where the corner arc meets the nub's edge (computed). Ink 20×12 · 16×9 · 14×8, box-centred, so the body sits 0.75 · 0.75 · 0.625 left of the canvas centre. Inside white 15.5×9 · 11.5×6 · 10.25×5.5. Filled: the body solid, the bars cut as white slots 1.5 wide at every master (at 16 wider than the 1.25 line, C22) at the outline bars' length, leaving 2.75 · 1.75 · 1.375 of material between slots (floor 1.25 at 16). Lint clean. Who: Lucide battery-full, Central battery-full, Untitled battery-full, Tabler battery-1…4, Phosphor BatteryHigh, Nucleo battery-high. At 16 at real size the three bars run together into one grey band; the outline still reads as a battery.",
       "masters": {
         "16": [
           "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
@@ -135,123 +295,105 @@ export default {
       }
     },
     {
-      "id": "C",
-      "label": "Filled charge level",
+      "id": "B2",
+      "label": "Two cells, medium",
       "tags": [
         "horizontal",
+        "cells",
+        "bars",
         "level",
-        "charge",
-        "half",
-        "gauge"
+        "medium",
+        "charge"
       ],
-      "box": {
-        "16": [
-          14,
-          8
-        ],
-        "20": [
-          16,
-          9
-        ],
-        "24": [
-          20,
-          12
-        ]
-      },
-      "note": "Rhythm: one divider splits the inside 2 : 1, charged white 9.25 · 6.75 · 6 to empty white 4.75 · 3.25 · 3 (1.95 · 2.08 · 2.0), the divider a line wide and joined to the top and bottom walls. Built as layout-sidebar-2 is: in the outline a divider, in the filled twin the charged part solid to the walls and the empty part left as a white cell (inner corners r1.75 · 1.25 · 0.875, the wall's own inner radius). Body and nub are A's. Body 18.5×12 · 14.5×9 · 12.75×8, container radius 2.5 · 2 · 1.5 on the line (keyboard's and credit-card's; filled outer 3.25 · 2.75 · 2.125). Nub solid and joined to the wall, one line past it (1.5 · 1.5 · 1.25) and half the body's height (6 · 4.5 · 4), centred on the body; it is drawn as a closed bar on the wall's centreline so no white is left inside it. Off-grid values 20.49 · 16.45 · 13.746 in the filled files are where the corner arc meets the nub's edge (computed). Ink 20×12 · 16×9 · 14×8, box-centred, so the body sits 0.75 · 0.75 · 0.625 left of the canvas centre. Inside white 15.5×9 · 11.5×6 · 10.25×5.5. Lint clean. Who: Material battery_horiz_050/075 and battery_1…6_bar, SF battery.25/.50/.75percent, Fluent Battery 1–9, the iOS status bar (all of these draw the level as a solid block). Our outline style cannot draw a solid block inside a line, so the outline shows only the divider, and at 16 it reads as a box split in two. The filled twin carries the picture; and it says \"partly charged\", closer to battery-medium than plain battery.",
+      "anchor": "battery-2",
+      "note": "Rhythm: two of battery-2's three cells. Cells drop right to left; the cells that stay keep battery-2's coordinates (bar centres 7 · 11.25 at 24, 6 · 9.25 at 20, 4.5 · 7.375 at 16), so the pitch 4.25 · 3.25 · 2.875 and the 2.75 · 1.75 · 1.625 of air from the left wall do not change. Filled: battery-2-filled with the dropped slots left solid. Body, nub and ink box are battery-2's exactly; `anchor: battery-2` (C28). Lint clean. Who: Lucide battery-medium, Central battery-medium, Untitled battery-mid, Tabler battery-2.",
       "masters": {
         "16": [
           "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
           "M13.125 6.625H14.375V9.375H13.125Z",
-          "M8.875 4.625V11.375"
+          "M4.5 7.375V8.625",
+          "M7.375 7.375V8.625"
         ],
         "20": [
           "M4.75 6.25H13.75A2 2 0 0 1 15.75 8.25V11.75A2 2 0 0 1 13.75 13.75H4.75A2 2 0 0 1 2.75 11.75V8.25A2 2 0 0 1 4.75 6.25Z",
           "M15.75 8.5H17.25V11.5H15.75Z",
-          "M11 6.25V13.75"
+          "M6 9.25V10.75",
+          "M9.25 9.25V10.75"
         ],
         "24": [
           "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
           "M19.75 9.75H21.25V14.25H19.75Z",
-          "M13.5 6.75V17.25"
+          "M7 10.25V13.75",
+          "M11.25 10.25V13.75"
         ]
       },
       "filled": {
         "16": {
           "fill": [
-            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM9.5 5.25H11.625A0.875 0.875 0 0 1 12.5 6.125V9.875A0.875 0.875 0 0 1 11.625 10.75H9.5Z"
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM3.75 7.5A0.75 0.75 0 0 1 5.25 7.5V8.5A0.75 0.75 0 0 1 3.75 8.5ZM6.625 7.5A0.75 0.75 0 0 1 8.125 7.5V8.5A0.75 0.75 0 0 1 6.625 8.5Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM11.75 7H13.75A1.25 1.25 0 0 1 15 8.25V11.75A1.25 1.25 0 0 1 13.75 13H11.75Z"
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.25 9.25A0.75 0.75 0 0 1 6.75 9.25V10.75A0.75 0.75 0 0 1 5.25 10.75ZM8.5 9.25A0.75 0.75 0 0 1 10 9.25V10.75A0.75 0.75 0 0 1 8.5 10.75Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM14.25 7.5H17.25A1.75 1.75 0 0 1 19 9.25V14.75A1.75 1.75 0 0 1 17.25 16.5H14.25Z"
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM6.25 10.25A0.75 0.75 0 0 1 7.75 10.25V13.75A0.75 0.75 0 0 1 6.25 13.75ZM10.5 10.25A0.75 0.75 0 0 1 12 10.25V13.75A0.75 0.75 0 0 1 10.5 13.75Z"
           ],
           "stroke": []
         }
       }
     },
     {
-      "id": "D",
-      "label": "Vertical cell",
+      "id": "B1",
+      "label": "One cell, low",
       "tags": [
-        "vertical",
-        "upright",
-        "cell",
-        "phone",
-        "power"
+        "horizontal",
+        "cells",
+        "bars",
+        "level",
+        "low",
+        "charge"
       ],
-      "box": {
-        "16": [
-          8,
-          14
-        ],
-        "20": [
-          9,
-          16
-        ],
-        "24": [
-          12,
-          20
-        ]
-      },
-      "note": "Rhythm: A's body turned a quarter, nub up: the same lengths and radii, so the wall, corner and nub match A to the hundredth (body 12×18.5 · 9×14.5 · 8×12.75, radius 2.5 · 2 · 1.5, nub 6 · 4.5 · 4 wide and 1.5 · 1.5 · 1.25 tall, centred). Ink 12×20 · 9×16 · 8×14, box-centred; it fills the portrait keyline's height and is narrower than plug (16×20 · 12×16 · 10×14). Off-grid values 3.51 · 3.55 · 2.254 in the filled files are the corner arc meeting the nub (computed). Filled: one solid shape, Material's filled battery_full. Lint clean. Who: Material battery_full / battery_std, Tabler battery-vertical, Phosphor BatteryVertical (Empty to Full). Next to plug and desktop it reads as a phone or a tube more than a battery at 16, because the nub is the only clue and it is 4 wide.",
+      "anchor": "battery-2",
+      "note": "Rhythm: one of battery-2's three cells. Cells drop right to left; the cells that stay keep battery-2's coordinates (bar centres 7 · 11.25 at 24, 6 · 9.25 at 20, 4.5 · 7.375 at 16), so the pitch 4.25 · 3.25 · 2.875 and the 2.75 · 1.75 · 1.625 of air from the left wall do not change. Filled: battery-2-filled with the dropped slots left solid. Body, nub and ink box are battery-2's exactly; `anchor: battery-2` (C28). Lint clean. Who: Lucide battery-low, Central battery-low, Untitled battery-low, Tabler battery-1.",
       "masters": {
         "16": [
-          "M4.625 12.875V4.375A1.5 1.5 0 0 1 6.125 2.875H9.875A1.5 1.5 0 0 1 11.375 4.375V12.875A1.5 1.5 0 0 1 9.875 14.375H6.125A1.5 1.5 0 0 1 4.625 12.875Z",
-          "M6.625 2.875V1.625H9.375V2.875Z"
+          "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
+          "M13.125 6.625H14.375V9.375H13.125Z",
+          "M4.5 7.375V8.625"
         ],
         "20": [
-          "M6.25 15.25V6.25A2 2 0 0 1 8.25 4.25H11.75A2 2 0 0 1 13.75 6.25V15.25A2 2 0 0 1 11.75 17.25H8.25A2 2 0 0 1 6.25 15.25Z",
-          "M8.5 4.25V2.75H11.5V4.25Z"
+          "M4.75 6.25H13.75A2 2 0 0 1 15.75 8.25V11.75A2 2 0 0 1 13.75 13.75H4.75A2 2 0 0 1 2.75 11.75V8.25A2 2 0 0 1 4.75 6.25Z",
+          "M15.75 8.5H17.25V11.5H15.75Z",
+          "M6 9.25V10.75"
         ],
         "24": [
-          "M6.75 18.75V6.75A2.5 2.5 0 0 1 9.25 4.25H14.75A2.5 2.5 0 0 1 17.25 6.75V18.75A2.5 2.5 0 0 1 14.75 21.25H9.25A2.5 2.5 0 0 1 6.75 18.75Z",
-          "M9.75 4.25V2.75H14.25V4.25Z"
+          "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
+          "M19.75 9.75H21.25V14.25H19.75Z",
+          "M7 10.25V13.75"
         ]
       },
       "filled": {
         "16": {
           "fill": [
-            "M4 12.875V4.375A2.125 2.125 0 0 1 6 2.254V1.625A0.625 0.625 0 0 1 6.625 1H9.375A0.625 0.625 0 0 1 10 1.625V2.254A2.125 2.125 0 0 1 12 4.375V12.875A2.125 2.125 0 0 1 9.875 15H6.125A2.125 2.125 0 0 1 4 12.875Z"
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM3.75 7.5A0.75 0.75 0 0 1 5.25 7.5V8.5A0.75 0.75 0 0 1 3.75 8.5Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M5.5 15.25V6.25A2.75 2.75 0 0 1 7.75 3.55V2.75A0.75 0.75 0 0 1 8.5 2H11.5A0.75 0.75 0 0 1 12.25 2.75V3.55A2.75 2.75 0 0 1 14.5 6.25V15.25A2.75 2.75 0 0 1 11.75 18H8.25A2.75 2.75 0 0 1 5.5 15.25Z"
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.25 9.25A0.75 0.75 0 0 1 6.75 9.25V10.75A0.75 0.75 0 0 1 5.25 10.75Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M6 18.75V6.75A3.25 3.25 0 0 1 9 3.51V2.75A0.75 0.75 0 0 1 9.75 2H14.25A0.75 0.75 0 0 1 15 2.75V3.51A3.25 3.25 0 0 1 18 6.75V18.75A3.25 3.25 0 0 1 14.75 22H9.25A3.25 3.25 0 0 1 6 18.75Z"
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM6.25 10.25A0.75 0.75 0 0 1 7.75 10.25V13.75A0.75 0.75 0 0 1 6.25 13.75Z"
           ],
           "stroke": []
         }
@@ -260,6 +402,7 @@ export default {
     {
       "id": "E",
       "label": "Car battery",
+      "anchor": null,
       "tags": [
         "car",
         "automotive",
@@ -282,7 +425,7 @@ export default {
           16
         ]
       },
-      "note": "Rhythm: the minus and plus are the same size, 4 · 3.5 · 3.25 square, with equal air wall to sign to sign to wall, 3 / 3 / 3 · 2 / 2 / 2 · 1.625 / 1.75 / 1.625 (at 16 the eighth grid puts the extra 0.125 in the middle), and 3.75 · 2 · 1.5 of air above and below. Two solid terminals stand one line (1.5 · 1.5 · 1.25) above the top wall, 3 · 3 · 2.5 wide and centred over the signs (centres 8.5 / 15.5 · 7.25 / 12.75 · 5.5 / 10.5), drawn as A's nub is. Body 20×14.5 · 16×10.5 · 14×8.75, container radius 2.5 · 2 · 1.5. Ink 20×16 · 16×12 · 14×10, box-centred. Minus left, plus right. Filled: body and terminals solid, the signs cut as 1.5-wide white lines at the outline signs' length (the plus as one cross-shaped cut), 3 · 2 · 1.75 of material between the cuts. Lint clean. At 16 the filled plus is 3.25 across with a 1.5 cut, so its arms stand only 0.875 past the centre and it reads as a rounded blob. Who: Lucide car-battery, Tabler battery-automotive, Font Awesome car-battery. This is a different object (a vehicle battery) and suits a battery-car or accumulator icon better than the plain word.",
+      "note": "Rhythm: the minus and plus are the same size, 4 · 3.5 · 3.25 square, with equal air wall to sign to sign to wall, 3 / 3 / 3 · 2 / 2 / 2 · 1.625 / 1.75 / 1.625 (at 16 the eighth grid puts the extra 0.125 in the middle), and 3.75 · 2 · 1.5 of air above and below. Two solid terminals stand one line (1.5 · 1.5 · 1.25) above the top wall, 3 · 3 · 2.5 wide and centred over the signs (centres 8.5 / 15.5 · 7.25 / 12.75 · 5.5 / 10.5), drawn as A's nub is. Body 20×14.5 · 16×10.5 · 14×8.75, container radius 2.5 · 2 · 1.5. Ink 20×16 · 16×12 · 14×10, box-centred. Minus left, plus right. Filled: body and terminals solid, the signs cut as 1.5-wide white lines at the outline signs' length (the plus as one cross-shaped cut), 3 · 2 · 1.75 of material between the cuts. Lint clean. At 16 the filled plus is 3.25 across with a 1.5 cut, so its arms stand only 0.875 past the centre and it reads as a rounded blob. Who: Lucide car-battery, Tabler battery-automotive, Font Awesome car-battery. Ships as car-battery, its own object, not a battery level.",
       "masters": {
         "16": [
           "M3.125 4.875H12.875A1.5 1.5 0 0 1 14.375 6.375V10.875A1.5 1.5 0 0 1 12.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V6.375A1.5 1.5 0 0 1 3.125 4.875Z",

@@ -893,7 +893,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 332. `bluetooth` · Devices & Hardware
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
-- [~] 335. `disc` · Devices & Hardware
+- [x] 335. `disc` · Devices & Hardware — approved 2026-10-22
 - [x] 336. `dollar-sign` · Currency — approved 2026-10-21
 - [x] 336. `dollar-sign-2` · Currency · variant of `dollar-sign` — F, bar through · approved 2026-10-21
 - [x] 337. `fast-forward` · Media & Playback — approved 2026-10-22
@@ -1143,3 +1143,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 573. `waveform` · Media & Playback — added 2026-10-22 · approved 2026-10-22
 - [x] 574. `podcast` · Media & Playback — added 2026-10-22 · approved 2026-10-22
 - [x] 575. `carousel` · UI & Layout — added 2026-10-22 · approved 2026-10-22
+- [x] 576. `vinyl` · Devices & Hardware — added 2026-10-22 · approved 2026-10-22
