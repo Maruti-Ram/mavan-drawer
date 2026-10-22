@@ -669,7 +669,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 219. `headset` · Communication — approved 2026-10-20
 - [x] 219. `headset-2` · Communication · variant of `headset` — Straight boom · approved 2026-10-20
 - [x] 219. `headset-3` · Communication · variant of `headset` — One ear · approved 2026-10-20
-- [~] 220. `highlighter` · Editing & Text
+- [x] 220. `highlighter` · Editing & Text — approved 2026-10-22
+- [x] 220. `highlighter-2` · Editing & Text · variant of `highlighter` — Colour bar, trimmed, back band · approved 2026-10-22
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 221. `hourglass-2` · Time & Calendar · variant of `hourglass` — Full bow · approved 2026-10-17
 - [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
