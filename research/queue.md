@@ -730,7 +730,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 243. `qr-code` · Devices & Hardware — approved 2026-10-22
 - [ ] 244. `rocket` · Development & Infra
 - [ ] 245. `rotation` · Design Tools
-- [~] 246. `satellite` · Devices & Hardware
+- [x] 246. `satellite` · Devices & Hardware — approved 2026-10-23
 - [x] 247. `scale` · Commerce & Payments — approved 2026-10-21
 - [x] 247. `scale-2` · Commerce & Payments · variant of `scale` — Kitchen scale · approved 2026-10-21
 - [x] 247. `scale-3` · Commerce & Payments · variant of `scale` — Parcel scale · approved 2026-10-21
@@ -1158,6 +1158,6 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 576. `vinyl` · Devices & Hardware — added 2026-10-22 · approved 2026-10-22
 - [x] 577. `focus` · Devices & Hardware — added 2026-10-22 · approved 2026-10-22
 - [x] 578. `router` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
-- [ ] 579. `satellite-dish` · Devices & Hardware — added 2026-10-23
-- [ ] 580. `orbit` · Devices & Hardware — added 2026-10-23
-- [ ] 581. `satellite-image` · Devices & Hardware — added 2026-10-23
+- [x] 579. `satellite-dish` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
+- [x] 580. `orbit` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
+- [x] 581. `satellite-image` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
