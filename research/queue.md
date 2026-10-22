@@ -846,7 +846,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 290. `toggles` · UI & Layout — approved 2026-10-20
 - [x] 290. `toggles-2` · UI & Layout · variant of `toggles` — Big knob over a slim track, polished, on over off · approved 2026-10-20
 - [~] 291. `blueprint` · Development & Infra
-- [~] 292. `decision-process` · Development & Infra
+- [x] 292. `decision-process` · Development & Infra — approved 2026-10-23
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
 - [ ] 294. `filters` · Design Tools
 - [x] 295. `label` · Commerce & Payments — approved 2026-10-21
