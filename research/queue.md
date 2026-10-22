@@ -923,7 +923,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 332. `bluetooth-connected` · Devices & Hardware · variant of `bluetooth` — Connected, two dots, shifted · approved 2026-10-23
 - [x] 332. `bluetooth-searching` · Devices & Hardware · variant of `bluetooth` — Searching, two waves · approved 2026-10-23
 - [ ] 333. `circle` · Design Tools
-- [~] 334. `cpu` · Development & Infra
+- [x] 334. `cpu` · Development & Infra — approved 2026-10-23
+- [x] 334. `cpu-2` · Development & Infra · variant of `cpu` — Round die · approved 2026-10-23
+- [x] 334. `cpu-3` · Development & Infra · variant of `cpu` — Developer board · approved 2026-10-23
 - [x] 335. `disc` · Devices & Hardware — approved 2026-10-22
 - [x] 336. `dollar-sign` · Currency — approved 2026-10-21
 - [x] 336. `dollar-sign-2` · Currency · variant of `dollar-sign` — F, bar through · approved 2026-10-21
