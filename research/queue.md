@@ -1127,7 +1127,9 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 502. `calendar-repeat-2` · Time & Calendar · variant of `calendar-repeat` — Badge proud, one head · approved 2026-10-18
 - [x] 503. `plane-2` — added 2026-10-18 · approved 2026-10-18
 - [x] 504. `plane-3` — added 2026-10-18 · approved 2026-10-18
-- [~] 505. `cloud-download` · Development & Infra · variant of `cloud` — held from the download board (candidate E, 2026-10-18): draw it with cloud so the cloud is settled once; draft in lab/drafts/archive/cloud-download.js
+- [x] 505. `cloud-download` · Development & Infra · variant of `cloud` — held from the download board (candidate E, 2026-10-18): draw it with cloud so the cloud is settled once; draft in lab/drafts/archive/cloud-download.js · approved 2026-10-23
+- [x] 505. `cloud-download-2` · Development & Infra · variant of `cloud-download` — Cloud-2, arrow out the bottom · approved 2026-10-23
+- [x] 505. `cloud-download-3` · Development & Infra · variant of `cloud-download` — Cloud-3, arrow out the bottom · approved 2026-10-23
 - [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
 - [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
 - [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
