@@ -91,7 +91,7 @@ lint overhaul, a docs rewrite, a new lab surface — starts with a plan document
 ## Picking up
 
 **Open builds live in `plans/`.** Before starting or approving any icon, read every plan there whose
-Status has unticked boxes — it says what is in flight and what is on hold (2026-10-17: `plans/plan-view.md` is open — in build since 2026-10-17;
+Status has unticked boxes — it says what is in flight and what is on hold (2026-10-17: `plans/plan-view.md` is open — in build since 2026-10-17; `plans/lint-currency-fixes.md` is merged but holds a deferred list of shipped icons with tight spots (2026-10-22);
 `plans/set-and-rules-audit.md` is closed except deferred card 5.1 and the agenda rulings in progress (sitting A done 2026-10-17);
 `plans/facing-gap.md` is closed — lint §5f measures the air inside one path and in filled drawings, and white
 cut out of a filled shape holds 1.5 at 16; `plans/stroke-16.md` is closed — the 16 master draws at 1.25 (C7) and

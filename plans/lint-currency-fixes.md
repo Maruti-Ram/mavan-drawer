@@ -21,3 +21,12 @@ Tests for each card (a passing and a failing minimal case). The before/after lin
 
 ## Status
 - [x] Built (worktree)  - [x] Reviewed  - [x] Maruti has seen the summary  - [x] Merged (d8bcdb2, 2026-10-21)
+
+## Deferred — real tight spots the new checks found on shipped icons (Maruti, 2026-10-22: "deal with warnings at a later point")
+Each needs a redraw or an agreed exception (`gap` note), Maruti's call per icon. Numbers from `npm run check` after d8bcdb2.
+- [ ] `yen`, `yen-filled`, `yen-circle` — the wedge where the top bar meets the arms: yen 20/16 1.08 · 1.11; filled 0.42 · 0.38 · 0.06; circle 1.38 · 0.43 · 0.44
+- [ ] `peso` — bars to the bowl, outline 20/16: 1.25 · 1.375
+- [ ] `volume-off` — the speaker's lower flare beside the slash, outline: 1.37 · 0.66 · 0.44
+- [ ] `note-2` — ring to the page wall at 16: 0.375
+- [ ] `euro-filled` — the bowl's tip to the bar end at 16: 1.17 against its agreed 1.25
+Known and approved (no action): `peso-circle-filled`, `lira-circle-filled`, `trash`.
