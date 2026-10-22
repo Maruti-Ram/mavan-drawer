@@ -717,7 +717,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 240. `microscope` · Development & Infra
 - [ ] 241. `network` · Development & Infra
 - [ ] 242. `pencil-ruler` · Design Tools
-- [~] 243. `qr-code` · Devices & Hardware
+- [x] 243. `qr-code` · Devices & Hardware — approved 2026-10-22
 - [ ] 244. `rocket` · Development & Infra
 - [ ] 245. `rotation` · Design Tools
 - [~] 246. `satellite` · Devices & Hardware
