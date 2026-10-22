@@ -974,7 +974,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 447. `user-segment` · Users & Access · variant of `user`
 - [ ] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card`
 - [ ] 449. `currency-convert` · Currency
-- [ ] 450. `receipt-refund` · Commerce & Payments · variant of `receipt`
+- [x] 450. `receipt-refund` · Commerce & Payments · variant of `receipt` — approved 2026-10-22
 - [ ] 451. `award-certificate` · Status & Feedback · variant of `award`
 - [ ] 452. `clipboard-off` · Files & Folders · variant of `clipboard`
 - [ ] 453. `crosshair-off` · Status & Feedback · variant of `crosshair`
