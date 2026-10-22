@@ -155,6 +155,12 @@
     "ban-filled",
     "bank",
     "bank-filled",
+    "barcode",
+    "barcode-filled",
+    "barcode-scan",
+    "barcode-scan-filled",
+    "barcode-scanner",
+    "barcode-scanner-filled",
     "bell",
     "bell-2",
     "bell-2-filled",
@@ -10443,6 +10449,379 @@
           "geometric": 3,
           "recession": 0,
           "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "barcode": {
+      "paths": [
+        "M3.75 5.75V18.25",
+        "M8.75 5.75H10.25V18.25H8.75Z",
+        "M15.25 5.75V18.25",
+        "M20.25 5.75V18.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 5.75V18.25\"/> <path d=\"M8.75 5.75H10.25V18.25H8.75Z\"/> <path d=\"M15.25 5.75V18.25\"/> <path d=\"M20.25 5.75V18.25\"/>",
+      "mark": false,
+      "tags": [
+        "bars",
+        "upc",
+        "ean",
+        "product code",
+        "sku"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 5,
+        "w": 18,
+        "h": 14
+      },
+      "bearing": {
+        "left": 3,
+        "top": 5,
+        "right": 3,
+        "bottom": 5
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.03
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.03
+        },
+        "top": {
+          "geometric": 5,
+          "recession": 0.23,
+          "optical": 5.17
+        },
+        "bottom": {
+          "geometric": 5,
+          "recession": 0.23,
+          "optical": 5.17
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "barcode-filled": {
+      "paths": [
+        "M3.75 6.25V17.75",
+        "M8.75 6.25H10.25V17.75H8.75Z",
+        "M15.25 6.25V17.75",
+        "M20.25 6.25V17.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 6.25V17.75\"/> <path d=\"M8.75 6.25H10.25V17.75H8.75Z\"/> <path d=\"M15.25 6.25V17.75\"/> <path d=\"M20.25 6.25V17.75\"/>",
+      "mark": false,
+      "tags": [
+        "bars",
+        "upc",
+        "ean",
+        "product code",
+        "sku"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 2.5,
+        "y": 5,
+        "w": 19,
+        "h": 14
+      },
+      "bearing": {
+        "left": 2.5,
+        "top": 5,
+        "right": 2.5,
+        "bottom": 5
+      },
+      "optical": {
+        "left": {
+          "geometric": 2.5,
+          "recession": 0.07,
+          "optical": 2.56
+        },
+        "right": {
+          "geometric": 2.5,
+          "recession": 0.07,
+          "optical": 2.56
+        },
+        "top": {
+          "geometric": 5,
+          "recession": 0.34,
+          "optical": 5.26
+        },
+        "bottom": {
+          "geometric": 5,
+          "recession": 0.34,
+          "optical": 5.26
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "barcode-scan": {
+      "paths": [
+        "M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25",
+        "M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25",
+        "M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75",
+        "M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75",
+        "M9 8.25H10.5V15.75H9Z",
+        "M15 8.25V15.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25\"/> <path d=\"M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25\"/> <path d=\"M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75\"/> <path d=\"M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75\"/> <path d=\"M9 8.25H10.5V15.75H9Z\"/> <path d=\"M15 8.25V15.75\"/>",
+      "mark": false,
+      "tags": [
+        "scan",
+        "viewfinder",
+        "scan barcode",
+        "corners",
+        "brackets"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.13,
+          "optical": 3.1
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.13,
+          "optical": 3.1
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.16,
+          "optical": 3.12
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.16,
+          "optical": 3.12
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "barcode-scan-filled": {
+      "paths": [
+        "M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25",
+        "M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25",
+        "M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75",
+        "M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75"
+      ],
+      "areas": [
+        "M9 7.5H10.5A1.25 1.25 0 0 1 11.75 8.75V15.25A1.25 1.25 0 0 1 10.5 16.5H9A1.25 1.25 0 0 1 7.75 15.25V8.75A1.25 1.25 0 0 1 9 7.5Z",
+        "M15 7.5H15A1.25 1.25 0 0 1 16.25 8.75V15.25A1.25 1.25 0 0 1 15 16.5H15A1.25 1.25 0 0 1 13.75 15.25V8.75A1.25 1.25 0 0 1 15 7.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 7.5H10.5A1.25 1.25 0 0 1 11.75 8.75V15.25A1.25 1.25 0 0 1 10.5 16.5H9A1.25 1.25 0 0 1 7.75 15.25V8.75A1.25 1.25 0 0 1 9 7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15 7.5H15A1.25 1.25 0 0 1 16.25 8.75V15.25A1.25 1.25 0 0 1 15 16.5H15A1.25 1.25 0 0 1 13.75 15.25V8.75A1.25 1.25 0 0 1 15 7.5Z\"/> <path d=\"M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25\"/> <path d=\"M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25\"/> <path d=\"M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75\"/> <path d=\"M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75\"/>",
+      "mark": false,
+      "tags": [
+        "scan",
+        "viewfinder",
+        "scan barcode",
+        "corners",
+        "brackets"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "barcode-scanner": {
+      "paths": [
+        "M5.25 3.75H12.75A2.5 2.5 0 0 1 15.25 6.25V7.75A2.5 2.5 0 0 1 12.75 10.25H5.25A2.5 2.5 0 0 1 2.75 7.75V6.25A2.5 2.5 0 0 1 5.25 3.75Z",
+        "M6.5 10.25L4.02 19.36A1.5 1.5 0 0 0 5.46 21.25H6.6A1.5 1.5 0 0 0 8.05 20.14L10.75 10.25",
+        "M18.25 4L21.25 2.75",
+        "M18.25 7L21.25 7",
+        "M18.25 10L21.25 11.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.25 3.75H12.75A2.5 2.5 0 0 1 15.25 6.25V7.75A2.5 2.5 0 0 1 12.75 10.25H5.25A2.5 2.5 0 0 1 2.75 7.75V6.25A2.5 2.5 0 0 1 5.25 3.75Z\"/> <path d=\"M6.5 10.25L4.02 19.36A1.5 1.5 0 0 0 5.46 21.25H6.6A1.5 1.5 0 0 0 8.05 20.14L10.75 10.25\"/> <path d=\"M18.25 4L21.25 2.75\"/> <path d=\"M18.25 7L21.25 7\"/> <path d=\"M18.25 10L21.25 11.25\"/>",
+      "mark": false,
+      "tags": [
+        "scanner",
+        "barcode reader",
+        "scanner gun",
+        "point of sale",
+        "device"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 1.01,
+          "optical": 2.76
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.11,
+          "optical": 2.08
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.17,
+          "optical": 2.12
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.69,
+          "optical": 2.52
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "barcode-scanner-filled": {
+      "paths": [
+        "M18.25 4L21.25 2.75",
+        "M18.25 7L21.25 7",
+        "M18.25 10L21.25 11.25"
+      ],
+      "areas": [
+        "M5.25 3H12.75A3.25 3.25 0 0 1 16 6.25V7.75A3.25 3.25 0 0 1 12.75 11H11.32L8.78 20.34A2.25 2.25 0 0 1 6.6 22H5.46A2.25 2.25 0 0 1 3.29 19.16L5.52 11H5.25A3.25 3.25 0 0 1 2 7.75V6.25A3.25 3.25 0 0 1 5.25 3Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 3H12.75A3.25 3.25 0 0 1 16 6.25V7.75A3.25 3.25 0 0 1 12.75 11H11.32L8.78 20.34A2.25 2.25 0 0 1 6.6 22H5.46A2.25 2.25 0 0 1 3.29 19.16L5.52 11H5.25A3.25 3.25 0 0 1 2 7.75V6.25A3.25 3.25 0 0 1 5.25 3Z\"/> <path d=\"M18.25 4L21.25 2.75\"/> <path d=\"M18.25 7L21.25 7\"/> <path d=\"M18.25 10L21.25 11.25\"/>",
+      "mark": false,
+      "tags": [
+        "scanner",
+        "barcode reader",
+        "scanner gun",
+        "point of sale",
+        "device"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -112655,6 +113034,12 @@
         "ban-filled",
         "bank",
         "bank-filled",
+        "barcode",
+        "barcode-filled",
+        "barcode-scan",
+        "barcode-scan-filled",
+        "barcode-scanner",
+        "barcode-scanner-filled",
         "bell",
         "bell-2",
         "bell-2-filled",
@@ -122943,6 +123328,379 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode": {
+          "paths": [
+            "M2.125 3.625V12.375",
+            "M5.625 3.625H6.875V12.375H5.625Z",
+            "M10.375 3.625V12.375",
+            "M13.875 3.625V12.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.125 3.625V12.375\"/> <path d=\"M5.625 3.625H6.875V12.375H5.625Z\"/> <path d=\"M10.375 3.625V12.375\"/> <path d=\"M13.875 3.625V12.375\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "upc",
+            "ean",
+            "product code",
+            "sku"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1.5,
+            "y": 3,
+            "w": 13,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1.5,
+            "top": 3,
+            "right": 1.5,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.5,
+              "recession": 0.04,
+              "optical": 1.53
+            },
+            "right": {
+              "geometric": 1.5,
+              "recession": 0.04,
+              "optical": 1.53
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.2,
+              "optical": 3.15
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.2,
+              "optical": 3.15
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-filled": {
+          "paths": [
+            "M2.125 4V12",
+            "M5.625 4H6.875V12H5.625Z",
+            "M10.375 4V12",
+            "M13.875 4V12"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.125 4V12\"/> <path d=\"M5.625 4H6.875V12H5.625Z\"/> <path d=\"M10.375 4V12\"/> <path d=\"M13.875 4V12\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "upc",
+            "ean",
+            "product code",
+            "sku"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 1.13,
+            "y": 3,
+            "w": 13.75,
+            "h": 10
+          },
+          "bearing": {
+            "left": 1.13,
+            "top": 3,
+            "right": 1.12,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.13,
+              "recession": 0.07,
+              "optical": 1.18
+            },
+            "right": {
+              "geometric": 1.13,
+              "recession": 0.07,
+              "optical": 1.18
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.29,
+              "optical": 3.22
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.29,
+              "optical": 3.22
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scan": {
+          "paths": [
+            "M5.375 2.625L4.125 2.625A1.5 1.5 0 0 0 2.625 4.125L2.625 5.375",
+            "M10.625 2.625L11.875 2.625A1.5 1.5 0 0 1 13.375 4.125L13.375 5.375",
+            "M5.375 13.375L4.125 13.375A1.5 1.5 0 0 1 2.625 11.875L2.625 10.625",
+            "M10.625 13.375L11.875 13.375A1.5 1.5 0 0 0 13.375 11.875L13.375 10.625",
+            "M5.75 5.375H7V10.625H5.75Z",
+            "M10.25 5.375V10.625"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.375 2.625L4.125 2.625A1.5 1.5 0 0 0 2.625 4.125L2.625 5.375\"/> <path d=\"M10.625 2.625L11.875 2.625A1.5 1.5 0 0 1 13.375 4.125L13.375 5.375\"/> <path d=\"M5.375 13.375L4.125 13.375A1.5 1.5 0 0 1 2.625 11.875L2.625 10.625\"/> <path d=\"M10.625 13.375L11.875 13.375A1.5 1.5 0 0 0 13.375 11.875L13.375 10.625\"/> <path d=\"M5.75 5.375H7V10.625H5.75Z\"/> <path d=\"M10.25 5.375V10.625\"/>",
+          "mark": false,
+          "tags": [
+            "scan",
+            "viewfinder",
+            "scan barcode",
+            "corners",
+            "brackets"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.1,
+              "optical": 2.08
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.1,
+              "optical": 2.08
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.12,
+              "optical": 2.09
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.12,
+              "optical": 2.09
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scan-filled": {
+          "paths": [
+            "M5.375 2.625L4.125 2.625A1.5 1.5 0 0 0 2.625 4.125L2.625 5.375",
+            "M10.625 2.625L11.875 2.625A1.5 1.5 0 0 1 13.375 4.125L13.375 5.375",
+            "M5.375 13.375L4.125 13.375A1.5 1.5 0 0 1 2.625 11.875L2.625 10.625",
+            "M10.625 13.375L11.875 13.375A1.5 1.5 0 0 0 13.375 11.875L13.375 10.625"
+          ],
+          "areas": [
+            "M5.75 4.75H7A0.875 0.875 0 0 1 7.875 5.625V10.375A0.875 0.875 0 0 1 7 11.25H5.75A0.875 0.875 0 0 1 4.875 10.375V5.625A0.875 0.875 0 0 1 5.75 4.75Z",
+            "M10.25 4.75H10.25A0.875 0.875 0 0 1 11.125 5.625V10.375A0.875 0.875 0 0 1 10.25 11.25H10.25A0.875 0.875 0 0 1 9.375 10.375V5.625A0.875 0.875 0 0 1 10.25 4.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.75 4.75H7A0.875 0.875 0 0 1 7.875 5.625V10.375A0.875 0.875 0 0 1 7 11.25H5.75A0.875 0.875 0 0 1 4.875 10.375V5.625A0.875 0.875 0 0 1 5.75 4.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.25 4.75H10.25A0.875 0.875 0 0 1 11.125 5.625V10.375A0.875 0.875 0 0 1 10.25 11.25H10.25A0.875 0.875 0 0 1 9.375 10.375V5.625A0.875 0.875 0 0 1 10.25 4.75Z\"/> <path d=\"M5.375 2.625L4.125 2.625A1.5 1.5 0 0 0 2.625 4.125L2.625 5.375\"/> <path d=\"M10.625 2.625L11.875 2.625A1.5 1.5 0 0 1 13.375 4.125L13.375 5.375\"/> <path d=\"M5.375 13.375L4.125 13.375A1.5 1.5 0 0 1 2.625 11.875L2.625 10.625\"/> <path d=\"M10.625 13.375L11.875 13.375A1.5 1.5 0 0 0 13.375 11.875L13.375 10.625\"/>",
+          "mark": false,
+          "tags": [
+            "scan",
+            "viewfinder",
+            "scan barcode",
+            "corners",
+            "brackets"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scanner": {
+          "paths": [
+            "M3.125 2.625H8.875A1.5 1.5 0 0 1 10.375 4.125V5.875A1.5 1.5 0 0 1 8.875 7.375H3.125A1.5 1.5 0 0 1 1.625 5.875V4.125A1.5 1.5 0 0 1 3.125 2.625Z",
+            "M4.125 7.375L2.587 13.116A1 1 0 0 0 3.553 14.375H4.733A1 1 0 0 0 5.699 13.634L7.375 7.375",
+            "M13.125 2.25L14.375 1.625",
+            "M13.125 5L14.375 5",
+            "M13.125 7.75L14.375 8.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.125 2.625H8.875A1.5 1.5 0 0 1 10.375 4.125V5.875A1.5 1.5 0 0 1 8.875 7.375H3.125A1.5 1.5 0 0 1 1.625 5.875V4.125A1.5 1.5 0 0 1 3.125 2.625Z\"/> <path d=\"M4.125 7.375L2.587 13.116A1 1 0 0 0 3.553 14.375H4.733A1 1 0 0 0 5.699 13.634L7.375 7.375\"/> <path d=\"M13.125 2.25L14.375 1.625\"/> <path d=\"M13.125 5L14.375 5\"/> <path d=\"M13.125 7.75L14.375 8.375\"/>",
+          "mark": false,
+          "tags": [
+            "scanner",
+            "barcode reader",
+            "scanner gun",
+            "point of sale",
+            "device"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.09,
+              "optical": 1.06
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.55,
+              "optical": 1.41
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scanner-filled": {
+          "paths": [
+            "M13.125 2.25L14.375 1.625",
+            "M13.125 5L14.375 5",
+            "M13.125 7.75L14.375 8.375"
+          ],
+          "areas": [
+            "M3.125 2H8.875A2.125 2.125 0 0 1 11 4.125V5.875A2.125 2.125 0 0 1 8.875 8H7.855L6.302 13.795A1.625 1.625 0 0 1 4.733 15H3.553A1.625 1.625 0 0 1 1.983 12.955L3.311 8H3.125A2.125 2.125 0 0 1 1 5.875V4.125A2.125 2.125 0 0 1 3.125 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.125 2H8.875A2.125 2.125 0 0 1 11 4.125V5.875A2.125 2.125 0 0 1 8.875 8H7.855L6.302 13.795A1.625 1.625 0 0 1 4.733 15H3.553A1.625 1.625 0 0 1 1.983 12.955L3.311 8H3.125A2.125 2.125 0 0 1 1 5.875V4.125A2.125 2.125 0 0 1 3.125 2Z\"/> <path d=\"M13.125 2.25L14.375 1.625\"/> <path d=\"M13.125 5L14.375 5\"/> <path d=\"M13.125 7.75L14.375 8.375\"/>",
+          "mark": false,
+          "tags": [
+            "scanner",
+            "barcode reader",
+            "scanner gun",
+            "point of sale",
+            "device"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -225068,6 +225826,12 @@
         "ban-filled",
         "bank",
         "bank-filled",
+        "barcode",
+        "barcode-filled",
+        "barcode-scan",
+        "barcode-scan-filled",
+        "barcode-scanner",
+        "barcode-scanner-filled",
         "bell",
         "bell-2",
         "bell-2-filled",
@@ -235356,6 +236120,379 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode": {
+          "paths": [
+            "M3.25 5V15",
+            "M7.25 5H8.75V15H7.25Z",
+            "M12.75 5V15",
+            "M16.75 5V15"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.25 5V15\"/> <path d=\"M7.25 5H8.75V15H7.25Z\"/> <path d=\"M12.75 5V15\"/> <path d=\"M16.75 5V15\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "upc",
+            "ean",
+            "product code",
+            "sku"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.5,
+            "y": 4.25,
+            "w": 15,
+            "h": 11.5
+          },
+          "bearing": {
+            "left": 2.5,
+            "top": 4.25,
+            "right": 2.5,
+            "bottom": 4.25
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.5,
+              "recession": 0.04,
+              "optical": 2.53
+            },
+            "right": {
+              "geometric": 2.5,
+              "recession": 0.04,
+              "optical": 2.53
+            },
+            "top": {
+              "geometric": 4.25,
+              "recession": 0.23,
+              "optical": 4.42
+            },
+            "bottom": {
+              "geometric": 4.25,
+              "recession": 0.23,
+              "optical": 4.42
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-filled": {
+          "paths": [
+            "M3.25 5.25V14.75",
+            "M7.25 5.25H8.75V14.75H7.25Z",
+            "M12.75 5.25V14.75",
+            "M16.75 5.25V14.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.25 5.25V14.75\"/> <path d=\"M7.25 5.25H8.75V14.75H7.25Z\"/> <path d=\"M12.75 5.25V14.75\"/> <path d=\"M16.75 5.25V14.75\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "upc",
+            "ean",
+            "product code",
+            "sku"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2.25,
+            "y": 4.25,
+            "w": 15.5,
+            "h": 11.5
+          },
+          "bearing": {
+            "left": 2.25,
+            "top": 4.25,
+            "right": 2.25,
+            "bottom": 4.25
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.25,
+              "recession": 0.06,
+              "optical": 2.3
+            },
+            "right": {
+              "geometric": 2.25,
+              "recession": 0.06,
+              "optical": 2.3
+            },
+            "top": {
+              "geometric": 4.25,
+              "recession": 0.29,
+              "optical": 4.46
+            },
+            "bottom": {
+              "geometric": 4.25,
+              "recession": 0.29,
+              "optical": 4.46
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scan": {
+          "paths": [
+            "M7 3.75L5.75 3.75A2 2 0 0 0 3.75 5.75L3.75 7",
+            "M13 3.75L14.25 3.75A2 2 0 0 1 16.25 5.75L16.25 7",
+            "M7 16.25L5.75 16.25A2 2 0 0 1 3.75 14.25L3.75 13",
+            "M13 16.25L14.25 16.25A2 2 0 0 0 16.25 14.25L16.25 13",
+            "M7.5 7.25H9V12.75H7.5Z",
+            "M12.5 7.25V12.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7 3.75L5.75 3.75A2 2 0 0 0 3.75 5.75L3.75 7\"/> <path d=\"M13 3.75L14.25 3.75A2 2 0 0 1 16.25 5.75L16.25 7\"/> <path d=\"M7 16.25L5.75 16.25A2 2 0 0 1 3.75 14.25L3.75 13\"/> <path d=\"M13 16.25L14.25 16.25A2 2 0 0 0 16.25 14.25L16.25 13\"/> <path d=\"M7.5 7.25H9V12.75H7.5Z\"/> <path d=\"M12.5 7.25V12.75\"/>",
+          "mark": false,
+          "tags": [
+            "scan",
+            "viewfinder",
+            "scan barcode",
+            "corners",
+            "brackets"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scan-filled": {
+          "paths": [
+            "M7 3.75L5.75 3.75A2 2 0 0 0 3.75 5.75L3.75 7",
+            "M13 3.75L14.25 3.75A2 2 0 0 1 16.25 5.75L16.25 7",
+            "M7 16.25L5.75 16.25A2 2 0 0 1 3.75 14.25L3.75 13",
+            "M13 16.25L14.25 16.25A2 2 0 0 0 16.25 14.25L16.25 13"
+          ],
+          "areas": [
+            "M7.5 6.5H9A1 1 0 0 1 10 7.5V12.5A1 1 0 0 1 9 13.5H7.5A1 1 0 0 1 6.5 12.5V7.5A1 1 0 0 1 7.5 6.5Z",
+            "M12.5 6.5H12.5A1 1 0 0 1 13.5 7.5V12.5A1 1 0 0 1 12.5 13.5H12.5A1 1 0 0 1 11.5 12.5V7.5A1 1 0 0 1 12.5 6.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 6.5H9A1 1 0 0 1 10 7.5V12.5A1 1 0 0 1 9 13.5H7.5A1 1 0 0 1 6.5 12.5V7.5A1 1 0 0 1 7.5 6.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.5 6.5H12.5A1 1 0 0 1 13.5 7.5V12.5A1 1 0 0 1 12.5 13.5H12.5A1 1 0 0 1 11.5 12.5V7.5A1 1 0 0 1 12.5 6.5Z\"/> <path d=\"M7 3.75L5.75 3.75A2 2 0 0 0 3.75 5.75L3.75 7\"/> <path d=\"M13 3.75L14.25 3.75A2 2 0 0 1 16.25 5.75L16.25 7\"/> <path d=\"M7 16.25L5.75 16.25A2 2 0 0 1 3.75 14.25L3.75 13\"/> <path d=\"M13 16.25L14.25 16.25A2 2 0 0 0 16.25 14.25L16.25 13\"/>",
+          "mark": false,
+          "tags": [
+            "scan",
+            "viewfinder",
+            "scan barcode",
+            "corners",
+            "brackets"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scanner": {
+          "paths": [
+            "M4.75 3.75H10.75A2 2 0 0 1 12.75 5.75V7.25A2 2 0 0 1 10.75 9.25H4.75A2 2 0 0 1 2.75 7.25V5.75A2 2 0 0 1 4.75 3.75Z",
+            "M6 9.25L4.2 15.66A1.25 1.25 0 0 0 5.4 17.25H6.8A1.25 1.25 0 0 0 8.01 16.34L10 9.25",
+            "M15.75 3.5L17.25 2.75",
+            "M15.75 6.5L17.25 6.5",
+            "M15.75 9.5L17.25 10.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 3.75H10.75A2 2 0 0 1 12.75 5.75V7.25A2 2 0 0 1 10.75 9.25H4.75A2 2 0 0 1 2.75 7.25V5.75A2 2 0 0 1 4.75 3.75Z\"/> <path d=\"M6 9.25L4.2 15.66A1.25 1.25 0 0 0 5.4 17.25H6.8A1.25 1.25 0 0 0 8.01 16.34L10 9.25\"/> <path d=\"M15.75 3.5L17.25 2.75\"/> <path d=\"M15.75 6.5L17.25 6.5\"/> <path d=\"M15.75 9.5L17.25 10.25\"/>",
+          "mark": false,
+          "tags": [
+            "scanner",
+            "barcode reader",
+            "scanner gun",
+            "point of sale",
+            "device"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.09,
+              "optical": 2.07
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.11,
+              "optical": 2.08
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.6,
+              "optical": 2.45
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scanner-filled": {
+          "paths": [
+            "M15.75 3.5L17.25 2.75",
+            "M15.75 6.5L17.25 6.5",
+            "M15.75 9.5L17.25 10.25"
+          ],
+          "areas": [
+            "M4.75 3H10.75A2.75 2.75 0 0 1 13.5 5.75V7.25A2.75 2.75 0 0 1 10.75 10H10.57L8.73 16.54A2 2 0 0 1 6.8 18H5.4A2 2 0 0 1 3.47 15.46L5.01 10H4.75A2.75 2.75 0 0 1 2 7.25V5.75A2.75 2.75 0 0 1 4.75 3Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 3H10.75A2.75 2.75 0 0 1 13.5 5.75V7.25A2.75 2.75 0 0 1 10.75 10H10.57L8.73 16.54A2 2 0 0 1 6.8 18H5.4A2 2 0 0 1 3.47 15.46L5.01 10H4.75A2.75 2.75 0 0 1 2 7.25V5.75A2.75 2.75 0 0 1 4.75 3Z\"/> <path d=\"M15.75 3.5L17.25 2.75\"/> <path d=\"M15.75 6.5L17.25 6.5\"/> <path d=\"M15.75 9.5L17.25 10.25\"/>",
+          "mark": false,
+          "tags": [
+            "scanner",
+            "barcode reader",
+            "scanner gun",
+            "point of sale",
+            "device"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -337530,6 +338667,12 @@
         "ban-filled",
         "bank",
         "bank-filled",
+        "barcode",
+        "barcode-filled",
+        "barcode-scan",
+        "barcode-scan-filled",
+        "barcode-scanner",
+        "barcode-scanner-filled",
         "bell",
         "bell-2",
         "bell-2-filled",
@@ -347818,6 +348961,379 @@
               "geometric": 3,
               "recession": 0,
               "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode": {
+          "paths": [
+            "M3.75 5.75V18.25",
+            "M8.75 5.75H10.25V18.25H8.75Z",
+            "M15.25 5.75V18.25",
+            "M20.25 5.75V18.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 5.75V18.25\"/> <path d=\"M8.75 5.75H10.25V18.25H8.75Z\"/> <path d=\"M15.25 5.75V18.25\"/> <path d=\"M20.25 5.75V18.25\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "upc",
+            "ean",
+            "product code",
+            "sku"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 5,
+            "w": 18,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 5,
+            "right": 3,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0.23,
+              "optical": 5.17
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0.23,
+              "optical": 5.17
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-filled": {
+          "paths": [
+            "M3.75 6.25V17.75",
+            "M8.75 6.25H10.25V17.75H8.75Z",
+            "M15.25 6.25V17.75",
+            "M20.25 6.25V17.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 6.25V17.75\"/> <path d=\"M8.75 6.25H10.25V17.75H8.75Z\"/> <path d=\"M15.25 6.25V17.75\"/> <path d=\"M20.25 6.25V17.75\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "upc",
+            "ean",
+            "product code",
+            "sku"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 2.5,
+            "y": 5,
+            "w": 19,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2.5,
+            "top": 5,
+            "right": 2.5,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.5,
+              "recession": 0.07,
+              "optical": 2.56
+            },
+            "right": {
+              "geometric": 2.5,
+              "recession": 0.07,
+              "optical": 2.56
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0.34,
+              "optical": 5.26
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0.34,
+              "optical": 5.26
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scan": {
+          "paths": [
+            "M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25",
+            "M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25",
+            "M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75",
+            "M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75",
+            "M9 8.25H10.5V15.75H9Z",
+            "M15 8.25V15.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25\"/> <path d=\"M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25\"/> <path d=\"M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75\"/> <path d=\"M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75\"/> <path d=\"M9 8.25H10.5V15.75H9Z\"/> <path d=\"M15 8.25V15.75\"/>",
+          "mark": false,
+          "tags": [
+            "scan",
+            "viewfinder",
+            "scan barcode",
+            "corners",
+            "brackets"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.13,
+              "optical": 3.1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.13,
+              "optical": 3.1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.16,
+              "optical": 3.12
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.16,
+              "optical": 3.12
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scan-filled": {
+          "paths": [
+            "M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25",
+            "M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25",
+            "M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75",
+            "M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75"
+          ],
+          "areas": [
+            "M9 7.5H10.5A1.25 1.25 0 0 1 11.75 8.75V15.25A1.25 1.25 0 0 1 10.5 16.5H9A1.25 1.25 0 0 1 7.75 15.25V8.75A1.25 1.25 0 0 1 9 7.5Z",
+            "M15 7.5H15A1.25 1.25 0 0 1 16.25 8.75V15.25A1.25 1.25 0 0 1 15 16.5H15A1.25 1.25 0 0 1 13.75 15.25V8.75A1.25 1.25 0 0 1 15 7.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 7.5H10.5A1.25 1.25 0 0 1 11.75 8.75V15.25A1.25 1.25 0 0 1 10.5 16.5H9A1.25 1.25 0 0 1 7.75 15.25V8.75A1.25 1.25 0 0 1 9 7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15 7.5H15A1.25 1.25 0 0 1 16.25 8.75V15.25A1.25 1.25 0 0 1 15 16.5H15A1.25 1.25 0 0 1 13.75 15.25V8.75A1.25 1.25 0 0 1 15 7.5Z\"/> <path d=\"M8.25 3.75L6.25 3.75A2.5 2.5 0 0 0 3.75 6.25L3.75 8.25\"/> <path d=\"M15.75 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 8.25\"/> <path d=\"M8.25 20.25L6.25 20.25A2.5 2.5 0 0 1 3.75 17.75L3.75 15.75\"/> <path d=\"M15.75 20.25L17.75 20.25A2.5 2.5 0 0 0 20.25 17.75L20.25 15.75\"/>",
+          "mark": false,
+          "tags": [
+            "scan",
+            "viewfinder",
+            "scan barcode",
+            "corners",
+            "brackets"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scanner": {
+          "paths": [
+            "M5.25 3.75H12.75A2.5 2.5 0 0 1 15.25 6.25V7.75A2.5 2.5 0 0 1 12.75 10.25H5.25A2.5 2.5 0 0 1 2.75 7.75V6.25A2.5 2.5 0 0 1 5.25 3.75Z",
+            "M6.5 10.25L4.02 19.36A1.5 1.5 0 0 0 5.46 21.25H6.6A1.5 1.5 0 0 0 8.05 20.14L10.75 10.25",
+            "M18.25 4L21.25 2.75",
+            "M18.25 7L21.25 7",
+            "M18.25 10L21.25 11.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.25 3.75H12.75A2.5 2.5 0 0 1 15.25 6.25V7.75A2.5 2.5 0 0 1 12.75 10.25H5.25A2.5 2.5 0 0 1 2.75 7.75V6.25A2.5 2.5 0 0 1 5.25 3.75Z\"/> <path d=\"M6.5 10.25L4.02 19.36A1.5 1.5 0 0 0 5.46 21.25H6.6A1.5 1.5 0 0 0 8.05 20.14L10.75 10.25\"/> <path d=\"M18.25 4L21.25 2.75\"/> <path d=\"M18.25 7L21.25 7\"/> <path d=\"M18.25 10L21.25 11.25\"/>",
+          "mark": false,
+          "tags": [
+            "scanner",
+            "barcode reader",
+            "scanner gun",
+            "point of sale",
+            "device"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 1.01,
+              "optical": 2.76
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.11,
+              "optical": 2.08
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.17,
+              "optical": 2.12
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.69,
+              "optical": 2.52
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "barcode-scanner-filled": {
+          "paths": [
+            "M18.25 4L21.25 2.75",
+            "M18.25 7L21.25 7",
+            "M18.25 10L21.25 11.25"
+          ],
+          "areas": [
+            "M5.25 3H12.75A3.25 3.25 0 0 1 16 6.25V7.75A3.25 3.25 0 0 1 12.75 11H11.32L8.78 20.34A2.25 2.25 0 0 1 6.6 22H5.46A2.25 2.25 0 0 1 3.29 19.16L5.52 11H5.25A3.25 3.25 0 0 1 2 7.75V6.25A3.25 3.25 0 0 1 5.25 3Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 3H12.75A3.25 3.25 0 0 1 16 6.25V7.75A3.25 3.25 0 0 1 12.75 11H11.32L8.78 20.34A2.25 2.25 0 0 1 6.6 22H5.46A2.25 2.25 0 0 1 3.29 19.16L5.52 11H5.25A3.25 3.25 0 0 1 2 7.75V6.25A3.25 3.25 0 0 1 5.25 3Z\"/> <path d=\"M18.25 4L21.25 2.75\"/> <path d=\"M18.25 7L21.25 7\"/> <path d=\"M18.25 10L21.25 11.25\"/>",
+          "mark": false,
+          "tags": [
+            "scanner",
+            "barcode reader",
+            "scanner gun",
+            "point of sale",
+            "device"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -455546,10 +457062,32 @@
       "section": "D · The rest, by audit rank",
       "category": "Devices & Hardware",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-22",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-22"
+    },
+    {
+      "n": 160,
+      "name": "barcode-scan",
+      "section": "D · The rest, by audit rank",
+      "category": "Devices & Hardware",
+      "base": "barcode",
+      "note": "Bars in viewfinder · approved 2026-10-22",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-22"
+    },
+    {
+      "n": 160,
+      "name": "barcode-scanner",
+      "section": "D · The rest, by audit rank",
+      "category": "Devices & Hardware",
+      "base": "barcode",
+      "note": "Handheld scanner · approved 2026-10-22",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-22"
     },
     {
       "n": 161,
