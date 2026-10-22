@@ -1166,3 +1166,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 579. `satellite-dish` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 580. `orbit` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 581. `satellite-image` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
+- [ ] 582. `car-battery` · Devices & Hardware — added 2026-10-23

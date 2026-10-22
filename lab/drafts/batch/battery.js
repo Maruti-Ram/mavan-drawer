@@ -85,7 +85,7 @@ export default {
         "bar"
       ],
       "anchor": "battery",
-      "note": "Rhythm: one third of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (4 runs at 24, 1 rectangle at 20 and 16), so no white is left inside it; the outline format has no fills. Filled: A's solid body with a 1.5 white band cut round the bar (outer corners r2.25 · 2.25 · 2.125) and the bar solid inside it; to the right of the band the body stays solid, so the level reads as how far the white band reaches. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-low, SF battery.25percent, Material battery_horiz_025, Central battery-low.",
+      "note": "Rhythm: one third of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (at 24 a rectangle with two runs across it, all four runs one line apart; at 20 and 16 a rectangle one line tall), so no white is left inside it; the outline format has no fills. Filled (Maruti, 2026-10-23, as wifi's levels): the frame at the outline weight, the charged part solid and merged with the frame up to the bar's end (x 9 · 13 at 24, 7.75 · 10.5 at 20, 6.125 · 8.5 at 16), the empty part left open with the wall's inner corners (r1.75 · 1.25 · 0.875); battery-full filled is the whole body solid, battery-filled's own drawing. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-low, SF battery.25percent, Material battery_horiz_025, Central battery-low.",
       "masters": {
         "16": [
           "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
@@ -100,25 +100,25 @@ export default {
         "24": [
           "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
           "M19.75 9.75H21.25V14.25H19.75Z",
-          "M5.75 9.75H8.25V11.25H5.75V12.75H8.25V14.25H5.75Z"
+          "M5.75 9.75H8.25V14.25H5.75V11.25H8.25V12.75H5.75Z"
         ]
       },
       "filled": {
         "16": {
           "fill": [
-            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM4.375 5.25H5.5A2.125 2.125 0 0 1 7.625 7.375V8.625A2.125 2.125 0 0 1 5.5 10.75H4.375A2.125 2.125 0 0 1 2.25 8.625V7.375A2.125 2.125 0 0 1 4.375 5.25ZM4.375 6.75H5.5A0.625 0.625 0 0 1 6.125 7.375V8.625A0.625 0.625 0 0 1 5.5 9.25H4.375A0.625 0.625 0 0 1 3.75 8.625V7.375A0.625 0.625 0 0 1 4.375 6.75Z"
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM6.125 5.25H11.625A0.875 0.875 0 0 1 12.5 6.125V9.875A0.875 0.875 0 0 1 11.625 10.75H6.125Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.75 7H7A2.25 2.25 0 0 1 9.25 9.25V10.75A2.25 2.25 0 0 1 7 13H5.75A2.25 2.25 0 0 1 3.5 10.75V9.25A2.25 2.25 0 0 1 5.75 7ZM5.75 8.5H7A0.75 0.75 0 0 1 7.75 9.25V10.75A0.75 0.75 0 0 1 7 11.5H5.75A0.75 0.75 0 0 1 5 10.75V9.25A0.75 0.75 0 0 1 5.75 8.5Z"
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM7.75 7H13.75A1.25 1.25 0 0 1 15 8.25V11.75A1.25 1.25 0 0 1 13.75 13H7.75Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM5.75 7.5H8.25A2.25 2.25 0 0 1 10.5 9.75V14.25A2.25 2.25 0 0 1 8.25 16.5H5.75A2.25 2.25 0 0 1 3.5 14.25V9.75A2.25 2.25 0 0 1 5.75 7.5ZM5.75 9H8.25A0.75 0.75 0 0 1 9 9.75V14.25A0.75 0.75 0 0 1 8.25 15H5.75A0.75 0.75 0 0 1 5 14.25V9.75A0.75 0.75 0 0 1 5.75 9Z"
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM9 7.5H17.25A1.75 1.75 0 0 1 19 9.25V14.75A1.75 1.75 0 0 1 17.25 16.5H9Z"
           ],
           "stroke": []
         }
@@ -135,7 +135,7 @@ export default {
         "bar"
       ],
       "anchor": "battery",
-      "note": "Rhythm: two thirds of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (4 runs at 24, 1 rectangle at 20 and 16), so no white is left inside it; the outline format has no fills. Filled: A's solid body with a 1.5 white band cut round the bar (outer corners r2.25 · 2.25 · 2.125) and the bar solid inside it; to the right of the band the body stays solid, so the level reads as how far the white band reaches. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-medium, SF battery.50percent, Material battery_horiz_050, Central battery-medium.",
+      "note": "Rhythm: two thirds of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (at 24 a rectangle with two runs across it, all four runs one line apart; at 20 and 16 a rectangle one line tall), so no white is left inside it; the outline format has no fills. Filled (Maruti, 2026-10-23, as wifi's levels): the frame at the outline weight, the charged part solid and merged with the frame up to the bar's end (x 9 · 13 at 24, 7.75 · 10.5 at 20, 6.125 · 8.5 at 16), the empty part left open with the wall's inner corners (r1.75 · 1.25 · 0.875); battery-full filled is the whole body solid, battery-filled's own drawing. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-medium, SF battery.50percent, Material battery_horiz_050, Central battery-medium.",
       "masters": {
         "16": [
           "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
@@ -150,25 +150,25 @@ export default {
         "24": [
           "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
           "M19.75 9.75H21.25V14.25H19.75Z",
-          "M5.75 9.75H12.25V11.25H5.75V12.75H12.25V14.25H5.75Z"
+          "M5.75 9.75H12.25V14.25H5.75V11.25H12.25V12.75H5.75Z"
         ]
       },
       "filled": {
         "16": {
           "fill": [
-            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM4.375 5.25H7.875A2.125 2.125 0 0 1 10 7.375V8.625A2.125 2.125 0 0 1 7.875 10.75H4.375A2.125 2.125 0 0 1 2.25 8.625V7.375A2.125 2.125 0 0 1 4.375 5.25ZM4.375 6.75H7.875A0.625 0.625 0 0 1 8.5 7.375V8.625A0.625 0.625 0 0 1 7.875 9.25H4.375A0.625 0.625 0 0 1 3.75 8.625V7.375A0.625 0.625 0 0 1 4.375 6.75Z"
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM8.5 5.25H11.625A0.875 0.875 0 0 1 12.5 6.125V9.875A0.875 0.875 0 0 1 11.625 10.75H8.5Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.75 7H9.75A2.25 2.25 0 0 1 12 9.25V10.75A2.25 2.25 0 0 1 9.75 13H5.75A2.25 2.25 0 0 1 3.5 10.75V9.25A2.25 2.25 0 0 1 5.75 7ZM5.75 8.5H9.75A0.75 0.75 0 0 1 10.5 9.25V10.75A0.75 0.75 0 0 1 9.75 11.5H5.75A0.75 0.75 0 0 1 5 10.75V9.25A0.75 0.75 0 0 1 5.75 8.5Z"
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM10.5 7H13.75A1.25 1.25 0 0 1 15 8.25V11.75A1.25 1.25 0 0 1 13.75 13H10.5Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM5.75 7.5H12.25A2.25 2.25 0 0 1 14.5 9.75V14.25A2.25 2.25 0 0 1 12.25 16.5H5.75A2.25 2.25 0 0 1 3.5 14.25V9.75A2.25 2.25 0 0 1 5.75 7.5ZM5.75 9H12.25A0.75 0.75 0 0 1 13 9.75V14.25A0.75 0.75 0 0 1 12.25 15H5.75A0.75 0.75 0 0 1 5 14.25V9.75A0.75 0.75 0 0 1 5.75 9Z"
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM13 7.5H17.25A1.75 1.75 0 0 1 19 9.25V14.75A1.75 1.75 0 0 1 17.25 16.5H13Z"
           ],
           "stroke": []
         }
@@ -185,7 +185,7 @@ export default {
         "bar"
       ],
       "anchor": "battery",
-      "note": "Rhythm: all of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (4 runs at 24, 1 rectangle at 20 and 16), so no white is left inside it; the outline format has no fills. Filled: A's solid body with a 1.5 white band cut round the bar (outer corners r2.25 · 2.25 · 2.125) and the bar solid inside it; to the right of the band the body stays solid, so the level reads as how far the white band reaches. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-full, SF battery.100percent, Material battery_horiz_100, Central battery-full.",
+      "note": "Rhythm: all of the full charge bar. Equal steps: the bar's ink is 4 · 8 · 12 long at 24, 2.75 · 5.5 · 8.25 at 20, 2.375 · 4.75 · 7.125 at 16 (a third of the full bar each step), 6 · 3 · 2.5 tall, corner radius 0.75 · 0.75 · 0.625, starting 1.5 from the left wall with 1.5 of air above and below; the full bar leaves 2.5 · 1.75 · 1.625 to the right wall, the longest bar that splits into three equal steps on the grid (12.5 · 8.5 · 7.25 would be the 1.5-air bar, which does not). Outline: the bar is a solid shape drawn with the pen: a closed path whose runs sit one line apart (at 24 a rectangle with two runs across it, all four runs one line apart; at 20 and 16 a rectangle one line tall), so no white is left inside it; the outline format has no fills. Filled (Maruti, 2026-10-23, as wifi's levels): the frame at the outline weight, the charged part solid and merged with the frame up to the bar's end (x 9 · 13 at 24, 7.75 · 10.5 at 20, 6.125 · 8.5 at 16), the empty part left open with the wall's inner corners (r1.75 · 1.25 · 0.875); battery-full filled is the whole body solid, battery-filled's own drawing. Body, nub and ink box are battery's exactly; `anchor: battery` (C28) holds them there. Lint clean. Who: Lucide battery-full, SF battery.100percent, Material battery_horiz_100, Central battery-full.",
       "masters": {
         "16": [
           "M3.125 4.625H11.625A1.5 1.5 0 0 1 13.125 6.125V9.875A1.5 1.5 0 0 1 11.625 11.375H3.125A1.5 1.5 0 0 1 1.625 9.875V6.125A1.5 1.5 0 0 1 3.125 4.625Z",
@@ -200,25 +200,25 @@ export default {
         "24": [
           "M5.25 6.75H17.25A2.5 2.5 0 0 1 19.75 9.25V14.75A2.5 2.5 0 0 1 17.25 17.25H5.25A2.5 2.5 0 0 1 2.75 14.75V9.25A2.5 2.5 0 0 1 5.25 6.75Z",
           "M19.75 9.75H21.25V14.25H19.75Z",
-          "M5.75 9.75H16.25V11.25H5.75V12.75H16.25V14.25H5.75Z"
+          "M5.75 9.75H16.25V14.25H5.75V11.25H16.25V12.75H5.75Z"
         ]
       },
       "filled": {
         "16": {
           "fill": [
-            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4ZM4.375 5.25H10.25A2.125 2.125 0 0 1 12.375 7.375V8.625A2.125 2.125 0 0 1 10.25 10.75H4.375A2.125 2.125 0 0 1 2.25 8.625V7.375A2.125 2.125 0 0 1 4.375 5.25ZM4.375 6.75H10.25A0.625 0.625 0 0 1 10.875 7.375V8.625A0.625 0.625 0 0 1 10.25 9.25H4.375A0.625 0.625 0 0 1 3.75 8.625V7.375A0.625 0.625 0 0 1 4.375 6.75Z"
+            "M3.125 4H11.625A2.125 2.125 0 0 1 13.746 6H14.375A0.625 0.625 0 0 1 15 6.625V9.375A0.625 0.625 0 0 1 14.375 10H13.746A2.125 2.125 0 0 1 11.625 12H3.125A2.125 2.125 0 0 1 1 9.875V6.125A2.125 2.125 0 0 1 3.125 4Z"
           ],
           "stroke": []
         },
         "20": {
           "fill": [
-            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5ZM5.75 7H12.5A2.25 2.25 0 0 1 14.75 9.25V10.75A2.25 2.25 0 0 1 12.5 13H5.75A2.25 2.25 0 0 1 3.5 10.75V9.25A2.25 2.25 0 0 1 5.75 7ZM5.75 8.5H12.5A0.75 0.75 0 0 1 13.25 9.25V10.75A0.75 0.75 0 0 1 12.5 11.5H5.75A0.75 0.75 0 0 1 5 10.75V9.25A0.75 0.75 0 0 1 5.75 8.5Z"
+            "M4.75 5.5H13.75A2.75 2.75 0 0 1 16.45 7.75H17.25A0.75 0.75 0 0 1 18 8.5V11.5A0.75 0.75 0 0 1 17.25 12.25H16.45A2.75 2.75 0 0 1 13.75 14.5H4.75A2.75 2.75 0 0 1 2 11.75V8.25A2.75 2.75 0 0 1 4.75 5.5Z"
           ],
           "stroke": []
         },
         "24": {
           "fill": [
-            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6ZM5.75 7.5H16.25A2.25 2.25 0 0 1 18.5 9.75V14.25A2.25 2.25 0 0 1 16.25 16.5H5.75A2.25 2.25 0 0 1 3.5 14.25V9.75A2.25 2.25 0 0 1 5.75 7.5ZM5.75 9H16.25A0.75 0.75 0 0 1 17 9.75V14.25A0.75 0.75 0 0 1 16.25 15H5.75A0.75 0.75 0 0 1 5 14.25V9.75A0.75 0.75 0 0 1 5.75 9Z"
+            "M5.25 6H17.25A3.25 3.25 0 0 1 20.49 9H21.25A0.75 0.75 0 0 1 22 9.75V14.25A0.75 0.75 0 0 1 21.25 15H20.49A3.25 3.25 0 0 1 17.25 18H5.25A3.25 3.25 0 0 1 2 14.75V9.25A3.25 3.25 0 0 1 5.25 6Z"
           ],
           "stroke": []
         }
