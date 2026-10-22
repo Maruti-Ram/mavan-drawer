@@ -496,7 +496,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
 - [x] 140. `alert-octagon-3` · Status & Feedback · variant of `alert-octagon` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
 - [x] 140. `alert-octagon-4` · Status & Feedback · variant of `alert-octagon` — Wedge + dash (alert-circle-4's mark) · approved 2026-10-20
-- [~] 141. `backspace` · Editing & Text
+- [x] 141. `backspace` · Editing & Text — approved 2026-10-22
 - [x] 142. `columns` · UI & Layout — mvp · approved 2026-10-18
 - [x] 142. `columns-2` · UI & Layout · variant of `columns` — Two column boxes · approved 2026-10-18
 - [x] 142. `columns-3` · UI & Layout · variant of `columns` — Three column guides · approved 2026-10-18
