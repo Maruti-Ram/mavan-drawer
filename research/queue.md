@@ -514,7 +514,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 146. `share-3` · Communication · variant of `share` — Forward arrow · approved 2026-10-19
 - [x] 147. `toggle-off` · UI & Layout — approved 2026-10-20
 - [x] 147. `toggle-off-2` · UI & Layout · variant of `toggle-off` — Big knob over a slim track, off · approved 2026-10-20
-- [~] 148. `cast` · Media & Playback
+- [x] 148. `cast` · Media & Playback — approved 2026-10-22
+- [x] 148. `cast-mobile` · Media & Playback · variant of `cast` — Phone casting · approved 2026-10-22
 - [x] 149. `calculator` · Charts & Data — mvp · approved 2026-10-19
 - [x] 150. `chart-line` · Charts & Data — mvp · approved 2026-10-18
 - [x] 150. `chart-line-2` · Charts & Data · variant of `chart-line` — Dots at the turns, bare · approved 2026-10-18
