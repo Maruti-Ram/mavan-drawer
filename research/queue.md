@@ -743,7 +743,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 256. `expand-2` · Arrows & Direction · variant of `expand` — Two arrows · expand · approved 2026-10-17
 - [x] 257. `window` · UI & Layout — approved 2026-10-20
 - [x] 257. `window-2` · UI & Layout · variant of `window` — Tabs · approved 2026-10-20
-- [~] 258. `scan` · Devices & Hardware
+- [x] 258. `scan` · Devices & Hardware — approved 2026-10-22
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
 - [x] 261. `blog` · Editing & Text — approved 2026-10-22
@@ -1144,3 +1144,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 574. `podcast` · Media & Playback — added 2026-10-22 · approved 2026-10-22
 - [x] 575. `carousel` · UI & Layout — added 2026-10-22 · approved 2026-10-22
 - [x] 576. `vinyl` · Devices & Hardware — added 2026-10-22 · approved 2026-10-22
+- [x] 577. `focus` · Devices & Hardware — added 2026-10-22 · approved 2026-10-22
