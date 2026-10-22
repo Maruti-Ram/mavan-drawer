@@ -536,7 +536,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 157. `redo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 157. `redo-2` · Arrows & Direction · variant of `redo` — U-turn · redo · approved 2026-10-17
 - [x] 157. `redo-3` · Arrows & Direction · variant of `redo` — Squared return · redo · approved 2026-10-17
-- [~] 158. `spell-check` · Editing & Text
+- [x] 158. `spell-check` · Editing & Text — approved 2026-10-22
+- [x] 158. `spell-check-2` · Editing & Text · variant of `spell-check` — Aa + tick · approved 2026-10-22
 - [x] 159. `undo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 159. `undo-2` · Arrows & Direction · variant of `undo` — U-turn · undo · approved 2026-10-17
 - [x] 159. `undo-3` · Arrows & Direction · variant of `undo` — Squared return · undo · approved 2026-10-17
