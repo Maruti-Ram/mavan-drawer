@@ -728,7 +728,6 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 258. `scan` · Devices & Hardware
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
-- [~] 260. `currency` · Commerce & Payments
 - [ ] 261. `blog` · Editing & Text
 - [x] 262. `button` · UI & Layout — approved 2026-10-20
 - [x] 262. `button-2` · UI & Layout · variant of `button` — Raised button · approved 2026-10-20
@@ -860,8 +859,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
 - [ ] 335. `disc` · Devices & Hardware
-- [x] 336. `dollar-sign` · Commerce & Payments — approved 2026-10-21
-- [x] 336. `dollar-sign-2` · Commerce & Payments · variant of `dollar-sign` — F, bar through · approved 2026-10-21
+- [x] 336. `dollar-sign` · Currency — approved 2026-10-21
+- [x] 336. `dollar-sign-2` · Currency · variant of `dollar-sign` — F, bar through · approved 2026-10-21
 - [ ] 337. `fast-forward` · Media & Playback
 - [ ] 338. `git-branch` · Development & Infra
 - [ ] 339. `git-merge` · Development & Infra
@@ -974,7 +973,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 446. `user-exit` · Users & Access · variant of `user`
 - [ ] 447. `user-segment` · Users & Access · variant of `user`
 - [ ] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card`
-- [ ] 449. `currency-convert` · Commerce & Payments · variant of `currency`
+- [ ] 449. `currency-convert` · Currency
 - [ ] 450. `receipt-refund` · Commerce & Payments · variant of `receipt`
 - [ ] 451. `award-certificate` · Status & Feedback · variant of `award`
 - [ ] 452. `clipboard-off` · Files & Folders · variant of `clipboard`
@@ -1065,39 +1064,39 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 531. `tickets` — added 2026-10-21 · approved 2026-10-21
 - [x] 532. `van` — added 2026-10-21 · approved 2026-10-21
 - [x] 533. `hand-coins` — added 2026-10-21 · approved 2026-10-21
-- [x] 534. `euro` — added 2026-10-21 · approved 2026-10-21
-- [x] 535. `euro-circle` — added 2026-10-21 · approved 2026-10-21
+- [x] 534. `euro` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 535. `euro-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 536. `gift-card` — added 2026-10-21 · approved 2026-10-21
-- [x] 537. `dollar-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 537. `dollar-circle-2` · variant of `dollar-circle` — G in a coin · approved 2026-10-21
+- [x] 537. `dollar-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 537. `dollar-circle-2` · Currency · variant of `dollar-circle` — G in a coin · approved 2026-10-21
 - [x] 538. `heart-handshake` — added 2026-10-21 · approved 2026-10-21
-- [x] 539. `pound` — added 2026-10-21 · approved 2026-10-21
-- [x] 540. `yen` — added 2026-10-21 · approved 2026-10-21
-- [x] 541. `rupee` — added 2026-10-21 · approved 2026-10-21
-- [x] 542. `bitcoin` — added 2026-10-21 · approved 2026-10-21
-- [x] 543. `won` — added 2026-10-21 · approved 2026-10-21
-- [x] 543. `won-2` · variant of `won` — Two bars centred on A’s bar · approved 2026-10-21
-- [x] 544. `ruble` — added 2026-10-21 · approved 2026-10-21
-- [x] 545. `lira` — added 2026-10-21 · approved 2026-10-21
-- [x] 546. `franc` — added 2026-10-21 · approved 2026-10-21
-- [x] 547. `shekel` — added 2026-10-21 · approved 2026-10-21
-- [x] 548. `naira` — added 2026-10-21 · approved 2026-10-21
-- [x] 549. `peso` — added 2026-10-21 · approved 2026-10-21
-- [x] 550. `dong` — added 2026-10-21 · approved 2026-10-21
-- [x] 551. `baht` — added 2026-10-21 · approved 2026-10-21
-- [x] 552. `real` — added 2026-10-21 · approved 2026-10-21
-- [x] 553. `riyal` — added 2026-10-21 · approved 2026-10-21
-- [x] 554. `pound-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 555. `yen-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 556. `rupee-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 557. `bitcoin-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 558. `franc-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 559. `shekel-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 560. `naira-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 561. `dong-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 562. `baht-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 564. `riyal-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 565. `lira-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 566. `ruble-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 567. `peso-circle` — added 2026-10-21 · approved 2026-10-21
-- [x] 568. `won-circle` — added 2026-10-21 · approved 2026-10-21
+- [x] 539. `pound` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 540. `yen` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 541. `rupee` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 542. `bitcoin` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 543. `won` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 543. `won-2` · Currency · variant of `won` — Two bars centred on A’s bar · approved 2026-10-21
+- [x] 544. `ruble` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 545. `lira` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 546. `franc` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 547. `shekel` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 548. `naira` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 549. `peso` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 550. `dong` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 551. `baht` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 552. `real` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 553. `riyal` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 554. `pound-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 555. `yen-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 556. `rupee-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 557. `bitcoin-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 558. `franc-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 559. `shekel-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 560. `naira-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 561. `dong-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 562. `baht-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 564. `riyal-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 565. `lira-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 566. `ruble-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 567. `peso-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [x] 568. `won-circle` · Currency — added 2026-10-21 · approved 2026-10-21
