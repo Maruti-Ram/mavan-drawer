@@ -1198,7 +1198,9 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 580. `orbit` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 581. `satellite-image` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 582. `car-battery` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
-- [~] 583. `cloud-upload` · Development & Infra · variant of `cloud` — added 2026-10-23
+- [x] 583. `cloud-upload` · Development & Infra · variant of `cloud` — added 2026-10-23 · approved 2026-10-23
+- [x] 583. `cloud-upload-2` · Development & Infra · variant of `cloud-upload` — Cloud-2, arrow up into it · approved 2026-10-23
+- [x] 583. `cloud-upload-3` · Development & Infra · variant of `cloud-upload` — Cloud-3, arrow up into it · approved 2026-10-23
 - [x] 584. `split` · Arrows & Direction — added 2026-10-23 · approved 2026-10-23
 - [x] 584. `split-2` · Arrows & Direction · variant of `split` — Ahead or right · approved 2026-10-23
 - [x] 585. `flask` · Development & Infra — added 2026-10-23 · approved 2026-10-23
