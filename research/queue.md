@@ -733,7 +733,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 238. `handshake-2` · Commerce & Payments · variant of `handshake` — Grip · approved 2026-10-21
 - [x] 239. `laptop` · Devices & Hardware — approved 2026-10-22
 - [x] 239. `laptop-2` · Devices & Hardware · variant of `laptop` — Screen on a base slab · approved 2026-10-22
-- [~] 240. `microscope` · Development & Infra
+- [x] 240. `microscope` · Development & Infra — approved 2026-10-23
+- [x] 240. `microscope-2` · Development & Infra · variant of `microscope` — Tilted tube, arm behind · approved 2026-10-23
 - [x] 241. `network` · Development & Infra — approved 2026-10-23
 - [x] 241. `network-2` · Development & Infra · variant of `network` — Ring of nodes · approved 2026-10-23
 - [x] 241. `network-3` · Development & Infra · variant of `network` — Mesh of nodes · approved 2026-10-23
