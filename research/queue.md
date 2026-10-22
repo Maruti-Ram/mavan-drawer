@@ -1046,7 +1046,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 434. `user-search` · Users & Access · variant of `user`
 - [x] 435. `battery-full` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [x] 436. `battery-low` · Devices & Hardware · variant of `battery` — approved 2026-10-23
-- [ ] 437. `bug-off` · Development & Infra · variant of `bug`
+- [~] 437. `bug-off` · Development & Infra · variant of `bug`
 - [ ] 438. `compass-drafting` · Design Tools · variant of `compass`
 - [ ] 439. `desktop-download` · Devices & Hardware · variant of `desktop`
 - [ ] 440. `credit-card-lock` · Commerce & Payments · variant of `credit-card`
@@ -1075,7 +1075,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 463. `user-focus` · Users & Access · variant of `user`
 - [ ] 464. `user-laptop` · Users & Access · variant of `user`
 - [ ] 465. `window-chart` · Charts & Data · variant of `window`
-- [ ] 466. `gear-nodes` · Development & Infra · variant of `gear`
+- [~] 466. `gear-nodes` · Development & Infra · variant of `gear`
 - [ ] 467. `globe-pointer` · Maps & Location · variant of `globe`
 - [ ] 468. `grid-circle-plus` · Design Tools · variant of `grid`
 - [ ] 469. `image-binary` · Design Tools · variant of `image`
@@ -1084,14 +1084,14 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 472. `window-expand-bottom-right` · Design Tools · variant of `window`
 - [ ] 473. `window-key` · Design Tools · variant of `window`
 - [ ] 474. `window-pointer` · Design Tools · variant of `window`
-- [ ] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench`
+- [~] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench`
 - [ ] 476. `phone-off` · Communication · variant of `phone`
 - [ ] 477. `text-align-justify` · Editing & Text · variant of `text`
 - [ ] 478. `user-check` · Users & Access · variant of `user`
 - [ ] 479. `user-x` · Users & Access · variant of `user`
 - [ ] 480. `video-off` · Files & Folders · variant of `video`
 - [ ] 481. `camera-off` · Media & Playback · variant of `camera`
-- [ ] 482. `cloud-off` · Development & Infra · variant of `cloud`
+- [~] 482. `cloud-off` · Development & Infra · variant of `cloud`
 - [x] 483. `volume-off` · Media & Playback · variant of `volume` — approved 2026-09-26
 - [ ] 484. `wifi-off` · Devices & Hardware · variant of `wifi`
 - [ ] 485. `phone-forwarded` · Communication · variant of `phone`
