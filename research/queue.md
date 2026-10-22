@@ -808,7 +808,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 276. `viewport-wide-2` · UI & Layout · variant of `viewport-wide` — Capsule, heads out · approved 2026-10-20
 - [x] 276. `viewport-wide-3` · UI & Layout · variant of `viewport-wide` — Dimension arrow, out · approved 2026-10-20
 - [x] 277. `atm` · Commerce & Payments — approved 2026-10-21
-- [~] 278. `channels` · Development & Infra
+- [x] 278. `channels` · Development & Infra — approved 2026-10-23
 - [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
 - [x] 279. `contactless-circle` · Commerce & Payments · variant of `contactless` — Waves fitted to the disc (recommended) · approved 2026-10-21
 - [x] 280. `replay` · Media & Playback — approved 2026-10-22
