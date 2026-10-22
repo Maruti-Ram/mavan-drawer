@@ -572,6 +572,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 170. `ruler` · Design Tools
 - [x] 171. `slideshow` · Media & Playback — approved 2026-10-22
 - [x] 172. `workflow` · Development & Infra — approved 2026-10-23
+- [x] 172. `workflow-2` · Development & Infra · variant of `workflow` — Steps in a chain, through the middle · approved 2026-10-23
 - [x] 173. `arrows-swap` · Arrows & Direction — approved 2026-10-17
 - [x] 173. `arrows-swap-2` · Arrows & Direction · variant of `arrows-swap` — Right on top · approved 2026-10-17
 - [x] 174. `chevron-first` · Arrows & Direction — approved 2026-10-17
