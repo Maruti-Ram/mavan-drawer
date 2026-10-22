@@ -338,6 +338,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 83. `package` · Commerce & Payments — approved 2026-09-26
 - [x] 83. `package-2` · Commerce & Payments · variant of `package` — Isometric cube, 2:1 · approved 2026-09-26
 - [x] 83. `package-3` · Commerce & Payments · variant of `package` — Isometric, taped top · approved 2026-09-26
+- [x] 83. `package-shield-2` · Commerce & Payments · variant of `package` — Cube with a shield · approved 2026-10-23
 - [x] 84. `printer` · Devices & Hardware — approved 2026-09-26
 - [x] 84. `printer-2` · Devices & Hardware · variant of `printer` — Slot and status dot · approved 2026-09-26
 - [x] 85. `volume` · Media & Playback — approved 2026-09-26
@@ -1197,6 +1198,6 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 583. `cloud-upload` · Development & Infra · variant of `cloud` — added 2026-10-23
 - [x] 584. `split` · Arrows & Direction — added 2026-10-23 · approved 2026-10-23
 - [x] 584. `split-2` · Arrows & Direction · variant of `split` — Ahead or right · approved 2026-10-23
-- [ ] 585. `flask` · Development & Infra — added 2026-10-23
+- [x] 585. `flask` · Development & Infra — added 2026-10-23 · approved 2026-10-23
 - [x] 586. `automation` · Development & Infra — added 2026-10-23 · approved 2026-10-23
 - [x] 587. `help-diamond` · Status & Feedback · variant of `help-circle` — added 2026-10-23 · approved 2026-10-23
