@@ -193,6 +193,10 @@
     "blog-4",
     "blog-4-filled",
     "blog-filled",
+    "blueprint",
+    "blueprint-2",
+    "blueprint-2-filled",
+    "blueprint-filled",
     "bluetooth",
     "bluetooth-2",
     "bluetooth-2-filled",
@@ -543,6 +547,8 @@
     "compass-3",
     "compass-3-filled",
     "compass-filled",
+    "component",
+    "component-filled",
     "compose",
     "compose-2",
     "compose-2-filled",
@@ -649,6 +655,8 @@
     "devices-2",
     "devices-2-filled",
     "devices-filled",
+    "dimensions",
+    "dimensions-filled",
     "disc",
     "disc-filled",
     "dollar-circle",
@@ -874,6 +882,8 @@
     "home-2-filled",
     "home-3",
     "home-3-filled",
+    "home-dimensions",
+    "home-dimensions-filled",
     "home-filled",
     "hourglass",
     "hourglass-2",
@@ -953,6 +963,8 @@
     "laptop-2",
     "laptop-2-filled",
     "laptop-filled",
+    "layers",
+    "layers-filled",
     "layout-footer",
     "layout-footer-2",
     "layout-footer-2-filled",
@@ -12922,6 +12934,261 @@
         "card",
         "cover",
         "picture"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "blueprint": {
+      "paths": [
+        "M16.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H12.25",
+        "M9.75 3.75V9.75",
+        "M16.25 13.75H9.75V20.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M16.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H12.25\"/> <path d=\"M9.75 3.75V9.75\"/> <path d=\"M16.25 13.75H9.75V20.25\"/>",
+      "mark": false,
+      "tags": [
+        "floor plan",
+        "plan",
+        "architecture",
+        "rooms",
+        "spec",
+        "design"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.13,
+          "optical": 3.1
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 8,
+        "h": 18
+      },
+      "ratio": {
+        "w": 0.44,
+        "h": 1
+      },
+      "gap": null
+    },
+    "blueprint-2": {
+      "paths": [
+        "M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z",
+        "M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25",
+        "M19.25 14.75H8.75",
+        "M13.25 14.75V21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25\"/> <path d=\"M19.25 14.75H8.75\"/> <path d=\"M13.25 14.75V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "document",
+        "file",
+        "plan",
+        "spec",
+        "design doc",
+        "architecture"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.54,
+          "optical": 4.4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.67,
+          "optical": 2.5
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.27,
+          "optical": 2.2
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 12,
+        "h": 20
+      },
+      "ratio": {
+        "w": 0.6,
+        "h": 1
+      },
+      "gap": null
+    },
+    "blueprint-2-filled": {
+      "paths": [],
+      "areas": [
+        "M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V13.5A0.5 0.5 0 0 1 19.5 14H8.75A0.75 0.75 0 0 0 8.75 15.5H12A0.5 0.5 0 0 1 12.5 16V21.5A0.5 0.5 0 0 1 12 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z",
+        "M14.5 15.5H19.5A0.5 0.5 0 0 1 20 16V18.75A3.25 3.25 0 0 1 16.75 22H14.5A0.5 0.5 0 0 1 14 21.5V16A0.5 0.5 0 0 1 14.5 15.5Z",
+        "M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V13.5A0.5 0.5 0 0 1 19.5 14H8.75A0.75 0.75 0 0 0 8.75 15.5H12A0.5 0.5 0 0 1 12.5 16V21.5A0.5 0.5 0 0 1 12 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.5 15.5H19.5A0.5 0.5 0 0 1 20 16V18.75A3.25 3.25 0 0 1 16.75 22H14.5A0.5 0.5 0 0 1 14 21.5V16A0.5 0.5 0 0 1 14.5 15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z\"/>",
+      "mark": false,
+      "tags": [
+        "document",
+        "file",
+        "plan",
+        "spec",
+        "design doc",
+        "architecture"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "blueprint-filled": {
+      "paths": [],
+      "areas": [
+        "M6.25 3H8.5A0.5 0.5 0 0 1 9 3.5V9.75A0.75 0.75 0 0 0 10.5 9.75V3.5A0.5 0.5 0 0 1 11 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H16A0.5 0.5 0 0 1 15.5 20.5V20A0.5 0.5 0 0 0 15 19.5H13.5A0.5 0.5 0 0 0 13 20V20.5A0.5 0.5 0 0 1 12.5 21H11A0.5 0.5 0 0 1 10.5 20.5V15A0.5 0.5 0 0 1 11 14.5H16.25A0.75 0.75 0 0 0 16.25 13H9.75A0.75 0.75 0 0 0 9 13.75V20.5A0.5 0.5 0 0 1 8.5 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3H8.5A0.5 0.5 0 0 1 9 3.5V9.75A0.75 0.75 0 0 0 10.5 9.75V3.5A0.5 0.5 0 0 1 11 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H16A0.5 0.5 0 0 1 15.5 20.5V20A0.5 0.5 0 0 0 15 19.5H13.5A0.5 0.5 0 0 0 13 20V20.5A0.5 0.5 0 0 1 12.5 21H11A0.5 0.5 0 0 1 10.5 20.5V15A0.5 0.5 0 0 1 11 14.5H16.25A0.75 0.75 0 0 0 16.25 13H9.75A0.75 0.75 0 0 0 9 13.75V20.5A0.5 0.5 0 0 1 8.5 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3Z\"/>",
+      "mark": false,
+      "tags": [
+        "floor plan",
+        "plan",
+        "architecture",
+        "rooms",
+        "spec",
+        "design"
       ],
       "shift": [
         0,
@@ -33608,6 +33875,130 @@
       "ratio": null,
       "gap": null
     },
+    "component": {
+      "paths": [
+        "M2.75 12L6.25 8.5L9.75 12L6.25 15.5L2.75 12Z",
+        "M8.5 6.25L12 2.75L15.5 6.25L12 9.75L8.5 6.25Z",
+        "M14.25 12L17.75 8.5L21.25 12L17.75 15.5L14.25 12Z",
+        "M8.5 17.75L12 14.25L15.5 17.75L12 21.25L8.5 17.75Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12L6.25 8.5L9.75 12L6.25 15.5L2.75 12Z\"/> <path d=\"M8.5 6.25L12 2.75L15.5 6.25L12 9.75L8.5 6.25Z\"/> <path d=\"M14.25 12L17.75 8.5L21.25 12L17.75 15.5L14.25 12Z\"/> <path d=\"M8.5 17.75L12 14.25L15.5 17.75L12 21.25L8.5 17.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "component",
+        "template",
+        "master",
+        "reusable",
+        "design system",
+        "figma"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.49,
+          "optical": 2.37
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.49,
+          "optical": 2.37
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.49,
+          "optical": 2.37
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.49,
+          "optical": 2.37
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "component-filled": {
+      "paths": [],
+      "areas": [
+        "M2.22 12.53A0.75 0.75 0 0 1 2.22 11.47L5.72 7.97A0.75 0.75 0 0 1 6.78 7.97L10.28 11.47A0.75 0.75 0 0 1 10.28 12.53L6.78 16.03A0.75 0.75 0 0 1 5.72 16.03L2.22 12.53Z",
+        "M7.97 6.78A0.75 0.75 0 0 1 7.97 5.72L11.47 2.22A0.75 0.75 0 0 1 12.53 2.22L16.03 5.72A0.75 0.75 0 0 1 16.03 6.78L12.53 10.28A0.75 0.75 0 0 1 11.47 10.28L7.97 6.78Z",
+        "M13.72 12.53A0.75 0.75 0 0 1 13.72 11.47L17.22 7.97A0.75 0.75 0 0 1 18.28 7.97L21.78 11.47A0.75 0.75 0 0 1 21.78 12.53L18.28 16.03A0.75 0.75 0 0 1 17.22 16.03L13.72 12.53Z",
+        "M7.97 18.28A0.75 0.75 0 0 1 7.97 17.22L11.47 13.72A0.75 0.75 0 0 1 12.53 13.72L16.03 17.22A0.75 0.75 0 0 1 16.03 18.28L12.53 21.78A0.75 0.75 0 0 1 11.47 21.78L7.97 18.28Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.22 12.53A0.75 0.75 0 0 1 2.22 11.47L5.72 7.97A0.75 0.75 0 0 1 6.78 7.97L10.28 11.47A0.75 0.75 0 0 1 10.28 12.53L6.78 16.03A0.75 0.75 0 0 1 5.72 16.03L2.22 12.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.97 6.78A0.75 0.75 0 0 1 7.97 5.72L11.47 2.22A0.75 0.75 0 0 1 12.53 2.22L16.03 5.72A0.75 0.75 0 0 1 16.03 6.78L12.53 10.28A0.75 0.75 0 0 1 11.47 10.28L7.97 6.78Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.72 12.53A0.75 0.75 0 0 1 13.72 11.47L17.22 7.97A0.75 0.75 0 0 1 18.28 7.97L21.78 11.47A0.75 0.75 0 0 1 21.78 12.53L18.28 16.03A0.75 0.75 0 0 1 17.22 16.03L13.72 12.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.97 18.28A0.75 0.75 0 0 1 7.97 17.22L11.47 13.72A0.75 0.75 0 0 1 12.53 13.72L16.03 17.22A0.75 0.75 0 0 1 16.03 18.28L12.53 21.78A0.75 0.75 0 0 1 11.47 21.78L7.97 18.28Z\"/>",
+      "mark": false,
+      "tags": [
+        "component",
+        "template",
+        "master",
+        "reusable",
+        "design system",
+        "figma"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "compose": {
       "paths": [
         "M11 5.75L6.25 5.75A2.5 2.5 0 0 0 3.75 8.25L3.75 17.75A2.5 2.5 0 0 0 6.25 20.25L15.75 20.25A2.5 2.5 0 0 0 18.25 17.75L18.25 13",
@@ -39943,6 +40334,137 @@
           "geometric": 2,
           "recession": 0,
           "optical": 2
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "dimensions": {
+      "paths": [
+        "M6.25 9.25H12.25A2.5 2.5 0 0 1 14.75 11.75V17.75A2.5 2.5 0 0 1 12.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V11.75A2.5 2.5 0 0 1 6.25 9.25Z",
+        "M3.75 4.75H14.75",
+        "M3.75 3.75V5.75",
+        "M14.75 3.75V5.75",
+        "M19.25 9.25V20.25",
+        "M18.25 9.25H20.25",
+        "M18.25 20.25H20.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M6.25 9.25H12.25A2.5 2.5 0 0 1 14.75 11.75V17.75A2.5 2.5 0 0 1 12.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V11.75A2.5 2.5 0 0 1 6.25 9.25Z\"/> <path d=\"M3.75 4.75H14.75\"/> <path d=\"M3.75 3.75V5.75\"/> <path d=\"M14.75 3.75V5.75\"/> <path d=\"M19.25 9.25V20.25\"/> <path d=\"M18.25 9.25H20.25\"/> <path d=\"M18.25 20.25H20.25\"/>",
+      "mark": false,
+      "tags": [
+        "dimensions",
+        "technical drawing",
+        "measure",
+        "spec",
+        "drawing",
+        "size"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.62,
+          "optical": 3.47
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.62,
+          "optical": 3.47
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.26,
+          "optical": 3.2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "dimensions-filled": {
+      "paths": [
+        "M3.75 4.75H14.75",
+        "M3.75 3.75V5.75",
+        "M14.75 3.75V5.75",
+        "M19.25 9.25V20.25",
+        "M18.25 9.25H20.25",
+        "M18.25 20.25H20.25"
+      ],
+      "areas": [
+        "M6.25 8.5H12.25A3.25 3.25 0 0 1 15.5 11.75V17.75A3.25 3.25 0 0 1 12.25 21H6.25A3.25 3.25 0 0 1 3 17.75V11.75A3.25 3.25 0 0 1 6.25 8.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 8.5H12.25A3.25 3.25 0 0 1 15.5 11.75V17.75A3.25 3.25 0 0 1 12.25 21H6.25A3.25 3.25 0 0 1 3 17.75V11.75A3.25 3.25 0 0 1 6.25 8.5Z\"/> <path d=\"M3.75 4.75H14.75\"/> <path d=\"M3.75 3.75V5.75\"/> <path d=\"M14.75 3.75V5.75\"/> <path d=\"M19.25 9.25V20.25\"/> <path d=\"M18.25 9.25H20.25\"/> <path d=\"M18.25 20.25H20.25\"/>",
+      "mark": false,
+      "tags": [
+        "dimensions",
+        "technical drawing",
+        "measure",
+        "spec",
+        "drawing",
+        "size"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         },
         "bottom": {
           "geometric": 3,
@@ -53716,6 +54238,131 @@
       "ratio": null,
       "gap": null
     },
+    "home-dimensions": {
+      "paths": [
+        "M10.94 3.19A1.5 1.5 0 0 1 13.06 3.19L19.25 9.38L19.25 13.75A2.5 2.5 0 0 1 16.75 16.25L7.25 16.25A2.5 2.5 0 0 1 4.75 13.75L4.75 9.38L10.94 3.19Z",
+        "M4.75 20.25H19.25",
+        "M4.75 19.25V21.25",
+        "M19.25 19.25V21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M10.94 3.19A1.5 1.5 0 0 1 13.06 3.19L19.25 9.38L19.25 13.75A2.5 2.5 0 0 1 16.75 16.25L7.25 16.25A2.5 2.5 0 0 1 4.75 13.75L4.75 9.38L10.94 3.19Z\"/> <path d=\"M4.75 20.25H19.25\"/> <path d=\"M4.75 19.25V21.25\"/> <path d=\"M19.25 19.25V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "house",
+        "elevation",
+        "architecture",
+        "plan",
+        "dimensions",
+        "measure"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.64,
+          "optical": 4.48
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0.64,
+          "optical": 4.48
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 1.2,
+          "optical": 2.9
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.85,
+          "optical": 2.63
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "home-dimensions-filled": {
+      "paths": [
+        "M4.75 20.25H19.25",
+        "M4.75 19.25V21.25",
+        "M19.25 19.25V21.25"
+      ],
+      "areas": [
+        "M10.41 2.66A2.25 2.25 0 0 1 13.59 2.66L19.78 8.85A0.75 0.75 0 0 1 20 9.38L20 13.75A3.25 3.25 0 0 1 16.75 17L7.25 17A3.25 3.25 0 0 1 4 13.75L4 9.38A0.75 0.75 0 0 1 4.22 8.85L10.41 2.66Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.41 2.66A2.25 2.25 0 0 1 13.59 2.66L19.78 8.85A0.75 0.75 0 0 1 20 9.38L20 13.75A3.25 3.25 0 0 1 16.75 17L7.25 17A3.25 3.25 0 0 1 4 13.75L4 9.38A0.75 0.75 0 0 1 4.22 8.85L10.41 2.66Z\"/> <path d=\"M4.75 20.25H19.25\"/> <path d=\"M4.75 19.25V21.25\"/> <path d=\"M19.25 19.25V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "house",
+        "elevation",
+        "architecture",
+        "plan",
+        "dimensions",
+        "measure"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "home-filled": {
       "paths": [],
       "areas": [
@@ -58479,6 +59126,127 @@
           "geometric": 4.5,
           "recession": 0,
           "optical": 4.5
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "layers": {
+      "paths": [
+        "M3.75 7.5L12 3.75L20.25 7.5L12 11.25Z",
+        "M3.75 12L12 15.75L20.25 12",
+        "M3.75 16.5L12 20.25L20.25 16.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 7.5L12 3.75L20.25 7.5L12 11.25Z\"/> <path d=\"M3.75 12L12 15.75L20.25 12\"/> <path d=\"M3.75 16.5L12 20.25L20.25 16.5\"/>",
+      "mark": false,
+      "tags": [
+        "layers",
+        "stack",
+        "architecture",
+        "tiers",
+        "system design"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.55,
+          "optical": 3.41
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.55,
+          "optical": 3.41
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.2,
+          "optical": 3.9
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 1.2,
+          "optical": 3.9
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "layers-filled": {
+      "paths": [
+        "M3.75 12L12 15.75L20.25 12",
+        "M3.75 16.5L12 20.25L20.25 16.5"
+      ],
+      "areas": [
+        "M3.44 8.18A0.75 0.75 0 0 1 3.44 6.82L11.69 3.07A0.75 0.75 0 0 1 12.31 3.07L20.56 6.82A0.75 0.75 0 0 1 20.56 8.18L12.31 11.93A0.75 0.75 0 0 1 11.69 11.93L3.44 8.18Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.44 8.18A0.75 0.75 0 0 1 3.44 6.82L11.69 3.07A0.75 0.75 0 0 1 12.31 3.07L20.56 6.82A0.75 0.75 0 0 1 20.56 8.18L12.31 11.93A0.75 0.75 0 0 1 11.69 11.93L3.44 8.18Z\"/> <path d=\"M3.75 12L12 15.75L20.25 12\"/> <path d=\"M3.75 16.5L12 20.25L20.25 16.5\"/>",
+      "mark": false,
+      "tags": [
+        "layers",
+        "stack",
+        "architecture",
+        "tiers",
+        "system design"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         }
       },
       "container": null,
@@ -125472,6 +126240,10 @@
         "blog-4",
         "blog-4-filled",
         "blog-filled",
+        "blueprint",
+        "blueprint-2",
+        "blueprint-2-filled",
+        "blueprint-filled",
         "bluetooth",
         "bluetooth-2",
         "bluetooth-2-filled",
@@ -125822,6 +126594,8 @@
         "compass-3",
         "compass-3-filled",
         "compass-filled",
+        "component",
+        "component-filled",
         "compose",
         "compose-2",
         "compose-2-filled",
@@ -125928,6 +126702,8 @@
         "devices-2",
         "devices-2-filled",
         "devices-filled",
+        "dimensions",
+        "dimensions-filled",
         "disc",
         "disc-filled",
         "dollar-circle",
@@ -126153,6 +126929,8 @@
         "home-2-filled",
         "home-3",
         "home-3-filled",
+        "home-dimensions",
+        "home-dimensions-filled",
         "home-filled",
         "hourglass",
         "hourglass-2",
@@ -126232,6 +127010,8 @@
         "laptop-2",
         "laptop-2-filled",
         "laptop-filled",
+        "layers",
+        "layers-filled",
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
@@ -138198,6 +138978,261 @@
             "card",
             "cover",
             "picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "blueprint": {
+          "paths": [
+            "M11.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V4.125A1.5 1.5 0 0 0 11.875 2.625H4.125A1.5 1.5 0 0 0 2.625 4.125V11.875A1.5 1.5 0 0 0 4.125 13.375H7.875",
+            "M6.375 2.625V6.125",
+            "M10.125 9.375H6.375V13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.125 13.375H11.875A1.5 1.5 0 0 0 13.375 11.875V4.125A1.5 1.5 0 0 0 11.875 2.625H4.125A1.5 1.5 0 0 0 2.625 4.125V11.875A1.5 1.5 0 0 0 4.125 13.375H7.875\"/> <path d=\"M6.375 2.625V6.125\"/> <path d=\"M10.125 9.375H6.375V13.375\"/>",
+          "mark": false,
+          "tags": [
+            "floor plan",
+            "plan",
+            "architecture",
+            "rooms",
+            "spec",
+            "design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.1,
+              "optical": 2.08
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 5,
+            "h": 12
+          },
+          "ratio": {
+            "w": 0.42,
+            "h": 1
+          },
+          "gap": null
+        },
+        "blueprint-2": {
+          "paths": [
+            "M5.125 1.625H8.25L12.375 5.75V12.875A1.5 1.5 0 0 1 10.875 14.375H5.125A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625Z",
+            "M8.25 1.625V4.75A1 1 0 0 0 9.25 5.75H12.375",
+            "M12.375 9.625H6.875",
+            "M8.625 9.625V14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.125 1.625H8.25L12.375 5.75V12.875A1.5 1.5 0 0 1 10.875 14.375H5.125A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625Z\"/> <path d=\"M8.25 1.625V4.75A1 1 0 0 0 9.25 5.75H12.375\"/> <path d=\"M12.375 9.625H6.875\"/> <path d=\"M8.625 9.625V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "document",
+            "file",
+            "plan",
+            "spec",
+            "design doc",
+            "architecture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.43,
+              "optical": 3.32
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.59,
+              "optical": 1.45
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.21,
+              "optical": 1.16
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 6.75,
+            "h": 14
+          },
+          "ratio": {
+            "w": 0.48,
+            "h": 1
+          },
+          "gap": null
+        },
+        "blueprint-2-filled": {
+          "paths": [],
+          "areas": [
+            "M5.25 1H7A0.5 0.5 0 0 1 7.5 1.5V4.75A1.75 1.75 0 0 0 9.25 6.5H12.5A0.5 0.5 0 0 1 13 7V8.375A0.5 0.5 0 0 1 12.5 8.875H6.875A0.75 0.75 0 0 0 6.875 10.375H7.375A0.5 0.5 0 0 1 7.875 10.875V14.5A0.5 0.5 0 0 1 7.375 15H5.25A2.25 2.25 0 0 1 3 12.75V3.25A2.25 2.25 0 0 1 5.25 1Z",
+            "M9.875 10.375H12.5A0.5 0.5 0 0 1 13 10.875V12.75A2.25 2.25 0 0 1 10.75 15H9.875A0.5 0.5 0 0 1 9.375 14.5V10.875A0.5 0.5 0 0 1 9.875 10.375Z",
+            "M9 2.04V4.75A0.25 0.25 0 0 0 9.25 5H11.96A0.25 0.25 0 0 0 12.13 4.57L9.43 1.87A0.25 0.25 0 0 0 9 2.04Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 1H7A0.5 0.5 0 0 1 7.5 1.5V4.75A1.75 1.75 0 0 0 9.25 6.5H12.5A0.5 0.5 0 0 1 13 7V8.375A0.5 0.5 0 0 1 12.5 8.875H6.875A0.75 0.75 0 0 0 6.875 10.375H7.375A0.5 0.5 0 0 1 7.875 10.875V14.5A0.5 0.5 0 0 1 7.375 15H5.25A2.25 2.25 0 0 1 3 12.75V3.25A2.25 2.25 0 0 1 5.25 1Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.875 10.375H12.5A0.5 0.5 0 0 1 13 10.875V12.75A2.25 2.25 0 0 1 10.75 15H9.875A0.5 0.5 0 0 1 9.375 14.5V10.875A0.5 0.5 0 0 1 9.875 10.375Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 2.04V4.75A0.25 0.25 0 0 0 9.25 5H11.96A0.25 0.25 0 0 0 12.13 4.57L9.43 1.87A0.25 0.25 0 0 0 9 2.04Z\"/>",
+          "mark": false,
+          "tags": [
+            "document",
+            "file",
+            "plan",
+            "spec",
+            "design doc",
+            "architecture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "blueprint-filled": {
+          "paths": [],
+          "areas": [
+            "M4.125 2H5.125A0.5 0.5 0 0 1 5.625 2.5V6.125A0.75 0.75 0 0 0 7.125 6.125V2.5A0.5 0.5 0 0 1 7.625 2H11.875A2.125 2.125 0 0 1 14 4.125V11.875A2.125 2.125 0 0 1 11.875 14H10.875A0.5 0.5 0 0 1 10.375 13.5V13.25A0.5 0.5 0 0 0 9.875 12.75H9.125A0.5 0.5 0 0 0 8.625 13.25V13.5A0.5 0.5 0 0 1 8.125 14H7.625A0.5 0.5 0 0 1 7.125 13.5V10.625A0.5 0.5 0 0 1 7.625 10.125H10.125A0.75 0.75 0 0 0 10.125 8.625H6.375A0.75 0.75 0 0 0 5.625 9.375V13.5A0.5 0.5 0 0 1 5.125 14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.125 2H5.125A0.5 0.5 0 0 1 5.625 2.5V6.125A0.75 0.75 0 0 0 7.125 6.125V2.5A0.5 0.5 0 0 1 7.625 2H11.875A2.125 2.125 0 0 1 14 4.125V11.875A2.125 2.125 0 0 1 11.875 14H10.875A0.5 0.5 0 0 1 10.375 13.5V13.25A0.5 0.5 0 0 0 9.875 12.75H9.125A0.5 0.5 0 0 0 8.625 13.25V13.5A0.5 0.5 0 0 1 8.125 14H7.625A0.5 0.5 0 0 1 7.125 13.5V10.625A0.5 0.5 0 0 1 7.625 10.125H10.125A0.75 0.75 0 0 0 10.125 8.625H6.375A0.75 0.75 0 0 0 5.625 9.375V13.5A0.5 0.5 0 0 1 5.125 14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2Z\"/>",
+          "mark": false,
+          "tags": [
+            "floor plan",
+            "plan",
+            "architecture",
+            "rooms",
+            "spec",
+            "design"
           ],
           "shift": [
             0,
@@ -158833,6 +159868,130 @@
           "ratio": null,
           "gap": null
         },
+        "component": {
+          "paths": [
+            "M1.625 8L3.75 5.875L5.875 8L3.75 10.125L1.625 8Z",
+            "M5.875 3.75L8 1.625L10.125 3.75L8 5.875L5.875 3.75Z",
+            "M10.125 8L12.25 5.875L14.375 8L12.25 10.125L10.125 8Z",
+            "M5.875 12.25L8 10.125L10.125 12.25L8 14.375L5.875 12.25Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8L3.75 5.875L5.875 8L3.75 10.125L1.625 8Z\"/> <path d=\"M5.875 3.75L8 1.625L10.125 3.75L8 5.875L5.875 3.75Z\"/> <path d=\"M10.125 8L12.25 5.875L14.375 8L12.25 10.125L10.125 8Z\"/> <path d=\"M5.875 12.25L8 10.125L10.125 12.25L8 14.375L5.875 12.25Z\"/>",
+          "mark": false,
+          "tags": [
+            "component",
+            "template",
+            "master",
+            "reusable",
+            "design system",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.35,
+              "optical": 1.26
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.35,
+              "optical": 1.26
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.35,
+              "optical": 1.26
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.35,
+              "optical": 1.26
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "component-filled": {
+          "paths": [],
+          "areas": [
+            "M1.183 8.442A0.625 0.625 0 0 1 1.183 7.558L3.308 5.433A0.625 0.625 0 0 1 4.192 5.433L6.317 7.558A0.625 0.625 0 0 1 6.317 8.442L4.192 10.567A0.625 0.625 0 0 1 3.308 10.567L1.183 8.442Z",
+            "M5.433 4.192A0.625 0.625 0 0 1 5.433 3.308L7.558 1.183A0.625 0.625 0 0 1 8.442 1.183L10.567 3.308A0.625 0.625 0 0 1 10.567 4.192L8.442 6.317A0.625 0.625 0 0 1 7.558 6.317L5.433 4.192Z",
+            "M9.683 8.442A0.625 0.625 0 0 1 9.683 7.558L11.808 5.433A0.625 0.625 0 0 1 12.692 5.433L14.817 7.558A0.625 0.625 0 0 1 14.817 8.442L12.692 10.567A0.625 0.625 0 0 1 11.808 10.567L9.683 8.442Z",
+            "M5.433 12.692A0.625 0.625 0 0 1 5.433 11.808L7.558 9.683A0.625 0.625 0 0 1 8.442 9.683L10.567 11.808A0.625 0.625 0 0 1 10.567 12.692L8.442 14.817A0.625 0.625 0 0 1 7.558 14.817L5.433 12.692Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1.183 8.442A0.625 0.625 0 0 1 1.183 7.558L3.308 5.433A0.625 0.625 0 0 1 4.192 5.433L6.317 7.558A0.625 0.625 0 0 1 6.317 8.442L4.192 10.567A0.625 0.625 0 0 1 3.308 10.567L1.183 8.442Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.433 4.192A0.625 0.625 0 0 1 5.433 3.308L7.558 1.183A0.625 0.625 0 0 1 8.442 1.183L10.567 3.308A0.625 0.625 0 0 1 10.567 4.192L8.442 6.317A0.625 0.625 0 0 1 7.558 6.317L5.433 4.192Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.683 8.442A0.625 0.625 0 0 1 9.683 7.558L11.808 5.433A0.625 0.625 0 0 1 12.692 5.433L14.817 7.558A0.625 0.625 0 0 1 14.817 8.442L12.692 10.567A0.625 0.625 0 0 1 11.808 10.567L9.683 8.442Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.433 12.692A0.625 0.625 0 0 1 5.433 11.808L7.558 9.683A0.625 0.625 0 0 1 8.442 9.683L10.567 11.808A0.625 0.625 0 0 1 10.567 12.692L8.442 14.817A0.625 0.625 0 0 1 7.558 14.817L5.433 12.692Z\"/>",
+          "mark": false,
+          "tags": [
+            "component",
+            "template",
+            "master",
+            "reusable",
+            "design system",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "compose": {
           "paths": [
             "M5.375 4.625L4.125 4.625A1.5 1.5 0 0 0 2.625 6.125L2.625 11.875A1.5 1.5 0 0 0 4.125 13.375L9.875 13.375A1.5 1.5 0 0 0 11.375 11.875L11.375 10.625",
@@ -165161,6 +166320,137 @@
               "geometric": 1,
               "recession": 0,
               "optical": 1
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dimensions": {
+          "paths": [
+            "M4.125 6.625H7.875A1.5 1.5 0 0 1 9.375 8.125V11.875A1.5 1.5 0 0 1 7.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V8.125A1.5 1.5 0 0 1 4.125 6.625Z",
+            "M2.625 3.25H9.375",
+            "M2.625 2.625V3.875",
+            "M9.375 2.625V3.875",
+            "M12.75 6.625V13.375",
+            "M12.125 6.625H13.375",
+            "M12.125 13.375H13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.125 6.625H7.875A1.5 1.5 0 0 1 9.375 8.125V11.875A1.5 1.5 0 0 1 7.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V8.125A1.5 1.5 0 0 1 4.125 6.625Z\"/> <path d=\"M2.625 3.25H9.375\"/> <path d=\"M2.625 2.625V3.875\"/> <path d=\"M9.375 2.625V3.875\"/> <path d=\"M12.75 6.625V13.375\"/> <path d=\"M12.125 6.625H13.375\"/> <path d=\"M12.125 13.375H13.375\"/>",
+          "mark": false,
+          "tags": [
+            "dimensions",
+            "technical drawing",
+            "measure",
+            "spec",
+            "drawing",
+            "size"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.36,
+              "optical": 2.27
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.36,
+              "optical": 2.27
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.04,
+              "optical": 2.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dimensions-filled": {
+          "paths": [
+            "M2.625 3.25H9.375",
+            "M2.625 2.625V3.875",
+            "M9.375 2.625V3.875",
+            "M12.75 6.625V13.375",
+            "M12.125 6.625H13.375",
+            "M12.125 13.375H13.375"
+          ],
+          "areas": [
+            "M4.125 6H7.875A2.125 2.125 0 0 1 10 8.125V11.875A2.125 2.125 0 0 1 7.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.125A2.125 2.125 0 0 1 4.125 6Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.125 6H7.875A2.125 2.125 0 0 1 10 8.125V11.875A2.125 2.125 0 0 1 7.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.125A2.125 2.125 0 0 1 4.125 6Z\"/> <path d=\"M2.625 3.25H9.375\"/> <path d=\"M2.625 2.625V3.875\"/> <path d=\"M9.375 2.625V3.875\"/> <path d=\"M12.75 6.625V13.375\"/> <path d=\"M12.125 6.625H13.375\"/> <path d=\"M12.125 13.375H13.375\"/>",
+          "mark": false,
+          "tags": [
+            "dimensions",
+            "technical drawing",
+            "measure",
+            "spec",
+            "drawing",
+            "size"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             },
             "bottom": {
               "geometric": 2,
@@ -178912,6 +180202,131 @@
           "ratio": null,
           "gap": null
         },
+        "home-dimensions": {
+          "paths": [
+            "M7.293 1.918A1 1 0 0 1 8.707 1.918L12.375 5.586L12.375 8.625A1.5 1.5 0 0 1 10.875 10.125L5.125 10.125A1.5 1.5 0 0 1 3.625 8.625L3.625 5.586L7.293 1.918Z",
+            "M3.625 13.625H12.375",
+            "M3.625 12.875V14.375",
+            "M12.375 12.875V14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.293 1.918A1 1 0 0 1 8.707 1.918L12.375 5.586L12.375 8.625A1.5 1.5 0 0 1 10.875 10.125L5.125 10.125A1.5 1.5 0 0 1 3.625 8.625L3.625 5.586L7.293 1.918Z\"/> <path d=\"M3.625 13.625H12.375\"/> <path d=\"M3.625 12.875V14.375\"/> <path d=\"M12.375 12.875V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "house",
+            "elevation",
+            "architecture",
+            "plan",
+            "dimensions",
+            "measure"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.46,
+              "optical": 3.35
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.46,
+              "optical": 3.35
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.95,
+              "optical": 1.71
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.6,
+              "optical": 1.45
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "home-dimensions-filled": {
+          "paths": [
+            "M3.625 13.625H12.375",
+            "M3.625 12.875V14.375",
+            "M12.375 12.875V14.375"
+          ],
+          "areas": [
+            "M6.851 1.476A1.625 1.625 0 0 1 9.149 1.476L12.817 5.144A0.625 0.625 0 0 1 13 5.586L13 8.625A2.125 2.125 0 0 1 10.875 10.75L5.125 10.75A2.125 2.125 0 0 1 3 8.625L3 5.586A0.625 0.625 0 0 1 3.183 5.144L6.851 1.476Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.851 1.476A1.625 1.625 0 0 1 9.149 1.476L12.817 5.144A0.625 0.625 0 0 1 13 5.586L13 8.625A2.125 2.125 0 0 1 10.875 10.75L5.125 10.75A2.125 2.125 0 0 1 3 8.625L3 5.586A0.625 0.625 0 0 1 3.183 5.144L6.851 1.476Z\"/> <path d=\"M3.625 13.625H12.375\"/> <path d=\"M3.625 12.875V14.375\"/> <path d=\"M12.375 12.875V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "house",
+            "elevation",
+            "architecture",
+            "plan",
+            "dimensions",
+            "measure"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "home-filled": {
           "paths": [],
           "areas": [
@@ -183677,6 +185092,127 @@
               "geometric": 2.62,
               "recession": 0,
               "optical": 2.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "layers": {
+          "paths": [
+            "M2.625 4.875L8 2.375L13.375 4.875L8 7.375Z",
+            "M2.625 8L8 10.5L13.375 8",
+            "M2.625 11.125L8 13.625L13.375 11.125"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 4.875L8 2.375L13.375 4.875L8 7.375Z\"/> <path d=\"M2.625 8L8 10.5L13.375 8\"/> <path d=\"M2.625 11.125L8 13.625L13.375 11.125\"/>",
+          "mark": false,
+          "tags": [
+            "layers",
+            "stack",
+            "architecture",
+            "tiers",
+            "system design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 1.75,
+            "w": 12,
+            "h": 12.5
+          },
+          "bearing": {
+            "left": 2,
+            "top": 1.75,
+            "right": 2,
+            "bottom": 1.75
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.17,
+              "optical": 2.13
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.17,
+              "optical": 2.13
+            },
+            "top": {
+              "geometric": 1.75,
+              "recession": 0.95,
+              "optical": 2.46
+            },
+            "bottom": {
+              "geometric": 1.75,
+              "recession": 0.95,
+              "optical": 2.46
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "layers-filled": {
+          "paths": [
+            "M2.625 8L8 10.5L13.375 8",
+            "M2.625 11.125L8 13.625L13.375 11.125"
+          ],
+          "areas": [
+            "M2.361 5.442A0.625 0.625 0 0 1 2.361 4.308L7.736 1.808A0.625 0.625 0 0 1 8.264 1.808L13.639 4.308A0.625 0.625 0 0 1 13.639 5.442L8.264 7.942A0.625 0.625 0 0 1 7.736 7.942L2.361 5.442Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.361 5.442A0.625 0.625 0 0 1 2.361 4.308L7.736 1.808A0.625 0.625 0 0 1 8.264 1.808L13.639 4.308A0.625 0.625 0 0 1 13.639 5.442L8.264 7.942A0.625 0.625 0 0 1 7.736 7.942L2.361 5.442Z\"/> <path d=\"M2.625 8L8 10.5L13.375 8\"/> <path d=\"M2.625 11.125L8 13.625L13.375 11.125\"/>",
+          "mark": false,
+          "tags": [
+            "layers",
+            "stack",
+            "architecture",
+            "tiers",
+            "system design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 1.75,
+            "w": 12,
+            "h": 12.5
+          },
+          "bearing": {
+            "left": 2,
+            "top": 1.75,
+            "right": 2,
+            "bottom": 1.75
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 1.75,
+              "recession": 0,
+              "optical": 1.75
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 1.75,
+              "recession": 0,
+              "optical": 1.75
             }
           },
           "container": null,
@@ -250639,6 +252175,10 @@
         "blog-4",
         "blog-4-filled",
         "blog-filled",
+        "blueprint",
+        "blueprint-2",
+        "blueprint-2-filled",
+        "blueprint-filled",
         "bluetooth",
         "bluetooth-2",
         "bluetooth-2-filled",
@@ -250989,6 +252529,8 @@
         "compass-3",
         "compass-3-filled",
         "compass-filled",
+        "component",
+        "component-filled",
         "compose",
         "compose-2",
         "compose-2-filled",
@@ -251095,6 +252637,8 @@
         "devices-2",
         "devices-2-filled",
         "devices-filled",
+        "dimensions",
+        "dimensions-filled",
         "disc",
         "disc-filled",
         "dollar-circle",
@@ -251320,6 +252864,8 @@
         "home-2-filled",
         "home-3",
         "home-3-filled",
+        "home-dimensions",
+        "home-dimensions-filled",
         "home-filled",
         "hourglass",
         "hourglass-2",
@@ -251399,6 +252945,8 @@
         "laptop-2",
         "laptop-2-filled",
         "laptop-filled",
+        "layers",
+        "layers-filled",
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
@@ -263365,6 +264913,261 @@
             "card",
             "cover",
             "picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "blueprint": {
+          "paths": [
+            "M13.5 16.25H14.25A2 2 0 0 0 16.25 14.25V5.75A2 2 0 0 0 14.25 3.75H5.75A2 2 0 0 0 3.75 5.75V14.25A2 2 0 0 0 5.75 16.25H10",
+            "M8.25 3.75V7.75",
+            "M12.75 11.25H8.25V16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M13.5 16.25H14.25A2 2 0 0 0 16.25 14.25V5.75A2 2 0 0 0 14.25 3.75H5.75A2 2 0 0 0 3.75 5.75V14.25A2 2 0 0 0 5.75 16.25H10\"/> <path d=\"M8.25 3.75V7.75\"/> <path d=\"M12.75 11.25H8.25V16.25\"/>",
+          "mark": false,
+          "tags": [
+            "floor plan",
+            "plan",
+            "architecture",
+            "rooms",
+            "spec",
+            "design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 6,
+            "h": 14
+          },
+          "ratio": {
+            "w": 0.43,
+            "h": 1
+          },
+          "gap": null
+        },
+        "blueprint-2": {
+          "paths": [
+            "M6.75 2.75H10.25L15.25 7.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z",
+            "M10.25 2.75V6.5A1.25 1.25 0 0 0 11.5 7.75H15.25",
+            "M15.25 12.25H8.25",
+            "M11 12.25V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.75 2.75H10.25L15.25 7.75V15.25A2 2 0 0 1 13.25 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75Z\"/> <path d=\"M10.25 2.75V6.5A1.25 1.25 0 0 0 11.5 7.75H15.25\"/> <path d=\"M15.25 12.25H8.25\"/> <path d=\"M11 12.25V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "document",
+            "file",
+            "plan",
+            "spec",
+            "design doc",
+            "architecture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.55,
+              "optical": 4.41
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.73,
+              "optical": 2.55
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 8.5,
+            "h": 16
+          },
+          "ratio": {
+            "w": 0.53,
+            "h": 1
+          },
+          "gap": null
+        },
+        "blueprint-2-filled": {
+          "paths": [],
+          "areas": [
+            "M6.75 2H9A0.5 0.5 0 0 1 9.5 2.5V6.5A2 2 0 0 0 11.5 8.5H15.5A0.5 0.5 0 0 1 16 9V11A0.5 0.5 0 0 1 15.5 11.5H8.25A0.75 0.75 0 0 0 8.25 13H9.75A0.5 0.5 0 0 1 10.25 13.5V17.5A0.5 0.5 0 0 1 9.75 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2Z",
+            "M12.25 13H15.5A0.5 0.5 0 0 1 16 13.5V15.25A2.75 2.75 0 0 1 13.25 18H12.25A0.5 0.5 0 0 1 11.75 17.5V13.5A0.5 0.5 0 0 1 12.25 13Z",
+            "M11 3.04V6.5A0.5 0.5 0 0 0 11.5 7H14.96A0.25 0.25 0 0 0 15.13 6.57L11.43 2.87A0.25 0.25 0 0 0 11 3.04Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 2H9A0.5 0.5 0 0 1 9.5 2.5V6.5A2 2 0 0 0 11.5 8.5H15.5A0.5 0.5 0 0 1 16 9V11A0.5 0.5 0 0 1 15.5 11.5H8.25A0.75 0.75 0 0 0 8.25 13H9.75A0.5 0.5 0 0 1 10.25 13.5V17.5A0.5 0.5 0 0 1 9.75 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.25 13H15.5A0.5 0.5 0 0 1 16 13.5V15.25A2.75 2.75 0 0 1 13.25 18H12.25A0.5 0.5 0 0 1 11.75 17.5V13.5A0.5 0.5 0 0 1 12.25 13Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 3.04V6.5A0.5 0.5 0 0 0 11.5 7H14.96A0.25 0.25 0 0 0 15.13 6.57L11.43 2.87A0.25 0.25 0 0 0 11 3.04Z\"/>",
+          "mark": false,
+          "tags": [
+            "document",
+            "file",
+            "plan",
+            "spec",
+            "design doc",
+            "architecture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "blueprint-filled": {
+          "paths": [],
+          "areas": [
+            "M5.75 3H7A0.5 0.5 0 0 1 7.5 3.5V7.75A0.75 0.75 0 0 0 9 7.75V3.5A0.5 0.5 0 0 1 9.5 3H14.25A2.75 2.75 0 0 1 17 5.75V14.25A2.75 2.75 0 0 1 14.25 17H13.25A0.5 0.5 0 0 1 12.75 16.5V16A0.5 0.5 0 0 0 12.25 15.5H11.25A0.5 0.5 0 0 0 10.75 16V16.5A0.5 0.5 0 0 1 10.25 17H9.5A0.5 0.5 0 0 1 9 16.5V12.5A0.5 0.5 0 0 1 9.5 12H12.75A0.75 0.75 0 0 0 12.75 10.5H8.25A0.75 0.75 0 0 0 7.5 11.25V16.5A0.5 0.5 0 0 1 7 17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.75 3H7A0.5 0.5 0 0 1 7.5 3.5V7.75A0.75 0.75 0 0 0 9 7.75V3.5A0.5 0.5 0 0 1 9.5 3H14.25A2.75 2.75 0 0 1 17 5.75V14.25A2.75 2.75 0 0 1 14.25 17H13.25A0.5 0.5 0 0 1 12.75 16.5V16A0.5 0.5 0 0 0 12.25 15.5H11.25A0.5 0.5 0 0 0 10.75 16V16.5A0.5 0.5 0 0 1 10.25 17H9.5A0.5 0.5 0 0 1 9 16.5V12.5A0.5 0.5 0 0 1 9.5 12H12.75A0.75 0.75 0 0 0 12.75 10.5H8.25A0.75 0.75 0 0 0 7.5 11.25V16.5A0.5 0.5 0 0 1 7 17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3Z\"/>",
+          "mark": false,
+          "tags": [
+            "floor plan",
+            "plan",
+            "architecture",
+            "rooms",
+            "spec",
+            "design"
           ],
           "shift": [
             0,
@@ -284018,6 +285821,130 @@
           "ratio": null,
           "gap": null
         },
+        "component": {
+          "paths": [
+            "M2.75 10L5.25 7.5L7.75 10L5.25 12.5L2.75 10Z",
+            "M7.5 5.25L10 2.75L12.5 5.25L10 7.75L7.5 5.25Z",
+            "M12.25 10L14.75 7.5L17.25 10L14.75 12.5L12.25 10Z",
+            "M7.5 14.75L10 12.25L12.5 14.75L10 17.25L7.5 14.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10L5.25 7.5L7.75 10L5.25 12.5L2.75 10Z\"/> <path d=\"M7.5 5.25L10 2.75L12.5 5.25L10 7.75L7.5 5.25Z\"/> <path d=\"M12.25 10L14.75 7.5L17.25 10L14.75 12.5L12.25 10Z\"/> <path d=\"M7.5 14.75L10 12.25L12.5 14.75L10 17.25L7.5 14.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "component",
+            "template",
+            "master",
+            "reusable",
+            "design system",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.32
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.32
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.32
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.32
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "component-filled": {
+          "paths": [],
+          "areas": [
+            "M2.22 10.53A0.75 0.75 0 0 1 2.22 9.47L4.72 6.97A0.75 0.75 0 0 1 5.78 6.97L8.28 9.47A0.75 0.75 0 0 1 8.28 10.53L5.78 13.03A0.75 0.75 0 0 1 4.72 13.03L2.22 10.53Z",
+            "M6.97 5.78A0.75 0.75 0 0 1 6.97 4.72L9.47 2.22A0.75 0.75 0 0 1 10.53 2.22L13.03 4.72A0.75 0.75 0 0 1 13.03 5.78L10.53 8.28A0.75 0.75 0 0 1 9.47 8.28L6.97 5.78Z",
+            "M11.72 10.53A0.75 0.75 0 0 1 11.72 9.47L14.22 6.97A0.75 0.75 0 0 1 15.28 6.97L17.78 9.47A0.75 0.75 0 0 1 17.78 10.53L15.28 13.03A0.75 0.75 0 0 1 14.22 13.03L11.72 10.53Z",
+            "M6.97 15.28A0.75 0.75 0 0 1 6.97 14.22L9.47 11.72A0.75 0.75 0 0 1 10.53 11.72L13.03 14.22A0.75 0.75 0 0 1 13.03 15.28L10.53 17.78A0.75 0.75 0 0 1 9.47 17.78L6.97 15.28Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.22 10.53A0.75 0.75 0 0 1 2.22 9.47L4.72 6.97A0.75 0.75 0 0 1 5.78 6.97L8.28 9.47A0.75 0.75 0 0 1 8.28 10.53L5.78 13.03A0.75 0.75 0 0 1 4.72 13.03L2.22 10.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.97 5.78A0.75 0.75 0 0 1 6.97 4.72L9.47 2.22A0.75 0.75 0 0 1 10.53 2.22L13.03 4.72A0.75 0.75 0 0 1 13.03 5.78L10.53 8.28A0.75 0.75 0 0 1 9.47 8.28L6.97 5.78Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.72 10.53A0.75 0.75 0 0 1 11.72 9.47L14.22 6.97A0.75 0.75 0 0 1 15.28 6.97L17.78 9.47A0.75 0.75 0 0 1 17.78 10.53L15.28 13.03A0.75 0.75 0 0 1 14.22 13.03L11.72 10.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.97 15.28A0.75 0.75 0 0 1 6.97 14.22L9.47 11.72A0.75 0.75 0 0 1 10.53 11.72L13.03 14.22A0.75 0.75 0 0 1 13.03 15.28L10.53 17.78A0.75 0.75 0 0 1 9.47 17.78L6.97 15.28Z\"/>",
+          "mark": false,
+          "tags": [
+            "component",
+            "template",
+            "master",
+            "reusable",
+            "design system",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "compose": {
           "paths": [
             "M7.75 5.75L5.75 5.75A2 2 0 0 0 3.75 7.75L3.75 14.25A2 2 0 0 0 5.75 16.25L12.25 16.25A2 2 0 0 0 14.25 14.25L14.25 12.25",
@@ -290348,6 +292275,137 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dimensions": {
+          "paths": [
+            "M5.75 8.25H9.75A2 2 0 0 1 11.75 10.25V14.25A2 2 0 0 1 9.75 16.25H5.75A2 2 0 0 1 3.75 14.25V10.25A2 2 0 0 1 5.75 8.25Z",
+            "M3.75 4.5H11.75",
+            "M3.75 3.75V5.25",
+            "M11.75 3.75V5.25",
+            "M15.5 8.25V16.25",
+            "M14.75 8.25H16.25",
+            "M14.75 16.25H16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 8.25H9.75A2 2 0 0 1 11.75 10.25V14.25A2 2 0 0 1 9.75 16.25H5.75A2 2 0 0 1 3.75 14.25V10.25A2 2 0 0 1 5.75 8.25Z\"/> <path d=\"M3.75 4.5H11.75\"/> <path d=\"M3.75 3.75V5.25\"/> <path d=\"M11.75 3.75V5.25\"/> <path d=\"M15.5 8.25V16.25\"/> <path d=\"M14.75 8.25H16.25\"/> <path d=\"M14.75 16.25H16.25\"/>",
+          "mark": false,
+          "tags": [
+            "dimensions",
+            "technical drawing",
+            "measure",
+            "spec",
+            "drawing",
+            "size"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.04,
+              "optical": 3.03
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.44,
+              "optical": 3.33
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.44,
+              "optical": 3.33
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.26,
+              "optical": 3.19
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dimensions-filled": {
+          "paths": [
+            "M3.75 4.5H11.75",
+            "M3.75 3.75V5.25",
+            "M11.75 3.75V5.25",
+            "M15.5 8.25V16.25",
+            "M14.75 8.25H16.25",
+            "M14.75 16.25H16.25"
+          ],
+          "areas": [
+            "M5.75 7.5H9.75A2.75 2.75 0 0 1 12.5 10.25V14.25A2.75 2.75 0 0 1 9.75 17H5.75A2.75 2.75 0 0 1 3 14.25V10.25A2.75 2.75 0 0 1 5.75 7.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.75 7.5H9.75A2.75 2.75 0 0 1 12.5 10.25V14.25A2.75 2.75 0 0 1 9.75 17H5.75A2.75 2.75 0 0 1 3 14.25V10.25A2.75 2.75 0 0 1 5.75 7.5Z\"/> <path d=\"M3.75 4.5H11.75\"/> <path d=\"M3.75 3.75V5.25\"/> <path d=\"M11.75 3.75V5.25\"/> <path d=\"M15.5 8.25V16.25\"/> <path d=\"M14.75 8.25H16.25\"/> <path d=\"M14.75 16.25H16.25\"/>",
+          "mark": false,
+          "tags": [
+            "dimensions",
+            "technical drawing",
+            "measure",
+            "spec",
+            "drawing",
+            "size"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             },
             "bottom": {
               "geometric": 3,
@@ -304106,6 +306164,131 @@
           "ratio": null,
           "gap": null
         },
+        "home-dimensions": {
+          "paths": [
+            "M9.12 3.12A1.25 1.25 0 0 1 10.88 3.12L15.25 7.48L15.25 10.75A2 2 0 0 1 13.25 12.75L6.75 12.75A2 2 0 0 1 4.75 10.75L4.75 7.48L9.12 3.12Z",
+            "M4.75 16.5H15.25",
+            "M4.75 15.75V17.25",
+            "M15.25 15.75V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9.12 3.12A1.25 1.25 0 0 1 10.88 3.12L15.25 7.48L15.25 10.75A2 2 0 0 1 13.25 12.75L6.75 12.75A2 2 0 0 1 4.75 10.75L4.75 7.48L9.12 3.12Z\"/> <path d=\"M4.75 16.5H15.25\"/> <path d=\"M4.75 15.75V17.25\"/> <path d=\"M15.25 15.75V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "house",
+            "elevation",
+            "architecture",
+            "plan",
+            "dimensions",
+            "measure"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2.01,
+            "w": 12,
+            "h": 15.99
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2.01,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.58,
+              "optical": 4.44
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.58,
+              "optical": 4.44
+            },
+            "top": {
+              "geometric": 2.01,
+              "recession": 1.13,
+              "optical": 2.85
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.62,
+              "optical": 2.46
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "home-dimensions-filled": {
+          "paths": [
+            "M4.75 16.5H15.25",
+            "M4.75 15.75V17.25",
+            "M15.25 15.75V17.25"
+          ],
+          "areas": [
+            "M8.59 2.59A2 2 0 0 1 11.41 2.59L15.78 6.95A0.75 0.75 0 0 1 16 7.48L16 10.75A2.75 2.75 0 0 1 13.25 13.5L6.75 13.5A2.75 2.75 0 0 1 4 10.75L4 7.48A0.75 0.75 0 0 1 4.22 6.95L8.59 2.59Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.59 2.59A2 2 0 0 1 11.41 2.59L15.78 6.95A0.75 0.75 0 0 1 16 7.48L16 10.75A2.75 2.75 0 0 1 13.25 13.5L6.75 13.5A2.75 2.75 0 0 1 4 10.75L4 7.48A0.75 0.75 0 0 1 4.22 6.95L8.59 2.59Z\"/> <path d=\"M4.75 16.5H15.25\"/> <path d=\"M4.75 15.75V17.25\"/> <path d=\"M15.25 15.75V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "house",
+            "elevation",
+            "architecture",
+            "plan",
+            "dimensions",
+            "measure"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2.01,
+            "w": 12,
+            "h": 15.99
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2.01,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2.01,
+              "recession": 0,
+              "optical": 2.01
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "home-filled": {
           "paths": [],
           "areas": [
@@ -308872,6 +311055,127 @@
               "geometric": 4,
               "recession": 0,
               "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "layers": {
+          "paths": [
+            "M3.75 6.5L10 3.75L16.25 6.5L10 9.25Z",
+            "M3.75 10L10 12.75L16.25 10",
+            "M3.75 13.5L10 16.25L16.25 13.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 6.5L10 3.75L16.25 6.5L10 9.25Z\"/> <path d=\"M3.75 10L10 12.75L16.25 10\"/> <path d=\"M3.75 13.5L10 16.25L16.25 13.5\"/>",
+          "mark": false,
+          "tags": [
+            "layers",
+            "stack",
+            "architecture",
+            "tiers",
+            "system design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.49,
+              "optical": 3.37
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.49,
+              "optical": 3.37
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.11,
+              "optical": 3.83
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.11,
+              "optical": 3.83
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "layers-filled": {
+          "paths": [
+            "M3.75 10L10 12.75L16.25 10",
+            "M3.75 13.5L10 16.25L16.25 13.5"
+          ],
+          "areas": [
+            "M3.45 7.19A0.75 0.75 0 0 1 3.45 5.81L9.7 3.06A0.75 0.75 0 0 1 10.3 3.06L16.55 5.81A0.75 0.75 0 0 1 16.55 7.19L10.3 9.94A0.75 0.75 0 0 1 9.7 9.94L3.45 7.19Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.45 7.19A0.75 0.75 0 0 1 3.45 5.81L9.7 3.06A0.75 0.75 0 0 1 10.3 3.06L16.55 5.81A0.75 0.75 0 0 1 16.55 7.19L10.3 9.94A0.75 0.75 0 0 1 9.7 9.94L3.45 7.19Z\"/> <path d=\"M3.75 10L10 12.75L16.25 10\"/> <path d=\"M3.75 13.5L10 16.25L16.25 13.5\"/>",
+          "mark": false,
+          "tags": [
+            "layers",
+            "stack",
+            "architecture",
+            "tiers",
+            "system design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.99,
+            "y": 3,
+            "w": 14.01,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2.99,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.99,
+              "recession": 0,
+              "optical": 2.99
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -375857,6 +378161,10 @@
         "blog-4",
         "blog-4-filled",
         "blog-filled",
+        "blueprint",
+        "blueprint-2",
+        "blueprint-2-filled",
+        "blueprint-filled",
         "bluetooth",
         "bluetooth-2",
         "bluetooth-2-filled",
@@ -376207,6 +378515,8 @@
         "compass-3",
         "compass-3-filled",
         "compass-filled",
+        "component",
+        "component-filled",
         "compose",
         "compose-2",
         "compose-2-filled",
@@ -376313,6 +378623,8 @@
         "devices-2",
         "devices-2-filled",
         "devices-filled",
+        "dimensions",
+        "dimensions-filled",
         "disc",
         "disc-filled",
         "dollar-circle",
@@ -376538,6 +378850,8 @@
         "home-2-filled",
         "home-3",
         "home-3-filled",
+        "home-dimensions",
+        "home-dimensions-filled",
         "home-filled",
         "hourglass",
         "hourglass-2",
@@ -376617,6 +378931,8 @@
         "laptop-2",
         "laptop-2-filled",
         "laptop-filled",
+        "layers",
+        "layers-filled",
         "layout-footer",
         "layout-footer-2",
         "layout-footer-2-filled",
@@ -388586,6 +390902,261 @@
             "card",
             "cover",
             "picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "blueprint": {
+          "paths": [
+            "M16.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H12.25",
+            "M9.75 3.75V9.75",
+            "M16.25 13.75H9.75V20.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M16.25 20.25H17.75A2.5 2.5 0 0 0 20.25 17.75V6.25A2.5 2.5 0 0 0 17.75 3.75H6.25A2.5 2.5 0 0 0 3.75 6.25V17.75A2.5 2.5 0 0 0 6.25 20.25H12.25\"/> <path d=\"M9.75 3.75V9.75\"/> <path d=\"M16.25 13.75H9.75V20.25\"/>",
+          "mark": false,
+          "tags": [
+            "floor plan",
+            "plan",
+            "architecture",
+            "rooms",
+            "spec",
+            "design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.13,
+              "optical": 3.1
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 8,
+            "h": 18
+          },
+          "ratio": {
+            "w": 0.44,
+            "h": 1
+          },
+          "gap": null
+        },
+        "blueprint-2": {
+          "paths": [
+            "M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z",
+            "M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25",
+            "M19.25 14.75H8.75",
+            "M13.25 14.75V21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.25 2.75H13.25L19.25 8.75V18.75A2.5 2.5 0 0 1 16.75 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75Z\"/> <path d=\"M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25\"/> <path d=\"M19.25 14.75H8.75\"/> <path d=\"M13.25 14.75V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "document",
+            "file",
+            "plan",
+            "spec",
+            "design doc",
+            "architecture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.54,
+              "optical": 4.4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.67,
+              "optical": 2.5
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 12,
+            "h": 20
+          },
+          "ratio": {
+            "w": 0.6,
+            "h": 1
+          },
+          "gap": null
+        },
+        "blueprint-2-filled": {
+          "paths": [],
+          "areas": [
+            "M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V13.5A0.5 0.5 0 0 1 19.5 14H8.75A0.75 0.75 0 0 0 8.75 15.5H12A0.5 0.5 0 0 1 12.5 16V21.5A0.5 0.5 0 0 1 12 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z",
+            "M14.5 15.5H19.5A0.5 0.5 0 0 1 20 16V18.75A3.25 3.25 0 0 1 16.75 22H14.5A0.5 0.5 0 0 1 14 21.5V16A0.5 0.5 0 0 1 14.5 15.5Z",
+            "M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V7.25A2.25 2.25 0 0 0 14.75 9.5H19.5A0.5 0.5 0 0 1 20 10V13.5A0.5 0.5 0 0 1 19.5 14H8.75A0.75 0.75 0 0 0 8.75 15.5H12A0.5 0.5 0 0 1 12.5 16V21.5A0.5 0.5 0 0 1 12 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.5 15.5H19.5A0.5 0.5 0 0 1 20 16V18.75A3.25 3.25 0 0 1 16.75 22H14.5A0.5 0.5 0 0 1 14 21.5V16A0.5 0.5 0 0 1 14.5 15.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z\"/>",
+          "mark": false,
+          "tags": [
+            "document",
+            "file",
+            "plan",
+            "spec",
+            "design doc",
+            "architecture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "blueprint-filled": {
+          "paths": [],
+          "areas": [
+            "M6.25 3H8.5A0.5 0.5 0 0 1 9 3.5V9.75A0.75 0.75 0 0 0 10.5 9.75V3.5A0.5 0.5 0 0 1 11 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H16A0.5 0.5 0 0 1 15.5 20.5V20A0.5 0.5 0 0 0 15 19.5H13.5A0.5 0.5 0 0 0 13 20V20.5A0.5 0.5 0 0 1 12.5 21H11A0.5 0.5 0 0 1 10.5 20.5V15A0.5 0.5 0 0 1 11 14.5H16.25A0.75 0.75 0 0 0 16.25 13H9.75A0.75 0.75 0 0 0 9 13.75V20.5A0.5 0.5 0 0 1 8.5 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3H8.5A0.5 0.5 0 0 1 9 3.5V9.75A0.75 0.75 0 0 0 10.5 9.75V3.5A0.5 0.5 0 0 1 11 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H16A0.5 0.5 0 0 1 15.5 20.5V20A0.5 0.5 0 0 0 15 19.5H13.5A0.5 0.5 0 0 0 13 20V20.5A0.5 0.5 0 0 1 12.5 21H11A0.5 0.5 0 0 1 10.5 20.5V15A0.5 0.5 0 0 1 11 14.5H16.25A0.75 0.75 0 0 0 16.25 13H9.75A0.75 0.75 0 0 0 9 13.75V20.5A0.5 0.5 0 0 1 8.5 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3Z\"/>",
+          "mark": false,
+          "tags": [
+            "floor plan",
+            "plan",
+            "architecture",
+            "rooms",
+            "spec",
+            "design"
           ],
           "shift": [
             0,
@@ -409272,6 +411843,130 @@
           "ratio": null,
           "gap": null
         },
+        "component": {
+          "paths": [
+            "M2.75 12L6.25 8.5L9.75 12L6.25 15.5L2.75 12Z",
+            "M8.5 6.25L12 2.75L15.5 6.25L12 9.75L8.5 6.25Z",
+            "M14.25 12L17.75 8.5L21.25 12L17.75 15.5L14.25 12Z",
+            "M8.5 17.75L12 14.25L15.5 17.75L12 21.25L8.5 17.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12L6.25 8.5L9.75 12L6.25 15.5L2.75 12Z\"/> <path d=\"M8.5 6.25L12 2.75L15.5 6.25L12 9.75L8.5 6.25Z\"/> <path d=\"M14.25 12L17.75 8.5L21.25 12L17.75 15.5L14.25 12Z\"/> <path d=\"M8.5 17.75L12 14.25L15.5 17.75L12 21.25L8.5 17.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "component",
+            "template",
+            "master",
+            "reusable",
+            "design system",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.49,
+              "optical": 2.37
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.49,
+              "optical": 2.37
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.49,
+              "optical": 2.37
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.49,
+              "optical": 2.37
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "component-filled": {
+          "paths": [],
+          "areas": [
+            "M2.22 12.53A0.75 0.75 0 0 1 2.22 11.47L5.72 7.97A0.75 0.75 0 0 1 6.78 7.97L10.28 11.47A0.75 0.75 0 0 1 10.28 12.53L6.78 16.03A0.75 0.75 0 0 1 5.72 16.03L2.22 12.53Z",
+            "M7.97 6.78A0.75 0.75 0 0 1 7.97 5.72L11.47 2.22A0.75 0.75 0 0 1 12.53 2.22L16.03 5.72A0.75 0.75 0 0 1 16.03 6.78L12.53 10.28A0.75 0.75 0 0 1 11.47 10.28L7.97 6.78Z",
+            "M13.72 12.53A0.75 0.75 0 0 1 13.72 11.47L17.22 7.97A0.75 0.75 0 0 1 18.28 7.97L21.78 11.47A0.75 0.75 0 0 1 21.78 12.53L18.28 16.03A0.75 0.75 0 0 1 17.22 16.03L13.72 12.53Z",
+            "M7.97 18.28A0.75 0.75 0 0 1 7.97 17.22L11.47 13.72A0.75 0.75 0 0 1 12.53 13.72L16.03 17.22A0.75 0.75 0 0 1 16.03 18.28L12.53 21.78A0.75 0.75 0 0 1 11.47 21.78L7.97 18.28Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.22 12.53A0.75 0.75 0 0 1 2.22 11.47L5.72 7.97A0.75 0.75 0 0 1 6.78 7.97L10.28 11.47A0.75 0.75 0 0 1 10.28 12.53L6.78 16.03A0.75 0.75 0 0 1 5.72 16.03L2.22 12.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.97 6.78A0.75 0.75 0 0 1 7.97 5.72L11.47 2.22A0.75 0.75 0 0 1 12.53 2.22L16.03 5.72A0.75 0.75 0 0 1 16.03 6.78L12.53 10.28A0.75 0.75 0 0 1 11.47 10.28L7.97 6.78Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.72 12.53A0.75 0.75 0 0 1 13.72 11.47L17.22 7.97A0.75 0.75 0 0 1 18.28 7.97L21.78 11.47A0.75 0.75 0 0 1 21.78 12.53L18.28 16.03A0.75 0.75 0 0 1 17.22 16.03L13.72 12.53Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.97 18.28A0.75 0.75 0 0 1 7.97 17.22L11.47 13.72A0.75 0.75 0 0 1 12.53 13.72L16.03 17.22A0.75 0.75 0 0 1 16.03 18.28L12.53 21.78A0.75 0.75 0 0 1 11.47 21.78L7.97 18.28Z\"/>",
+          "mark": false,
+          "tags": [
+            "component",
+            "template",
+            "master",
+            "reusable",
+            "design system",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "compose": {
           "paths": [
             "M11 5.75L6.25 5.75A2.5 2.5 0 0 0 3.75 8.25L3.75 17.75A2.5 2.5 0 0 0 6.25 20.25L15.75 20.25A2.5 2.5 0 0 0 18.25 17.75L18.25 13",
@@ -415607,6 +418302,137 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dimensions": {
+          "paths": [
+            "M6.25 9.25H12.25A2.5 2.5 0 0 1 14.75 11.75V17.75A2.5 2.5 0 0 1 12.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V11.75A2.5 2.5 0 0 1 6.25 9.25Z",
+            "M3.75 4.75H14.75",
+            "M3.75 3.75V5.75",
+            "M14.75 3.75V5.75",
+            "M19.25 9.25V20.25",
+            "M18.25 9.25H20.25",
+            "M18.25 20.25H20.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.25 9.25H12.25A2.5 2.5 0 0 1 14.75 11.75V17.75A2.5 2.5 0 0 1 12.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V11.75A2.5 2.5 0 0 1 6.25 9.25Z\"/> <path d=\"M3.75 4.75H14.75\"/> <path d=\"M3.75 3.75V5.75\"/> <path d=\"M14.75 3.75V5.75\"/> <path d=\"M19.25 9.25V20.25\"/> <path d=\"M18.25 9.25H20.25\"/> <path d=\"M18.25 20.25H20.25\"/>",
+          "mark": false,
+          "tags": [
+            "dimensions",
+            "technical drawing",
+            "measure",
+            "spec",
+            "drawing",
+            "size"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.47
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.47
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.26,
+              "optical": 3.2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "dimensions-filled": {
+          "paths": [
+            "M3.75 4.75H14.75",
+            "M3.75 3.75V5.75",
+            "M14.75 3.75V5.75",
+            "M19.25 9.25V20.25",
+            "M18.25 9.25H20.25",
+            "M18.25 20.25H20.25"
+          ],
+          "areas": [
+            "M6.25 8.5H12.25A3.25 3.25 0 0 1 15.5 11.75V17.75A3.25 3.25 0 0 1 12.25 21H6.25A3.25 3.25 0 0 1 3 17.75V11.75A3.25 3.25 0 0 1 6.25 8.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 8.5H12.25A3.25 3.25 0 0 1 15.5 11.75V17.75A3.25 3.25 0 0 1 12.25 21H6.25A3.25 3.25 0 0 1 3 17.75V11.75A3.25 3.25 0 0 1 6.25 8.5Z\"/> <path d=\"M3.75 4.75H14.75\"/> <path d=\"M3.75 3.75V5.75\"/> <path d=\"M14.75 3.75V5.75\"/> <path d=\"M19.25 9.25V20.25\"/> <path d=\"M18.25 9.25H20.25\"/> <path d=\"M18.25 20.25H20.25\"/>",
+          "mark": false,
+          "tags": [
+            "dimensions",
+            "technical drawing",
+            "measure",
+            "spec",
+            "drawing",
+            "size"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             },
             "bottom": {
               "geometric": 3,
@@ -429380,6 +432206,131 @@
           "ratio": null,
           "gap": null
         },
+        "home-dimensions": {
+          "paths": [
+            "M10.94 3.19A1.5 1.5 0 0 1 13.06 3.19L19.25 9.38L19.25 13.75A2.5 2.5 0 0 1 16.75 16.25L7.25 16.25A2.5 2.5 0 0 1 4.75 13.75L4.75 9.38L10.94 3.19Z",
+            "M4.75 20.25H19.25",
+            "M4.75 19.25V21.25",
+            "M19.25 19.25V21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.94 3.19A1.5 1.5 0 0 1 13.06 3.19L19.25 9.38L19.25 13.75A2.5 2.5 0 0 1 16.75 16.25L7.25 16.25A2.5 2.5 0 0 1 4.75 13.75L4.75 9.38L10.94 3.19Z\"/> <path d=\"M4.75 20.25H19.25\"/> <path d=\"M4.75 19.25V21.25\"/> <path d=\"M19.25 19.25V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "house",
+            "elevation",
+            "architecture",
+            "plan",
+            "dimensions",
+            "measure"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.64,
+              "optical": 4.48
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.64,
+              "optical": 4.48
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.2,
+              "optical": 2.9
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.85,
+              "optical": 2.63
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "home-dimensions-filled": {
+          "paths": [
+            "M4.75 20.25H19.25",
+            "M4.75 19.25V21.25",
+            "M19.25 19.25V21.25"
+          ],
+          "areas": [
+            "M10.41 2.66A2.25 2.25 0 0 1 13.59 2.66L19.78 8.85A0.75 0.75 0 0 1 20 9.38L20 13.75A3.25 3.25 0 0 1 16.75 17L7.25 17A3.25 3.25 0 0 1 4 13.75L4 9.38A0.75 0.75 0 0 1 4.22 8.85L10.41 2.66Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.41 2.66A2.25 2.25 0 0 1 13.59 2.66L19.78 8.85A0.75 0.75 0 0 1 20 9.38L20 13.75A3.25 3.25 0 0 1 16.75 17L7.25 17A3.25 3.25 0 0 1 4 13.75L4 9.38A0.75 0.75 0 0 1 4.22 8.85L10.41 2.66Z\"/> <path d=\"M4.75 20.25H19.25\"/> <path d=\"M4.75 19.25V21.25\"/> <path d=\"M19.25 19.25V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "house",
+            "elevation",
+            "architecture",
+            "plan",
+            "dimensions",
+            "measure"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "home-filled": {
           "paths": [],
           "areas": [
@@ -434143,6 +437094,127 @@
               "geometric": 4.5,
               "recession": 0,
               "optical": 4.5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "layers": {
+          "paths": [
+            "M3.75 7.5L12 3.75L20.25 7.5L12 11.25Z",
+            "M3.75 12L12 15.75L20.25 12",
+            "M3.75 16.5L12 20.25L20.25 16.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 7.5L12 3.75L20.25 7.5L12 11.25Z\"/> <path d=\"M3.75 12L12 15.75L20.25 12\"/> <path d=\"M3.75 16.5L12 20.25L20.25 16.5\"/>",
+          "mark": false,
+          "tags": [
+            "layers",
+            "stack",
+            "architecture",
+            "tiers",
+            "system design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.55,
+              "optical": 3.41
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.55,
+              "optical": 3.41
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.2,
+              "optical": 3.9
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.2,
+              "optical": 3.9
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "layers-filled": {
+          "paths": [
+            "M3.75 12L12 15.75L20.25 12",
+            "M3.75 16.5L12 20.25L20.25 16.5"
+          ],
+          "areas": [
+            "M3.44 8.18A0.75 0.75 0 0 1 3.44 6.82L11.69 3.07A0.75 0.75 0 0 1 12.31 3.07L20.56 6.82A0.75 0.75 0 0 1 20.56 8.18L12.31 11.93A0.75 0.75 0 0 1 11.69 11.93L3.44 8.18Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.44 8.18A0.75 0.75 0 0 1 3.44 6.82L11.69 3.07A0.75 0.75 0 0 1 12.31 3.07L20.56 6.82A0.75 0.75 0 0 1 20.56 8.18L12.31 11.93A0.75 0.75 0 0 1 11.69 11.93L3.44 8.18Z\"/> <path d=\"M3.75 12L12 15.75L20.25 12\"/> <path d=\"M3.75 16.5L12 20.25L20.25 16.5\"/>",
+          "mark": false,
+          "tags": [
+            "layers",
+            "stack",
+            "architecture",
+            "tiers",
+            "system design"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -502605,6 +505677,17 @@
       "date": "2026-09-28"
     },
     {
+      "n": 40,
+      "name": "home-dimensions",
+      "section": "C · Core containers and figures",
+      "category": "UI & Layout",
+      "base": "home",
+      "note": "House elevation · approved 2026-10-23",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-23"
+    },
+    {
       "n": 41,
       "name": "user",
       "section": "C · Core containers and figures",
@@ -507978,10 +511061,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": null,
-      "note": null,
-      "status": "todo",
+      "note": "approved 2026-10-23",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-23"
     },
     {
       "n": 210,
@@ -509925,10 +513008,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Development & Infra",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-23",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-23"
+    },
+    {
+      "n": 291,
+      "name": "blueprint-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Development & Infra",
+      "base": "blueprint",
+      "note": "Document with a plan · approved 2026-10-23",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-23"
     },
     {
       "n": 292,
@@ -513830,6 +516924,28 @@
       "section": "E · Added on request",
       "category": "Status & Feedback",
       "base": "help-circle",
+      "note": "added 2026-10-23 · approved 2026-10-23",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-23"
+    },
+    {
+      "n": 588,
+      "name": "dimensions",
+      "section": "E · Added on request",
+      "category": "Design Tools",
+      "base": null,
+      "note": "added 2026-10-23 · approved 2026-10-23",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-23"
+    },
+    {
+      "n": 589,
+      "name": "component",
+      "section": "E · Added on request",
+      "category": "Design Tools",
+      "base": null,
       "note": "added 2026-10-23 · approved 2026-10-23",
       "status": "done",
       "mvp": false,

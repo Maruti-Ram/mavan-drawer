@@ -175,6 +175,7 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 40. `home` · UI & Layout — approved 2026-09-20
 - [x] 40. `home-2` · UI & Layout · variant of `home` — Low roof, door · approved 2026-09-20
 - [x] 40. `home-3` · UI & Layout · variant of `home` — Low roof, doormat line · approved 2026-09-28
+- [x] 40. `home-dimensions` · UI & Layout · variant of `home` — House elevation · approved 2026-10-23
 - [x] 41. `user` · Users & Access — mvp · approved 2026-09-20
 - [x] 41. `user-2` · Users & Access · variant of `user` — Large head, low dome · approved 2026-09-20
 - [x] 41. `user-3` · Users & Access · variant of `user` — Open square shoulders · approved 2026-09-20
@@ -668,7 +669,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 208. `film` · Media & Playback — approved 2026-10-22
 - [x] 208. `film-reel` · Media & Playback · variant of `film` — Reel · approved 2026-10-22
 - [x] 208. `film-roll` · Media & Playback · variant of `film` — 35 mm canister · approved 2026-10-22
-- [ ] 209. `layers` · Design Tools
+- [x] 209. `layers` · Design Tools — approved 2026-10-23
 - [x] 210. `map` · Maps & Location — approved 2026-10-18
 - [x] 210. `map-pinned` · Maps & Location · variant of `map` — Pin badge · approved 2026-10-18
 - [x] 210. `map-target` · Maps & Location · variant of `map` — You-are-here badge · approved 2026-10-18
@@ -845,7 +846,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
 - [x] 290. `toggles` · UI & Layout — approved 2026-10-20
 - [x] 290. `toggles-2` · UI & Layout · variant of `toggles` — Big knob over a slim track, polished, on over off · approved 2026-10-20
-- [~] 291. `blueprint` · Development & Infra
+- [x] 291. `blueprint` · Development & Infra — approved 2026-10-23
+- [x] 291. `blueprint-2` · Development & Infra · variant of `blueprint` — Document with a plan · approved 2026-10-23
 - [x] 292. `decision-process` · Development & Infra — approved 2026-10-23
 - [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
 - [ ] 294. `filters` · Design Tools
@@ -1206,3 +1208,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 585. `flask` · Development & Infra — added 2026-10-23 · approved 2026-10-23
 - [x] 586. `automation` · Development & Infra — added 2026-10-23 · approved 2026-10-23
 - [x] 587. `help-diamond` · Status & Feedback · variant of `help-circle` — added 2026-10-23 · approved 2026-10-23
+- [x] 588. `dimensions` · Design Tools — added 2026-10-23 · approved 2026-10-23
+- [x] 589. `component` · Design Tools — added 2026-10-23 · approved 2026-10-23
