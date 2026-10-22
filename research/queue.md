@@ -1056,20 +1056,20 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
 - [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
 - [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
-- [x] 526. `credit-card-contactless` — added 2026-10-21 · approved 2026-10-21
-- [x] 527. `phone-contactless` — added 2026-10-21 · approved 2026-10-21
-- [x] 528. `badge-check` — added 2026-10-21 · approved 2026-10-21
-- [x] 529. `piggy-bank` — added 2026-10-21 · approved 2026-10-21
-- [x] 530. `ticket-percent` — added 2026-10-21 · approved 2026-10-21
-- [x] 531. `tickets` — added 2026-10-21 · approved 2026-10-21
-- [x] 532. `van` — added 2026-10-21 · approved 2026-10-21
-- [x] 533. `hand-coins` — added 2026-10-21 · approved 2026-10-21
+- [x] 526. `credit-card-contactless` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 527. `phone-contactless` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 528. `badge-check` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 529. `piggy-bank` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 530. `ticket-percent` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 531. `tickets` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 532. `van` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 533. `hand-coins` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 534. `euro` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 535. `euro-circle` · Currency — added 2026-10-21 · approved 2026-10-21
-- [x] 536. `gift-card` — added 2026-10-21 · approved 2026-10-21
+- [x] 536. `gift-card` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 537. `dollar-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 537. `dollar-circle-2` · Currency · variant of `dollar-circle` — G in a coin · approved 2026-10-21
-- [x] 538. `heart-handshake` — added 2026-10-21 · approved 2026-10-21
+- [x] 538. `heart-handshake` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 539. `pound` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 540. `yen` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 541. `rupee` · Currency — added 2026-10-21 · approved 2026-10-21
