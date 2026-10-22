@@ -18,7 +18,7 @@
 //                   It also lets a numeral keep the OUTLINE weight in a line-heavy filled
 //                   drawing (C32, 2026-10-17): a filled entry's `glyph: [d…]` is written as
 //                   `<path stroke-width="<outline weight>" d="…"/>` beside the rails at
-//                   FILLED_WEIGHT — with a C32 letter and a C33 line badge (below), the only
+//                   FILLED_WEIGHT — with a C32 letter or currency sign and a C33 line badge (below), the only
 //                   paths that may carry their own weight
 //   glyph: letter   FILLED FILES ONLY — letters drawn inside a LINE-HEAVY icon (translate's A and
 //                   文, 2026-10-20) keep the OUTLINE weight in the filled drawing, as a C32 numeral
@@ -26,7 +26,9 @@
 //                   `glyph: 'letter'` on the candidate or the board. C32's weight and nothing else:
 //                   a letter's openings get no GLYPH_GAP, so with no opening floor to keep it in
 //                   use the note is written only into the filled files whose letters carry their
-//                   own weight, as `badge: line` is (a letter note elsewhere declares nothing)
+//                   own weight, as `badge: line` is (a letter note elsewhere declares nothing).
+//                   A CURRENCY SIGN inside a line-heavy icon is written the same way, with
+//                   `glyph: 'letter'` (2026-10-22, first currency-convert's $)
 //   badge: line     FILLED FILES ONLY — a C33 line badge (a key, a loop, a plus) on a LINE-HEAVY
 //                   base keeps the OUTLINE weight while the base goes to FILLED_WEIGHT (2026-10-19,
 //                   first passkey-2: the key on fingerprint's bold print). A filled entry's
@@ -85,7 +87,7 @@ export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical =
   ...(note ? [`  <!-- ${note.replace(/--/g, '—')} -->`] : []),
   ...fill.map((d) => `  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="${d}"/>`),
   ...stroke.map((d) => `  <path d="${d}"/>`),
-  // C32: a numeral or a letter in a line-heavy filled drawing keeps the master's outline weight
+  // C32: a numeral, a letter or a currency sign in a line-heavy filled drawing keeps the master's outline weight
   ...glyphs.map((d) => `  <path stroke-width="${strokeOf(m)}" d="${d}"/>`),
   // C33: so does a line badge on a line-heavy base
   ...badges.map((d) => `  <path stroke-width="${strokeOf(m)}" d="${d}"/>`),
@@ -131,14 +133,14 @@ export function candidateFiles(draft, c, name) {
     // a shape-filled one has none, and its leftover lines keep the outline stroke.
     const sw = strokeOf(m);
     const fw = f.weight ?? sw;
-    // C32: `filled.glyph` holds the numeral(s) or letter(s) of a LINE-HEAVY filled drawing, which
+    // C32: `filled.glyph` holds the numeral(s), letter(s) or currency sign(s) of a LINE-HEAVY filled drawing, which
     // keep the outline weight while the rails in `stroke` go to `weight`. Only there: a shape-filled
     // drawing's lines already stay at the outline weight (list-ordered's numerals sit in its
     // `stroke`), and without a heavier weight there is nothing to keep the numeral out of.
     const glyphs = f.glyph ?? [];
     const kind = glyph === 'letter' ? 'letter' : 'numeral';
     if (glyphs.length) {
-      if (glyph !== 'numeral' && glyph !== 'letter') throw new Error(`${c.id} at ${m}: filled.glyph keeps a numeral or a letter at the outline weight, which needs glyph: 'numeral' or glyph: 'letter' on the candidate or the board (C32).`);
+      if (glyph !== 'numeral' && glyph !== 'letter') throw new Error(`${c.id} at ${m}: filled.glyph keeps a numeral, a letter or a currency sign at the outline weight, which needs glyph: 'numeral' or glyph: 'letter' on the candidate or the board (C32).`);
       if (f.fill?.length) throw new Error(`${c.id} at ${m}: filled.glyph is for a line-heavy filled drawing; this one fills shapes, so its ${kind}'s lines already stay at ${sw} — put them in filled.stroke (C32).`);
       if (fw === sw) throw new Error(`${c.id} at ${m}: filled.glyph needs a filled weight heavier than ${sw} (filled.weight); at the outline weight the ${kind} belongs in filled.stroke (C32).`);
     }

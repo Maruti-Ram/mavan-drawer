@@ -1118,7 +1118,7 @@ test('C32: a 1.5 numeral beside a 2.5 rail is measured at its own weight', () =>
 
 test('C32: a per-path stroke-width without `glyph: numeral` is an ERROR naming the path', () => {
   const r = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
-  assert.ok(r.errors.some((e) => /^path 2 carries its own stroke-width="1\.5" — only a numeral or a letter may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\)/.test(e)), r.errors.join(' | '));
+  assert.ok(r.errors.some((e) => /^path 2 carries its own stroke-width="1\.5" — only a numeral, a letter or a currency sign may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\)/.test(e)), r.errors.join(' | '));
 });
 
 test('C32: a numeral at any weight but the outline\'s is an ERROR, and so is one that repeats the root', () => {
@@ -1341,7 +1341,7 @@ test('C33: a badge pair floors at 1.5 even beside `glyph: dot` — a ring badge 
 
 test('C33: the badge note is an ERROR when lint cannot read it, when nothing draws under it, or beside glyph: numeral', () => {
   const none = lintSource(24, 'repeat-once-filled.svg', RAIL24('M12 10.5V17', { notes: ['keyline: mark'] }));
-  assert.ok(none.errors.some((e) => /only a numeral or a letter may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\), or a line badge, in one that declares <!-- badge: line --> \(C33\)/.test(e)), none.errors.join(' | '));
+  assert.ok(none.errors.some((e) => /only a numeral, a letter or a currency sign may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> \(C32\), or a line badge, in one that declares <!-- badge: line --> \(C33\)/.test(e)), none.errors.join(' | '));
   const wrong = lintSource(24, 'passkey-2-filled.svg', RAIL24('M12 10.5V17', { notes: BADGE, sw: '2' }));
   assert.ok(wrong.errors.some((e) => /^path 2 carries stroke-width="2" — a line badge keeps this master's outline weight, "1\.5" \(C33\)$/.test(e)), wrong.errors.join(' | '));
   assert.ok(!wrong.errors.some((e) => /no path carries/.test(e)), 'one error for one mistake');

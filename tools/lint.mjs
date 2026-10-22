@@ -32,7 +32,7 @@ function polyGap(a, b) {
 // that declares `<!-- glyph: numeral -->`, a numeral's path carries its own
 // `stroke-width` at the master's OUTLINE weight, so a 1 inside 2.5 rails does not thicken
 // into a blob. Every measure below reads each path at its own weight. Widened 2026-10-20 to
-// letters, declared `<!-- glyph: letter -->` (translate's A and 文). A second (C33,
+// letters, declared `<!-- glyph: letter -->` (translate's A and 文), and to currency signs in a line-heavy icon (2026-10-22, currency-convert's $, same note). A second (C33,
 // 2026-10-19): in one that declares `<!-- badge: line -->`, a line badge's paths do the same,
 // so passkey-2's key keeps its ring beside fingerprint's bold print.
 const required = (canvas, weight) => ({
@@ -170,7 +170,7 @@ export function parseBaseNote(src) {
 //            closed path or a hole (§5i), and a numeral's own hole — outline or filled — in
 //            every check, §5f's width across a cut-out included (Maruti, 2026-10-20); nothing
 //            else does: numeral-to-numeral and numeral-to-line keep MIN_GAP
-//   letter   letters drawn inside a LINE-HEAVY icon (translate's A and 文, 2026-10-20): C32's
+//   letter   letters, and currency signs, drawn inside a LINE-HEAVY icon (translate's A and 文, 2026-10-20; currency-convert's $, 2026-10-22): C32's
 //            weight and nothing else — a letter's path keeps the outline weight in the filled
 //            file (§2b), as a numeral's does, but its openings get no GLYPH_GAP: they keep §6, or
 //            the file's `gap` note, like any path. Written only into the filled files whose
@@ -300,7 +300,7 @@ export function lintSource(canvas, file, src) {
   // --- 0b'. the glyph note (C19; §5, §5b and §5c read it) -------------------
   let glyph = parseGlyphNote(src);
   if (glyph?.bad) {
-    errors.push(`glyph note "${glyph.raw}" is not a kind lint knows — write <!-- glyph: dot --> (a character with a detached dot), <!-- glyph: numeral --> (numerals inside the icon) (C19) or <!-- glyph: letter --> (letters kept at the outline weight in a line-heavy filled drawing) (C32)`);
+    errors.push(`glyph note "${glyph.raw}" is not a kind lint knows — write <!-- glyph: dot --> (a character with a detached dot), <!-- glyph: numeral --> (numerals inside the icon) (C19) or <!-- glyph: letter --> (letters or currency signs kept at the outline weight in a line-heavy filled drawing) (C32)`);
     glyph = null;
   }
   const isGlyph = glyph?.kind === 'dot';
@@ -398,7 +398,7 @@ export function lintSource(canvas, file, src) {
   // outline weight, in a file with the note — and HEAD's blanket test then runs on what is left,
   // so any other stroke attribute, any quoting, a repeat or a path lint cannot read still fails.
   // C32 widened (2026-10-20): `<!-- glyph: letter -->` grants the same, on the same terms, to a
-  // letter's paths (translate's A and 文), and nothing else — §5b and §5f read them as any path.
+  // letter's paths (translate's A and 文; a currency sign's since 2026-10-22), and nothing else — §5b and §5f read them as any path.
   // C33 (2026-10-19): `<!-- badge: line -->` grants the same, on the same terms, to a line
   // badge's paths; `inBadge[i]` marks them for §5, §5b and §5f.
   const OUTLINE = strokeOf(canvas);
@@ -416,7 +416,7 @@ export function lintSource(canvas, file, src) {
     const v = own[1];
     owned++;
     if (!keepsWeight && !isBadge)
-      errors.push(`path ${i + 1} carries its own stroke-width="${v}" — only a numeral or a letter may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> (C32), or a line badge, in one that declares <!-- badge: line --> (C33); everything else draws at the root's ${STROKE}`);
+      errors.push(`path ${i + 1} carries its own stroke-width="${v}" — only a numeral, a letter or a currency sign may, in a file that declares <!-- glyph: numeral --> or <!-- glyph: letter --> (C32), or a line badge, in one that declares <!-- badge: line --> (C33); everything else draws at the root's ${STROKE}`);
     else if (v !== String(OUTLINE))
       errors.push(`path ${i + 1} carries stroke-width="${v}" — ${who} keeps this master's outline weight, "${OUTLINE}" (${rule})`);
     else if (OUTLINE === STROKE)
@@ -502,7 +502,7 @@ export function lintSource(canvas, file, src) {
       if (W.every((w) => w === STROKE)) {
         const b = bbox(ds.slice(1));
         inner = r2(Math.max(b.x1 - b.x0, b.y1 - b.y0) + STROKE);
-      } else {   // a C32 numeral or letter is thinner than the lines beside it: grow each path by its own half
+      } else {   // a C32 numeral, letter or currency sign is thinner than the lines beside it: grow each path by its own half
         const bs = ds.slice(1).map((d, i) => { const b = bbox([d]), h = W[i + 1] / 2; return [b.x0 - h, b.y0 - h, b.x1 + h, b.y1 + h]; });
         inner = r2(Math.max(Math.max(...bs.map((b) => b[2])) - Math.min(...bs.map((b) => b[0])), Math.max(...bs.map((b) => b[3])) - Math.min(...bs.map((b) => b[1]))));
       }
@@ -557,7 +557,7 @@ export function lintSource(canvas, file, src) {
   // §6 asks MIN_GAP (1.5 units) between any two stroke edges, at every master —
   // the floor does not thin with the line, so a lighter master just leaves more
   // air. Only the conversion from centreline distance to edge gap is per master:
-  // it subtracts half of each path's own weight (one weight per file, bar a C32 numeral or letter).
+  // it subtracts half of each path's own weight (one weight per file, bar a C32 numeral, letter or currency sign).
   // C19 carves out one case:
   // in a file that declares `<!-- glyph: dot -->`, the pair {dot, body} is the inside
   // of one character and floors at GLYPH_GAP instead. The dot's clearance to the

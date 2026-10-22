@@ -19,7 +19,8 @@ export const strokeOf = (master) => STROKES[master];
 // Every other icon fills its shapes and keeps the outline stroke for any line.
 // C32 (2026-10-17): a numeral inside a line-heavy icon keeps the OUTLINE weight in the
 // filled file (`<!-- glyph: numeral -->`, its path carrying `stroke-width`; lint §2b); so
-// does a letter since 2026-10-20 (`<!-- glyph: letter -->`, translate's A and 文).
+// does a letter since 2026-10-20 (`<!-- glyph: letter -->`, translate's A and 文), and a currency sign
+// since 2026-10-22 (the same note, first currency-convert's $).
 // C33 (2026-10-19): so does a LINE badge on a line-heavy base (`<!-- badge: line -->`,
 // first passkey-2's key on fingerprint's print), its air to the base floored at MIN_GAP.
 export const FILLED_WEIGHT = { 24: 2.5, 20: 2, 16: 2 };
@@ -119,7 +120,7 @@ export const gridName = (master) => gridNameFor(strokeOf(master));
 // Extended 2026-10-20 to a character's own CROSSING ARMS (the tip air lint §5 reads with
 // `armTipGap`, docs/01 §6): under `glyph: dot` any two paths but the silhouette, under
 // `glyph: numeral` one path crossing itself only.
-// Not letters: `<!-- glyph: letter -->` (C32, 2026-10-20) keeps a letter's weight and nothing
+// Not letters or currency signs: `<!-- glyph: letter -->` (C32, 2026-10-20) keeps a letter's weight and nothing
 // else; a letter's openings and crossing arms keep MIN_GAP, or the file's gap note (there is no ruling on them,
 // and translate's hold 1.5).
 export const GLYPH_GAP = 1;

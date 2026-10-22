@@ -158,7 +158,7 @@ if (draftFile || given) {
     for (const m of MASTERS) {
       const shift = c.optical?.[m] ?? [0, 0], f = c.filled[m];
       (drafted[m] ??= {})[name] = measure(c.masters[m], [], strokeOf(m), shift, c.tags ?? []);
-      // a C32 numeral or letter and a C33 line badge keep the outline weight: carried, not measured
+      // a C32 numeral, letter or currency sign and a C33 line badge keep the outline weight: carried, not measured
       // into the filled ink (the outline twin holds the same box)
       drafted[m][`${name}-filled`] = { ...measure(f.stroke ?? [], f.fill ?? [], f.weight ?? strokeOf(m), shift, c.tags ?? []),
         glyphs: f.glyph ?? [], badges: f.badge ?? [] };
@@ -274,7 +274,7 @@ shapes.forEach((name, k) => {
       c.filled[m] = f.areas.length
         ? { fill: f.areas.map(backArea), stroke: f.paths.map(back) }
         : { weight: f.stroke, stroke: f.paths.map(back) };
-      if (f.glyphs?.length) c.filled[m].glyph = f.glyphs.map(back);   // C32: a draft's numeral or letter
+      if (f.glyphs?.length) c.filled[m].glyph = f.glyphs.map(back);   // C32: a draft's numeral, letter or currency sign
       if (f.badges?.length) c.filled[m].badge = f.badges.map(back);   // C33: a draft's line badge
     }
     // the asked position, and where it snapped at each master when that is not just the asked one scaled

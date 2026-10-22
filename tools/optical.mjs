@@ -67,7 +67,7 @@ function contiguousRecession(prof, far, stroke) {
   return sum / prof.length;
 }
 
-// `stroke` is one weight, or one per path (C32: a numeral or a letter in a line-heavy filled drawing keeps
+// `stroke` is one weight, or one per path (C32: a numeral, a letter or a currency sign in a line-heavy filled drawing keeps
 // the outline weight beside heavier rails); a recession is capped at the heaviest.
 export function opticalBearings(paths, stroke = 2, canvas = 24, alpha = 0.75) {
   const weightAt = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
