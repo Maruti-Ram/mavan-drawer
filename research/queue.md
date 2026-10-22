@@ -852,7 +852,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 312. `speaker-2` · Media & Playback · variant of `speaker` — Speaker pair · approved 2026-10-22
 - [x] 313. `terminal` · Development & Infra — approved 2026-10-20
 - [x] 313. `terminal-2` · Development & Infra · variant of `terminal` — Prompt in a window · approved 2026-10-20
-- [~] 314. `tv` · Devices & Hardware
+- [x] 314. `tv` · Devices & Hardware — approved 2026-10-22
+- [x] 314. `tv-2` · Devices & Hardware · variant of `tv` — Retro set with knobs · approved 2026-10-22
+- [x] 314. `tv-3` · Devices & Hardware · variant of `tv` — Curved stand · approved 2026-10-22
 - [~] 315. `voicemail` · Devices & Hardware
 - [x] 316. `chevrons-down` · Arrows & Direction — approved 2026-10-17
 - [x] 316. `chevrons-down-2` · Arrows & Direction · variant of `chevrons-down` — Small, tight · approved 2026-10-17
