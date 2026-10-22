@@ -579,7 +579,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 181. `outdent-2` · Editing & Text · variant of `outdent` — Chevron · approved 2026-10-22
 - [x] 181. `outdent-3` · Editing & Text · variant of `outdent` — Arrow · approved 2026-10-22
 - [x] 182. `popup` · UI & Layout — approved 2026-10-20
-- [~] 183. `replace` · Editing & Text
+- [x] 183. `replace` · Editing & Text — approved 2026-10-22
+- [x] 183. `replace-2` · Editing & Text · variant of `replace` — Lens of cycle arrows · approved 2026-10-22
+- [x] 183. `replace-3` · Editing & Text · variant of `replace` — a becomes b · approved 2026-10-22
 - [x] 184. `rows` · UI & Layout — approved 2026-10-20
 - [x] 184. `rows-2` · UI & Layout · variant of `rows` — Two row boxes · approved 2026-10-20
 - [x] 184. `rows-3` · UI & Layout · variant of `rows` — Three row guides · approved 2026-10-20
