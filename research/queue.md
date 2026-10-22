@@ -850,6 +850,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 296. `roadmap` · Maps & Location — approved 2026-10-18
 - [x] 296. `roadmap-2` · Maps & Location · variant of `roadmap` — One board on a post · approved 2026-10-18
 - [x] 296. `roadmap-3` · Maps & Location · variant of `roadmap` — Two bars (Jira) · approved 2026-10-19
+- [x] 296. `roadmap-4` · Maps & Location · variant of `roadmap` — Signpost · approved 2026-10-23
 - [x] 296. `route` · Maps & Location — Route (maps) · approved 2026-10-19
 - [~] 297. `squares-connected` · Development & Infra
 - [ ] 298. `stack-perspective` · Design Tools
@@ -1189,3 +1190,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 581. `satellite-image` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [x] 582. `car-battery` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
 - [~] 583. `cloud-upload` · Development & Infra · variant of `cloud` — added 2026-10-23
+- [x] 584. `split` · Arrows & Direction — added 2026-10-23 · approved 2026-10-23
+- [x] 584. `split-2` · Arrows & Direction · variant of `split` — Ahead or right · approved 2026-10-23
+- [ ] 585. `flask` · Development & Infra — added 2026-10-23
+- [ ] 586. `automation` · Development & Infra — added 2026-10-23
+- [x] 587. `help-diamond` · Status & Feedback · variant of `help-circle` — added 2026-10-23 · approved 2026-10-23
