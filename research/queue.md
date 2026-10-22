@@ -491,7 +491,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 135. `percent-2` · Commerce & Payments · variant of `percent` — Typed glyph · approved 2026-10-21
 - [x] 135. `percent-circle` · Commerce & Payments · variant of `percent` — In a circle · approved 2026-10-21
 - [x] 136. `stop-circle` · Media & Playback — approved 2026-10-22
-- [~] 137. `tablet` · Devices & Hardware
+- [x] 137. `tablet` · Devices & Hardware — approved 2026-10-23
+- [x] 137. `tablet-2` · Devices & Hardware · variant of `tablet` — Camera dot · approved 2026-10-23
+- [x] 137. `tablet-3` · Devices & Hardware · variant of `tablet` — Home button · approved 2026-10-23
+- [x] 137. `tablet-landscape` · Devices & Hardware · variant of `tablet` — Landscape · approved 2026-10-23
 - [x] 138. `truck` · Commerce & Payments — approved 2026-10-21
 - [x] 138. `truck-fast` · Commerce & Payments · variant of `truck` — In motion — filled: every line cut white · approved 2026-10-21
 - [x] 139. `wifi` · Devices & Hardware — approved 2026-10-23
