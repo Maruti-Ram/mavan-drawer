@@ -852,7 +852,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 296. `roadmap-3` · Maps & Location · variant of `roadmap` — Two bars (Jira) · approved 2026-10-19
 - [x] 296. `roadmap-4` · Maps & Location · variant of `roadmap` — Signpost · approved 2026-10-23
 - [x] 296. `route` · Maps & Location — Route (maps) · approved 2026-10-19
-- [~] 297. `squares-connected` · Development & Infra
+- [x] 297. `squares-connected` · Development & Infra — approved 2026-10-23
+- [x] 297. `squares-connected-2` · Development & Infra · variant of `squares-connected` — Two tiles, linked both ways · approved 2026-10-23
+- [x] 297. `squares-connected-3` · Development & Infra · variant of `squares-connected` — Two tiles stacked, short link · approved 2026-10-23
 - [ ] 298. `stack-perspective` · Design Tools
 - [x] 299. `subscription` · Commerce & Payments — approved 2026-10-21
 - [x] 299. `subscription-2` · Commerce & Payments · variant of `subscription` — Box on repeat · approved 2026-10-21
