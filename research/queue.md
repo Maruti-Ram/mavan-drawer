@@ -855,7 +855,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 314. `tv` · Devices & Hardware — approved 2026-10-22
 - [x] 314. `tv-2` · Devices & Hardware · variant of `tv` — Retro set with knobs · approved 2026-10-22
 - [x] 314. `tv-3` · Devices & Hardware · variant of `tv` — Curved stand · approved 2026-10-22
-- [~] 315. `voicemail` · Devices & Hardware
+- [x] 315. `voicemail` · Devices & Hardware — approved 2026-10-22
+- [x] 315. `voicemail-2` · Devices & Hardware · variant of `voicemail` — Reels in a box · approved 2026-10-22
+- [x] 315. `voicemail-circle` · Devices & Hardware · variant of `voicemail` — Reels in a circle · approved 2026-10-22
 - [x] 316. `chevrons-down` · Arrows & Direction — approved 2026-10-17
 - [x] 316. `chevrons-down-2` · Arrows & Direction · variant of `chevrons-down` — Small, tight · approved 2026-10-17
 - [x] 317. `chevrons-left` · Arrows & Direction — approved 2026-10-17
