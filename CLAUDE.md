@@ -228,7 +228,7 @@ radius     container 2.5 · bend/detail 1.5 (at 24; proposed) · mark corners = 
 min gap    a literal 1.5 between any two stroke edges, at every master — no longer "one
            stroke-width" at 16, since the 16 stroke is 1.25
 dashes     dash 4 · 2.5 · 2.25 long, 2.25 · 1.82 · 1.55 of air between ends, one dash centred on each
-           corner, at the outline weight (C35, set by drag-drop)
+           corner, at the outline weight (C35, set by drag-drop; a short cut line beside a picture may shorten the dash, scissors-2)
 ```
 
 **There is no "live area."** The circle keyline IS the outer drawing bound. The

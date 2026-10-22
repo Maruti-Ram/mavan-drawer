@@ -496,7 +496,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
 - [x] 140. `alert-octagon-3` · Status & Feedback · variant of `alert-octagon` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
 - [x] 140. `alert-octagon-4` · Status & Feedback · variant of `alert-octagon` — Wedge + dash (alert-circle-4's mark) · approved 2026-10-20
-- [ ] 141. `backspace` · Editing & Text
+- [~] 141. `backspace` · Editing & Text
 - [x] 142. `columns` · UI & Layout — mvp · approved 2026-10-18
 - [x] 142. `columns-2` · UI & Layout · variant of `columns` — Two column boxes · approved 2026-10-18
 - [x] 142. `columns-3` · UI & Layout · variant of `columns` — Three column guides · approved 2026-10-18
@@ -536,7 +536,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 157. `redo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 157. `redo-2` · Arrows & Direction · variant of `redo` — U-turn · redo · approved 2026-10-17
 - [x] 157. `redo-3` · Arrows & Direction · variant of `redo` — Squared return · redo · approved 2026-10-17
-- [ ] 158. `spell-check` · Editing & Text
+- [~] 158. `spell-check` · Editing & Text
 - [x] 159. `undo` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 159. `undo-2` · Arrows & Direction · variant of `undo` — U-turn · undo · approved 2026-10-17
 - [x] 159. `undo-3` · Arrows & Direction · variant of `undo` — Squared return · undo · approved 2026-10-17
@@ -571,10 +571,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 179. `id-card-2` · Users & Access · variant of `id-card` — Badge with a slot · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-3` · Users & Access · variant of `id-card` — Clip-on badge · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-4` · Users & Access · variant of `id-card` — Passport · approved 2026-10-19
-- [ ] 180. `indent` · Editing & Text
-- [ ] 181. `outdent` · Editing & Text
+- [~] 180. `indent` · Editing & Text
+- [~] 181. `outdent` · Editing & Text
 - [x] 182. `popup` · UI & Layout — approved 2026-10-20
-- [ ] 183. `replace` · Editing & Text
+- [~] 183. `replace` · Editing & Text
 - [x] 184. `rows` · UI & Layout — approved 2026-10-20
 - [x] 184. `rows-2` · UI & Layout · variant of `rows` — Two row boxes · approved 2026-10-20
 - [x] 184. `rows-3` · UI & Layout · variant of `rows` — Three row guides · approved 2026-10-20
@@ -610,7 +610,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 197. `repeat` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 197. `repeat-2` · Arrows & Direction · variant of `repeat` — Closed ring, mid-rail heads · approved 2026-10-17
 - [x] 197. `repeat-3` · Arrows & Direction · variant of `repeat` — Stadium, heads into the turns · approved 2026-10-17
-- [ ] 198. `scissors` · Editing & Text — mvp
+- [x] 198. `scissors` · Editing & Text — mvp · approved 2026-10-22
+- [x] 198. `scissors-2` · Editing & Text · variant of `scissors` — On a dashed cut line · approved 2026-10-22
 - [x] 199. `unlock` · Users & Access — mvp · approved 2026-10-19
 - [x] 199. `unlock-2` · Users & Access · variant of `unlock` — Keyhole dot, released · approved 2026-10-19
 - [x] 199. `unlock-3` · Users & Access · variant of `unlock` — Round body, released · approved 2026-10-19
@@ -661,7 +662,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 219. `headset` · Communication — approved 2026-10-20
 - [x] 219. `headset-2` · Communication · variant of `headset` — Straight boom · approved 2026-10-20
 - [x] 219. `headset-3` · Communication · variant of `headset` — One ear · approved 2026-10-20
-- [ ] 220. `highlighter` · Editing & Text
+- [~] 220. `highlighter` · Editing & Text
 - [x] 221. `hourglass` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 221. `hourglass-2` · Time & Calendar · variant of `hourglass` — Full bow · approved 2026-10-17
 - [x] 221. `hourglass-3` · Time & Calendar · variant of `hourglass` — Bulb flush with the caps · approved 2026-10-17
@@ -676,7 +677,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 223. `messages-7` · Communication · variant of `messages` — Pair, soft · approved 2026-10-20
 - [x] 224. `password` · UI & Layout — approved 2026-10-20
 - [x] 224. `password-2` · UI & Layout · variant of `password` — Asterisks on one line, six arms, kept apart · approved 2026-10-20
-- [ ] 225. `pen-sparkle` · Editing & Text
+- [~] 225. `pen-sparkle` · Editing & Text
 - [x] 226. `sticker` · Communication — approved 2026-10-20
 - [x] 226. `sticker-2` · Communication · variant of `sticker` — Square with face-smile's face, corner peeled · approved 2026-10-20
 - [x] 226. `sticker-3` · Communication · variant of `sticker` — Round, edge peeled · approved 2026-10-20
@@ -728,7 +729,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 258. `scan` · Devices & Hardware
 - [x] 259. `collapse` · Arrows & Direction — mvp · approved 2026-10-17
 - [x] 259. `collapse-2` · Arrows & Direction · variant of `collapse` — Two arrows · collapse · approved 2026-10-17
-- [ ] 261. `blog` · Editing & Text
+- [~] 261. `blog` · Editing & Text
 - [x] 262. `button` · UI & Layout — approved 2026-10-20
 - [x] 262. `button-2` · UI & Layout · variant of `button` — Raised button · approved 2026-10-20
 - [x] 262. `button-3` · UI & Layout · variant of `button` — Push-button · approved 2026-10-20
@@ -784,7 +785,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 287. `saved-items` · Status & Feedback — approved 2026-10-20
 - [x] 287. `saved-items-2` · Status & Feedback · variant of `saved-items` — Ribbon with a tick (bookmark-2) · approved 2026-10-20
 - [x] 520. `library` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
-- [ ] 288. `scribble` · Editing & Text
+- [~] 288. `scribble` · Editing & Text
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
 - [x] 290. `toggles` · UI & Layout — approved 2026-10-20
@@ -1100,3 +1101,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 566. `ruble-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 567. `peso-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 568. `won-circle` · Currency — added 2026-10-21 · approved 2026-10-21
+- [ ] 569. `text-sparkle` · Editing & Text — added 2026-10-22
+- [ ] 570. `signature` · Editing & Text — added 2026-10-22
