@@ -844,7 +844,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 310. `radio-3` · Media & Playback · variant of `radio` — Dial radio · approved 2026-10-22
 - [x] 310. `radio-tower` · Media & Playback — Radio tower · approved 2026-10-22
 - [ ] 311. `server` · Development & Infra
-- [~] 312. `speaker` · Media & Playback
+- [x] 312. `speaker` · Media & Playback — approved 2026-10-22
+- [x] 312. `speaker-2` · Media & Playback · variant of `speaker` — Speaker pair · approved 2026-10-22
 - [x] 313. `terminal` · Development & Infra — approved 2026-10-20
 - [x] 313. `terminal-2` · Development & Infra · variant of `terminal` — Prompt in a window · approved 2026-10-20
 - [ ] 314. `tv` · Devices & Hardware
