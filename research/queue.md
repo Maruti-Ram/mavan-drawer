@@ -1113,3 +1113,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 568. `won-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 569. `text-sparkle` · Editing & Text — added 2026-10-22 · approved 2026-10-22
 - [x] 570. `signature` · Editing & Text — added 2026-10-22 · approved 2026-10-22
+- [x] 571. `quill` · Editing & Text — added 2026-10-22 · approved 2026-10-22
