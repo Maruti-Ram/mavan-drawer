@@ -1091,7 +1091,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 479. `user-x` · Users & Access · variant of `user`
 - [ ] 480. `video-off` · Files & Folders · variant of `video`
 - [ ] 481. `camera-off` · Media & Playback · variant of `camera`
-- [~] 482. `cloud-off` · Development & Infra · variant of `cloud`
+- [x] 482. `cloud-off` · Development & Infra · variant of `cloud` — approved 2026-10-23
+- [x] 482. `cloud-off-2` · Development & Infra · variant of `cloud-off` — Bar cut through, three puffs · approved 2026-10-23
+- [x] 482. `cloud-off-3` · Development & Infra · variant of `cloud-off` — Bar cut through, overlapping puffs · approved 2026-10-23
 - [x] 483. `volume-off` · Media & Playback · variant of `volume` — approved 2026-09-26
 - [ ] 484. `wifi-off` · Devices & Hardware · variant of `wifi`
 - [ ] 485. `phone-forwarded` · Communication · variant of `phone`
