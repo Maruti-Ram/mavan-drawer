@@ -717,7 +717,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 233. `align-object-right` · Design Tools
 - [ ] 234. `align-object-top` · Design Tools
 - [ ] 235. `aspect-ratio` · Design Tools
-- [~] 236. `devices` · Devices & Hardware
+- [x] 236. `devices` · Devices & Hardware — approved 2026-10-23
+- [x] 236. `devices-2` · Devices & Hardware · variant of `devices` — Laptop and phone · approved 2026-10-23
 - [ ] 237. `gem` · Design Tools
 - [x] 238. `handshake` · Commerce & Payments — approved 2026-10-21
 - [x] 238. `handshake-2` · Commerce & Payments · variant of `handshake` — Grip · approved 2026-10-21
