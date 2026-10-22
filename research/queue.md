@@ -903,7 +903,9 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 340. `git-pull-request` · Development & Infra
 - [ ] 341. `hexagon` · Design Tools
 - [ ] 342. `octagon` · Design Tools
-- [~] 343. `power` · Devices & Hardware
+- [x] 343. `power` · Devices & Hardware — approved 2026-10-22
+- [x] 343. `power-circle` · Devices & Hardware · variant of `power` — Standby on a round button · approved 2026-10-22
+- [x] 343. `power-square` · Devices & Hardware · variant of `power` — Standby on a square key · approved 2026-10-22
 - [x] 344. `skip-back` · Media & Playback — approved 2026-10-22
 - [x] 345. `skip-forward` · Media & Playback — approved 2026-10-22
 - [ ] 346. `square` · Design Tools
