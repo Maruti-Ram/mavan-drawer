@@ -493,7 +493,12 @@ Bases before their variants; within that, highest evidence first.
 - [~] 137. `tablet` · Devices & Hardware
 - [x] 138. `truck` · Commerce & Payments — approved 2026-10-21
 - [x] 138. `truck-fast` · Commerce & Payments · variant of `truck` — In motion — filled: every line cut white · approved 2026-10-21
-- [~] 139. `wifi` · Devices & Hardware
+- [x] 139. `wifi` · Devices & Hardware — approved 2026-10-23
+- [x] 139. `wifi-medium` · Devices & Hardware · variant of `wifi` — Wifi, medium · approved 2026-10-23
+- [x] 139. `wifi-low` · Devices & Hardware · variant of `wifi` — Wifi, low · approved 2026-10-23
+- [x] 139. `wifi-2` · Devices & Hardware · variant of `wifi` — The fan · approved 2026-10-23
+- [x] 139. `wifi-2-medium` · Devices & Hardware · variant of `wifi` — Fan, medium · approved 2026-10-23
+- [x] 139. `wifi-2-low` · Devices & Hardware · variant of `wifi` — Fan, low · approved 2026-10-23
 - [x] 140. `alert-octagon` · Status & Feedback — approved 2026-10-20
 - [x] 140. `alert-octagon-2` · Status & Feedback · variant of `alert-octagon` — Wedge (alert-circle-2's mark) · approved 2026-10-20
 - [x] 140. `alert-octagon-3` · Status & Feedback · variant of `alert-octagon` — Dash foot (alert-circle-3's mark) · approved 2026-10-20
@@ -1147,3 +1152,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 575. `carousel` · UI & Layout — added 2026-10-22 · approved 2026-10-22
 - [x] 576. `vinyl` · Devices & Hardware — added 2026-10-22 · approved 2026-10-22
 - [x] 577. `focus` · Devices & Hardware — added 2026-10-22 · approved 2026-10-22
+- [x] 578. `router` · Devices & Hardware — added 2026-10-23 · approved 2026-10-23
+- [ ] 579. `satellite-dish` · Devices & Hardware — added 2026-10-23
+- [ ] 580. `orbit` · Devices & Hardware — added 2026-10-23
+- [ ] 581. `satellite-image` · Devices & Hardware — added 2026-10-23
