@@ -13,6 +13,10 @@
 //                                             at the end, in "E · Added on request"
 //   node tools/queue.mjs mvp <name>… on|off   mark icons as MVP or clear the mark. The mark is a
 //                                             token at the start of the row's note: `— mvp · …`
+//   node tools/queue.mjs category "<Category>" <name>… [--standalone]
+//                                             set each row's category (replace it, or insert it
+//                                             after the name); --standalone also removes its
+//                                             `variant of`, so the row is an icon of its own
 //   node tools/queue.mjs start <name>         mark it in review and load its references; a name
 //                                             not on the sheet is added (a size under its default,
 //                                             anything else at the end, in "E · Added on request")
@@ -290,6 +294,34 @@ function mvp(args) {
   save(q);
 }
 
+// `category` moves rows to another category, e.g. when a variant becomes an icon of its own
+// (`--standalone` drops its `variant of`). Status, number, the MVP mark, notes and dates are kept.
+// Every name and the category are checked before any row is written.
+function category(args) {
+  const standalone = args.includes('--standalone');
+  const [cat, ...names] = args.filter((a) => a !== '--standalone');
+  const usage = 'category "<Category>" <name>… [--standalone]';
+  const value = cat?.trim() || die(usage);
+  if (!names.length) die(usage);
+  // The row grammar ends a category at · or —, and a category may not read as a `variant of`.
+  if (/[·—`\n]/.test(value) || /^variant of `/.test(value)) die(`"${value}" cannot be a category (no ·, — or backticks). Nothing was changed.`);
+  const q = readQueue();
+  const missing = names.filter((n) => !find(q, n));
+  if (missing.length) die(`${missing.join(', ')} ${missing.length > 1 ? 'are' : 'is'} not on the sheet. Nothing was changed.`);
+  for (const name of new Set(names)) {
+    const r = find(q, name);
+    const was = q.lines[r.i];
+    const from = r.category, parent = r.base;
+    r.category = value;
+    if (standalone) r.base = null;
+    q.lines[r.i] = format(r);
+    if (q.lines[r.i] === was) { console.log(`${label(r)} · ${value} (already)`); continue; }
+    console.log(`${label(r)} · ${from ?? 'no category'} → ${value}${standalone && parent ? ` · no longer a variant of ${parent}` : ''}`);
+  }
+  save(q);
+  spawnSync('npm', ['run', 'build', '--silent'], { stdio: 'ignore' });
+}
+
 // `--batch` puts the icon beside the board instead of on it: the sheet is marked the same
 // way, but the references go to lab/refs/batch/<name>.js and neither current.js nor
 // refs/current.js is touched, so an icon already under review stays where it is.
@@ -516,11 +548,12 @@ if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
   else if (cmd === 'show') show(rest[0] ?? die('show <name>'));
   else if (cmd === 'add') addNames(rest.length ? rest : die('add <name>…'));
   else if (cmd === 'mvp') mvp(rest);
+  else if (cmd === 'category') category(rest);
   else if (cmd === 'start') await start(rest.find((a) => !a.startsWith('--')) ?? die('start <name> [--batch]'), rest.includes('--batch'));
   else if (cmd === 'batch') await rebuildIndex();
   else if (cmd === 'clear') await clear();
   else if (cmd === 'drop') drop(rest.length ? rest : die('drop <name>…'));
   else if (cmd === 'rename') rename(rest.length ? rest : die('rename <old>=<new>…'));
   else if (cmd === 'approve') await approve(rest);
-  else die(`Unknown command ${cmd}. Use status | next | show | add | mvp | start | batch | approve | drop | rename.`);
+  else die(`Unknown command ${cmd}. Use status | next | show | add | mvp | category | start | batch | approve | drop | rename.`);
 }

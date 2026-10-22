@@ -214,7 +214,7 @@ test('status counts icons, the MVP and rows the same as an independent count', (
 
 test("build.mjs reads the sheet with queue.mjs's parser, and it agrees with build's old regex on every row", () => {
   const src = readFileSync(join(ROOT, 'tools/build.mjs'), 'utf8');
-  assert.match(src, /import \{ parseSheet \} from '\.\/queue\.mjs'/);
+  assert.match(src, /import \{ parseSheet\b[^}]*\} from '\.\/queue\.mjs'/);   // `next` came too (bcf290f)
   assert.doesNotMatch(src, /\\\[\(\[ x~\]\)\\\]/, 'build.mjs carries no row regex of its own');
   // The regex build.mjs carried until 2026-10-17: the fields it produced must not change.
   const OLD = /^- \[([ x~])\] (\d+)\. `([^`]+)`(?: · ([^·]+?))?(?: · variant of `([^`]+)`)?(?: — (.+))?\s*$/;
@@ -250,5 +250,45 @@ test('approve refuses a C33 composite whose base is neither in the command nor s
     assert.match(r.stderr, /password-lock keeps password's place, but password is neither in this approval nor shipped — approve password in the same command, or first \(C33\)\. Nothing was written\./);
     for (const m of [24, 20, 16]) assert.deepEqual(readdirSync(join(s.dir, 'src/icons', String(m))), [], `nothing written at ${m}`);
     assert.equal(s.sheet(), LIVE, 'the sheet is untouched');
+  } finally { s.done(); }
+});
+
+test('category inserts, replaces and with --standalone drops `variant of`; an unknown name writes nothing', () => {
+  const SMALL = [
+    '# Queue', '', '## A · Test', '',
+    '- [x] 336. `dollar-sign` · Commerce & Payments — approved 2026-10-21',
+    '- [x] 336. `dollar-sign-2` · Commerce & Payments · variant of `dollar-sign` — F, bar through · approved 2026-10-21',
+    '- [x] 534. `euro` — added 2026-10-21 · approved 2026-10-21',
+    '- [ ] 449. `currency-convert` · Commerce & Payments · variant of `currency` — mvp · two arrows',
+    '- [~] 450. `layout-sidebar-2` · variant of `layout-sidebar`',
+    '',
+  ].join('\n');
+  const s = scratch(SMALL);
+  try {
+    const row = (name) => parseSheet(s.sheet()).rows.find((r) => r.name === name);
+    // insert after the name; status, number, note and date kept
+    let r = s.run('category', 'Currency', 'euro');
+    assert.equal(r.status, 0, r.stderr);
+    assert.equal(r.stdout.trim().split('\n').length, 1);
+    assert.equal(s.sheet().split('\n')[6], '- [x] 534. `euro` · Currency — added 2026-10-21 · approved 2026-10-21');
+    // insert on a category-less variant: the base stays
+    assert.equal(s.run('category', 'UI & Layout', 'layout-sidebar-2').status, 0);
+    assert.equal(s.sheet().split('\n')[8], '- [~] 450. `layout-sidebar-2` · UI & Layout · variant of `layout-sidebar`');
+    // replace, two names at once, `variant of` kept without --standalone
+    r = s.run('category', 'Currency', 'dollar-sign', 'dollar-sign-2');
+    assert.equal(r.stdout.trim().split('\n').length, 2);
+    assert.equal(s.sheet().split('\n')[5], '- [x] 336. `dollar-sign-2` · Currency · variant of `dollar-sign` — F, bar through · approved 2026-10-21');
+    // --standalone: the variant becomes an icon; the MVP mark and note survive
+    assert.equal(s.run('category', 'Currency', 'currency-convert', '--standalone').status, 0);
+    assert.equal(s.sheet().split('\n')[7], '- [ ] 449. `currency-convert` · Currency — mvp · two arrows');
+    const cc = row('currency-convert');
+    assert.deepEqual([cc.category, cc.base, cc.mvp, cc.note, cc.status, cc.n], ['Currency', null, true, 'two arrows', 'todo', 449]);
+    // refusals: an unknown name among known ones, a category the grammar cannot hold, no names
+    const before = s.sheet();
+    for (const args of [['Money', 'euro', 'no-such-icon-xyz'], ['A · B', 'euro'], ['Money'], []]) {
+      const x = s.run('category', ...args);
+      assert.equal(x.status, 1, args.join(' '));
+      assert.equal(s.sheet(), before, args.join(' '));
+    }
   } finally { s.done(); }
 });
