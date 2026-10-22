@@ -792,7 +792,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 287. `saved-items` · Status & Feedback — approved 2026-10-20
 - [x] 287. `saved-items-2` · Status & Feedback · variant of `saved-items` — Ribbon with a tick (bookmark-2) · approved 2026-10-20
 - [x] 520. `library` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
-- [~] 288. `scribble` · Editing & Text
+- [x] 288. `scribble` · Editing & Text — approved 2026-10-22
 - [x] 289. `stopwatch` · Time & Calendar — mvp · approved 2026-10-17
 - [x] 289. `stopwatch-2` · Time & Calendar · variant of `stopwatch` — Floating cap at 1:30 · approved 2026-10-17
 - [x] 290. `toggles` · UI & Layout — approved 2026-10-20
@@ -1109,4 +1109,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 567. `peso-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 568. `won-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 569. `text-sparkle` · Editing & Text — added 2026-10-22 · approved 2026-10-22
-- [ ] 570. `signature` · Editing & Text — added 2026-10-22
+- [x] 570. `signature` · Editing & Text — added 2026-10-22 · approved 2026-10-22
