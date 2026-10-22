@@ -901,7 +901,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 330. `trending-down-2` · Charts & Data · variant of `trending-down` — One pull-back, soft · approved 2026-10-18
 - [x] 331. `trending-up` · Charts & Data — mvp · approved 2026-10-18
 - [x] 331. `trending-up-2` · Charts & Data · variant of `trending-up` — One pull-back, soft · approved 2026-10-18
-- [~] 332. `bluetooth` · Devices & Hardware
+- [x] 332. `bluetooth` · Devices & Hardware — approved 2026-10-23
+- [x] 332. `bluetooth-circle` · Devices & Hardware · variant of `bluetooth` — Rune in a circle · approved 2026-10-23
+- [x] 332. `bluetooth-2` · Devices & Hardware · variant of `bluetooth` — Rune in the badge · approved 2026-10-23
+- [x] 332. `bluetooth-connected` · Devices & Hardware · variant of `bluetooth` — Connected, two dots, shifted · approved 2026-10-23
+- [x] 332. `bluetooth-searching` · Devices & Hardware · variant of `bluetooth` — Searching, two waves · approved 2026-10-23
 - [ ] 333. `circle` · Design Tools
 - [ ] 334. `cpu` · Development & Infra
 - [x] 335. `disc` · Devices & Hardware — approved 2026-10-22
