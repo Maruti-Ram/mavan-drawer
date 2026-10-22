@@ -785,7 +785,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 279. `contactless` · Commerce & Payments — approved 2026-10-21
 - [x] 279. `contactless-circle` · Commerce & Payments · variant of `contactless` — Waves fitted to the disc (recommended) · approved 2026-10-21
 - [x] 280. `replay` · Media & Playback — approved 2026-10-22
-- [~] 281. `reset` · Media & Playback
+- [x] 281. `reset` · Media & Playback — approved 2026-10-22
+- [x] 281. `reset-2` · Media & Playback · variant of `reset` — Lap back to a start dot · approved 2026-10-22
+- [x] 281. `reset-3` · Media & Playback · variant of `reset` — Undo run round into a ring · approved 2026-10-22
 - [x] 282. `reward` · Commerce & Payments — approved 2026-10-21
 - [ ] 283. `sandbox` · Development & Infra
 - [x] 284. `alert-square` · Status & Feedback — approved 2026-10-20
