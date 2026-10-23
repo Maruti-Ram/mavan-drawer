@@ -54,7 +54,8 @@ Claude explains those choices in a sentence instead of asking Maruti to make the
    A vague brief or a result that needs judging moves up a tier. Nothing moves down to save tokens.
    The strongest model is Fable; **when Fable is out of credits or at its usage limit, switch to Opus
    automatically** — relaunch the failed agent on Opus without asking, and start later agents on Opus
-   for the rest of that session (Maruti, 2026-10-20).
+   for the rest of that session (Maruti, 2026-10-20). **Drawing candidates always go to Opus**, never
+   Fable (Maruti, 2026-10-23: "only use Opus for drawings").
 5. **One owner per file.** The board (`lab/drafts/current.js`), the sheet (`research/queue.md`),
    `src/icons/` and `lab/manifest.json` belong to the main session and `queue.mjs` alone — no agent
    writes them, and only one icon is on the board at a time. When Maruti asks to review several
