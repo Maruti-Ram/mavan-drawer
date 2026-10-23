@@ -175,6 +175,7 @@ Square, portrait and landscape keylines; the icons every screen has.
 - [x] 40. `home` · UI & Layout — approved 2026-09-20
 - [x] 40. `home-2` · UI & Layout · variant of `home` — Low roof, door · approved 2026-09-20
 - [x] 40. `home-3` · UI & Layout · variant of `home` — Low roof, doormat line · approved 2026-09-28
+- [x] 40. `home-4` · UI & Layout · variant of `home` — Low roof, window · approved 2026-10-23
 - [x] 40. `home-dimensions` · UI & Layout · variant of `home` — House elevation · approved 2026-10-23
 - [x] 41. `user` · Users & Access — mvp · approved 2026-09-20
 - [x] 41. `user-2` · Users & Access · variant of `user` — Large head, low dome · approved 2026-09-20
