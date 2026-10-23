@@ -1166,7 +1166,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 533. `hand-coins` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 534. `euro` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 535. `euro-circle` · Currency — added 2026-10-21 · approved 2026-10-21
-- [x] 536. `gift-card` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 536. `gift-card` · Commerce & Payments — added 2026-10-21 · approved 2026-10-23
+- [x] 536. `gift-card-2` · Commerce & Payments · variant of `gift-card` — Round loops with tails · approved 2026-10-23
 - [x] 537. `dollar-circle` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 537. `dollar-circle-2` · Currency · variant of `dollar-circle` — G in a coin · approved 2026-10-21
 - [x] 538. `heart-handshake` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
