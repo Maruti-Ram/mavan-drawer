@@ -2211,7 +2211,7 @@ test('optical-sheet: a move keeps 16\'s eighths, a shift keeps its master\'s pre
     16: { outline: file([]), filled: file([]) },
   }), { glyph: 'numeral', badge: 'line', box: { 20: [14, 12] }, grows: { 20: [0, 0, 0.25, 0.25] }, gap: { outline: { 20: 1.25 }, filled: { 24: 1, 20: 1.25 } } });
   assert.deepEqual(fileNotes({ 24: { outline: file(['keyline: mark']), filled: file([]) } }), {});
-  assert.deepEqual(fileNotes({ 24: { outline: file([]), filled: file(['corners: square']) }, 16: { outline: file([]), filled: file(['corners: square']) } }), { corners: 'square' });
+  assert.deepEqual(fileNotes({ 24: { outline: file([]), filled: file(['corners: square']) }, 16: { outline: file([]), filled: file(['corners: square']) } }), { corners: { 24: 'square', 16: 'square' } }, 'per master, as film-roll needs');
 });
 
 test('optical-sheet: every row carries its icon\'s gap, box and glyph notes, and says where its shift snapped', async () => {

@@ -91,7 +91,7 @@ export default {
     slits (white no wider than 1.5), files with a `glyph:` note, and corners against a wall of line
     weight (a sprocket against its rim, a checkbox's frame, save's shutter against its top edge). A
     cut-out that is square on purpose carries `corners: 'square'` on the candidate or the board (the
-    candidate wins; `null` opts out). That writes `<!-- corners: square -->` into the filled files only.
+    candidate wins; `null` opts out; `{ 24: 'square', 16: 'square' }` for only some masters, film-roll). That writes `<!-- corners: square -->` into the filled files only.
 - **Agreed box.** `box` (on the board, or on one candidate — the candidate wins, like `keyline` and
   `tags`) is written into both files as `<!-- box: 20x18 -->` for that master. Lint then holds the
   drawing to that ink size as an **error** rather than asking it to match a keyline.

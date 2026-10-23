@@ -98,7 +98,8 @@ export function fileNotes(files) {
   for (const [m, { outline = '', filled = '' }] of Object.entries(files)) {
     out.glyph ??= note(outline, 'glyph') ?? note(filled, 'glyph') ?? undefined;
     out.badge ??= note(filled, 'badge') ?? undefined;
-    out.corners ??= note(filled, 'corners') ?? undefined;   // filled files only, as draft-svg writes it
+    const corners = note(filled, 'corners');                // filled files only, per master, as draft-svg writes it
+    if (corners) put('corners', m, corners);
     const box = note(outline, 'box')?.match(/^([\d.]+)\s*[x×]\s*([\d.]+)$/);
     if (box) put('box', m, [+box[1], +box[2]]);
     const grows = note(filled, 'grows');

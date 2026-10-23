@@ -310,7 +310,7 @@ depending on the icon.
   corners on purpose where C1's floor (lint §5k: `CUT_CORNER` in `tools/masters.mjs`, 0.75 · 0.5 · 0.375) would
   otherwise warn and no geometric exemption reaches — slits, a declared glyph's counters and corners against a
   line-weight wall (Maruti kept that reach, 2026-10-24) need none. Drafts write it with `corners: 'square'` on the
-  candidate or board (candidate wins, `null` opts out).
+  candidate or board (candidate wins, `null` opts out), or `{ 24: 'square', 16: 'square' }` where only some masters need it (film-roll).
   Lint prints how many corners it keeps and the tightest while it is in use, and errors on a note it cannot
   read, on one in an outline file, and on one the drawing no longer needs. Today no file carries it;
   `grep -rl '<!-- corners:' src/icons` lists them

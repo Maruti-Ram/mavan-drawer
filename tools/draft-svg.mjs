@@ -50,7 +50,9 @@
 //                   geometric exemption reaches (2026-10-24). A candidate or the board writes
 //                   `corners: 'square'` (candidate wins; a candidate's `corners: null` opts out of a
 //                   board-level one), written into the three filled files; lint errors on it at a
-//                   master where it keeps no corner square
+//                   master where it keeps no corner square — so a drawing square at some masters
+//                   only writes `corners: { 24: 'square', 16: 'square' }` (film-roll, whose cells
+//                   at 20 are slits)
 //   anchor: NAME    a member of a level family (C28) keeps the full member NAME's canvas position
 //                   instead of being centred on a keyline; lint holds its ink inside NAME's box
 //                   (NAME-filled's for the filled file). A candidate writes `anchor: 'volume'`,
@@ -129,7 +131,11 @@ export function candidateFiles(draft, c, name) {
   const anchor = c.anchor !== undefined ? c.anchor : draft.anchor ?? null;   // 'volume' — both files, every master
   const base = c.base !== undefined ? c.base : draft.base ?? null;           // 'password' — both files, every master (C33)
   const corners = c.corners !== undefined ? c.corners : draft.corners ?? null;   // 'square' — filled files only (C1, lint §5k)
-  if (corners && corners !== 'square') throw new Error(`${c.id}: corners: '${corners}' is not a kind — a filled drawing whose cut-outs are square on purpose is corners: 'square' (C1, lint §5k).`);
+  // 'square' for every master, or { 24: 'square', 16: 'square' } for some (lint errors on the note where nothing stays square)
+  const cornersAt = (m) => (corners && typeof corners === 'object' ? corners[m] ?? null : corners);
+  for (const v of corners && typeof corners === 'object' ? Object.values(corners) : [corners]) {
+    if (v && v !== 'square') throw new Error(`${c.id}: corners: '${v}' is not a kind — a filled drawing whose cut-outs are square on purpose is corners: 'square', or { 24: 'square', … } for some masters (C1, lint §5k).`);
+  }
   const out = [];
   for (const m of masters) {
     const o = c.masters?.[m];
@@ -172,7 +178,7 @@ export function candidateFiles(draft, c, name) {
       src: svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline${glyphs.length ? `, ${kind} stays at ${sw}` : ''}${badges.length ? `, badge stays at ${sw}` : ''}`),
         f.fill ?? [], f.stroke ?? [], tags, c.optical?.[m], glyphNote(glyphs.length > 0), box?.[m], grows?.[m], gapFor(gap, m, true), anchor, glyphs,
-        badges.length ? badge : null, badges, base, corners) });
+        badges.length ? badge : null, badges, base, cornersAt(m)) });
   }
   return out;
 }
