@@ -27,6 +27,12 @@ export const FILLED_WEIGHT = { 24: 2.5, 20: 2, 16: 2 };
 export const isFilled = (file) => /-filled(\.svg)?$/.test(file);
 export const weightOf = (file, master) => (isFilled(file) ? FILLED_WEIGHT[master] : strokeOf(master));
 
+// C1 (Maruti, 2026-10-24): every corner of a FILLED cut-out's white rounds at no less than the
+// outline's inside-corner radius (a container's centreline radius less half the stroke) — what the
+// set's filled cut-outs already use (home's door, printer's tray, save's shutter). Lint §5k warns
+// below it; slits, a declared glyph's counters and corners against a line-weight wall are exempt.
+export const CUT_CORNER = { 24: 0.75, 20: 0.5, 16: 0.375 };
+
 // C10: a bent mark's corner is an arc of radius half the weight it is drawn at —
 // the tightest bend whose inner corner still reads as even width. It follows the
 // weight, so it is per master AND per style: 0.75 for an outline at 24 and 20

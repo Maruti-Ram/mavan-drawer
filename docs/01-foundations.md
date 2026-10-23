@@ -357,6 +357,40 @@ and recorded here once they settle.
 Do not use radius values between these. Three options is a system; seven is a
 mood.
 
+### The corners of a filled cut-out (C1, 2026-10-24)
+
+In a **filled** drawing, every corner of a cut-out's white — a hole the solid surrounds, where the
+white comes to a corner pointing into the solid — rounds at **no less than 0.75 · 0.5 · 0.375** at
+24 · 20 · 16. That is the outline's inside-corner radius (a container's centreline radius less half
+the stroke), and the set's filled cut-outs already round at it: home's door, printer's tray, save's
+shutter. Anything tighter reads as sharp (C1): `home-4`'s first filled window, cut at
+0.25 · 0.25 · 0.125, did (Maruti, 2026-10-24). A sharp join is radius 0. A turn of 30° or less (an
+inside angle of 150° or more) bends an edge and is no corner. A radius within 0.01 of the floor holds
+it, since radii are written to 2 dp at 24 and 20 and 3 dp at 16. Where the solid pokes into the white,
+the corner is the solid's, not the white's, and is not read. Lint §5k warns below the floor, one line
+per cut-out, at its tightest corner.
+
+Not covered, because there the square white is the point (Maruti, 2026-10-24):
+
+- **an outline's panes.** `grid`, `cpu` and `qr-code` keep the stroke's own inside corners
+  (0.25 · 0 · 0.125).
+- **a slit.** A cut-out no wider than §6's white line, 1.5 (its widest circle), or a corner that
+  opens into a channel of white that narrow, is a line of white cut through the solid. Its ends are a
+  line's ends, not a pane's corners: trash's lid, warehouse's shutters, ticket's tear, film's
+  sprockets at 20 and 16.
+- **a corner against one of the outline's lines.** Where the material behind either edge of the
+  corner is no thicker than the line weight (1.5 · 1.5 · 1.25), the corner is that line's inside
+  corner traced into the fill, and the outline draws it square. Film's sprockets at 24 and
+  `list-todo`'s checkbox frame are the two Maruti named. The same reading also covers save's shutter
+  against its top edge, printer's tray where its sides meet the body, and battery's level against its
+  case, and Maruti kept that reach (2026-10-24).
+- **a character's own counters,** in a file that declares a glyph (`<!-- glyph: dot | numeral |
+  letter -->`).
+- **a cut-out square on purpose** that nothing above covers. The filled file declares
+  `<!-- corners: square -->`, and lint holds the note as it holds `gap:`. While the note keeps a
+  corner square, an info line says how many and the tightest. A note lint cannot read, one in an
+  outline file, and one the drawing no longer needs are errors.
+
 ---
 
 ## 6. Negative space — the rule that decides whether the set survives at 16px

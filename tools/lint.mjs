@@ -3,8 +3,8 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, hiddenFills, insideAir, encloses, subpathsOf } from './geometry.mjs';
-import { GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
+import { CUT_CORNER, GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
 function polyGap(a, b) {
@@ -205,6 +205,28 @@ export function parseBadgeNote(src) {
   return BADGE_KINDS.includes(m[1]) ? { kind: m[1], raw: m[1] } : { raw: m[1], bad: true };
 }
 
+// C1's floor for a cut-out's white corners (Maruti, 2026-10-24; §5k): `<!-- corners: square -->`
+// declares, per filled file, that its cut-outs come to square corners on purpose where no geometric
+// exemption reaches (a letter's counters in an icon that is the letter, bold's B). Drafts write it with
+// `corners: 'square'` into the filled files only (draft-svg.mjs). Same spirit as
+// `gap:` — it can never hide a mistake: a kind lint cannot read, the note in an outline file, and a
+// note the drawing no longer needs (no cut-out corner it keeps under the floor) are all ERRORS, and
+// while it is in use an info line says how many corners it keeps square and the tightest.
+// Returns null (no note), {kind, raw}, or {raw, bad: true}.
+export const CORNERS_KINDS = ['square'];
+export function parseCornersNote(src) {
+  const m = src.match(/<!--\s*corners:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  return CORNERS_KINDS.includes(m[1]) ? { kind: m[1], raw: m[1] } : { raw: m[1], bad: true };
+}
+
+// The floor itself is masters.mjs's CUT_CORNER, per master. A radius within 0.01 of it holds it (radii
+// are written to 2 dp at 24 and 20 and 3 dp at 16, so 0.74 is a rounded 0.75, not a sharper corner),
+// as §5's gaps hold theirs.
+// A wall no thicker than the line weight, to this tolerance, is one of the outline's lines (§5k): the set's
+// walls of line weight read 1.494 – 1.506 at 24 and 20 and 1.242 – 1.25 at 16 (census 2026-10-24).
+const LINE_WALL = 0.01;
+
 // Path text compared as written, bar whitespace (runs collapse; none is kept beside a command
 // letter or a comma): "identical" means the same drawing, not the same shape reached another way.
 const normPath = (d) => d.replace(/\s*([A-Za-z,])\s*/g, '$1').replace(/\s+/g, ' ').trim();
@@ -353,6 +375,18 @@ export function lintSource(canvas, file, src) {
   } else if (base && anchor) {
     errors.push(`declares both \`anchor:\` and \`base:\` — a level member keeps its full member's place (C28), a composite its base's (C33); pick one`);
     base = null;
+  }
+
+  // --- 0d. the square-corners note (C1; §5k reads it) ---------------------------
+  // A note that is not usable is an error and is then ignored, so §5k reads the drawing as it would
+  // without it.
+  let squareCorners = parseCornersNote(src);
+  if (squareCorners?.bad) {
+    errors.push(`corners note "${squareCorners.raw}" is not a kind lint knows — write <!-- corners: square --> (a filled drawing whose cut-outs come to square corners on purpose) (C1)`);
+    squareCorners = null;
+  } else if (squareCorners && !isFilledFile) {
+    errors.push('only a `-filled` file may declare `corners:` — C1\'s floor reads the cut-outs of a filled drawing; an outline\'s panes keep their own inside corners');
+    squareCorners = null;
   }
 
   // --- 1. root attributes -------------------------------------------------
@@ -890,6 +924,50 @@ export function lintSource(canvas, file, src) {
       if (inGlyph && isNumeral) numeralMin = Math.min(numeralMin, r2(air));
       if (air < floor - 0.01)
         warnings.push(`a cut-out leaves ${r2(air)} of air inside it at ${at.join(',')} (the widest circle that fits) — ${inGlyph ? `C19 ${isNumeral ? 'numeral' : 'glyph'} gap` : gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+    }
+  }
+
+  // --- 5k. advisory: the corners of a cut-out's white (C1) ----------------------
+  // (Maruti, 2026-10-24.) In a FILLED drawing, every corner of a cut-out's white — a hole of an
+  // evenodd area, white the solid surrounds, where the white comes to a corner pointing into the
+  // solid — rounds at no less than CUT_CORNER, 0.75 · 0.5 · 0.375: the outline's inside-corner radius,
+  // which the set's filled cut-outs already use (home's door, printer's tray, save's shutter). home-4's
+  // first filled draft cut its window with white corners of 0.25 · 0.25 · 0.125; Maruti saw them as
+  // sharp (C1, "no sharp icons") and lint said nothing. `holeCorners` finds the corners (a sharp join
+  // reads radius 0) and the material behind each. WARNINGS. Not read, by design:
+  //   · an outline file: its panes keep the stroke's own inside corners (grid, cpu, qr-code);
+  //   · a SLIT — a cut-out whose white is no wider than §6's white line (MIN_GAP, + 0.01; its widest
+  //     circle, `air`), and any corner that opens into a channel of white that narrow (both walls
+  //     running parallel, `channel`): a line of white cut through the solid, whose ends are a line's
+  //     ends, not a pane's corners (trash's lid, warehouse's shutters, ticket's tear, film's sprockets
+  //     at 20 and 16, piano's key notch at 16);
+  //   · a corner against one of the outline's LINES — material no thicker than the line weight (+ 0.01)
+  //     behind either of its two edges: that line's inside corner, which the outline draws square, traced
+  //     into the filled twin (a sprocket against its rim, a checkbox's frame, save's shutter against its
+  //     top edge, battery's level against its case; Maruti kept this reach, 2026-10-24);
+  //   · a file that declares a glyph (`glyph: dot | numeral | letter`): its cut-outs are the
+  //     character's own counters, as C19 reads them;
+  //   · a file that declares `<!-- corners: square -->`: square on purpose. The note can never hide a
+  //     mistake: while it keeps a corner it says how many and the tightest, and once it keeps none it is
+  //     an ERROR (stale).
+  // One line per cut-out, at its tightest corner.
+  {
+    const floor = CUT_CORNER[canvas];
+    const kept = [];   // the corners the note keeps square
+    if (areas.length && !glyph) for (const cut of holeCorners(areas, ds, W, { below: floor - 0.01 })) {
+      if (cut.air <= MIN_GAP + 0.01) continue;   // a slit
+      const free = cut.corners.filter((c) => !(c.channel <= MIN_GAP + 0.01) && !c.walls.some((w) => w != null && w <= OUTLINE + LINE_WALL));
+      if (!free.length) continue;
+      if (squareCorners) { kept.push(...free); continue; }
+      const [c] = free, more = free.length - 1;
+      warnings.push(`a cut-out's corner at ${c.at.join(',')} ${c.r ? `rounds at ${c.r}` : 'is sharp'}${more ? ` (${more} more of its corners under the floor)` : ''} — C1 needs ${floor}, the outline's inside corner (a cut-out square on purpose declares <!-- corners: square -->)`);
+    }
+    if (squareCorners) {
+      kept.sort((a, b) => a.r - b.r);
+      if (kept.length)
+        notes.splice(-1, 0, `corners: square — ${kept.length} cut-out corner${kept.length > 1 ? 's' : ''} kept under C1's ${floor} (tightest ${kept[0].r} at ${kept[0].at.join(',')})`);
+      else
+        errors.push(`declares <!-- corners: square --> but no cut-out corner in this drawing is under C1's ${floor}${glyph ? ' (a declared glyph\'s cut-outs are its own counters, which the floor does not read)' : ''}, other than a slit's or one against a line — the note is not needed; delete it`);
     }
   }
 

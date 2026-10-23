@@ -4,11 +4,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, barGap, facingGap, hiddenFills, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
-import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
+import { anatomy, armTipGap, barGap, facingGap, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseCornersNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
-  FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
+  CUT_CORNER, FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
   gridFor, gridNameFor, gridOf, strokeOf, weightOf,
 } from './masters.mjs';
 
@@ -2200,6 +2200,9 @@ test('optical-sheet: a move keeps 16\'s eighths, a shift keeps its master\'s pre
     { glyph: 'dot', box: { 24: [20, 18] }, grows: { 24: [0, 0, 0.25, 0.25] }, gap: { 16: 1.25 } });
   assert.deepEqual(draftNotes({}, { gap: { filled: { 24: 1 } }, badge: 'line' }), { badge: 'line', gap: { filled: { 24: 1 } } });
   assert.deepEqual(draftNotes({}, {}), {});
+  // C1's `corners: 'square'` travels too, and a candidate's null opts out of the board's (as in draft-svg)
+  assert.deepEqual(draftNotes({ corners: 'square' }, {}), { corners: 'square' });
+  assert.deepEqual(draftNotes({ corners: 'square' }, { corners: null }), {});
   // a shipped icon's notes, read from its six files
   const file = (notes) => `<svg>\n${notes.map((n) => `  <!-- ${n} -->`).join('\n')}\n</svg>\n`;
   assert.deepEqual(fileNotes({
@@ -2208,6 +2211,7 @@ test('optical-sheet: a move keeps 16\'s eighths, a shift keeps its master\'s pre
     16: { outline: file([]), filled: file([]) },
   }), { glyph: 'numeral', badge: 'line', box: { 20: [14, 12] }, grows: { 20: [0, 0, 0.25, 0.25] }, gap: { outline: { 20: 1.25 }, filled: { 24: 1, 20: 1.25 } } });
   assert.deepEqual(fileNotes({ 24: { outline: file(['keyline: mark']), filled: file([]) } }), {});
+  assert.deepEqual(fileNotes({ 24: { outline: file([]), filled: file(['corners: square']) }, 16: { outline: file([]), filled: file(['corners: square']) } }), { corners: 'square' });
 });
 
 test('optical-sheet: every row carries its icon\'s gap, box and glyph notes, and says where its shift snapped', async () => {
@@ -2236,4 +2240,151 @@ test('optical-sheet: every row carries its icon\'s gap, box and glyph notes, and
   // every coordinate stays on 2 dp at 24 and 20, 3 at 16
   for (const c of out.candidates) for (const m of [24, 20, 16]) for (const d of c.masters[m])
     for (const n of d.match(/-?[\d.]+/g)) assert.ok((n.split('.')[1]?.length ?? 0) <= (m === 16 ? 3 : 2), `${m}: ${n}`);
+});
+
+// C1's floor for a cut-out's white corners (Maruti, 2026-10-24; lint §5k). home-4's first filled draft
+// cut its window with corners of 0.25 · 0.25 · 0.125 and lint said nothing; the set's filled cut-outs
+// round at the outline's inside corner, 0.75 · 0.5 · 0.375.
+const cornerWarn = (r) => r.warnings.filter((w) => /cut-out's corner/.test(w));
+const cutFile = (m, areas, notes = ['keyline: mark'], ds = []) => lintSource(m, 'x-filled.svg', drawn(m, strokeOf(m), ds, { areas, notes }));
+// a rounded box of `r` from (x0, y0) to (x1, y1), drawn the way the set draws one (clockwise)
+const RBOX = (x0, y0, x1, y1, r) => r
+  ? `M${x0} ${y0 + r}A${r} ${r} 0 0 1 ${x0 + r} ${y0}L${x1 - r} ${y0}A${r} ${r} 0 0 1 ${x1} ${y0 + r}L${x1} ${y1 - r}A${r} ${r} 0 0 1 ${x1 - r} ${y1}L${x0 + r} ${y1}A${r} ${r} 0 0 1 ${x0} ${y1 - r}Z`
+  : `M${x0} ${y0}H${x1}V${y1}H${x0}Z`;
+const PLATE24 = RBOX(3, 3, 21, 21, 2.5);
+
+test('holeCorners: a square cut-out has four sharp corners, a rounded one its radius, a disc one corner all round', () => {
+  const [sq] = holeCorners([`${PLATE24}${RBOX(8, 8, 16, 16, 0)}`]);
+  assert.deepEqual(sq.corners.map((c) => [c.r, c.turn, c.at]), [[0, 90, [8, 8]], [0, 90, [8, 16]], [0, 90, [16, 8]], [0, 90, [16, 16]]]);
+  assert.equal(sq.air, 8);
+  assert.deepEqual(sq.corners[0].walls, [Infinity, Infinity], 'the material behind each edge: 5, past the 4 a wall is read to');
+  assert.deepEqual(holeCorners([`${PLATE24}${RBOX(6, 6, 18, 18, 0)}`])[0].corners[0].walls, [3, 3], 'out to the plate\'s edge');
+  const [round] = holeCorners([`${PLATE24}${RBOX(8, 8, 16, 16, 0.75)}`]);
+  assert.deepEqual(round.corners.map((c) => [c.r, c.turn]), [[0.75, 90], [0.75, 90], [0.75, 90], [0.75, 90]]);
+  assert.deepEqual(holeCorners([`${PLATE24}${RBOX(8, 8, 16, 16, 0.75)}`], [], 1.5, { below: 0.74 }), [], 'none under the floor');
+  const [disc] = holeCorners([`${PLATE24}${RING(12, 12, 3)}`]);
+  assert.deepEqual(disc.corners.map((c) => [c.r, c.turn]), [[3, 180], [3, 180]]);
+  // the plate itself and an island are not cut-outs; nor is a shape with no holes
+  assert.deepEqual(holeCorners([PLATE24]), []);
+  assert.equal(holeCorners([`${PLATE24}${RBOX(6, 6, 18, 18, 0)}${RBOX(10, 10, 14, 14, 0)}`]).length, 1, 'the island in the hole is not read');
+});
+
+test('holeCorners: a turn of 30° or less is no corner; the solid\'s corners are not the white\'s; a corner painted over is none', () => {
+  // a hexagonal cut-out turns 60° at each corner, a 12-gon 30°
+  const poly = (n, R) => `M${Array.from({ length: n }, (_, k) => { const a = (2 * Math.PI * k) / n; return `${r2t(12 + R * Math.cos(a))} ${r2t(12 + R * Math.sin(a))}`; }).join('L')}Z`;
+  const r2t = (v) => Math.round(v * 100) / 100;
+  assert.equal(holeCorners([`${PLATE24}${poly(6, 4)}`])[0].corners.length, 6);
+  assert.deepEqual(holeCorners([`${PLATE24}${poly(16, 4)}`]), [], 'a 16-gon, 22.5° a corner, only bends its edge');
+  // an L-shaped cut-out: five convex corners of white, and one where the solid pokes in (not read)
+  const L = `${PLATE24}M7 7H12V12H17V17H7Z`;
+  assert.deepEqual(holeCorners([L])[0].corners.map((c) => c.at), [[7, 7], [7, 17], [12, 7], [17, 12], [17, 17]]);
+  // a stroke laid over a corner paints it: that corner is no corner of white
+  assert.equal(holeCorners([`${PLATE24}${RBOX(8, 8, 16, 16, 0)}`], ['M7 8H9'], 1.5)[0].corners.length, 3);
+});
+
+test('lint §5k: home-4\'s first filled window (0.25 · 0.25 · 0.125) warns at every master; the shipped one (1.5 · 1 · 1) passes', () => {
+  const HOUSE = {
+    24: 'M10.65 3.45A2.25 2.25 0 0 1 13.35 3.45L20.1 8.51A2.25 2.25 0 0 1 21 10.31L21 17.75A3.25 3.25 0 0 1 17.75 21L6.25 21A3.25 3.25 0 0 1 3 17.75L3 10.31A2.25 2.25 0 0 1 3.9 8.51Z',
+    20: 'M8.8 3.4A2 2 0 0 1 11.2 3.4L16.2 7.15A2 2 0 0 1 17 8.75L17 14.25A2.75 2.75 0 0 1 14.25 17L5.75 17A2.75 2.75 0 0 1 3 14.25L3 8.75A2 2 0 0 1 3.8 7.15Z',
+    16: 'M7.025 2.325A1.625 1.625 0 0 1 8.975 2.325L13.35 5.606A1.625 1.625 0 0 1 14 6.906L14 11.875A2.125 2.125 0 0 1 11.875 14L4.125 14A2.125 2.125 0 0 1 2 11.875L2 6.906A1.625 1.625 0 0 1 2.65 5.606Z',
+  };
+  const WINDOW = { 24: [9, 10.5, 15, 16.5], 20: [7.75, 8.75, 12.25, 13.25], 16: [6, 7, 10, 11] };
+  const FIRST = { 24: 0.25, 20: 0.25, 16: 0.125 }, SHIPPED = { 24: 1.5, 20: 1, 16: 1 };
+  for (const m of [24, 20, 16]) {
+    const draft = cornerWarn(cutFile(m, [`${HOUSE[m]}${RBOX(...WINDOW[m], FIRST[m])}`]));
+    assert.equal(draft.length, 1, `${m}: one line per cut-out`);
+    assert.match(draft[0], new RegExp(`rounds at ${FIRST[m]} \\(3 more of its corners under the floor\\) — C1 needs ${CUT_CORNER[m]}, `), `${m}`);
+    assert.deepEqual(cornerWarn(cutFile(m, [`${HOUSE[m]}${RBOX(...WINDOW[m], SHIPPED[m])}`])), [], `${m}`);
+  }
+});
+
+test('lint §5k: the floor is 0.75 · 0.5 · 0.375 and a radius within 0.01 holds it; an outline file is never read', () => {
+  assert.deepEqual(CUT_CORNER, { 24: 0.75, 20: 0.5, 16: 0.375 });
+  const plate = { 24: PLATE24, 20: RBOX(3, 3, 17, 17, 2.25), 16: RBOX(2, 2, 14, 14, 1.75) }, box = { 24: [8, 8, 16, 16], 20: [7, 7, 13, 13], 16: [5, 5, 11, 11] };
+  for (const [m, r, warns] of [[24, 0.75, 0], [24, 0.74, 0], [24, 0.5, 1], [20, 0.5, 0], [20, 0.25, 1], [16, 0.375, 0], [16, 0.37, 0], [16, 0.25, 1], [16, 0, 1]])
+    assert.equal(cornerWarn(cutFile(m, [`${plate[m]}${RBOX(...box[m], r)}`])).length, warns, `${m} at ${r}`);
+  assert.match(cornerWarn(cutFile(24, [`${PLATE24}${RBOX(8, 8, 16, 16, 0)}`]))[0], /^a cut-out's corner at 8,8 is sharp \(3 more/);
+  // the same plate and square pane, drawn as an outline's strokes, is the outline's own pane: not read
+  assert.deepEqual(cornerWarn(lintSource(24, 'x.svg', ONE(ROOT24, [RBOX(3.75, 3.75, 20.25, 20.25, 1.75), RBOX(8, 8, 16, 16, 0)]))), []);
+});
+
+test('lint §5k: a door\'s sill opens onto the outside — no corner; a slit, or a corner opening into a 1.5 channel, is a line\'s end', () => {
+  // home's door at 24 as shipped (0.75 corners), and with square top corners: only the top ones are read
+  const HOME = 'M10.41 3.66A2.25 2.25 0 0 1 13.59 3.66L20.78 10.85A0.75 0.75 0 0 1 20.25 12.13L19 12.13L19 17.75A3.25 3.25 0 0 1 15.75 21L8.25 21A3.25 3.25 0 0 1 5 17.75L5 12.13L3.75 12.13A0.75 0.75 0 0 1 3.22 10.85Z';
+  assert.deepEqual(cornerWarn(cutFile(24, [`${HOME}M10.5 21L10.5 16A0.75 0.75 0 0 1 11.25 15.25L12.75 15.25A0.75 0.75 0 0 1 13.5 16L13.5 21Z`])), []);
+  const [door] = holeCorners([`${HOME}M10.5 21L10.5 15.25L13.5 15.25L13.5 21Z`]);
+  assert.deepEqual(door.corners.map((c) => c.at), [[10.5, 15.25], [13.5, 15.25]], 'the sill corners are not corners of white');
+  // a square-ended slit 1.5 wide (trash's lid): its ends are a line's ends
+  const SLIT = `${PLATE24}M6 8.25H18V9.75H6Z`;
+  assert.equal(holeCorners([SLIT])[0].air, 1.5);
+  assert.deepEqual(cornerWarn(cutFile(24, [SLIT])), []);
+  // 1.75 wide it is a pane, and warns
+  assert.equal(cornerWarn(cutFile(24, [`${PLATE24}M6 8.25H18V10H6Z`])).length, 1);
+  // a pane with a 1.5 tail: the tail's corners open into a 1.5 channel and are not read; the pane's are
+  const TAILED = `${PLATE24}M7 7H15V12H12.75V17H11.25V12H7Z`;
+  const tail = holeCorners([TAILED])[0].corners.find((c) => c.at[0] === 11.25 && c.at[1] === 17);
+  assert.equal(tail.channel, 1.5);
+  assert.match(cornerWarn(cutFile(24, [TAILED]))[0], /^a cut-out's corner at 7,7 is sharp \(3 more of its corners/);
+});
+
+test('lint §5k: a corner against a line-weight wall is the outline\'s inside corner — a checkbox\'s frame and a sprocket pass; free in the solid it warns', () => {
+  // list-todo-filled's box at 24: a frame 1.5 wide round a square cut-out with square corners
+  const BOX = 'M4.5 12H8.5A1.5 1.5 0 0 1 10 13.5V17.5A1.5 1.5 0 0 1 8.5 19H4.5A1.5 1.5 0 0 1 3 17.5V13.5A1.5 1.5 0 0 1 4.5 12ZM4.5 13.5H8.5V17.5H4.5Z';
+  const [frame] = holeCorners([BOX]);
+  assert.deepEqual(frame.corners.map((c) => c.walls), [[1.5, 1.5], [1.5, 1.5], [1.5, 1.5], [1.5, 1.5]]);
+  assert.deepEqual(cornerWarn(cutFile(24, [BOX])), []);
+  // film-filled's sprockets at 24: 3 × 2.5 cells, a 1.5 rim above and 1.5 bars between, the strip's body below
+  const FILM = 'M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V16.75A3.25 3.25 0 0 1 18.75 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5.25 5.5H6.75V8H3.5V7.25A1.75 1.75 0 0 1 5.25 5.5ZM8.25 5.5H11.25V8H8.25ZM12.75 5.5H15.75V8H12.75ZM17.25 5.5H18.75A1.75 1.75 0 0 1 20.5 7.25V8H17.25ZM3.5 16H6.75V18.5H5.25A1.75 1.75 0 0 1 3.5 16.75ZM8.25 16H11.25V18.5H8.25ZM12.75 16H15.75V18.5H12.75ZM17.25 16H20.5V16.75A1.75 1.75 0 0 1 18.75 18.5H17.25Z';
+  assert.ok(holeCorners([FILM]).every((cut) => cut.corners.every((c) => c.walls.some((w) => w <= 1.5))));
+  assert.deepEqual(cornerWarn(cutFile(24, [FILM])), []);
+  // the box's square cut-out alone in a wide plate has no line behind it, and warns
+  assert.equal(cornerWarn(cutFile(24, [`${PLATE24}M10 10.5H14V14.5H10Z`])).length, 1);
+});
+
+test('lint §5k: a declared glyph\'s cut-outs are its own counters — not read under glyph: dot, numeral or letter', () => {
+  // a square counter knocked out of a disc: read without a note, not under any glyph kind
+  const DISC = 'M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z', COUNTER = `${DISC}M9.5 8H14.5V16H9.5Z`;
+  assert.equal(cornerWarn(cutFile(24, [COUNTER], [])).length, 1);
+  for (const kind of ['dot', 'numeral', 'letter'])
+    assert.deepEqual(cornerWarn(cutFile(24, [COUNTER], [`glyph: ${kind}`])), [], kind);
+});
+
+test('lint §5k: <!-- corners: square --> keeps square cut-outs and says so; unreadable, in an outline, or not needed, it is an ERROR', () => {
+  assert.deepEqual(parseCornersNote('<!-- corners: square -->'), { kind: 'square', raw: 'square' });
+  assert.deepEqual(parseCornersNote('<!-- corners: sharp -->'), { raw: 'sharp', bad: true });
+  assert.equal(parseCornersNote('<svg/>'), null);
+  const SQUARE = `${PLATE24}M8 8H16V16H8Z`, ROUND = `${PLATE24}${RBOX(8, 8, 16, 16, 0.75)}`;
+  const kept = cutFile(24, [SQUARE], ['keyline: mark', 'corners: square']);
+  assert.deepEqual(cornerWarn(kept), []);
+  assert.deepEqual(kept.errors, []);
+  assert.ok(kept.notes.includes('corners: square — 4 cut-out corners kept under C1\'s 0.75 (tightest 0 at 8,8)'), kept.notes.join(' | '));
+  const bad = cutFile(24, [SQUARE], ['keyline: mark', 'corners: sharp']);
+  assert.match(bad.errors.join(' '), /corners note "sharp" is not a kind lint knows/);
+  assert.equal(cornerWarn(bad).length, 1, 'an unreadable note is ignored, so the drawing is read as without it');
+  assert.match(cutFile(24, [ROUND], ['keyline: mark', 'corners: square']).errors.join(' '), /declares <!-- corners: square --> but no cut-out corner in this drawing is under C1's 0.75.*not needed; delete it/);
+  assert.match(cutFile(24, [SQUARE], ['keyline: mark', 'corners: square', 'glyph: dot']).errors.join(' '), /not needed/, 'a glyph\'s counters need no note');
+  assert.match(lintSource(24, 'x.svg', ONE(ROOT24, [RBOX(3.75, 3.75, 20.25, 20.25, 1.75)], ['keyline: mark', 'corners: square'])).errors.join(' '), /only a `-filled` file may declare `corners:`/);
+});
+
+test('draft-svg writes `corners: \'square\'` into the filled files only; the board\'s is overridden by `corners: null`; any other kind throws (C1)', () => {
+  const m = (v) => ({ 24: v, 20: v, 16: v });
+  const plate = { 24: `${PLATE24}M8 8H16V16H8Z`, 20: `${RBOX(3, 3, 17, 17, 2.25)}M7 7H13V13H7Z`, 16: `${RBOX(2, 2, 14, 14, 1.75)}M5 5H11V11H5Z` };
+  const c = { id: 'S', label: 'square pane', corners: 'square', masters: m([RBOX(3.75, 3.75, 20.25, 20.25, 1.75)]),
+    filled: { 24: { fill: [plate[24]] }, 20: { fill: [plate[20]] }, 16: { fill: [plate[16]] } } };
+  const out = candidateFiles({ keyline: 'mark' }, c, 'pane');
+  assert.ok(out.filter((f) => f.filled).every((f) => f.src.includes('  <!-- corners: square -->')));
+  assert.ok(out.filter((f) => !f.filled).every((f) => !f.src.includes('corners:')), 'an outline\'s panes are not read');
+  for (const f of out.filter((f) => f.filled)) {
+    const r = lintSource(f.master, f.file, f.src);
+    assert.deepEqual([r.errors, cornerWarn(r)], [[], []], `${f.master}`);
+    assert.ok(r.notes.some((n) => /^corners: square — 4 cut-out corners kept under C1's/.test(n)), `${f.master}`);
+  }
+  assert.ok(candidateFiles({ keyline: 'mark', corners: 'square' }, { ...c, corners: undefined }, 'pane').filter((f) => f.filled).every((f) => f.src.includes('corners: square')), 'board-level');
+  assert.ok(candidateFiles({ keyline: 'mark', corners: 'square' }, { ...c, corners: null }, 'pane').every((f) => !f.src.includes('corners:')), 'a candidate opts out');
+  assert.throws(() => candidateFiles({ keyline: 'mark' }, { ...c, corners: 'sharp' }, 'pane'), /corners: 'sharp' is not a kind/);
+});
+
+test('holeCorners: a cut-out written without Z still has the corners at its closing edge', () => {
+  const [open] = holeCorners([`${PLATE24}M8 8H16V16H8`]);
+  assert.equal(open.corners.length, 4, 'the implicit closing edge 8,16 → 8,8 adds its two corners');
 });

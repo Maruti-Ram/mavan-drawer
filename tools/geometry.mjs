@@ -1895,3 +1895,201 @@ export function insideAir(ds, stroke, areas = [], { cap = Infinity } = {}) {
   }));
   return { paths, holes };
 }
+
+// ── holeCorners ────────────────────────────────────────────────────────────
+// The CORNERS of a cut-out's white (Maruti, 2026-10-24; C1 "no sharp icons"; lint §5k). home-4's
+// first filled draft cut its window with white corners of 0.25 · 0.25 · 0.125 — near-square — and
+// Maruti saw them as sharp, while lint said nothing: every other measure reads how WIDE white is,
+// none how its corners turn.
+//
+// A cut-out is a hole of an evenodd area: a subpath at odd depth among its area's other subpaths,
+// the depth read at a point just inside the subpath's own longest straight edge (not on a vertex, so
+// a door whose sill lies on the outer edge is a cut-out too). Walking its contour with the white on
+// the left, the contour turns TOWARD the white where the white comes to a corner pointing into the
+// solid, and away from it where the solid pokes into the white (that is the solid's corner, not the
+// white's). A CORNER of the white is
+//   · a join of two pieces that turns toward the white by more than CORNER_JOIN: radius 0, sharp;
+//   · a piece that bends toward the white by more than CORNER_JOIN: its radius — an arc's, or an
+//     ellipse's or a Bézier's radius of curvature at its tightest point.
+// A turn of CORNER_JOIN or less — an inside angle of 150° or more — reads as a bend in the edge, not a
+// corner: tangent points rounded to the grid kink by up to 12° across the set, and dollar-circle-filled
+// 20's $ meets its upper terminal's cap at 26°; the gentlest corner outside a slit turns 45° (gift-
+// filled's bow, census 2026-10-24). Nor is a sliver of arc that smooths such a kink a corner.
+// A corner counts only where it is one in the drawing: just inside it is white (no area paints there,
+// and no stroke), and just outside it is paint. So a door's sill corners, which open onto the white
+// beyond the outer edge, are no corners, and nor is a corner a stroke or another shape paints over.
+// An island's own outline is the solid's, and is not read.
+//
+// Each corner also says what lies either side of the two edges it runs between, read every WALL_AT
+// along each edge over its first WALL_RUN: `walls`, the thinnest material behind each edge (straight
+// out of the white to the white or the outside again; lint reads one no thicker than the line weight
+// as one of the outline's lines, §5k), and `channel`, the width of the white in front of an edge where
+// that white is a channel — every reading across it within CHANNEL_TOL of the others, so its far wall
+// runs parallel (a wedge widens; lint reads a channel no wider than §6's white line as a slit).
+//
+// `stroke` is one weight or one per path, as in `facingGap`; `below` keeps only corners whose radius
+// is under it (lint passes its floor). Returns [{ area, sub, corners: [{ r, turn, at, walls, channel }],
+// air, at }] per cut-out with at least one such corner, `sub` indexing `subpathsOf(areas[area])`: each
+// corner's radius `r` (3 dp; 0 for a sharp one), how far the contour turns there (`turn`, degrees,
+// 1 dp), where (`at`: the join, or the bend's tightest point; 2 dp), its two walls (3 dp, Infinity
+// past WALL_CAP) and its narrower channel (3 dp, Infinity for none), tightest first; and the cut-out's
+// `air`, the diameter of the widest circle that fits in its white (3 dp, less any shape painted there;
+// `at`, its centre), which tells a slit from a pane.
+const CORNER_JOIN = 30;     // deg: a corner turns by more than this, at one join or along one piece
+const CORNER_PROBE = 0.05;  // how far from a corner paint and white are looked for
+const CURVE_STEPS = 64;     // samples along a Bézier or an elliptical arc for its tightest point
+const WALL_AT = 0.25, WALL_RUN = 1;      // a wall is read every WALL_AT along an edge, over its first WALL_RUN
+const WALL_STEP = 0.01, WALL_CAP = 4;     // how finely (then halved to 1e-4) and how far out of the white
+const CHANNEL_CAP = 2, CHANNEL_TOL = 0.02;   // how far across the white a channel is looked for; how evenly it must run
+
+/** A primitive's unit direction of travel where it starts, or (end) where it ends. */
+function tangentOf(p, end) {
+  if (p.k === 'L') return unitOf(p.p0, p.p1);
+  if (p.k === 'A') return unitOf([0, 0], arcTangent(p, end ? p.t1 + p.dt : p.t1));
+  const seq = end ? [[p.c2, p.p1], [p.c1, p.p1], [p.p0, p.p1]] : [[p.p0, p.c1], [p.p0, p.c2], [p.p0, p.p1]];
+  for (const [a, b] of seq) { const u = unitOf(a, b); if (u) return u; }
+  return null;
+}
+
+/** Points along a primitive from one end (its start, or its end when `fromEnd`), every WALL_AT over its
+ *  first WALL_RUN short of its far end — or its middle alone when it is too short for one — each with
+ *  the unit direction of travel there: [[point, tangent]…]. */
+function alongOf(p, fromEnd) {
+  let len, at;
+  if (p.k === 'L') { len = hyp(p.p0, p.p1); at = (f) => [[p.p0[0] + f * (p.p1[0] - p.p0[0]), p.p0[1] + f * (p.p1[1] - p.p0[1])], unitOf(p.p0, p.p1)]; }
+  else if (p.k === 'A') { len = Math.abs(p.dt) * Math.max(p.rx, p.ry); at = (f) => [arcAt(p, p.t1 + p.dt * f), unitOf([0, 0], arcTangent(p, p.t1 + p.dt * f))]; }
+  else {
+    len = hyp(p.p0, p.c1) + hyp(p.c1, p.c2) + hyp(p.c2, p.p1);
+    at = (f) => { const m = 1 - f;
+      return [[0, 1].map((j) => m ** 3 * p.p0[j] + 3 * m * m * f * p.c1[j] + 3 * m * f * f * p.c2[j] + f ** 3 * p.p1[j]),
+        unitOf([0, 0], [0, 1].map((j) => 3 * (m * m * (p.c1[j] - p.p0[j]) + 2 * m * f * (p.c2[j] - p.c1[j]) + f * f * (p.p1[j] - p.c2[j]))))]; };
+  }
+  if (!(len > 0)) return [];
+  // never at its far end: a vertex there may turn either way, and straight out of it is no wall
+  const dists = Array.from({ length: Math.floor(WALL_RUN / WALL_AT + 1e-9) }, (_, i) => (i + 1) * WALL_AT).filter((d) => d < len - 0.01);
+  if (!dists.length) dists.push(len / 2);
+  return dists.map((d) => at(fromEnd ? 1 - d / len : d / len)).filter(([, u]) => u);
+}
+
+/** How a curve bends toward side `sgn` (+1 left, −1 right): { r, turn, at, inward } — its tightest
+ *  radius of curvature that way, how far it turns that way (degrees), and at `at`, that tightest point,
+ *  the unit normal toward its centre of curvature. Null when none of it bends toward `sgn` (a line, or a
+ *  curve bending away). A circular arc is read exactly; an ellipse or a Bézier at CURVE_STEPS samples. */
+function bendOf(p, sgn) {
+  if (p.k === 'L') return null;
+  if (p.k === 'A' && Math.abs(p.rx - p.ry) < 1e-9) {
+    if (Math.sign(p.dt) !== sgn) return null;   // an arc bends left as its parameter grows (arcCentre)
+    const at = arcAt(p, p.t1 + p.dt / 2);
+    return { r: p.rx, turn: Math.abs((p.dt * 180) / Math.PI), at, inward: unitOf(at, p.c) };
+  }
+  // an ellipse or a Bézier: sampled for its curvature, signed (+ bends left)
+  const sample = p.k === 'A'
+    ? (s) => { const t = p.t1 + p.dt * s, d = Math.sign(p.dt), ct = Math.cos(p.phi), st = Math.sin(p.phi);
+      const a = [-p.rx * Math.sin(t) * d, p.ry * Math.cos(t) * d], b = [-p.rx * Math.cos(t), -p.ry * Math.sin(t)];
+      const rot = (v) => [ct * v[0] - st * v[1], st * v[0] + ct * v[1]];
+      return { at: arcAt(p, t), d1: rot(a), d2: rot(b) }; }
+    : (s) => { const m = 1 - s;
+      return { at: [0, 1].map((j) => m ** 3 * p.p0[j] + 3 * m * m * s * p.c1[j] + 3 * m * s * s * p.c2[j] + s ** 3 * p.p1[j]),
+        d1: [0, 1].map((j) => 3 * (m * m * (p.c1[j] - p.p0[j]) + 2 * m * s * (p.c2[j] - p.c1[j]) + s * s * (p.p1[j] - p.c2[j]))),
+        d2: [0, 1].map((j) => 6 * (m * (p.c2[j] - 2 * p.c1[j] + p.p0[j]) + s * (p.p1[j] - 2 * p.c2[j] + p.c1[j]))) }; };
+  let best = null, turn = 0, prev = null;
+  for (let k = 0; k <= CURVE_STEPS; k++) {
+    const { at, d1, d2 } = sample(k / CURVE_STEPS), n = Math.hypot(d1[0], d1[1]);
+    if (n < 1e-9) continue;
+    const u = [d1[0] / n, d1[1] / n], kappa = (d1[0] * d2[1] - d1[1] * d2[0]) / n ** 3;
+    if (prev) {
+      const da = Math.atan2(prev[0] * u[1] - prev[1] * u[0], prev[0] * u[0] + prev[1] * u[1]);
+      if (Math.sign(da) === sgn) turn += Math.abs(da);
+    }
+    prev = u;
+    if (Math.sign(kappa) !== sgn) continue;
+    const r = 1 / Math.abs(kappa);
+    if (!best || r < best.r) best = { r, at, inward: [-sgn * u[1], sgn * u[0]] };
+  }
+  return best && { ...best, turn: (turn * 180) / Math.PI };
+}
+
+export function holeCorners(areas, ds = [], stroke = 0, { below = Infinity } = {}) {
+  const wOf = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  const areaSubs = areas.map((d) => subpathsOf(d).map((s) => primitivesOf(s)[0]?.prims ?? []));
+  const areaRings = areaSubs.map((subs) => subs.map(airRing));
+  const paints = areaRings.map(paintOf);
+  const inks = ds.map((d, i) => ({ runs: primitivesOf(d).flatMap((sp) => airPieces(sp.prims)), half: wOf(i) / 2 }));
+  const painted = ([x, y]) => paints.some((p) => p(x, y)) || inks.some(({ runs, half }) => nearestPiece(runs, x, y, half + 1e-6) <= half);
+  const off = (q, u, e) => [q[0] + u[0] * e, q[1] + u[1] * e];
+  const out = [];
+  areaRings.forEach((rings, area) => rings.forEach((ring, sub) => {
+    const prims = areaSubs[area][sub].filter((p) => p.k !== 'L' || hyp(p.p0, p.p1) > 1e-9);
+    if (ring.length < 3 || !prims.length) return;
+    // A hole written without Z still closes when filled; add that edge so its two corners are read.
+    if (hyp(prims.at(-1).p1, prims[0].p0) > 1e-9) prims.push({ k: 'L', p0: prims.at(-1).p1, p1: prims[0].p0 });
+    let A = 0;
+    for (let i = 0; i < ring.length; i++) { const a = ring[i], b = ring[(i + 1) % ring.length]; A += a[0] * b[1] - a[1] * b[0]; }
+    const sgn = Math.sign(A);   // the inside of this contour lies on its left (+1) or its right (−1)
+    if (!sgn) return;
+    const inwardOf = (u) => [-sgn * u[1], sgn * u[0]], outwardOf = (u) => [sgn * u[1], -sgn * u[0]];
+    // the depth, read just inside the contour's longest straight edge (else its first piece's middle)
+    const edge = prims.filter((p) => p.k === 'L').sort((a, b) => hyp(b.p0, b.p1) - hyp(a.p0, a.p1))[0] ?? prims[0];
+    const mid = edge.k === 'L' ? [(edge.p0[0] + edge.p1[0]) / 2, (edge.p0[1] + edge.p1[1]) / 2]
+      : edge.k === 'A' ? arcAt(edge, edge.t1 + edge.dt / 2) : [0, 1].map((j) => (edge.p0[j] + 3 * edge.c1[j] + 3 * edge.c2[j] + edge.p1[j]) / 8);
+    const u0 = edge.k === 'A' ? unitOf([0, 0], arcTangent(edge, edge.t1 + edge.dt / 2)) : tangentOf(edge, false);
+    if (!u0) return;
+    const probe = off(mid, inwardOf(u0), 0.01);
+    const depth = rings.filter((o, k) => k !== sub && o.length > 2 && paintOf([o])(probe[0], probe[1])).length;
+    if (depth % 2 !== 1) return;   // the shape itself, or an island: not a cut-out
+    // how far from `q` along `way` until `stop` first holds, stepping WALL_STEP then halving the last step
+    // to within 1e-4; Infinity past `cap`
+    const reach = (q, way, cap, stop) => {
+      let t = WALL_STEP;
+      for (; t <= cap + 1e-9; t += WALL_STEP) if (stop(off(q, way, t))) break;
+      if (t > cap + 1e-9) return Infinity;
+      let lo = t - WALL_STEP, hi = t;
+      while (hi - lo > 1e-4) { const m = (lo + hi) / 2; if (stop(off(q, way, m))) hi = m; else lo = m; }
+      return (lo + hi) / 2;
+    };
+    // the material behind the edge a corner runs into: the thinnest of it straight out of the white, to
+    // the white or the outside again, read every WALL_AT along that piece from the corner, over its
+    // first WALL_RUN (a short piece: at its middle)
+    const wallOf = (piece, fromEnd) => {
+      let least = Infinity;
+      for (const [q, u] of alongOf(piece, fromEnd)) least = Math.min(least, reach(q, outwardOf(u), WALL_CAP, (x) => !painted(x)));
+      return Number.isFinite(least) ? r3(least) : least;
+    };
+    // the white beside that edge, when it is a CHANNEL: across it, straight into the white to paint or out
+    // of the cut-out, read at the same points; a channel when two or more readings agree to CHANNEL_TOL
+    // (the far wall runs parallel — a wedge widens, a pane is wider than CHANNEL_CAP), else Infinity
+    const inHole = paintOf([ring]);
+    const channelOf = (piece, fromEnd) => {
+      const got = alongOf(piece, fromEnd).map(([q, u]) => reach(q, inwardOf(u), CHANNEL_CAP, (x) => painted(x) || !inHole(x[0], x[1])));
+      return got.length > 1 && got.every(Number.isFinite) && Math.max(...got) - Math.min(...got) <= CHANNEL_TOL ? r3(Math.max(...got)) : Infinity;
+    };
+    const sides = (a, b) => ({ walls: [wallOf(...a), wallOf(...b)], channel: Math.min(channelOf(...a), channelOf(...b)) });
+    // really a corner of white: white just inside it, paint just outside
+    const real = (q, inward, e) => !painted(off(q, inward, e)) && painted(off(q, [-inward[0], -inward[1]], CORNER_PROBE));
+    const corners = [];
+    prims.forEach((p, k) => {
+      // a bend toward the white, inside the piece
+      const b = bendOf(p, sgn);
+      if (b && b.turn > CORNER_JOIN && b.r < below && real(b.at, b.inward, Math.min(CORNER_PROBE, b.r / 2) || CORNER_PROBE))
+        corners.push({ r: b.r, turn: b.turn, at: b.at, ...sides([prims[(k - 1 + prims.length) % prims.length], true], [prims[(k + 1) % prims.length], false]) });
+      // a sharp join toward the white, where the piece hands over to the next
+      const tin = tangentOf(p, true), tout = tangentOf(prims[(k + 1) % prims.length], false);
+      if (!tin || !tout || !(below > 0)) return;
+      const turn = (Math.atan2(tin[0] * tout[1] - tin[1] * tout[0], tin[0] * tout[0] + tin[1] * tout[1]) * 180) / Math.PI;
+      if (Math.sign(turn) !== sgn || Math.abs(turn) <= CORNER_JOIN) return;
+      const nIn = inwardOf(tin), nOut = inwardOf(tout), bis = unitOf([0, 0], [nIn[0] + nOut[0], nIn[1] + nOut[1]]);
+      if (bis && real(p.p1, bis, CORNER_PROBE)) corners.push({ r: 0, turn: Math.abs(turn), at: p.p1, ...sides([p, true], [prims[(k + 1) % prims.length], false]) });
+    });
+    if (!corners.length) return;
+    // the cut-out's width: the widest circle in its white, as `insideAir` reads a hole (less any shape painted there)
+    const own = airPieces(areaSubs[area][sub]);
+    const pieces = areaSubs.flatMap((subs) => subs.flatMap(airPieces));
+    const h = (x, y) => (!inHole(x, y) ? -nearestPiece(own, x, y) : paints.some((p) => p(x, y)) ? -nearestPiece(pieces, x, y) : nearestPiece(pieces, x, y));
+    const box = ring.reduce((b, [x, y]) => ({ x0: Math.min(b.x0, x), y0: Math.min(b.y0, y), x1: Math.max(b.x1, x), y1: Math.max(b.y1, y) }), { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity });
+    const wide = widestCircle(h, box, AIR_EPS, Infinity);
+    corners.sort((a, b) => a.r - b.r || a.at[0] - b.at[0] || a.at[1] - b.at[1]);
+    out.push({ area, sub, corners: corners.map((c) => ({ r: r3(c.r), turn: Math.round(c.turn * 10) / 10, at: c.at.map(r2), walls: c.walls, channel: c.channel })),
+      air: r3(2 * Math.max(0, wide.d)), at: [r2(wide.x), r2(wide.y)] });
+  }));
+  return out;
+}

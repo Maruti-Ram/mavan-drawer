@@ -85,6 +85,13 @@ export default {
   - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
     on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
     pixels — with at most 3 decimal places. Comment every decimal that corrects something.
+  - **Round a filled cut-out's corners.** Every corner of a cut-out's white in a filled drawing
+    rounds at **0.75 · 0.5 · 0.375** or more (the outline's inside corner; C1, Maruti 2026-10-24).
+    `home-4`'s first window at 0.25 · 0.25 · 0.125 read sharp. Lint §5k warns below the floor. Exempt:
+    slits (white no wider than 1.5), files with a `glyph:` note, and corners against a wall of line
+    weight (a sprocket against its rim, a checkbox's frame, save's shutter against its top edge). A
+    cut-out that is square on purpose carries `corners: 'square'` on the candidate or the board (the
+    candidate wins; `null` opts out). That writes `<!-- corners: square -->` into the filled files only.
 - **Agreed box.** `box` (on the board, or on one candidate — the candidate wins, like `keyline` and
   `tags`) is written into both files as `<!-- box: 20x18 -->` for that master. Lint then holds the
   drawing to that ink size as an **error** rather than asking it to match a keyline.
