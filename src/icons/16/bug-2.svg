@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
   <!-- tags: insect, beetle, debug, curled legs, seam -->
-  <!-- Curled legs: A's body, head and seam; the front and back legs are quarter circles that leave the body flat and curl up or down, the middle leg flat. Front curl radius 4 · 3 · 3, back 4.12 · 3 · 2 (it starts on the bottom arc and ends on the box floor). Legs leave the wall at the same heights as A: 9.75 / 13.25 / 17.13 · 8.25 / 11.25 / 14.25 · 6.875 / 9.625 / 12.375; six legs at every master. Closest air 2 · 1.5 · 1.5. Ink 20x19.5 · 16x16 · 14x14. The curls end vertical, so the outer corners of the silhouette are round - softer and more organic than A, still thin-lined; at 16 the back curl is short (radius 2) and reads as a hook. Filled: as A. -->
-  <path d="M5.875 4.625H10.125A1.25 1.25 0 0 1 11.375 5.875V11A3.375 3.375 0 0 1 4.625 11V5.875A1.25 1.25 0 0 1 5.875 4.625Z"/>
+  <!-- Curled legs: P1's body, head and seam with bug-2's quarter-circle legs - front curls up, middle flat, back curls down, the same tips as P1's straight legs. The curled back leg leaves flat, so it needs 2.75 · 3 · 2.75 straight below the middle leg; that is what sets 16 at 9.25. Body on the centreline 10.5×12.75 · 8.5×10.5 · 6.75×9.25 = 1.21 · 1.24 · 1.37 : 1; outer edge 12×14.25 · 10×12 · 8×10.5 = 1.19 · 1.20 · 1.31 : 1 (shipped bug: body 10.5×15 · 8.5×11.5 · 6.75×9.75 on the centreline, 1.43 · 1.35 · 1.44 : 1; ink 12×16.5 · 10×13 · 8×11). Head and body without legs 12×17.25 · 10×15 · 8×13.5 = 1.44 · 1.50 · 1.69 : 1 (shipped 1.63 · 1.6 · 1.75). Ink 20×17.25 · 16×15 · 14×13.5, declared as an agreed box where it leaves the circle keyline (16x15 at 20, 20x17.25 at 24); box centre 11.875 · 10 · 7.75. Legs leave the wall at 9.25 / 12.5 / 15.63 · 8.75 / 11.75 / 14.75 · 6.875 / 9.625 / 12.375, reaching 4 / 4 / 4.12 · 3 / 3 / 2 · 3 / 3 / 1.5 (front / middle / back; the curls' radii are those reaches). Tightest air 1.63 · 1.5 · 1.5 (leg to leg 1.63 · 1.5 · 1.5); filled head cap to the nearest leg 4.28 · 4.09 · 3.85. Off-grid decimals are where the back legs meet the bottom curve (arc-derived) and where the filled seam cut and head cap meet their curves. -->
+  <path d="M5.875 4.625H10.125A1.25 1.25 0 0 1 11.375 5.875V10.5A3.375 3.375 0 0 1 4.625 10.5V5.875A1.25 1.25 0 0 1 5.875 4.625Z"/>
   <path d="M6.375 4.625V3.25A1.625 1.625 0 0 1 9.625 3.25V4.625"/>
-  <path d="M8 7.375V14.375"/>
+  <path d="M8 7.375V13.875"/>
   <path d="M4.625 6.875A3 3 0 0 1 1.625 3.875"/>
   <path d="M11.375 6.875A3 3 0 0 0 14.375 3.875"/>
   <path d="M4.625 9.625H1.625"/>
   <path d="M11.375 9.625H14.375"/>
-  <path d="M4.918 12.375A2 2 0 0 0 2.918 14.375"/>
-  <path d="M11.082 12.375A2 2 0 0 1 13.082 14.375"/>
+  <path d="M5.194 12.375A1.5 1.5 0 0 0 3.694 13.875"/>
+  <path d="M10.806 12.375A1.5 1.5 0 0 1 12.306 13.875"/>
 </svg>

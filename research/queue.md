@@ -398,8 +398,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 100. `wand` · Editing & Text — approved 2026-09-28
 - [x] 100. `wand-2` · Editing & Text · variant of `wand` — Solid star · approved 2026-09-28
 - [x] 100. `wand-3` · Editing & Text · variant of `wand` — Slim stick, solid star · approved 2026-09-28
-- [x] 101. `bug` · Development & Infra — approved 2026-09-28
-- [x] 101. `bug-2` · Development & Infra · variant of `bug` — Curled legs · approved 2026-09-28
+- [x] 101. `bug` · Development & Infra — approved 2026-10-23
+- [x] 101. `bug-2` · Development & Infra · variant of `bug` — Curled legs · approved 2026-10-23
 - [x] 102. `building` · Commerce & Payments — approved 2026-09-27
 - [x] 102. `building-2` · Commerce & Payments · variant of `building` — Tower, dash windows, door · approved 2026-09-28
 - [x] 102. `building-3` · Commerce & Payments · variant of `building` — Tower and wing on a ground line · approved 2026-09-27

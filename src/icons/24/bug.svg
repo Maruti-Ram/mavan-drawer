@@ -1,13 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <!-- tags: insect, beetle, debug, straight legs, seam -->
-  <!-- Straight legs, seam: Six straight legs on 0/45/90 - front pair 45 up, middle flat, back pair 45 down - on the shield body, with a dome head and a centre seam that parts the wing cases. All three masters keep all six legs: they leave the wall at y 9.75 / 13.25 / 17.13 · 8.25 / 11.25 / 14.25 · 6.875 / 9.625 / 12.375 and reach 4 · 3 · 3 past it (the back pair 4.12 · 3 · 2, because it starts on the bottom arc and ends on the box floor). Closest air between strokes 2 · 1.5 · 1.5 (leg to leg; the front leg clears the head's base by 2.66 · 1.55 · 1.6). Seam from 1.5 clear under the top line to the bottom. Ink 20x19.5 · 16x16 · 14x14, circle keyline, centred. In real pixels at 16 it is the plainest reading of a beetle and the only straight-legged drawing that keeps six legs at every size; the seam lands on a half pixel at 16 and reads grey, as lock's keyhole does. Filled: solid body, the seam a 1.5 cut through the bottom (two wing cases), a solid head cap 1.5 clear of the body. (recommended) -->
-  <path d="M8.75 6.25H15.25A2 2 0 0 1 17.25 8.25V16A5.25 5.25 0 0 1 6.75 16V8.25A2 2 0 0 1 8.75 6.25Z"/>
-  <path d="M9 6.25A3 3 0 0 1 15 6.25"/>
-  <path d="M12 9.25V21.25"/>
-  <path d="M6.75 9.75L2.75 5.75"/>
-  <path d="M17.25 9.75L21.25 5.75"/>
-  <path d="M6.75 13.25H2.75"/>
-  <path d="M17.25 13.25H21.25"/>
-  <path d="M6.87 17.13L2.75 21.25"/>
-  <path d="M17.13 17.13L21.25 21.25"/>
+  <!-- box: 20x17.25 -->
+  <!-- Straight legs, seam: What changes: bug's own width, its shield cut shorter from the bottom - the straight walls lose 2.25 · 1 · 0.5; head, seam, corner radii 2 · 1.5 · 1.25 and the 45 / flat / 45 legs are bug's. The ink box gets shorter and stays centred. At 16 this is the most that holds: the back leg has to keep 1.5 from the middle leg (roots 2.75 apart) and from the seam (its root no further in than 5.25), which pins it to the top of the bottom curve - 9.25 tall is the floor with the curled legs (9.125 with straight ones), 1.37 : 1, not the 1.2 the 24 reaches. The front pair leaves just under the shoulder (2.25 · 2.5 · 2.25 below the top), and the back pair shortens to 4.12 · 2 · 1.5 because the floor comes up. Body on the centreline 10.5×12.75 · 8.5×10.5 · 6.75×9.25 = 1.21 · 1.24 · 1.37 : 1; outer edge 12×14.25 · 10×12 · 8×10.5 = 1.19 · 1.20 · 1.31 : 1 (shipped bug: body 10.5×15 · 8.5×11.5 · 6.75×9.75 on the centreline, 1.43 · 1.35 · 1.44 : 1; ink 12×16.5 · 10×13 · 8×11). Head and body without legs 12×17.25 · 10×15 · 8×13.5 = 1.44 · 1.50 · 1.69 : 1 (shipped 1.63 · 1.6 · 1.75). Ink 20×17.25 · 16×15 · 14×13.5, declared as an agreed box where it leaves the circle keyline (16x15 at 20, 20x17.25 at 24); box centre 11.875 · 10 · 7.75. Legs leave the wall at 9.25 / 12.5 / 15.63 · 8.75 / 11.75 / 14.75 · 6.875 / 9.625 / 12.375, reaching 4 / 4 / 4.12 · 3 / 3 / 2 · 3 / 3 / 1.5 (front / middle / back). Tightest air 1.63 · 1.5 · 1.5 (leg to leg 1.63 · 1.5 · 1.5); filled head cap to the nearest leg 4.02 · 3.68 · 3.36. Off-grid decimals are where the back legs meet the bottom curve (arc-derived) and where the filled seam cut and head cap meet their curves. -->
+  <path d="M8.75 7H15.25A2 2 0 0 1 17.25 9V14.5A5.25 5.25 0 0 1 6.75 14.5V9A2 2 0 0 1 8.75 7Z"/>
+  <path d="M9 7A3 3 0 0 1 15 7"/>
+  <path d="M12 10V19.75"/>
+  <path d="M6.75 9.25L2.75 5.25"/>
+  <path d="M17.25 9.25L21.25 5.25"/>
+  <path d="M6.75 12.5H2.75"/>
+  <path d="M17.25 12.5H21.25"/>
+  <path d="M6.87 15.63L2.75 19.75"/>
+  <path d="M17.13 15.63L21.25 19.75"/>
 </svg>
