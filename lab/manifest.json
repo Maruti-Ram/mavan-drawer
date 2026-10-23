@@ -802,6 +802,8 @@
     "gear-nodes-2-filled",
     "gear-nodes-filled",
     "gift",
+    "gift-2",
+    "gift-2-filled",
     "gift-card",
     "gift-card-filled",
     "gift-filled",
@@ -49327,6 +49329,137 @@
           "geometric": 3,
           "recession": 0.24,
           "optical": 3.18
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "gift-2": {
+      "paths": [
+        "M12 3.75V6.5",
+        "M9 6.5L7.06 4.56",
+        "M15 6.5L16.94 4.56",
+        "M5.25 9.5H18.75A1.5 1.5 0 0 1 20.25 11V12.5A1.5 1.5 0 0 1 18.75 14H5.25A1.5 1.5 0 0 1 3.75 12.5V11A1.5 1.5 0 0 1 5.25 9.5Z",
+        "M5.25 14V17.75A2.5 2.5 0 0 0 7.75 20.25H16.25A2.5 2.5 0 0 0 18.75 17.75V14",
+        "M12 9.5V20.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M12 3.75V6.5\"/> <path d=\"M9 6.5L7.06 4.56\"/> <path d=\"M15 6.5L16.94 4.56\"/> <path d=\"M5.25 9.5H18.75A1.5 1.5 0 0 1 20.25 11V12.5A1.5 1.5 0 0 1 18.75 14H5.25A1.5 1.5 0 0 1 3.75 12.5V11A1.5 1.5 0 0 1 5.25 9.5Z\"/> <path d=\"M5.25 14V17.75A2.5 2.5 0 0 0 7.75 20.25H16.25A2.5 2.5 0 0 0 18.75 17.75V14\"/> <path d=\"M12 9.5V20.25\"/>",
+      "mark": false,
+      "tags": [
+        "gift",
+        "present",
+        "reward",
+        "unlocked",
+        "surprise",
+        "rays",
+        "burst"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.7,
+          "optical": 3.52
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.7,
+          "optical": 3.52
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "gift-2-filled": {
+      "paths": [
+        "M12 3.75V6.5",
+        "M9 6.5L7.06 4.56",
+        "M15 6.5L16.94 4.56"
+      ],
+      "areas": [
+        "M5.25 8.75H18.75A2.25 2.25 0 0 1 21 11V12.75A0.5 0.5 0 0 1 20.5 13.25H13A0.25 0.25 0 0 1 12.75 13V11A0.75 0.75 0 0 0 11.25 11V13A0.25 0.25 0 0 1 11 13.25H3.5A0.5 0.5 0 0 1 3 12.75V11A2.25 2.25 0 0 1 5.25 8.75Z",
+        "M5 14.75H11A0.25 0.25 0 0 1 11.25 15V20.75A0.25 0.25 0 0 1 11 21H7.75A3.25 3.25 0 0 1 4.5 17.75V15.25A0.5 0.5 0 0 1 5 14.75Z",
+        "M13 14.75H19A0.5 0.5 0 0 1 19.5 15.25V17.75A3.25 3.25 0 0 1 16.25 21H13A0.25 0.25 0 0 1 12.75 20.75V15A0.25 0.25 0 0 1 13 14.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 8.75H18.75A2.25 2.25 0 0 1 21 11V12.75A0.5 0.5 0 0 1 20.5 13.25H13A0.25 0.25 0 0 1 12.75 13V11A0.75 0.75 0 0 0 11.25 11V13A0.25 0.25 0 0 1 11 13.25H3.5A0.5 0.5 0 0 1 3 12.75V11A2.25 2.25 0 0 1 5.25 8.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 14.75H11A0.25 0.25 0 0 1 11.25 15V20.75A0.25 0.25 0 0 1 11 21H7.75A3.25 3.25 0 0 1 4.5 17.75V15.25A0.5 0.5 0 0 1 5 14.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 14.75H19A0.5 0.5 0 0 1 19.5 15.25V17.75A3.25 3.25 0 0 1 16.25 21H13A0.25 0.25 0 0 1 12.75 20.75V15A0.25 0.25 0 0 1 13 14.75Z\"/> <path d=\"M12 3.75V6.5\"/> <path d=\"M9 6.5L7.06 4.56\"/> <path d=\"M15 6.5L16.94 4.56\"/>",
+      "mark": false,
+      "tags": [
+        "gift",
+        "present",
+        "reward",
+        "unlocked",
+        "surprise",
+        "rays",
+        "burst"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         }
       },
       "container": null,
@@ -127885,6 +128018,8 @@
         "gear-nodes-2-filled",
         "gear-nodes-filled",
         "gift",
+        "gift-2",
+        "gift-2-filled",
         "gift-card",
         "gift-card-filled",
         "gift-filled",
@@ -176335,6 +176470,137 @@
               "geometric": 2,
               "recession": 0.18,
               "optical": 2.14
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gift-2": {
+          "paths": [
+            "M8 2.625V3.875",
+            "M5.25 3.875L4.366 2.991",
+            "M10.75 3.875L11.634 2.991",
+            "M3.625 6.625H12.375A1 1 0 0 1 13.375 7.625V8.375A1 1 0 0 1 12.375 9.375H3.625A1 1 0 0 1 2.625 8.375V7.625A1 1 0 0 1 3.625 6.625Z",
+            "M3.625 9.375V11.875A1.5 1.5 0 0 0 5.125 13.375H10.875A1.5 1.5 0 0 0 12.375 11.875V9.375",
+            "M8 6.625V13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8 2.625V3.875\"/> <path d=\"M5.25 3.875L4.366 2.991\"/> <path d=\"M10.75 3.875L11.634 2.991\"/> <path d=\"M3.625 6.625H12.375A1 1 0 0 1 13.375 7.625V8.375A1 1 0 0 1 12.375 9.375H3.625A1 1 0 0 1 2.625 8.375V7.625A1 1 0 0 1 3.625 6.625Z\"/> <path d=\"M3.625 9.375V11.875A1.5 1.5 0 0 0 5.125 13.375H10.875A1.5 1.5 0 0 0 12.375 11.875V9.375\"/> <path d=\"M8 6.625V13.375\"/>",
+          "mark": false,
+          "tags": [
+            "gift",
+            "present",
+            "reward",
+            "unlocked",
+            "surprise",
+            "rays",
+            "burst"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.53,
+              "optical": 2.39
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.53,
+              "optical": 2.39
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.14
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gift-2-filled": {
+          "paths": [
+            "M8 2.625V3.875",
+            "M5.25 3.875L4.366 2.991",
+            "M10.75 3.875L11.634 2.991"
+          ],
+          "areas": [
+            "M3.625 6H12.375A1.625 1.625 0 0 1 14 7.625V8.125A0.5 0.5 0 0 1 13.5 8.625H9A0.25 0.25 0 0 1 8.75 8.375V8.25A0.75 0.75 0 0 0 7.25 8.25V8.375A0.25 0.25 0 0 1 7 8.625H2.5A0.5 0.5 0 0 1 2 8.125V7.625A1.625 1.625 0 0 1 3.625 6Z",
+            "M3.5 10.125H7A0.25 0.25 0 0 1 7.25 10.375V13.75A0.25 0.25 0 0 1 7 14H5.125A2.125 2.125 0 0 1 3 11.875V10.625A0.5 0.5 0 0 1 3.5 10.125Z",
+            "M9 10.125H12.5A0.5 0.5 0 0 1 13 10.625V11.875A2.125 2.125 0 0 1 10.875 14H9A0.25 0.25 0 0 1 8.75 13.75V10.375A0.25 0.25 0 0 1 9 10.125Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.625 6H12.375A1.625 1.625 0 0 1 14 7.625V8.125A0.5 0.5 0 0 1 13.5 8.625H9A0.25 0.25 0 0 1 8.75 8.375V8.25A0.75 0.75 0 0 0 7.25 8.25V8.375A0.25 0.25 0 0 1 7 8.625H2.5A0.5 0.5 0 0 1 2 8.125V7.625A1.625 1.625 0 0 1 3.625 6Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.5 10.125H7A0.25 0.25 0 0 1 7.25 10.375V13.75A0.25 0.25 0 0 1 7 14H5.125A2.125 2.125 0 0 1 3 11.875V10.625A0.5 0.5 0 0 1 3.5 10.125Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 10.125H12.5A0.5 0.5 0 0 1 13 10.625V11.875A2.125 2.125 0 0 1 10.875 14H9A0.25 0.25 0 0 1 8.75 13.75V10.375A0.25 0.25 0 0 1 9 10.125Z\"/> <path d=\"M8 2.625V3.875\"/> <path d=\"M5.25 3.875L4.366 2.991\"/> <path d=\"M10.75 3.875L11.634 2.991\"/>",
+          "mark": false,
+          "tags": [
+            "gift",
+            "present",
+            "reward",
+            "unlocked",
+            "surprise",
+            "rays",
+            "burst"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -254856,6 +255122,8 @@
         "gear-nodes-2-filled",
         "gear-nodes-filled",
         "gift",
+        "gift-2",
+        "gift-2-filled",
         "gift-card",
         "gift-card-filled",
         "gift-filled",
@@ -303333,6 +303601,137 @@
               "geometric": 3,
               "recession": 0.24,
               "optical": 3.18
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gift-2": {
+          "paths": [
+            "M10 3.75V5.25",
+            "M7 5.25L5.94 4.19",
+            "M13 5.25L14.06 4.19",
+            "M5 8.25H15A1.25 1.25 0 0 1 16.25 9.5V10.5A1.25 1.25 0 0 1 15 11.75H5A1.25 1.25 0 0 1 3.75 10.5V9.5A1.25 1.25 0 0 1 5 8.25Z",
+            "M5 11.75V14.25A2 2 0 0 0 7 16.25H13A2 2 0 0 0 15 14.25V11.75",
+            "M10 8.25V16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10 3.75V5.25\"/> <path d=\"M7 5.25L5.94 4.19\"/> <path d=\"M13 5.25L14.06 4.19\"/> <path d=\"M5 8.25H15A1.25 1.25 0 0 1 16.25 9.5V10.5A1.25 1.25 0 0 1 15 11.75H5A1.25 1.25 0 0 1 3.75 10.5V9.5A1.25 1.25 0 0 1 5 8.25Z\"/> <path d=\"M5 11.75V14.25A2 2 0 0 0 7 16.25H13A2 2 0 0 0 15 14.25V11.75\"/> <path d=\"M10 8.25V16.25\"/>",
+          "mark": false,
+          "tags": [
+            "gift",
+            "present",
+            "reward",
+            "unlocked",
+            "surprise",
+            "rays",
+            "burst"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.63,
+              "optical": 3.47
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.63,
+              "optical": 3.47
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gift-2-filled": {
+          "paths": [
+            "M10 3.75V5.25",
+            "M7 5.25L5.94 4.19",
+            "M13 5.25L14.06 4.19"
+          ],
+          "areas": [
+            "M5 7.5H15A2 2 0 0 1 17 9.5V10.5A0.5 0.5 0 0 1 16.5 11H11A0.25 0.25 0 0 1 10.75 10.75V9.75A0.75 0.75 0 0 0 9.25 9.75V10.75A0.25 0.25 0 0 1 9 11H3.5A0.5 0.5 0 0 1 3 10.5V9.5A2 2 0 0 1 5 7.5Z",
+            "M4.75 12.5H9A0.25 0.25 0 0 1 9.25 12.75V16.75A0.25 0.25 0 0 1 9 17H7A2.75 2.75 0 0 1 4.25 14.25V13A0.5 0.5 0 0 1 4.75 12.5Z",
+            "M11 12.5H15.25A0.5 0.5 0 0 1 15.75 13V14.25A2.75 2.75 0 0 1 13 17H11A0.25 0.25 0 0 1 10.75 16.75V12.75A0.25 0.25 0 0 1 11 12.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 7.5H15A2 2 0 0 1 17 9.5V10.5A0.5 0.5 0 0 1 16.5 11H11A0.25 0.25 0 0 1 10.75 10.75V9.75A0.75 0.75 0 0 0 9.25 9.75V10.75A0.25 0.25 0 0 1 9 11H3.5A0.5 0.5 0 0 1 3 10.5V9.5A2 2 0 0 1 5 7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 12.5H9A0.25 0.25 0 0 1 9.25 12.75V16.75A0.25 0.25 0 0 1 9 17H7A2.75 2.75 0 0 1 4.25 14.25V13A0.5 0.5 0 0 1 4.75 12.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 12.5H15.25A0.5 0.5 0 0 1 15.75 13V14.25A2.75 2.75 0 0 1 13 17H11A0.25 0.25 0 0 1 10.75 16.75V12.75A0.25 0.25 0 0 1 11 12.5Z\"/> <path d=\"M10 3.75V5.25\"/> <path d=\"M7 5.25L5.94 4.19\"/> <path d=\"M13 5.25L14.06 4.19\"/>",
+          "mark": false,
+          "tags": [
+            "gift",
+            "present",
+            "reward",
+            "unlocked",
+            "surprise",
+            "rays",
+            "burst"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -381878,6 +382277,8 @@
         "gear-nodes-2-filled",
         "gear-nodes-filled",
         "gift",
+        "gift-2",
+        "gift-2-filled",
         "gift-card",
         "gift-card-filled",
         "gift-filled",
@@ -430403,6 +430804,137 @@
               "geometric": 3,
               "recession": 0.24,
               "optical": 3.18
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gift-2": {
+          "paths": [
+            "M12 3.75V6.5",
+            "M9 6.5L7.06 4.56",
+            "M15 6.5L16.94 4.56",
+            "M5.25 9.5H18.75A1.5 1.5 0 0 1 20.25 11V12.5A1.5 1.5 0 0 1 18.75 14H5.25A1.5 1.5 0 0 1 3.75 12.5V11A1.5 1.5 0 0 1 5.25 9.5Z",
+            "M5.25 14V17.75A2.5 2.5 0 0 0 7.75 20.25H16.25A2.5 2.5 0 0 0 18.75 17.75V14",
+            "M12 9.5V20.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12 3.75V6.5\"/> <path d=\"M9 6.5L7.06 4.56\"/> <path d=\"M15 6.5L16.94 4.56\"/> <path d=\"M5.25 9.5H18.75A1.5 1.5 0 0 1 20.25 11V12.5A1.5 1.5 0 0 1 18.75 14H5.25A1.5 1.5 0 0 1 3.75 12.5V11A1.5 1.5 0 0 1 5.25 9.5Z\"/> <path d=\"M5.25 14V17.75A2.5 2.5 0 0 0 7.75 20.25H16.25A2.5 2.5 0 0 0 18.75 17.75V14\"/> <path d=\"M12 9.5V20.25\"/>",
+          "mark": false,
+          "tags": [
+            "gift",
+            "present",
+            "reward",
+            "unlocked",
+            "surprise",
+            "rays",
+            "burst"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.7,
+              "optical": 3.52
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.7,
+              "optical": 3.52
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gift-2-filled": {
+          "paths": [
+            "M12 3.75V6.5",
+            "M9 6.5L7.06 4.56",
+            "M15 6.5L16.94 4.56"
+          ],
+          "areas": [
+            "M5.25 8.75H18.75A2.25 2.25 0 0 1 21 11V12.75A0.5 0.5 0 0 1 20.5 13.25H13A0.25 0.25 0 0 1 12.75 13V11A0.75 0.75 0 0 0 11.25 11V13A0.25 0.25 0 0 1 11 13.25H3.5A0.5 0.5 0 0 1 3 12.75V11A2.25 2.25 0 0 1 5.25 8.75Z",
+            "M5 14.75H11A0.25 0.25 0 0 1 11.25 15V20.75A0.25 0.25 0 0 1 11 21H7.75A3.25 3.25 0 0 1 4.5 17.75V15.25A0.5 0.5 0 0 1 5 14.75Z",
+            "M13 14.75H19A0.5 0.5 0 0 1 19.5 15.25V17.75A3.25 3.25 0 0 1 16.25 21H13A0.25 0.25 0 0 1 12.75 20.75V15A0.25 0.25 0 0 1 13 14.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 8.75H18.75A2.25 2.25 0 0 1 21 11V12.75A0.5 0.5 0 0 1 20.5 13.25H13A0.25 0.25 0 0 1 12.75 13V11A0.75 0.75 0 0 0 11.25 11V13A0.25 0.25 0 0 1 11 13.25H3.5A0.5 0.5 0 0 1 3 12.75V11A2.25 2.25 0 0 1 5.25 8.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 14.75H11A0.25 0.25 0 0 1 11.25 15V20.75A0.25 0.25 0 0 1 11 21H7.75A3.25 3.25 0 0 1 4.5 17.75V15.25A0.5 0.5 0 0 1 5 14.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 14.75H19A0.5 0.5 0 0 1 19.5 15.25V17.75A3.25 3.25 0 0 1 16.25 21H13A0.25 0.25 0 0 1 12.75 20.75V15A0.25 0.25 0 0 1 13 14.75Z\"/> <path d=\"M12 3.75V6.5\"/> <path d=\"M9 6.5L7.06 4.56\"/> <path d=\"M15 6.5L16.94 4.56\"/>",
+          "mark": false,
+          "tags": [
+            "gift",
+            "present",
+            "reward",
+            "unlocked",
+            "surprise",
+            "rays",
+            "burst"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -514681,6 +515213,17 @@
       "status": "done",
       "mvp": false,
       "date": "2026-10-20"
+    },
+    {
+      "n": 192,
+      "name": "gift-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Status & Feedback",
+      "base": "gift",
+      "note": "Gift with a burst · approved 2026-10-23",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-23"
     },
     {
       "n": 193,

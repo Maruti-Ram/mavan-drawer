@@ -622,6 +622,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 191. `download-2` · Files & Folders · variant of `download` — Tray, arrow at the rim · approved 2026-10-18
 - [x] 191. `download-3` · Files & Folders · variant of `download` — Deep tray, arrow deep · approved 2026-10-18
 - [x] 192. `gift` · Status & Feedback — approved 2026-10-20
+- [x] 192. `gift-2` · Status & Feedback · variant of `gift` — Gift with a burst · approved 2026-10-23
 - [x] 193. `headphones` · Communication — approved 2026-10-20
 - [x] 193. `headphones-2` · Communication · variant of `headphones` — Capsule cups · approved 2026-10-20
 - [x] 193. `headphones-4` · Communication · variant of `headphones` — Wired earbuds · approved 2026-10-20
