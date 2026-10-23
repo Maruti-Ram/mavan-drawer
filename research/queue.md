@@ -469,7 +469,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 120. `arrow-up-right-3` · Arrows & Direction · variant of `arrow-up-right` — Turned flat · approved 2026-09-29
 - [x] 120. `arrow-up-right-5` · Arrows & Direction · variant of `arrow-up-right` — One step down · approved 2026-09-29
 - [x] 120. `arrow-up-right-4` · Arrows & Direction · variant of `arrow-up-right` — Closed head · approved 2026-09-29
-- [x] 121. `bold` · Editing & Text — mvp · approved 2026-09-29
+- [x] 121. `bold` · Editing & Text — mvp · approved 2026-10-24
 - [x] 122. `chart-pie` · Charts & Data — mvp · approved 2026-09-29
 - [x] 122. `chart-pie-2` · Charts & Data · variant of `chart-pie` — Exploded · approved 2026-09-29
 - [x] 122. `chart-pie-3` · Charts & Data · variant of `chart-pie` — Three slices · approved 2026-09-29
