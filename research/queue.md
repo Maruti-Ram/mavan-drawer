@@ -1055,7 +1055,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 434. `user-search` · Users & Access · variant of `user`
 - [x] 435. `battery-full` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [x] 436. `battery-low` · Devices & Hardware · variant of `battery` — approved 2026-10-23
-- [~] 437. `bug-off` · Development & Infra · variant of `bug`
+- [x] 437. `bug-off` · Development & Infra · variant of `bug` — approved 2026-10-23
+- [x] 437. `bug-off-2` · Development & Infra · variant of `bug-off` — Bar cut through, curled legs · approved 2026-10-23
 - [ ] 438. `compass-drafting` · Design Tools · variant of `compass`
 - [ ] 439. `desktop-download` · Devices & Hardware · variant of `desktop`
 - [ ] 440. `credit-card-lock` · Commerce & Payments · variant of `credit-card`
