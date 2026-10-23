@@ -1162,7 +1162,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 529. `piggy-bank` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 530. `ticket-percent` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 531. `tickets` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
-- [x] 532. `van` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
+- [x] 532. `van` · Commerce & Payments — added 2026-10-21 · approved 2026-10-24
 - [x] 533. `hand-coins` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 534. `euro` · Currency — added 2026-10-21 · approved 2026-10-21
 - [x] 535. `euro-circle` · Currency — added 2026-10-21 · approved 2026-10-21
