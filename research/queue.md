@@ -1093,7 +1093,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 472. `window-expand-bottom-right` · Design Tools · variant of `window`
 - [ ] 473. `window-key` · Design Tools · variant of `window`
 - [ ] 474. `window-pointer` · Design Tools · variant of `window`
-- [~] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench`
+- [x] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench` — approved 2026-10-23
+- [x] 475. `wrench-screwdriver-2` · Development & Infra · variant of `wrench-screwdriver` — Crossed, wrench in front · approved 2026-10-23
 - [ ] 476. `phone-off` · Communication · variant of `phone`
 - [ ] 477. `text-align-justify` · Editing & Text · variant of `text`
 - [ ] 478. `user-check` · Users & Access · variant of `user`
