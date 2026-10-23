@@ -517,6 +517,8 @@
     "cloud-off-3",
     "cloud-off-3-filled",
     "cloud-off-filled",
+    "cloud-sun",
+    "cloud-sun-filled",
     "cloud-upload",
     "cloud-upload-2",
     "cloud-upload-2-filled",
@@ -32053,6 +32055,137 @@
           "geometric": 3.5,
           "recession": 0,
           "optical": 3.5
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "cloud-sun": {
+      "paths": [
+        "M7.5 21.25A4.75 4.75 0 0 1 2.75 16.5A4.75 4.75 0 0 1 7.5 11.75A4.75 4.75 0 0 1 11.97 14.9A1.5 1.5 0 0 0 13.78 15.85A2.75 2.75 0 0 1 14.5 15.75A2.75 2.75 0 0 1 17.25 18.5A2.75 2.75 0 0 1 14.5 21.25H7.5Z",
+        "M15.4 12.82A3.5 3.5 0 0 0 12 8.5A3.5 3.5 0 0 0 9.96 9.15",
+        "M12 2.75V5.5",
+        "M18.5 12H21.25",
+        "M5.46 5.46L7.4 7.4",
+        "M18.54 5.46L16.6 7.4"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.5 21.25A4.75 4.75 0 0 1 2.75 16.5A4.75 4.75 0 0 1 7.5 11.75A4.75 4.75 0 0 1 11.97 14.9A1.5 1.5 0 0 0 13.78 15.85A2.75 2.75 0 0 1 14.5 15.75A2.75 2.75 0 0 1 17.25 18.5A2.75 2.75 0 0 1 14.5 21.25H7.5Z\"/> <path d=\"M15.4 12.82A3.5 3.5 0 0 0 12 8.5A3.5 3.5 0 0 0 9.96 9.15\"/> <path d=\"M12 2.75V5.5\"/> <path d=\"M18.5 12H21.25\"/> <path d=\"M5.46 5.46L7.4 7.4\"/> <path d=\"M18.54 5.46L16.6 7.4\"/>",
+      "mark": false,
+      "tags": [
+        "cloud",
+        "sun",
+        "weather",
+        "partly cloudy",
+        "partly sunny",
+        "two puffs",
+        "forecast"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.41,
+          "optical": 2.31
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.02
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.02,
+          "optical": 2.02
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.33,
+          "optical": 2.24
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "cloud-sun-filled": {
+      "paths": [
+        "M12 2.75V5.5",
+        "M18.5 12H21.25",
+        "M5.46 5.46L7.4 7.4",
+        "M18.54 5.46L16.6 7.4"
+      ],
+      "areas": [
+        "M7.5 22A5.5 5.5 0 0 1 2 16.5A5.5 5.5 0 0 1 7.5 11A5.5 5.5 0 0 1 12.68 14.65A0.75 0.75 0 0 0 13.58 15.12A3.5 3.5 0 0 1 14.5 15A3.5 3.5 0 0 1 18 18.5A3.5 3.5 0 0 1 14.5 22H7.5Z",
+        "M15.9 13.7A4.25 4.25 0 0 0 12 7.75A4.25 4.25 0 0 0 8.51 9.57A7 7 0 0 1 13.84 13.54A5 5 0 0 1 15.9 13.7Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 22A5.5 5.5 0 0 1 2 16.5A5.5 5.5 0 0 1 7.5 11A5.5 5.5 0 0 1 12.68 14.65A0.75 0.75 0 0 0 13.58 15.12A3.5 3.5 0 0 1 14.5 15A3.5 3.5 0 0 1 18 18.5A3.5 3.5 0 0 1 14.5 22H7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.9 13.7A4.25 4.25 0 0 0 12 7.75A4.25 4.25 0 0 0 8.51 9.57A7 7 0 0 1 13.84 13.54A5 5 0 0 1 15.9 13.7Z\"/> <path d=\"M12 2.75V5.5\"/> <path d=\"M18.5 12H21.25\"/> <path d=\"M5.46 5.46L7.4 7.4\"/> <path d=\"M18.54 5.46L16.6 7.4\"/>",
+      "mark": false,
+      "tags": [
+        "cloud",
+        "sun",
+        "weather",
+        "partly cloudy",
+        "partly sunny",
+        "two puffs",
+        "forecast"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -127217,6 +127350,8 @@
         "cloud-off-3",
         "cloud-off-3-filled",
         "cloud-off-filled",
+        "cloud-sun",
+        "cloud-sun-filled",
         "cloud-upload",
         "cloud-upload-2",
         "cloud-upload-2-filled",
@@ -158702,6 +158837,137 @@
               "geometric": 2.5,
               "recession": 0,
               "optical": 2.5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cloud-sun": {
+          "paths": [
+            "M4.75 14.375A3.125 3.125 0 0 1 1.625 11.25A3.125 3.125 0 0 1 4.75 8.125A3.125 3.125 0 0 1 7.564 9.892A1.25 1.25 0 0 0 9.146 10.513A2 2 0 0 1 9.875 10.375A2 2 0 0 1 11.875 12.375A2 2 0 0 1 9.875 14.375H4.75Z",
+            "M10.349 7.649A2.375 2.375 0 0 0 8 5.625A2.375 2.375 0 0 0 7.026 5.834",
+            "M8 1.625V2.875",
+            "M13.125 8H14.375",
+            "M3.492 3.492L4.376 4.376",
+            "M12.508 3.492L11.624 4.376"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.75 14.375A3.125 3.125 0 0 1 1.625 11.25A3.125 3.125 0 0 1 4.75 8.125A3.125 3.125 0 0 1 7.564 9.892A1.25 1.25 0 0 0 9.146 10.513A2 2 0 0 1 9.875 10.375A2 2 0 0 1 11.875 12.375A2 2 0 0 1 9.875 14.375H4.75Z\"/> <path d=\"M10.349 7.649A2.375 2.375 0 0 0 8 5.625A2.375 2.375 0 0 0 7.026 5.834\"/> <path d=\"M8 1.625V2.875\"/> <path d=\"M13.125 8H14.375\"/> <path d=\"M3.492 3.492L4.376 4.376\"/> <path d=\"M12.508 3.492L11.624 4.376\"/>",
+          "mark": false,
+          "tags": [
+            "cloud",
+            "sun",
+            "weather",
+            "partly cloudy",
+            "partly sunny",
+            "two puffs",
+            "forecast"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.3,
+              "optical": 1.22
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.25,
+              "optical": 1.19
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cloud-sun-filled": {
+          "paths": [
+            "M8 1.625V2.875",
+            "M13.125 8H14.375",
+            "M3.492 3.492L4.376 4.376",
+            "M12.508 3.492L11.624 4.376"
+          ],
+          "areas": [
+            "M4.75 15A3.75 3.75 0 0 1 1 11.25A3.75 3.75 0 0 1 4.75 7.5A3.75 3.75 0 0 1 8.127 9.62A0.625 0.625 0 0 0 8.918 9.931A2.625 2.625 0 0 1 9.875 9.75A2.625 2.625 0 0 1 12.5 12.375A2.625 2.625 0 0 1 9.875 15H4.75Z",
+            "M10.973 8.399A3 3 0 0 0 8 5A3 3 0 0 0 5.691 6.085A5.25 5.25 0 0 1 9.108 8.322A4.125 4.125 0 0 1 10.973 8.399Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 15A3.75 3.75 0 0 1 1 11.25A3.75 3.75 0 0 1 4.75 7.5A3.75 3.75 0 0 1 8.127 9.62A0.625 0.625 0 0 0 8.918 9.931A2.625 2.625 0 0 1 9.875 9.75A2.625 2.625 0 0 1 12.5 12.375A2.625 2.625 0 0 1 9.875 15H4.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.973 8.399A3 3 0 0 0 8 5A3 3 0 0 0 5.691 6.085A5.25 5.25 0 0 1 9.108 8.322A4.125 4.125 0 0 1 10.973 8.399Z\"/> <path d=\"M8 1.625V2.875\"/> <path d=\"M13.125 8H14.375\"/> <path d=\"M3.492 3.492L4.376 4.376\"/> <path d=\"M12.508 3.492L11.624 4.376\"/>",
+          "mark": false,
+          "tags": [
+            "cloud",
+            "sun",
+            "weather",
+            "partly cloudy",
+            "partly sunny",
+            "two puffs",
+            "forecast"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -253805,6 +254071,8 @@
         "cloud-off-3",
         "cloud-off-3-filled",
         "cloud-off-filled",
+        "cloud-sun",
+        "cloud-sun-filled",
         "cloud-upload",
         "cloud-upload-2",
         "cloud-upload-2-filled",
@@ -285306,6 +285574,137 @@
               "geometric": 3.5,
               "recession": 0,
               "optical": 3.5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cloud-sun": {
+          "paths": [
+            "M6.25 17.25A3.5 3.5 0 0 1 2.75 13.75A3.5 3.5 0 0 1 6.25 10.25A3.5 3.5 0 0 1 9.37 12.16A1.5 1.5 0 0 0 11.22 12.89A2.25 2.25 0 0 1 12 12.75A2.25 2.25 0 0 1 14.25 15A2.25 2.25 0 0 1 12 17.25H6.25Z",
+            "M12.74 9.8A2.75 2.75 0 0 0 10 7.25A2.75 2.75 0 0 0 8.54 7.67",
+            "M10 2.75V4.25",
+            "M15.75 10H17.25",
+            "M4.87 4.87L5.93 5.93",
+            "M15.13 4.87L14.07 5.93"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.25 17.25A3.5 3.5 0 0 1 2.75 13.75A3.5 3.5 0 0 1 6.25 10.25A3.5 3.5 0 0 1 9.37 12.16A1.5 1.5 0 0 0 11.22 12.89A2.25 2.25 0 0 1 12 12.75A2.25 2.25 0 0 1 14.25 15A2.25 2.25 0 0 1 12 17.25H6.25Z\"/> <path d=\"M12.74 9.8A2.75 2.75 0 0 0 10 7.25A2.75 2.75 0 0 0 8.54 7.67\"/> <path d=\"M10 2.75V4.25\"/> <path d=\"M15.75 10H17.25\"/> <path d=\"M4.87 4.87L5.93 5.93\"/> <path d=\"M15.13 4.87L14.07 5.93\"/>",
+          "mark": false,
+          "tags": [
+            "cloud",
+            "sun",
+            "weather",
+            "partly cloudy",
+            "partly sunny",
+            "two puffs",
+            "forecast"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.39,
+              "optical": 2.29
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.31,
+              "optical": 2.24
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cloud-sun-filled": {
+          "paths": [
+            "M10 2.75V4.25",
+            "M15.75 10H17.25",
+            "M4.87 4.87L5.93 5.93",
+            "M15.13 4.87L14.07 5.93"
+          ],
+          "areas": [
+            "M6.25 18A4.25 4.25 0 0 1 2 13.75A4.25 4.25 0 0 1 6.25 9.5A4.25 4.25 0 0 1 10.04 11.82A0.75 0.75 0 0 0 10.96 12.18A3 3 0 0 1 12 12A3 3 0 0 1 15 15A3 3 0 0 1 12 18H6.25Z",
+            "M13.42 10.73A3.5 3.5 0 0 0 10 6.5A3.5 3.5 0 0 0 7.09 8.06A5.75 5.75 0 0 1 11.06 10.6A4.5 4.5 0 0 1 13.42 10.73Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 18A4.25 4.25 0 0 1 2 13.75A4.25 4.25 0 0 1 6.25 9.5A4.25 4.25 0 0 1 10.04 11.82A0.75 0.75 0 0 0 10.96 12.18A3 3 0 0 1 12 12A3 3 0 0 1 15 15A3 3 0 0 1 12 18H6.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.42 10.73A3.5 3.5 0 0 0 10 6.5A3.5 3.5 0 0 0 7.09 8.06A5.75 5.75 0 0 1 11.06 10.6A4.5 4.5 0 0 1 13.42 10.73Z\"/> <path d=\"M10 2.75V4.25\"/> <path d=\"M15.75 10H17.25\"/> <path d=\"M4.87 4.87L5.93 5.93\"/> <path d=\"M15.13 4.87L14.07 5.93\"/>",
+          "mark": false,
+          "tags": [
+            "cloud",
+            "sun",
+            "weather",
+            "partly cloudy",
+            "partly sunny",
+            "two puffs",
+            "forecast"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -380444,6 +380843,8 @@
         "cloud-off-3",
         "cloud-off-3-filled",
         "cloud-off-filled",
+        "cloud-sun",
+        "cloud-sun-filled",
         "cloud-upload",
         "cloud-upload-2",
         "cloud-upload-2-filled",
@@ -411980,6 +412381,137 @@
               "geometric": 3.5,
               "recession": 0,
               "optical": 3.5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cloud-sun": {
+          "paths": [
+            "M7.5 21.25A4.75 4.75 0 0 1 2.75 16.5A4.75 4.75 0 0 1 7.5 11.75A4.75 4.75 0 0 1 11.97 14.9A1.5 1.5 0 0 0 13.78 15.85A2.75 2.75 0 0 1 14.5 15.75A2.75 2.75 0 0 1 17.25 18.5A2.75 2.75 0 0 1 14.5 21.25H7.5Z",
+            "M15.4 12.82A3.5 3.5 0 0 0 12 8.5A3.5 3.5 0 0 0 9.96 9.15",
+            "M12 2.75V5.5",
+            "M18.5 12H21.25",
+            "M5.46 5.46L7.4 7.4",
+            "M18.54 5.46L16.6 7.4"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.5 21.25A4.75 4.75 0 0 1 2.75 16.5A4.75 4.75 0 0 1 7.5 11.75A4.75 4.75 0 0 1 11.97 14.9A1.5 1.5 0 0 0 13.78 15.85A2.75 2.75 0 0 1 14.5 15.75A2.75 2.75 0 0 1 17.25 18.5A2.75 2.75 0 0 1 14.5 21.25H7.5Z\"/> <path d=\"M15.4 12.82A3.5 3.5 0 0 0 12 8.5A3.5 3.5 0 0 0 9.96 9.15\"/> <path d=\"M12 2.75V5.5\"/> <path d=\"M18.5 12H21.25\"/> <path d=\"M5.46 5.46L7.4 7.4\"/> <path d=\"M18.54 5.46L16.6 7.4\"/>",
+          "mark": false,
+          "tags": [
+            "cloud",
+            "sun",
+            "weather",
+            "partly cloudy",
+            "partly sunny",
+            "two puffs",
+            "forecast"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.41,
+              "optical": 2.31
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.02,
+              "optical": 2.02
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.24
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "cloud-sun-filled": {
+          "paths": [
+            "M12 2.75V5.5",
+            "M18.5 12H21.25",
+            "M5.46 5.46L7.4 7.4",
+            "M18.54 5.46L16.6 7.4"
+          ],
+          "areas": [
+            "M7.5 22A5.5 5.5 0 0 1 2 16.5A5.5 5.5 0 0 1 7.5 11A5.5 5.5 0 0 1 12.68 14.65A0.75 0.75 0 0 0 13.58 15.12A3.5 3.5 0 0 1 14.5 15A3.5 3.5 0 0 1 18 18.5A3.5 3.5 0 0 1 14.5 22H7.5Z",
+            "M15.9 13.7A4.25 4.25 0 0 0 12 7.75A4.25 4.25 0 0 0 8.51 9.57A7 7 0 0 1 13.84 13.54A5 5 0 0 1 15.9 13.7Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 22A5.5 5.5 0 0 1 2 16.5A5.5 5.5 0 0 1 7.5 11A5.5 5.5 0 0 1 12.68 14.65A0.75 0.75 0 0 0 13.58 15.12A3.5 3.5 0 0 1 14.5 15A3.5 3.5 0 0 1 18 18.5A3.5 3.5 0 0 1 14.5 22H7.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.9 13.7A4.25 4.25 0 0 0 12 7.75A4.25 4.25 0 0 0 8.51 9.57A7 7 0 0 1 13.84 13.54A5 5 0 0 1 15.9 13.7Z\"/> <path d=\"M12 2.75V5.5\"/> <path d=\"M18.5 12H21.25\"/> <path d=\"M5.46 5.46L7.4 7.4\"/> <path d=\"M18.54 5.46L16.6 7.4\"/>",
+          "mark": false,
+          "tags": [
+            "cloud",
+            "sun",
+            "weather",
+            "partly cloudy",
+            "partly sunny",
+            "two puffs",
+            "forecast"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -519590,6 +520122,28 @@
       "name": "component",
       "section": "E · Added on request",
       "category": "Design Tools",
+      "base": null,
+      "note": "added 2026-10-23 · approved 2026-10-23",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-23"
+    },
+    {
+      "n": 590,
+      "name": "troubleshoot",
+      "section": "E · Added on request",
+      "category": null,
+      "base": null,
+      "note": "added 2026-10-23",
+      "status": "review",
+      "mvp": false,
+      "date": null
+    },
+    {
+      "n": 591,
+      "name": "cloud-sun",
+      "section": "E · Added on request",
+      "category": "UI & Layout",
       "base": null,
       "note": "added 2026-10-23 · approved 2026-10-23",
       "status": "done",

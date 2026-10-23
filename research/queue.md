@@ -1213,3 +1213,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 587. `help-diamond` · Status & Feedback · variant of `help-circle` — added 2026-10-23 · approved 2026-10-23
 - [x] 588. `dimensions` · Design Tools — added 2026-10-23 · approved 2026-10-23
 - [x] 589. `component` · Design Tools — added 2026-10-23 · approved 2026-10-23
+- [~] 590. `troubleshoot` — added 2026-10-23
+- [x] 591. `cloud-sun` · UI & Layout — added 2026-10-23 · approved 2026-10-23
