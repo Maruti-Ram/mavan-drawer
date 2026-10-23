@@ -1045,7 +1045,6 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 426. `face-smile-plus` · Communication · variant of `face-smile`
 - [ ] 427. `file-check` · Files & Folders · variant of `file`
 - [ ] 428. `folder-open` · Files & Folders · variant of `folder`
-- [ ] 429. `heart-hand` · Status & Feedback · variant of `heart`
 - [ ] 430. `link-off` · Editing & Text · variant of `link`
 - [ ] 431. `mail-open` · Communication · variant of `mail`
 - [ ] 432. `scan-face` · Users & Access · variant of `scan`
