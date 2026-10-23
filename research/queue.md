@@ -613,6 +613,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 187. `warehouse-3` · Commerce & Payments · variant of `warehouse` — Open shed, two boxes · approved 2026-10-21
 - [x] 188. `award` · Status & Feedback — approved 2026-10-20
 - [x] 521. `trophy` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 521. `trophy-2` · Status & Feedback · variant of `trophy` — Champion cup · approved 2026-10-23
+- [x] 521. `trophy-3` · Status & Feedback · variant of `trophy` — Squared cup · approved 2026-10-23
 - [x] 522. `crown` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 523. `medal` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 524. `rosette` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
