@@ -1075,7 +1075,8 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 463. `user-focus` · Users & Access · variant of `user`
 - [ ] 464. `user-laptop` · Users & Access · variant of `user`
 - [ ] 465. `window-chart` · Charts & Data · variant of `window`
-- [~] 466. `gear-nodes` · Development & Infra · variant of `gear`
+- [x] 466. `gear-nodes` · Development & Infra · variant of `gear` — approved 2026-10-23
+- [x] 466. `gear-nodes-2` · Development & Infra · variant of `gear-nodes` — Link badge · approved 2026-10-23
 - [ ] 467. `globe-pointer` · Maps & Location · variant of `globe`
 - [ ] 468. `grid-circle-plus` · Design Tools · variant of `grid`
 - [ ] 469. `image-binary` · Design Tools · variant of `image`
