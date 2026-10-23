@@ -615,7 +615,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 521. `trophy` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 521. `trophy-2` · Status & Feedback · variant of `trophy` — Champion cup · approved 2026-10-23
 - [x] 521. `trophy-3` · Status & Feedback · variant of `trophy` — Squared cup · approved 2026-10-23
-- [x] 522. `crown` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
+- [x] 522. `crown` · Status & Feedback — added 2026-10-20 · approved 2026-10-23
+- [x] 522. `crown-2` · Status & Feedback · variant of `crown` — On a band · approved 2026-10-23
+- [x] 522. `crown-3` · Status & Feedback · variant of `crown` — Jewelled · approved 2026-10-23
+- [x] 522. `crown-4` · Status & Feedback · variant of `crown` — Soft bowl · approved 2026-10-23
 - [x] 523. `medal` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 524. `rosette` · Status & Feedback — added 2026-10-20 · approved 2026-10-20
 - [x] 189. `bookmark` · Status & Feedback — mvp · approved 2026-10-18
