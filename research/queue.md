@@ -677,7 +677,7 @@ Bases before their variants; within that, highest evidence first.
 - [ ] 207. `droplet` · Design Tools
 - [x] 208. `film` · Media & Playback — approved 2026-10-22
 - [x] 208. `film-reel` · Media & Playback · variant of `film` — Reel · approved 2026-10-22
-- [x] 208. `film-roll` · Media & Playback · variant of `film` — 35 mm canister · approved 2026-10-22
+- [x] 208. `film-roll` · Media & Playback · variant of `film` — 35 mm canister · approved 2026-10-24
 - [x] 209. `layers` · Design Tools — approved 2026-10-23
 - [x] 210. `map` · Maps & Location — approved 2026-10-18
 - [x] 210. `map-pinned` · Maps & Location · variant of `map` — Pin badge · approved 2026-10-18
