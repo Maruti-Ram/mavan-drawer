@@ -584,9 +584,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 177. `drag-handle` · UI & Layout — mvp · approved 2026-10-18
 - [x] 177. `drag-handle-2` · UI & Layout · variant of `drag-handle` — Six dots, lying · approved 2026-10-18
 - [x] 177. `drag-handle-3` · UI & Layout · variant of `drag-handle` — Three short lines · approved 2026-10-18
-- [x] 178. `face-laugh` · Communication — approved 2026-10-20
-- [x] 178. `face-laugh-2` · Communication · variant of `face-laugh` — Smiling eyes · approved 2026-10-20
-- [x] 178. `face-laugh-3` · Communication · variant of `face-laugh` — Squeezed eyes · approved 2026-10-20
+- [x] 178. `face-laugh` · Communication — approved 2026-10-24
+- [x] 178. `face-laugh-2` · Communication · variant of `face-laugh` — Smiling eyes · approved 2026-10-24
+- [x] 178. `face-laugh-3` · Communication · variant of `face-laugh` — Squeezed eyes · approved 2026-10-24
 - [x] 179. `id-card` · Users & Access — approved 2026-10-19
 - [x] 179. `id-card-2` · Users & Access · variant of `id-card` — Badge with a slot · A4's figure at 16 · approved 2026-10-19
 - [x] 179. `id-card-3` · Users & Access · variant of `id-card` — Clip-on badge · A4's figure at 16 · approved 2026-10-19
