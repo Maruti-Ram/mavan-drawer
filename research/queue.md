@@ -1204,7 +1204,7 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 569. `text-sparkle` · Editing & Text — added 2026-10-22 · approved 2026-10-22
 - [x] 570. `signature` · Editing & Text — added 2026-10-22 · approved 2026-10-22
 - [x] 571. `quill` · Editing & Text — added 2026-10-22 · approved 2026-10-22
-- [x] 572. `piano` · Media & Playback — added 2026-10-22 · approved 2026-10-22
+- [x] 572. `piano` · Media & Playback — added 2026-10-22 · approved 2026-10-24
 - [x] 573. `waveform` · Media & Playback — added 2026-10-22 · approved 2026-10-22
 - [x] 574. `podcast` · Media & Playback — added 2026-10-22 · approved 2026-10-22
 - [x] 575. `carousel` · UI & Layout — added 2026-10-22 · approved 2026-10-22
