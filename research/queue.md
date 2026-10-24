@@ -566,7 +566,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 162. `coins` · Commerce & Payments — approved 2026-10-21
 - [x] 162. `coins-2` · Commerce & Payments · variant of `coins` — Pile and coin · approved 2026-10-21
 - [x] 162. `coins-plus` · Commerce & Payments · variant of `coins` — Two coins, plus · approved 2026-10-21
-- [~] 163. `corner-radius` · Design Tools
+- [x] 163. `corner-radius` · Design Tools — approved 2026-10-24
+- [x] 163. `corner-radius-2` · Design Tools · variant of `corner-radius` — Top-right corner · approved 2026-10-24
 - [~] 164. `eyedropper` · Design Tools
 - [~] 165. `flip-horizontal` · Design Tools
 - [~] 166. `flip-vertical` · Design Tools

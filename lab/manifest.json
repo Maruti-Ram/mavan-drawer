@@ -603,6 +603,10 @@
     "corner-left-up-2",
     "corner-left-up-2-filled",
     "corner-left-up-filled",
+    "corner-radius",
+    "corner-radius-2",
+    "corner-radius-2-filled",
+    "corner-radius-filled",
     "corner-right-down",
     "corner-right-down-2",
     "corner-right-down-2-filled",
@@ -37394,6 +37398,240 @@
           "geometric": 3,
           "recession": 0.21,
           "optical": 3.16
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "corner-radius": {
+      "paths": [
+        "M3.75 20.25V11.25A7.5 7.5 0 0 1 11.25 3.75H20.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 20.25V11.25A7.5 7.5 0 0 1 11.25 3.75H20.25\"/>",
+      "mark": false,
+      "tags": [
+        "rounded corner",
+        "radius",
+        "border radius",
+        "polaris",
+        "nucleo",
+        "figma"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.42,
+          "optical": 3.31
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.42,
+          "optical": 3.31
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "corner-radius-2": {
+      "paths": [
+        "M3.75 3.75H12.75A7.5 7.5 0 0 1 20.25 11.25V20.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 3.75H12.75A7.5 7.5 0 0 1 20.25 11.25V20.25\"/>",
+      "mark": false,
+      "tags": [
+        "rounded corner",
+        "radius",
+        "top-right",
+        "lucide",
+        "material"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.42,
+          "optical": 3.31
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.42,
+          "optical": 3.31
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "corner-radius-2-filled": {
+      "paths": [
+        "M4.25 4.25H12.75A7 7 0 0 1 19.75 11.25V19.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.25 4.25H12.75A7 7 0 0 1 19.75 11.25V19.75\"/>",
+      "mark": false,
+      "tags": [
+        "rounded corner",
+        "radius",
+        "top-right",
+        "lucide",
+        "material"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.06,
+          "optical": 3.04
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.62,
+          "optical": 3.46
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.62,
+          "optical": 3.46
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.06,
+          "optical": 3.04
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "corner-radius-filled": {
+      "paths": [
+        "M4.25 19.75V11.25A7 7 0 0 1 11.25 4.25H19.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.25 19.75V11.25A7 7 0 0 1 11.25 4.25H19.75\"/>",
+      "mark": false,
+      "tags": [
+        "rounded corner",
+        "radius",
+        "border radius",
+        "polaris",
+        "nucleo",
+        "figma"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.62,
+          "optical": 3.46
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.06,
+          "optical": 3.04
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.62,
+          "optical": 3.46
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.06,
+          "optical": 3.04
         }
       },
       "container": null,
@@ -131891,6 +132129,10 @@
         "corner-left-up-2",
         "corner-left-up-2-filled",
         "corner-left-up-filled",
+        "corner-radius",
+        "corner-radius-2",
+        "corner-radius-2-filled",
+        "corner-radius-filled",
         "corner-right-down",
         "corner-right-down-2",
         "corner-right-down-2-filled",
@@ -168627,6 +168869,240 @@
               "geometric": 2,
               "recession": 0.18,
               "optical": 2.14
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius": {
+          "paths": [
+            "M2.625 13.375V7.5A4.875 4.875 0 0 1 7.5 2.625H13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 13.375V7.5A4.875 4.875 0 0 1 7.5 2.625H13.375\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "border radius",
+            "polaris",
+            "nucleo",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.32,
+              "optical": 2.24
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.32,
+              "optical": 2.24
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-2": {
+          "paths": [
+            "M2.625 2.625H8.5A4.875 4.875 0 0 1 13.375 7.5V13.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 2.625H8.5A4.875 4.875 0 0 1 13.375 7.5V13.375\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "top-right",
+            "lucide",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.32,
+              "optical": 2.24
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.32,
+              "optical": 2.24
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-2-filled": {
+          "paths": [
+            "M3 3H8.5A4.5 4.5 0 0 1 13 7.5V13"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 3H8.5A4.5 4.5 0 0 1 13 7.5V13\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "top-right",
+            "lucide",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.35
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.35
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-filled": {
+          "paths": [
+            "M3 13V7.5A4.5 4.5 0 0 1 7.5 3H13"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 13V7.5A4.5 4.5 0 0 1 7.5 3H13\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "border radius",
+            "polaris",
+            "nucleo",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.35
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.35
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
             }
           },
           "container": null,
@@ -263060,6 +263536,10 @@
         "corner-left-up-2",
         "corner-left-up-2-filled",
         "corner-left-up-filled",
+        "corner-radius",
+        "corner-radius-2",
+        "corner-radius-2-filled",
+        "corner-radius-filled",
         "corner-right-down",
         "corner-right-down-2",
         "corner-right-down-2-filled",
@@ -299814,6 +300294,240 @@
               "geometric": 3,
               "recession": 0.18,
               "optical": 3.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius": {
+          "paths": [
+            "M3.75 16.25V9.5A5.75 5.75 0 0 1 9.5 3.75H16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 16.25V9.5A5.75 5.75 0 0 1 9.5 3.75H16.25\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "border radius",
+            "polaris",
+            "nucleo",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.39,
+              "optical": 3.29
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.39,
+              "optical": 3.29
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-2": {
+          "paths": [
+            "M3.75 3.75H10.5A5.75 5.75 0 0 1 16.25 9.5V16.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 3.75H10.5A5.75 5.75 0 0 1 16.25 9.5V16.25\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "top-right",
+            "lucide",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.39,
+              "optical": 3.29
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.39,
+              "optical": 3.29
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-2-filled": {
+          "paths": [
+            "M4 4H10.5A5.5 5.5 0 0 1 16 9.5V16"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4 4H10.5A5.5 5.5 0 0 1 16 9.5V16\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "top-right",
+            "lucide",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.05,
+              "optical": 3.04
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.5,
+              "optical": 3.38
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.5,
+              "optical": 3.38
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.05,
+              "optical": 3.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-filled": {
+          "paths": [
+            "M4 16V9.5A5.5 5.5 0 0 1 9.5 4H16"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4 16V9.5A5.5 5.5 0 0 1 9.5 4H16\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "border radius",
+            "polaris",
+            "nucleo",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.5,
+              "optical": 3.38
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.05,
+              "optical": 3.04
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.5,
+              "optical": 3.38
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.05,
+              "optical": 3.04
             }
           },
           "container": null,
@@ -394283,6 +394997,10 @@
         "corner-left-up-2",
         "corner-left-up-2-filled",
         "corner-left-up-filled",
+        "corner-radius",
+        "corner-radius-2",
+        "corner-radius-2-filled",
+        "corner-radius-filled",
         "corner-right-down",
         "corner-right-down-2",
         "corner-right-down-2-filled",
@@ -431074,6 +431792,240 @@
               "geometric": 3,
               "recession": 0.21,
               "optical": 3.16
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius": {
+          "paths": [
+            "M3.75 20.25V11.25A7.5 7.5 0 0 1 11.25 3.75H20.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 20.25V11.25A7.5 7.5 0 0 1 11.25 3.75H20.25\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "border radius",
+            "polaris",
+            "nucleo",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.42,
+              "optical": 3.31
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.42,
+              "optical": 3.31
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-2": {
+          "paths": [
+            "M3.75 3.75H12.75A7.5 7.5 0 0 1 20.25 11.25V20.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 3.75H12.75A7.5 7.5 0 0 1 20.25 11.25V20.25\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "top-right",
+            "lucide",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.42,
+              "optical": 3.31
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.42,
+              "optical": 3.31
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-2-filled": {
+          "paths": [
+            "M4.25 4.25H12.75A7 7 0 0 1 19.75 11.25V19.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 4.25H12.75A7 7 0 0 1 19.75 11.25V19.75\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "top-right",
+            "lucide",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.46
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.46
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "corner-radius-filled": {
+          "paths": [
+            "M4.25 19.75V11.25A7 7 0 0 1 11.25 4.25H19.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 19.75V11.25A7 7 0 0 1 11.25 4.25H19.75\"/>",
+          "mark": false,
+          "tags": [
+            "rounded corner",
+            "radius",
+            "border radius",
+            "polaris",
+            "nucleo",
+            "figma"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.46
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.62,
+              "optical": 3.46
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
             }
           },
           "container": null,
@@ -530881,10 +531833,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
+    },
+    {
+      "n": 163,
+      "name": "corner-radius-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Design Tools",
+      "base": "corner-radius",
+      "note": "Top-right corner · approved 2026-10-24",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-24"
     },
     {
       "n": 164,
@@ -538247,8 +539210,8 @@
     }
   ],
   "next": {
-    "n": 163,
-    "name": "corner-radius",
+    "n": 164,
+    "name": "eyedropper",
     "section": "D · The rest, by audit rank",
     "mvp": false
   }
