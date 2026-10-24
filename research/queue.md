@@ -1289,5 +1289,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 604. `delete-forward-2` · Keyboard keys · variant of `delete-forward` — DEL letters · approved 2026-10-24
 - [~] 605. `arrow-keys` · Keyboard keys — added 2026-10-24
 - [x] 606. `keyboard-hide` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
-- [ ] 607. `control-key` · Keyboard keys — added 2026-10-24
+- [x] 607. `control-key` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [ ] 608. `alt` · Keyboard keys — added 2026-10-24

@@ -599,6 +599,8 @@
     "contactless-filled",
     "contrast",
     "contrast-filled",
+    "control-key",
+    "control-key-filled",
     "control-key-left",
     "control-key-left-2",
     "control-key-left-2-filled",
@@ -37472,6 +37474,139 @@
           "geometric": 2,
           "recession": 0,
           "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "control-key": {
+      "paths": [
+        "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
+        "M7.75 13.6L11.47 9.88A0.75 0.75 0 0 1 12.53 9.88L16.25 13.6"
+      ],
+      "areas": [],
+      "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M7.75 13.6L11.47 9.88A0.75 0.75 0 0 1 12.53 9.88L16.25 13.6\"/>",
+      "mark": false,
+      "tags": [
+        "control",
+        "ctrl",
+        "control key",
+        "modifier",
+        "key cap",
+        "keyboard",
+        "shortcut",
+        "caret",
+        "mac",
+        "centred legend"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 10,
+        "h": 5.44
+      },
+      "ratio": {
+        "w": 0.56,
+        "h": 0.3
+      },
+      "gap": null
+    },
+    "control-key-filled": {
+      "paths": [],
+      "areas": [
+        "M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM7.22 13.07L10.94 9.35A1.5 1.5 0 0 1 13.06 9.35L16.78 13.07A0.75 0.75 0 0 1 15.72 14.13L12 10.41L8.28 14.13A0.75 0.75 0 0 1 7.22 13.07Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM7.22 13.07L10.94 9.35A1.5 1.5 0 0 1 13.06 9.35L16.78 13.07A0.75 0.75 0 0 1 15.72 14.13L12 10.41L8.28 14.13A0.75 0.75 0 0 1 7.22 13.07Z\"/>",
+      "mark": false,
+      "tags": [
+        "control",
+        "ctrl",
+        "control key",
+        "modifier",
+        "key cap",
+        "keyboard",
+        "shortcut",
+        "caret",
+        "mac",
+        "centred legend"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         }
       },
       "container": null,
@@ -140735,6 +140870,8 @@
         "contactless-filled",
         "contrast",
         "contrast-filled",
+        "control-key",
+        "control-key-filled",
         "control-key-left",
         "control-key-left-2",
         "control-key-left-2-filled",
@@ -177553,6 +177690,139 @@
               "geometric": 1,
               "recession": 0,
               "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "control-key": {
+          "paths": [
+            "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
+            "M5.375 8.94L7.558 6.757A0.625 0.625 0 0 1 8.442 6.757L10.625 8.94"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z\"/> <path d=\"M5.375 8.94L7.558 6.757A0.625 0.625 0 0 1 8.442 6.757L10.625 8.94\"/>",
+          "mark": false,
+          "tags": [
+            "control",
+            "ctrl",
+            "control key",
+            "modifier",
+            "key cap",
+            "keyboard",
+            "shortcut",
+            "caret",
+            "mac",
+            "centred legend"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 6.5,
+            "h": 3.62
+          },
+          "ratio": {
+            "w": 0.54,
+            "h": 0.3
+          },
+          "gap": null
+        },
+        "control-key-filled": {
+          "paths": [],
+          "areas": [
+            "M4.125 2H11.875A2.125 2.125 0 0 1 14 4.125V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2ZM4.97 8.284L6.939 6.315A1.5 1.5 0 0 1 9.061 6.315L11.03 8.284A0.75 0.75 0 0 1 9.97 9.345L8 7.375L6.03 9.345A0.75 0.75 0 0 1 4.97 8.284Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.125 2H11.875A2.125 2.125 0 0 1 14 4.125V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2ZM4.97 8.284L6.939 6.315A1.5 1.5 0 0 1 9.061 6.315L11.03 8.284A0.75 0.75 0 0 1 9.97 9.345L8 7.375L6.03 9.345A0.75 0.75 0 0 1 4.97 8.284Z\"/>",
+          "mark": false,
+          "tags": [
+            "control",
+            "ctrl",
+            "control key",
+            "modifier",
+            "key cap",
+            "keyboard",
+            "shortcut",
+            "caret",
+            "mac",
+            "centred legend"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -280711,6 +280981,8 @@
         "contactless-filled",
         "contrast",
         "contrast-filled",
+        "control-key",
+        "control-key-filled",
         "control-key-left",
         "control-key-left-2",
         "control-key-left-2-filled",
@@ -317547,6 +317819,139 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "control-key": {
+          "paths": [
+            "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
+            "M6.75 11.17L9.47 8.45A0.75 0.75 0 0 1 10.53 8.45L13.25 11.17"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z\"/> <path d=\"M6.75 11.17L9.47 8.45A0.75 0.75 0 0 1 10.53 8.45L13.25 11.17\"/>",
+          "mark": false,
+          "tags": [
+            "control",
+            "ctrl",
+            "control key",
+            "modifier",
+            "key cap",
+            "keyboard",
+            "shortcut",
+            "caret",
+            "mac",
+            "centred legend"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 8,
+            "h": 4.44
+          },
+          "ratio": {
+            "w": 0.57,
+            "h": 0.32
+          },
+          "gap": null
+        },
+        "control-key-filled": {
+          "paths": [],
+          "areas": [
+            "M5.75 3H14.25A2.75 2.75 0 0 1 17 5.75V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3ZM6.22 10.64L8.94 7.92A1.5 1.5 0 0 1 11.06 7.92L13.78 10.64A0.75 0.75 0 0 1 12.72 11.7L10 8.98L7.28 11.7A0.75 0.75 0 0 1 6.22 10.64Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.75 3H14.25A2.75 2.75 0 0 1 17 5.75V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3ZM6.22 10.64L8.94 7.92A1.5 1.5 0 0 1 11.06 7.92L13.78 10.64A0.75 0.75 0 0 1 12.72 11.7L10 8.98L7.28 11.7A0.75 0.75 0 0 1 6.22 10.64Z\"/>",
+          "mark": false,
+          "tags": [
+            "control",
+            "ctrl",
+            "control key",
+            "modifier",
+            "key cap",
+            "keyboard",
+            "shortcut",
+            "caret",
+            "mac",
+            "centred legend"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -420749,6 +421154,8 @@
         "contactless-filled",
         "contrast",
         "contrast-filled",
+        "control-key",
+        "control-key-filled",
         "control-key-left",
         "control-key-left-2",
         "control-key-left-2-filled",
@@ -457622,6 +458029,139 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "control-key": {
+          "paths": [
+            "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
+            "M7.75 13.6L11.47 9.88A0.75 0.75 0 0 1 12.53 9.88L16.25 13.6"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M7.75 13.6L11.47 9.88A0.75 0.75 0 0 1 12.53 9.88L16.25 13.6\"/>",
+          "mark": false,
+          "tags": [
+            "control",
+            "ctrl",
+            "control key",
+            "modifier",
+            "key cap",
+            "keyboard",
+            "shortcut",
+            "caret",
+            "mac",
+            "centred legend"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 10,
+            "h": 5.44
+          },
+          "ratio": {
+            "w": 0.56,
+            "h": 0.3
+          },
+          "gap": null
+        },
+        "control-key-filled": {
+          "paths": [],
+          "areas": [
+            "M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM7.22 13.07L10.94 9.35A1.5 1.5 0 0 1 13.06 9.35L16.78 13.07A0.75 0.75 0 0 1 15.72 14.13L12 10.41L8.28 14.13A0.75 0.75 0 0 1 7.22 13.07Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM7.22 13.07L10.94 9.35A1.5 1.5 0 0 1 13.06 9.35L16.78 13.07A0.75 0.75 0 0 1 15.72 14.13L12 10.41L8.28 14.13A0.75 0.75 0 0 1 7.22 13.07Z\"/>",
+          "mark": false,
+          "tags": [
+            "control",
+            "ctrl",
+            "control key",
+            "modifier",
+            "key cap",
+            "keyboard",
+            "shortcut",
+            "caret",
+            "mac",
+            "centred legend"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -574097,10 +574637,10 @@
       "section": "E · Added on request",
       "category": "Keyboard keys",
       "base": null,
-      "note": "added 2026-10-24",
-      "status": "todo",
+      "note": "added 2026-10-24 · approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     },
     {
       "n": 608,
