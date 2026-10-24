@@ -774,7 +774,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 247. `scale-2` · Commerce & Payments · variant of `scale` — Kitchen scale · approved 2026-10-21
 - [x] 247. `scale-3` · Commerce & Payments · variant of `scale` — Parcel scale · approved 2026-10-21
 - [x] 247. `scale-4` · Commerce & Payments · variant of `scale` — Tipped · approved 2026-10-21
-- [~] 248. `shapes` · Design Tools
+- [x] 248. `shapes` · Design Tools — approved 2026-10-24
+- [x] 248. `shapes-2` · Design Tools · variant of `shapes` — Scattered shapes · approved 2026-10-24
 - [x] 249. `shopping-basket` · Commerce & Payments — approved 2026-10-21
 - [x] 249. `shopping-basket-2` · Commerce & Payments · variant of `shopping-basket` — Slatted basket · approved 2026-10-21
 - [x] 249. `shopping-basket-plus` · Commerce & Payments · variant of `shopping-basket` — Basket with a plus (fill-in) · approved 2026-10-21
