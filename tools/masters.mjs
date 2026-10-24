@@ -68,6 +68,23 @@ export const sizeBase = (name) => name.replace(/-(large|small)(?=-filled$|$)/, '
 export const markMax = (name, master) =>
   sizeOf(name) === 'large' ? MASTERS[master].bound[1] - MASTERS[master].bound[0] : MASTERS[master].mark;
 
+// A PLAIN SHAPE's -small (C8, Maruti 2026-10-24: circle-small, square-small, triangle-small,
+// hexagon-small, octagon-small) is the whole shape at HALF its default's width, not one SIZE_STEP
+// down: the stepped ones read barely smaller ("i was expecting much smaller"). A plain shape has
+// no inner mark to shrink, so a container's rule (C18: keep the container) does not reach it
+// either. Width, not the longer side: a hexagon's points and a triangle's height follow the shape.
+// At 16 the half rounds DOWN to a whole multiple of PLAIN_SMALL_SNAP — an even number of pixels,
+// so a centred shape's sides land on whole pixels (circle 14 → 6, not 7). At 24 and 20 it is the
+// exact half (square 18 → 9, 14 → 7). Lint's size-family check (`checkFamilies`) warns off it; a
+// plain shape's `-large` has no ruling yet.
+export const PLAIN_SMALL = 0.5;
+export const PLAIN_SMALL_SNAP = { 24: 0, 20: 0, 16: 2 };   // 0 = the exact half
+export const plainSmallWidth = (width, master) => {
+  const half = width * PLAIN_SMALL, snap = PLAIN_SMALL_SNAP[master];
+  // the quotient is read to 3 dp before it is floored, so an ink width of 11.9999 still halves to 6
+  return snap ? Math.floor(Math.round((half / snap) * 1000) / 1000) * snap : half;
+};
+
 // State twins (C34, 2026-10-19), twin → base: the other state of a toggle is drawn for every
 // numbered shape of its base (`unlock-3` for `lock-3`). Lint warns on a missing twin (§9).
 // A later twin is one entry: `'eye-off': 'eye'`. `toggle-off` joined 2026-10-20.

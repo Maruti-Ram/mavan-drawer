@@ -152,7 +152,7 @@ export default {
   (shipped, or a candidate named `=password` in the same run), and `approve` refuses a composite whose
   base is neither in the command nor shipped. Use it only once Maruti has chosen the base in place over
   the composite centred.
-- **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge.
+- **Size families (C8).** If the icon has `-large` / `-small` versions, each size is **3 · 2.5 · 2** units from the next, at 24 · 20 · 16. A large version may reach the margin edge. A container (`check-circle-small`) keeps its container and shrinks only the inner mark (C18). A **plain shape** — one closed path, no inner mark (`circle`, `square`, `triangle`, `hexagon`, `octagon`) — takes a `-small` that is the **whole shape at half the default's width**, rounded down to an even width at 16 so its sides land on whole pixels (circle 10 · 8 · 6, square 9 · 7 · 6; Maruti, 2026-10-24); declare its `box` per master. `draft-check` warns when it is not the half. A plain shape's `-large` has no ruling yet: ask.
 - **Consistency.** Check against approved relatives first (`src/icons/24/`, `node tools/queue.mjs show <name>`). Reuse their lengths, radii and weights unless the question is about changing them.
 
 **Check the draft before showing it:**

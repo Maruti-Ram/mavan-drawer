@@ -973,7 +973,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 332. `bluetooth-connected` · Devices & Hardware · variant of `bluetooth` — Connected, two dots, shifted · approved 2026-10-23
 - [x] 332. `bluetooth-searching` · Devices & Hardware · variant of `bluetooth` — Searching, two waves · approved 2026-10-23
 - [x] 333. `circle` · Design Tools — approved 2026-10-24
-- [~] 333. `circle-small` · Design Tools · variant of `circle` — added 2026-10-24
+- [x] 333. `circle-small` · Design Tools · variant of `circle` — added 2026-10-24 · approved 2026-10-24
 - [x] 333. `circle-dashed` · Design Tools · variant of `circle` — Dashed ring · approved 2026-10-24
 - [x] 334. `cpu` · Development & Infra — approved 2026-10-23
 - [x] 334. `cpu-2` · Development & Infra · variant of `cpu` — Round die · approved 2026-10-23

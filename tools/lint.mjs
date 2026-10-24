@@ -4,7 +4,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, headAir, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
-import { CUT_CORNER, GLYPH_GAP, HEAD_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
+import { CUT_CORNER, GLYPH_GAP, HEAD_GAP, MASTERS, MIN_GAP, PLAIN_SMALL, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, plainSmallWidth, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
 function polyGap(a, b) {
@@ -1033,7 +1033,8 @@ export function lintSource(canvas, file, src) {
 }
 
 // --- 6. size families (C8): a mark's large and small sit one SIZE_STEP from the default;
-// a container's keep the container and change only the inner mark (outline file measures it).
+// a container's keep the container and change only the inner mark (outline file measures it);
+// a plain shape's small is the whole shape at half the default's width (2026-10-24).
 // Like `checkPairs`, it reads the whole map — `${master}/${file}.svg` → what `lintSource`
 // returned — and adds to the results in place, so a draft can be checked the same way
 // without a drawing on disk (tools/draft-check.mjs).
@@ -1046,9 +1047,25 @@ export function checkFamilies(results) {
     const base = results.get(`${m}/${baseName}.svg`);
     if (!base) { r.warnings.push(`${size} variant has no default \`${baseName}\` at ${m}`); continue; }
     if (!r.isMark && !base.isMark) {
+      const ob = results.get(`${m}/${baseName.replace(/-filled$/, '')}.svg`), ov = results.get(`${m}/${name.replace(/-filled$/, '')}.svg`);
+      // A plain shape (circle, square, triangle, hexagon, octagon) is one closed path: its default's
+      // outline has no inner mark (`inner` is null), so there is nothing to shrink inside it and
+      // C18 does not reach it. Its -small is the whole shape at half the default's WIDTH, at 16
+      // rounded down to an even width (masters.mjs PLAIN_SMALL). Read on both styles, each against
+      // its own default. Its -large has no ruling yet, so lint says so rather than apply C18.
+      // A container — the default's outline carries a mark — falls through.
+      if (ob?.ink && !ob.isMark && ob.inner == null && r.ink && base.ink) {
+        if (size === 'large') { r.warnings.push('large plain shape has no C8 ruling yet — ask Maruti before drawing one'); continue; }
+        const rw = r3(r.ink.x1 - r.ink.x0), bw = r3(base.ink.x1 - base.ink.x0);
+        const half = r3(bw * PLAIN_SMALL), want = r3(plainSmallWidth(bw, m));
+        const rounded = want !== half ? ` (${half}, rounded down to an even width so its sides land on whole pixels)` : '';
+        if (Math.abs(rw - want) > 0.01)
+          r.warnings.push(`small plain shape is ${rw} wide — C8 wants ${want}, half the default's ${bw}${rounded}`);
+        else r.notes.splice(-1, 0, `small plain shape: ${rw} wide, half the default's ${bw}${rounded} (C8)`);
+        continue;
+      }
       if (Math.abs(r.size - base.size) > 0.01)
         r.warnings.push(`${size} container is ${r.size} — C8 keeps the default's ${base.size}; only the inner mark changes`);
-      const ob = results.get(`${m}/${baseName.replace(/-filled$/, '')}.svg`), ov = results.get(`${m}/${name.replace(/-filled$/, '')}.svg`);
       if (ob?.inner != null && ov?.inner != null && (size === 'small' ? ov.inner >= ob.inner : ov.inner <= ob.inner))
         r.warnings.push(`${size} inner mark is ${ov.inner} — must be ${size === 'small' ? 'smaller' : 'larger'} than the default's ${ob.inner} (C8)`);
       continue;

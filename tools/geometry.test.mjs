@@ -5,11 +5,11 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { anatomy, armTipGap, barGap, facingGap, headAir, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
-import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseCornersNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
+import { checkAnchors, checkBases, checkFamilies, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseCornersNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
-  CUT_CORNER, FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, STROKES, bendMin, decimalsFor, decimalsOf,
-  gridFor, gridNameFor, gridOf, strokeOf, weightOf,
+  CUT_CORNER, FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, PLAIN_SMALL, STROKES, bendMin, decimalsFor, decimalsOf,
+  gridFor, gridNameFor, gridOf, plainSmallWidth, strokeOf, weightOf,
 } from './masters.mjs';
 
 const near = (got, want, tol = 0.06) =>
@@ -843,6 +843,87 @@ test('draft-svg writes a candidate\'s base into both files; `base: null` opts ou
   assert.ok(candidateFiles({ base: 'password' }, { ...c, base: null }, 'password').every((f) => !f.src.includes('base:')), 'the base itself opts out');
   // what draft-svg writes, lint reads
   assert.deepEqual(parseBaseNote(out.find((f) => f.master === 24 && f.filled).src), { name: 'password', raw: 'password' });
+});
+
+// --- size families (C8): a plain shape's small is half its default (2026-10-24) -----------------
+// circle-small, square-small, triangle-small, hexagon-small, octagon-small: the whole shape at half
+// the default's width (at 16 rounded down to an even width), not C8's 3 · 2.5 · 2 step, and not a
+// container either — a plain shape has no inner mark to shrink. Fixture: circle-small's candidate B
+// (Maruti's pick on all five boards), 10 · 8 · 6 wide against the shipped circle's 20 · 16 · 14.
+const CIRCLE_AT = (c, r) => `M${c - r} ${c}A${r} ${r} 0 1 0 ${c + r} ${c}A${r} ${r} 0 1 0 ${c - r} ${c}Z`;
+const RING_HALF = { 24: CIRCLE_AT(12, 4.25), 20: CIRCLE_AT(10, 3.25), 16: CIRCLE_AT(8, 2.375) };
+const DISC_HALF = { 24: CIRCLE_AT(12, 5), 20: CIRCLE_AT(10, 4), 16: CIRCLE_AT(8, 3) };
+const ringSmall = (rings, discs, box) => ({ id: 'B', label: 'half', box,
+  masters: Object.fromEntries(Object.entries(rings).map(([m, d]) => [m, [d]])),
+  filled: Object.fromEntries(Object.entries(discs).map(([m, d]) => [m, { fill: [d] }])) });
+// the candidate's six files, plus the shipped default's six beside them, through checkFamilies
+const sizeFamily = (c, name, base) => {
+  const results = new Map(candidateFiles({}, c, name).map(({ master, file, src }) => [`${master}/${file}`, lintSource(master, file, src)]));
+  for (const m of [24, 20, 16]) for (const f of [`${base}.svg`, `${base}-filled.svg`]) results.set(`${m}/${f}`, lintSource(m, f, shipped(m, f)));
+  return checkFamilies(results);
+};
+const familyWarnings = (r) => r.warnings.filter((w) => /plain shape|container|inner mark|C8 wants/.test(w));
+
+test('plainSmallWidth: half the width, at 16 rounded down to an even width', () => {
+  assert.equal(PLAIN_SMALL, 0.5);
+  for (const [w, m, want] of [[20, 24, 10], [18, 24, 9], [16, 20, 8], [14, 20, 7], [14, 16, 6], [12, 16, 6], [11.9999, 16, 6], [16, 16, 8]])
+    assert.equal(plainSmallWidth(w, m), want, `${w} at ${m}`);
+});
+
+test('checkFamilies: a plain shape\'s small at half its default is clean, both styles, every master', () => {
+  const r = sizeFamily(ringSmall(RING_HALF, DISC_HALF, { 24: [10, 10], 20: [8, 8], 16: [6, 6] }), 'circle-small', 'circle');
+  for (const [m, w, bw] of [[24, 10, 20], [20, 8, 16], [16, 6, 14]]) for (const f of ['circle-small', 'circle-small-filled']) {
+    const s = r.get(`${m}/${f}.svg`);
+    assert.deepEqual(familyWarnings(s), [], `${m}/${f}`);
+    assert.ok(s.notes.some((n) => n.startsWith(`small plain shape: ${w} wide, half the default's ${bw}`)), `${m}/${f}: ${s.notes.join(' | ')}`);
+  }
+  // at 16 the note says why 14 halves to 6, not 7
+  assert.match(r.get('16/circle-small.svg').notes.join(' | '), /half the default's 14 \(7, rounded down to an even width so its sides land on whole pixels\)/);
+});
+
+test('checkFamilies: a plain shape\'s small at C8\'s step warns, and is never called a container', () => {
+  // 17 · 13.5 · 12 wide: the default less one SIZE_STEP, what a mark's small would be
+  const stepped = ringSmall({ 24: CIRCLE_AT(12, 7.75), 20: CIRCLE_AT(10, 6), 16: CIRCLE_AT(8, 5.375) },
+    { 24: CIRCLE_AT(12, 8.5), 20: CIRCLE_AT(10, 6.75), 16: CIRCLE_AT(8, 6) }, { 24: [17, 17], 20: [13.5, 13.5], 16: [12, 12] });
+  const r = sizeFamily(stepped, 'circle-small', 'circle');
+  for (const [m, w, want, bw] of [[24, 17, 10, 20], [20, 13.5, 8, 16], [16, 12, 6, 14]]) for (const f of ['circle-small', 'circle-small-filled']) {
+    const ws = familyWarnings(r.get(`${m}/${f}.svg`));
+    assert.equal(ws.length, 1, `${m}/${f}: ${ws.join(' | ')}`);
+    assert.ok(ws[0].startsWith(`small plain shape is ${w} wide — C8 wants ${want}, half the default's ${bw}`), ws[0]);
+    assert.doesNotMatch(ws[0], /container/);
+  }
+  // the exact half at 16 is not enough: 7 wide leaves its sides on half pixels
+  const seven = sizeFamily(ringSmall({ ...RING_HALF, 16: CIRCLE_AT(8, 2.875) }, { ...DISC_HALF, 16: CIRCLE_AT(8, 3.5) },
+    { 24: [10, 10], 20: [8, 8], 16: [7, 7] }), 'circle-small', 'circle');
+  assert.deepEqual(familyWarnings(seven.get('24/circle-small.svg')), []);
+  assert.match(familyWarnings(seven.get('16/circle-small.svg'))[0], /^small plain shape is 7 wide — C8 wants 6, half the default's 14 \(7, rounded down/);
+});
+
+test('checkFamilies: a plain shape\'s large has no ruling yet, and is never called a container', () => {
+  const large = ringSmall({ 24: CIRCLE_AT(12, 10.25), 20: CIRCLE_AT(10, 8.25), 16: CIRCLE_AT(8, 7.375) },
+    { 24: CIRCLE_AT(12, 11), 20: CIRCLE_AT(10, 9), 16: CIRCLE_AT(8, 8) }, { 24: [22, 22], 20: [18, 18], 16: [16, 16] });
+  const r = sizeFamily(large, 'circle-large', 'circle');
+  for (const m of [24, 20, 16]) for (const f of ['circle-large', 'circle-large-filled'])
+    assert.deepEqual(familyWarnings(r.get(`${m}/${f}.svg`)), ['large plain shape has no C8 ruling yet — ask Maruti before drawing one'], `${m}/${f}`);
+});
+
+test('checkFamilies: a container\'s small is checked as before — the ring stays, the mark shrinks', () => {
+  // shipped check-circle-small beside check-circle, every master and style: clean, no plain-shape note
+  const results = new Map();
+  for (const m of [24, 20, 16]) for (const f of ['check-circle', 'check-circle-filled', 'check-circle-small', 'check-circle-small-filled'])
+    results.set(`${m}/${f}.svg`, lintSource(m, `${f}.svg`, shipped(m, `${f}.svg`)));
+  checkFamilies(results);
+  for (const [k, r] of results) {
+    assert.deepEqual(familyWarnings(r), [], k);
+    assert.ok(!r.notes.some((n) => /plain shape/.test(n)), k);
+  }
+  // halve its ring as if it were a plain shape: still a container, still told the ring stays
+  const src = shipped(24, 'check-circle-small.svg').replace('M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z', CIRCLE_AT(12, 4.25));
+  const halved = new Map([['24/check-circle-small.svg', lintSource(24, 'check-circle-small.svg', src)],
+    ['24/check-circle.svg', lintSource(24, 'check-circle.svg', shipped(24, 'check-circle.svg'))]]);
+  const ws = familyWarnings(checkFamilies(halved).get('24/check-circle-small.svg'));
+  assert.ok(ws.some((w) => w === 'small container is 10 — C8 keeps the default\'s 20; only the inner mark changes'), ws.join(' | '));
+  assert.ok(!ws.some((w) => /plain shape/.test(w)), ws.join(' | '));
 });
 
 // --- state twins (C34): `unlock-<n>` for every `lock-<n>` -------------------------------
