@@ -998,7 +998,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 344. `skip-back` · Media & Playback — approved 2026-10-22
 - [x] 345. `skip-forward` · Media & Playback — approved 2026-10-22
 - [x] 346. `square` · Design Tools — approved 2026-10-24
-- [~] 346. `square-small` · Design Tools · variant of `square` — added 2026-10-24
+- [x] 346. `square-small` · Design Tools · variant of `square` — added 2026-10-24 · approved 2026-10-24
 - [x] 346. `square-dashed` · Design Tools · variant of `square` — Dashed square · approved 2026-10-24
 - [x] 347. `triangle` · Design Tools — approved 2026-10-24
 - [~] 347. `triangle-small` · Design Tools · variant of `triangle` — added 2026-10-24
