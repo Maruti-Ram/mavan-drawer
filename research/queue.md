@@ -875,7 +875,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 291. `blueprint` · Development & Infra — approved 2026-10-23
 - [x] 291. `blueprint-2` · Development & Infra · variant of `blueprint` — Document with a plan · approved 2026-10-23
 - [x] 292. `decision-process` · Development & Infra — approved 2026-10-23
-- [~] 293. `select` · Design Tools
+- [x] 293. `select` · Design Tools — approved 2026-10-24
+- [x] 293. `select-2` · Design Tools · variant of `select` — Dotted square, arrow · approved 2026-10-24
+- [x] 293. `select-object` · Design Tools · variant of `select` — Handles and pointer · approved 2026-10-24
+- [x] 293. `select-element` · Design Tools · variant of `select` — Square and pointer · approved 2026-10-24
+- [x] 293. `select-crosshair` · Design Tools · variant of `select` — Dashed square, crosshair · approved 2026-10-24
 - [~] 294. `filters` · Design Tools
 - [x] 295. `label` · Commerce & Payments — approved 2026-10-21
 - [x] 295. `label-2` · Commerce & Payments · variant of `label` — Upright hang tag · approved 2026-10-21
