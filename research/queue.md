@@ -860,7 +860,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 291. `blueprint` · Development & Infra — approved 2026-10-23
 - [x] 291. `blueprint-2` · Development & Infra · variant of `blueprint` — Document with a plan · approved 2026-10-23
 - [x] 292. `decision-process` · Development & Infra — approved 2026-10-23
-- [~] 293. `dotted-arrow-bottom-right-square` · Design Tools
+- [~] 293. `select` · Design Tools
 - [~] 294. `filters` · Design Tools
 - [x] 295. `label` · Commerce & Payments — approved 2026-10-21
 - [x] 295. `label-2` · Commerce & Payments · variant of `label` — Upright hang tag · approved 2026-10-21
@@ -873,7 +873,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 297. `squares-connected` · Development & Infra — approved 2026-10-23
 - [x] 297. `squares-connected-2` · Development & Infra · variant of `squares-connected` — Two tiles, linked both ways · approved 2026-10-23
 - [x] 297. `squares-connected-3` · Development & Infra · variant of `squares-connected` — Two tiles stacked, short link · approved 2026-10-23
-- [~] 298. `stack-perspective` · Design Tools
+- [~] 298. `stack` · Design Tools
 - [x] 299. `subscription` · Commerce & Payments — approved 2026-10-21
 - [x] 299. `subscription-2` · Commerce & Payments · variant of `subscription` — Box on repeat · approved 2026-10-21
 - [x] 300. `airplay` · Arrows & Direction — approved 2026-10-17
@@ -1239,3 +1239,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 590. `troubleshoot` · Development & Infra — added 2026-10-23 · approved 2026-10-24
 - [x] 590. `troubleshoot-2` · Development & Infra · variant of `troubleshoot` — Heartbeat through the rim · approved 2026-10-24
 - [x] 591. `cloud-sun` · UI & Layout — added 2026-10-23 · approved 2026-10-23
+- [ ] 592. `droplets` · Design Tools — added 2026-10-24
