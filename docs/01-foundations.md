@@ -213,6 +213,9 @@ error, not design intent.
 
 Angles default to **0°, 45°, 90°**. 30° and 60° are allowed when the subject
 demands it (a hexagon, a chart line) and must be justified in the source file.
+Any other angle an object's own shape sets (`layers`, `gem`, `stack`, the
+pencil's 60° point) is granted per icon by Maruti and listed in
+`docs/07-character.md` → Open → Angle exceptions (2026-10-24).
 
 **`code`'s slash is a per-icon exception** (C30), not a third entry on this
 list. Its two ends sit on the grid and span its mark box, so the angle is

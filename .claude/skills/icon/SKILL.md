@@ -92,6 +92,24 @@ export default {
     weight (a sprocket against its rim, a checkbox's frame, save's shutter against its top edge). A
     cut-out that is square on purpose carries `corners: 'square'` on the candidate or the board (the
     candidate wins; `null` opts out; `{ 24: 'square', 16: 'square' }` for only some masters, film-roll). That writes `<!-- corners: square -->` into the filled files only.
+  - **Dashed and dotted lines (C35 and its 2026-10-24 note).** A dashed frame is C35's square: dash
+    4 · 2.5 · 2.25 with 2.25 · 1.82 · 1.55 of air between round ends, one dash centred on each corner, at the
+    outline weight (`drag-drop`, `square-dashed`). **On another closed shape** keep that air at every gap and
+    let the dash give way to a whole count on the shape's own outline — the ring takes six (one top and
+    bottom, the rest every 60°), the triangle one per corner and one per side, the hexagon and octagon one
+    per corner only; the shipped `-dashed` files hold the lengths. Its **filled twin** keeps the outline's
+    dashes verbatim, as lines at the outline weight, and fills a solid shape inside them with **1.5 of white**
+    to the dashes' inner edge (disc ⌀14 · 10 · 8.5 inside the ring; square 12 · 8 · 6.5 at radius
+    2 · 1.5 · 1.125; a polygon's flats 1.5 in, at that radius); the ink box stays the outline's. Write it as
+    `filled: { fill: [the inset solid], stroke: [the outline's dashes] }`. **A straight dashed axis**
+    (`flip-horizontal`, `-3`): three even dashes, one on the centre, flush with the box — dash 3 · 2 · 1.75
+    on the centreline, air 2.25 · 1.75 · 1.5 — because C35's dash fits no whole count on an 18-unit line; at
+    16 the outer dashes end on whole pixels and the centre one on half pixels. **A dotted line**
+    (`select-2`): dots ⌀2 · 2 · 1.5 (a circle of r 0.25 · 0.25 · 0.125 under the stroke) at a pitch of
+    4 · 4 · 3.5, one on each corner of the frame, 2 of air between. In a filled twin the dots or dashes stay
+    at the outline weight while the mark beside them (arrow, crosshair, cursor) goes solid at
+    `FILLED_WEIGHT`, as `drag-drop` does — `{ fill: [the mark], stroke: [the dots or dashes] }`, no
+    `weight`. Lint checks none of this yet.
 - **Agreed box.** `box` (on the board, or on one candidate — the candidate wins, like `keyline` and
   `tags`) is written into both files as `<!-- box: 20x18 -->` for that master. Lint then holds the
   drawing to that ink size as an **error** rather than asking it to match a keyline.
