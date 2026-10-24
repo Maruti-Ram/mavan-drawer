@@ -771,7 +771,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 244. `rocket-2` · Development & Infra · variant of `rocket` — Upright, fins at the foot · approved 2026-10-23
 - [x] 244. `rocket-3` · Development & Infra · variant of `rocket` — Diagonal, Lucide fins, flame drop · approved 2026-10-23
 - [x] 244. `rocket-4` · Development & Infra · variant of `rocket` — Upright, lifting off over exhaust lines · approved 2026-10-23
-- [~] 245. `rotation` · Design Tools
+- [x] 245. `rotation` · Design Tools — approved 2026-10-24
 - [x] 246. `satellite` · Devices & Hardware — approved 2026-10-23
 - [x] 247. `scale` · Commerce & Payments — approved 2026-10-21
 - [x] 247. `scale-2` · Commerce & Payments · variant of `scale` — Kitchen scale · approved 2026-10-21
