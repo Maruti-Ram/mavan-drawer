@@ -1270,7 +1270,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 590. `troubleshoot-2` · Development & Infra · variant of `troubleshoot` — Heartbeat through the rim · approved 2026-10-24
 - [x] 591. `cloud-sun` · UI & Layout — added 2026-10-23 · approved 2026-10-23
 - [x] 592. `droplets` · Design Tools — added 2026-10-24 · approved 2026-10-24
-- [~] 593. `control-key-left` · Keyboard keys — added 2026-10-24
+- [x] 593. `control-key-left` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
+- [x] 593. `control-key-left-2` · Keyboard keys · variant of `control-key-left` — Wide control key, caret in the corner · approved 2026-10-24
 - [~] 594. `control-key-right` · Keyboard keys — added 2026-10-24
 - [~] 595. `shift` · Keyboard keys — added 2026-10-24
 - [~] 596. `spacebar` · Keyboard keys — added 2026-10-24
@@ -1284,3 +1285,5 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 604. `delete-forward` · Keyboard keys — added 2026-10-24
 - [~] 605. `arrow-keys` · Keyboard keys — added 2026-10-24
 - [~] 606. `keyboard-hide` · Keyboard keys — added 2026-10-24
+- [ ] 607. `control-key` · Keyboard keys — added 2026-10-24
+- [ ] 608. `alt` · Keyboard keys — added 2026-10-24
