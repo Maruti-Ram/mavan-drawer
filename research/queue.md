@@ -1001,7 +1001,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 346. `square-small` · Design Tools · variant of `square` — added 2026-10-24 · approved 2026-10-24
 - [x] 346. `square-dashed` · Design Tools · variant of `square` — Dashed square · approved 2026-10-24
 - [x] 347. `triangle` · Design Tools — approved 2026-10-24
-- [~] 347. `triangle-small` · Design Tools · variant of `triangle` — added 2026-10-24
+- [x] 347. `triangle-small` · Design Tools · variant of `triangle` — added 2026-10-24 · approved 2026-10-24
 - [x] 347. `triangle-dashed` · Design Tools · variant of `triangle` — Dashed triangle · approved 2026-10-24
 - [ ] 348. `arrow-down-circle` · Arrows & Direction · variant of `arrow-down`
 - [ ] 349. `arrow-left-circle` · Arrows & Direction · variant of `arrow-left`

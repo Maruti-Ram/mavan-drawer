@@ -1977,6 +1977,8 @@
     "triangle-dashed",
     "triangle-dashed-filled",
     "triangle-filled",
+    "triangle-small",
+    "triangle-small-filled",
     "trophy",
     "trophy-2",
     "trophy-2-filled",
@@ -122310,6 +122312,122 @@
       "ratio": null,
       "gap": null
     },
+    "triangle-small": {
+      "paths": [
+        "M11.35 8.12A0.75 0.75 0 0 1 12 7.75A0.75 0.75 0 0 1 12.65 8.12L16.15 14.12A0.75 0.75 0 0 1 16.25 14.5A0.75 0.75 0 0 1 15.5 15.25L8.5 15.25A0.75 0.75 0 0 1 7.75 14.5A0.75 0.75 0 0 1 7.85 14.12Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M11.35 8.12A0.75 0.75 0 0 1 12 7.75A0.75 0.75 0 0 1 12.65 8.12L16.15 14.12A0.75 0.75 0 0 1 16.25 14.5A0.75 0.75 0 0 1 15.5 15.25L8.5 15.25A0.75 0.75 0 0 1 7.75 14.5A0.75 0.75 0 0 1 7.85 14.12Z\"/>",
+      "mark": false,
+      "tags": [
+        "triangle",
+        "shape",
+        "delta",
+        "geometry",
+        "small"
+      ],
+      "shift": [
+        0,
+        -0.5
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 7,
+        "y": 7,
+        "w": 10,
+        "h": 9
+      },
+      "bearing": {
+        "left": 7,
+        "top": 7,
+        "right": 7,
+        "bottom": 8
+      },
+      "optical": {
+        "left": {
+          "geometric": 7,
+          "recession": 1.04,
+          "optical": 7.78
+        },
+        "right": {
+          "geometric": 7,
+          "recession": 1.04,
+          "optical": 7.78
+        },
+        "top": {
+          "geometric": 7,
+          "recession": 1.14,
+          "optical": 7.86
+        },
+        "bottom": {
+          "geometric": 8,
+          "recession": 0.14,
+          "optical": 8.1
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "triangle-small-filled": {
+      "paths": [],
+      "areas": [
+        "M10.7 7.74A1.5 1.5 0 0 1 12 7A1.5 1.5 0 0 1 13.3 7.74L16.8 13.74A1.5 1.5 0 0 1 17 14.5A1.5 1.5 0 0 1 15.5 16L8.5 16A1.5 1.5 0 0 1 7 14.5A1.5 1.5 0 0 1 7.2 13.74Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.7 7.74A1.5 1.5 0 0 1 12 7A1.5 1.5 0 0 1 13.3 7.74L16.8 13.74A1.5 1.5 0 0 1 17 14.5A1.5 1.5 0 0 1 15.5 16L8.5 16A1.5 1.5 0 0 1 7 14.5A1.5 1.5 0 0 1 7.2 13.74Z\"/>",
+      "mark": false,
+      "tags": [
+        "triangle",
+        "shape",
+        "delta",
+        "geometry",
+        "small"
+      ],
+      "shift": [
+        0,
+        -0.5
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 7,
+        "y": 7,
+        "w": 10,
+        "h": 9
+      },
+      "bearing": {
+        "left": 7,
+        "top": 7,
+        "right": 7,
+        "bottom": 8
+      },
+      "optical": {
+        "left": {
+          "geometric": 7,
+          "recession": 0,
+          "optical": 7
+        },
+        "top": {
+          "geometric": 7,
+          "recession": 0,
+          "optical": 7
+        },
+        "right": {
+          "geometric": 7,
+          "recession": 0,
+          "optical": 7
+        },
+        "bottom": {
+          "geometric": 8,
+          "recession": 0,
+          "optical": 8
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "trophy": {
       "paths": [
         "M8 2.75H16A0.75 0.75 0 0 1 16.75 3.5V9.5A4.75 4.75 0 0 1 7.25 9.5V3.5A0.75 0.75 0 0 1 8 2.75Z",
@@ -139696,6 +139814,8 @@
         "triangle-dashed",
         "triangle-dashed-filled",
         "triangle-filled",
+        "triangle-small",
+        "triangle-small-filled",
         "trophy",
         "trophy-2",
         "trophy-2-filled",
@@ -259890,6 +260010,122 @@
           "ratio": null,
           "gap": null
         },
+        "triangle-small": {
+          "paths": [
+            "M7.488 5.892A0.625 0.625 0 0 1 8 5.625A0.625 0.625 0 0 1 8.512 5.892L10.262 8.392A0.625 0.625 0 0 1 10.375 8.75A0.625 0.625 0 0 1 9.75 9.375L6.25 9.375A0.625 0.625 0 0 1 5.625 8.75A0.625 0.625 0 0 1 5.738 8.392Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.488 5.892A0.625 0.625 0 0 1 8 5.625A0.625 0.625 0 0 1 8.512 5.892L10.262 8.392A0.625 0.625 0 0 1 10.375 8.75A0.625 0.625 0 0 1 9.75 9.375L6.25 9.375A0.625 0.625 0 0 1 5.625 8.75A0.625 0.625 0 0 1 5.738 8.392Z\"/>",
+          "mark": false,
+          "tags": [
+            "triangle",
+            "shape",
+            "delta",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            -0.5
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 5,
+            "y": 5,
+            "w": 6,
+            "h": 5
+          },
+          "bearing": {
+            "left": 5,
+            "top": 5,
+            "right": 5,
+            "bottom": 6
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0.72,
+              "optical": 5.54
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0.72,
+              "optical": 5.54
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0.84,
+              "optical": 5.63
+            },
+            "bottom": {
+              "geometric": 6,
+              "recession": 0.17,
+              "optical": 6.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "triangle-small-filled": {
+          "paths": [],
+          "areas": [
+            "M6.976 5.533A1.25 1.25 0 0 1 8 5A1.25 1.25 0 0 1 9.024 5.533L10.774 8.033A1.25 1.25 0 0 1 11 8.75A1.25 1.25 0 0 1 9.75 10L6.25 10A1.25 1.25 0 0 1 5 8.75A1.25 1.25 0 0 1 5.226 8.033Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.976 5.533A1.25 1.25 0 0 1 8 5A1.25 1.25 0 0 1 9.024 5.533L10.774 8.033A1.25 1.25 0 0 1 11 8.75A1.25 1.25 0 0 1 9.75 10L6.25 10A1.25 1.25 0 0 1 5 8.75A1.25 1.25 0 0 1 5.226 8.033Z\"/>",
+          "mark": false,
+          "tags": [
+            "triangle",
+            "shape",
+            "delta",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            -0.5
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 5,
+            "y": 5,
+            "w": 6,
+            "h": 5
+          },
+          "bearing": {
+            "left": 5,
+            "top": 5,
+            "right": 5,
+            "bottom": 6
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "bottom": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "trophy": {
           "paths": [
             "M6 1.625H10A0.625 0.625 0 0 1 10.625 2.25V6.25A2.625 2.625 0 0 1 5.375 6.25V2.25A0.625 0.625 0 0 1 6 1.625Z",
@@ -277256,6 +277492,8 @@
         "triangle-dashed",
         "triangle-dashed-filled",
         "triangle-filled",
+        "triangle-small",
+        "triangle-small-filled",
         "trophy",
         "trophy-2",
         "trophy-2-filled",
@@ -397506,6 +397744,122 @@
           "ratio": null,
           "gap": null
         },
+        "triangle-small": {
+          "paths": [
+            "M9.36 7.1A0.75 0.75 0 0 1 10 6.75A0.75 0.75 0 0 1 10.64 7.1L13.14 11.1A0.75 0.75 0 0 1 13.25 11.5A0.75 0.75 0 0 1 12.5 12.25L7.5 12.25A0.75 0.75 0 0 1 6.75 11.5A0.75 0.75 0 0 1 6.86 11.1Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9.36 7.1A0.75 0.75 0 0 1 10 6.75A0.75 0.75 0 0 1 10.64 7.1L13.14 11.1A0.75 0.75 0 0 1 13.25 11.5A0.75 0.75 0 0 1 12.5 12.25L7.5 12.25A0.75 0.75 0 0 1 6.75 11.5A0.75 0.75 0 0 1 6.86 11.1Z\"/>",
+          "mark": false,
+          "tags": [
+            "triangle",
+            "shape",
+            "delta",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            -0.5
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 6,
+            "y": 6,
+            "w": 8,
+            "h": 7
+          },
+          "bearing": {
+            "left": 6,
+            "top": 6,
+            "right": 6,
+            "bottom": 7
+          },
+          "optical": {
+            "left": {
+              "geometric": 6,
+              "recession": 0.93,
+              "optical": 6.69
+            },
+            "right": {
+              "geometric": 6,
+              "recession": 0.93,
+              "optical": 6.69
+            },
+            "top": {
+              "geometric": 6,
+              "recession": 1.05,
+              "optical": 6.79
+            },
+            "bottom": {
+              "geometric": 7,
+              "recession": 0.17,
+              "optical": 7.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "triangle-small-filled": {
+          "paths": [],
+          "areas": [
+            "M8.73 6.71A1.5 1.5 0 0 1 10 6A1.5 1.5 0 0 1 11.27 6.71L13.77 10.71A1.5 1.5 0 0 1 14 11.5A1.5 1.5 0 0 1 12.5 13L7.5 13A1.5 1.5 0 0 1 6 11.5A1.5 1.5 0 0 1 6.23 10.71Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.73 6.71A1.5 1.5 0 0 1 10 6A1.5 1.5 0 0 1 11.27 6.71L13.77 10.71A1.5 1.5 0 0 1 14 11.5A1.5 1.5 0 0 1 12.5 13L7.5 13A1.5 1.5 0 0 1 6 11.5A1.5 1.5 0 0 1 6.23 10.71Z\"/>",
+          "mark": false,
+          "tags": [
+            "triangle",
+            "shape",
+            "delta",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            -0.5
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 6,
+            "y": 6,
+            "w": 8,
+            "h": 7
+          },
+          "bearing": {
+            "left": 6,
+            "top": 6,
+            "right": 6,
+            "bottom": 7
+          },
+          "optical": {
+            "left": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            },
+            "top": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            },
+            "right": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            },
+            "bottom": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "trophy": {
           "paths": [
             "M7.5 2.75H12.5A0.75 0.75 0 0 1 13.25 3.5V7.75A3.25 3.25 0 0 1 6.75 7.75V3.5A0.75 0.75 0 0 1 7.5 2.75Z",
@@ -414878,6 +415232,8 @@
         "triangle-dashed",
         "triangle-dashed-filled",
         "triangle-filled",
+        "triangle-small",
+        "triangle-small-filled",
         "trophy",
         "trophy-2",
         "trophy-2-filled",
@@ -535211,6 +535567,122 @@
           "ratio": null,
           "gap": null
         },
+        "triangle-small": {
+          "paths": [
+            "M11.35 8.12A0.75 0.75 0 0 1 12 7.75A0.75 0.75 0 0 1 12.65 8.12L16.15 14.12A0.75 0.75 0 0 1 16.25 14.5A0.75 0.75 0 0 1 15.5 15.25L8.5 15.25A0.75 0.75 0 0 1 7.75 14.5A0.75 0.75 0 0 1 7.85 14.12Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.35 8.12A0.75 0.75 0 0 1 12 7.75A0.75 0.75 0 0 1 12.65 8.12L16.15 14.12A0.75 0.75 0 0 1 16.25 14.5A0.75 0.75 0 0 1 15.5 15.25L8.5 15.25A0.75 0.75 0 0 1 7.75 14.5A0.75 0.75 0 0 1 7.85 14.12Z\"/>",
+          "mark": false,
+          "tags": [
+            "triangle",
+            "shape",
+            "delta",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            -0.5
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 7,
+            "y": 7,
+            "w": 10,
+            "h": 9
+          },
+          "bearing": {
+            "left": 7,
+            "top": 7,
+            "right": 7,
+            "bottom": 8
+          },
+          "optical": {
+            "left": {
+              "geometric": 7,
+              "recession": 1.04,
+              "optical": 7.78
+            },
+            "right": {
+              "geometric": 7,
+              "recession": 1.04,
+              "optical": 7.78
+            },
+            "top": {
+              "geometric": 7,
+              "recession": 1.14,
+              "optical": 7.86
+            },
+            "bottom": {
+              "geometric": 8,
+              "recession": 0.14,
+              "optical": 8.1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "triangle-small-filled": {
+          "paths": [],
+          "areas": [
+            "M10.7 7.74A1.5 1.5 0 0 1 12 7A1.5 1.5 0 0 1 13.3 7.74L16.8 13.74A1.5 1.5 0 0 1 17 14.5A1.5 1.5 0 0 1 15.5 16L8.5 16A1.5 1.5 0 0 1 7 14.5A1.5 1.5 0 0 1 7.2 13.74Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.7 7.74A1.5 1.5 0 0 1 12 7A1.5 1.5 0 0 1 13.3 7.74L16.8 13.74A1.5 1.5 0 0 1 17 14.5A1.5 1.5 0 0 1 15.5 16L8.5 16A1.5 1.5 0 0 1 7 14.5A1.5 1.5 0 0 1 7.2 13.74Z\"/>",
+          "mark": false,
+          "tags": [
+            "triangle",
+            "shape",
+            "delta",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            -0.5
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 7,
+            "y": 7,
+            "w": 10,
+            "h": 9
+          },
+          "bearing": {
+            "left": 7,
+            "top": 7,
+            "right": 7,
+            "bottom": 8
+          },
+          "optical": {
+            "left": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            },
+            "top": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            },
+            "right": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            },
+            "bottom": {
+              "geometric": 8,
+              "recession": 0,
+              "optical": 8
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "trophy": {
           "paths": [
             "M8 2.75H16A0.75 0.75 0 0 1 16.75 3.5V9.5A4.75 4.75 0 0 1 7.25 9.5V3.5A0.75 0.75 0 0 1 8 2.75Z",
@@ -561318,10 +561790,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": "triangle",
-      "note": "added 2026-10-24",
-      "status": "review",
+      "note": "added 2026-10-24 · approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     },
     {
       "n": 347,
