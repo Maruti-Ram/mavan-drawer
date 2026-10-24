@@ -817,6 +817,8 @@
     "gear-nodes-2",
     "gear-nodes-2-filled",
     "gear-nodes-filled",
+    "gem",
+    "gem-filled",
     "gift",
     "gift-2",
     "gift-2-filled",
@@ -50339,6 +50341,135 @@
           "geometric": 2,
           "recession": 0,
           "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "gem": {
+      "paths": [
+        "M7.5 3.75L16.5 3.75A1.5 1.5 0 0 1 17.56 4.19L20.81 7.44A1.5 1.5 0 0 1 21.25 8.5A1.5 1.5 0 0 1 20.93 9.43L12.59 19.97A0.75 0.75 0 0 1 12 20.25A0.75 0.75 0 0 1 11.41 19.97L3.07 9.43A1.5 1.5 0 0 1 2.75 8.5A1.5 1.5 0 0 1 3.19 7.44L6.44 4.19A1.5 1.5 0 0 1 7.5 3.75Z",
+        "M2.75 8.5H21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M7.5 3.75L16.5 3.75A1.5 1.5 0 0 1 17.56 4.19L20.81 7.44A1.5 1.5 0 0 1 21.25 8.5A1.5 1.5 0 0 1 20.93 9.43L12.59 19.97A0.75 0.75 0 0 1 12 20.25A0.75 0.75 0 0 1 11.41 19.97L3.07 9.43A1.5 1.5 0 0 1 2.75 8.5A1.5 1.5 0 0 1 3.19 7.44L6.44 4.19A1.5 1.5 0 0 1 7.5 3.75Z\"/> <path d=\"M2.75 8.5H21.25\"/>",
+      "mark": false,
+      "tags": [
+        "gem",
+        "diamond",
+        "jewel",
+        "girdle",
+        "simple",
+        "premium",
+        "nucleo",
+        "tabler"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 3,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 3,
+        "right": 2,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 1.23,
+          "optical": 2.92
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 1.23,
+          "optical": 2.92
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.6,
+          "optical": 3.45
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 1.31,
+          "optical": 3.98
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 20,
+        "h": 1.5
+      },
+      "ratio": {
+        "w": 1,
+        "h": 0.08
+      },
+      "gap": null
+    },
+    "gem-filled": {
+      "paths": [],
+      "areas": [
+        "M7.5 3L16.5 3A2.25 2.25 0 0 1 18.09 3.66L21.34 6.91A2.25 2.25 0 0 1 22 8.5A2.25 2.25 0 0 1 21.51 9.9L13.18 20.43A1.5 1.5 0 0 1 12 21A1.5 1.5 0 0 1 10.82 20.43L2.49 9.9A2.25 2.25 0 0 1 2 8.5A2.25 2.25 0 0 1 2.66 6.91L5.91 3.66A2.25 2.25 0 0 1 7.5 3ZM4.25 7.75L19.75 7.75A0.75 0.75 0 0 1 20.5 8.5A0.75 0.75 0 0 1 19.75 9.25L4.25 9.25A0.75 0.75 0 0 1 3.5 8.5A0.75 0.75 0 0 1 4.25 7.75Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 3L16.5 3A2.25 2.25 0 0 1 18.09 3.66L21.34 6.91A2.25 2.25 0 0 1 22 8.5A2.25 2.25 0 0 1 21.51 9.9L13.18 20.43A1.5 1.5 0 0 1 12 21A1.5 1.5 0 0 1 10.82 20.43L2.49 9.9A2.25 2.25 0 0 1 2 8.5A2.25 2.25 0 0 1 2.66 6.91L5.91 3.66A2.25 2.25 0 0 1 7.5 3ZM4.25 7.75L19.75 7.75A0.75 0.75 0 0 1 20.5 8.5A0.75 0.75 0 0 1 19.75 9.25L4.25 9.25A0.75 0.75 0 0 1 3.5 8.5A0.75 0.75 0 0 1 4.25 7.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "gem",
+        "diamond",
+        "jewel",
+        "girdle",
+        "simple",
+        "premium",
+        "nucleo",
+        "tabler"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 3,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 3,
+        "right": 2,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         }
       },
       "container": null,
@@ -130279,6 +130410,8 @@
         "gear-nodes-2",
         "gear-nodes-2-filled",
         "gear-nodes-filled",
+        "gem",
+        "gem-filled",
         "gift",
         "gift-2",
         "gift-2-filled",
@@ -179726,6 +179859,135 @@
               "geometric": 1,
               "recession": 0,
               "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gem": {
+          "paths": [
+            "M4.625 2.625L11.375 2.625A1 1 0 0 1 12.082 2.918L14.082 4.918A1 1 0 0 1 14.375 5.625A1 1 0 0 1 14.147 6.26L8.483 13.147A0.625 0.625 0 0 1 8 13.375A0.625 0.625 0 0 1 7.517 13.147L1.853 6.26A1 1 0 0 1 1.625 5.625A1 1 0 0 1 1.918 4.918L3.918 2.918A1 1 0 0 1 4.625 2.625Z",
+            "M1.625 5.625H14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.625 2.625L11.375 2.625A1 1 0 0 1 12.082 2.918L14.082 4.918A1 1 0 0 1 14.375 5.625A1 1 0 0 1 14.147 6.26L8.483 13.147A0.625 0.625 0 0 1 8 13.375A0.625 0.625 0 0 1 7.517 13.147L1.853 6.26A1 1 0 0 1 1.625 5.625A1 1 0 0 1 1.918 4.918L3.918 2.918A1 1 0 0 1 4.625 2.625Z\"/> <path d=\"M1.625 5.625H14.375\"/>",
+          "mark": false,
+          "tags": [
+            "gem",
+            "diamond",
+            "jewel",
+            "girdle",
+            "simple",
+            "premium",
+            "nucleo",
+            "tabler"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.99,
+              "optical": 1.74
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.99,
+              "optical": 1.74
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.44,
+              "optical": 2.33
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 1.06,
+              "optical": 2.8
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 14,
+            "h": 1.25
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.09
+          },
+          "gap": null
+        },
+        "gem-filled": {
+          "paths": [],
+          "areas": [
+            "M4.625 2L11.375 2A1.625 1.625 0 0 1 12.524 2.476L14.524 4.476A1.625 1.625 0 0 1 15 5.625A1.625 1.625 0 0 1 14.63 6.657L8.965 13.544A1.25 1.25 0 0 1 8 14A1.25 1.25 0 0 1 7.035 13.544L1.37 6.657A1.625 1.625 0 0 1 1 5.625A1.625 1.625 0 0 1 1.476 4.476L3.476 2.476A1.625 1.625 0 0 1 4.625 2ZM3.5 4.875L12.5 4.875A0.75 0.75 0 0 1 13.25 5.625A0.75 0.75 0 0 1 12.5 6.375L3.5 6.375A0.75 0.75 0 0 1 2.75 5.625A0.75 0.75 0 0 1 3.5 4.875Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.625 2L11.375 2A1.625 1.625 0 0 1 12.524 2.476L14.524 4.476A1.625 1.625 0 0 1 15 5.625A1.625 1.625 0 0 1 14.63 6.657L8.965 13.544A1.25 1.25 0 0 1 8 14A1.25 1.25 0 0 1 7.035 13.544L1.37 6.657A1.625 1.625 0 0 1 1 5.625A1.625 1.625 0 0 1 1.476 4.476L3.476 2.476A1.625 1.625 0 0 1 4.625 2ZM3.5 4.875L12.5 4.875A0.75 0.75 0 0 1 13.25 5.625A0.75 0.75 0 0 1 12.5 6.375L3.5 6.375A0.75 0.75 0 0 1 2.75 5.625A0.75 0.75 0 0 1 3.5 4.875Z\"/>",
+          "mark": false,
+          "tags": [
+            "gem",
+            "diamond",
+            "jewel",
+            "girdle",
+            "simple",
+            "premium",
+            "nucleo",
+            "tabler"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 2,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 2,
+            "right": 1,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -259622,6 +259884,8 @@
         "gear-nodes-2",
         "gear-nodes-2-filled",
         "gear-nodes-filled",
+        "gem",
+        "gem-filled",
         "gift",
         "gift-2",
         "gift-2-filled",
@@ -309096,6 +309360,135 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gem": {
+          "paths": [
+            "M6.25 3.75L13.75 3.75A1.25 1.25 0 0 1 14.63 4.12L16.88 6.37A1.25 1.25 0 0 1 17.25 7.25A1.25 1.25 0 0 1 16.97 8.03L10.58 15.97A0.75 0.75 0 0 1 10 16.25A0.75 0.75 0 0 1 9.42 15.97L3.03 8.03A1.25 1.25 0 0 1 2.75 7.25A1.25 1.25 0 0 1 3.12 6.37L5.37 4.12A1.25 1.25 0 0 1 6.25 3.75Z",
+            "M2.75 7.25H17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.25 3.75L13.75 3.75A1.25 1.25 0 0 1 14.63 4.12L16.88 6.37A1.25 1.25 0 0 1 17.25 7.25A1.25 1.25 0 0 1 16.97 8.03L10.58 15.97A0.75 0.75 0 0 1 10 16.25A0.75 0.75 0 0 1 9.42 15.97L3.03 8.03A1.25 1.25 0 0 1 2.75 7.25A1.25 1.25 0 0 1 3.12 6.37L5.37 4.12A1.25 1.25 0 0 1 6.25 3.75Z\"/> <path d=\"M2.75 7.25H17.25\"/>",
+          "mark": false,
+          "tags": [
+            "gem",
+            "diamond",
+            "jewel",
+            "girdle",
+            "simple",
+            "premium",
+            "nucleo",
+            "tabler"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 1.17,
+              "optical": 2.88
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 1.17,
+              "optical": 2.88
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.53,
+              "optical": 3.4
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.27,
+              "optical": 3.95
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 16,
+            "h": 1.5
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.09
+          },
+          "gap": null
+        },
+        "gem-filled": {
+          "paths": [],
+          "areas": [
+            "M6.25 3L13.75 3A2 2 0 0 1 15.16 3.59L17.41 5.84A2 2 0 0 1 18 7.25A2 2 0 0 1 17.56 8.5L11.17 16.44A1.5 1.5 0 0 1 10 17A1.5 1.5 0 0 1 8.83 16.44L2.44 8.5A2 2 0 0 1 2 7.25A2 2 0 0 1 2.59 5.84L4.84 3.59A2 2 0 0 1 6.25 3ZM4.5 6.5L15.5 6.5A0.75 0.75 0 0 1 16.25 7.25A0.75 0.75 0 0 1 15.5 8L4.5 8A0.75 0.75 0 0 1 3.75 7.25A0.75 0.75 0 0 1 4.5 6.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3L13.75 3A2 2 0 0 1 15.16 3.59L17.41 5.84A2 2 0 0 1 18 7.25A2 2 0 0 1 17.56 8.5L11.17 16.44A1.5 1.5 0 0 1 10 17A1.5 1.5 0 0 1 8.83 16.44L2.44 8.5A2 2 0 0 1 2 7.25A2 2 0 0 1 2.59 5.84L4.84 3.59A2 2 0 0 1 6.25 3ZM4.5 6.5L15.5 6.5A0.75 0.75 0 0 1 16.25 7.25A0.75 0.75 0 0 1 15.5 8L4.5 8A0.75 0.75 0 0 1 3.75 7.25A0.75 0.75 0 0 1 4.5 6.5Z\"/>",
+          "mark": false,
+          "tags": [
+            "gem",
+            "diamond",
+            "jewel",
+            "girdle",
+            "simple",
+            "premium",
+            "nucleo",
+            "tabler"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -389019,6 +389412,8 @@
         "gear-nodes-2",
         "gear-nodes-2-filled",
         "gear-nodes-filled",
+        "gem",
+        "gem-filled",
         "gift",
         "gift-2",
         "gift-2-filled",
@@ -438541,6 +438936,135 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "gem": {
+          "paths": [
+            "M7.5 3.75L16.5 3.75A1.5 1.5 0 0 1 17.56 4.19L20.81 7.44A1.5 1.5 0 0 1 21.25 8.5A1.5 1.5 0 0 1 20.93 9.43L12.59 19.97A0.75 0.75 0 0 1 12 20.25A0.75 0.75 0 0 1 11.41 19.97L3.07 9.43A1.5 1.5 0 0 1 2.75 8.5A1.5 1.5 0 0 1 3.19 7.44L6.44 4.19A1.5 1.5 0 0 1 7.5 3.75Z",
+            "M2.75 8.5H21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.5 3.75L16.5 3.75A1.5 1.5 0 0 1 17.56 4.19L20.81 7.44A1.5 1.5 0 0 1 21.25 8.5A1.5 1.5 0 0 1 20.93 9.43L12.59 19.97A0.75 0.75 0 0 1 12 20.25A0.75 0.75 0 0 1 11.41 19.97L3.07 9.43A1.5 1.5 0 0 1 2.75 8.5A1.5 1.5 0 0 1 3.19 7.44L6.44 4.19A1.5 1.5 0 0 1 7.5 3.75Z\"/> <path d=\"M2.75 8.5H21.25\"/>",
+          "mark": false,
+          "tags": [
+            "gem",
+            "diamond",
+            "jewel",
+            "girdle",
+            "simple",
+            "premium",
+            "nucleo",
+            "tabler"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 1.23,
+              "optical": 2.92
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 1.23,
+              "optical": 2.92
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.6,
+              "optical": 3.45
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.31,
+              "optical": 3.98
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 20,
+            "h": 1.5
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.08
+          },
+          "gap": null
+        },
+        "gem-filled": {
+          "paths": [],
+          "areas": [
+            "M7.5 3L16.5 3A2.25 2.25 0 0 1 18.09 3.66L21.34 6.91A2.25 2.25 0 0 1 22 8.5A2.25 2.25 0 0 1 21.51 9.9L13.18 20.43A1.5 1.5 0 0 1 12 21A1.5 1.5 0 0 1 10.82 20.43L2.49 9.9A2.25 2.25 0 0 1 2 8.5A2.25 2.25 0 0 1 2.66 6.91L5.91 3.66A2.25 2.25 0 0 1 7.5 3ZM4.25 7.75L19.75 7.75A0.75 0.75 0 0 1 20.5 8.5A0.75 0.75 0 0 1 19.75 9.25L4.25 9.25A0.75 0.75 0 0 1 3.5 8.5A0.75 0.75 0 0 1 4.25 7.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.5 3L16.5 3A2.25 2.25 0 0 1 18.09 3.66L21.34 6.91A2.25 2.25 0 0 1 22 8.5A2.25 2.25 0 0 1 21.51 9.9L13.18 20.43A1.5 1.5 0 0 1 12 21A1.5 1.5 0 0 1 10.82 20.43L2.49 9.9A2.25 2.25 0 0 1 2 8.5A2.25 2.25 0 0 1 2.66 6.91L5.91 3.66A2.25 2.25 0 0 1 7.5 3ZM4.25 7.75L19.75 7.75A0.75 0.75 0 0 1 20.5 8.5A0.75 0.75 0 0 1 19.75 9.25L4.25 9.25A0.75 0.75 0 0 1 3.5 8.5A0.75 0.75 0 0 1 4.25 7.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "gem",
+            "diamond",
+            "jewel",
+            "girdle",
+            "simple",
+            "premium",
+            "nucleo",
+            "tabler"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 3,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 3,
+            "right": 2,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -525458,10 +525982,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     },
     {
       "n": 238,
