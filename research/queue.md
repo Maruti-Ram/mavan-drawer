@@ -1282,7 +1282,9 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [~] 600. `option` · Keyboard keys — added 2026-10-24
 - [~] 601. `caps-lock` · Keyboard keys — added 2026-10-24
 - [~] 602. `tab-key` · Keyboard keys — added 2026-10-24
-- [~] 603. `escape` · Keyboard keys — added 2026-10-24
+- [x] 603. `escape` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
+- [x] 603. `escape-2` · Keyboard keys · variant of `escape` — ⎋ head outside the ring · approved 2026-10-24
+- [x] 603. `escape-3` · Keyboard keys · variant of `escape` — Arrow leaving the key (external-link mirrored) · approved 2026-10-24
 - [~] 604. `delete-forward` · Keyboard keys — added 2026-10-24
 - [~] 605. `arrow-keys` · Keyboard keys — added 2026-10-24
 - [~] 606. `keyboard-hide` · Keyboard keys — added 2026-10-24
