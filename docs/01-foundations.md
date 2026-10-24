@@ -453,6 +453,16 @@ Corollaries:
   bends and T-joins are not judged, nor an overhang whose cap sits inside its neighbour's ink. A
   file's agreed `gap:` applies; a character's own arms take C19's 1 under `glyph:`; a C33 badge's
   arms keep 1.5 whatever the file's `gap:` says.
+- **An arrowhead's legs keep air to their shaft** (2026-10-24, `plans/lint-head-air.md`). A shaft
+  ends inside its head's point, so the two read as joined and §5 measures nothing between them, and
+  the crossing arms above leave arrowheads out. The wedge of white between each leg and the shaft
+  closes when the legs are short or the line is heavy, and the head reads as a solid tip, or a smudge,
+  at 16. Lint §5l reads it at the wedge's mouth: from each leg's cap centre to the nearest point of
+  the stroke that runs into the point between the legs, less half of each path's weight — the
+  drawer's "head counter" (`rotate-ccw` holds 2.04 · 1.5 · 1.58). A warning, at the file's agreed
+  `gap:` or 1.5 **until Maruti rules on a head's own floor**; a C33 badge's head keeps 1.5. Not read:
+  a half head drawn in one stroke with its shaft (a harpoon, `transfer-2`), a V standing on a line
+  from outside, and a knocked-out arrow (§5c's material).
 - **No more than 3 parallel strokes** in one run. Four is a texture, not an icon.
 - When a detail cannot fit at a 2-unit gap, **remove the detail**. Do not shrink
   the stroke locally — varying stroke weight within a set is the fastest way to

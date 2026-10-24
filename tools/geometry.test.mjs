@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, barGap, facingGap, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, armTipGap, barGap, facingGap, headAir, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
 import { checkAnchors, checkBases, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseCornersNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -2387,4 +2387,112 @@ test('draft-svg writes `corners: \'square\'` into the filled files only; the boa
 test('holeCorners: a cut-out written without Z still has the corners at its closing edge', () => {
   const [open] = holeCorners([`${PLATE24}M8 8H16V16H8`]);
   assert.equal(open.corners.length, 4, 'the implicit closing edge 8,16 → 8,8 adds its two corners');
+});
+
+// ── headAir (2026-10-24; plans/lint-head-air.md) ──────────────────────────────
+const headWarn = (r) => r.warnings.filter((w) => /arrowhead/.test(w));
+const tightHead = (ds, w) => Math.min(...headAir(ds, w).map((h) => h.gap));
+// rotate-ccw as shipped: an L head on a 45° run off the ring; its comment gives the head counter
+// 2.04 · 1.51 · 1.58 and, filled, 0.83 · 0.9 · 0.67 — measured by hand when it was approved
+const ROTATE_CCW = {
+  24: { w: 1.5, ds: ['M3.87 12A8.13 8.13 0 1 0 6.25 6.25L3.97 8.53', 'M3.75 3.75L3.75 8A0.75 0.75 0 0 0 4.5 8.75L8.75 8.75'], air: 2.04 },
+  20: { w: 1.5, ds: ['M4.51 11.28A5.83 5.83 0 1 0 6.12 6.13L4.22 8.03', 'M4 4L4 7.5A0.75 0.75 0 0 0 4.75 8.25L8.25 8.25'], air: 1.505 },
+  16: { w: 1.25, ds: ['M3.686 9.646A4.773 4.773 0 1 0 4.875 4.875L3.058 6.692', 'M2.875 2.875L2.875 6.25A0.625 0.625 0 0 0 3.5 6.875L6.875 6.875'], air: 1.58 },
+};
+const ROTATE_CCW_FILLED = {
+  24: { w: 2.5, ds: ['M4.42 12.9A7.63 7.63 0 1 0 6.6 6.6L4.62 8.59', 'M4.25 4.25L4.25 7.71A1.25 1.25 0 0 0 5.5 8.96L8.96 8.96'], air: 0.82 },
+  20: { w: 2, ds: ['M4.91 11.88A5.58 5.58 0 1 0 6.3 6.3L4.54 8.06', 'M4.25 4.25L4.25 7.35A1 1 0 0 0 5.25 8.35L8.35 8.35'], air: 0.9 },
+  16: { w: 2, ds: ['M4.51 10.564A4.398 4.398 0 1 0 5.14 5.14L3.543 6.737', 'M3.25 3.25L3.25 6.03A1 1 0 0 0 4.25 7.03L7.03 7.03'], air: 0.67 },
+};
+
+test('headAir: rotate-ccw reads its drawn head counter at every master, outline and filled', () => {
+  for (const set of [ROTATE_CCW, ROTATE_CCW_FILLED]) for (const [m, { w, ds, air }] of Object.entries(set)) {
+    const heads = headAir(ds, w);
+    assert.equal(heads.length, 1, `${m}: one head, on the run off the ring`);
+    assert.deepEqual([heads[0].head, heads[0].shaft], [1, 0]);
+    near(heads[0].angle, 90, 0.6);
+    near(heads[0].gap, air, 0.006);
+  }
+});
+
+test('headAir: a straight shaft reads each leg\'s cap to the shaft; two heads read apart', () => {
+  // arrow-right 24, classic: legs 5.26 at 45°, so 4.25 − 1.5 = 2.75; filled at 16 keeps 3 − 2 = 1
+  const [r] = headAir(['M14.81 7.75L18.53 11.47A0.75 0.75 0 0 1 18.53 12.53L14.81 16.25', 'M18.75 12H5.25'], 1.5);
+  // the air runs from the cap's edge (7.75 + 0.75) to the shaft's (12 − 0.75): its middle is 9.88
+  assert.deepEqual(r, { head: 0, shaft: 1, angle: 90.1, gap: 2.75, at: [14.81, 9.88], tip: [14.81, 7.75] });
+  near(tightHead(['M10.41 5L12.7 7.29A1 1 0 0 1 12.7 8.71L10.41 11', 'M13 8H3'], 2), 1, 0.001);
+  // expand-horizontal-filled at 16: the shafts are shorter than the heads, and each leg's cap
+  // overlaps its shaft by 0.18 — the wedge is shut, and reads negative
+  const EXPAND = ['M11.588 6.178L12.7 7.29A1 1 0 0 1 12.7 8.71L11.588 9.822', 'M13 8L11.5 8', 'M4.412 6.178L3.3 7.29A1 1 0 0 0 3.3 8.71L4.412 9.822', 'M3 8L4.5 8', 'M8 3L8 13'];
+  const both = headAir(EXPAND, 2);
+  assert.deepEqual(both.map((h) => [h.head, h.shaft]), [[0, 1], [2, 3]], 'each head on its own shaft; the divider is no shaft');
+  for (const h of both) near(h.gap, -0.178, 0.001);
+});
+
+test('headAir: a wide head is read; legs at 120° or wider are no arrowhead', () => {
+  // arrow-right-3 24: the 110° head, legs 6.08: 5 − 1.5 = 3.5
+  const [r] = headAir(['M15.46 7L18.61 11.57A0.75 0.75 0 0 1 18.61 12.43L15.46 17', 'M18.75 12H5.25'], 1.5);
+  near(r.angle, 110, 0.6);
+  near(r.gap, 3.5, 0.001);
+  const at = (deg) => { const a = (deg / 2) * Math.PI / 180, L = 3; return `M${(18 - L * Math.cos(a)).toFixed(3)} ${(12 - L * Math.sin(a)).toFixed(3)}L18 12L${(18 - L * Math.cos(a)).toFixed(3)} ${(12 + L * Math.sin(a)).toFixed(3)}`; };
+  assert.equal(headAir([at(119), 'M18 12H6'], 1.5).length, 1);
+  assert.deepEqual(headAir([at(121), 'M18 12H6'], 1.5), []);
+});
+
+test('headAir: a shaft that runs on through the point is read; a V on a line from outside, a chevron and a harpoon are not', () => {
+  // a shaft poking 0.5 past the point of a tight head (armTipGap's test leaves it out): 2 − 1.5
+  near(tightHead(['M16 10L18 12L16 14', 'M5 12H18.5'], 1.5), 0.5, 0.001);
+  // gift-card-2 24: the ribbon runs down through the bow's Λ and on — 1.5, at the floor
+  const GIFT = ['M2.75 12.25H21.25', 'M9.25 4.75V19.25', 'M6.25 15.25L9.25 12.25L12.25 15.25'];
+  assert.deepEqual(headAir(GIFT, 1.5).map((h) => [h.head, h.shaft, h.gap]), [[2, 1, 1.5]], 'the horizontal leaves outside the legs');
+  // bluetooth's V meets the rune's two closed loops at its point, and a V standing on a line
+  // from outside meets a line leaving it outside the legs: neither is a shaft
+  assert.deepEqual(headAir(['M11.75 12L11.75 4.51A0.75 0.75 0 0 1 12.97 3.92L16.72 6.89A0.75 0.75 0 0 1 16.72 8.06Z', 'M6.5 7.84L11.75 12L6.5 16.16'], 1.5), []);
+  assert.deepEqual(headAir(['M9 15L12 12L15 15', 'M4 12H20'], 1.5), []);
+  assert.deepEqual(headAir(['M9.5 6.5L15 12L9.5 17.5'], 1.5), [], 'a chevron alone has no shaft');
+  // transfer-2's harpoon: the barb and the shaft are one stroke, a single-path bend
+  assert.deepEqual(headAir(['M6.94 5.25L3.97 8.22A0.75 0.75 0 0 0 4.5 9.5H20.25', 'M17.06 18.75L20.03 15.78A0.75 0.75 0 0 0 19.5 14.5H3.75'], 1.5), []);
+});
+
+test('headAir: a leg whose nearest point on the shaft is the point itself is not read', () => {
+  // a 116° head with the shaft leaving 8° off its upper leg: the lower leg is 108° from the shaft,
+  // so its nearest point on it is the point — nothing closes there — and only the upper leg reads
+  const p = (deg, L) => [18 - L * Math.cos(deg * Math.PI / 180), 12 + L * Math.sin(deg * Math.PI / 180)].map((v) => v.toFixed(3)).join(' ');
+  const heads = headAir([`M${p(-58, 4)}L18 12L${p(58, 4)}`, `M18 12L${p(-50, 10)}`], 1.5);
+  assert.equal(heads.length, 1);
+  assert.deepEqual(heads[0].tip, p(-58, 4).split(' ').map((v) => Math.round(+v * 100) / 100));
+  near(heads[0].gap, 4 * Math.sin(8 * Math.PI / 180) - 1.5, 0.001);
+});
+
+test('headAir: a point rounded on a container radius is reached at its arc, not only at its sharp corner', () => {
+  // a bracket whose corner rounds at 2.5 (the container radius) leaves the sharp corner 1.04 off the
+  // arc; a diagonal ending on the arc's middle is inside the ink there and is the bracket's shaft
+  const [r] = headAir(['M3.75 8.25L3.75 6.25A2.5 2.5 0 0 1 6.25 3.75L8.25 3.75', 'M4.48 4.48L12 12'], 1.5);
+  assert.deepEqual([r.head, r.shaft], [0, 1]);
+  near(r.angle, 90, 0.6);
+  near(r.gap, 4.5 * Math.SQRT1_2 - 1.5, 0.002);   // the cap at 3.75,8.25 stands 4.5/√2 off the diagonal y = x
+});
+
+test('headAir: each path at its own weight', () => {
+  // a 2.5 head on a 1.5 shaft: legs 5.26 at 45°, 4.25 − (2.5 + 1.5) / 2
+  const ds = ['M14.81 7.75L18.53 11.47A0.75 0.75 0 0 1 18.53 12.53L14.81 16.25', 'M18.75 12H5.25'];
+  near(tightHead(ds, [2.5, 1.5]), 2.25, 0.001);
+  near(tightHead(ds, [1.5, 2.5]), 2.25, 0.001);
+});
+
+test('lint §5l: a tight head warns, at the file\'s agreed gap where it has one; a roomy one is silent', () => {
+  const at16 = lintSource(16, 'rotate-ccw-filled.svg', drawn(16, 2, ROTATE_CCW_FILLED[16].ds));
+  assert.deepEqual(headWarn(at16), [`path 2's arrowhead leaves 0.67 of air between a leg and its shaft (path 1) at ${headAir(ROTATE_CCW_FILLED[16].ds, 2)[0].at.join(',')} — §6 needs 1.5`]);
+  for (const [m, { w, ds }] of Object.entries(ROTATE_CCW)) {
+    const r = lintSource(+m, 'rotate-ccw.svg', drawn(+m, w, ds));
+    assert.deepEqual(headWarn(r), [], `${m}: ${r.warnings.join(' | ')}`);
+  }
+  // sort-filled at 16 holds its `gap: 1` at the heads exactly: 3 − 2 = 1
+  const SORT16 = ['M2 5.59L4.29 3.3A1 1 0 0 1 5.71 3.3L8 5.59', 'M5 3V13', 'M8 10.41L10.29 12.7A1 1 0 0 0 11.71 12.7L14 10.41', 'M11 13V3'];
+  const sort = lintSource(16, 'sort-filled.svg', drawn(16, 2, SORT16, { notes: ['keyline: mark', 'gap: 1'] }));
+  assert.deepEqual(headWarn(sort), [], sort.warnings.join(' | '));
+  assert.ok(sort.notes.some((n) => n === 'agreed gap 1 — smallest measured 1'), sort.notes.join(' | '));
+  // the head in one `d` with its shaft reads the same, and says no second path
+  const one = lintSource(16, 'x-filled.svg', drawn(16, 2, [ROTATE_CCW_FILLED[16].ds.join('')]));
+  assert.match(headWarn(one)[0] ?? '', /^path 1's arrowhead leaves 0\.67 of air between a leg and its shaft at [\d.,]+ — §6 needs 1\.5$/);
 });

@@ -1559,6 +1559,123 @@ export function armTipGap(ds, stroke, areas = [], { weight } = {}) {
   return { cross, notch };
 }
 
+// ── headAir ────────────────────────────────────────────────────────────────
+// The air between an arrowhead's LEGS and the SHAFT that runs into its point (2026-10-24;
+// plans/lint-head-air.md). Lint §5 reads a head and its shaft as joined — the shaft ends inside the
+// head's point — and measures nothing between them, and armTipGap leaves arrowheads out: their arms
+// all sit on one side of the point, so "tip air at equal reach" is the wrong picture for them. So a
+// leg that came too close to its shaft passed clean: the `rotation` and `flip-*` drafts at −0.34 to
+// 0.25 (2026-10-24), and rotate-ccw-filled shipped 0.83 · 0.9 · 0.67, measured by hand.
+//
+// A HEAD is a corner of an open stroked subpath — read after `skeleton`, so a C10 bend at the point
+// is the sharp corner it rounds — whose two legs (`armOf`) both run out to a round cap, opening under
+// HEAD_ANGLE. Its SHAFT is another open stroked subpath (another path, or another subpath of the same
+// `d`) that reaches the point — its centreline comes no farther than half the heavier weight from the
+// sharp corner or from the bend's arc where it rounds it, inside the head's ink — and leaves it BETWEEN
+// the two legs: one that ends there (a shaft, a
+// run off an arc), or one that runs on through and out the far side (gift-card-2's ribbon through its
+// bow). The AIR at each leg is the distance from
+// its cap centre to the nearest point of the shaft's centreline as drawn (the whole subpath, so an arc
+// curling back toward a leg is read where it comes nearest; segments and circular arcs exact, anything
+// else flattened to AIR_FLAT), less half of each path's own weight: the white at the mouth of the
+// wedge between leg and shaft, the drawer's "head counter". It is read only where the wedge closes:
+// where the leg's nearest point on the shaft is the shaft's own end at the point, the two part at 90°
+// or more and nothing closes. Negative air: the cap overlaps the shaft's ink, and the wedge is shut.
+//
+// Not read (each found by the 2026-10-24 probe, so none is mistaken for coverage):
+//   · a half head drawn in one stroke with its shaft (transfer-2's harpoon): its point is a single-
+//     path bend, which cannot be told from a numeral's flag or a letter's corner;
+//   · a V standing on a line from outside (bluetooth, yen, an antenna): the line leaves the point
+//     outside the legs, so it is no shaft;
+//   · a knocked-out arrow (import-filled): the solid between its barb and shaft is a knockout's
+//     material, §5c's.
+//
+// The rule is geometric: any such point is a head, whatever it draws. In the set every one is an
+// arrowhead but gift-card-2's bow, whose Λ the ribbon runs down through (1.5 at 24 and 20); a chart's
+// axes with a trend line leaving their corner would read too, and their white is as real.
+//
+// `stroke` is one weight or one per path (C32, C33). Returns [{ head, shaft, angle, gap, at, tip }],
+// one per head and shaft, at its tighter leg: `head` and `shaft` the 0-based paths, `angle` the
+// head's opening in degrees (1 dp), `gap` the air (3 dp), `at` the middle of the span from the leg's
+// cap's edge to the shaft's edge, and `tip` the leg's cap centre (2 dp). Whether
+// one is too tight is lint's call.
+const HEAD_ANGLE = 120;   // deg: legs opening this wide or wider make no arrowhead (the set's widest: 111)
+
+/** Distance from p to the nearest of `airPieces` runs, and the point there. */
+function nearestOn(runs, p) {
+  let best = Infinity, at = null;
+  for (const run of runs) for (const q of run.items) {
+    let d, o;
+    if (q.k === 'L') [d, , o] = segDist(p, q.a, q.b);
+    else {
+      const dx = p[0] - q.c[0], dy = p[1] - q.c[1], r = Math.hypot(dx, dy);
+      let a = Math.atan2(dy, dx) - q.a0;
+      a = q.dt >= 0 ? modP(a, TAU) : modP(-a, TAU);
+      if (r > 1e-12 && a <= Math.abs(q.dt) + 1e-12) { d = Math.abs(r - q.r); o = [q.c[0] + (dx / r) * q.r, q.c[1] + (dy / r) * q.r]; }
+      else { const d0 = hyp(p, q.p0), d1 = hyp(p, q.p1); [d, o] = d0 <= d1 ? [d0, q.p0] : [d1, q.p1]; }
+    }
+    if (d < best) { best = d; at = o; }
+  }
+  return [best, at];
+}
+
+export function headAir(ds, stroke) {
+  const wOf = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  const lines = [];
+  ds.forEach((d, path) => primitivesOf(d).forEach((sp) => {
+    if (!sp.prims.length) return;
+    const [P, V] = flattenPrims(skeleton(sp.prims));
+    if (P.length < 2) return;
+    const ln = new Line(P, V, sp.closed || hyp(P[0], P.at(-1)) < 1e-6, wOf(path), path);
+    ln.runs = airPieces(sp.prims);   // the centreline as drawn, for the distances
+    lines.push(ln);
+  }));
+  const cross = (a, b) => a[0] * b[1] - a[1] * b[0];
+  const out = [];
+  for (const H of lines) {
+    if (H.closed) continue;
+    for (let i = 1; i < H.p.length - 1; i++) {
+      if (!H.v[i]) continue;
+      const X = H.p[i], legs = [armOf(H, H.S[i], -1, X), armOf(H, H.S[i], 1, X)];
+      if (legs.some((g) => !g || g.kind !== 'cap')) continue;
+      const [A, B] = legs, turn = cross(A.u, B.u);
+      const angle = (Math.acos(Math.max(-1, Math.min(1, A.u[0] * B.u[0] + A.u[1] * B.u[1]))) * 180) / Math.PI;
+      if (angle >= HEAD_ANGLE || Math.abs(turn) < 1e-9) continue;
+      // the point as drawn: where the bend's arc passes nearest the sharp corner it rounds (the corner
+      // itself where the legs meet sharp). A C10 bend leaves the corner 0.31 off its arc; a container
+      // radius at the point, 1.04 — so both are tried
+      const apex = nearestOn(H.runs, X)[1] ?? X;
+      for (const T of lines) {
+        if (T === H || T.closed) continue;
+        // where T comes nearest the point: inside the head's ink there, it reaches the point
+        let near = [Infinity, 0];
+        for (const P of [X, apex]) for (let k = 1; k < T.p.length; k++) {
+          const [d, t] = segDist(P, T.p[k - 1], T.p[k]);
+          if (d < near[0]) near = [d, T.S[k - 1] + t * (T.S[k] - T.S[k - 1])];
+        }
+        if (near[0] > Math.max(H.w, T.w) / 2 + 0.01) continue;
+        const at0 = T.at(near[1]);
+        for (const dir of [1, -1]) {
+          const shaft = armOf(T, near[1], dir, X);
+          if (!shaft || cross(A.u, shaft.u) * turn <= 0 || cross(shaft.u, B.u) * turn <= 0) continue;   // not between the legs
+          let best = null;
+          for (const leg of legs) {
+            const [d, q] = nearestOn(T.runs, leg.tip);
+            if (d >= hyp(leg.tip, at0) - ALONG_MIN) continue;   // nearest at the point: the two part
+            const gap = d - (H.w + T.w) / 2;
+            if (!best || gap < best.gap) best = { gap, tip: leg.tip, q };
+          }
+          if (!best) continue;
+          const u = unitOf(best.tip, best.q) ?? [0, 0], k = H.w / 2 + best.gap / 2;   // the middle of the air
+          out.push({ head: H.path, shaft: T.path, angle: Math.round(angle * 10) / 10, gap: r3(best.gap),
+            at: [best.tip[0] + u[0] * k, best.tip[1] + u[1] * k].map(r2), tip: best.tip.map(r2) });
+        }
+      }
+    }
+  }
+  return out;
+}
+
 // ── barGap ─────────────────────────────────────────────────────────────────
 // The air between a straight BAR and another stroke it crosses (2026-10-21; plans/lint-currency-
 // fixes.md card 2). Lint §5 reads two crossing paths as joined by design and measures nothing between

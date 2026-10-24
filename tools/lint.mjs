@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, headAir, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
 import { CUT_CORNER, GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
@@ -676,6 +676,25 @@ export function lintSource(canvas, file, src) {
       warnings.push(`path ${b + 1}'s bar crosses path ${c + 1} and comes within ${r3(g)} of it at ${at.join(',')} — ${!onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
   }
 
+  // --- 5l. advisory: an arrowhead's legs to its shaft ------------------------------
+  // (2026-10-24; plans/lint-head-air.md.) A shaft ends inside its head's point, so the pair loop above
+  // reads the two as joined and measures nothing between them, and the crossing arms leave arrowheads
+  // out (all their arms sit on one side of the point). So the wedge of white between each leg and the
+  // shaft went unread: the `rotation` and `flip-*` drafts closed it to −0.34 · 0.25 and passed clean.
+  // `headAir` reads it at the mouth: from each leg's cap centre to the nearest point of the stroke that
+  // runs into the point between the legs, less half of each path's own weight — the drawer's "head
+  // counter" (rotate-ccw's 2.04 · 1.5 · 1.58). Negative: the cap overlaps the shaft and the wedge is
+  // shut. It floors as any two strokes do — this file's agreed gap, else MIN_GAP — until Maruti rules on
+  // a head's own floor; a C33 badge's own head keeps MIN_GAP, and a badge meeting its base already
+  // warns. One line per head and shaft, at the tighter leg. WARNINGS.
+  for (const { head: h, shaft: t, gap: g, at } of headAir(ds, W)) {
+    if (!!inBadge[h] !== !!inBadge[t]) continue;
+    const onBadge = !!inBadge[h], floor = onBadge ? MIN_GAP : GAP;
+    if (!onBadge) measured.push(r2(g));
+    if (g < floor - 0.01)
+      warnings.push(`path ${h + 1}'s arrowhead leaves ${r2(g)} of air between a leg and its shaft${h === t ? '' : ` (path ${t + 1})`} at ${at.join(',')} — ${!onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+  }
+
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
   // §6's corollary "no enclosed shape smaller than 1.5 units across" was not in code
   // before this loop (2026-09-18), and the pair loop above cannot see it: both ends of one stroke, and a
@@ -973,7 +992,7 @@ export function lintSource(canvas, file, src) {
 
   // --- 5d. is the agreed gap still doing anything? ------------------------
   // The note lowers the floor, so it has to earn its place: if nothing the checks above
-  // measure under it (§5 with its crossing arms, §5b, §5f, §5h and §5i) comes closer than §6's own floor, the drawing no longer needs it and
+  // measure under it (§5 with its crossing arms, §5b, §5f, §5h, §5i, §5j and §5l) comes closer than §6's own floor, the drawing no longer needs it and
   // the note is stale — an ERROR, so it is deleted rather than left to excuse a future
   // change nobody agreed. Otherwise it is in force, and says so the way `grows` does.
   if (gap) {
