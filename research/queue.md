@@ -793,7 +793,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
 - [x] 252. `ticket` · Commerce & Payments — approved 2026-10-21
 - [x] 252. `ticket-2` · Commerce & Payments · variant of `ticket` — Stub, edge notches · approved 2026-10-21
-- [~] 253. `vector` · Design Tools
+- [x] 253. `vector` · Design Tools — approved 2026-10-24
 - [x] 253. `vector-2` · Design Tools · variant of `vector` — Curve and pointer · approved 2026-10-24
 - [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
 - [x] 254. `activity-2` · Charts & Data · variant of `activity` — Square pulse · approved 2026-10-18
