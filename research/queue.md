@@ -580,7 +580,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 167. `palette-2` · Design Tools · variant of `palette` — Fanned swatches · approved 2026-10-24
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
 - [x] 169. `receipt` · Commerce & Payments — approved 2026-10-21
-- [~] 170. `ruler` · Design Tools
+- [x] 170. `ruler` · Design Tools — approved 2026-10-24
+- [x] 170. `ruler-2` · Design Tools · variant of `ruler` — Flat ruler · approved 2026-10-24
+- [x] 170. `ruler-3` · Design Tools · variant of `ruler` — L-square · approved 2026-10-24
+- [x] 170. `ruler-4` · Design Tools · variant of `ruler` — Set square · approved 2026-10-24
+- [x] 170. `ruler-5` · Design Tools · variant of `ruler` — Ruler, dimension line · approved 2026-10-24
 - [x] 171. `slideshow` · Media & Playback — approved 2026-10-22
 - [x] 172. `workflow` · Development & Infra — approved 2026-10-23
 - [x] 172. `workflow-2` · Development & Infra · variant of `workflow` — Steps in a chain, through the middle · approved 2026-10-23
