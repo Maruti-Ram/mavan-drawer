@@ -488,7 +488,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 131. `thumbs-down` · Communication — approved 2026-10-17
 - [x] 131. `thumbs-down-2` · Communication · variant of `thumbs-down` — Turned · thumbs-down-2 · approved 2026-10-17
 - [x] 132. `underline` · Editing & Text — mvp · approved 2026-10-17
-- [~] 133. `crop` · Design Tools
+- [x] 133. `crop` · Design Tools — approved 2026-10-24
+- [x] 133. `crop-2` · Design Tools · variant of `crop` — Woven brackets · approved 2026-10-24
 - [x] 134. `mobile` · Devices & Hardware — approved 2026-10-23
 - [x] 134. `mobile-2` · Devices & Hardware · variant of `mobile` — Camera dot · approved 2026-10-23
 - [x] 135. `percent` · Commerce & Payments — approved 2026-10-21
