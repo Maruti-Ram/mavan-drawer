@@ -1277,7 +1277,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 595. `shift` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 595. `shift-2` · Keyboard keys · variant of `shift` — ⇧ on a key cap, polished · approved 2026-10-24
 - [x] 596. `spacebar` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
-- [~] 597. `enter` · Keyboard keys — added 2026-10-24
+- [x] 597. `enter` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
+- [x] 597. `enter-2` · Keyboard keys · variant of `enter` — Return on a key cap, balanced · approved 2026-10-24
 - [x] 598. `slash-command` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 599. `shortcut` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 600. `option` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
