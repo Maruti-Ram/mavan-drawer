@@ -82,6 +82,10 @@ export default {
     crossing (£) is not judged, an S curling back beside its bar ($) is; a bar through a fork's point
     (¥) crosses it (an asterisk, a slanted #, the 文 of `language`; 2026-10-21): the shorter arm's cap centre to the point as far along its
     neighbour (docs/01 §6, 2026-10-20). Lint §5 warns on it, and §5h on the same arms traced filled.
+    **An arrowhead's legs** keep **1** of air to the shaft or arc that runs into the head's point — the
+    leg's cap to the shaft, less half of each weight (C37, 2026-10-24; lint §5l). The filled twin is
+    where it goes: at the filled weight, in the same ink box, a head gives up 1.1–1.5 of the outline's
+    air, so a small head (move's, expand's) shuts into a knob. Check it at every master, filled too.
   - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
     on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
     pixels — with at most 3 decimal places. Comment every decimal that corrects something.

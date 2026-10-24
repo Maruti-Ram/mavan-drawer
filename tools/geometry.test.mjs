@@ -2480,9 +2480,18 @@ test('headAir: each path at its own weight', () => {
   near(tightHead(ds, [1.5, 2.5]), 2.25, 0.001);
 });
 
-test('lint §5l: a tight head warns, at the file\'s agreed gap where it has one; a roomy one is silent', () => {
+test('lint §5l: a head under C37\'s 1 warns, at the file\'s agreed gap where that is lower; a head at 1 or more is silent', () => {
   const at16 = lintSource(16, 'rotate-ccw-filled.svg', drawn(16, 2, ROTATE_CCW_FILLED[16].ds));
-  assert.deepEqual(headWarn(at16), [`path 2's arrowhead leaves 0.67 of air between a leg and its shaft (path 1) at ${headAir(ROTATE_CCW_FILLED[16].ds, 2)[0].at.join(',')} — §6 needs 1.5`]);
+  assert.deepEqual(headWarn(at16), [`path 2's arrowhead leaves 0.67 of air between a leg and its shaft (path 1) at ${headAir(ROTATE_CCW_FILLED[16].ds, 2)[0].at.join(',')} — C37 head air needs 1`]);
+  // rotate-ccw-filled at 24 holds 0.82 under a `gap: 0.75` note: the note is lower, so it holds, and is in use
+  const noted = lintSource(24, 'rotate-ccw-filled.svg', drawn(24, 2.5, ROTATE_CCW_FILLED[24].ds, { notes: ['keyline: mark', 'gap: 0.75'] }));
+  assert.deepEqual([noted.errors, headWarn(noted)], [[], []], noted.warnings.join(' | '));
+  assert.ok(noted.notes.includes('agreed gap 0.75 — smallest measured 0.82'), noted.notes.join(' | '));
+  // a note above 1 does not raise the head's floor: 0.67 still warns against 1
+  const above = lintSource(16, 'rotate-ccw-filled.svg', drawn(16, 2, ROTATE_CCW_FILLED[16].ds, { notes: ['keyline: mark', 'gap: 1.25'] }));
+  assert.match(headWarn(above)[0] ?? '', /C37 head air needs 1$/);
+  // arrow-right-filled at 24, the classic head: 1.25, over C37's 1 though under §6's 1.5
+  assert.deepEqual(headWarn(lintSource(24, 'arrow-right-filled.svg', drawn(24, 2.5, ['M15.02 8.25L17.89 11.12A1.25 1.25 0 0 1 17.89 12.88L15.02 15.75', 'M18.25 12H5.75']))), []);
   for (const [m, { w, ds }] of Object.entries(ROTATE_CCW)) {
     const r = lintSource(+m, 'rotate-ccw.svg', drawn(+m, w, ds));
     assert.deepEqual(headWarn(r), [], `${m}: ${r.warnings.join(' | ')}`);
@@ -2494,5 +2503,5 @@ test('lint §5l: a tight head warns, at the file\'s agreed gap where it has one;
   assert.ok(sort.notes.some((n) => n === 'agreed gap 1 — smallest measured 1'), sort.notes.join(' | '));
   // the head in one `d` with its shaft reads the same, and says no second path
   const one = lintSource(16, 'x-filled.svg', drawn(16, 2, [ROTATE_CCW_FILLED[16].ds.join('')]));
-  assert.match(headWarn(one)[0] ?? '', /^path 1's arrowhead leaves 0\.67 of air between a leg and its shaft at [\d.,]+ — §6 needs 1\.5$/);
+  assert.match(headWarn(one)[0] ?? '', /^path 1's arrowhead leaves 0\.67 of air between a leg and its shaft at [\d.,]+ — C37 head air needs 1$/);
 });

@@ -1,8 +1,9 @@
 # Plan: the air between an arrowhead's legs and its shaft (2026-10-24)
 
-Status: **committed, the floor open** — written 2026-10-24 in a side session started from the Design Tools round,
-committed the same day on Maruti's "commit". Lint warns at §6's 1.5 (or the file's `gap:` note) until Maruti rules
-on a head's own floor (below; recommended 1) and on what happens to the drawings already under it.
+Status: **closed but for the redraw list** — written 2026-10-24 in a side session started from the Design Tools
+round; the check committed the same day on Maruti's "commit", and the floor ruled the same day: **1, C37** (Maruti:
+"do whatever is needed", taken as the plan's two recommendations). The drawings already under it stay as approved
+and are listed below, worst first, for the icon loop to redraw when each family is next touched.
 
 - [x] Throwaway probe: how heads are drawn across `src/icons/`, and that one reading finds them all (below)
 - [x] `headAir` in `tools/geometry.mjs`, with tests in `tools/geometry.test.mjs`
@@ -13,7 +14,10 @@ on a head's own floor (below; recommended 1) and on what happens to the drawings
 - [x] A floor proposed to Maruti from the census, in plain words
 - [x] Fresh reviewer agent (Fable) has checked the result against this plan — findings and answers below
 - [x] Committed as built, warning at 1.5 (Maruti, 2026-10-24: "commit")
-- [ ] Maruti's ruling on the floor → the constant, docs/01 §6, CLAUDE.md, this plan in one change → commit
+- [x] Maruti's ruling on the floor → the constant, docs/01 §6, CLAUDE.md, this plan in one change → commit
+      (2026-10-24: 1, C37 — `HEAD_GAP` in `tools/masters.mjs`, lint §5l, docs/01 §6, doc 07 C37, CLAUDE.md
+      Settled table, geometry block and Tools row, the icon skill)
+- [ ] Deferred: the redraw list below — the icon loop's, one family at a time, Maruti's eye on each
 
 ## What changes, in plain words
 
@@ -145,8 +149,8 @@ a corner bracket (`maximize`), or a knocked-out arrow (`import-filled`).
 
 (Each band includes its top: the classic filled head at 16, exactly 1.0, sits in 0.5–1.)
 
-Two of today's Design Tools drawings joined it. `select-2`'s bracket head on its diagonal reads **1.5 · 0.8 ·
-0.69** in outline — it shipped today, passing `draft-check` through this very blind spot (its filled twin draws
+Two of today's Design Tools drawings joined it. `select-2`'s bracket head on its diagonal reads **1.51 · 0.8 ·
+0.7** in outline (0.695 at 16) — it shipped today, passing `draft-check` through this very blind spot (its filled twin draws
 the arrow as shapes, so has no stroked head). `eyedropper` reads a "head" at 10.38 · 7.16 · 5.46: its tip is a
 corner of the pipette with the drip line leaving between its sides — the rule is geometric, and the white is
 real, if never tight.
@@ -250,3 +254,54 @@ lines on the 400 drawings, one per head under the floor; the `gap:` note and bad
 - Comments: §5d's list of the checks a `gap:` note governs now names §5j and §5l. CLAUDE.md and docs/01 are
   edited in the working tree ahead of the tools: they go in one commit with them.
 
+## Ruling (2026-10-24)
+
+Maruti, on the floor and the shipped drawings under it: "do whatever is needed" — taken as the two
+recommendations above, and said so in the report.
+
+- **The floor is 1** (C37, `HEAD_GAP` beside `MIN_GAP` in `tools/masters.mjs`), at every master, outline and
+  filled. Lint §5l floors at it, or at the file's `gap:` note where that is lower (a note above 1 does not raise
+  it); a C33 badge's own head keeps 1. A head reading feeds §5d's "is the note needed" only under 1, where the
+  note does the work.
+- **The drawings already under it stay as approved**, with lint warning on each, and are the redraw list below.
+  None is redrawn here: a redraw is a drawing, and the eye picks it (C0, C15).
+
+Checked at 5e9b28bb, the committed lint against this one run side by side on the same 6,612 drawings: 0 failed
+both; warned **424 → 253** (22 + the 231 below). 402 drawings changed and nothing else did: 604 head lines at
+§6's 1.5 went, 384 at C37's 1 came, 171 drawings went clean — the classic filled arrows among them — and the
+80 "agreed gap" lines are unchanged. Geometry tests 187, audit tests 778, all pass.
+
+### The redraw list — 231 drawings on 66 concepts, worst first
+
+**Bold** is under C37's 1; plain holds it; – has no head. Measured at fd842e2d.
+
+| Concepts | Outline 24 · 20 · 16 | Filled 24 · 20 · 16 |
+|---|---|---|
+| `translate` | 1 · **0.5** · **0.25** | **-0.5** · **-0.25** · **-0.87** |
+| `move-2`, `move`, `viewport-narrow-3`, `viewport-narrow`, `viewport-short-3`, `viewport-short`, `viewport-tall-3`, `viewport-tall`, `viewport-wide-3`, `viewport-wide` | 1.2 · **0.5** · **0.4** | **-0.3** · **-0.25** · **-0.72** |
+| `currency-convert` | 1 · **0.5** · **0.5** | **-0.5** · **-0.25** · **-0.62** |
+| `reset-2` | 1.4 · **0.47** · **0.47** | **-0.02** · **-0.25** · **-0.51** |
+| `replace-3` | 1 · **0.5** · **0.25** | **0** · **0** · **-0.5** |
+| `repeat-2`, `repeat-3`, `repeat`, `repeat-once`, `replay`, `reset-3`, `shuffle` | 1.75 · **0.75** · **0.75** | **0.25** · **0** · **-0.37** |
+| `calendar-repeat`, `subscription-2`, `subscription` | **0.25** · **-0.25** · **0.13** | **0.25** · **-0.25** · **0.13** |
+| `indent-3`, `outdent-3` | **0.75** · **0.75** · 1 | **-0.25** · **0.25** · **0.25** |
+| `collapse`, `collapse-horizontal`, `expand`, `expand-horizontal` | 1.28 · 1.03 · **0.95** | **-0.22** · **0.28** · **-0.18** |
+| `receipt-refund` | **0.5** · **0** · **0** | **0.5** · **0** · **0** |
+| `transfer-3` | 2.75 · 1.5 · 1.25 | 1.25 · **0.75** · **0.13** |
+| `replace` | 1 · **0.5** · **0.25** | 1 · **0.5** · **0.25** |
+| `minimize-4` | 2.74 · 2.21 · 1.58 | 1.04 · 1.36 · **0.3** |
+| `shuffle-2` | 2.04 · 1.51 · 1.58 | **0.33** · **0.65** · **0.3** |
+| `split` | 3.27 · 1.86 · 1.58 | 1.57 · 1 · **0.3** |
+| `replay-2` | 1.35 · **0.42** · **0.36** | 1.35 · **0.42** · **0.36** |
+| `split-2` | 2.75 · 1.75 · 1.5 | 1.25 · 1 · **0.38** |
+| `rotate-ccw-10`, `rotate-ccw-5`, `rotate-ccw-7`, `rotate-ccw-8` | 2.04 · 1.51 · 1.58 | **0.54** · **0.76** · **0.45** |
+| `replace-2` | 1.68 · 1.68 · 1.55 | **0.54** · 1.13 · **0.48** |
+| `calendar-repeat-2` | 1.25 · **0.5** · **0.75** | 1.25 · **0.5** · **0.75** |
+| `refresh` | 2.04 · 1.51 · 1.58 | **0.83** · **0.9** · **0.65** |
+| `refresh-3` | 2.74 · 1.86 · 1.58 | 1.54 · 1.25 · **0.65** |
+| `redo`, `rotate-ccw-2`, `rotate-ccw-3`, `rotate-ccw`, `rotate-cw`, `undo` | 2.04 · 1.51 · 1.58 | **0.82** · **0.9** · **0.67** |
+| `select-2` | 1.51 · **0.8** · **0.7** | – · – · – |
+| `reset` | 1.75 · **0.75** · **0.75** | 1.75 · **0.75** · **0.75** |
+| `arrow-down-left`, `arrow-down-right`, `arrow-up-left`, `arrow-up-right-5`, `arrow-up-right`, `maximize-4`, `trending-down-2`, `trending-down`, `trending-up-2`, `trending-up` | 2.74 · 2.21 · 2.11 | 1.04 · 1.36 · **0.83** |
+| `rotate-ccw-11` | 2.04 · **0.97** · 1.05 | 2.04 · **0.97** · 1.05 |
+| `rotate-ccw-6` | 1.51 · **0.97** · 1.05 | 1.51 · **0.97** · 1.05 |

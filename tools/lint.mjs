@@ -4,7 +4,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, headAir, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
-import { CUT_CORNER, GLYPH_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
+import { CUT_CORNER, GLYPH_GAP, HEAD_GAP, MASTERS, MIN_GAP, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
 function polyGap(a, b) {
@@ -684,15 +684,16 @@ export function lintSource(canvas, file, src) {
   // `headAir` reads it at the mouth: from each leg's cap centre to the nearest point of the stroke that
   // runs into the point between the legs, less half of each path's own weight — the drawer's "head
   // counter" (rotate-ccw's 2.04 · 1.5 · 1.58). Negative: the cap overlaps the shaft and the wedge is
-  // shut. It floors as any two strokes do — this file's agreed gap, else MIN_GAP — until Maruti rules on
-  // a head's own floor; a C33 badge's own head keeps MIN_GAP, and a badge meeting its base already
-  // warns. One line per head and shaft, at the tighter leg. WARNINGS.
+  // shut. It floors at HEAD_GAP, 1 (C37, Maruti 2026-10-24: white inside one mark, as C19's is), or at
+  // this file's agreed gap where that is lower; a C33 badge's own head keeps HEAD_GAP whatever the note
+  // says, and a badge meeting its base already warns. A reading feeds 5d's "is the note needed" only
+  // where the note does the work, under HEAD_GAP. One line per head and shaft, at the tighter leg. WARNINGS.
   for (const { head: h, shaft: t, gap: g, at } of headAir(ds, W)) {
     if (!!inBadge[h] !== !!inBadge[t]) continue;
-    const onBadge = !!inBadge[h], floor = onBadge ? MIN_GAP : GAP;
-    if (!onBadge) measured.push(r2(g));
+    const onBadge = !!inBadge[h], noted = !onBadge && gap && gap.n < HEAD_GAP, floor = noted ? gap.n : HEAD_GAP;
+    if (!onBadge && g < HEAD_GAP - 0.01) measured.push(r2(g));
     if (g < floor - 0.01)
-      warnings.push(`path ${h + 1}'s arrowhead leaves ${r2(g)} of air between a leg and its shaft${h === t ? '' : ` (path ${t + 1})`} at ${at.join(',')} — ${!onBadge && gap ? `agreed gap ${gap.n}` : '§6'} needs ${floor}`);
+      warnings.push(`path ${h + 1}'s arrowhead leaves ${r2(g)} of air between a leg and its shaft${h === t ? '' : ` (path ${t + 1})`} at ${at.join(',')} — ${noted ? `agreed gap ${gap.n}` : 'C37 head air'} needs ${floor}`);
   }
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------

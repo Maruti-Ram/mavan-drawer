@@ -130,3 +130,11 @@ export const gridName = (master) => gridNameFor(strokeOf(master));
 // else; a letter's openings and crossing arms keep MIN_GAP, or the file's gap note (there is no ruling on them,
 // and translate's hold 1.5).
 export const GLYPH_GAP = 1;
+
+// The air between an arrowhead's leg and the shaft that runs into its point (C37; Maruti, 2026-10-24;
+// lint §5l, `headAir`; plans/lint-head-air.md): ONE unit, at every master and in both styles — white
+// inside one mark, as GLYPH_GAP's is. At 1 a head still reads as an arrowhead at 16 px, solid when
+// filled and open in outline, and the classic head every composite uses sits on it filled at 16
+// (1.25 · 1.5 · 1); under it an outline head blots at 16 px, and a shut one turns into a knob at 32.
+// A file's `gap` note lowers it where the note is lower, never raises it.
+export const HEAD_GAP = 1;
