@@ -740,7 +740,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 228. `vault` · Users & Access — approved 2026-10-19
 - [x] 228. `vault-2` · Users & Access · variant of `vault` — Round bank-vault door · approved 2026-10-19
 - [x] 228. `vault-3` · Users & Access · variant of `vault` — Hinged safe with a keyhole · approved 2026-10-19
-- [~] 229. `align-object-bottom` · Design Tools
+- [x] 229. `align-object-bottom` · Design Tools — approved 2026-10-24
 - [~] 230. `align-object-center-h` · Design Tools
 - [~] 231. `align-object-center-v` · Design Tools
 - [x] 232. `align-object-left` · Design Tools — approved 2026-10-24
