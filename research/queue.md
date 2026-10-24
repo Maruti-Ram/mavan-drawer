@@ -1007,150 +1007,150 @@ Bases before their variants; within that, highest evidence first.
 - [x] 347. `triangle` · Design Tools — approved 2026-10-24
 - [x] 347. `triangle-small` · Design Tools · variant of `triangle` — added 2026-10-24 · approved 2026-10-24
 - [x] 347. `triangle-dashed` · Design Tools · variant of `triangle` — Dashed triangle · approved 2026-10-24
-- [ ] 348. `arrow-down-circle` · Arrows & Direction · variant of `arrow-down`
-- [ ] 349. `arrow-left-circle` · Arrows & Direction · variant of `arrow-left`
-- [ ] 350. `arrow-right-circle` · Arrows & Direction · variant of `arrow-right`
-- [ ] 351. `arrow-up-circle` · Arrows & Direction · variant of `arrow-up`
-- [ ] 352. `eye-off` · Users & Access · variant of `eye`
-- [ ] 353. `file-minus` · Files & Folders · variant of `file`
-- [ ] 354. `file-plus` · Files & Folders · variant of `file`
-- [ ] 355. `clipboard-check` · Files & Folders · variant of `clipboard`
-- [ ] 356. `shield-check` · Users & Access · variant of `shield`
+- [~] 348. `arrow-down-circle` · V4 Circle and square containers · variant of `arrow-down`
+- [~] 349. `arrow-left-circle` · V4 Circle and square containers · variant of `arrow-left`
+- [~] 350. `arrow-right-circle` · V4 Circle and square containers · variant of `arrow-right`
+- [~] 351. `arrow-up-circle` · V4 Circle and square containers · variant of `arrow-up`
+- [~] 352. `eye-off` · V1 Off states · variant of `eye`
+- [~] 353. `file-minus` · V2 Plus minus check x · variant of `file`
+- [~] 354. `file-plus` · V2 Plus minus check x · variant of `file`
+- [~] 355. `clipboard-check` · V2 Plus minus check x · variant of `clipboard`
+- [~] 356. `shield-check` · V2 Plus minus check x · variant of `shield`
 - [x] 358. `sort-descending` · UI & Layout · variant of `sort` — approved 2026-09-29
-- [ ] 359. `image-sparkle` · Files & Folders · variant of `image`
-- [ ] 360. `folder-minus` · Files & Folders · variant of `folder`
-- [ ] 361. `folder-plus` · Files & Folders · variant of `folder`
-- [ ] 362. `shield-off` · Users & Access · variant of `shield`
-- [ ] 363. `text-align-center` · Editing & Text · variant of `text`
-- [ ] 364. `text-align-left` · Editing & Text · variant of `text`
-- [ ] 365. `text-align-right` · Editing & Text · variant of `text`
-- [ ] 366. `user-minus` · Users & Access · variant of `user`
-- [ ] 367. `user-plus` · Users & Access · variant of `user`
-- [ ] 368. `pause-circle` · Media & Playback · variant of `pause`
-- [ ] 369. `play-circle` · Media & Playback · variant of `play`
-- [ ] 370. `phone-incoming` · Communication · variant of `phone`
-- [ ] 371. `phone-outgoing` · Communication · variant of `phone`
-- [ ] 372. `calendar-check` · Time & Calendar · variant of `calendar`
-- [ ] 373. `calendar-clock` · Time & Calendar · variant of `calendar`
-- [ ] 374. `chevron-down-circle` · Arrows & Direction · variant of `chevron-down`
-- [ ] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left`
-- [ ] 376. `chevron-right-circle` · Arrows & Direction · variant of `chevron-right`
-- [ ] 377. `chevron-up-circle` · Arrows & Direction · variant of `chevron-up`
+- [~] 359. `image-sparkle` · V3 Other badges · variant of `image`
+- [~] 360. `folder-minus` · V2 Plus minus check x · variant of `folder`
+- [~] 361. `folder-plus` · V2 Plus minus check x · variant of `folder`
+- [~] 362. `shield-off` · V1 Off states · variant of `shield`
+- [~] 363. `text-align-center` · V5 Other variants · variant of `text`
+- [~] 364. `text-align-left` · V5 Other variants · variant of `text`
+- [~] 365. `text-align-right` · V5 Other variants · variant of `text`
+- [~] 366. `user-minus` · V2 Plus minus check x · variant of `user`
+- [~] 367. `user-plus` · V2 Plus minus check x · variant of `user`
+- [~] 368. `pause-circle` · V4 Circle and square containers · variant of `pause`
+- [~] 369. `play-circle` · V4 Circle and square containers · variant of `play`
+- [~] 370. `phone-incoming` · V3 Other badges · variant of `phone`
+- [~] 371. `phone-outgoing` · V3 Other badges · variant of `phone`
+- [~] 372. `calendar-check` · V2 Plus minus check x · variant of `calendar`
+- [~] 373. `calendar-clock` · V3 Other badges · variant of `calendar`
+- [~] 374. `chevron-down-circle` · V4 Circle and square containers · variant of `chevron-down`
+- [~] 375. `chevron-left-circle` · V4 Circle and square containers · variant of `chevron-left`
+- [~] 376. `chevron-right-circle` · V4 Circle and square containers · variant of `chevron-right`
+- [~] 377. `chevron-up-circle` · V4 Circle and square containers · variant of `chevron-up`
 - [x] 378. `clipboard-list` · Files & Folders · variant of `clipboard` — approved 2026-10-20
-- [ ] 379. `database-plus` · Charts & Data · variant of `database`
-- [ ] 380. `file-clock` · Files & Folders · variant of `file`
-- [ ] 381. `file-heart` · Files & Folders · variant of `file`
-- [ ] 382. `image-plus` · Files & Folders · variant of `image`
-- [ ] 383. `text-color` · Editing & Text · variant of `text`
-- [ ] 384. `text-title` · Editing & Text · variant of `text`
-- [ ] 385. `user-circle` · Users & Access · variant of `user`
-- [ ] 386. `user-lock` · Users & Access · variant of `user`
-- [ ] 387. `user-shield` · Users & Access · variant of `user`
-- [ ] 388. `cart-minus` · Commerce & Payments · variant of `cart`
-- [ ] 389. `cart-plus` · Commerce & Payments · variant of `cart`
-- [ ] 390. `chart-bar-horizontal` · Charts & Data · variant of `chart-bar`
-- [ ] 391. `chart-bar-stacked` · Charts & Data · variant of `chart-bar`
+- [~] 379. `database-plus` · V2 Plus minus check x · variant of `database`
+- [~] 380. `file-clock` · V3 Other badges · variant of `file`
+- [~] 381. `file-heart` · V3 Other badges · variant of `file`
+- [~] 382. `image-plus` · V2 Plus minus check x · variant of `image`
+- [~] 383. `text-color` · V5 Other variants · variant of `text`
+- [~] 384. `text-title` · V5 Other variants · variant of `text`
+- [~] 385. `user-circle` · V4 Circle and square containers · variant of `user`
+- [~] 386. `user-lock` · V3 Other badges · variant of `user`
+- [~] 387. `user-shield` · V3 Other badges · variant of `user`
+- [~] 388. `cart-minus` · V2 Plus minus check x · variant of `cart`
+- [~] 389. `cart-plus` · V2 Plus minus check x · variant of `cart`
+- [~] 390. `chart-bar-horizontal` · V5 Other variants · variant of `chart-bar`
+- [~] 391. `chart-bar-stacked` · V5 Other variants · variant of `chart-bar`
 - [x] 392. `collapse-horizontal` · Arrows & Direction · variant of `collapse` — approved 2026-10-17
 - [x] 393. `cursor-click` · UI & Layout · variant of `cursor` — approved 2026-09-23
 - [x] 394. `expand-horizontal` · Arrows & Direction · variant of `expand` — approved 2026-10-17
-- [ ] 395. `file-down` · Files & Folders · variant of `file`
-- [ ] 396. `file-signature` · Files & Folders · variant of `file`
-- [ ] 397. `file-up` · Files & Folders · variant of `file`
-- [ ] 398. `folder-down` · Files & Folders · variant of `folder`
-- [ ] 399. `folder-up` · Files & Folders · variant of `folder`
-- [ ] 400. `message-alert` · Communication · variant of `message`
-- [ ] 401. `note-plus` · Files & Folders · variant of `note`
+- [~] 395. `file-down` · V3 Other badges · variant of `file`
+- [~] 396. `file-signature` · V3 Other badges · variant of `file`
+- [~] 397. `file-up` · V3 Other badges · variant of `file`
+- [~] 398. `folder-down` · V3 Other badges · variant of `folder`
+- [~] 399. `folder-up` · V3 Other badges · variant of `folder`
+- [~] 400. `message-alert` · V3 Other badges · variant of `message`
+- [~] 401. `note-plus` · V2 Plus minus check x · variant of `note`
 - [x] 402. `sort-ascending` · UI & Layout · variant of `sort` — approved 2026-09-29
-- [ ] 403. `camera-flip` · Media & Playback · variant of `camera`
-- [ ] 404. `credit-card-x` · Commerce & Payments · variant of `credit-card`
-- [ ] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard`
-- [ ] 406. `map-pin-off` · Maps & Location · variant of `map-pin`
-- [ ] 407. `package-check` · Commerce & Payments · variant of `package`
-- [ ] 408. `bell-off` · Communication · variant of `bell`
-- [ ] 409. `microphone-off` · Communication · variant of `microphone`
-- [ ] 410. `minus-square` · UI & Layout · variant of `minus`
-- [ ] 411. `phone-call` · Communication · variant of `phone`
-- [ ] 412. `plus-square` · UI & Layout · variant of `plus`
-- [ ] 413. `x-square` · UI & Layout · variant of `x`
-- [ ] 414. `bolt-off` · Status & Feedback · variant of `bolt`
-- [ ] 415. `battery-charging` · Devices & Hardware · variant of `battery`
-- [ ] 417. `activity-square` · Charts & Data · variant of `activity`
-- [ ] 418. `bell-plus` · Communication · variant of `bell`
-- [ ] 419. `book-bookmark` · Files & Folders · variant of `book`
-- [ ] 420. `bookmark-off` · Status & Feedback · variant of `bookmark`
-- [ ] 421. `calendar-days` · Time & Calendar · variant of `calendar`
-- [ ] 422. `chart-bar-trend` · Charts & Data · variant of `chart-bar`
-- [ ] 423. `check-circle-dashed` · Status & Feedback · variant of `check-circle`
-- [ ] 424. `check-double` · UI & Layout · variant of `check`
-- [ ] 425. `eye-closed` · Users & Access · variant of `eye`
-- [ ] 426. `face-smile-plus` · Communication · variant of `face-smile`
-- [ ] 427. `file-check` · Files & Folders · variant of `file`
-- [ ] 428. `folder-open` · Files & Folders · variant of `folder`
-- [ ] 430. `link-off` · Editing & Text · variant of `link`
-- [ ] 431. `mail-open` · Communication · variant of `mail`
-- [ ] 432. `scan-face` · Users & Access · variant of `scan`
+- [~] 403. `camera-flip` · V5 Other variants · variant of `camera`
+- [~] 404. `credit-card-x` · V2 Plus minus check x · variant of `credit-card`
+- [~] 405. `keyboard-off` · V1 Off states · variant of `keyboard`
+- [~] 406. `map-pin-off` · V1 Off states · variant of `map-pin`
+- [~] 407. `package-check` · V2 Plus minus check x · variant of `package`
+- [~] 408. `bell-off` · V1 Off states · variant of `bell`
+- [~] 409. `microphone-off` · V1 Off states · variant of `microphone`
+- [~] 410. `minus-square` · V4 Circle and square containers · variant of `minus`
+- [~] 411. `phone-call` · V3 Other badges · variant of `phone`
+- [~] 412. `plus-square` · V4 Circle and square containers · variant of `plus`
+- [~] 413. `x-square` · V4 Circle and square containers · variant of `x`
+- [~] 414. `bolt-off` · V1 Off states · variant of `bolt`
+- [~] 415. `battery-charging` · V5 Other variants · variant of `battery`
+- [~] 417. `activity-square` · V4 Circle and square containers · variant of `activity`
+- [~] 418. `bell-plus` · V2 Plus minus check x · variant of `bell`
+- [~] 419. `book-bookmark` · V3 Other badges · variant of `book`
+- [~] 420. `bookmark-off` · V1 Off states · variant of `bookmark`
+- [~] 421. `calendar-days` · V5 Other variants · variant of `calendar`
+- [~] 422. `chart-bar-trend` · V5 Other variants · variant of `chart-bar`
+- [~] 423. `check-circle-dashed` · V4 Circle and square containers · variant of `check-circle`
+- [~] 424. `check-double` · V5 Other variants · variant of `check`
+- [~] 425. `eye-closed` · V5 Other variants · variant of `eye`
+- [~] 426. `face-smile-plus` · V2 Plus minus check x · variant of `face-smile`
+- [~] 427. `file-check` · V2 Plus minus check x · variant of `file`
+- [~] 428. `folder-open` · V5 Other variants · variant of `folder`
+- [~] 430. `link-off` · V1 Off states · variant of `link`
+- [~] 431. `mail-open` · V5 Other variants · variant of `mail`
+- [~] 432. `scan-face` · V5 Other variants · variant of `scan`
 - [x] 433. `sort-alpha-descending` · UI & Layout · variant of `sort` — approved 2026-10-03
 - [x] 433. `sort-alpha-descending-2` · UI & Layout · variant of `sort-alpha-descending` — lines left, characters right · approved 2026-10-03
 - [x] 433. `sort-alpha-descending-3` · UI & Layout · variant of `sort-alpha-descending` — characters left, lines right · approved 2026-10-03
-- [ ] 434. `user-search` · Users & Access · variant of `user`
+- [~] 434. `user-search` · V3 Other badges · variant of `user`
 - [x] 435. `battery-full` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [x] 436. `battery-low` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [x] 437. `bug-off` · Development & Infra · variant of `bug` — approved 2026-10-23
 - [x] 437. `bug-off-2` · Development & Infra · variant of `bug-off` — Bar cut through, curled legs · approved 2026-10-23
-- [ ] 438. `compass-drafting` · Design Tools · variant of `compass`
-- [ ] 439. `desktop-download` · Devices & Hardware · variant of `desktop`
-- [ ] 440. `credit-card-lock` · Commerce & Payments · variant of `credit-card`
-- [ ] 441. `code-plus` · Editing & Text · variant of `code`
-- [ ] 442. `eye-check` · Users & Access · variant of `eye`
-- [ ] 443. `file-attachment` · Files & Folders · variant of `file`
-- [ ] 444. `mail-follow-up` · Communication · variant of `mail`
-- [ ] 445. `shield-pending` · Users & Access · variant of `shield`
-- [ ] 446. `user-exit` · Users & Access · variant of `user`
-- [ ] 447. `user-segment` · Users & Access · variant of `user`
-- [ ] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card`
+- [~] 438. `compass-drafting` · V3 Other badges · variant of `compass`
+- [~] 439. `desktop-download` · V3 Other badges · variant of `desktop`
+- [~] 440. `credit-card-lock` · V3 Other badges · variant of `credit-card`
+- [~] 441. `code-plus` · V2 Plus minus check x · variant of `code`
+- [~] 442. `eye-check` · V2 Plus minus check x · variant of `eye`
+- [~] 443. `file-attachment` · V3 Other badges · variant of `file`
+- [~] 444. `mail-follow-up` · V3 Other badges · variant of `mail`
+- [~] 445. `shield-pending` · V3 Other badges · variant of `shield`
+- [~] 446. `user-exit` · V3 Other badges · variant of `user`
+- [~] 447. `user-segment` · V3 Other badges · variant of `user`
+- [~] 448. `credit-card-percent` · V3 Other badges · variant of `credit-card`
 - [x] 449. `currency-convert` · Currency — approved 2026-10-22
 - [x] 450. `receipt-refund` · Commerce & Payments · variant of `receipt` — approved 2026-10-22
-- [ ] 451. `award-certificate` · Status & Feedback · variant of `award`
-- [ ] 452. `clipboard-off` · Files & Folders · variant of `clipboard`
-- [ ] 453. `crosshair-off` · Status & Feedback · variant of `crosshair`
-- [ ] 454. `hash-circle` · Communication · variant of `hash`
-- [ ] 455. `help-square` · Status & Feedback · variant of `help-circle`
-- [ ] 456. `info-square` · Status & Feedback · variant of `info-circle`
-- [ ] 457. `message-pen` · Communication · variant of `message`
-- [ ] 458. `message-smile` · Communication · variant of `message`
-- [ ] 459. `message-user` · Communication · variant of `message`
-- [ ] 460. `rotate-ccw-dotted` · Arrows & Direction · variant of `rotate-ccw`
-- [ ] 461. `search-empty` · UI & Layout · variant of `search`
-- [ ] 462. `star-sparkle` · Status & Feedback · variant of `star`
-- [ ] 463. `user-focus` · Users & Access · variant of `user`
-- [ ] 464. `user-laptop` · Users & Access · variant of `user`
-- [ ] 465. `window-chart` · Charts & Data · variant of `window`
+- [~] 451. `award-certificate` · V3 Other badges · variant of `award`
+- [~] 452. `clipboard-off` · V1 Off states · variant of `clipboard`
+- [~] 453. `crosshair-off` · V1 Off states · variant of `crosshair`
+- [~] 454. `hash-circle` · V4 Circle and square containers · variant of `hash`
+- [~] 455. `help-square` · V4 Circle and square containers · variant of `help-circle`
+- [~] 456. `info-square` · V4 Circle and square containers · variant of `info-circle`
+- [~] 457. `message-pen` · V3 Other badges · variant of `message`
+- [~] 458. `message-smile` · V3 Other badges · variant of `message`
+- [~] 459. `message-user` · V3 Other badges · variant of `message`
+- [~] 460. `rotate-ccw-dotted` · V5 Other variants · variant of `rotate-ccw`
+- [~] 461. `search-empty` · V5 Other variants · variant of `search`
+- [~] 462. `star-sparkle` · V3 Other badges · variant of `star`
+- [~] 463. `user-focus` · V3 Other badges · variant of `user`
+- [~] 464. `user-laptop` · V3 Other badges · variant of `user`
+- [~] 465. `window-chart` · V3 Other badges · variant of `window`
 - [x] 466. `gear-nodes` · Development & Infra · variant of `gear` — approved 2026-10-23
 - [x] 466. `gear-nodes-2` · Development & Infra · variant of `gear-nodes` — Link badge · approved 2026-10-23
-- [ ] 467. `globe-pointer` · Maps & Location · variant of `globe`
-- [ ] 468. `grid-circle-plus` · Design Tools · variant of `grid`
-- [ ] 469. `image-binary` · Design Tools · variant of `image`
-- [ ] 470. `image-depth` · Design Tools · variant of `image`
-- [ ] 471. `play-circle-dotted` · Media & Playback · variant of `play-circle`
-- [ ] 472. `window-expand-bottom-right` · Design Tools · variant of `window`
-- [ ] 473. `window-key` · Design Tools · variant of `window`
-- [ ] 474. `window-pointer` · Design Tools · variant of `window`
+- [~] 467. `globe-pointer` · V3 Other badges · variant of `globe`
+- [~] 468. `grid-circle-plus` · V5 Other variants · variant of `grid`
+- [~] 469. `image-binary` · V3 Other badges · variant of `image`
+- [~] 470. `image-depth` · V3 Other badges · variant of `image`
+- [~] 471. `play-circle-dotted` · V4 Circle and square containers · variant of `play-circle`
+- [~] 472. `window-expand-bottom-right` · V3 Other badges · variant of `window`
+- [~] 473. `window-key` · V3 Other badges · variant of `window`
+- [~] 474. `window-pointer` · V3 Other badges · variant of `window`
 - [x] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench` — approved 2026-10-23
 - [x] 475. `wrench-screwdriver-2` · Development & Infra · variant of `wrench-screwdriver` — Crossed, wrench in front · approved 2026-10-23
-- [ ] 476. `phone-off` · Communication · variant of `phone`
-- [ ] 477. `text-align-justify` · Editing & Text · variant of `text`
-- [ ] 478. `user-check` · Users & Access · variant of `user`
-- [ ] 479. `user-x` · Users & Access · variant of `user`
-- [ ] 480. `video-off` · Files & Folders · variant of `video`
-- [ ] 481. `camera-off` · Media & Playback · variant of `camera`
+- [~] 476. `phone-off` · V1 Off states · variant of `phone`
+- [~] 477. `text-align-justify` · V5 Other variants · variant of `text`
+- [~] 478. `user-check` · V2 Plus minus check x · variant of `user`
+- [~] 479. `user-x` · V2 Plus minus check x · variant of `user`
+- [~] 480. `video-off` · V1 Off states · variant of `video`
+- [~] 481. `camera-off` · V1 Off states · variant of `camera`
 - [x] 482. `cloud-off` · Development & Infra · variant of `cloud` — approved 2026-10-23
 - [x] 482. `cloud-off-2` · Development & Infra · variant of `cloud-off` — Bar cut through, three puffs · approved 2026-10-23
 - [x] 482. `cloud-off-3` · Development & Infra · variant of `cloud-off` — Bar cut through, overlapping puffs · approved 2026-10-23
 - [x] 483. `volume-off` · Media & Playback · variant of `volume` — approved 2026-09-26
-- [ ] 484. `wifi-off` · Devices & Hardware · variant of `wifi`
-- [ ] 485. `phone-forwarded` · Communication · variant of `phone`
-- [ ] 486. `phone-missed` · Communication · variant of `phone`
-- [ ] 487. `refresh-ccw` · Arrows & Direction · variant of `refresh`
+- [~] 484. `wifi-off` · V1 Off states · variant of `wifi`
+- [~] 485. `phone-forwarded` · V3 Other badges · variant of `phone`
+- [~] 486. `phone-missed` · V3 Other badges · variant of `phone`
+- [~] 487. `refresh-ccw` · V5 Other variants · variant of `refresh`
 
 ## E · Added on request
 
