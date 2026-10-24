@@ -488,7 +488,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 131. `thumbs-down` · Communication — approved 2026-10-17
 - [x] 131. `thumbs-down-2` · Communication · variant of `thumbs-down` — Turned · thumbs-down-2 · approved 2026-10-17
 - [x] 132. `underline` · Editing & Text — mvp · approved 2026-10-17
-- [ ] 133. `crop` · Design Tools
+- [~] 133. `crop` · Design Tools
 - [x] 134. `mobile` · Devices & Hardware — approved 2026-10-23
 - [x] 134. `mobile-2` · Devices & Hardware · variant of `mobile` — Camera dot · approved 2026-10-23
 - [x] 135. `percent` · Commerce & Payments — approved 2026-10-21
@@ -565,14 +565,14 @@ Bases before their variants; within that, highest evidence first.
 - [x] 162. `coins` · Commerce & Payments — approved 2026-10-21
 - [x] 162. `coins-2` · Commerce & Payments · variant of `coins` — Pile and coin · approved 2026-10-21
 - [x] 162. `coins-plus` · Commerce & Payments · variant of `coins` — Two coins, plus · approved 2026-10-21
-- [ ] 163. `corner-radius` · Design Tools
-- [ ] 164. `eyedropper` · Design Tools
-- [ ] 165. `flip-horizontal` · Design Tools
-- [ ] 166. `flip-vertical` · Design Tools
-- [ ] 167. `palette` · Design Tools
+- [~] 163. `corner-radius` · Design Tools
+- [~] 164. `eyedropper` · Design Tools
+- [~] 165. `flip-horizontal` · Design Tools
+- [~] 166. `flip-vertical` · Design Tools
+- [~] 167. `palette` · Design Tools
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
 - [x] 169. `receipt` · Commerce & Payments — approved 2026-10-21
-- [ ] 170. `ruler` · Design Tools
+- [~] 170. `ruler` · Design Tools
 - [x] 171. `slideshow` · Media & Playback — approved 2026-10-22
 - [x] 172. `workflow` · Development & Infra — approved 2026-10-23
 - [x] 172. `workflow-2` · Development & Infra · variant of `workflow` — Steps in a chain, through the middle · approved 2026-10-23
@@ -674,7 +674,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 206. `cloud` · Development & Infra — approved 2026-10-23
 - [x] 206. `cloud-2` · Development & Infra · variant of `cloud` — Three puffs, leaning · approved 2026-10-23
 - [x] 206. `cloud-3` · Development & Infra · variant of `cloud` — Overlapping puffs · approved 2026-10-23
-- [ ] 207. `droplet` · Design Tools
+- [~] 207. `droplet` · Design Tools
 - [x] 208. `film` · Media & Playback — approved 2026-10-22
 - [x] 208. `film-reel` · Media & Playback · variant of `film` — Reel · approved 2026-10-22
 - [x] 208. `film-roll` · Media & Playback · variant of `film` — 35 mm canister · approved 2026-10-24
@@ -682,7 +682,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 210. `map` · Maps & Location — approved 2026-10-18
 - [x] 210. `map-pinned` · Maps & Location · variant of `map` — Pin badge · approved 2026-10-18
 - [x] 210. `map-target` · Maps & Location · variant of `map` — You-are-here badge · approved 2026-10-18
-- [ ] 211. `pen-tool` · Design Tools
+- [~] 211. `pen-tool` · Design Tools
 - [x] 212. `shopping-bag` · Commerce & Payments — approved 2026-10-21
 - [x] 212. `shopping-bag-2` · Commerce & Payments · variant of `shopping-bag` — Tapered tote, handle on the rim · approved 2026-10-21
 - [x] 212. `shopping-bag-3` · Commerce & Payments · variant of `shopping-bag` — Box, fold band, smile handle · approved 2026-10-21
@@ -728,16 +728,16 @@ Bases before their variants; within that, highest evidence first.
 - [x] 228. `vault` · Users & Access — approved 2026-10-19
 - [x] 228. `vault-2` · Users & Access · variant of `vault` — Round bank-vault door · approved 2026-10-19
 - [x] 228. `vault-3` · Users & Access · variant of `vault` — Hinged safe with a keyhole · approved 2026-10-19
-- [ ] 229. `align-object-bottom` · Design Tools
-- [ ] 230. `align-object-center-h` · Design Tools
-- [ ] 231. `align-object-center-v` · Design Tools
-- [ ] 232. `align-object-left` · Design Tools
-- [ ] 233. `align-object-right` · Design Tools
-- [ ] 234. `align-object-top` · Design Tools
-- [ ] 235. `aspect-ratio` · Design Tools
+- [~] 229. `align-object-bottom` · Design Tools
+- [~] 230. `align-object-center-h` · Design Tools
+- [~] 231. `align-object-center-v` · Design Tools
+- [~] 232. `align-object-left` · Design Tools
+- [~] 233. `align-object-right` · Design Tools
+- [~] 234. `align-object-top` · Design Tools
+- [~] 235. `aspect-ratio` · Design Tools
 - [x] 236. `devices` · Devices & Hardware — approved 2026-10-23
 - [x] 236. `devices-2` · Devices & Hardware · variant of `devices` — Laptop and phone · approved 2026-10-23
-- [ ] 237. `gem` · Design Tools
+- [~] 237. `gem` · Design Tools
 - [x] 238. `handshake` · Commerce & Payments — approved 2026-10-21
 - [x] 238. `handshake-2` · Commerce & Payments · variant of `handshake` — Grip · approved 2026-10-21
 - [x] 239. `laptop` · Devices & Hardware — approved 2026-10-22
@@ -748,19 +748,19 @@ Bases before their variants; within that, highest evidence first.
 - [x] 241. `network-2` · Development & Infra · variant of `network` — Ring of nodes · approved 2026-10-23
 - [x] 241. `network-3` · Development & Infra · variant of `network` — Mesh of nodes · approved 2026-10-23
 - [x] 241. `network-4` · Development & Infra · variant of `network` — Device hub · approved 2026-10-23
-- [ ] 242. `pencil-ruler` · Design Tools
+- [~] 242. `pencil-ruler` · Design Tools
 - [x] 243. `qr-code` · Devices & Hardware — approved 2026-10-22
 - [x] 244. `rocket` · Development & Infra — approved 2026-10-23
 - [x] 244. `rocket-2` · Development & Infra · variant of `rocket` — Upright, fins at the foot · approved 2026-10-23
 - [x] 244. `rocket-3` · Development & Infra · variant of `rocket` — Diagonal, Lucide fins, flame drop · approved 2026-10-23
 - [x] 244. `rocket-4` · Development & Infra · variant of `rocket` — Upright, lifting off over exhaust lines · approved 2026-10-23
-- [ ] 245. `rotation` · Design Tools
+- [~] 245. `rotation` · Design Tools
 - [x] 246. `satellite` · Devices & Hardware — approved 2026-10-23
 - [x] 247. `scale` · Commerce & Payments — approved 2026-10-21
 - [x] 247. `scale-2` · Commerce & Payments · variant of `scale` — Kitchen scale · approved 2026-10-21
 - [x] 247. `scale-3` · Commerce & Payments · variant of `scale` — Parcel scale · approved 2026-10-21
 - [x] 247. `scale-4` · Commerce & Payments · variant of `scale` — Tipped · approved 2026-10-21
-- [ ] 248. `shapes` · Design Tools
+- [~] 248. `shapes` · Design Tools
 - [x] 249. `shopping-basket` · Commerce & Payments — approved 2026-10-21
 - [x] 249. `shopping-basket-2` · Commerce & Payments · variant of `shopping-basket` — Slatted basket · approved 2026-10-21
 - [x] 249. `shopping-basket-plus` · Commerce & Payments · variant of `shopping-basket` — Basket with a plus (fill-in) · approved 2026-10-21
@@ -776,7 +776,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 251. `tags` · Commerce & Payments — approved 2026-10-20
 - [x] 252. `ticket` · Commerce & Payments — approved 2026-10-21
 - [x] 252. `ticket-2` · Commerce & Payments · variant of `ticket` — Stub, edge notches · approved 2026-10-21
-- [ ] 253. `vector` · Design Tools
+- [~] 253. `vector` · Design Tools
 - [x] 254. `activity` · Charts & Data — mvp · approved 2026-10-18
 - [x] 254. `activity-2` · Charts & Data · variant of `activity` — Square pulse · approved 2026-10-18
 - [x] 254. `activity-circle` · Charts & Data · variant of `activity` — In a ring · approved 2026-10-18
@@ -859,8 +859,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 291. `blueprint` · Development & Infra — approved 2026-10-23
 - [x] 291. `blueprint-2` · Development & Infra · variant of `blueprint` — Document with a plan · approved 2026-10-23
 - [x] 292. `decision-process` · Development & Infra — approved 2026-10-23
-- [ ] 293. `dotted-arrow-bottom-right-square` · Design Tools
-- [ ] 294. `filters` · Design Tools
+- [~] 293. `dotted-arrow-bottom-right-square` · Design Tools
+- [~] 294. `filters` · Design Tools
 - [x] 295. `label` · Commerce & Payments — approved 2026-10-21
 - [x] 295. `label-2` · Commerce & Payments · variant of `label` — Upright hang tag · approved 2026-10-21
 - [x] 295. `label-important` · Commerce & Payments · variant of `label` — Important label · approved 2026-10-21
@@ -872,7 +872,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 297. `squares-connected` · Development & Infra — approved 2026-10-23
 - [x] 297. `squares-connected-2` · Development & Infra · variant of `squares-connected` — Two tiles, linked both ways · approved 2026-10-23
 - [x] 297. `squares-connected-3` · Development & Infra · variant of `squares-connected` — Two tiles stacked, short link · approved 2026-10-23
-- [ ] 298. `stack-perspective` · Design Tools
+- [~] 298. `stack-perspective` · Design Tools
 - [x] 299. `subscription` · Commerce & Payments — approved 2026-10-21
 - [x] 299. `subscription-2` · Commerce & Payments · variant of `subscription` — Box on repeat · approved 2026-10-21
 - [x] 300. `airplay` · Arrows & Direction — approved 2026-10-17
@@ -945,7 +945,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 332. `bluetooth-2` · Devices & Hardware · variant of `bluetooth` — Rune in the badge · approved 2026-10-23
 - [x] 332. `bluetooth-connected` · Devices & Hardware · variant of `bluetooth` — Connected, two dots, shifted · approved 2026-10-23
 - [x] 332. `bluetooth-searching` · Devices & Hardware · variant of `bluetooth` — Searching, two waves · approved 2026-10-23
-- [ ] 333. `circle` · Design Tools
+- [x] 333. `circle` · Design Tools — approved 2026-10-24
+- [x] 333. `circle-dashed` · Design Tools · variant of `circle` — Dashed ring · approved 2026-10-24
 - [x] 334. `cpu` · Development & Infra — approved 2026-10-23
 - [x] 334. `cpu-2` · Development & Infra · variant of `cpu` — Round die · approved 2026-10-23
 - [x] 334. `cpu-3` · Development & Infra · variant of `cpu` — Developer board · approved 2026-10-23
@@ -957,15 +958,15 @@ Bases before their variants; within that, highest evidence first.
 - [x] 338. `git-branch` · Development & Infra — approved 2026-10-23
 - [x] 339. `git-merge` · Development & Infra — approved 2026-10-23
 - [x] 340. `git-pull-request` · Development & Infra — approved 2026-10-23
-- [ ] 341. `hexagon` · Design Tools
-- [ ] 342. `octagon` · Design Tools
+- [~] 341. `hexagon` · Design Tools
+- [~] 342. `octagon` · Design Tools
 - [x] 343. `power` · Devices & Hardware — approved 2026-10-22
 - [x] 343. `power-circle` · Devices & Hardware · variant of `power` — Standby on a round button · approved 2026-10-22
 - [x] 343. `power-square` · Devices & Hardware · variant of `power` — Standby on a square key · approved 2026-10-22
 - [x] 344. `skip-back` · Media & Playback — approved 2026-10-22
 - [x] 345. `skip-forward` · Media & Playback — approved 2026-10-22
-- [ ] 346. `square` · Design Tools
-- [ ] 347. `triangle` · Design Tools
+- [~] 346. `square` · Design Tools
+- [~] 347. `triangle` · Design Tools
 - [ ] 348. `arrow-down-circle` · Arrows & Direction · variant of `arrow-down`
 - [ ] 349. `arrow-left-circle` · Arrows & Direction · variant of `arrow-left`
 - [ ] 350. `arrow-right-circle` · Arrows & Direction · variant of `arrow-right`

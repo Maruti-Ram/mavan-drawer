@@ -491,6 +491,10 @@
     "chevrons-up-down-4-filled",
     "chevrons-up-down-filled",
     "chevrons-up-filled",
+    "circle",
+    "circle-dashed",
+    "circle-dashed-filled",
+    "circle-filled",
     "clipboard",
     "clipboard-2",
     "clipboard-2-filled",
@@ -30573,6 +30577,270 @@
           "geometric": 5.91,
           "recession": 1.48,
           "optical": 7.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "circle": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "ring",
+        "round",
+        "shape",
+        "ellipse",
+        "geometry",
+        "lucide",
+        "sf symbols",
+        "central",
+        "nucleo",
+        "fluent",
+        "untitled",
+        "material"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "circle-dashed": {
+      "paths": [
+        "M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22",
+        "M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13",
+        "M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91",
+        "M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78",
+        "M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88",
+        "M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09"
+      ],
+      "areas": [],
+      "body": "<path d=\"M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22\"/> <path d=\"M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13\"/> <path d=\"M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91\"/> <path d=\"M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78\"/> <path d=\"M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88\"/> <path d=\"M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09\"/>",
+      "mark": false,
+      "tags": [
+        "dashed",
+        "outline",
+        "placeholder",
+        "draft",
+        "ring",
+        "lucide",
+        "sf symbols",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2.19,
+        "y": 2,
+        "w": 19.62,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2.19,
+        "top": 2,
+        "right": 2.19,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2.19,
+          "recession": 0.63,
+          "optical": 2.66
+        },
+        "right": {
+          "geometric": 2.19,
+          "recession": 0.63,
+          "optical": 2.66
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.1,
+          "optical": 2.08
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.1,
+          "optical": 2.08
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "circle-dashed-filled": {
+      "paths": [
+        "M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22",
+        "M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13",
+        "M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91",
+        "M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78",
+        "M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88",
+        "M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09"
+      ],
+      "areas": [
+        "M5 12A7 7 0 1 0 19 12A7 7 0 1 0 5 12Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 12A7 7 0 1 0 19 12A7 7 0 1 0 5 12Z\"/> <path d=\"M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22\"/> <path d=\"M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13\"/> <path d=\"M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91\"/> <path d=\"M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78\"/> <path d=\"M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88\"/> <path d=\"M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09\"/>",
+      "mark": false,
+      "tags": [
+        "dashed",
+        "outline",
+        "placeholder",
+        "draft",
+        "ring",
+        "lucide",
+        "sf symbols",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2.19,
+        "y": 2,
+        "w": 19.62,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2.19,
+        "top": 2,
+        "right": 2.19,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2.19,
+          "recession": 0,
+          "optical": 2.19
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2.19,
+          "recession": 0,
+          "optical": 2.19
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "circle-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z\"/>",
+      "mark": false,
+      "tags": [
+        "ring",
+        "round",
+        "shape",
+        "ellipse",
+        "geometry",
+        "lucide",
+        "sf symbols",
+        "central",
+        "nucleo",
+        "fluent",
+        "untitled",
+        "material"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -129685,6 +129953,10 @@
         "chevrons-up-down-4-filled",
         "chevrons-up-down-filled",
         "chevrons-up-filled",
+        "circle",
+        "circle-dashed",
+        "circle-dashed-filled",
+        "circle-filled",
         "clipboard",
         "clipboard-2",
         "clipboard-2-filled",
@@ -159716,6 +159988,270 @@
               "geometric": 3.07,
               "recession": 1.13,
               "optical": 3.92
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "ring",
+            "round",
+            "shape",
+            "ellipse",
+            "geometry",
+            "lucide",
+            "sf symbols",
+            "central",
+            "nucleo",
+            "fluent",
+            "untitled",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-dashed": {
+          "paths": [
+            "M6.103 1.914A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 9.897 1.914",
+            "M12.322 3.314A6.375 6.375 0 0 1 14.219 6.6",
+            "M14.219 9.4A6.375 6.375 0 0 1 12.322 12.686",
+            "M9.897 14.086A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 6.103 14.086",
+            "M3.678 12.686A6.375 6.375 0 0 1 1.781 9.4",
+            "M1.781 6.6A6.375 6.375 0 0 1 3.678 3.314"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.103 1.914A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 9.897 1.914\"/> <path d=\"M12.322 3.314A6.375 6.375 0 0 1 14.219 6.6\"/> <path d=\"M14.219 9.4A6.375 6.375 0 0 1 12.322 12.686\"/> <path d=\"M9.897 14.086A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 6.103 14.086\"/> <path d=\"M3.678 12.686A6.375 6.375 0 0 1 1.781 9.4\"/> <path d=\"M1.781 6.6A6.375 6.375 0 0 1 3.678 3.314\"/>",
+          "mark": false,
+          "tags": [
+            "dashed",
+            "outline",
+            "placeholder",
+            "draft",
+            "ring",
+            "lucide",
+            "sf symbols",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1.16,
+            "y": 1,
+            "w": 13.69,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1.16,
+            "top": 1,
+            "right": 1.15,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.16,
+              "recession": 0.46,
+              "optical": 1.5
+            },
+            "right": {
+              "geometric": 1.16,
+              "recession": 0.46,
+              "optical": 1.5
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.07,
+              "optical": 1.05
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.07,
+              "optical": 1.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-dashed-filled": {
+          "paths": [
+            "M6.103 1.914A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 9.897 1.914",
+            "M12.322 3.314A6.375 6.375 0 0 1 14.219 6.6",
+            "M14.219 9.4A6.375 6.375 0 0 1 12.322 12.686",
+            "M9.897 14.086A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 6.103 14.086",
+            "M3.678 12.686A6.375 6.375 0 0 1 1.781 9.4",
+            "M1.781 6.6A6.375 6.375 0 0 1 3.678 3.314"
+          ],
+          "areas": [
+            "M3.75 8A4.25 4.25 0 1 0 12.25 8A4.25 4.25 0 1 0 3.75 8Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.75 8A4.25 4.25 0 1 0 12.25 8A4.25 4.25 0 1 0 3.75 8Z\"/> <path d=\"M6.103 1.914A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 9.897 1.914\"/> <path d=\"M12.322 3.314A6.375 6.375 0 0 1 14.219 6.6\"/> <path d=\"M14.219 9.4A6.375 6.375 0 0 1 12.322 12.686\"/> <path d=\"M9.897 14.086A6.375 6.375 0 0 1 8 14.375A6.375 6.375 0 0 1 6.103 14.086\"/> <path d=\"M3.678 12.686A6.375 6.375 0 0 1 1.781 9.4\"/> <path d=\"M1.781 6.6A6.375 6.375 0 0 1 3.678 3.314\"/>",
+          "mark": false,
+          "tags": [
+            "dashed",
+            "outline",
+            "placeholder",
+            "draft",
+            "ring",
+            "lucide",
+            "sf symbols",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1.16,
+            "y": 1,
+            "w": 13.69,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1.16,
+            "top": 1,
+            "right": 1.15,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1.16,
+              "recession": 0,
+              "optical": 1.16
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1.15,
+              "recession": 0,
+              "optical": 1.15
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8Z\"/>",
+          "mark": false,
+          "tags": [
+            "ring",
+            "round",
+            "shape",
+            "ellipse",
+            "geometry",
+            "lucide",
+            "sf symbols",
+            "central",
+            "nucleo",
+            "fluent",
+            "untitled",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -258760,6 +259296,10 @@
         "chevrons-up-down-4-filled",
         "chevrons-up-down-filled",
         "chevrons-up-filled",
+        "circle",
+        "circle-dashed",
+        "circle-dashed-filled",
+        "circle-filled",
         "clipboard",
         "clipboard-2",
         "clipboard-2-filled",
@@ -288807,6 +289347,270 @@
               "geometric": 4.73,
               "recession": 1.24,
               "optical": 5.66
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "ring",
+            "round",
+            "shape",
+            "ellipse",
+            "geometry",
+            "lucide",
+            "sf symbols",
+            "central",
+            "nucleo",
+            "fluent",
+            "untitled",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-dashed": {
+          "paths": [
+            "M7.91 3.06A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 12.09 3.06",
+            "M14.97 4.72A7.25 7.25 0 0 1 17.06 8.34",
+            "M17.06 11.66A7.25 7.25 0 0 1 14.97 15.28",
+            "M12.09 16.94A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 7.91 16.94",
+            "M5.03 15.28A7.25 7.25 0 0 1 2.94 11.66",
+            "M2.94 8.34A7.25 7.25 0 0 1 5.03 4.72"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.91 3.06A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 12.09 3.06\"/> <path d=\"M14.97 4.72A7.25 7.25 0 0 1 17.06 8.34\"/> <path d=\"M17.06 11.66A7.25 7.25 0 0 1 14.97 15.28\"/> <path d=\"M12.09 16.94A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 7.91 16.94\"/> <path d=\"M5.03 15.28A7.25 7.25 0 0 1 2.94 11.66\"/> <path d=\"M2.94 8.34A7.25 7.25 0 0 1 5.03 4.72\"/>",
+          "mark": false,
+          "tags": [
+            "dashed",
+            "outline",
+            "placeholder",
+            "draft",
+            "ring",
+            "lucide",
+            "sf symbols",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.19,
+            "y": 2,
+            "w": 15.62,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2.19,
+            "top": 2,
+            "right": 2.19,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.19,
+              "recession": 0.53,
+              "optical": 2.59
+            },
+            "right": {
+              "geometric": 2.19,
+              "recession": 0.53,
+              "optical": 2.59
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.09,
+              "optical": 2.07
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.09,
+              "optical": 2.07
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-dashed-filled": {
+          "paths": [
+            "M7.91 3.06A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 12.09 3.06",
+            "M14.97 4.72A7.25 7.25 0 0 1 17.06 8.34",
+            "M17.06 11.66A7.25 7.25 0 0 1 14.97 15.28",
+            "M12.09 16.94A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 7.91 16.94",
+            "M5.03 15.28A7.25 7.25 0 0 1 2.94 11.66",
+            "M2.94 8.34A7.25 7.25 0 0 1 5.03 4.72"
+          ],
+          "areas": [
+            "M5 10A5 5 0 1 0 15 10A5 5 0 1 0 5 10Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 10A5 5 0 1 0 15 10A5 5 0 1 0 5 10Z\"/> <path d=\"M7.91 3.06A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 12.09 3.06\"/> <path d=\"M14.97 4.72A7.25 7.25 0 0 1 17.06 8.34\"/> <path d=\"M17.06 11.66A7.25 7.25 0 0 1 14.97 15.28\"/> <path d=\"M12.09 16.94A7.25 7.25 0 0 1 10 17.25A7.25 7.25 0 0 1 7.91 16.94\"/> <path d=\"M5.03 15.28A7.25 7.25 0 0 1 2.94 11.66\"/> <path d=\"M2.94 8.34A7.25 7.25 0 0 1 5.03 4.72\"/>",
+          "mark": false,
+          "tags": [
+            "dashed",
+            "outline",
+            "placeholder",
+            "draft",
+            "ring",
+            "lucide",
+            "sf symbols",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.19,
+            "y": 2,
+            "w": 15.62,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2.19,
+            "top": 2,
+            "right": 2.19,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.19,
+              "recession": 0,
+              "optical": 2.19
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2.19,
+              "recession": 0,
+              "optical": 2.19
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10Z\"/>",
+          "mark": false,
+          "tags": [
+            "ring",
+            "round",
+            "shape",
+            "ellipse",
+            "geometry",
+            "lucide",
+            "sf symbols",
+            "central",
+            "nucleo",
+            "fluent",
+            "untitled",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -387889,6 +388693,10 @@
         "chevrons-up-down-4-filled",
         "chevrons-up-down-filled",
         "chevrons-up-filled",
+        "circle",
+        "circle-dashed",
+        "circle-dashed-filled",
+        "circle-filled",
         "clipboard",
         "clipboard-2",
         "clipboard-2-filled",
@@ -417971,6 +418779,270 @@
               "geometric": 5.91,
               "recession": 1.48,
               "optical": 7.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "ring",
+            "round",
+            "shape",
+            "ellipse",
+            "geometry",
+            "lucide",
+            "sf symbols",
+            "central",
+            "nucleo",
+            "fluent",
+            "untitled",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-dashed": {
+          "paths": [
+            "M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22",
+            "M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13",
+            "M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91",
+            "M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78",
+            "M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88",
+            "M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22\"/> <path d=\"M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13\"/> <path d=\"M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91\"/> <path d=\"M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78\"/> <path d=\"M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88\"/> <path d=\"M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09\"/>",
+          "mark": false,
+          "tags": [
+            "dashed",
+            "outline",
+            "placeholder",
+            "draft",
+            "ring",
+            "lucide",
+            "sf symbols",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.19,
+            "y": 2,
+            "w": 19.62,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2.19,
+            "top": 2,
+            "right": 2.19,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.19,
+              "recession": 0.63,
+              "optical": 2.66
+            },
+            "right": {
+              "geometric": 2.19,
+              "recession": 0.63,
+              "optical": 2.66
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.1,
+              "optical": 2.08
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.1,
+              "optical": 2.08
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-dashed-filled": {
+          "paths": [
+            "M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22",
+            "M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13",
+            "M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91",
+            "M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78",
+            "M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88",
+            "M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09"
+          ],
+          "areas": [
+            "M5 12A7 7 0 1 0 19 12A7 7 0 1 0 5 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5 12A7 7 0 1 0 19 12A7 7 0 1 0 5 12Z\"/> <path d=\"M9.09 3.22A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 14.91 3.22\"/> <path d=\"M18.15 5.09A9.25 9.25 0 0 1 21.06 10.13\"/> <path d=\"M21.06 13.88A9.25 9.25 0 0 1 18.15 18.91\"/> <path d=\"M14.91 20.78A9.25 9.25 0 0 1 12 21.25A9.25 9.25 0 0 1 9.09 20.78\"/> <path d=\"M5.85 18.91A9.25 9.25 0 0 1 2.94 13.88\"/> <path d=\"M2.94 10.13A9.25 9.25 0 0 1 5.85 5.09\"/>",
+          "mark": false,
+          "tags": [
+            "dashed",
+            "outline",
+            "placeholder",
+            "draft",
+            "ring",
+            "lucide",
+            "sf symbols",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2.19,
+            "y": 2,
+            "w": 19.62,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2.19,
+            "top": 2,
+            "right": 2.19,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2.19,
+              "recession": 0,
+              "optical": 2.19
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2.19,
+              "recession": 0,
+              "optical": 2.19
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12Z\"/>",
+          "mark": false,
+          "tags": [
+            "ring",
+            "round",
+            "shape",
+            "ellipse",
+            "geometry",
+            "lucide",
+            "sf symbols",
+            "central",
+            "nucleo",
+            "fluent",
+            "untitled",
+            "material"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -521648,7 +522720,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -522495,7 +523567,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -522506,7 +523578,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -522517,7 +523589,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -522528,7 +523600,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -522539,7 +523611,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -522572,7 +523644,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -523694,7 +524766,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -523782,7 +524854,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524288,7 +525360,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524299,7 +525371,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524310,7 +525382,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524321,7 +525393,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524332,7 +525404,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524343,7 +525415,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524354,7 +525426,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524387,7 +525459,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524508,7 +525580,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524574,7 +525646,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524640,7 +525712,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -524816,7 +525888,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -525729,7 +526801,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -525740,7 +526812,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -525872,7 +526944,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -526674,10 +527746,21 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": null,
-      "note": null,
-      "status": "todo",
+      "note": "approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
+    },
+    {
+      "n": 333,
+      "name": "circle-dashed",
+      "section": "D · The rest, by audit rank",
+      "category": "Design Tools",
+      "base": "circle",
+      "note": "Dashed ring · approved 2026-10-24",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-24"
     },
     {
       "n": 334,
@@ -526807,7 +527890,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -526818,7 +527901,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -526884,7 +527967,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
@@ -526895,7 +527978,7 @@
       "category": "Design Tools",
       "base": null,
       "note": null,
-      "status": "todo",
+      "status": "review",
       "mvp": false,
       "date": null
     },
