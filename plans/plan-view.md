@@ -1,6 +1,10 @@
 # The Plan view
 
 Status: **built and proven 2026-10-17**; every card ticked. A fresh reviewer (Fable) passed all nine checks; the Library header now counts icons too. Follow-ups, not started: the variant badge counts undrawn variants as well (plan wording; may read as drawn).
+Added 2026-10-24 (Maruti: list the undrawn variants as their own categories, empty until drawn): a category that
+holds only variant rows gets a group after the icon groups, one tile per row (no MVP star — `queue.mjs mvp`
+refuses a variant), headed `drawn / total variants`; icon counts unchanged; an approved variant shows its drawing
+in place. Plan view search also matches a row's base.
 
 - [x] 1.1 Sheet grammar: `mvp` on a row · `queue.mjs add` · `queue.mjs mvp` · `next` takes MVP first
 - [x] 1.2 Dates and the flag in the manifest

@@ -508,7 +508,7 @@ const VIEWS = { grid: 'Grid', sheet: 'Sheet', plan: 'Plan' };
 const HINTS = {
   grid: 'The 24 master stands for each icon. Click one for every size and property.',
   sheet: 'research/queue.md as a table — ticked by node tools/queue.mjs approve. Click a drawn row for its metrics.',
-  plan: 'One tile per icon; its variants fold into it and are never counted. A star marks the MVP and is saved to research/queue.md through queue.mjs.',
+  plan: 'One tile per icon; its variants fold into it and are never counted. A star marks the MVP and is saved to research/queue.md through queue.mjs. Variants with a category of their own follow in groups at the end, drawn or not; they are never counted.',
 };
 function renderGrid() {
   const list = visible();
@@ -630,7 +630,7 @@ function renderPlan() {
 
   // Tiles: the section rail and the search apply as everywhere else; the filter is this view's own.
   const words = state.q.trim().toLowerCase().split(/[\s-]+/).filter(Boolean);
-  const hay = (r) => [r.name, r.category, ...(man.masters[24]?.icons[r.name]?.tags ?? []), ...(variantsOf.get(r.name) ?? [])].filter(Boolean).join(' ').toLowerCase();
+  const hay = (r) => [r.name, r.category, r.base, ...(man.masters[24]?.icons[r.name]?.tags ?? []), ...(variantsOf.get(r.name) ?? [])].filter(Boolean).join(' ').toLowerCase();
   const keep = (r) => (state.plan === 'all' || (state.plan === 'mvp' ? r.mvp : r.status !== 'done'))
     && (state.sec === 'all' || r.section === state.sec) && (!words.length || words.every((w) => hay(r).includes(w)));
   const groupOf = (r) => r.category ?? label(r.section);
@@ -647,6 +647,22 @@ function renderPlan() {
     const done = rs.filter((r) => r.status === 'done').length;
     html += `<div class="pgrp">${esc(g)}<span class="num">${done} / ${rs.length}</span></div><div class="ptiles">${vis.map(tile).join('')}</div>`;
   }
+  // Variants with a category of their own: a category that holds only variant rows —
+  // today V1–V5 of the variant round — gets a group after the icons, one tile per row, in
+  // category-name order. Its count reads "variants", and nothing above reads these rows, so the
+  // strip, the filter counts and every icon group stay counts of icons. An approved row
+  // keeps its tile and shows its drawing, as an icon's does.
+  const vgroups = new Map();
+  for (const r of man.queue) {
+    if (!r.base || groups.has(groupOf(r))) continue;
+    const g = groupOf(r); if (!vgroups.has(g)) vgroups.set(g, []); vgroups.get(g).push(r);
+  }
+  for (const [g, rs] of [...vgroups].sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))) {
+    const vis = rs.filter(keep); if (!vis.length) continue;
+    shown += vis.length;
+    const done = rs.filter((r) => r.status === 'done').length;
+    html += `<div class="pgrp">${esc(g)}<span class="num">${done} / ${rs.length} variant${rs.length === 1 ? '' : 's'}</span></div><div class="ptiles">${vis.map(tile).join('')}</div>`;
+  }
   document.getElementById('ptiles').innerHTML = shown ? html : `<div class="empty"><b>${state.q
     ? `No icons match “${esc(state.q)}”` : state.plan === 'mvp' ? 'No icon is starred yet' : state.plan === 'left' ? 'Nothing left to draw' : 'Nothing on the sheet'}</b>${state.plan === 'mvp' && !state.q ? 'Star a tile under All to build the MVP.' : ''}</div>`;
 }
@@ -654,8 +670,12 @@ function tile(r) {
   const drawn = r.status === 'done';
   const vs = variantsOf.get(r.name) ?? [];
   const badge = drawn && vs.length ? `<span class="vc num" title="${vs.length} variant${vs.length === 1 ? '' : 's'}: ${esc(vs.join(', '))}">+${vs.length}</span>` : '';
-  return `<div class="tile${drawn ? '' : ' todo'}${state.sel === r.name ? ' on' : ''}" data-name="${esc(r.name)}"${drawn ? ' tabindex="0" role="button"' : ''} title="#${r.n} ${esc(r.name)}${r.category ? ` · ${esc(r.category)}` : ''}${drawn ? '' : ' · not drawn yet'}">
-    ${badge}<button class="star${r.mvp ? ' on' : ''}" data-star="${esc(r.name)}" aria-pressed="${r.mvp}" title="${r.mvp ? 'In the MVP — click to take it out' : 'Star: put it in the MVP'}" aria-label="MVP">${starSvg}</button>
+  // A variant's tile (the groups after the icons) has no star: the MVP mark goes on the icon,
+  // and `queue.mjs mvp` refuses a variant. Its title names the base instead of the category.
+  const star = r.base ? '' : `<button class="star${r.mvp ? ' on' : ''}" data-star="${esc(r.name)}" aria-pressed="${r.mvp}" title="${r.mvp ? 'In the MVP — click to take it out' : 'Star: put it in the MVP'}" aria-label="MVP">${starSvg}</button>`;
+  const about = r.base ? ` · variant of ${esc(r.base)}` : r.category ? ` · ${esc(r.category)}` : '';
+  return `<div class="tile${drawn ? '' : ' todo'}${state.sel === r.name ? ' on' : ''}" data-name="${esc(r.name)}"${drawn ? ' tabindex="0" role="button"' : ''} title="#${r.n} ${esc(r.name)}${about}${drawn ? '' : ' · not drawn yet'}">
+    ${badge}${star}
     <span class="ms">${drawn ? icon(r.name, 16) : ''}</span><span class="nm">${esc(r.name)}</span></div>`;
 }
 
