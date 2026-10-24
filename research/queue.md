@@ -746,7 +746,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 232. `align-object-left` · Design Tools — approved 2026-10-24
 - [x] 233. `align-object-right` · Design Tools — approved 2026-10-24
 - [x] 234. `align-object-top` · Design Tools — approved 2026-10-24
-- [~] 235. `aspect-ratio` · Design Tools
+- [x] 235. `aspect-ratio` · Design Tools — approved 2026-10-24
+- [x] 235. `aspect-ratio-2` · Design Tools · variant of `aspect-ratio` — Square, corner marks · approved 2026-10-24
 - [x] 236. `devices` · Devices & Hardware — approved 2026-10-23
 - [x] 236. `devices-2` · Devices & Hardware · variant of `devices` — Laptop and phone · approved 2026-10-23
 - [x] 237. `gem` · Design Tools — approved 2026-10-24
