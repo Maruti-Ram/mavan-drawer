@@ -1272,7 +1272,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 592. `droplets` · Design Tools — added 2026-10-24 · approved 2026-10-24
 - [x] 593. `control-key-left` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 593. `control-key-left-2` · Keyboard keys · variant of `control-key-left` — Wide control key, caret in the corner · approved 2026-10-24
-- [~] 594. `control-key-right` · Keyboard keys — added 2026-10-24
+- [x] 594. `control-key-right` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
+- [x] 594. `control-key-right-2` · Keyboard keys · variant of `control-key-right` — Wide control key, caret in the corner · approved 2026-10-24
 - [~] 595. `shift` · Keyboard keys — added 2026-10-24
 - [~] 596. `spacebar` · Keyboard keys — added 2026-10-24
 - [~] 597. `enter` · Keyboard keys — added 2026-10-24
