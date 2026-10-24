@@ -947,6 +947,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 332. `bluetooth-connected` · Devices & Hardware · variant of `bluetooth` — Connected, two dots, shifted · approved 2026-10-23
 - [x] 332. `bluetooth-searching` · Devices & Hardware · variant of `bluetooth` — Searching, two waves · approved 2026-10-23
 - [x] 333. `circle` · Design Tools — approved 2026-10-24
+- [~] 333. `circle-small` · Design Tools · variant of `circle` — added 2026-10-24
 - [x] 333. `circle-dashed` · Design Tools · variant of `circle` — Dashed ring · approved 2026-10-24
 - [x] 334. `cpu` · Development & Infra — approved 2026-10-23
 - [x] 334. `cpu-2` · Development & Infra · variant of `cpu` — Round die · approved 2026-10-23
@@ -960,14 +961,19 @@ Bases before their variants; within that, highest evidence first.
 - [x] 339. `git-merge` · Development & Infra — approved 2026-10-23
 - [x] 340. `git-pull-request` · Development & Infra — approved 2026-10-23
 - [~] 341. `hexagon` · Design Tools
+- [~] 341. `hexagon-small` · Design Tools · variant of `hexagon` — added 2026-10-24
 - [~] 342. `octagon` · Design Tools
+- [~] 342. `octagon-small` · Design Tools · variant of `octagon` — added 2026-10-24
 - [x] 343. `power` · Devices & Hardware — approved 2026-10-22
 - [x] 343. `power-circle` · Devices & Hardware · variant of `power` — Standby on a round button · approved 2026-10-22
 - [x] 343. `power-square` · Devices & Hardware · variant of `power` — Standby on a square key · approved 2026-10-22
 - [x] 344. `skip-back` · Media & Playback — approved 2026-10-22
 - [x] 345. `skip-forward` · Media & Playback — approved 2026-10-22
-- [~] 346. `square` · Design Tools
+- [x] 346. `square` · Design Tools — approved 2026-10-24
+- [~] 346. `square-small` · Design Tools · variant of `square` — added 2026-10-24
+- [x] 346. `square-dashed` · Design Tools · variant of `square` — Dashed square · approved 2026-10-24
 - [~] 347. `triangle` · Design Tools
+- [~] 347. `triangle-small` · Design Tools · variant of `triangle` — added 2026-10-24
 - [ ] 348. `arrow-down-circle` · Arrows & Direction · variant of `arrow-down`
 - [ ] 349. `arrow-left-circle` · Arrows & Direction · variant of `arrow-left`
 - [ ] 350. `arrow-right-circle` · Arrows & Direction · variant of `arrow-right`
