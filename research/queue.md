@@ -674,7 +674,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 206. `cloud` · Development & Infra — approved 2026-10-23
 - [x] 206. `cloud-2` · Development & Infra · variant of `cloud` — Three puffs, leaning · approved 2026-10-23
 - [x] 206. `cloud-3` · Development & Infra · variant of `cloud` — Overlapping puffs · approved 2026-10-23
-- [~] 207. `droplet` · Design Tools
+- [x] 207. `droplet` · Design Tools — approved 2026-10-24
 - [x] 208. `film` · Media & Playback — approved 2026-10-22
 - [x] 208. `film-reel` · Media & Playback · variant of `film` — Reel · approved 2026-10-22
 - [x] 208. `film-roll` · Media & Playback · variant of `film` — 35 mm canister · approved 2026-10-24
@@ -1239,4 +1239,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 590. `troubleshoot` · Development & Infra — added 2026-10-23 · approved 2026-10-24
 - [x] 590. `troubleshoot-2` · Development & Infra · variant of `troubleshoot` — Heartbeat through the rim · approved 2026-10-24
 - [x] 591. `cloud-sun` · UI & Layout — added 2026-10-23 · approved 2026-10-23
-- [ ] 592. `droplets` · Design Tools — added 2026-10-24
+- [x] 592. `droplets` · Design Tools — added 2026-10-24 · approved 2026-10-24

@@ -709,6 +709,10 @@
     "drag-handle-3",
     "drag-handle-3-filled",
     "drag-handle-filled",
+    "droplet",
+    "droplet-filled",
+    "droplets",
+    "droplets-filled",
     "euro",
     "euro-circle",
     "euro-circle-filled",
@@ -43843,6 +43847,258 @@
           "geometric": 5.25,
           "recession": 0.49,
           "optical": 5.62
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "droplet": {
+      "paths": [
+        "M11.49 2.95A0.75 0.75 0 0 1 12 2.75A0.75 0.75 0 0 1 12.51 2.95A28.25 28.25 0 0 1 18.42 10.63A7.25 7.25 0 0 1 19.25 14A7.25 7.25 0 0 1 12 21.25A7.25 7.25 0 0 1 4.75 14A7.25 7.25 0 0 1 5.58 10.63A28.25 28.25 0 0 1 11.49 2.95Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M11.49 2.95A0.75 0.75 0 0 1 12 2.75A0.75 0.75 0 0 1 12.51 2.95A28.25 28.25 0 0 1 18.42 10.63A7.25 7.25 0 0 1 19.25 14A7.25 7.25 0 0 1 12 21.25A7.25 7.25 0 0 1 4.75 14A7.25 7.25 0 0 1 5.58 10.63A28.25 28.25 0 0 1 11.49 2.95Z\"/>",
+      "mark": false,
+      "tags": [
+        "drop",
+        "droplet",
+        "water",
+        "liquid",
+        "ink",
+        "plain",
+        "lucide",
+        "material",
+        "sf symbols",
+        "phosphor",
+        "tabler",
+        "feather",
+        "fluent"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 1.01,
+          "optical": 4.76
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 1.01,
+          "optical": 4.76
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 1.2,
+          "optical": 2.9
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.87,
+          "optical": 2.65
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "droplet-filled": {
+      "paths": [],
+      "areas": [
+        "M10.99 2.39A1.5 1.5 0 0 1 12 2A1.5 1.5 0 0 1 13.01 2.39A29 29 0 0 1 19.08 10.28A8 8 0 0 1 20 14A8 8 0 0 1 12 22A8 8 0 0 1 4 14A8 8 0 0 1 4.92 10.28A29 29 0 0 1 10.99 2.39Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.99 2.39A1.5 1.5 0 0 1 12 2A1.5 1.5 0 0 1 13.01 2.39A29 29 0 0 1 19.08 10.28A8 8 0 0 1 20 14A8 8 0 0 1 12 22A8 8 0 0 1 4 14A8 8 0 0 1 4.92 10.28A29 29 0 0 1 10.99 2.39Z\"/>",
+      "mark": false,
+      "tags": [
+        "drop",
+        "droplet",
+        "water",
+        "liquid",
+        "ink",
+        "plain",
+        "lucide",
+        "material",
+        "sf symbols",
+        "phosphor",
+        "tabler",
+        "feather",
+        "fluent"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 16,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 4,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "droplets": {
+      "paths": [
+        "M9.59 8.79A20.75 20.75 0 0 1 13.49 3.95A0.75 0.75 0 0 1 14 3.75A0.75 0.75 0 0 1 14.51 3.95A20.75 20.75 0 0 1 19.83 11.74A6.25 6.25 0 0 1 20.25 14A6.25 6.25 0 0 1 14 20.25A6.25 6.25 0 0 1 12.45 20.06",
+        "M6.51 10.93A0.75 0.75 0 0 1 7 10.75A0.75 0.75 0 0 1 7.49 10.93A8.05 8.05 0 0 1 10.25 17A3.25 3.25 0 0 1 7 20.25A3.25 3.25 0 0 1 3.75 17A8.05 8.05 0 0 1 6.51 10.93Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M9.59 8.79A20.75 20.75 0 0 1 13.49 3.95A0.75 0.75 0 0 1 14 3.75A0.75 0.75 0 0 1 14.51 3.95A20.75 20.75 0 0 1 19.83 11.74A6.25 6.25 0 0 1 20.25 14A6.25 6.25 0 0 1 14 20.25A6.25 6.25 0 0 1 12.45 20.06\"/> <path d=\"M6.51 10.93A0.75 0.75 0 0 1 7 10.75A0.75 0.75 0 0 1 7.49 10.93A8.05 8.05 0 0 1 10.25 17A3.25 3.25 0 0 1 7 20.25A3.25 3.25 0 0 1 3.75 17A8.05 8.05 0 0 1 6.51 10.93Z\"/>",
+      "mark": false,
+      "tags": [
+        "drops",
+        "droplets",
+        "water",
+        "liquid",
+        "two",
+        "lucide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.47,
+          "optical": 3.35
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.98,
+          "optical": 3.74
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.76,
+          "optical": 3.57
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.32,
+          "optical": 3.24
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "droplets-filled": {
+      "paths": [],
+      "areas": [
+        "M8.95 8.41A21.5 21.5 0 0 1 12.99 3.39A1.5 1.5 0 0 1 14 3A1.5 1.5 0 0 1 15.01 3.39A21.5 21.5 0 0 1 20.53 11.47A7 7 0 0 1 21 14A7 7 0 0 1 14 21A7 7 0 0 1 12.27 20.78A0.75 0.75 0 0 1 11.7 20.06A0.75 0.75 0 0 1 11.8 19.69A5.5 5.5 0 0 0 12.5 17A10.3 10.3 0 0 0 9.09 9.35A0.75 0.75 0 0 1 8.84 8.79A0.75 0.75 0 0 1 8.95 8.41Z",
+        "M6.01 10.37A1.5 1.5 0 0 1 7 10A1.5 1.5 0 0 1 7.99 10.37A8.8 8.8 0 0 1 11 17A4 4 0 0 1 7 21A4 4 0 0 1 3 17A8.8 8.8 0 0 1 6.01 10.37Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.95 8.41A21.5 21.5 0 0 1 12.99 3.39A1.5 1.5 0 0 1 14 3A1.5 1.5 0 0 1 15.01 3.39A21.5 21.5 0 0 1 20.53 11.47A7 7 0 0 1 21 14A7 7 0 0 1 14 21A7 7 0 0 1 12.27 20.78A0.75 0.75 0 0 1 11.7 20.06A0.75 0.75 0 0 1 11.8 19.69A5.5 5.5 0 0 0 12.5 17A10.3 10.3 0 0 0 9.09 9.35A0.75 0.75 0 0 1 8.84 8.79A0.75 0.75 0 0 1 8.95 8.41Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.01 10.37A1.5 1.5 0 0 1 7 10A1.5 1.5 0 0 1 7.99 10.37A8.8 8.8 0 0 1 11 17A4 4 0 0 1 7 21A4 4 0 0 1 3 17A8.8 8.8 0 0 1 6.01 10.37Z\"/>",
+      "mark": false,
+      "tags": [
+        "drops",
+        "droplets",
+        "water",
+        "liquid",
+        "two",
+        "lucide"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         }
       },
       "container": null,
@@ -131493,6 +131749,10 @@
         "drag-handle-3",
         "drag-handle-3-filled",
         "drag-handle-filled",
+        "droplet",
+        "droplet-filled",
+        "droplets",
+        "droplets-filled",
         "euro",
         "euro-circle",
         "euro-circle-filled",
@@ -174562,6 +174822,258 @@
               "geometric": 2.75,
               "recession": 0.39,
               "optical": 3.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplet": {
+          "paths": [
+            "M7.577 1.79A0.625 0.625 0 0 1 8 1.625A0.625 0.625 0 0 1 8.423 1.79A12.375 12.375 0 0 1 12.347 9.506A4.375 4.375 0 0 1 12.375 10A4.375 4.375 0 0 1 8 14.375A4.375 4.375 0 0 1 3.625 10A4.375 4.375 0 0 1 3.653 9.506A12.375 12.375 0 0 1 7.577 1.79Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.577 1.79A0.625 0.625 0 0 1 8 1.625A0.625 0.625 0 0 1 8.423 1.79A12.375 12.375 0 0 1 12.347 9.506A4.375 4.375 0 0 1 12.375 10A4.375 4.375 0 0 1 8 14.375A4.375 4.375 0 0 1 3.625 10A4.375 4.375 0 0 1 3.653 9.506A12.375 12.375 0 0 1 7.577 1.79Z\"/>",
+          "mark": false,
+          "tags": [
+            "drop",
+            "droplet",
+            "water",
+            "liquid",
+            "ink",
+            "plain",
+            "lucide",
+            "material",
+            "sf symbols",
+            "phosphor",
+            "tabler",
+            "feather",
+            "fluent"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.76,
+              "optical": 3.57
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.76,
+              "optical": 3.57
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.92,
+              "optical": 1.69
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.64,
+              "optical": 1.48
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplet-filled": {
+          "paths": [],
+          "areas": [
+            "M7.154 1.329A1.25 1.25 0 0 1 8 1A1.25 1.25 0 0 1 8.846 1.329A13 13 0 0 1 12.968 9.435A5 5 0 0 1 13 10A5 5 0 0 1 8 15A5 5 0 0 1 3 10A5 5 0 0 1 3.032 9.435A13 13 0 0 1 7.154 1.329Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.154 1.329A1.25 1.25 0 0 1 8 1A1.25 1.25 0 0 1 8.846 1.329A13 13 0 0 1 12.968 9.435A5 5 0 0 1 13 10A5 5 0 0 1 8 15A5 5 0 0 1 3 10A5 5 0 0 1 3.032 9.435A13 13 0 0 1 7.154 1.329Z\"/>",
+          "mark": false,
+          "tags": [
+            "drop",
+            "droplet",
+            "water",
+            "liquid",
+            "ink",
+            "plain",
+            "lucide",
+            "material",
+            "sf symbols",
+            "phosphor",
+            "tabler",
+            "feather",
+            "fluent"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 10,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 3,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplets": {
+          "paths": [
+            "M6.856 5.613A11.125 11.125 0 0 1 9.078 2.789A0.625 0.625 0 0 1 9.5 2.625A0.625 0.625 0 0 1 9.922 2.789A11.125 11.125 0 0 1 13.292 8.704A3.875 3.875 0 0 1 13.375 9.5A3.875 3.875 0 0 1 9.5 13.375A3.875 3.875 0 0 1 9.145 13.359",
+            "M4.327 7.789A0.625 0.625 0 0 1 4.75 7.625A0.625 0.625 0 0 1 5.173 7.789A5.375 5.375 0 0 1 6.85 10.923A2.125 2.125 0 0 1 6.875 11.25A2.125 2.125 0 0 1 4.75 13.375A2.125 2.125 0 0 1 2.625 11.25A2.125 2.125 0 0 1 2.65 10.923A5.375 5.375 0 0 1 4.327 7.789Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.856 5.613A11.125 11.125 0 0 1 9.078 2.789A0.625 0.625 0 0 1 9.5 2.625A0.625 0.625 0 0 1 9.922 2.789A11.125 11.125 0 0 1 13.292 8.704A3.875 3.875 0 0 1 13.375 9.5A3.875 3.875 0 0 1 9.5 13.375A3.875 3.875 0 0 1 9.145 13.359\"/> <path d=\"M4.327 7.789A0.625 0.625 0 0 1 4.75 7.625A0.625 0.625 0 0 1 5.173 7.789A5.375 5.375 0 0 1 6.85 10.923A2.125 2.125 0 0 1 6.875 11.25A2.125 2.125 0 0 1 4.75 13.375A2.125 2.125 0 0 1 2.625 11.25A2.125 2.125 0 0 1 2.65 10.923A5.375 5.375 0 0 1 4.327 7.789Z\"/>",
+          "mark": false,
+          "tags": [
+            "drops",
+            "droplets",
+            "water",
+            "liquid",
+            "two",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.36,
+              "optical": 2.27
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.74,
+              "optical": 2.56
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.56,
+              "optical": 2.42
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.26,
+              "optical": 2.19
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplets-filled": {
+          "paths": [],
+          "areas": [
+            "M6.309 5.311A11.75 11.75 0 0 1 8.655 2.329A1.25 1.25 0 0 1 9.5 2A1.25 1.25 0 0 1 10.345 2.329A11.75 11.75 0 0 1 13.904 8.575A4.5 4.5 0 0 1 14 9.5A4.5 4.5 0 0 1 9.5 14A4.5 4.5 0 0 1 9.088 13.981A0.625 0.625 0 0 1 8.52 13.359A0.625 0.625 0 0 1 8.582 13.088A4.25 4.25 0 0 0 9 11.25A4.25 4.25 0 0 0 8.949 10.596A7.5 7.5 0 0 0 6.609 6.224A2.75 2.75 0 0 0 6.466 6.101A0.625 0.625 0 0 1 6.231 5.613A0.625 0.625 0 0 1 6.309 5.311Z",
+            "M3.905 7.329A1.25 1.25 0 0 1 4.75 7A1.25 1.25 0 0 1 5.595 7.329A6 6 0 0 1 7.467 10.827A2.75 2.75 0 0 1 7.5 11.25A2.75 2.75 0 0 1 4.75 14A2.75 2.75 0 0 1 2 11.25A2.75 2.75 0 0 1 2.033 10.827A6 6 0 0 1 3.905 7.329Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.309 5.311A11.75 11.75 0 0 1 8.655 2.329A1.25 1.25 0 0 1 9.5 2A1.25 1.25 0 0 1 10.345 2.329A11.75 11.75 0 0 1 13.904 8.575A4.5 4.5 0 0 1 14 9.5A4.5 4.5 0 0 1 9.5 14A4.5 4.5 0 0 1 9.088 13.981A0.625 0.625 0 0 1 8.52 13.359A0.625 0.625 0 0 1 8.582 13.088A4.25 4.25 0 0 0 9 11.25A4.25 4.25 0 0 0 8.949 10.596A7.5 7.5 0 0 0 6.609 6.224A2.75 2.75 0 0 0 6.466 6.101A0.625 0.625 0 0 1 6.231 5.613A0.625 0.625 0 0 1 6.309 5.311Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.905 7.329A1.25 1.25 0 0 1 4.75 7A1.25 1.25 0 0 1 5.595 7.329A6 6 0 0 1 7.467 10.827A2.75 2.75 0 0 1 7.5 11.25A2.75 2.75 0 0 1 4.75 14A2.75 2.75 0 0 1 2 11.25A2.75 2.75 0 0 1 2.033 10.827A6 6 0 0 1 3.905 7.329Z\"/>",
+          "mark": false,
+          "tags": [
+            "drops",
+            "droplets",
+            "water",
+            "liquid",
+            "two",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -262158,6 +262670,10 @@
         "drag-handle-3",
         "drag-handle-3-filled",
         "drag-handle-filled",
+        "droplet",
+        "droplet-filled",
+        "droplets",
+        "droplets-filled",
         "euro",
         "euro-circle",
         "euro-circle-filled",
@@ -305249,6 +305765,258 @@
               "geometric": 4.1,
               "recession": 0.38,
               "optical": 4.38
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplet": {
+          "paths": [
+            "M9.49 2.95A0.75 0.75 0 0 1 10 2.75A0.75 0.75 0 0 1 10.51 2.95A15.5 15.5 0 0 1 15.11 10.79A5.25 5.25 0 0 1 15.25 12A5.25 5.25 0 0 1 10 17.25A5.25 5.25 0 0 1 4.75 12A5.25 5.25 0 0 1 4.89 10.79A15.5 15.5 0 0 1 9.49 2.95Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9.49 2.95A0.75 0.75 0 0 1 10 2.75A0.75 0.75 0 0 1 10.51 2.95A15.5 15.5 0 0 1 15.11 10.79A5.25 5.25 0 0 1 15.25 12A5.25 5.25 0 0 1 10 17.25A5.25 5.25 0 0 1 4.75 12A5.25 5.25 0 0 1 4.89 10.79A15.5 15.5 0 0 1 9.49 2.95Z\"/>",
+          "mark": false,
+          "tags": [
+            "drop",
+            "droplet",
+            "water",
+            "liquid",
+            "ink",
+            "plain",
+            "lucide",
+            "material",
+            "sf symbols",
+            "phosphor",
+            "tabler",
+            "feather",
+            "fluent"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.93,
+              "optical": 4.7
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0.93,
+              "optical": 4.7
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.11,
+              "optical": 2.83
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.77,
+              "optical": 2.58
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplet-filled": {
+          "paths": [],
+          "areas": [
+            "M8.99 2.39A1.5 1.5 0 0 1 10 2A1.5 1.5 0 0 1 11.01 2.39A16.25 16.25 0 0 1 15.84 10.61A6 6 0 0 1 16 12A6 6 0 0 1 10 18A6 6 0 0 1 4 12A6 6 0 0 1 4.16 10.61A16.25 16.25 0 0 1 8.99 2.39Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.99 2.39A1.5 1.5 0 0 1 10 2A1.5 1.5 0 0 1 11.01 2.39A16.25 16.25 0 0 1 15.84 10.61A6 6 0 0 1 16 12A6 6 0 0 1 10 18A6 6 0 0 1 4 12A6 6 0 0 1 4.16 10.61A16.25 16.25 0 0 1 8.99 2.39Z\"/>",
+          "mark": false,
+          "tags": [
+            "drop",
+            "droplet",
+            "water",
+            "liquid",
+            "ink",
+            "plain",
+            "lucide",
+            "material",
+            "sf symbols",
+            "phosphor",
+            "tabler",
+            "feather",
+            "fluent"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 12,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplets": {
+          "paths": [
+            "M8.46 6.97A15 15 0 0 1 10.99 3.95A0.75 0.75 0 0 1 11.5 3.75A0.75 0.75 0 0 1 12.01 3.95A15 15 0 0 1 15.96 9.88A4.75 4.75 0 0 1 16.25 11.5A4.75 4.75 0 0 1 11.5 16.25A4.75 4.75 0 0 1 11.16 16.24",
+            "M5.74 9.45A0.75 0.75 0 0 1 6.25 9.25A0.75 0.75 0 0 1 6.76 9.45A6.25 6.25 0 0 1 8.74 13.56A2.5 2.5 0 0 1 8.75 13.75A2.5 2.5 0 0 1 6.25 16.25A2.5 2.5 0 0 1 3.75 13.75A2.5 2.5 0 0 1 3.76 13.56A6.25 6.25 0 0 1 5.74 9.45Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.46 6.97A15 15 0 0 1 10.99 3.95A0.75 0.75 0 0 1 11.5 3.75A0.75 0.75 0 0 1 12.01 3.95A15 15 0 0 1 15.96 9.88A4.75 4.75 0 0 1 16.25 11.5A4.75 4.75 0 0 1 11.5 16.25A4.75 4.75 0 0 1 11.16 16.24\"/> <path d=\"M5.74 9.45A0.75 0.75 0 0 1 6.25 9.25A0.75 0.75 0 0 1 6.76 9.45A6.25 6.25 0 0 1 8.74 13.56A2.5 2.5 0 0 1 8.75 13.75A2.5 2.5 0 0 1 6.25 16.25A2.5 2.5 0 0 1 3.75 13.75A2.5 2.5 0 0 1 3.76 13.56A6.25 6.25 0 0 1 5.74 9.45Z\"/>",
+          "mark": false,
+          "tags": [
+            "drops",
+            "droplets",
+            "water",
+            "liquid",
+            "two",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.43,
+              "optical": 3.33
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.91,
+              "optical": 3.68
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.69,
+              "optical": 3.52
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.3,
+              "optical": 3.23
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplets-filled": {
+          "paths": [],
+          "areas": [
+            "M7.83 6.57A15.75 15.75 0 0 1 10.49 3.39A1.5 1.5 0 0 1 11.5 3A1.5 1.5 0 0 1 12.51 3.39A15.75 15.75 0 0 1 16.67 9.62A5.5 5.5 0 0 1 17 11.5A5.5 5.5 0 0 1 11.5 17A5.5 5.5 0 0 1 11.1 16.99A0.75 0.75 0 0 1 10.41 16.24A0.75 0.75 0 0 1 10.49 15.9A4.75 4.75 0 0 0 11 13.75A4.75 4.75 0 0 0 10.99 13.39A8.5 8.5 0 0 0 8.29 7.8A3 3 0 0 0 8.02 7.58A0.75 0.75 0 0 1 7.71 6.97A0.75 0.75 0 0 1 7.83 6.57Z",
+            "M5.23 8.9A1.5 1.5 0 0 1 6.25 8.5A1.5 1.5 0 0 1 7.27 8.9A7 7 0 0 1 9.49 13.5A3.25 3.25 0 0 1 9.5 13.75A3.25 3.25 0 0 1 6.25 17A3.25 3.25 0 0 1 3 13.75A3.25 3.25 0 0 1 3.01 13.5A7 7 0 0 1 5.23 8.9Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.83 6.57A15.75 15.75 0 0 1 10.49 3.39A1.5 1.5 0 0 1 11.5 3A1.5 1.5 0 0 1 12.51 3.39A15.75 15.75 0 0 1 16.67 9.62A5.5 5.5 0 0 1 17 11.5A5.5 5.5 0 0 1 11.5 17A5.5 5.5 0 0 1 11.1 16.99A0.75 0.75 0 0 1 10.41 16.24A0.75 0.75 0 0 1 10.49 15.9A4.75 4.75 0 0 0 11 13.75A4.75 4.75 0 0 0 10.99 13.39A8.5 8.5 0 0 0 8.29 7.8A3 3 0 0 0 8.02 7.58A0.75 0.75 0 0 1 7.71 6.97A0.75 0.75 0 0 1 7.83 6.57Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.23 8.9A1.5 1.5 0 0 1 6.25 8.5A1.5 1.5 0 0 1 7.27 8.9A7 7 0 0 1 9.49 13.5A3.25 3.25 0 0 1 9.5 13.75A3.25 3.25 0 0 1 6.25 17A3.25 3.25 0 0 1 3 13.75A3.25 3.25 0 0 1 3.01 13.5A7 7 0 0 1 5.23 8.9Z\"/>",
+          "mark": false,
+          "tags": [
+            "drops",
+            "droplets",
+            "water",
+            "liquid",
+            "two",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -392877,6 +393645,10 @@
         "drag-handle-3",
         "drag-handle-3-filled",
         "drag-handle-filled",
+        "droplet",
+        "droplet-filled",
+        "droplets",
+        "droplets-filled",
         "euro",
         "euro-circle",
         "euro-circle-filled",
@@ -436011,6 +436783,258 @@
               "geometric": 5.25,
               "recession": 0.49,
               "optical": 5.62
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplet": {
+          "paths": [
+            "M11.49 2.95A0.75 0.75 0 0 1 12 2.75A0.75 0.75 0 0 1 12.51 2.95A28.25 28.25 0 0 1 18.42 10.63A7.25 7.25 0 0 1 19.25 14A7.25 7.25 0 0 1 12 21.25A7.25 7.25 0 0 1 4.75 14A7.25 7.25 0 0 1 5.58 10.63A28.25 28.25 0 0 1 11.49 2.95Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.49 2.95A0.75 0.75 0 0 1 12 2.75A0.75 0.75 0 0 1 12.51 2.95A28.25 28.25 0 0 1 18.42 10.63A7.25 7.25 0 0 1 19.25 14A7.25 7.25 0 0 1 12 21.25A7.25 7.25 0 0 1 4.75 14A7.25 7.25 0 0 1 5.58 10.63A28.25 28.25 0 0 1 11.49 2.95Z\"/>",
+          "mark": false,
+          "tags": [
+            "drop",
+            "droplet",
+            "water",
+            "liquid",
+            "ink",
+            "plain",
+            "lucide",
+            "material",
+            "sf symbols",
+            "phosphor",
+            "tabler",
+            "feather",
+            "fluent"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 1.01,
+              "optical": 4.76
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 1.01,
+              "optical": 4.76
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 1.2,
+              "optical": 2.9
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplet-filled": {
+          "paths": [],
+          "areas": [
+            "M10.99 2.39A1.5 1.5 0 0 1 12 2A1.5 1.5 0 0 1 13.01 2.39A29 29 0 0 1 19.08 10.28A8 8 0 0 1 20 14A8 8 0 0 1 12 22A8 8 0 0 1 4 14A8 8 0 0 1 4.92 10.28A29 29 0 0 1 10.99 2.39Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.99 2.39A1.5 1.5 0 0 1 12 2A1.5 1.5 0 0 1 13.01 2.39A29 29 0 0 1 19.08 10.28A8 8 0 0 1 20 14A8 8 0 0 1 12 22A8 8 0 0 1 4 14A8 8 0 0 1 4.92 10.28A29 29 0 0 1 10.99 2.39Z\"/>",
+          "mark": false,
+          "tags": [
+            "drop",
+            "droplet",
+            "water",
+            "liquid",
+            "ink",
+            "plain",
+            "lucide",
+            "material",
+            "sf symbols",
+            "phosphor",
+            "tabler",
+            "feather",
+            "fluent"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 16,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 4,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplets": {
+          "paths": [
+            "M9.59 8.79A20.75 20.75 0 0 1 13.49 3.95A0.75 0.75 0 0 1 14 3.75A0.75 0.75 0 0 1 14.51 3.95A20.75 20.75 0 0 1 19.83 11.74A6.25 6.25 0 0 1 20.25 14A6.25 6.25 0 0 1 14 20.25A6.25 6.25 0 0 1 12.45 20.06",
+            "M6.51 10.93A0.75 0.75 0 0 1 7 10.75A0.75 0.75 0 0 1 7.49 10.93A8.05 8.05 0 0 1 10.25 17A3.25 3.25 0 0 1 7 20.25A3.25 3.25 0 0 1 3.75 17A8.05 8.05 0 0 1 6.51 10.93Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9.59 8.79A20.75 20.75 0 0 1 13.49 3.95A0.75 0.75 0 0 1 14 3.75A0.75 0.75 0 0 1 14.51 3.95A20.75 20.75 0 0 1 19.83 11.74A6.25 6.25 0 0 1 20.25 14A6.25 6.25 0 0 1 14 20.25A6.25 6.25 0 0 1 12.45 20.06\"/> <path d=\"M6.51 10.93A0.75 0.75 0 0 1 7 10.75A0.75 0.75 0 0 1 7.49 10.93A8.05 8.05 0 0 1 10.25 17A3.25 3.25 0 0 1 7 20.25A3.25 3.25 0 0 1 3.75 17A8.05 8.05 0 0 1 6.51 10.93Z\"/>",
+          "mark": false,
+          "tags": [
+            "drops",
+            "droplets",
+            "water",
+            "liquid",
+            "two",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.47,
+              "optical": 3.35
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.98,
+              "optical": 3.74
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.76,
+              "optical": 3.57
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.32,
+              "optical": 3.24
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "droplets-filled": {
+          "paths": [],
+          "areas": [
+            "M8.95 8.41A21.5 21.5 0 0 1 12.99 3.39A1.5 1.5 0 0 1 14 3A1.5 1.5 0 0 1 15.01 3.39A21.5 21.5 0 0 1 20.53 11.47A7 7 0 0 1 21 14A7 7 0 0 1 14 21A7 7 0 0 1 12.27 20.78A0.75 0.75 0 0 1 11.7 20.06A0.75 0.75 0 0 1 11.8 19.69A5.5 5.5 0 0 0 12.5 17A10.3 10.3 0 0 0 9.09 9.35A0.75 0.75 0 0 1 8.84 8.79A0.75 0.75 0 0 1 8.95 8.41Z",
+            "M6.01 10.37A1.5 1.5 0 0 1 7 10A1.5 1.5 0 0 1 7.99 10.37A8.8 8.8 0 0 1 11 17A4 4 0 0 1 7 21A4 4 0 0 1 3 17A8.8 8.8 0 0 1 6.01 10.37Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.95 8.41A21.5 21.5 0 0 1 12.99 3.39A1.5 1.5 0 0 1 14 3A1.5 1.5 0 0 1 15.01 3.39A21.5 21.5 0 0 1 20.53 11.47A7 7 0 0 1 21 14A7 7 0 0 1 14 21A7 7 0 0 1 12.27 20.78A0.75 0.75 0 0 1 11.7 20.06A0.75 0.75 0 0 1 11.8 19.69A5.5 5.5 0 0 0 12.5 17A10.3 10.3 0 0 0 9.09 9.35A0.75 0.75 0 0 1 8.84 8.79A0.75 0.75 0 0 1 8.95 8.41Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.01 10.37A1.5 1.5 0 0 1 7 10A1.5 1.5 0 0 1 7.99 10.37A8.8 8.8 0 0 1 11 17A4 4 0 0 1 7 21A4 4 0 0 1 3 17A8.8 8.8 0 0 1 6.01 10.37Z\"/>",
+          "mark": false,
+          "tags": [
+            "drops",
+            "droplets",
+            "water",
+            "liquid",
+            "two",
+            "lucide"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -530053,10 +531077,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     },
     {
       "n": 208,
@@ -536213,10 +537237,10 @@
       "section": "E · Added on request",
       "category": "Design Tools",
       "base": null,
-      "note": "added 2026-10-24",
-      "status": "todo",
+      "note": "added 2026-10-24 · approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     }
   ],
   "next": {
