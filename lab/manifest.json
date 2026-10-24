@@ -1333,6 +1333,8 @@
     "octagon-dashed",
     "octagon-dashed-filled",
     "octagon-filled",
+    "octagon-small",
+    "octagon-small-filled",
     "orbit",
     "orbit-filled",
     "outdent",
@@ -82119,6 +82121,122 @@
       "ratio": null,
       "gap": null
     },
+    "octagon-small": {
+      "paths": [
+        "M10.55 7.75L13.45 7.75A0.75 0.75 0 0 1 13.98 7.97L16.03 10.02A0.75 0.75 0 0 1 16.25 10.55L16.25 13.45A0.75 0.75 0 0 1 16.03 13.98L13.98 16.03A0.75 0.75 0 0 1 13.45 16.25L10.55 16.25A0.75 0.75 0 0 1 10.02 16.03L7.97 13.98A0.75 0.75 0 0 1 7.75 13.45L7.75 10.55A0.75 0.75 0 0 1 7.97 10.02L10.02 7.97A0.75 0.75 0 0 1 10.55 7.75Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M10.55 7.75L13.45 7.75A0.75 0.75 0 0 1 13.98 7.97L16.03 10.02A0.75 0.75 0 0 1 16.25 10.55L16.25 13.45A0.75 0.75 0 0 1 16.03 13.98L13.98 16.03A0.75 0.75 0 0 1 13.45 16.25L10.55 16.25A0.75 0.75 0 0 1 10.02 16.03L7.97 13.98A0.75 0.75 0 0 1 7.75 13.45L7.75 10.55A0.75 0.75 0 0 1 7.97 10.02L10.02 7.97A0.75 0.75 0 0 1 10.55 7.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "octagon",
+        "shape",
+        "polygon",
+        "geometry",
+        "small"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 7,
+        "y": 7,
+        "w": 10,
+        "h": 10
+      },
+      "bearing": {
+        "left": 7,
+        "top": 7,
+        "right": 7,
+        "bottom": 7
+      },
+      "optical": {
+        "left": {
+          "geometric": 7,
+          "recession": 0.68,
+          "optical": 7.51
+        },
+        "right": {
+          "geometric": 7,
+          "recession": 0.65,
+          "optical": 7.49
+        },
+        "top": {
+          "geometric": 7,
+          "recession": 0.65,
+          "optical": 7.49
+        },
+        "bottom": {
+          "geometric": 7,
+          "recession": 0.68,
+          "optical": 7.51
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "octagon-small-filled": {
+      "paths": [],
+      "areas": [
+        "M10.55 7L13.45 7A1.5 1.5 0 0 1 14.51 7.44L16.56 9.49A1.5 1.5 0 0 1 17 10.55L17 13.45A1.5 1.5 0 0 1 16.56 14.51L14.51 16.56A1.5 1.5 0 0 1 13.45 17L10.55 17A1.5 1.5 0 0 1 9.49 16.56L7.44 14.51A1.5 1.5 0 0 1 7 13.45L7 10.55A1.5 1.5 0 0 1 7.44 9.49L9.49 7.44A1.5 1.5 0 0 1 10.55 7Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.55 7L13.45 7A1.5 1.5 0 0 1 14.51 7.44L16.56 9.49A1.5 1.5 0 0 1 17 10.55L17 13.45A1.5 1.5 0 0 1 16.56 14.51L14.51 16.56A1.5 1.5 0 0 1 13.45 17L10.55 17A1.5 1.5 0 0 1 9.49 16.56L7.44 14.51A1.5 1.5 0 0 1 7 13.45L7 10.55A1.5 1.5 0 0 1 7.44 9.49L9.49 7.44A1.5 1.5 0 0 1 10.55 7Z\"/>",
+      "mark": false,
+      "tags": [
+        "octagon",
+        "shape",
+        "polygon",
+        "geometry",
+        "small"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 7,
+        "y": 7,
+        "w": 10,
+        "h": 10
+      },
+      "bearing": {
+        "left": 7,
+        "top": 7,
+        "right": 7,
+        "bottom": 7
+      },
+      "optical": {
+        "left": {
+          "geometric": 7,
+          "recession": 0,
+          "optical": 7
+        },
+        "top": {
+          "geometric": 7,
+          "recession": 0,
+          "optical": 7
+        },
+        "right": {
+          "geometric": 7,
+          "recession": 0,
+          "optical": 7
+        },
+        "bottom": {
+          "geometric": 7,
+          "recession": 0,
+          "optical": 7
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "orbit": {
       "paths": [
         "M20.85 9.32A9.25 9.25 0 1 1 14.68 3.15",
@@ -139288,6 +139406,8 @@
         "octagon-dashed",
         "octagon-dashed-filled",
         "octagon-filled",
+        "octagon-small",
+        "octagon-small-filled",
         "orbit",
         "orbit-filled",
         "outdent",
@@ -219981,6 +220101,122 @@
           "ratio": null,
           "gap": null
         },
+        "octagon-small": {
+          "paths": [
+            "M7.275 5.625L8.725 5.625A0.625 0.625 0 0 1 9.167 5.808L10.192 6.833A0.625 0.625 0 0 1 10.375 7.275L10.375 8.725A0.625 0.625 0 0 1 10.192 9.167L9.167 10.192A0.625 0.625 0 0 1 8.725 10.375L7.275 10.375A0.625 0.625 0 0 1 6.833 10.192L5.808 9.167A0.625 0.625 0 0 1 5.625 8.725L5.625 7.275A0.625 0.625 0 0 1 5.808 6.833L6.833 5.808A0.625 0.625 0 0 1 7.275 5.625Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.275 5.625L8.725 5.625A0.625 0.625 0 0 1 9.167 5.808L10.192 6.833A0.625 0.625 0 0 1 10.375 7.275L10.375 8.725A0.625 0.625 0 0 1 10.192 9.167L9.167 10.192A0.625 0.625 0 0 1 8.725 10.375L7.275 10.375A0.625 0.625 0 0 1 6.833 10.192L5.808 9.167A0.625 0.625 0 0 1 5.625 8.725L5.625 7.275A0.625 0.625 0 0 1 5.808 6.833L6.833 5.808A0.625 0.625 0 0 1 7.275 5.625Z\"/>",
+          "mark": false,
+          "tags": [
+            "octagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 5,
+            "y": 5,
+            "w": 6,
+            "h": 6
+          },
+          "bearing": {
+            "left": 5,
+            "top": 5,
+            "right": 5,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0.52,
+              "optical": 5.39
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0.52,
+              "optical": 5.39
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0.52,
+              "optical": 5.39
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0.52,
+              "optical": 5.39
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "octagon-small-filled": {
+          "paths": [],
+          "areas": [
+            "M7.275 5L8.725 5A1.25 1.25 0 0 1 9.609 5.366L10.634 6.391A1.25 1.25 0 0 1 11 7.275L11 8.725A1.25 1.25 0 0 1 10.634 9.609L9.609 10.634A1.25 1.25 0 0 1 8.725 11L7.275 11A1.25 1.25 0 0 1 6.391 10.634L5.366 9.609A1.25 1.25 0 0 1 5 8.725L5 7.275A1.25 1.25 0 0 1 5.366 6.391L6.391 5.366A1.25 1.25 0 0 1 7.275 5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.275 5L8.725 5A1.25 1.25 0 0 1 9.609 5.366L10.634 6.391A1.25 1.25 0 0 1 11 7.275L11 8.725A1.25 1.25 0 0 1 10.634 9.609L9.609 10.634A1.25 1.25 0 0 1 8.725 11L7.275 11A1.25 1.25 0 0 1 6.391 10.634L5.366 9.609A1.25 1.25 0 0 1 5 8.725L5 7.275A1.25 1.25 0 0 1 5.366 6.391L6.391 5.366A1.25 1.25 0 0 1 7.275 5Z\"/>",
+          "mark": false,
+          "tags": [
+            "octagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 5,
+            "y": 5,
+            "w": 6,
+            "h": 6
+          },
+          "bearing": {
+            "left": 5,
+            "top": 5,
+            "right": 5,
+            "bottom": 5
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "top": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "bottom": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "orbit": {
           "paths": [
             "M14.324 7.196A6.375 6.375 0 1 1 8.804 1.676",
@@ -277084,6 +277320,8 @@
         "octagon-dashed",
         "octagon-dashed-filled",
         "octagon-filled",
+        "octagon-small",
+        "octagon-small-filled",
         "orbit",
         "orbit-filled",
         "outdent",
@@ -357811,6 +358049,122 @@
           "ratio": null,
           "gap": null
         },
+        "octagon-small": {
+          "paths": [
+            "M8.96 6.75L11.04 6.75A0.75 0.75 0 0 1 11.57 6.97L13.03 8.43A0.75 0.75 0 0 1 13.25 8.96L13.25 11.04A0.75 0.75 0 0 1 13.03 11.57L11.57 13.03A0.75 0.75 0 0 1 11.04 13.25L8.96 13.25A0.75 0.75 0 0 1 8.43 13.03L6.97 11.57A0.75 0.75 0 0 1 6.75 11.04L6.75 8.96A0.75 0.75 0 0 1 6.97 8.43L8.43 6.97A0.75 0.75 0 0 1 8.96 6.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.96 6.75L11.04 6.75A0.75 0.75 0 0 1 11.57 6.97L13.03 8.43A0.75 0.75 0 0 1 13.25 8.96L13.25 11.04A0.75 0.75 0 0 1 13.03 11.57L11.57 13.03A0.75 0.75 0 0 1 11.04 13.25L8.96 13.25A0.75 0.75 0 0 1 8.43 13.03L6.97 11.57A0.75 0.75 0 0 1 6.75 11.04L6.75 8.96A0.75 0.75 0 0 1 6.97 8.43L8.43 6.97A0.75 0.75 0 0 1 8.96 6.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "octagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 6,
+            "y": 6,
+            "w": 8,
+            "h": 8
+          },
+          "bearing": {
+            "left": 6,
+            "top": 6,
+            "right": 6,
+            "bottom": 6
+          },
+          "optical": {
+            "left": {
+              "geometric": 6,
+              "recession": 0.64,
+              "optical": 6.48
+            },
+            "right": {
+              "geometric": 6,
+              "recession": 0.59,
+              "optical": 6.44
+            },
+            "top": {
+              "geometric": 6,
+              "recession": 0.59,
+              "optical": 6.44
+            },
+            "bottom": {
+              "geometric": 6,
+              "recession": 0.64,
+              "optical": 6.48
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "octagon-small-filled": {
+          "paths": [],
+          "areas": [
+            "M8.96 6L11.04 6A1.5 1.5 0 0 1 12.1 6.44L13.56 7.9A1.5 1.5 0 0 1 14 8.96L14 11.04A1.5 1.5 0 0 1 13.56 12.1L12.1 13.56A1.5 1.5 0 0 1 11.04 14L8.96 14A1.5 1.5 0 0 1 7.9 13.56L6.44 12.1A1.5 1.5 0 0 1 6 11.04L6 8.96A1.5 1.5 0 0 1 6.44 7.9L7.9 6.44A1.5 1.5 0 0 1 8.96 6Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.96 6L11.04 6A1.5 1.5 0 0 1 12.1 6.44L13.56 7.9A1.5 1.5 0 0 1 14 8.96L14 11.04A1.5 1.5 0 0 1 13.56 12.1L12.1 13.56A1.5 1.5 0 0 1 11.04 14L8.96 14A1.5 1.5 0 0 1 7.9 13.56L6.44 12.1A1.5 1.5 0 0 1 6 11.04L6 8.96A1.5 1.5 0 0 1 6.44 7.9L7.9 6.44A1.5 1.5 0 0 1 8.96 6Z\"/>",
+          "mark": false,
+          "tags": [
+            "octagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 6,
+            "y": 6,
+            "w": 8,
+            "h": 8
+          },
+          "bearing": {
+            "left": 6,
+            "top": 6,
+            "right": 6,
+            "bottom": 6
+          },
+          "optical": {
+            "left": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            },
+            "top": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            },
+            "right": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            },
+            "bottom": {
+              "geometric": 6,
+              "recession": 0,
+              "optical": 6
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "orbit": {
           "paths": [
             "M17.16 8.89A7.25 7.25 0 1 1 11.11 2.84",
@@ -414942,6 +415296,8 @@
         "octagon-dashed",
         "octagon-dashed-filled",
         "octagon-filled",
+        "octagon-small",
+        "octagon-small-filled",
         "orbit",
         "orbit-filled",
         "outdent",
@@ -495728,6 +496084,122 @@
           "ratio": null,
           "gap": null
         },
+        "octagon-small": {
+          "paths": [
+            "M10.55 7.75L13.45 7.75A0.75 0.75 0 0 1 13.98 7.97L16.03 10.02A0.75 0.75 0 0 1 16.25 10.55L16.25 13.45A0.75 0.75 0 0 1 16.03 13.98L13.98 16.03A0.75 0.75 0 0 1 13.45 16.25L10.55 16.25A0.75 0.75 0 0 1 10.02 16.03L7.97 13.98A0.75 0.75 0 0 1 7.75 13.45L7.75 10.55A0.75 0.75 0 0 1 7.97 10.02L10.02 7.97A0.75 0.75 0 0 1 10.55 7.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.55 7.75L13.45 7.75A0.75 0.75 0 0 1 13.98 7.97L16.03 10.02A0.75 0.75 0 0 1 16.25 10.55L16.25 13.45A0.75 0.75 0 0 1 16.03 13.98L13.98 16.03A0.75 0.75 0 0 1 13.45 16.25L10.55 16.25A0.75 0.75 0 0 1 10.02 16.03L7.97 13.98A0.75 0.75 0 0 1 7.75 13.45L7.75 10.55A0.75 0.75 0 0 1 7.97 10.02L10.02 7.97A0.75 0.75 0 0 1 10.55 7.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "octagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 7,
+            "y": 7,
+            "w": 10,
+            "h": 10
+          },
+          "bearing": {
+            "left": 7,
+            "top": 7,
+            "right": 7,
+            "bottom": 7
+          },
+          "optical": {
+            "left": {
+              "geometric": 7,
+              "recession": 0.68,
+              "optical": 7.51
+            },
+            "right": {
+              "geometric": 7,
+              "recession": 0.65,
+              "optical": 7.49
+            },
+            "top": {
+              "geometric": 7,
+              "recession": 0.65,
+              "optical": 7.49
+            },
+            "bottom": {
+              "geometric": 7,
+              "recession": 0.68,
+              "optical": 7.51
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "octagon-small-filled": {
+          "paths": [],
+          "areas": [
+            "M10.55 7L13.45 7A1.5 1.5 0 0 1 14.51 7.44L16.56 9.49A1.5 1.5 0 0 1 17 10.55L17 13.45A1.5 1.5 0 0 1 16.56 14.51L14.51 16.56A1.5 1.5 0 0 1 13.45 17L10.55 17A1.5 1.5 0 0 1 9.49 16.56L7.44 14.51A1.5 1.5 0 0 1 7 13.45L7 10.55A1.5 1.5 0 0 1 7.44 9.49L9.49 7.44A1.5 1.5 0 0 1 10.55 7Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.55 7L13.45 7A1.5 1.5 0 0 1 14.51 7.44L16.56 9.49A1.5 1.5 0 0 1 17 10.55L17 13.45A1.5 1.5 0 0 1 16.56 14.51L14.51 16.56A1.5 1.5 0 0 1 13.45 17L10.55 17A1.5 1.5 0 0 1 9.49 16.56L7.44 14.51A1.5 1.5 0 0 1 7 13.45L7 10.55A1.5 1.5 0 0 1 7.44 9.49L9.49 7.44A1.5 1.5 0 0 1 10.55 7Z\"/>",
+          "mark": false,
+          "tags": [
+            "octagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 7,
+            "y": 7,
+            "w": 10,
+            "h": 10
+          },
+          "bearing": {
+            "left": 7,
+            "top": 7,
+            "right": 7,
+            "bottom": 7
+          },
+          "optical": {
+            "left": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            },
+            "top": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            },
+            "right": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            },
+            "bottom": {
+              "geometric": 7,
+              "recession": 0,
+              "optical": 7
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "orbit": {
           "paths": [
             "M20.85 9.32A9.25 9.25 0 1 1 14.68 3.15",
@@ -562141,10 +562613,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": "octagon",
-      "note": "added 2026-10-24",
-      "status": "review",
+      "note": "added 2026-10-24 · approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     },
     {
       "n": 342,
