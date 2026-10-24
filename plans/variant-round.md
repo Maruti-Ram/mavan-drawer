@@ -1,6 +1,6 @@
 # Variant round — the 121 undrawn variant rows
 
-Status: **open** — started 2026-10-24.
+Status: **on hold** — rows on the sheet, not started (Maruti, 2026-10-24: "You dont draw those yet. u just add them to the library board as empty icons that we are yet to take up").
 
 ## What changes for Maruti
 
@@ -42,7 +42,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 
 ## Status
 
-- [x] Rows moved to V1–V5, all 121 started on the board (2026-10-24)
+- [x] Rows moved to V1–V5 (2026-10-24); started, then set back to not started on Maruti's correction the same day
 - [ ] Drawn (14 groups; one owner per badge picture, so a badge is drawn once and reused)
 - [ ] Reviewed and fixed
 - [ ] On the board for Maruti
