@@ -570,7 +570,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 163. `corner-radius-2` · Design Tools · variant of `corner-radius` — Top-right corner · approved 2026-10-24
 - [x] 164. `eyedropper` · Design Tools — approved 2026-10-24
 - [x] 164. `eyedropper-2` · Design Tools · variant of `eyedropper` — Crossbar pipette · approved 2026-10-24
-- [~] 165. `flip-horizontal` · Design Tools
+- [x] 165. `flip-horizontal` · Design Tools — approved 2026-10-24
+- [x] 165. `flip-horizontal-2` · Design Tools · variant of `flip-horizontal` — Solid half, dashed half · approved 2026-10-24
+- [x] 165. `flip-horizontal-3` · Design Tools · variant of `flip-horizontal` — Square, dashed centreline · approved 2026-10-24
 - [~] 166. `flip-vertical` · Design Tools
 - [~] 167. `palette` · Design Tools
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
