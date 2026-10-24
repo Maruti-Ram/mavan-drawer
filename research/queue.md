@@ -892,7 +892,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 297. `squares-connected` · Development & Infra — approved 2026-10-23
 - [x] 297. `squares-connected-2` · Development & Infra · variant of `squares-connected` — Two tiles, linked both ways · approved 2026-10-23
 - [x] 297. `squares-connected-3` · Development & Infra · variant of `squares-connected` — Two tiles stacked, short link · approved 2026-10-23
-- [~] 298. `stack` · Design Tools
+- [x] 298. `stack` · Design Tools — approved 2026-10-24
+- [x] 298. `stack-2` · Design Tools · variant of `stack` — Planes side-on · approved 2026-10-24
+- [x] 298. `stack-3` · Design Tools · variant of `stack` — Cards from the front · approved 2026-10-24
 - [x] 299. `subscription` · Commerce & Payments — approved 2026-10-21
 - [x] 299. `subscription-2` · Commerce & Payments · variant of `subscription` — Box on repeat · approved 2026-10-21
 - [x] 300. `airplay` · Arrows & Direction — approved 2026-10-17
