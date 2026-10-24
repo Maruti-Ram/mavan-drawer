@@ -694,7 +694,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 210. `map` · Maps & Location — approved 2026-10-18
 - [x] 210. `map-pinned` · Maps & Location · variant of `map` — Pin badge · approved 2026-10-18
 - [x] 210. `map-target` · Maps & Location · variant of `map` — You-are-here badge · approved 2026-10-18
-- [~] 211. `pen-tool` · Design Tools
+- [x] 211. `pen-tool` · Design Tools — approved 2026-10-24
+- [x] 211. `pen-tool-2` · Design Tools · variant of `pen-tool` — Holder nib, tip up-left · approved 2026-10-24
 - [x] 212. `shopping-bag` · Commerce & Payments — approved 2026-10-21
 - [x] 212. `shopping-bag-2` · Commerce & Payments · variant of `shopping-bag` — Tapered tote, handle on the rim · approved 2026-10-21
 - [x] 212. `shopping-bag-3` · Commerce & Payments · variant of `shopping-bag` — Box, fold band, smile handle · approved 2026-10-21
