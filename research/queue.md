@@ -576,7 +576,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 166. `flip-vertical` · Design Tools — approved 2026-10-24
 - [x] 166. `flip-vertical-2` · Design Tools · variant of `flip-vertical` — Solid half, dashed half · approved 2026-10-24
 - [x] 166. `flip-vertical-3` · Design Tools · variant of `flip-vertical` — Square, dashed centreline · approved 2026-10-24
-- [~] 167. `palette` · Design Tools
+- [x] 167. `palette` · Design Tools — approved 2026-10-24
+- [x] 167. `palette-2` · Design Tools · variant of `palette` — Fanned swatches · approved 2026-10-24
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
 - [x] 169. `receipt` · Commerce & Payments — approved 2026-10-21
 - [~] 170. `ruler` · Design Tools
