@@ -960,8 +960,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 338. `git-branch` · Development & Infra — approved 2026-10-23
 - [x] 339. `git-merge` · Development & Infra — approved 2026-10-23
 - [x] 340. `git-pull-request` · Development & Infra — approved 2026-10-23
-- [~] 341. `hexagon` · Design Tools
+- [x] 341. `hexagon` · Design Tools — approved 2026-10-24
 - [~] 341. `hexagon-small` · Design Tools · variant of `hexagon` — added 2026-10-24
+- [x] 341. `hexagon-dashed` · Design Tools · variant of `hexagon` — Dashed outline · approved 2026-10-24
 - [~] 342. `octagon` · Design Tools
 - [~] 342. `octagon-small` · Design Tools · variant of `octagon` — added 2026-10-24
 - [x] 343. `power` · Devices & Hardware — approved 2026-10-22
