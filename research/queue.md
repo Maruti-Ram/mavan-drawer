@@ -744,7 +744,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 230. `align-object-center-h` · Design Tools
 - [~] 231. `align-object-center-v` · Design Tools
 - [x] 232. `align-object-left` · Design Tools — approved 2026-10-24
-- [~] 233. `align-object-right` · Design Tools
+- [x] 233. `align-object-right` · Design Tools — approved 2026-10-24
 - [~] 234. `align-object-top` · Design Tools
 - [~] 235. `aspect-ratio` · Design Tools
 - [x] 236. `devices` · Devices & Hardware — approved 2026-10-23
