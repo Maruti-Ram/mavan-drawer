@@ -34,8 +34,9 @@
 // masters.mjs beside it) changed in two ways, each of which must match exactly or this stops:
 //   - the five gap comparisons (`< need - 0.01)`, `< floor - 0.01)` ×3, `< GAP - 0.01)`;
 //     lint.mjs:403, 438, 465, 493, 499) lose their 0.01: every warning that appears only then is
-//     one reading in the slack band (group 19). Today's lint (2026-10-20) has ten — the same five
-//     plus §5's crossing arms, §5f's ring hole, §5h and §5i ×2 — and loses all ten (`SLACKS`);
+//     one reading in the slack band (group 19). Lint at 2026-10-20 has ten — the same five
+//     plus §5's crossing arms, §5f's ring hole, §5h and §5i ×2 — and loses all ten; lint since
+//     §5j (99bdba79, 2026-10-21) has ten of its own, eleven with §5l, and loses those (`LINTS`);
 //   - the two `continue`s that skip a pair of paths that cross (lint.mjs:394) or come within 0.1
 //     (lint.mjs:401) report the pair before skipping it (group 18).
 // So lint measures its own escapes; nothing here re-implements a gap check.
@@ -213,28 +214,43 @@ export const TOUCH = 'if (min <= 0.1) continue;';
 // and hands a crossing pair to the arm-tip check (§5)
 export const CROSS_NOW = 'if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else crossed(i, j); continue; }';
 export const TOUCH_NOW = 'if (min <= 0.1) { if (toBase) warnings.push(met); continue; }';
-/** The lints the patch is known to fit, by how many gap comparisons carry the 0.01 slack. */
+// lint since 2026-10-21 (§5j, 99bdba79) also marks each pair it skips as joined, the pairs whose bar air 5j reads
+export const CROSS_JOINED = 'if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else { crossed(i, j); joined.add(`${i}/${j}`); } continue; }';
+export const TOUCH_JOINED = 'if (min <= 0.1) { if (toBase) warnings.push(met); else joined.add(`${i}/${j}`); continue; }';
+/**
+ * The lints the patch is known to fit, by how many gap comparisons carry the 0.01 slack. One count
+ * can hold two lints — ten is both 2026-10-20's and lint from 2026-10-21 on — and their pair skips
+ * tell them apart.
+ */
 export const LINTS = {
-  5: { what: 'the pin 5933041: §5, §5b, §5c, §5f ×2 (lint.mjs:403, 438, 465, 493, 499)', CROSS, TOUCH },
-  10: { what: 'lint at 2026-10-20: those five plus §5\'s crossing arms, §5f\'s ring hole, §5h and §5i ×2 (lint.mjs:587, 607, 650, 678, 730, 744, 754, 780, 812, 823)',
-    CROSS: CROSS_NOW, TOUCH: TOUCH_NOW },
+  5: [{ when: 'the pin', what: 'the pin 5933041: §5, §5b, §5c, §5f ×2 (lint.mjs:403, 438, 465, 493, 499)', CROSS, TOUCH }],
+  10: [
+    { when: 'lint at 2026-10-20', what: 'lint at 2026-10-20: those five plus §5\'s crossing arms, §5f\'s ring hole, §5h and §5i ×2 (lint.mjs:587, 607, 650, 678, 730, 744, 754, 780, 812, 823)',
+      CROSS: CROSS_NOW, TOUCH: TOUCH_NOW },
+    // §5c's knockout and §5f's material between two cut-outs floor at `materialFloor` since 2026-10-21: outside SLACK, they keep their 0.01
+    { when: 'lint from 2026-10-21', what: 'lint from 2026-10-21 (99bdba79) to 2026-10-24 (fe0186e4): §5\'s crossing arms and pairs, §5j, §5b, §5f ×3, §5h and §5i ×2 (lint.mjs:635, 656, 675, 716, 824, 838, 848, 882, 914, 925 at fe0186e4)',
+      CROSS: CROSS_JOINED, TOUCH: TOUCH_JOINED },
+  ],
+  11: [{ when: 'lint with §5l', what: 'lint with §5l (2026-10-24, plans/lint-head-air.md): those ten plus §5l\'s arrowhead air', CROSS: CROSS_JOINED, TOUCH: TOUCH_JOINED }],
 };
 // the skip, reporting its pair first: `if (…) continue;` gains a block, a block gains a first statement
 const reported = (s, call) => (s.endsWith(') continue;') ? s.replace(' continue;', ` { ${call} continue; }`) : s.replace(') { ', `) { ${call} `));
+// the first of a known lint's two skips that does not match exactly once, as [name, times found]
+const misfit = (src, lint) => ['CROSS', 'TOUCH'].map((name) => [name, src.split(lint[name]).length - 1]).find(([, k]) => k !== 1);
 /**
- * lint.mjs's source → the same source with its gap slacks removed (five at the pin, ten today:
- * `LINTS`) and the two pair skips reported to `globalThis.__mdxPair(i, j, kind, min)`. Throws
- * unless every anchor of one known lint matches exactly as often as stated, so a lint that has
- * moved is never measured by a patch that half-applied.
+ * lint.mjs's source → the same source with its gap slacks removed (five at the pin, ten or eleven
+ * since: `LINTS`) and the two pair skips reported to `globalThis.__mdxPair(i, j, kind, min)`. Throws
+ * unless every anchor of exactly one known lint matches exactly as often as stated, so a lint that
+ * has moved is never measured by a patch that half-applied.
  */
 export function patchLint(src) {
   const slack = [...src.matchAll(SLACK)].length;
-  const lint = LINTS[slack];
-  if (!lint) throw new Error(`patchLint: expected 5 gap comparisons with a 0.01 slack (the pin's lint) or 10 (lint at 2026-10-20), found ${slack}`);
-  for (const name of ['CROSS', 'TOUCH']) {
-    const k = src.split(lint[name]).length - 1;
-    if (k !== 1) throw new Error(`patchLint: expected the ${name} skip once, found ${k}`);
-  }
+  const known = LINTS[slack];
+  if (!known) throw new Error(`patchLint: expected ${Object.entries(LINTS).map(([n, ls]) => `${n} (${ls.map((l) => l.when).join(' · ')})`).join(', ')} gap comparisons with a 0.01 slack, found ${slack}`);
+  const fits = known.filter((l) => !misfit(src, l));
+  if (fits.length > 1) throw new Error(`patchLint: ${slack} gap comparisons, and the pair skips of ${fits.map((l) => l.when).join(' and ')} all match`);
+  const lint = fits[0];
+  if (!lint) throw new Error(`patchLint: ${slack} gap comparisons, but no known lint's pair skips — ${known.map((l) => { const [name, k] = misfit(src, l); return `${l.when}: expected the ${name} skip once, found ${k}`; }).join(' · ')}`);
   return src.replace(SLACK, '$1)')
     .replace(lint.CROSS, () => reported(lint.CROSS, 'globalThis.__mdxPair?.(i, j, "cross", null);'))
     .replace(lint.TOUCH, () => reported(lint.TOUCH, 'globalThis.__mdxPair?.(i, j, "touch", min);'));

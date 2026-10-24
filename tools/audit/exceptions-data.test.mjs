@@ -15,7 +15,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseComment, extractFile } from './notes.mjs';
-import { CROSS, DEGREE, DEGREE_SINGULAR, EYE, GROUPS, KEY_GROUP, PROPOSALS, SLACK, SPELLING, TOUCH, build, by3, centreOf, classifyWarning, countRow, exactComments, extra, fnv, groupOfComment, inBand, isAnchored, isSortFamily, patchLint, skipsKnockout } from './exceptions-data.mjs';
+import { CROSS, CROSS_JOINED, CROSS_NOW, DEGREE, DEGREE_SINGULAR, EYE, GROUPS, KEY_GROUP, PROPOSALS, SLACK, SPELLING, TOUCH, TOUCH_JOINED, TOUCH_NOW, build, by3, centreOf, classifyWarning, countRow, exactComments, extra, fnv, groupOfComment, inBand, isAnchored, isSortFamily, patchLint, skipsKnockout } from './exceptions-data.mjs';
 
 const TOOLS = fileURLToPath(new URL('../', import.meta.url));
 const ROOT = (canvas, weight) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${canvas} ${canvas}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`;
@@ -129,14 +129,39 @@ test('patchLint drops exactly the five gap slacks and reports both pair skips', 
 });
 
 test('patchLint refuses a source it does not match exactly', () => {
-  assert.throws(() => patchLint(FAKE.replace('if (g < GAP - 0.01) w();', '')), /expected 5 gap comparisons/);
+  assert.throws(() => patchLint(FAKE.replace('if (g < GAP - 0.01) w();', '')), /expected 5 \(the pin\), 10 \(.*\), 11 \(.*\) gap comparisons with a 0\.01 slack, found 4/);
   assert.throws(() => patchLint(FAKE.replace(CROSS, '')), /CROSS skip once, found 0/);
   assert.throws(() => patchLint(`${FAKE}\n${TOUCH}`), /TOUCH skip once, found 2/);
 });
 
+// a lint after the pin: its two pair skips and n gap comparisons with the slack
+const later = (n, cross, touch) => [cross, 'const min = 2;', touch, ...Array.from({ length: n }, (_, k) => `if (g${k} < floor - 0.01) w();`)].join('\n');
+
+test('patchLint tells apart the lints that share a count by their pair skips, and reports both pairs in each', () => {
+  for (const [n, cross, touch] of [[10, CROSS_NOW, TOUCH_NOW], [10, CROSS_JOINED, TOUCH_JOINED], [11, CROSS_JOINED, TOUCH_JOINED]]) {
+    const out = patchLint(later(n, cross, touch));
+    assert.equal([...out.matchAll(SLACK)].length, 0, `${n} slacks`);
+    assert.ok(out.includes('if (crosses(sampled[i], sampled[j])) { globalThis.__mdxPair?.(i, j, "cross", null); if (toBase)'), `${n}: the cross is reported before the badge test`);
+    assert.ok(out.includes('if (min <= 0.1) { globalThis.__mdxPair?.(i, j, "touch", min); if (toBase)'), `${n}: and the touch`);
+  }
+  const joined = patchLint(later(10, CROSS_JOINED, TOUCH_JOINED));
+  assert.ok(joined.includes('else { crossed(i, j); joined.add(`${i}/${j}`); } continue; }'), 'a crossing pair still reaches the arms and 5j');
+  assert.ok(joined.includes('else joined.add(`${i}/${j}`); continue; }'), 'and a touching one 5j');
+});
+
+test('patchLint names every lint of that count when none fits', () => {
+  assert.throws(() => patchLint(later(10, CROSS, TOUCH)), /lint at 2026-10-20: expected the CROSS skip once, found 0 · lint from 2026-10-21: expected the CROSS skip once, found 0/);
+  assert.throws(() => patchLint(later(11, CROSS_NOW, TOUCH_NOW)), /lint with §5l: expected the CROSS skip once, found 0/);
+  assert.throws(() => patchLint(later(10, CROSS_JOINED, TOUCH_NOW)), /lint at 2026-10-20: expected the CROSS skip once, found 0 · lint from 2026-10-21: expected the TOUCH skip once, found 0/);
+  assert.throws(() => patchLint(later(10, `${CROSS_NOW}\n${CROSS_JOINED}`, `${TOUCH_NOW}\n${TOUCH_JOINED}`)), /pair skips of lint at 2026-10-20 and lint from 2026-10-21 all match/);
+});
+
 test('patchLint matches the repo\'s lint.mjs as it stands', () => {
   const src = readFileSync(join(TOOLS, 'lint.mjs'), 'utf8');
-  assert.doesNotThrow(() => patchLint(src));
+  const out = patchLint(src);
+  assert.equal([...out.matchAll(SLACK)].length, 0, 'every slack the pattern reads is gone');
+  assert.equal(out.split('globalThis.__mdxPair?.(i, j, "cross", null);').length - 1, 1);
+  assert.equal(out.split('globalThis.__mdxPair?.(i, j, "touch", min);').length - 1, 1);
 });
 
 test('extra is a multiset difference', () => {
