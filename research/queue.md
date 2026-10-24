@@ -1270,17 +1270,17 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 590. `troubleshoot-2` · Development & Infra · variant of `troubleshoot` — Heartbeat through the rim · approved 2026-10-24
 - [x] 591. `cloud-sun` · UI & Layout — added 2026-10-23 · approved 2026-10-23
 - [x] 592. `droplets` · Design Tools — added 2026-10-24 · approved 2026-10-24
-- [ ] 593. `control-key-left` · Keyboard keys — added 2026-10-24
-- [ ] 594. `control-key-right` · Keyboard keys — added 2026-10-24
-- [ ] 595. `shift` · Keyboard keys — added 2026-10-24
-- [ ] 596. `spacebar` · Keyboard keys — added 2026-10-24
-- [ ] 597. `enter` · Keyboard keys — added 2026-10-24
-- [ ] 598. `slash-command` · Keyboard keys — added 2026-10-24
-- [ ] 599. `shortcut` · Keyboard keys — added 2026-10-24
-- [ ] 600. `option` · Keyboard keys — added 2026-10-24
-- [ ] 601. `caps-lock` · Keyboard keys — added 2026-10-24
-- [ ] 602. `tab-key` · Keyboard keys — added 2026-10-24
-- [ ] 603. `escape` · Keyboard keys — added 2026-10-24
-- [ ] 604. `delete-forward` · Keyboard keys — added 2026-10-24
-- [ ] 605. `arrow-keys` · Keyboard keys — added 2026-10-24
-- [ ] 606. `keyboard-hide` · Keyboard keys — added 2026-10-24
+- [~] 593. `control-key-left` · Keyboard keys — added 2026-10-24
+- [~] 594. `control-key-right` · Keyboard keys — added 2026-10-24
+- [~] 595. `shift` · Keyboard keys — added 2026-10-24
+- [~] 596. `spacebar` · Keyboard keys — added 2026-10-24
+- [~] 597. `enter` · Keyboard keys — added 2026-10-24
+- [~] 598. `slash-command` · Keyboard keys — added 2026-10-24
+- [~] 599. `shortcut` · Keyboard keys — added 2026-10-24
+- [~] 600. `option` · Keyboard keys — added 2026-10-24
+- [~] 601. `caps-lock` · Keyboard keys — added 2026-10-24
+- [~] 602. `tab-key` · Keyboard keys — added 2026-10-24
+- [~] 603. `escape` · Keyboard keys — added 2026-10-24
+- [~] 604. `delete-forward` · Keyboard keys — added 2026-10-24
+- [~] 605. `arrow-keys` · Keyboard keys — added 2026-10-24
+- [~] 606. `keyboard-hide` · Keyboard keys — added 2026-10-24
