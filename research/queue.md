@@ -882,7 +882,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 293. `select-object` · Design Tools · variant of `select` — Handles and pointer · approved 2026-10-24
 - [x] 293. `select-element` · Design Tools · variant of `select` — Square and pointer · approved 2026-10-24
 - [x] 293. `select-crosshair` · Design Tools · variant of `select` — Dashed square, crosshair · approved 2026-10-24
-- [~] 294. `filters` · Design Tools
+- [x] 294. `filters` · Design Tools — approved 2026-10-24
+- [x] 294. `filters-2` · Design Tools · variant of `filters` — Three circles, cut apart · approved 2026-10-24
+- [x] 294. `filters-3` · Design Tools · variant of `filters` — Blur dots · approved 2026-10-24
 - [x] 295. `label` · Commerce & Payments — approved 2026-10-21
 - [x] 295. `label-2` · Commerce & Payments · variant of `label` — Upright hang tag · approved 2026-10-21
 - [x] 295. `label-important` · Commerce & Payments · variant of `label` — Important label · approved 2026-10-21
