@@ -773,6 +773,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 244. `rocket-4` · Development & Infra · variant of `rocket` — Upright, lifting off over exhaust lines · approved 2026-10-23
 - [x] 245. `rotation` · Design Tools — approved 2026-10-24
 - [x] 245. `rotation-360` · Design Tools · variant of `rotation` — Flat ring, one head · approved 2026-10-24
+- [x] 245. `rotation-360-3` · Design Tools · variant of `rotation` — Tilted loop · approved 2026-10-24
 - [x] 245. `rotation-360-2` · Design Tools · variant of `rotation` — Upright ring, one head · approved 2026-10-24
 - [x] 245. `rotation-cw` · Design Tools · variant of `rotation` — Ring half dashed, clockwise · approved 2026-10-24
 - [x] 246. `satellite` · Devices & Hardware — approved 2026-10-23

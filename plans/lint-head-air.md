@@ -310,3 +310,6 @@ Lint cannot read a head drawn as filled shapes, so these are on the list by hand
 transform drawer's `counter.mjs` on the centrelines the fills trace, 2026-10-24): `rotation-filled` and
 `rotation-cw-filled` carry `rotate-ccw-filled`'s and `rotate-cw-filled`'s head, **0.82** · **0.9** · **0.67** —
 redraw them with that family's filled head. Their outline heads hold 2.04 · 1.51 · 1.58.
+`rotation-360-3-filled` at 16 ships with its head at **0.75**, declared as the file's `gap` (Maruti, 2026-10-24: a
+tilted loop that fits the 12 box gets no further than 0.89), so lint prints it as an info line, not a warning — it
+belongs on this list too.
