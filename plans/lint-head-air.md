@@ -305,3 +305,8 @@ both; warned **424 → 253** (22 + the 231 below). 402 drawings changed and noth
 | `arrow-down-left`, `arrow-down-right`, `arrow-up-left`, `arrow-up-right-5`, `arrow-up-right`, `maximize-4`, `trending-down-2`, `trending-down`, `trending-up-2`, `trending-up` | 2.74 · 2.21 · 2.11 | 1.04 · 1.36 · **0.83** |
 | `rotate-ccw-11` | 2.04 · **0.97** · 1.05 | 2.04 · **0.97** · 1.05 |
 | `rotate-ccw-6` | 1.51 · **0.97** · 1.05 | 1.51 · **0.97** · 1.05 |
+
+Lint cannot read a head drawn as filled shapes, so these are on the list by hand (measured with the
+transform drawer's `counter.mjs` on the centrelines the fills trace, 2026-10-24): `rotation-filled` and
+`rotation-cw-filled` carry `rotate-ccw-filled`'s and `rotate-cw-filled`'s head, **0.82** · **0.9** · **0.67** —
+redraw them with that family's filled head. Their outline heads hold 2.04 · 1.51 · 1.58.
