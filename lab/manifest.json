@@ -63,6 +63,8 @@
     "align-object-bottom-filled",
     "align-object-center-h",
     "align-object-center-h-filled",
+    "align-object-center-v",
+    "align-object-center-v-filled",
     "align-object-left",
     "align-object-left-filled",
     "align-object-right",
@@ -5372,6 +5374,153 @@
         "align horizontal centers",
         "align center",
         "centred on a vertical line",
+        "align",
+        "alignment",
+        "arrange",
+        "objects",
+        "layers",
+        "design tools",
+        "guide line",
+        "two boxes",
+        "lucide",
+        "sf symbols",
+        "nucleo",
+        "phosphor",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "align-object-center-v": {
+      "paths": [
+        "M3.75 12H5.75",
+        "M10.25 12H13.75",
+        "M18.25 12H20.25",
+        "M7.25 3.75H8.75A1.5 1.5 0 0 1 10.25 5.25V18.75A1.5 1.5 0 0 1 8.75 20.25H7.25A1.5 1.5 0 0 1 5.75 18.75V5.25A1.5 1.5 0 0 1 7.25 3.75Z",
+        "M15.25 6.75H16.75A1.5 1.5 0 0 1 18.25 8.25V15.75A1.5 1.5 0 0 1 16.75 17.25H15.25A1.5 1.5 0 0 1 13.75 15.75V8.25A1.5 1.5 0 0 1 15.25 6.75Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 12H5.75\"/> <path d=\"M10.25 12H13.75\"/> <path d=\"M18.25 12H20.25\"/> <path d=\"M7.25 3.75H8.75A1.5 1.5 0 0 1 10.25 5.25V18.75A1.5 1.5 0 0 1 8.75 20.25H7.25A1.5 1.5 0 0 1 5.75 18.75V5.25A1.5 1.5 0 0 1 7.25 3.75Z\"/> <path d=\"M15.25 6.75H16.75A1.5 1.5 0 0 1 18.25 8.25V15.75A1.5 1.5 0 0 1 16.75 17.25H15.25A1.5 1.5 0 0 1 13.75 15.75V8.25A1.5 1.5 0 0 1 15.25 6.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "align vertical centers",
+        "align middle",
+        "centred on a horizontal line",
+        "align",
+        "alignment",
+        "arrange",
+        "objects",
+        "layers",
+        "design tools",
+        "guide line",
+        "two boxes",
+        "lucide",
+        "sf symbols",
+        "nucleo",
+        "phosphor",
+        "central"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 1.38,
+          "optical": 4.04
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.89,
+          "optical": 3.67
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.14,
+          "optical": 3.1
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.14,
+          "optical": 3.1
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "align-object-center-v-filled": {
+      "paths": [
+        "M3.75 12H5.75",
+        "M10.25 12H13.75",
+        "M18.25 12H20.25"
+      ],
+      "areas": [
+        "M7.25 3H8.75A2.25 2.25 0 0 1 11 5.25V18.75A2.25 2.25 0 0 1 8.75 21H7.25A2.25 2.25 0 0 1 5 18.75V5.25A2.25 2.25 0 0 1 7.25 3Z",
+        "M15.25 6H16.75A2.25 2.25 0 0 1 19 8.25V15.75A2.25 2.25 0 0 1 16.75 18H15.25A2.25 2.25 0 0 1 13 15.75V8.25A2.25 2.25 0 0 1 15.25 6Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 3H8.75A2.25 2.25 0 0 1 11 5.25V18.75A2.25 2.25 0 0 1 8.75 21H7.25A2.25 2.25 0 0 1 5 18.75V5.25A2.25 2.25 0 0 1 7.25 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.25 6H16.75A2.25 2.25 0 0 1 19 8.25V15.75A2.25 2.25 0 0 1 16.75 18H15.25A2.25 2.25 0 0 1 13 15.75V8.25A2.25 2.25 0 0 1 15.25 6Z\"/> <path d=\"M3.75 12H5.75\"/> <path d=\"M10.25 12H13.75\"/> <path d=\"M18.25 12H20.25\"/>",
+      "mark": false,
+      "tags": [
+        "align vertical centers",
+        "align middle",
+        "centred on a horizontal line",
         "align",
         "alignment",
         "arrange",
@@ -134355,6 +134504,8 @@
         "align-object-bottom-filled",
         "align-object-center-h",
         "align-object-center-h-filled",
+        "align-object-center-v",
+        "align-object-center-v-filled",
         "align-object-left",
         "align-object-left-filled",
         "align-object-right",
@@ -139664,6 +139815,153 @@
             "align horizontal centers",
             "align center",
             "centred on a vertical line",
+            "align",
+            "alignment",
+            "arrange",
+            "objects",
+            "layers",
+            "design tools",
+            "guide line",
+            "two boxes",
+            "lucide",
+            "sf symbols",
+            "nucleo",
+            "phosphor",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "align-object-center-v": {
+          "paths": [
+            "M2.625 8H3.625",
+            "M6.375 8H9.625",
+            "M12.375 8H13.375",
+            "M4.625 2.625H5.375A1 1 0 0 1 6.375 3.625V12.375A1 1 0 0 1 5.375 13.375H4.625A1 1 0 0 1 3.625 12.375V3.625A1 1 0 0 1 4.625 2.625Z",
+            "M10.625 4.625H11.375A1 1 0 0 1 12.375 5.625V10.375A1 1 0 0 1 11.375 11.375H10.625A1 1 0 0 1 9.625 10.375V5.625A1 1 0 0 1 10.625 4.625Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 8H3.625\"/> <path d=\"M6.375 8H9.625\"/> <path d=\"M12.375 8H13.375\"/> <path d=\"M4.625 2.625H5.375A1 1 0 0 1 6.375 3.625V12.375A1 1 0 0 1 5.375 13.375H4.625A1 1 0 0 1 3.625 12.375V3.625A1 1 0 0 1 4.625 2.625Z\"/> <path d=\"M10.625 4.625H11.375A1 1 0 0 1 12.375 5.625V10.375A1 1 0 0 1 11.375 11.375H10.625A1 1 0 0 1 9.625 10.375V5.625A1 1 0 0 1 10.625 4.625Z\"/>",
+          "mark": false,
+          "tags": [
+            "align vertical centers",
+            "align middle",
+            "centred on a horizontal line",
+            "align",
+            "alignment",
+            "arrange",
+            "objects",
+            "layers",
+            "design tools",
+            "guide line",
+            "two boxes",
+            "lucide",
+            "sf symbols",
+            "nucleo",
+            "phosphor",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.97,
+              "optical": 2.72
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.64,
+              "optical": 2.48
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.12,
+              "optical": 2.09
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.12,
+              "optical": 2.09
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "align-object-center-v-filled": {
+          "paths": [
+            "M2.625 8H3.625",
+            "M6.375 8H9.625",
+            "M12.375 8H13.375"
+          ],
+          "areas": [
+            "M4.625 2H5.375A1.625 1.625 0 0 1 7 3.625V12.375A1.625 1.625 0 0 1 5.375 14H4.625A1.625 1.625 0 0 1 3 12.375V3.625A1.625 1.625 0 0 1 4.625 2Z",
+            "M10.625 4H11.375A1.625 1.625 0 0 1 13 5.625V10.375A1.625 1.625 0 0 1 11.375 12H10.625A1.625 1.625 0 0 1 9 10.375V5.625A1.625 1.625 0 0 1 10.625 4Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.625 2H5.375A1.625 1.625 0 0 1 7 3.625V12.375A1.625 1.625 0 0 1 5.375 14H4.625A1.625 1.625 0 0 1 3 12.375V3.625A1.625 1.625 0 0 1 4.625 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.625 4H11.375A1.625 1.625 0 0 1 13 5.625V10.375A1.625 1.625 0 0 1 11.375 12H10.625A1.625 1.625 0 0 1 9 10.375V5.625A1.625 1.625 0 0 1 10.625 4Z\"/> <path d=\"M2.625 8H3.625\"/> <path d=\"M6.375 8H9.625\"/> <path d=\"M12.375 8H13.375\"/>",
+          "mark": false,
+          "tags": [
+            "align vertical centers",
+            "align middle",
+            "centred on a horizontal line",
             "align",
             "alignment",
             "arrange",
@@ -268514,6 +268812,8 @@
         "align-object-bottom-filled",
         "align-object-center-h",
         "align-object-center-h-filled",
+        "align-object-center-v",
+        "align-object-center-v-filled",
         "align-object-left",
         "align-object-left-filled",
         "align-object-right",
@@ -273823,6 +274123,153 @@
             "align horizontal centers",
             "align center",
             "centred on a vertical line",
+            "align",
+            "alignment",
+            "arrange",
+            "objects",
+            "layers",
+            "design tools",
+            "guide line",
+            "two boxes",
+            "lucide",
+            "sf symbols",
+            "nucleo",
+            "phosphor",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "align-object-center-v": {
+          "paths": [
+            "M3.75 10H4.75",
+            "M8.25 10H11.75",
+            "M15.25 10H16.25",
+            "M6 3.75H7A1.25 1.25 0 0 1 8.25 5V15A1.25 1.25 0 0 1 7 16.25H6A1.25 1.25 0 0 1 4.75 15V5A1.25 1.25 0 0 1 6 3.75Z",
+            "M13 5.75H14A1.25 1.25 0 0 1 15.25 7V13A1.25 1.25 0 0 1 14 14.25H13A1.25 1.25 0 0 1 11.75 13V7A1.25 1.25 0 0 1 13 5.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 10H4.75\"/> <path d=\"M8.25 10H11.75\"/> <path d=\"M15.25 10H16.25\"/> <path d=\"M6 3.75H7A1.25 1.25 0 0 1 8.25 5V15A1.25 1.25 0 0 1 7 16.25H6A1.25 1.25 0 0 1 4.75 15V5A1.25 1.25 0 0 1 6 3.75Z\"/> <path d=\"M13 5.75H14A1.25 1.25 0 0 1 15.25 7V13A1.25 1.25 0 0 1 14 14.25H13A1.25 1.25 0 0 1 11.75 13V7A1.25 1.25 0 0 1 13 5.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "align vertical centers",
+            "align middle",
+            "centred on a horizontal line",
+            "align",
+            "alignment",
+            "arrange",
+            "objects",
+            "layers",
+            "design tools",
+            "guide line",
+            "two boxes",
+            "lucide",
+            "sf symbols",
+            "nucleo",
+            "phosphor",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1,
+              "optical": 3.75
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.72,
+              "optical": 3.54
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.11
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.11
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "align-object-center-v-filled": {
+          "paths": [
+            "M3.75 10H4.75",
+            "M8.25 10H11.75",
+            "M15.25 10H16.25"
+          ],
+          "areas": [
+            "M6 3H7A2 2 0 0 1 9 5V15A2 2 0 0 1 7 17H6A2 2 0 0 1 4 15V5A2 2 0 0 1 6 3Z",
+            "M13 5H14A2 2 0 0 1 16 7V13A2 2 0 0 1 14 15H13A2 2 0 0 1 11 13V7A2 2 0 0 1 13 5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 3H7A2 2 0 0 1 9 5V15A2 2 0 0 1 7 17H6A2 2 0 0 1 4 15V5A2 2 0 0 1 6 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 5H14A2 2 0 0 1 16 7V13A2 2 0 0 1 14 15H13A2 2 0 0 1 11 13V7A2 2 0 0 1 13 5Z\"/> <path d=\"M3.75 10H4.75\"/> <path d=\"M8.25 10H11.75\"/> <path d=\"M15.25 10H16.25\"/>",
+          "mark": false,
+          "tags": [
+            "align vertical centers",
+            "align middle",
+            "centred on a horizontal line",
             "align",
             "alignment",
             "arrange",
@@ -402727,6 +403174,8 @@
         "align-object-bottom-filled",
         "align-object-center-h",
         "align-object-center-h-filled",
+        "align-object-center-v",
+        "align-object-center-v-filled",
         "align-object-left",
         "align-object-left-filled",
         "align-object-right",
@@ -408036,6 +408485,153 @@
             "align horizontal centers",
             "align center",
             "centred on a vertical line",
+            "align",
+            "alignment",
+            "arrange",
+            "objects",
+            "layers",
+            "design tools",
+            "guide line",
+            "two boxes",
+            "lucide",
+            "sf symbols",
+            "nucleo",
+            "phosphor",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "align-object-center-v": {
+          "paths": [
+            "M3.75 12H5.75",
+            "M10.25 12H13.75",
+            "M18.25 12H20.25",
+            "M7.25 3.75H8.75A1.5 1.5 0 0 1 10.25 5.25V18.75A1.5 1.5 0 0 1 8.75 20.25H7.25A1.5 1.5 0 0 1 5.75 18.75V5.25A1.5 1.5 0 0 1 7.25 3.75Z",
+            "M15.25 6.75H16.75A1.5 1.5 0 0 1 18.25 8.25V15.75A1.5 1.5 0 0 1 16.75 17.25H15.25A1.5 1.5 0 0 1 13.75 15.75V8.25A1.5 1.5 0 0 1 15.25 6.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 12H5.75\"/> <path d=\"M10.25 12H13.75\"/> <path d=\"M18.25 12H20.25\"/> <path d=\"M7.25 3.75H8.75A1.5 1.5 0 0 1 10.25 5.25V18.75A1.5 1.5 0 0 1 8.75 20.25H7.25A1.5 1.5 0 0 1 5.75 18.75V5.25A1.5 1.5 0 0 1 7.25 3.75Z\"/> <path d=\"M15.25 6.75H16.75A1.5 1.5 0 0 1 18.25 8.25V15.75A1.5 1.5 0 0 1 16.75 17.25H15.25A1.5 1.5 0 0 1 13.75 15.75V8.25A1.5 1.5 0 0 1 15.25 6.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "align vertical centers",
+            "align middle",
+            "centred on a horizontal line",
+            "align",
+            "alignment",
+            "arrange",
+            "objects",
+            "layers",
+            "design tools",
+            "guide line",
+            "two boxes",
+            "lucide",
+            "sf symbols",
+            "nucleo",
+            "phosphor",
+            "central"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.38,
+              "optical": 4.04
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.89,
+              "optical": 3.67
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "align-object-center-v-filled": {
+          "paths": [
+            "M3.75 12H5.75",
+            "M10.25 12H13.75",
+            "M18.25 12H20.25"
+          ],
+          "areas": [
+            "M7.25 3H8.75A2.25 2.25 0 0 1 11 5.25V18.75A2.25 2.25 0 0 1 8.75 21H7.25A2.25 2.25 0 0 1 5 18.75V5.25A2.25 2.25 0 0 1 7.25 3Z",
+            "M15.25 6H16.75A2.25 2.25 0 0 1 19 8.25V15.75A2.25 2.25 0 0 1 16.75 18H15.25A2.25 2.25 0 0 1 13 15.75V8.25A2.25 2.25 0 0 1 15.25 6Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 3H8.75A2.25 2.25 0 0 1 11 5.25V18.75A2.25 2.25 0 0 1 8.75 21H7.25A2.25 2.25 0 0 1 5 18.75V5.25A2.25 2.25 0 0 1 7.25 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M15.25 6H16.75A2.25 2.25 0 0 1 19 8.25V15.75A2.25 2.25 0 0 1 16.75 18H15.25A2.25 2.25 0 0 1 13 15.75V8.25A2.25 2.25 0 0 1 15.25 6Z\"/> <path d=\"M3.75 12H5.75\"/> <path d=\"M10.25 12H13.75\"/> <path d=\"M18.25 12H20.25\"/>",
+          "mark": false,
+          "tags": [
+            "align vertical centers",
+            "align middle",
+            "centred on a horizontal line",
             "align",
             "alignment",
             "arrange",
@@ -544805,10 +545401,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": null,
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     },
     {
       "n": 232,
