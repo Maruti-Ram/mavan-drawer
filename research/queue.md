@@ -573,7 +573,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 165. `flip-horizontal` · Design Tools — approved 2026-10-24
 - [x] 165. `flip-horizontal-2` · Design Tools · variant of `flip-horizontal` — Solid half, dashed half · approved 2026-10-24
 - [x] 165. `flip-horizontal-3` · Design Tools · variant of `flip-horizontal` — Square, dashed centreline · approved 2026-10-24
-- [~] 166. `flip-vertical` · Design Tools
+- [x] 166. `flip-vertical` · Design Tools — approved 2026-10-24
+- [x] 166. `flip-vertical-2` · Design Tools · variant of `flip-vertical` — Solid half, dashed half · approved 2026-10-24
+- [x] 166. `flip-vertical-3` · Design Tools · variant of `flip-vertical` — Square, dashed centreline · approved 2026-10-24
 - [~] 167. `palette` · Design Tools
 - [x] 168. `plane` · Maps & Location — approved 2026-10-18
 - [x] 169. `receipt` · Commerce & Payments — approved 2026-10-21
