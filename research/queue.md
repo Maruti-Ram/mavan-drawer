@@ -1283,8 +1283,8 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 599. `shortcut` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 600. `option` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 600. `option-2` · Keyboard keys · variant of `option` — ⎇ bare · approved 2026-10-24
-- [x] 600. `option-3` · Keyboard keys · variant of `option` — ⌥ on the square key, polished · approved 2026-10-24
-- [x] 600. `option-4` · Keyboard keys · variant of `option` — ⎇ on the square key, polished · approved 2026-10-24
+- [x] 600. `option-3` · Keyboard keys · variant of `option` — ⌥ on the square key, polished · approved 2026-10-25
+- [x] 600. `option-4` · Keyboard keys · variant of `option` — ⎇ on the square key, polished · approved 2026-10-25
 - [x] 601. `caps-lock` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 601. `caps-lock-2` · Keyboard keys · variant of `caps-lock` — ⌃ over a bar, bare · approved 2026-10-24
 - [x] 601. `caps-lock-3` · Keyboard keys · variant of `caps-lock` — ⇪ on a key cap, polished: control-key's caret over a bar · approved 2026-10-24
