@@ -965,6 +965,8 @@
     "hexagon-dashed",
     "hexagon-dashed-filled",
     "hexagon-filled",
+    "hexagon-small",
+    "hexagon-small-filled",
     "hierarchy",
     "hierarchy-filled",
     "highlighter",
@@ -59851,6 +59853,122 @@
           "geometric": 2.11,
           "recession": 0,
           "optical": 2.11
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hexagon-small": {
+      "paths": [
+        "M12.38 7.89L15.38 9.62A0.75 0.75 0 0 1 15.75 10.27L15.75 13.73A0.75 0.75 0 0 1 15.38 14.38L12.38 16.11A0.75 0.75 0 0 1 12 16.21A0.75 0.75 0 0 1 11.63 16.11L8.63 14.38A0.75 0.75 0 0 1 8.25 13.73L8.25 10.27A0.75 0.75 0 0 1 8.63 9.62L11.63 7.89A0.75 0.75 0 0 1 12 7.79A0.75 0.75 0 0 1 12.38 7.89Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M12.38 7.89L15.38 9.62A0.75 0.75 0 0 1 15.75 10.27L15.75 13.73A0.75 0.75 0 0 1 15.38 14.38L12.38 16.11A0.75 0.75 0 0 1 12 16.21A0.75 0.75 0 0 1 11.63 16.11L8.63 14.38A0.75 0.75 0 0 1 8.25 13.73L8.25 10.27A0.75 0.75 0 0 1 8.63 9.62L11.63 7.89A0.75 0.75 0 0 1 12 7.79A0.75 0.75 0 0 1 12.38 7.89Z\"/>",
+      "mark": false,
+      "tags": [
+        "hexagon",
+        "shape",
+        "polygon",
+        "geometry",
+        "small"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 7.5,
+        "y": 7.04,
+        "w": 9,
+        "h": 9.92
+      },
+      "bearing": {
+        "left": 7.5,
+        "top": 7.04,
+        "right": 7.5,
+        "bottom": 7.04
+      },
+      "optical": {
+        "left": {
+          "geometric": 7.5,
+          "recession": 0.62,
+          "optical": 7.96
+        },
+        "right": {
+          "geometric": 7.5,
+          "recession": 0.62,
+          "optical": 7.96
+        },
+        "top": {
+          "geometric": 7.04,
+          "recession": 0.95,
+          "optical": 7.75
+        },
+        "bottom": {
+          "geometric": 7.04,
+          "recession": 0.95,
+          "optical": 7.75
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "hexagon-small-filled": {
+      "paths": [],
+      "areas": [
+        "M12.75 7.24L15.75 8.97A1.5 1.5 0 0 1 16.5 10.27L16.5 13.73A1.5 1.5 0 0 1 15.75 15.03L12.75 16.76A1.5 1.5 0 0 1 12 16.96A1.5 1.5 0 0 1 11.25 16.76L8.25 15.03A1.5 1.5 0 0 1 7.5 13.73L7.5 10.27A1.5 1.5 0 0 1 8.25 8.97L11.25 7.24A1.5 1.5 0 0 1 12 7.04A1.5 1.5 0 0 1 12.75 7.24Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 7.24L15.75 8.97A1.5 1.5 0 0 1 16.5 10.27L16.5 13.73A1.5 1.5 0 0 1 15.75 15.03L12.75 16.76A1.5 1.5 0 0 1 12 16.96A1.5 1.5 0 0 1 11.25 16.76L8.25 15.03A1.5 1.5 0 0 1 7.5 13.73L7.5 10.27A1.5 1.5 0 0 1 8.25 8.97L11.25 7.24A1.5 1.5 0 0 1 12 7.04A1.5 1.5 0 0 1 12.75 7.24Z\"/>",
+      "mark": false,
+      "tags": [
+        "hexagon",
+        "shape",
+        "polygon",
+        "geometry",
+        "small"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 7.5,
+        "y": 7.04,
+        "w": 9,
+        "h": 9.92
+      },
+      "bearing": {
+        "left": 7.5,
+        "top": 7.04,
+        "right": 7.5,
+        "bottom": 7.04
+      },
+      "optical": {
+        "left": {
+          "geometric": 7.5,
+          "recession": 0,
+          "optical": 7.5
+        },
+        "top": {
+          "geometric": 7.04,
+          "recession": 0,
+          "optical": 7.04
+        },
+        "right": {
+          "geometric": 7.5,
+          "recession": 0,
+          "optical": 7.5
+        },
+        "bottom": {
+          "geometric": 7.04,
+          "recession": 0,
+          "optical": 7.04
         }
       },
       "container": null,
@@ -138802,6 +138920,8 @@
         "hexagon-dashed",
         "hexagon-dashed-filled",
         "hexagon-filled",
+        "hexagon-small",
+        "hexagon-small-filled",
         "hierarchy",
         "hierarchy-filled",
         "highlighter",
@@ -197602,6 +197722,122 @@
               "geometric": 1.4,
               "recession": 0,
               "optical": 1.4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hexagon-small": {
+          "paths": [
+            "M8.313 5.438L10.063 6.448A0.625 0.625 0 0 1 10.375 6.99L10.375 9.01A0.625 0.625 0 0 1 10.063 9.552L8.313 10.562A0.625 0.625 0 0 1 8 10.646A0.625 0.625 0 0 1 7.688 10.562L5.938 9.552A0.625 0.625 0 0 1 5.625 9.01L5.625 6.99A0.625 0.625 0 0 1 5.938 6.448L7.688 5.438A0.625 0.625 0 0 1 8 5.354A0.625 0.625 0 0 1 8.313 5.438Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.313 5.438L10.063 6.448A0.625 0.625 0 0 1 10.375 6.99L10.375 9.01A0.625 0.625 0 0 1 10.063 9.552L8.313 10.562A0.625 0.625 0 0 1 8 10.646A0.625 0.625 0 0 1 7.688 10.562L5.938 9.552A0.625 0.625 0 0 1 5.625 9.01L5.625 6.99A0.625 0.625 0 0 1 5.938 6.448L7.688 5.438A0.625 0.625 0 0 1 8 5.354A0.625 0.625 0 0 1 8.313 5.438Z\"/>",
+          "mark": false,
+          "tags": [
+            "hexagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 5,
+            "y": 4.73,
+            "w": 6,
+            "h": 6.54
+          },
+          "bearing": {
+            "left": 5,
+            "top": 4.73,
+            "right": 5,
+            "bottom": 4.73
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0.5,
+              "optical": 5.38
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0.5,
+              "optical": 5.38
+            },
+            "top": {
+              "geometric": 4.73,
+              "recession": 0.69,
+              "optical": 5.25
+            },
+            "bottom": {
+              "geometric": 4.73,
+              "recession": 0.69,
+              "optical": 5.25
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hexagon-small-filled": {
+          "paths": [],
+          "areas": [
+            "M8.625 4.897L10.375 5.907A1.25 1.25 0 0 1 11 6.99L11 9.01A1.25 1.25 0 0 1 10.375 10.093L8.625 11.103A1.25 1.25 0 0 1 8 11.271A1.25 1.25 0 0 1 7.375 11.103L5.625 10.093A1.25 1.25 0 0 1 5 9.01L5 6.99A1.25 1.25 0 0 1 5.625 5.907L7.375 4.897A1.25 1.25 0 0 1 8 4.729A1.25 1.25 0 0 1 8.625 4.897Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.625 4.897L10.375 5.907A1.25 1.25 0 0 1 11 6.99L11 9.01A1.25 1.25 0 0 1 10.375 10.093L8.625 11.103A1.25 1.25 0 0 1 8 11.271A1.25 1.25 0 0 1 7.375 11.103L5.625 10.093A1.25 1.25 0 0 1 5 9.01L5 6.99A1.25 1.25 0 0 1 5.625 5.907L7.375 4.897A1.25 1.25 0 0 1 8 4.729A1.25 1.25 0 0 1 8.625 4.897Z\"/>",
+          "mark": false,
+          "tags": [
+            "hexagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 5,
+            "y": 4.73,
+            "w": 6,
+            "h": 6.54
+          },
+          "bearing": {
+            "left": 5,
+            "top": 4.73,
+            "right": 5,
+            "bottom": 4.73
+          },
+          "optical": {
+            "left": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "top": {
+              "geometric": 4.73,
+              "recession": 0,
+              "optical": 4.73
+            },
+            "right": {
+              "geometric": 5,
+              "recession": 0,
+              "optical": 5
+            },
+            "bottom": {
+              "geometric": 4.73,
+              "recession": 0,
+              "optical": 4.73
             }
           },
           "container": null,
@@ -276480,6 +276716,8 @@
         "hexagon-dashed",
         "hexagon-dashed-filled",
         "hexagon-filled",
+        "hexagon-small",
+        "hexagon-small-filled",
         "hierarchy",
         "hierarchy-filled",
         "highlighter",
@@ -335310,6 +335548,122 @@
               "geometric": 2.34,
               "recession": 0,
               "optical": 2.34
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hexagon-small": {
+          "paths": [
+            "M10.38 7.04L12.38 8.2A0.75 0.75 0 0 1 12.75 8.85L12.75 11.15A0.75 0.75 0 0 1 12.38 11.8L10.38 12.96A0.75 0.75 0 0 1 10 13.06A0.75 0.75 0 0 1 9.63 12.96L7.63 11.8A0.75 0.75 0 0 1 7.25 11.15L7.25 8.85A0.75 0.75 0 0 1 7.63 8.2L9.63 7.04A0.75 0.75 0 0 1 10 6.94A0.75 0.75 0 0 1 10.38 7.04Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.38 7.04L12.38 8.2A0.75 0.75 0 0 1 12.75 8.85L12.75 11.15A0.75 0.75 0 0 1 12.38 11.8L10.38 12.96A0.75 0.75 0 0 1 10 13.06A0.75 0.75 0 0 1 9.63 12.96L7.63 11.8A0.75 0.75 0 0 1 7.25 11.15L7.25 8.85A0.75 0.75 0 0 1 7.63 8.2L9.63 7.04A0.75 0.75 0 0 1 10 6.94A0.75 0.75 0 0 1 10.38 7.04Z\"/>",
+          "mark": false,
+          "tags": [
+            "hexagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 6.5,
+            "y": 6.19,
+            "w": 7,
+            "h": 7.62
+          },
+          "bearing": {
+            "left": 6.5,
+            "top": 6.19,
+            "right": 6.5,
+            "bottom": 6.19
+          },
+          "optical": {
+            "left": {
+              "geometric": 6.5,
+              "recession": 0.58,
+              "optical": 6.94
+            },
+            "right": {
+              "geometric": 6.5,
+              "recession": 0.58,
+              "optical": 6.94
+            },
+            "top": {
+              "geometric": 6.19,
+              "recession": 0.8,
+              "optical": 6.79
+            },
+            "bottom": {
+              "geometric": 6.19,
+              "recession": 0.8,
+              "optical": 6.79
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hexagon-small-filled": {
+          "paths": [],
+          "areas": [
+            "M10.75 6.39L12.75 7.55A1.5 1.5 0 0 1 13.5 8.85L13.5 11.15A1.5 1.5 0 0 1 12.75 12.45L10.75 13.61A1.5 1.5 0 0 1 10 13.81A1.5 1.5 0 0 1 9.25 13.61L7.25 12.45A1.5 1.5 0 0 1 6.5 11.15L6.5 8.85A1.5 1.5 0 0 1 7.25 7.55L9.25 6.39A1.5 1.5 0 0 1 10 6.19A1.5 1.5 0 0 1 10.75 6.39Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.75 6.39L12.75 7.55A1.5 1.5 0 0 1 13.5 8.85L13.5 11.15A1.5 1.5 0 0 1 12.75 12.45L10.75 13.61A1.5 1.5 0 0 1 10 13.81A1.5 1.5 0 0 1 9.25 13.61L7.25 12.45A1.5 1.5 0 0 1 6.5 11.15L6.5 8.85A1.5 1.5 0 0 1 7.25 7.55L9.25 6.39A1.5 1.5 0 0 1 10 6.19A1.5 1.5 0 0 1 10.75 6.39Z\"/>",
+          "mark": false,
+          "tags": [
+            "hexagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 6.5,
+            "y": 6.19,
+            "w": 7,
+            "h": 7.62
+          },
+          "bearing": {
+            "left": 6.5,
+            "top": 6.19,
+            "right": 6.5,
+            "bottom": 6.19
+          },
+          "optical": {
+            "left": {
+              "geometric": 6.5,
+              "recession": 0,
+              "optical": 6.5
+            },
+            "top": {
+              "geometric": 6.19,
+              "recession": 0,
+              "optical": 6.19
+            },
+            "right": {
+              "geometric": 6.5,
+              "recession": 0,
+              "optical": 6.5
+            },
+            "bottom": {
+              "geometric": 6.19,
+              "recession": 0,
+              "optical": 6.19
             }
           },
           "container": null,
@@ -414220,6 +414574,8 @@
         "hexagon-dashed",
         "hexagon-dashed-filled",
         "hexagon-filled",
+        "hexagon-small",
+        "hexagon-small-filled",
         "hierarchy",
         "hierarchy-filled",
         "highlighter",
@@ -473106,6 +473462,122 @@
               "geometric": 2.11,
               "recession": 0,
               "optical": 2.11
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hexagon-small": {
+          "paths": [
+            "M12.38 7.89L15.38 9.62A0.75 0.75 0 0 1 15.75 10.27L15.75 13.73A0.75 0.75 0 0 1 15.38 14.38L12.38 16.11A0.75 0.75 0 0 1 12 16.21A0.75 0.75 0 0 1 11.63 16.11L8.63 14.38A0.75 0.75 0 0 1 8.25 13.73L8.25 10.27A0.75 0.75 0 0 1 8.63 9.62L11.63 7.89A0.75 0.75 0 0 1 12 7.79A0.75 0.75 0 0 1 12.38 7.89Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12.38 7.89L15.38 9.62A0.75 0.75 0 0 1 15.75 10.27L15.75 13.73A0.75 0.75 0 0 1 15.38 14.38L12.38 16.11A0.75 0.75 0 0 1 12 16.21A0.75 0.75 0 0 1 11.63 16.11L8.63 14.38A0.75 0.75 0 0 1 8.25 13.73L8.25 10.27A0.75 0.75 0 0 1 8.63 9.62L11.63 7.89A0.75 0.75 0 0 1 12 7.79A0.75 0.75 0 0 1 12.38 7.89Z\"/>",
+          "mark": false,
+          "tags": [
+            "hexagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 7.5,
+            "y": 7.04,
+            "w": 9,
+            "h": 9.92
+          },
+          "bearing": {
+            "left": 7.5,
+            "top": 7.04,
+            "right": 7.5,
+            "bottom": 7.04
+          },
+          "optical": {
+            "left": {
+              "geometric": 7.5,
+              "recession": 0.62,
+              "optical": 7.96
+            },
+            "right": {
+              "geometric": 7.5,
+              "recession": 0.62,
+              "optical": 7.96
+            },
+            "top": {
+              "geometric": 7.04,
+              "recession": 0.95,
+              "optical": 7.75
+            },
+            "bottom": {
+              "geometric": 7.04,
+              "recession": 0.95,
+              "optical": 7.75
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "hexagon-small-filled": {
+          "paths": [],
+          "areas": [
+            "M12.75 7.24L15.75 8.97A1.5 1.5 0 0 1 16.5 10.27L16.5 13.73A1.5 1.5 0 0 1 15.75 15.03L12.75 16.76A1.5 1.5 0 0 1 12 16.96A1.5 1.5 0 0 1 11.25 16.76L8.25 15.03A1.5 1.5 0 0 1 7.5 13.73L7.5 10.27A1.5 1.5 0 0 1 8.25 8.97L11.25 7.24A1.5 1.5 0 0 1 12 7.04A1.5 1.5 0 0 1 12.75 7.24Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12.75 7.24L15.75 8.97A1.5 1.5 0 0 1 16.5 10.27L16.5 13.73A1.5 1.5 0 0 1 15.75 15.03L12.75 16.76A1.5 1.5 0 0 1 12 16.96A1.5 1.5 0 0 1 11.25 16.76L8.25 15.03A1.5 1.5 0 0 1 7.5 13.73L7.5 10.27A1.5 1.5 0 0 1 8.25 8.97L11.25 7.24A1.5 1.5 0 0 1 12 7.04A1.5 1.5 0 0 1 12.75 7.24Z\"/>",
+          "mark": false,
+          "tags": [
+            "hexagon",
+            "shape",
+            "polygon",
+            "geometry",
+            "small"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 7.5,
+            "y": 7.04,
+            "w": 9,
+            "h": 9.92
+          },
+          "bearing": {
+            "left": 7.5,
+            "top": 7.04,
+            "right": 7.5,
+            "bottom": 7.04
+          },
+          "optical": {
+            "left": {
+              "geometric": 7.5,
+              "recession": 0,
+              "optical": 7.5
+            },
+            "top": {
+              "geometric": 7.04,
+              "recession": 0,
+              "optical": 7.04
+            },
+            "right": {
+              "geometric": 7.5,
+              "recession": 0,
+              "optical": 7.5
+            },
+            "bottom": {
+              "geometric": 7.04,
+              "recession": 0,
+              "optical": 7.04
             }
           },
           "container": null,
@@ -561636,10 +562108,10 @@
       "section": "D · The rest, by audit rank",
       "category": "Design Tools",
       "base": "hexagon",
-      "note": "added 2026-10-24",
-      "status": "review",
+      "note": "added 2026-10-24 · approved 2026-10-24",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-24"
     },
     {
       "n": 341,
