@@ -963,8 +963,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 341. `hexagon` · Design Tools — approved 2026-10-24
 - [~] 341. `hexagon-small` · Design Tools · variant of `hexagon` — added 2026-10-24
 - [x] 341. `hexagon-dashed` · Design Tools · variant of `hexagon` — Dashed outline · approved 2026-10-24
-- [~] 342. `octagon` · Design Tools
+- [x] 342. `octagon` · Design Tools — approved 2026-10-24
 - [~] 342. `octagon-small` · Design Tools · variant of `octagon` — added 2026-10-24
+- [x] 342. `octagon-dashed` · Design Tools · variant of `octagon` — Dashed outline · approved 2026-10-24
 - [x] 343. `power` · Devices & Hardware — approved 2026-10-22
 - [x] 343. `power-circle` · Devices & Hardware · variant of `power` — Standby on a round button · approved 2026-10-22
 - [x] 343. `power-square` · Devices & Hardware · variant of `power` — Standby on a square key · approved 2026-10-22
