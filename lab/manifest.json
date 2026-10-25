@@ -1408,6 +1408,8 @@
     "message-6-filled",
     "message-7",
     "message-7-filled",
+    "message-alert",
+    "message-alert-filled",
     "message-filled",
     "messages",
     "messages-2",
@@ -87438,6 +87440,135 @@
       "ratio": null,
       "gap": null
     },
+    "message-alert": {
+      "paths": [
+        "M17.75 16.25L9.43 16.25A1.5 1.5 0 0 0 8.37 16.69L5.03 20.03A0.75 0.75 0 0 1 3.75 19.5L3.75 6.25A2.5 2.5 0 0 1 6.25 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 10.25",
+        "M20.75 13.25V17.75",
+        "M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z"
+      ],
+      "areas": [],
+      "body": "<path d=\"M17.75 16.25L9.43 16.25A1.5 1.5 0 0 0 8.37 16.69L5.03 20.03A0.75 0.75 0 0 1 3.75 19.5L3.75 6.25A2.5 2.5 0 0 1 6.25 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 10.25\"/> <path d=\"M20.75 13.25V17.75\"/> <path d=\"M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "message",
+        "chat",
+        "alert",
+        "warning",
+        "error",
+        "failed",
+        "not sent",
+        "exclamation",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 19,
+        "h": 19
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.13,
+          "optical": 3.1
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.06,
+          "optical": 2.04
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.23,
+          "optical": 3.17
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.06,
+          "optical": 2.04
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "message-alert-filled": {
+      "paths": [
+        "M20.75 13.25V17.75",
+        "M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z"
+      ],
+      "areas": [
+        "M3 6.25A3.25 3.25 0 0 1 6.25 3L17.75 3A3.25 3.25 0 0 1 21 6.25L21 10.29A0.75 0.75 0 0 1 20.38 11.03A2.25 2.25 0 0 0 18.5 13.25L18.5 16.25A0.75 0.75 0 0 1 17.75 17L9.43 17A0.75 0.75 0 0 0 8.9 17.22L5.56 20.56A1.5 1.5 0 0 1 3 19.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6.25A3.25 3.25 0 0 1 6.25 3L17.75 3A3.25 3.25 0 0 1 21 6.25L21 10.29A0.75 0.75 0 0 1 20.38 11.03A2.25 2.25 0 0 0 18.5 13.25L18.5 16.25A0.75 0.75 0 0 1 17.75 17L9.43 17A0.75 0.75 0 0 0 8.9 17.22L5.56 20.56A1.5 1.5 0 0 1 3 19.5Z\"/> <path d=\"M20.75 13.25V17.75\"/> <path d=\"M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z\"/>",
+      "mark": false,
+      "tags": [
+        "message",
+        "chat",
+        "alert",
+        "warning",
+        "error",
+        "failed",
+        "not sent",
+        "exclamation",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 19,
+        "h": 19
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "message-filled": {
       "paths": [],
       "areas": [
@@ -157602,6 +157733,8 @@
         "message-6-filled",
         "message-7",
         "message-7-filled",
+        "message-alert",
+        "message-alert-filled",
         "message-filled",
         "messages",
         "messages-2",
@@ -243522,6 +243655,135 @@
           "ratio": null,
           "gap": null
         },
+        "message-alert": {
+          "paths": [
+            "M11.25 10.375L6.923 10.375A1 1 0 0 0 6.216 10.668L3.692 13.192A0.625 0.625 0 0 1 2.625 12.75L2.625 4.125A1.5 1.5 0 0 1 4.125 2.625L11.875 2.625A1.5 1.5 0 0 1 13.375 4.125L13.375 5.875",
+            "M14 8.625V11.375",
+            "M13.625 14A0.375 0.375 0 1 0 14.375 14A0.375 0.375 0 1 0 13.625 14Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.25 10.375L6.923 10.375A1 1 0 0 0 6.216 10.668L3.692 13.192A0.625 0.625 0 0 1 2.625 12.75L2.625 4.125A1.5 1.5 0 0 1 4.125 2.625L11.875 2.625A1.5 1.5 0 0 1 13.375 4.125L13.375 5.875\"/> <path d=\"M14 8.625V11.375\"/> <path d=\"M13.625 14A0.375 0.375 0 1 0 14.375 14A0.375 0.375 0 1 0 13.625 14Z\"/>",
+          "mark": false,
+          "tags": [
+            "message",
+            "chat",
+            "alert",
+            "warning",
+            "error",
+            "failed",
+            "not sent",
+            "exclamation",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 13,
+            "h": 13
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.12,
+              "optical": 2.09
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.06,
+              "optical": 1.04
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.17,
+              "optical": 2.12
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.06,
+              "optical": 1.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "message-alert-filled": {
+          "paths": [
+            "M14 8.625V11.375",
+            "M13.625 14A0.375 0.375 0 1 0 14.375 14A0.375 0.375 0 1 0 13.625 14Z"
+          ],
+          "areas": [
+            "M2 4.125A2.125 2.125 0 0 1 4.125 2L11.875 2A2.125 2.125 0 0 1 14 4.125L14 5.947A0.625 0.625 0 0 1 13.517 6.556A2.125 2.125 0 0 0 11.875 8.625L11.875 10.375A0.625 0.625 0 0 1 11.25 11L6.923 11A0.375 0.375 0 0 0 6.658 11.11L4.134 13.634A1.25 1.25 0 0 1 2 12.75Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 4.125A2.125 2.125 0 0 1 4.125 2L11.875 2A2.125 2.125 0 0 1 14 4.125L14 5.947A0.625 0.625 0 0 1 13.517 6.556A2.125 2.125 0 0 0 11.875 8.625L11.875 10.375A0.625 0.625 0 0 1 11.25 11L6.923 11A0.375 0.375 0 0 0 6.658 11.11L4.134 13.634A1.25 1.25 0 0 1 2 12.75Z\"/> <path d=\"M14 8.625V11.375\"/> <path d=\"M13.625 14A0.375 0.375 0 1 0 14.375 14A0.375 0.375 0 1 0 13.625 14Z\"/>",
+          "mark": false,
+          "tags": [
+            "message",
+            "chat",
+            "alert",
+            "warning",
+            "error",
+            "failed",
+            "not sent",
+            "exclamation",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 13,
+            "h": 13
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "message-filled": {
           "paths": [],
           "areas": [
@@ -313602,6 +313864,8 @@
         "message-6-filled",
         "message-7",
         "message-7-filled",
+        "message-alert",
+        "message-alert-filled",
         "message-filled",
         "messages",
         "messages-2",
@@ -399563,6 +399827,135 @@
           "ratio": null,
           "gap": null
         },
+        "message-alert": {
+          "paths": [
+            "M14 13.25L8.33 13.25A1.25 1.25 0 0 0 7.44 13.62L5.03 16.03A0.75 0.75 0 0 1 3.75 15.5L3.75 5.75A2 2 0 0 1 5.75 3.75L14.25 3.75A2 2 0 0 1 16.25 5.75L16.25 7.75",
+            "M17 10.75V14.25",
+            "M16.75 17A0.25 0.25 0 1 0 17.25 17A0.25 0.25 0 1 0 16.75 17Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M14 13.25L8.33 13.25A1.25 1.25 0 0 0 7.44 13.62L5.03 16.03A0.75 0.75 0 0 1 3.75 15.5L3.75 5.75A2 2 0 0 1 5.75 3.75L14.25 3.75A2 2 0 0 1 16.25 5.75L16.25 7.75\"/> <path d=\"M17 10.75V14.25\"/> <path d=\"M16.75 17A0.25 0.25 0 1 0 17.25 17A0.25 0.25 0 1 0 16.75 17Z\"/>",
+          "mark": false,
+          "tags": [
+            "message",
+            "chat",
+            "alert",
+            "warning",
+            "error",
+            "failed",
+            "not sent",
+            "exclamation",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 15,
+            "h": 15
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.13,
+              "optical": 3.1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.05,
+              "optical": 2.04
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.22,
+              "optical": 3.17
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.05,
+              "optical": 2.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "message-alert-filled": {
+          "paths": [
+            "M17 10.75V14.25",
+            "M16.75 17A0.25 0.25 0 1 0 17.25 17A0.25 0.25 0 1 0 16.75 17Z"
+          ],
+          "areas": [
+            "M3 5.75A2.75 2.75 0 0 1 5.75 3L14.25 3A2.75 2.75 0 0 1 17 5.75L17 7.85A0.75 0.75 0 0 1 16.44 8.57A2.25 2.25 0 0 0 14.75 10.75L14.75 13.25A0.75 0.75 0 0 1 14 14L8.33 14A0.5 0.5 0 0 0 7.97 14.15L5.56 16.56A1.5 1.5 0 0 1 3 15.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 5.75A2.75 2.75 0 0 1 5.75 3L14.25 3A2.75 2.75 0 0 1 17 5.75L17 7.85A0.75 0.75 0 0 1 16.44 8.57A2.25 2.25 0 0 0 14.75 10.75L14.75 13.25A0.75 0.75 0 0 1 14 14L8.33 14A0.5 0.5 0 0 0 7.97 14.15L5.56 16.56A1.5 1.5 0 0 1 3 15.5Z\"/> <path d=\"M17 10.75V14.25\"/> <path d=\"M16.75 17A0.25 0.25 0 1 0 17.25 17A0.25 0.25 0 1 0 16.75 17Z\"/>",
+          "mark": false,
+          "tags": [
+            "message",
+            "chat",
+            "alert",
+            "warning",
+            "error",
+            "failed",
+            "not sent",
+            "exclamation",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 15,
+            "h": 15
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "message-filled": {
           "paths": [],
           "areas": [
@@ -469677,6 +470070,8 @@
         "message-6-filled",
         "message-7",
         "message-7-filled",
+        "message-alert",
+        "message-alert-filled",
         "message-filled",
         "messages",
         "messages-2",
@@ -555707,6 +556102,135 @@
           "ratio": null,
           "gap": null
         },
+        "message-alert": {
+          "paths": [
+            "M17.75 16.25L9.43 16.25A1.5 1.5 0 0 0 8.37 16.69L5.03 20.03A0.75 0.75 0 0 1 3.75 19.5L3.75 6.25A2.5 2.5 0 0 1 6.25 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 10.25",
+            "M20.75 13.25V17.75",
+            "M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z"
+          ],
+          "areas": [],
+          "body": "<path d=\"M17.75 16.25L9.43 16.25A1.5 1.5 0 0 0 8.37 16.69L5.03 20.03A0.75 0.75 0 0 1 3.75 19.5L3.75 6.25A2.5 2.5 0 0 1 6.25 3.75L17.75 3.75A2.5 2.5 0 0 1 20.25 6.25L20.25 10.25\"/> <path d=\"M20.75 13.25V17.75\"/> <path d=\"M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "message",
+            "chat",
+            "alert",
+            "warning",
+            "error",
+            "failed",
+            "not sent",
+            "exclamation",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 19,
+            "h": 19
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.13,
+              "optical": 3.1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.04
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.23,
+              "optical": 3.17
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.04
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "message-alert-filled": {
+          "paths": [
+            "M20.75 13.25V17.75",
+            "M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z"
+          ],
+          "areas": [
+            "M3 6.25A3.25 3.25 0 0 1 6.25 3L17.75 3A3.25 3.25 0 0 1 21 6.25L21 10.29A0.75 0.75 0 0 1 20.38 11.03A2.25 2.25 0 0 0 18.5 13.25L18.5 16.25A0.75 0.75 0 0 1 17.75 17L9.43 17A0.75 0.75 0 0 0 8.9 17.22L5.56 20.56A1.5 1.5 0 0 1 3 19.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 6.25A3.25 3.25 0 0 1 6.25 3L17.75 3A3.25 3.25 0 0 1 21 6.25L21 10.29A0.75 0.75 0 0 1 20.38 11.03A2.25 2.25 0 0 0 18.5 13.25L18.5 16.25A0.75 0.75 0 0 1 17.75 17L9.43 17A0.75 0.75 0 0 0 8.9 17.22L5.56 20.56A1.5 1.5 0 0 1 3 19.5Z\"/> <path d=\"M20.75 13.25V17.75\"/> <path d=\"M20.25 20.75A0.5 0.5 0 1 0 21.25 20.75A0.5 0.5 0 1 0 20.25 20.75Z\"/>",
+          "mark": false,
+          "tags": [
+            "message",
+            "chat",
+            "alert",
+            "warning",
+            "error",
+            "failed",
+            "not sent",
+            "exclamation",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 19,
+            "h": 19
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "message-filled": {
           "paths": [],
           "areas": [
@@ -635852,12 +636376,12 @@
       "n": 400,
       "name": "message-alert",
       "section": "D · The rest, by audit rank",
-      "category": "V3 Other badges",
+      "category": "Communication",
       "base": "message",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 401,

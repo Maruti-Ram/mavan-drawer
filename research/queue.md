@@ -1064,7 +1064,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 398. `folder-down-2` · Files & Folders · variant of `folder-down` — Corner badge · approved 2026-10-25
 - [x] 399. `folder-up` · Files & Folders · variant of `folder` — approved 2026-10-25
 - [x] 399. `folder-up-2` · Files & Folders · variant of `folder-up` — Corner badge · approved 2026-10-25
-- [~] 400. `message-alert` · V3 Other badges · variant of `message`
+- [x] 400. `message-alert` · Communication · variant of `message` — approved 2026-10-25
 - [x] 401. `note-plus` · Files & Folders · variant of `note` — approved 2026-10-25
 - [x] 402. `sort-ascending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [~] 403. `camera-flip` · V5 Other variants · variant of `camera`
