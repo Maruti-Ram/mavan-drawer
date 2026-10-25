@@ -123,11 +123,19 @@ async function batchNames() {
   if (!existsSync(BATCH_DIR)) return [];
   return readdirSync(BATCH_DIR).filter((f) => f.endsWith('.js') && !f.startsWith('_')).map((f) => f.replace(/\.js$/, '')).sort();
 }
+// lab/drafts/batch/_picked.json lists boards Maruti has already picked whose approval is
+// still in flight (review, the lock): they leave the Icon menu at once, so the menu holds
+// only boards that still need his eye. The draft stays until `approve --icon` deletes it,
+// and /lab/icon.html?icon=<name> still opens it. Written by the main session alone.
+const PICKED = `${BATCH_DIR}/_picked.json`;
+const picked = () => { try { return new Set(JSON.parse(readFileSync(PICKED, 'utf8')).names); } catch { return new Set(); } };
 async function rebuildIndex(quiet = false) {
   const q = readQueue();
   const board = await draft();
   const icons = [];
+  const hidden = picked();
   for (const name of await batchNames()) {
+    if (hidden.has(name)) continue;
     let d = null;
     try { d = await draft(batchDraft(name)); } catch (e) { console.error(`  ${batchDraft(name)} did not load: ${e.message}`); }
     icons.push({
