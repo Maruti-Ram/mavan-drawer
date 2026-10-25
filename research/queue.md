@@ -1103,7 +1103,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 420. `bookmark-off-2` · Status & Feedback · variant of `bookmark-off` — Big slash to the square, lifted 1.25, round head, whole notch · approved 2026-10-25
 - [x] 420. `bookmark-off-3` · Status & Feedback · variant of `bookmark-off` — Big slash to the square, lifted 1.25, crisp, whole notch · approved 2026-10-25
 - [x] 421. `calendar-days` · Time & Calendar · variant of `calendar` — approved 2026-10-25
-- [~] 422. `chart-bar-trend` · V5 Other variants · variant of `chart-bar`
+- [x] 422. `chart-bar-trend` · Charts & Data · variant of `chart-bar` — approved 2026-10-25
+- [x] 422. `chart-bar-trend-2` · Charts & Data · variant of `chart-bar-trend` — Trend arrow over rising bars, no floor · approved 2026-10-25
 - [~] 424. `check-double` · V5 Other variants · variant of `check`
 - [~] 425. `eye-closed` · V5 Other variants · variant of `eye`
 - [~] 426. `face-smile-plus` · V2 Plus minus check x · variant of `face-smile`
