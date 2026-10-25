@@ -1160,7 +1160,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 482. `cloud-off-3` · Development & Infra · variant of `cloud-off` — Bar cut through, overlapping puffs · approved 2026-10-23
 - [x] 483. `volume-off` · Media & Playback · variant of `volume` — approved 2026-09-26
 - [~] 484. `wifi-off` · V1 Off states · variant of `wifi`
-- [~] 485. `phone-forwarded` · V3 Other badges · variant of `phone`
+- [x] 485. `phone-forwarded` · Communication · variant of `phone` — approved 2026-10-25
 - [~] 486. `phone-missed` · V3 Other badges · variant of `phone`
 - [~] 487. `refresh-ccw` · V5 Other variants · variant of `refresh`
 
