@@ -1016,7 +1016,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 354. `file-plus` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 355. `clipboard-check` · Files & Folders · variant of `clipboard` — approved 2026-10-25
 - [x] 355. `clipboard-check-2` · Files & Folders · variant of `clipboard-check` — Tick inside the board (recommended) · approved 2026-10-25
-- [~] 356. `shield-check` · V2 Plus minus check x · variant of `shield`
+- [x] 356. `shield-check` · Users & Access · variant of `shield` — approved 2026-10-25
 - [x] 358. `sort-descending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [x] 359. `image-sparkle` · Files & Folders · variant of `image` — approved 2026-10-25
 - [x] 360. `folder-minus` · Files & Folders · variant of `folder` — approved 2026-10-25
