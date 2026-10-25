@@ -1029,7 +1029,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 367. `user-plus` · V2 Plus minus check x · variant of `user`
 - [x] 368. `pause-circle` · Media & Playback · variant of `pause` — approved 2026-10-25
 - [x] 369. `play-circle` · Media & Playback · variant of `play` — approved 2026-10-25
-- [~] 370. `phone-incoming` · V3 Other badges · variant of `phone`
+- [x] 370. `phone-incoming` · Communication · variant of `phone` — approved 2026-10-25
 - [~] 371. `phone-outgoing` · V3 Other badges · variant of `phone`
 - [~] 372. `calendar-check` · V2 Plus minus check x · variant of `calendar`
 - [~] 373. `calendar-clock` · V3 Other badges · variant of `calendar`
