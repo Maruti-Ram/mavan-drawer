@@ -1343,3 +1343,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 608. `alt` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 609. `file-edit` · Files & Folders — added 2026-10-25 · approved 2026-10-25
 - [x] 610. `grid-plus` · Design Tools — added 2026-10-25 · approved 2026-10-25
+- [ ] 611. `mail-clock` · Communication — added 2026-10-25
