@@ -147,7 +147,8 @@ export default {
   centre because its base is short (`password-lock` on `password`, 2.5 · 2 · 1.5 low), give the
   candidate `base: 'password'` (a board-level `base` works too; `null` opts out). It is written into
   all six files as `<!-- base: password -->`, and lint holds the composite's ink to hold the base's box
-  and share its left and top edges (the corner away from the bottom-right badge) at the same master
+  and share its left and top edges (the corner away from the bottom-right badge; on a face base the badge sits
+  top-right instead, C33 2026-10-25, and the face fills its square, so it needs no `base` note) at the same master
   and style, instead of asking it to be centred; `box` stays. `draft-check` lints the base beside it
   (shipped, or a candidate named `=password` in the same run), and `approve` refuses a composite whose
   base is neither in the command nor shipped. Use it only once Maruti has chosen the base in place over

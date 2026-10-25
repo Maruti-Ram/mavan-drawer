@@ -917,6 +917,8 @@
     "face-sad-filled",
     "face-smile",
     "face-smile-filled",
+    "face-smile-plus",
+    "face-smile-plus-filled",
     "fast-forward",
     "fast-forward-2",
     "fast-forward-2-filled",
@@ -57437,6 +57439,137 @@
         "concentric",
         "polaris",
         "wide sweep"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "face-smile-plus": {
+      "paths": [
+        "M21.17 10.75A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 1 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 13.25 2.83",
+        "M9.75 9V10.5",
+        "M7.17 13.29A5 5 0 0 0 16.83 13.29",
+        "M14.75 6H21.25",
+        "M18 2.75V9.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M21.17 10.75A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 1 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 13.25 2.83\"/> <path d=\"M9.75 9V10.5\"/> <path d=\"M7.17 13.29A5 5 0 0 0 16.83 13.29\"/> <path d=\"M14.75 6H21.25\"/> <path d=\"M18 2.75V9.25\"/>",
+      "mark": false,
+      "tags": [
+        "add reaction",
+        "react",
+        "emoji",
+        "smiley",
+        "add",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.7
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.01,
+          "optical": 2.01
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.49,
+          "optical": 2.36
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 15.58,
+        "h": 15.75
+      },
+      "ratio": {
+        "w": 0.78,
+        "h": 0.79
+      },
+      "gap": null
+    },
+    "face-smile-plus-filled": {
+      "paths": [
+        "M14.75 6H21.25",
+        "M18 2.75V9.25"
+      ],
+      "areas": [
+        "M13.35 2.09A10 10 0 0 0 12 2A10 10 0 0 0 2 12A10 10 0 1 0 22 12A10 10 0 0 0 21.91 10.65A0.75 0.75 0 0 0 20.76 10.12L19.24 11.13A2.25 2.25 0 0 1 15.75 9.25L15.75 8.75A0.5 0.5 0 0 0 15.25 8.25L14.75 8.25A2.25 2.25 0 0 1 12.87 4.76L13.88 3.24A0.75 0.75 0 0 0 13.35 2.09ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM6.2 13.55A6 6 0 0 0 17.58 14.21A1 1 0 0 0 15.72 13.47A4 4 0 0 1 8.14 13.04A1 1 0 0 0 6.2 13.55Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.35 2.09A10 10 0 0 0 12 2A10 10 0 0 0 2 12A10 10 0 1 0 22 12A10 10 0 0 0 21.91 10.65A0.75 0.75 0 0 0 20.76 10.12L19.24 11.13A2.25 2.25 0 0 1 15.75 9.25L15.75 8.75A0.5 0.5 0 0 0 15.25 8.25L14.75 8.25A2.25 2.25 0 0 1 12.87 4.76L13.88 3.24A0.75 0.75 0 0 0 13.35 2.09ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM6.2 13.55A6 6 0 0 0 17.58 14.21A1 1 0 0 0 15.72 13.47A4 4 0 0 1 8.14 13.04A1 1 0 0 0 6.2 13.55Z\"/> <path d=\"M14.75 6H21.25\"/> <path d=\"M18 2.75V9.25\"/>",
+      "mark": false,
+      "tags": [
+        "add reaction",
+        "react",
+        "emoji",
+        "smiley",
+        "add",
+        "badge"
       ],
       "shift": [
         0,
@@ -163059,6 +163192,8 @@
         "face-sad-filled",
         "face-smile",
         "face-smile-filled",
+        "face-smile-plus",
+        "face-smile-plus-filled",
         "fast-forward",
         "fast-forward-2",
         "fast-forward-2-filled",
@@ -219487,6 +219622,137 @@
             "concentric",
             "polaris",
             "wide sweep"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "face-smile-plus": {
+          "paths": [
+            "M14.348 7.414A6.375 6.375 0 0 1 14.375 8A6.375 6.375 0 1 1 1.625 8A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 8.586 1.652",
+            "M6.375 4.875V6.125",
+            "M4.772 8.987A3.375 3.375 0 0 0 11.228 8.987",
+            "M10.625 3.5H14.375",
+            "M12.5 1.625V5.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M14.348 7.414A6.375 6.375 0 0 1 14.375 8A6.375 6.375 0 1 1 1.625 8A6.375 6.375 0 0 1 8 1.625A6.375 6.375 0 0 1 8.586 1.652\"/> <path d=\"M6.375 4.875V6.125\"/> <path d=\"M4.772 8.987A3.375 3.375 0 0 0 11.228 8.987\"/> <path d=\"M10.625 3.5H14.375\"/> <path d=\"M12.5 1.625V5.375\"/>",
+          "mark": false,
+          "tags": [
+            "add reaction",
+            "react",
+            "emoji",
+            "smiley",
+            "add",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.37,
+              "optical": 1.28
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 10.85,
+            "h": 11
+          },
+          "ratio": {
+            "w": 0.78,
+            "h": 0.79
+          },
+          "gap": null
+        },
+        "face-smile-plus-filled": {
+          "paths": [
+            "M10.625 3.5H14.375",
+            "M12.5 1.625V5.375"
+          ],
+          "areas": [
+            "M8.643 1.03A7 7 0 0 0 8 1A7 7 0 0 0 1 8A7 7 0 1 0 15 8A7 7 0 0 0 14.97 7.357A0.625 0.625 0 0 0 13.945 6.936L13.869 7.001A2.125 2.125 0 0 1 10.444 5.913A0.5 0.5 0 0 0 10.087 5.556A2.125 2.125 0 0 1 8.999 2.131L9.064 2.055A0.625 0.625 0 0 0 8.643 1.03ZM5.5 4.875L5.5 6.125A0.875 0.875 0 0 0 7.25 6.125L7.25 4.875A0.875 0.875 0 0 0 5.5 4.875ZM3.936 9.243A4.25 4.25 0 0 0 11.874 9.748A0.875 0.875 0 0 0 10.277 9.032A2.5 2.5 0 0 1 5.609 8.731A0.875 0.875 0 0 0 3.936 9.243Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8.643 1.03A7 7 0 0 0 8 1A7 7 0 0 0 1 8A7 7 0 1 0 15 8A7 7 0 0 0 14.97 7.357A0.625 0.625 0 0 0 13.945 6.936L13.869 7.001A2.125 2.125 0 0 1 10.444 5.913A0.5 0.5 0 0 0 10.087 5.556A2.125 2.125 0 0 1 8.999 2.131L9.064 2.055A0.625 0.625 0 0 0 8.643 1.03ZM5.5 4.875L5.5 6.125A0.875 0.875 0 0 0 7.25 6.125L7.25 4.875A0.875 0.875 0 0 0 5.5 4.875ZM3.936 9.243A4.25 4.25 0 0 0 11.874 9.748A0.875 0.875 0 0 0 10.277 9.032A2.5 2.5 0 0 1 5.609 8.731A0.875 0.875 0 0 0 3.936 9.243Z\"/> <path d=\"M10.625 3.5H14.375\"/> <path d=\"M12.5 1.625V5.375\"/>",
+          "mark": false,
+          "tags": [
+            "add reaction",
+            "react",
+            "emoji",
+            "smiley",
+            "add",
+            "badge"
           ],
           "shift": [
             0,
@@ -324998,6 +325264,8 @@
         "face-sad-filled",
         "face-smile",
         "face-smile-filled",
+        "face-smile-plus",
+        "face-smile-plus-filled",
         "fast-forward",
         "fast-forward-2",
         "fast-forward-2-filled",
@@ -381458,6 +381726,137 @@
             "concentric",
             "polaris",
             "wide sweep"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "face-smile-plus": {
+          "paths": [
+            "M17.21 9.28A7.25 7.25 0 0 1 17.25 10A7.25 7.25 0 1 1 2.75 10A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 10.72 2.79",
+            "M8.25 7V8.25",
+            "M6.38 10.97A3.75 3.75 0 0 0 13.62 10.97",
+            "M12.75 5H17.25",
+            "M15 2.75V7.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M17.21 9.28A7.25 7.25 0 0 1 17.25 10A7.25 7.25 0 1 1 2.75 10A7.25 7.25 0 0 1 10 2.75A7.25 7.25 0 0 1 10.72 2.79\"/> <path d=\"M8.25 7V8.25\"/> <path d=\"M6.38 10.97A3.75 3.75 0 0 0 13.62 10.97\"/> <path d=\"M12.75 5H17.25\"/> <path d=\"M15 2.75V7.25\"/>",
+          "mark": false,
+          "tags": [
+            "add reaction",
+            "react",
+            "emoji",
+            "smiley",
+            "add",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.45,
+              "optical": 2.33
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.44,
+              "optical": 2.33
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 12.37,
+            "h": 12.49
+          },
+          "ratio": {
+            "w": 0.77,
+            "h": 0.78
+          },
+          "gap": null
+        },
+        "face-smile-plus-filled": {
+          "paths": [
+            "M12.75 5H17.25",
+            "M15 2.75V7.25"
+          ],
+          "areas": [
+            "M10.79 2.04A8 8 0 0 0 10 2A8 8 0 0 0 2 10A8 8 0 1 0 18 10A8 8 0 0 0 17.96 9.21A0.75 0.75 0 0 0 16.67 8.76L16.62 8.82A2.25 2.25 0 0 1 12.78 7.63A0.5 0.5 0 0 0 12.37 7.22A2.25 2.25 0 0 1 11.18 3.38L11.24 3.33A0.75 0.75 0 0 0 10.79 2.04ZM7.38 7L7.38 8.25A0.88 0.88 0 0 0 9.13 8.25L9.13 7A0.88 0.88 0 0 0 7.38 7ZM5.53 11.2A4.63 4.63 0 0 0 14.16 12.03A0.88 0.88 0 0 0 12.6 11.21A2.88 2.88 0 0 1 7.22 10.74A0.88 0.88 0 0 0 5.53 11.2Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10.79 2.04A8 8 0 0 0 10 2A8 8 0 0 0 2 10A8 8 0 1 0 18 10A8 8 0 0 0 17.96 9.21A0.75 0.75 0 0 0 16.67 8.76L16.62 8.82A2.25 2.25 0 0 1 12.78 7.63A0.5 0.5 0 0 0 12.37 7.22A2.25 2.25 0 0 1 11.18 3.38L11.24 3.33A0.75 0.75 0 0 0 10.79 2.04ZM7.38 7L7.38 8.25A0.88 0.88 0 0 0 9.13 8.25L9.13 7A0.88 0.88 0 0 0 7.38 7ZM5.53 11.2A4.63 4.63 0 0 0 14.16 12.03A0.88 0.88 0 0 0 12.6 11.21A2.88 2.88 0 0 1 7.22 10.74A0.88 0.88 0 0 0 5.53 11.2Z\"/> <path d=\"M12.75 5H17.25\"/> <path d=\"M15 2.75V7.25\"/>",
+          "mark": false,
+          "tags": [
+            "add reaction",
+            "react",
+            "emoji",
+            "smiley",
+            "add",
+            "badge"
           ],
           "shift": [
             0,
@@ -487021,6 +487420,8 @@
         "face-sad-filled",
         "face-smile",
         "face-smile-filled",
+        "face-smile-plus",
+        "face-smile-plus-filled",
         "fast-forward",
         "fast-forward-2",
         "fast-forward-2-filled",
@@ -543541,6 +543942,137 @@
             "concentric",
             "polaris",
             "wide sweep"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "face-smile-plus": {
+          "paths": [
+            "M21.17 10.75A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 1 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 13.25 2.83",
+            "M9.75 9V10.5",
+            "M7.17 13.29A5 5 0 0 0 16.83 13.29",
+            "M14.75 6H21.25",
+            "M18 2.75V9.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M21.17 10.75A9.25 9.25 0 0 1 21.25 12A9.25 9.25 0 1 1 2.75 12A9.25 9.25 0 0 1 12 2.75A9.25 9.25 0 0 1 13.25 2.83\"/> <path d=\"M9.75 9V10.5\"/> <path d=\"M7.17 13.29A5 5 0 0 0 16.83 13.29\"/> <path d=\"M14.75 6H21.25\"/> <path d=\"M18 2.75V9.25\"/>",
+          "mark": false,
+          "tags": [
+            "add reaction",
+            "react",
+            "emoji",
+            "smiley",
+            "add",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.7
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.49,
+              "optical": 2.36
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 15.58,
+            "h": 15.75
+          },
+          "ratio": {
+            "w": 0.78,
+            "h": 0.79
+          },
+          "gap": null
+        },
+        "face-smile-plus-filled": {
+          "paths": [
+            "M14.75 6H21.25",
+            "M18 2.75V9.25"
+          ],
+          "areas": [
+            "M13.35 2.09A10 10 0 0 0 12 2A10 10 0 0 0 2 12A10 10 0 1 0 22 12A10 10 0 0 0 21.91 10.65A0.75 0.75 0 0 0 20.76 10.12L19.24 11.13A2.25 2.25 0 0 1 15.75 9.25L15.75 8.75A0.5 0.5 0 0 0 15.25 8.25L14.75 8.25A2.25 2.25 0 0 1 12.87 4.76L13.88 3.24A0.75 0.75 0 0 0 13.35 2.09ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM6.2 13.55A6 6 0 0 0 17.58 14.21A1 1 0 0 0 15.72 13.47A4 4 0 0 1 8.14 13.04A1 1 0 0 0 6.2 13.55Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13.35 2.09A10 10 0 0 0 12 2A10 10 0 0 0 2 12A10 10 0 1 0 22 12A10 10 0 0 0 21.91 10.65A0.75 0.75 0 0 0 20.76 10.12L19.24 11.13A2.25 2.25 0 0 1 15.75 9.25L15.75 8.75A0.5 0.5 0 0 0 15.25 8.25L14.75 8.25A2.25 2.25 0 0 1 12.87 4.76L13.88 3.24A0.75 0.75 0 0 0 13.35 2.09ZM8.75 9L8.75 10.5A1 1 0 0 0 10.75 10.5L10.75 9A1 1 0 0 0 8.75 9ZM6.2 13.55A6 6 0 0 0 17.58 14.21A1 1 0 0 0 15.72 13.47A4 4 0 0 1 8.14 13.04A1 1 0 0 0 6.2 13.55Z\"/> <path d=\"M14.75 6H21.25\"/> <path d=\"M18 2.75V9.25\"/>",
+          "mark": false,
+          "tags": [
+            "add reaction",
+            "react",
+            "emoji",
+            "smiley",
+            "add",
+            "badge"
           ],
           "shift": [
             0,
@@ -660119,12 +660651,12 @@
       "n": 426,
       "name": "face-smile-plus",
       "section": "D · The rest, by audit rank",
-      "category": "V2 Plus minus check x",
+      "category": "Communication",
       "base": "face-smile",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 427,
