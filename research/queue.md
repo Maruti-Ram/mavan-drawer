@@ -1049,7 +1049,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 386. `user-lock` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 387. `user-shield` · Users & Access · variant of `user` — approved 2026-10-25
 - [~] 388. `cart-minus` · V2 Plus minus check x · variant of `cart`
-- [~] 389. `cart-plus` · V2 Plus minus check x · variant of `cart`
+- [x] 389. `cart-plus` · Commerce & Payments · variant of `cart` — approved 2026-10-25
 - [x] 390. `chart-bar-horizontal` · Charts & Data · variant of `chart-bar` — approved 2026-10-25
 - [x] 391. `chart-bar-stacked` · Charts & Data · variant of `chart-bar` — approved 2026-10-25
 - [x] 392. `collapse-horizontal` · Arrows & Direction · variant of `collapse` — approved 2026-10-17
