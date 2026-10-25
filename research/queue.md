@@ -1158,7 +1158,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 466. `gear-nodes-2` · Development & Infra · variant of `gear-nodes` — Link badge · approved 2026-10-23
 - [x] 467. `globe-pointer` · Maps & Location · variant of `globe` — approved 2026-10-25
 - [x] 467. `globe-pointer-2` · Maps & Location · variant of `globe-pointer` — Redraw: the cursor with its tail · approved 2026-10-25
-- [~] 468. `grid-circle-plus` · V5 Other variants · variant of `grid`
+- [x] 468. `grid-circle-plus` · Design Tools · variant of `grid` — approved 2026-10-25
 - [x] 469. `image-binary` · Design Tools · variant of `image` — approved 2026-10-25
 - [x] 469. `image-binary-2` · Design Tools · variant of `image-binary` — Image cut at its peak, 1 over 0 · approved 2026-10-25
 - [~] 470. `image-depth` · V3 Other badges · variant of `image`
@@ -1338,3 +1338,4 @@ Icons asked for while drawing, in the order they were asked. Not in the audit ra
 - [x] 607. `control-key` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 608. `alt` · Keyboard keys — added 2026-10-24 · approved 2026-10-24
 - [x] 609. `file-edit` · Files & Folders — added 2026-10-25 · approved 2026-10-25
+- [x] 610. `grid-plus` · Design Tools — added 2026-10-25 · approved 2026-10-25
