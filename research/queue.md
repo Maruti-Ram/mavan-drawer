@@ -1072,7 +1072,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 410. `minus-square` · UI & Layout · variant of `minus` — approved 2026-10-25
 - [~] 411. `phone-call` · V3 Other badges · variant of `phone`
 - [x] 412. `plus-square` · UI & Layout · variant of `plus` — approved 2026-10-25
-- [~] 413. `x-square` · V4 Circle and square containers · variant of `x`
+- [x] 413. `x-square` · UI & Layout · variant of `x` — approved 2026-10-25
 - [~] 414. `bolt-off` · V1 Off states · variant of `bolt`
 - [~] 415. `battery-charging` · V5 Other variants · variant of `battery`
 - [~] 417. `activity-square` · V4 Circle and square containers · variant of `activity`
