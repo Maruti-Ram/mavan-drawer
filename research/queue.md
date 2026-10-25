@@ -1153,7 +1153,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 465. `window-chart-2` · Charts & Data · variant of `window-chart` — Bar chart · approved 2026-10-25
 - [x] 466. `gear-nodes` · Development & Infra · variant of `gear` — approved 2026-10-23
 - [x] 466. `gear-nodes-2` · Development & Infra · variant of `gear-nodes` — Link badge · approved 2026-10-23
-- [~] 467. `globe-pointer` · V3 Other badges · variant of `globe`
+- [x] 467. `globe-pointer` · Maps & Location · variant of `globe` — approved 2026-10-25
+- [x] 467. `globe-pointer-2` · Maps & Location · variant of `globe-pointer` — Redraw: the cursor with its tail · approved 2026-10-25
 - [~] 468. `grid-circle-plus` · V5 Other variants · variant of `grid`
 - [~] 469. `image-binary` · V3 Other badges · variant of `image`
 - [~] 470. `image-depth` · V3 Other badges · variant of `image`
