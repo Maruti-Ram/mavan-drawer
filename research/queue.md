@@ -1089,7 +1089,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 411. `phone-call` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 412. `plus-square` · UI & Layout · variant of `plus` — approved 2026-10-25
 - [x] 413. `x-square` · UI & Layout · variant of `x` — approved 2026-10-25
-- [~] 414. `bolt-off` · V1 Off states · variant of `bolt`
+- [x] 414. `bolt-off` · Status & Feedback · variant of `bolt` — approved 2026-10-25
+- [x] 414. `bolt-off-2` · Status & Feedback · variant of `bolt-off` — Big slash to the square, centred (C21 rule) · approved 2026-10-25
+- [x] 414. `bolt-off-3` · Status & Feedback · variant of `bolt-off` — Big slash to the square, centred (C21 rule) · approved 2026-10-25
 - [x] 415. `battery-charging` · Devices & Hardware · variant of `battery` — approved 2026-10-25
 - [x] 415. `battery-charging-2` · Devices & Hardware · variant of `battery-charging` — Narrow bolt through the walls · approved 2026-10-25
 - [x] 417. `activity-square` · Charts & Data · variant of `activity` — approved 2026-10-25
