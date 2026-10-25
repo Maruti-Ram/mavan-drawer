@@ -1156,7 +1156,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 467. `globe-pointer` · Maps & Location · variant of `globe` — approved 2026-10-25
 - [x] 467. `globe-pointer-2` · Maps & Location · variant of `globe-pointer` — Redraw: the cursor with its tail · approved 2026-10-25
 - [~] 468. `grid-circle-plus` · V5 Other variants · variant of `grid`
-- [~] 469. `image-binary` · V3 Other badges · variant of `image`
+- [x] 469. `image-binary` · Design Tools · variant of `image` — approved 2026-10-25
+- [x] 469. `image-binary-2` · Design Tools · variant of `image-binary` — Image cut at its peak, 1 over 0 · approved 2026-10-25
 - [~] 470. `image-depth` · V3 Other badges · variant of `image`
 - [~] 472. `window-expand-bottom-right` · V3 Other badges · variant of `window`
 - [x] 473. `window-key` · Design Tools · variant of `window` — approved 2026-10-25
