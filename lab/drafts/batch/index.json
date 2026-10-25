@@ -3,7 +3,7 @@
   "board": {
     "name": "play-circle",
     "candidates": 5,
-    "status": "review"
+    "status": "done"
   },
   "icons": [
     {
@@ -66,16 +66,6 @@
       "status": "review"
     },
     {
-      "name": "play-circle",
-      "concept": "play-circle",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
-      ],
-      "status": "review"
-    },
-    {
       "name": "phone-incoming",
       "concept": "phone-incoming",
       "candidates": 1,
@@ -96,9 +86,10 @@
     {
       "name": "calendar-clock",
       "concept": "calendar-clock",
-      "candidates": 1,
+      "candidates": 2,
       "ids": [
-        "A"
+        "A",
+        "B"
       ],
       "status": "review"
     },
@@ -178,6 +169,17 @@
     {
       "name": "text-color",
       "concept": "text-color",
+      "candidates": 3,
+      "ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "text-title",
+      "concept": "text-title",
       "candidates": 3,
       "ids": [
         "A",
