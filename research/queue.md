@@ -1111,7 +1111,8 @@ Bases before their variants; within that, highest evidence first.
 - [~] 427. `file-check` · V2 Plus minus check x · variant of `file`
 - [x] 428. `folder-open` · Files & Folders · variant of `folder` — approved 2026-10-25
 - [x] 428. `folder-open-2` · Files & Folders · variant of `folder-open` — Whole flap, back cut short · approved 2026-10-25
-- [~] 430. `link-off` · V1 Off states · variant of `link`
+- [x] 430. `link-off` · Editing & Text · variant of `link` — approved 2026-10-25
+- [x] 430. `link-off-4` · Editing & Text · variant of `link-off` — Redraw: tick pairs, normal halves · approved 2026-10-25
 - [x] 431. `mail-open` · Communication · variant of `mail` — approved 2026-10-25
 - [x] 431. `mail-open-2` · Communication · variant of `mail-open` — Redraw: A2 on the square · approved 2026-10-25
 - [x] 431. `mail-open-3` · Communication · variant of `mail-open` — Redraw: A3 on the square · approved 2026-10-25
