@@ -27,7 +27,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 
 | Group | Rows |
 |---|---|
-| off-a | eye-off, shield-off, keyboard-off, map-pin-off, bell-off, crosshair-off, phone-off, wifi-off |
+| off-a | eye-off, shield-off, keyboard-off, map-pin-off, bell-off, ~~crosshair-off~~ (dropped), phone-off, wifi-off |
 | off-b | microphone-off, bolt-off, bookmark-off, link-off |
 | off-c | clipboard-off, video-off, camera-off |
 | pm-a | every plus and minus: file-plus, file-minus, folder-plus, folder-minus, note-plus, image-plus, database-plus, code-plus, user-plus, user-minus, cart-plus, cart-minus, bell-plus, face-smile-plus |
@@ -35,12 +35,12 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | badge-a1 | clocks and arrows: file-clock, calendar-clock, file-down, file-up, folder-down, folder-up, desktop-download, file-heart, file-signature, file-attachment |
 | badge-a2 | sparkles and images: image-sparkle, star-sparkle, image-binary, image-depth, book-bookmark |
 | badge-b | user-lock, user-shield, user-search, user-exit, user-segment, user-focus, user-laptop, shield-pending, credit-card-lock, credit-card-percent, award-certificate |
-| badge-c | phone-incoming, phone-outgoing, phone-call, phone-forwarded, phone-missed, message-alert, message-pen, message-smile, message-user, mail-follow-up |
+| badge-c | phone-incoming, phone-outgoing, phone-call, phone-forwarded, phone-missed, message-alert, message-pen, ~~message-smile~~ (dropped), message-user, mail-follow-up |
 | badge-d | window-chart, window-key, window-pointer, window-expand-bottom-right, globe-pointer, compass-drafting |
-| ring-a | arrow-up-circle, arrow-down-circle, arrow-left-circle, arrow-right-circle, chevron-up-circle, chevron-down-circle, chevron-left-circle, chevron-right-circle, play-circle, pause-circle, play-circle-dotted |
-| ring-b | hash-circle, user-circle, check-circle-dashed, plus-square, minus-square, x-square, info-square, help-square, activity-square |
+| ring-a | arrow-up-circle, arrow-down-circle, arrow-left-circle, arrow-right-circle, chevron-up-circle, chevron-down-circle, chevron-left-circle, chevron-right-circle, play-circle, pause-circle, ~~play-circle-dotted~~ (dropped) |
+| ring-b | hash-circle, user-circle, ~~check-circle-dashed~~ (dropped), plus-square, minus-square, x-square, info-square, help-square, activity-square |
 | var-a | text-align-left, text-align-center, text-align-right, text-align-justify, text-color, text-title, chart-bar-horizontal, chart-bar-stacked, chart-bar-trend |
-| var-b | camera-flip, battery-charging, calendar-days, check-double, eye-closed, folder-open, mail-open, scan-face, rotate-ccw-dotted, search-empty, grid-circle-plus, refresh-ccw |
+| var-b | camera-flip, battery-charging, calendar-days, check-double, eye-closed, folder-open, mail-open, scan-face, ~~rotate-ccw-dotted~~ (dropped), search-empty, grid-circle-plus, refresh-ccw |
 
 ## Status
 
@@ -52,7 +52,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 
 ## Where each row goes back to
 
-### V1 Off states — 15
+### V1 Off states — 15 (14 after crosshair-off was dropped)
 
 | # | Row | Section on the sheet | Base | Base's shipped shapes |
 |---|---|---|---|---|
@@ -66,7 +66,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 420 | `bookmark-off` | Status & Feedback | `bookmark` | `bookmark` `bookmark-2` `bookmark-3` |
 | 430 | `link-off` | Editing & Text | `link` | `link` `link-2` `link-3` `link-4` |
 | 452 | `clipboard-off` | Files & Folders | `clipboard` | `clipboard` `clipboard-2` `clipboard-3` `clipboard-4` |
-| 453 | `crosshair-off` | Status & Feedback | `crosshair` | `crosshair` |
+| 453 | ~~`crosshair-off`~~ | dropped 2026-10-25 (Maruti: "crosshair-off: reject. do not need icon") | `crosshair` | — |
 | 476 | `phone-off` | Communication | `phone` | `phone` |
 | 480 | `video-off` | Files & Folders | `video` | `video` `video-2` `video-3` `video-4` |
 | 481 | `camera-off` | Media & Playback | `camera` | `camera` `camera-2` `camera-3` `camera-4` `camera-5` `camera-6` |
@@ -100,7 +100,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 478 | `user-check` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
 | 479 | `user-x` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
 
-### V3 Other badges — 42
+### V3 Other badges — 42 (41 after message-smile was dropped)
 
 | # | Row | Section on the sheet | Base | Base's shipped shapes |
 |---|---|---|---|---|
@@ -132,7 +132,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 448 | `credit-card-percent` | Commerce & Payments | `credit-card` | `credit-card` `credit-card-2` `credit-card-3` |
 | 451 | `award-certificate` | Status & Feedback | `award` | `award` |
 | 457 | `message-pen` | Communication | `message` | `message` `message-2` `message-3` `message-4` `message-5` `message-6` `message-7` |
-| 458 | `message-smile` | Communication | `message` | `message` `message-2` `message-3` `message-4` `message-5` `message-6` `message-7` |
+| 458 | ~~`message-smile`~~ | dropped 2026-10-25 (Maruti: "remove. do not need this icon as of right now"; re-add with `queue.mjs add message-smile` if wanted later) | `message` | — |
 | 459 | `message-user` | Communication | `message` | `message` `message-2` `message-3` `message-4` `message-5` `message-6` `message-7` |
 | 462 | `star-sparkle` | Status & Feedback | `star` | `star` |
 | 463 | `user-focus` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
@@ -147,7 +147,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 485 | `phone-forwarded` | Communication | `phone` | `phone` |
 | 486 | `phone-missed` | Communication | `phone` | `phone` |
 
-### V4 Circle and square containers — 20
+### V4 Circle and square containers — 20 (18 after check-circle-dashed and play-circle-dotted were dropped)
 
 | # | Row | Section on the sheet | Base | Base's shipped shapes |
 |---|---|---|---|---|
@@ -166,13 +166,13 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 412 | `plus-square` | UI & Layout | `plus` | `plus` |
 | 413 | `x-square` | UI & Layout | `x` | `x` |
 | 417 | `activity-square` | Charts & Data | `activity` | `activity` `activity-2` |
-| 423 | `check-circle-dashed` | Status & Feedback | `check-circle` | `check-circle` `check-circle-2` `check-circle-3` |
+| 423 | ~~`check-circle-dashed`~~ | dropped 2026-10-25 (Maruti: "check-circle-dash - remove. Dont need an icon") | `check-circle` | — |
 | 454 | `hash-circle` | Communication | `hash` | `hash` `hash-2` `hash-3` |
 | 455 | `help-square` | Status & Feedback | `help-circle` | `help-circle` `help-circle-2` `help-circle-3` `help-circle-4` |
 | 456 | `info-square` | Status & Feedback | `info-circle` | `info-circle` `info-circle-2` `info-circle-3` |
-| 471 | `play-circle-dotted` | Media & Playback | `play-circle` | — |
+| 471 | ~~`play-circle-dotted`~~ | dropped 2026-10-25 (Maruti: "play-circle-dotted: Do not need icon. reject") | `play-circle` | — |
 
-### V5 Other variants — 21
+### V5 Other variants — 21 (20 after rotate-ccw-dotted was dropped)
 
 | # | Row | Section on the sheet | Base | Base's shipped shapes |
 |---|---|---|---|---|
@@ -192,7 +192,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 428 | `folder-open` | Files & Folders | `folder` | `folder` `folder-2` `folder-3` |
 | 431 | `mail-open` | Communication | `mail` | `mail` `mail-2` `mail-3` |
 | 432 | `scan-face` | Users & Access | `scan` | `scan` |
-| 460 | `rotate-ccw-dotted` | Arrows & Direction | `rotate-ccw` | `rotate-ccw` `rotate-ccw-10` `rotate-ccw-11` `rotate-ccw-2` `rotate-ccw-3` `rotate-ccw-4` `rotate-ccw-5` `rotate-ccw-6` `rotate-ccw-7` `rotate-ccw-8` `rotate-ccw-9` |
+| 460 | ~~`rotate-ccw-dotted`~~ | dropped 2026-10-25 (Maruti: "rotate-ccw-dotted: reject. do not need icon") | `rotate-ccw` | — |
 | 461 | `search-empty` | UI & Layout | `search` | `search` `search-2` `search-3` |
 | 468 | `grid-circle-plus` | Design Tools | `grid` | `grid` `grid-2` `grid-3` `grid-4` `grid-5` `grid-6` `grid-7` |
 | 477 | `text-align-justify` | Editing & Text | `text` | `text` `text-2` `text-3` `text-4` |
