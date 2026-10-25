@@ -1127,7 +1127,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 436. `battery-low` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [x] 437. `bug-off` · Development & Infra · variant of `bug` — approved 2026-10-23
 - [x] 437. `bug-off-2` · Development & Infra · variant of `bug-off` — Bar cut through, curled legs · approved 2026-10-23
-- [~] 438. `compass-drafting` · V3 Other badges · variant of `compass`
+- [x] 438. `compass-drafting` · Design Tools · variant of `compass` — approved 2026-10-25
 - [x] 439. `desktop-download` · Devices & Hardware · variant of `desktop` — approved 2026-10-25
 - [x] 439. `desktop-download-2` · Devices & Hardware · variant of `desktop-download` — Corner badge · approved 2026-10-25
 - [x] 440. `credit-card-lock` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25

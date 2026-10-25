@@ -686,6 +686,8 @@
     "compass-2-filled",
     "compass-3",
     "compass-3-filled",
+    "compass-drafting",
+    "compass-drafting-filled",
     "compass-filled",
     "component",
     "component-filled",
@@ -43264,6 +43266,139 @@
           "geometric": 2,
           "recession": 0,
           "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "compass-drafting": {
+      "paths": [
+        "M10.25 6.5A1.75 1.75 0 1 0 13.75 6.5A1.75 1.75 0 1 0 10.25 6.5Z",
+        "M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75",
+        "M18.11 17.42L20.25 21.25",
+        "M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61"
+      ],
+      "areas": [],
+      "body": "<path d=\"M10.25 6.5A1.75 1.75 0 1 0 13.75 6.5A1.75 1.75 0 1 0 10.25 6.5Z\"/> <path d=\"M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75\"/> <path d=\"M18.11 17.42L20.25 21.25\"/> <path d=\"M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61\"/>",
+      "mark": false,
+      "tags": [
+        "drafting compass",
+        "compass",
+        "dividers",
+        "geometry",
+        "drawing",
+        "design",
+        "construct",
+        "arc",
+        "handle",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 3,
+        "top": 2,
+        "right": 3,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.56,
+          "optical": 3.42
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.31,
+          "optical": 2.24
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 1.06,
+          "optical": 2.8
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "compass-drafting-filled": {
+      "paths": [
+        "M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75",
+        "M18.11 17.42L20.25 21.25",
+        "M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61"
+      ],
+      "areas": [
+        "M9.5 6.5A2.5 2.5 0 1 0 14.5 6.5A2.5 2.5 0 1 0 9.5 6.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.5 6.5A2.5 2.5 0 1 0 14.5 6.5A2.5 2.5 0 1 0 9.5 6.5Z\"/> <path d=\"M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75\"/> <path d=\"M18.11 17.42L20.25 21.25\"/> <path d=\"M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61\"/>",
+      "mark": false,
+      "tags": [
+        "drafting compass",
+        "compass",
+        "dividers",
+        "geometry",
+        "drawing",
+        "design",
+        "construct",
+        "arc",
+        "handle",
+        "nucleo"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 3,
+        "top": 2,
+        "right": 3,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
         },
         "bottom": {
           "geometric": 2,
@@ -163226,6 +163361,8 @@
         "compass-2-filled",
         "compass-3",
         "compass-3-filled",
+        "compass-drafting",
+        "compass-drafting-filled",
         "compass-filled",
         "component",
         "component-filled",
@@ -205726,6 +205863,139 @@
               "geometric": 1,
               "recession": 0,
               "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-drafting": {
+          "paths": [
+            "M6.625 5A1.375 1.375 0 1 0 9.375 5A1.375 1.375 0 1 0 6.625 5Z",
+            "M2.625 14.375L7.316 6.193A1.375 1.375 0 0 0 8.684 6.193L9.801 8.141M8 3.625L8 1.625",
+            "M12.541 12.92L13.375 14.375",
+            "M3.116 9.098A6.375 6.375 0 0 0 12.884 9.098"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.625 5A1.375 1.375 0 1 0 9.375 5A1.375 1.375 0 1 0 6.625 5Z\"/> <path d=\"M2.625 14.375L7.316 6.193A1.375 1.375 0 0 0 8.684 6.193L9.801 8.141M8 3.625L8 1.625\"/> <path d=\"M12.541 12.92L13.375 14.375\"/> <path d=\"M3.116 9.098A6.375 6.375 0 0 0 12.884 9.098\"/>",
+          "mark": false,
+          "tags": [
+            "drafting compass",
+            "compass",
+            "dividers",
+            "geometry",
+            "drawing",
+            "design",
+            "construct",
+            "arc",
+            "handle",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 1,
+            "right": 2,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.36,
+              "optical": 2.27
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.08,
+              "optical": 2.06
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.01,
+              "optical": 1.01
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.89,
+              "optical": 1.66
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-drafting-filled": {
+          "paths": [
+            "M2.625 14.375L7.316 6.193A1.375 1.375 0 0 0 8.684 6.193L9.801 8.141M8 3.625L8 1.625",
+            "M12.541 12.92L13.375 14.375",
+            "M3.116 9.098A6.375 6.375 0 0 0 12.884 9.098"
+          ],
+          "areas": [
+            "M6 5A2 2 0 1 0 10 5A2 2 0 1 0 6 5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 5A2 2 0 1 0 10 5A2 2 0 1 0 6 5Z\"/> <path d=\"M2.625 14.375L7.316 6.193A1.375 1.375 0 0 0 8.684 6.193L9.801 8.141M8 3.625L8 1.625\"/> <path d=\"M12.541 12.92L13.375 14.375\"/> <path d=\"M3.116 9.098A6.375 6.375 0 0 0 12.884 9.098\"/>",
+          "mark": false,
+          "tags": [
+            "drafting compass",
+            "compass",
+            "dividers",
+            "geometry",
+            "drawing",
+            "design",
+            "construct",
+            "arc",
+            "handle",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 1,
+            "right": 2,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             },
             "bottom": {
               "geometric": 1,
@@ -325563,6 +325833,8 @@
         "compass-2-filled",
         "compass-3",
         "compass-3-filled",
+        "compass-drafting",
+        "compass-drafting-filled",
         "compass-filled",
         "component",
         "component-filled",
@@ -368091,6 +368363,139 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-drafting": {
+          "paths": [
+            "M8.5 6.25A1.5 1.5 0 1 0 11.5 6.25A1.5 1.5 0 1 0 8.5 6.25Z",
+            "M3.75 17.25L9.26 7.55A1.5 1.5 0 0 0 10.74 7.55L12.09 9.93M10 4.75L10 2.75",
+            "M15.07 15.17L16.25 17.25",
+            "M4.45 10.91A7.25 7.25 0 0 0 15.55 10.91"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.5 6.25A1.5 1.5 0 1 0 11.5 6.25A1.5 1.5 0 1 0 8.5 6.25Z\"/> <path d=\"M3.75 17.25L9.26 7.55A1.5 1.5 0 0 0 10.74 7.55L12.09 9.93M10 4.75L10 2.75\"/> <path d=\"M15.07 15.17L16.25 17.25\"/> <path d=\"M4.45 10.91A7.25 7.25 0 0 0 15.55 10.91\"/>",
+          "mark": false,
+          "tags": [
+            "drafting compass",
+            "compass",
+            "dividers",
+            "geometry",
+            "drawing",
+            "design",
+            "construct",
+            "arc",
+            "handle",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.47,
+              "optical": 3.35
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.14,
+              "optical": 3.11
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.35,
+              "optical": 2.26
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 1.05,
+              "optical": 2.79
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-drafting-filled": {
+          "paths": [
+            "M3.75 17.25L9.26 7.55A1.5 1.5 0 0 0 10.74 7.55L12.09 9.93M10 4.75L10 2.75",
+            "M15.07 15.17L16.25 17.25",
+            "M4.45 10.91A7.25 7.25 0 0 0 15.55 10.91"
+          ],
+          "areas": [
+            "M7.75 6.25A2.25 2.25 0 1 0 12.25 6.25A2.25 2.25 0 1 0 7.75 6.25Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.75 6.25A2.25 2.25 0 1 0 12.25 6.25A2.25 2.25 0 1 0 7.75 6.25Z\"/> <path d=\"M3.75 17.25L9.26 7.55A1.5 1.5 0 0 0 10.74 7.55L12.09 9.93M10 4.75L10 2.75\"/> <path d=\"M15.07 15.17L16.25 17.25\"/> <path d=\"M4.45 10.91A7.25 7.25 0 0 0 15.55 10.91\"/>",
+          "mark": false,
+          "tags": [
+            "drafting compass",
+            "compass",
+            "dividers",
+            "geometry",
+            "drawing",
+            "design",
+            "construct",
+            "arc",
+            "handle",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             },
             "bottom": {
               "geometric": 2,
@@ -487984,6 +488389,8 @@
         "compass-2-filled",
         "compass-3",
         "compass-3-filled",
+        "compass-drafting",
+        "compass-drafting-filled",
         "compass-filled",
         "component",
         "component-filled",
@@ -530562,6 +530969,139 @@
               "geometric": 2,
               "recession": 0,
               "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-drafting": {
+          "paths": [
+            "M10.25 6.5A1.75 1.75 0 1 0 13.75 6.5A1.75 1.75 0 1 0 10.25 6.5Z",
+            "M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75",
+            "M18.11 17.42L20.25 21.25",
+            "M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.25 6.5A1.75 1.75 0 1 0 13.75 6.5A1.75 1.75 0 1 0 10.25 6.5Z\"/> <path d=\"M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75\"/> <path d=\"M18.11 17.42L20.25 21.25\"/> <path d=\"M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61\"/>",
+          "mark": false,
+          "tags": [
+            "drafting compass",
+            "compass",
+            "dividers",
+            "geometry",
+            "drawing",
+            "design",
+            "construct",
+            "arc",
+            "handle",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.56,
+              "optical": 3.42
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.31,
+              "optical": 2.24
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 1.06,
+              "optical": 2.8
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "compass-drafting-filled": {
+          "paths": [
+            "M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75",
+            "M18.11 17.42L20.25 21.25",
+            "M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61"
+          ],
+          "areas": [
+            "M9.5 6.5A2.5 2.5 0 1 0 14.5 6.5A2.5 2.5 0 1 0 9.5 6.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.5 6.5A2.5 2.5 0 1 0 14.5 6.5A2.5 2.5 0 1 0 9.5 6.5Z\"/> <path d=\"M3.75 21.25L11.15 8.03A1.75 1.75 0 0 0 12.85 8.03L15.17 12.16M12 4.75L12 2.75\"/> <path d=\"M18.11 17.42L20.25 21.25\"/> <path d=\"M4.72 12.61A9.5 9.5 0 0 0 19.28 12.61\"/>",
+          "mark": false,
+          "tags": [
+            "drafting compass",
+            "compass",
+            "dividers",
+            "geometry",
+            "drawing",
+            "design",
+            "construct",
+            "arc",
+            "handle",
+            "nucleo"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 3,
+            "top": 2,
+            "right": 3,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             },
             "bottom": {
               "geometric": 2,
@@ -661920,12 +662460,12 @@
       "n": 438,
       "name": "compass-drafting",
       "section": "D · The rest, by audit rank",
-      "category": "V3 Other badges",
+      "category": "Design Tools",
       "base": "compass",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 439,
