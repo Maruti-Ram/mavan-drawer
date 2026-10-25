@@ -1027,7 +1027,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 365. `text-align-right` · V5 Other variants · variant of `text`
 - [~] 366. `user-minus` · V2 Plus minus check x · variant of `user`
 - [~] 367. `user-plus` · V2 Plus minus check x · variant of `user`
-- [~] 368. `pause-circle` · V4 Circle and square containers · variant of `pause`
+- [x] 368. `pause-circle` · Media & Playback · variant of `pause` — approved 2026-10-25
 - [~] 369. `play-circle` · V4 Circle and square containers · variant of `play`
 - [~] 370. `phone-incoming` · V3 Other badges · variant of `phone`
 - [~] 371. `phone-outgoing` · V3 Other badges · variant of `phone`
