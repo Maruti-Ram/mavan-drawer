@@ -1357,6 +1357,12 @@
     "mail-3",
     "mail-3-filled",
     "mail-filled",
+    "mail-open",
+    "mail-open-2",
+    "mail-open-2-filled",
+    "mail-open-3",
+    "mail-open-3-filled",
+    "mail-open-filled",
     "map",
     "map-filled",
     "map-pin",
@@ -84533,6 +84539,378 @@
       "ratio": null,
       "gap": null
     },
+    "mail-open": {
+      "paths": [
+        "M5.02 7.26L10.52 4.14A3 3 0 0 1 13.48 4.14L18.98 7.26A2.5 2.5 0 0 1 20.25 9.44V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V9.44A2.5 2.5 0 0 1 5.02 7.26Z",
+        "M3.75 9.88L10.52 13.73A3 3 0 0 0 13.48 13.73L20.25 9.88"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.02 7.26L10.52 4.14A3 3 0 0 1 13.48 4.14L18.98 7.26A2.5 2.5 0 0 1 20.25 9.44V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V9.44A2.5 2.5 0 0 1 5.02 7.26Z\"/> <path d=\"M3.75 9.88L10.52 13.73A3 3 0 0 0 13.48 13.73L20.25 9.88\"/>",
+      "mark": false,
+      "tags": [
+        "envelope",
+        "email",
+        "opened",
+        "read",
+        "soft"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.5,
+          "optical": 3.38
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.5,
+          "optical": 3.38
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.13,
+          "optical": 3.85
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 18,
+        "h": 5.74
+      },
+      "ratio": {
+        "w": 1,
+        "h": 0.32
+      },
+      "gap": null
+    },
+    "mail-open-2": {
+      "paths": [
+        "M5.26 6.53L11.4 3.88A1.5 1.5 0 0 1 12.6 3.88L18.74 6.53A2.5 2.5 0 0 1 20.25 8.83V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V8.83A2.5 2.5 0 0 1 5.26 6.53Z",
+        "M3.75 10.28L11.4 13.59A1.5 1.5 0 0 0 12.6 13.59L20.25 10.28"
+      ],
+      "areas": [],
+      "body": "<path d=\"M5.26 6.53L11.4 3.88A1.5 1.5 0 0 1 12.6 3.88L18.74 6.53A2.5 2.5 0 0 1 20.25 8.83V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V8.83A2.5 2.5 0 0 1 5.26 6.53Z\"/> <path d=\"M3.75 10.28L11.4 13.59A1.5 1.5 0 0 0 12.6 13.59L20.25 10.28\"/>",
+      "mark": false,
+      "tags": [
+        "envelope",
+        "email",
+        "opened",
+        "read",
+        "shallow"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.44,
+          "optical": 3.33
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.44,
+          "optical": 3.33
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.14,
+          "optical": 3.86
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 18,
+        "h": 4.94
+      },
+      "ratio": {
+        "w": 1,
+        "h": 0.27
+      },
+      "gap": null
+    },
+    "mail-open-2-filled": {
+      "paths": [],
+      "areas": [
+        "M3.3 9.27A0.5 0.5 0 0 1 3 8.81A3.25 3.25 0 0 1 4.96 5.84L11.1 3.19A2.25 2.25 0 0 1 12.9 3.19L19.04 5.84A3.25 3.25 0 0 1 21 8.81A0.5 0.5 0 0 1 20.7 9.27L12.3 12.91A0.75 0.75 0 0 1 11.7 12.91Z",
+        "M3.7 11.08L11.11 14.28A2.25 2.25 0 0 0 12.89 14.28L20.3 11.08A0.5 0.5 0 0 1 21 11.54V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.54A0.5 0.5 0 0 1 3.7 11.08Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.3 9.27A0.5 0.5 0 0 1 3 8.81A3.25 3.25 0 0 1 4.96 5.84L11.1 3.19A2.25 2.25 0 0 1 12.9 3.19L19.04 5.84A3.25 3.25 0 0 1 21 8.81A0.5 0.5 0 0 1 20.7 9.27L12.3 12.91A0.75 0.75 0 0 1 11.7 12.91Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.7 11.08L11.11 14.28A2.25 2.25 0 0 0 12.89 14.28L20.3 11.08A0.5 0.5 0 0 1 21 11.54V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.54A0.5 0.5 0 0 1 3.7 11.08Z\"/>",
+      "mark": false,
+      "tags": [
+        "envelope",
+        "email",
+        "opened",
+        "read",
+        "shallow"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "mail-open-3": {
+      "paths": [
+        "M4.91 7.99L11.19 3.99A1.5 1.5 0 0 1 12.81 3.99L19.09 7.99A2.5 2.5 0 0 1 20.25 10.09V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V10.09A2.5 2.5 0 0 1 4.91 7.99Z",
+        "M3.75 10.09L11.19 14.83A1.5 1.5 0 0 0 12.81 14.83L20.25 10.09"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.91 7.99L11.19 3.99A1.5 1.5 0 0 1 12.81 3.99L19.09 7.99A2.5 2.5 0 0 1 20.25 10.09V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V10.09A2.5 2.5 0 0 1 4.91 7.99Z\"/> <path d=\"M3.75 10.09L11.19 14.83A1.5 1.5 0 0 0 12.81 14.83L20.25 10.09\"/>",
+      "mark": false,
+      "tags": [
+        "envelope",
+        "email",
+        "opened",
+        "read",
+        "square"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.54,
+          "optical": 3.41
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.54,
+          "optical": 3.41
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 1.2,
+          "optical": 3.91
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 18,
+        "h": 6.48
+      },
+      "ratio": {
+        "w": 1,
+        "h": 0.36
+      },
+      "gap": null
+    },
+    "mail-open-3-filled": {
+      "paths": [],
+      "areas": [
+        "M3.61 9.12A0.5 0.5 0 0 1 3.45 8.44A3.25 3.25 0 0 1 4.51 7.35L10.8 3.35A2.25 2.25 0 0 1 13.2 3.35L19.49 7.35A3.25 3.25 0 0 1 20.55 8.44A0.5 0.5 0 0 1 20.39 9.12L12.4 14.2A0.75 0.75 0 0 1 11.6 14.2Z",
+        "M3.77 11L10.79 15.46A2.25 2.25 0 0 0 13.21 15.46L20.23 11A0.5 0.5 0 0 1 21 11.42V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.42A0.5 0.5 0 0 1 3.77 11Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.61 9.12A0.5 0.5 0 0 1 3.45 8.44A3.25 3.25 0 0 1 4.51 7.35L10.8 3.35A2.25 2.25 0 0 1 13.2 3.35L19.49 7.35A3.25 3.25 0 0 1 20.55 8.44A0.5 0.5 0 0 1 20.39 9.12L12.4 14.2A0.75 0.75 0 0 1 11.6 14.2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.77 11L10.79 15.46A2.25 2.25 0 0 0 13.21 15.46L20.23 11A0.5 0.5 0 0 1 21 11.42V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.42A0.5 0.5 0 0 1 3.77 11Z\"/>",
+      "mark": false,
+      "tags": [
+        "envelope",
+        "email",
+        "opened",
+        "read",
+        "square"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "mail-open-filled": {
+      "paths": [],
+      "areas": [
+        "M3.45 8.85A0.5 0.5 0 0 1 3.23 8.23A3.25 3.25 0 0 1 4.65 6.61L10.15 3.49A3.75 3.75 0 0 1 13.85 3.49L19.35 6.61A3.25 3.25 0 0 1 20.77 8.23A0.5 0.5 0 0 1 20.55 8.85L13.11 13.07A2.25 2.25 0 0 1 10.89 13.07Z",
+        "M3.75 10.74L10.15 14.38A3.75 3.75 0 0 0 13.85 14.38L20.25 10.74A0.5 0.5 0 0 1 21 11.18V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.18A0.5 0.5 0 0 1 3.75 10.74Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.45 8.85A0.5 0.5 0 0 1 3.23 8.23A3.25 3.25 0 0 1 4.65 6.61L10.15 3.49A3.75 3.75 0 0 1 13.85 3.49L19.35 6.61A3.25 3.25 0 0 1 20.77 8.23A0.5 0.5 0 0 1 20.55 8.85L13.11 13.07A2.25 2.25 0 0 1 10.89 13.07Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.75 10.74L10.15 14.38A3.75 3.75 0 0 0 13.85 14.38L20.25 10.74A0.5 0.5 0 0 1 21 11.18V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.18A0.5 0.5 0 0 1 3.75 10.74Z\"/>",
+      "mark": false,
+      "tags": [
+        "envelope",
+        "email",
+        "opened",
+        "read",
+        "soft"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "map": {
       "paths": [
         "M3.58 6.34L8.75 3.75L15.25 7L19.08 5.09A1.5 1.5 0 0 1 21.25 6.43L21.25 16.32A1.5 1.5 0 0 1 20.42 17.66L15.25 20.25L8.75 17L4.92 18.91A1.5 1.5 0 0 1 2.75 17.57L2.75 7.68A1.5 1.5 0 0 1 3.58 6.34Z",
@@ -160515,6 +160893,12 @@
         "mail-3",
         "mail-3-filled",
         "mail-filled",
+        "mail-open",
+        "mail-open-2",
+        "mail-open-2-filled",
+        "mail-open-3",
+        "mail-open-3-filled",
+        "mail-open-filled",
         "map",
         "map-filled",
         "map-pin",
@@ -243577,6 +243961,378 @@
           "ratio": null,
           "gap": null
         },
+        "mail-open": {
+          "paths": [
+            "M3.403 4.867L7.039 2.871A2 2 0 0 1 8.961 2.871L12.597 4.867A1.5 1.5 0 0 1 13.375 6.182V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V6.182A1.5 1.5 0 0 1 3.403 4.867Z",
+            "M2.625 6.665L7.037 9.088A2 2 0 0 0 8.963 9.088L13.375 6.665"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.403 4.867L7.039 2.871A2 2 0 0 1 8.961 2.871L12.597 4.867A1.5 1.5 0 0 1 13.375 6.182V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V6.182A1.5 1.5 0 0 1 3.403 4.867Z\"/> <path d=\"M2.625 6.665L7.037 9.088A2 2 0 0 0 8.963 9.088L13.375 6.665\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "soft"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.39,
+              "optical": 2.29
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.39,
+              "optical": 2.29
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.89,
+              "optical": 2.67
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 12,
+            "h": 3.92
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.33
+          },
+          "gap": null
+        },
+        "mail-open-2": {
+          "paths": [
+            "M3.601 4.197L7.648 2.689A1 1 0 0 1 8.352 2.689L12.399 4.197A1.5 1.5 0 0 1 13.375 5.602V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V5.602A1.5 1.5 0 0 1 3.601 4.197Z",
+            "M2.625 7.032L7.651 8.905A1 1 0 0 0 8.349 8.905L13.375 7.032"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.601 4.197L7.648 2.689A1 1 0 0 1 8.352 2.689L12.399 4.197A1.5 1.5 0 0 1 13.375 5.602V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V5.602A1.5 1.5 0 0 1 3.601 4.197Z\"/> <path d=\"M2.625 7.032L7.651 8.905A1 1 0 0 0 8.349 8.905L13.375 7.032\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "shallow"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.85,
+              "optical": 2.64
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 12,
+            "h": 3.19
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.27
+          },
+          "gap": null
+        },
+        "mail-open-2-filled": {
+          "paths": [],
+          "areas": [
+            "M2.325 6.12A0.5 0.5 0 0 1 2 5.652V5.602A2.125 2.125 0 0 1 3.383 3.611L7.428 2.104A1.625 1.625 0 0 1 8.572 2.104L12.617 3.611A2.125 2.125 0 0 1 14 5.602V5.652A0.5 0.5 0 0 1 13.675 6.12L8.087 8.202A0.25 0.25 0 0 1 7.913 8.202Z",
+            "M2.675 7.851L7.389 9.608A1.75 1.75 0 0 0 8.611 9.608L13.325 7.851A0.5 0.5 0 0 1 14 8.32V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.32A0.5 0.5 0 0 1 2.675 7.851Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.325 6.12A0.5 0.5 0 0 1 2 5.652V5.602A2.125 2.125 0 0 1 3.383 3.611L7.428 2.104A1.625 1.625 0 0 1 8.572 2.104L12.617 3.611A2.125 2.125 0 0 1 14 5.602V5.652A0.5 0.5 0 0 1 13.675 6.12L8.087 8.202A0.25 0.25 0 0 1 7.913 8.202Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.675 7.851L7.389 9.608A1.75 1.75 0 0 0 8.611 9.608L13.325 7.851A0.5 0.5 0 0 1 14 8.32V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.32A0.5 0.5 0 0 1 2.675 7.851Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "shallow"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "mail-open-3": {
+          "paths": [
+            "M3.327 5.378L7.47 2.777A1 1 0 0 1 8.53 2.777L12.673 5.378A1.5 1.5 0 0 1 13.375 6.649V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V6.649A1.5 1.5 0 0 1 3.327 5.378Z",
+            "M2.625 6.649L7.468 9.69A1 1 0 0 0 8.532 9.69L13.375 6.649"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.327 5.378L7.47 2.777A1 1 0 0 1 8.53 2.777L12.673 5.378A1.5 1.5 0 0 1 13.375 6.649V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V6.649A1.5 1.5 0 0 1 3.327 5.378Z\"/> <path d=\"M2.625 6.649L7.468 9.69A1 1 0 0 0 8.532 9.69L13.375 6.649\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "square"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.33
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.43,
+              "optical": 2.33
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.96,
+              "optical": 2.72
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 12,
+            "h": 4.44
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.37
+          },
+          "gap": null
+        },
+        "mail-open-3-filled": {
+          "paths": [],
+          "areas": [
+            "M2.778 5.859A0.5 0.5 0 0 1 2.711 5.062A2.125 2.125 0 0 1 2.995 4.849L7.134 2.25A1.625 1.625 0 0 1 8.866 2.25L13.005 4.849A2.125 2.125 0 0 1 13.289 5.062A0.5 0.5 0 0 1 13.222 5.859L8.133 9.054A0.25 0.25 0 0 1 7.867 9.054Z",
+            "M2.766 7.623L7.069 10.325A1.75 1.75 0 0 0 8.931 10.325L13.234 7.623A0.5 0.5 0 0 1 14 8.046V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.046A0.5 0.5 0 0 1 2.766 7.623Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.778 5.859A0.5 0.5 0 0 1 2.711 5.062A2.125 2.125 0 0 1 2.995 4.849L7.134 2.25A1.625 1.625 0 0 1 8.866 2.25L13.005 4.849A2.125 2.125 0 0 1 13.289 5.062A0.5 0.5 0 0 1 13.222 5.859L8.133 9.054A0.25 0.25 0 0 1 7.867 9.054Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.766 7.623L7.069 10.325A1.75 1.75 0 0 0 8.931 10.325L13.234 7.623A0.5 0.5 0 0 1 14 8.046V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.046A0.5 0.5 0 0 1 2.766 7.623Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "square"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "mail-open-filled": {
+          "paths": [],
+          "areas": [
+            "M2.513 5.748A0.5 0.5 0 0 1 2.332 5.042A2.125 2.125 0 0 1 3.102 4.319L6.744 2.32A2.625 2.625 0 0 1 9.256 2.32L12.898 4.319A2.125 2.125 0 0 1 13.668 5.042A0.5 0.5 0 0 1 13.487 5.748L8.602 8.43A1.25 1.25 0 0 1 7.398 8.43Z",
+            "M2.741 7.584L6.677 9.745A2.75 2.75 0 0 0 9.323 9.745L13.259 7.584A0.5 0.5 0 0 1 14 8.023V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.023A0.5 0.5 0 0 1 2.741 7.584Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.513 5.748A0.5 0.5 0 0 1 2.332 5.042A2.125 2.125 0 0 1 3.102 4.319L6.744 2.32A2.625 2.625 0 0 1 9.256 2.32L12.898 4.319A2.125 2.125 0 0 1 13.668 5.042A0.5 0.5 0 0 1 13.487 5.748L8.602 8.43A1.25 1.25 0 0 1 7.398 8.43Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.741 7.584L6.677 9.745A2.75 2.75 0 0 0 9.323 9.745L13.259 7.584A0.5 0.5 0 0 1 14 8.023V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V8.023A0.5 0.5 0 0 1 2.741 7.584Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "soft"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "map": {
           "paths": [
             "M2.178 4.349L5.625 2.625L10.375 5L12.928 3.724A1 1 0 0 1 14.375 4.618L14.375 10.757A1 1 0 0 1 13.822 11.651L10.375 13.375L5.625 11L3.072 12.276A1 1 0 0 1 1.625 11.382L1.625 5.243A1 1 0 0 1 2.178 4.349Z",
@@ -319478,6 +320234,12 @@
         "mail-3",
         "mail-3-filled",
         "mail-filled",
+        "mail-open",
+        "mail-open-2",
+        "mail-open-2-filled",
+        "mail-open-3",
+        "mail-open-3-filled",
+        "mail-open-filled",
         "map",
         "map-filled",
         "map-pin",
@@ -402581,6 +403343,378 @@
           "ratio": null,
           "gap": null
         },
+        "mail-open": {
+          "paths": [
+            "M4.78 6.27L8.8 4.06A2.5 2.5 0 0 1 11.2 4.06L15.22 6.27A2 2 0 0 1 16.25 8.02V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V8.02A2 2 0 0 1 4.78 6.27Z",
+            "M3.75 8.45L8.79 11.24A2.5 2.5 0 0 0 11.21 11.24L16.25 8.45"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.78 6.27L8.8 4.06A2.5 2.5 0 0 1 11.2 4.06L15.22 6.27A2 2 0 0 1 16.25 8.02V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V8.02A2 2 0 0 1 4.78 6.27Z\"/> <path d=\"M3.75 8.45L8.79 11.24A2.5 2.5 0 0 0 11.21 11.24L16.25 8.45\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "soft"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.46,
+              "optical": 3.34
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.46,
+              "optical": 3.34
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.05,
+              "optical": 3.79
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 14,
+            "h": 4.6
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.33
+          },
+          "gap": null
+        },
+        "mail-open-2": {
+          "paths": [
+            "M5.04 5.54L9.56 3.83A1.25 1.25 0 0 1 10.44 3.83L14.96 5.54A2 2 0 0 1 16.25 7.41V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V7.41A2 2 0 0 1 5.04 5.54Z",
+            "M3.75 8.86L9.56 11.06A1.25 1.25 0 0 0 10.44 11.06L16.25 8.86"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.04 5.54L9.56 3.83A1.25 1.25 0 0 1 10.44 3.83L14.96 5.54A2 2 0 0 1 16.25 7.41V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V7.41A2 2 0 0 1 5.04 5.54Z\"/> <path d=\"M3.75 8.86L9.56 11.06A1.25 1.25 0 0 0 10.44 11.06L16.25 8.86\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "shallow"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.41,
+              "optical": 3.31
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.41,
+              "optical": 3.31
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.01,
+              "optical": 3.76
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 14,
+            "h": 3.78
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.27
+          },
+          "gap": null
+        },
+        "mail-open-2-filled": {
+          "paths": [],
+          "areas": [
+            "M3.32 7.89A0.5 0.5 0 0 1 3 7.43V7.41A2.75 2.75 0 0 1 4.77 4.84L9.29 3.13A2 2 0 0 1 10.71 3.13L15.23 4.84A2.75 2.75 0 0 1 17 7.41V7.43A0.5 0.5 0 0 1 16.68 7.89L10.18 10.36A0.5 0.5 0 0 1 9.82 10.36Z",
+            "M3.68 9.63L9.29 11.76A2 2 0 0 0 10.71 11.76L16.32 9.63A0.5 0.5 0 0 1 17 10.1V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V10.1A0.5 0.5 0 0 1 3.68 9.63Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.32 7.89A0.5 0.5 0 0 1 3 7.43V7.41A2.75 2.75 0 0 1 4.77 4.84L9.29 3.13A2 2 0 0 1 10.71 3.13L15.23 4.84A2.75 2.75 0 0 1 17 7.41V7.43A0.5 0.5 0 0 1 16.68 7.89L10.18 10.36A0.5 0.5 0 0 1 9.82 10.36Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.68 9.63L9.29 11.76A2 2 0 0 0 10.71 11.76L16.32 9.63A0.5 0.5 0 0 1 17 10.1V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V10.1A0.5 0.5 0 0 1 3.68 9.63Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "shallow"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "mail-open-3": {
+          "paths": [
+            "M4.67 6.93L9.33 3.95A1.25 1.25 0 0 1 10.67 3.95L15.33 6.93A2 2 0 0 1 16.25 8.61V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V8.61A2 2 0 0 1 4.67 6.93Z",
+            "M3.75 8.61L9.33 12.18A1.25 1.25 0 0 0 10.67 12.18L16.25 8.61"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.67 6.93L9.33 3.95A1.25 1.25 0 0 1 10.67 3.95L15.33 6.93A2 2 0 0 1 16.25 8.61V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V8.61A2 2 0 0 1 4.67 6.93Z\"/> <path d=\"M3.75 8.61L9.33 12.18A1.25 1.25 0 0 0 10.67 12.18L16.25 8.61\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "square"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3.01,
+            "w": 14,
+            "h": 13.99
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3.01,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.52,
+              "optical": 3.39
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.52,
+              "optical": 3.39
+            },
+            "top": {
+              "geometric": 3.01,
+              "recession": 1.14,
+              "optical": 3.86
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 14,
+            "h": 5.26
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.38
+          },
+          "gap": null
+        },
+        "mail-open-3-filled": {
+          "paths": [],
+          "areas": [
+            "M3.68 7.68A0.5 0.5 0 0 1 3.55 6.96A2.75 2.75 0 0 1 4.27 6.29L8.93 3.31A2 2 0 0 1 11.07 3.31L15.73 6.29A2.75 2.75 0 0 1 16.45 6.96A0.5 0.5 0 0 1 16.32 7.68L10.27 11.55A0.5 0.5 0 0 1 9.73 11.55Z",
+            "M3.77 9.51L8.92 12.81A2 2 0 0 0 11.08 12.81L16.23 9.51A0.5 0.5 0 0 1 17 9.93V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V9.93A0.5 0.5 0 0 1 3.77 9.51Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.68 7.68A0.5 0.5 0 0 1 3.55 6.96A2.75 2.75 0 0 1 4.27 6.29L8.93 3.31A2 2 0 0 1 11.07 3.31L15.73 6.29A2.75 2.75 0 0 1 16.45 6.96A0.5 0.5 0 0 1 16.32 7.68L10.27 11.55A0.5 0.5 0 0 1 9.73 11.55Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.77 9.51L8.92 12.81A2 2 0 0 0 11.08 12.81L16.23 9.51A0.5 0.5 0 0 1 17 9.93V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V9.93A0.5 0.5 0 0 1 3.77 9.51Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "square"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "mail-open-filled": {
+          "paths": [],
+          "areas": [
+            "M3.5 7.46A0.5 0.5 0 0 1 3.29 6.8A2.75 2.75 0 0 1 4.42 5.62L8.42 3.41A3.25 3.25 0 0 1 11.58 3.41L15.58 5.62A2.75 2.75 0 0 1 16.71 6.8A0.5 0.5 0 0 1 16.5 7.46L10.85 10.58A1.75 1.75 0 0 1 9.15 10.58Z",
+            "M3.74 9.31L8.43 11.89A3.25 3.25 0 0 0 11.57 11.89L16.26 9.31A0.5 0.5 0 0 1 17 9.74V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V9.74A0.5 0.5 0 0 1 3.74 9.31Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.5 7.46A0.5 0.5 0 0 1 3.29 6.8A2.75 2.75 0 0 1 4.42 5.62L8.42 3.41A3.25 3.25 0 0 1 11.58 3.41L15.58 5.62A2.75 2.75 0 0 1 16.71 6.8A0.5 0.5 0 0 1 16.5 7.46L10.85 10.58A1.75 1.75 0 0 1 9.15 10.58Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.74 9.31L8.43 11.89A3.25 3.25 0 0 0 11.57 11.89L16.26 9.31A0.5 0.5 0 0 1 17 9.74V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V9.74A0.5 0.5 0 0 1 3.74 9.31Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "soft"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "map": {
           "paths": [
             "M3.44 5.65L7.25 3.75L12.75 6.5L15.44 5.15A1.25 1.25 0 0 1 17.25 6.27L17.25 13.23A1.25 1.25 0 0 1 16.56 14.35L12.75 16.25L7.25 13.5L4.56 14.85A1.25 1.25 0 0 1 2.75 13.73L2.75 6.77A1.25 1.25 0 0 1 3.44 5.65Z",
@@ -478517,6 +479651,12 @@
         "mail-3",
         "mail-3-filled",
         "mail-filled",
+        "mail-open",
+        "mail-open-2",
+        "mail-open-2-filled",
+        "mail-open-3",
+        "mail-open-3-filled",
+        "mail-open-filled",
         "map",
         "map-filled",
         "map-pin",
@@ -561686,6 +562826,378 @@
               "geometric": 4,
               "recession": 0,
               "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "mail-open": {
+          "paths": [
+            "M5.02 7.26L10.52 4.14A3 3 0 0 1 13.48 4.14L18.98 7.26A2.5 2.5 0 0 1 20.25 9.44V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V9.44A2.5 2.5 0 0 1 5.02 7.26Z",
+            "M3.75 9.88L10.52 13.73A3 3 0 0 0 13.48 13.73L20.25 9.88"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.02 7.26L10.52 4.14A3 3 0 0 1 13.48 4.14L18.98 7.26A2.5 2.5 0 0 1 20.25 9.44V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V9.44A2.5 2.5 0 0 1 5.02 7.26Z\"/> <path d=\"M3.75 9.88L10.52 13.73A3 3 0 0 0 13.48 13.73L20.25 9.88\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "soft"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.5,
+              "optical": 3.38
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.5,
+              "optical": 3.38
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.13,
+              "optical": 3.85
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 18,
+            "h": 5.74
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.32
+          },
+          "gap": null
+        },
+        "mail-open-2": {
+          "paths": [
+            "M5.26 6.53L11.4 3.88A1.5 1.5 0 0 1 12.6 3.88L18.74 6.53A2.5 2.5 0 0 1 20.25 8.83V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V8.83A2.5 2.5 0 0 1 5.26 6.53Z",
+            "M3.75 10.28L11.4 13.59A1.5 1.5 0 0 0 12.6 13.59L20.25 10.28"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.26 6.53L11.4 3.88A1.5 1.5 0 0 1 12.6 3.88L18.74 6.53A2.5 2.5 0 0 1 20.25 8.83V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V8.83A2.5 2.5 0 0 1 5.26 6.53Z\"/> <path d=\"M3.75 10.28L11.4 13.59A1.5 1.5 0 0 0 12.6 13.59L20.25 10.28\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "shallow"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.44,
+              "optical": 3.33
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.44,
+              "optical": 3.33
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.14,
+              "optical": 3.86
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 18,
+            "h": 4.94
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.27
+          },
+          "gap": null
+        },
+        "mail-open-2-filled": {
+          "paths": [],
+          "areas": [
+            "M3.3 9.27A0.5 0.5 0 0 1 3 8.81A3.25 3.25 0 0 1 4.96 5.84L11.1 3.19A2.25 2.25 0 0 1 12.9 3.19L19.04 5.84A3.25 3.25 0 0 1 21 8.81A0.5 0.5 0 0 1 20.7 9.27L12.3 12.91A0.75 0.75 0 0 1 11.7 12.91Z",
+            "M3.7 11.08L11.11 14.28A2.25 2.25 0 0 0 12.89 14.28L20.3 11.08A0.5 0.5 0 0 1 21 11.54V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.54A0.5 0.5 0 0 1 3.7 11.08Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.3 9.27A0.5 0.5 0 0 1 3 8.81A3.25 3.25 0 0 1 4.96 5.84L11.1 3.19A2.25 2.25 0 0 1 12.9 3.19L19.04 5.84A3.25 3.25 0 0 1 21 8.81A0.5 0.5 0 0 1 20.7 9.27L12.3 12.91A0.75 0.75 0 0 1 11.7 12.91Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.7 11.08L11.11 14.28A2.25 2.25 0 0 0 12.89 14.28L20.3 11.08A0.5 0.5 0 0 1 21 11.54V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.54A0.5 0.5 0 0 1 3.7 11.08Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "shallow"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "mail-open-3": {
+          "paths": [
+            "M4.91 7.99L11.19 3.99A1.5 1.5 0 0 1 12.81 3.99L19.09 7.99A2.5 2.5 0 0 1 20.25 10.09V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V10.09A2.5 2.5 0 0 1 4.91 7.99Z",
+            "M3.75 10.09L11.19 14.83A1.5 1.5 0 0 0 12.81 14.83L20.25 10.09"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.91 7.99L11.19 3.99A1.5 1.5 0 0 1 12.81 3.99L19.09 7.99A2.5 2.5 0 0 1 20.25 10.09V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V10.09A2.5 2.5 0 0 1 4.91 7.99Z\"/> <path d=\"M3.75 10.09L11.19 14.83A1.5 1.5 0 0 0 12.81 14.83L20.25 10.09\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "square"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.54,
+              "optical": 3.41
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.54,
+              "optical": 3.41
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 1.2,
+              "optical": 3.91
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 18,
+            "h": 6.48
+          },
+          "ratio": {
+            "w": 1,
+            "h": 0.36
+          },
+          "gap": null
+        },
+        "mail-open-3-filled": {
+          "paths": [],
+          "areas": [
+            "M3.61 9.12A0.5 0.5 0 0 1 3.45 8.44A3.25 3.25 0 0 1 4.51 7.35L10.8 3.35A2.25 2.25 0 0 1 13.2 3.35L19.49 7.35A3.25 3.25 0 0 1 20.55 8.44A0.5 0.5 0 0 1 20.39 9.12L12.4 14.2A0.75 0.75 0 0 1 11.6 14.2Z",
+            "M3.77 11L10.79 15.46A2.25 2.25 0 0 0 13.21 15.46L20.23 11A0.5 0.5 0 0 1 21 11.42V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.42A0.5 0.5 0 0 1 3.77 11Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.61 9.12A0.5 0.5 0 0 1 3.45 8.44A3.25 3.25 0 0 1 4.51 7.35L10.8 3.35A2.25 2.25 0 0 1 13.2 3.35L19.49 7.35A3.25 3.25 0 0 1 20.55 8.44A0.5 0.5 0 0 1 20.39 9.12L12.4 14.2A0.75 0.75 0 0 1 11.6 14.2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.77 11L10.79 15.46A2.25 2.25 0 0 0 13.21 15.46L20.23 11A0.5 0.5 0 0 1 21 11.42V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.42A0.5 0.5 0 0 1 3.77 11Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "square"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "mail-open-filled": {
+          "paths": [],
+          "areas": [
+            "M3.45 8.85A0.5 0.5 0 0 1 3.23 8.23A3.25 3.25 0 0 1 4.65 6.61L10.15 3.49A3.75 3.75 0 0 1 13.85 3.49L19.35 6.61A3.25 3.25 0 0 1 20.77 8.23A0.5 0.5 0 0 1 20.55 8.85L13.11 13.07A2.25 2.25 0 0 1 10.89 13.07Z",
+            "M3.75 10.74L10.15 14.38A3.75 3.75 0 0 0 13.85 14.38L20.25 10.74A0.5 0.5 0 0 1 21 11.18V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.18A0.5 0.5 0 0 1 3.75 10.74Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.45 8.85A0.5 0.5 0 0 1 3.23 8.23A3.25 3.25 0 0 1 4.65 6.61L10.15 3.49A3.75 3.75 0 0 1 13.85 3.49L19.35 6.61A3.25 3.25 0 0 1 20.77 8.23A0.5 0.5 0 0 1 20.55 8.85L13.11 13.07A2.25 2.25 0 0 1 10.89 13.07Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.75 10.74L10.15 14.38A3.75 3.75 0 0 0 13.85 14.38L20.25 10.74A0.5 0.5 0 0 1 21 11.18V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V11.18A0.5 0.5 0 0 1 3.75 10.74Z\"/>",
+          "mark": false,
+          "tags": [
+            "envelope",
+            "email",
+            "opened",
+            "read",
+            "soft"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
             }
           },
           "container": null,
@@ -648235,12 +649747,34 @@
       "n": 431,
       "name": "mail-open",
       "section": "D · The rest, by audit rank",
-      "category": "V5 Other variants",
+      "category": "Communication",
       "base": "mail",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
+    },
+    {
+      "n": 431,
+      "name": "mail-open-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Communication",
+      "base": "mail-open",
+      "note": "Redraw: A2 on the square · approved 2026-10-25",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-25"
+    },
+    {
+      "n": 431,
+      "name": "mail-open-3",
+      "section": "D · The rest, by audit rank",
+      "category": "Communication",
+      "base": "mail-open",
+      "note": "Redraw: A3 on the square · approved 2026-10-25",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-25"
     },
     {
       "n": 432,
