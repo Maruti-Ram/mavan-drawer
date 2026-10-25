@@ -1038,7 +1038,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 376. `chevron-right-circle` · V4 Circle and square containers · variant of `chevron-right`
 - [~] 377. `chevron-up-circle` · V4 Circle and square containers · variant of `chevron-up`
 - [x] 378. `clipboard-list` · Files & Folders · variant of `clipboard` — approved 2026-10-20
-- [~] 379. `database-plus` · V2 Plus minus check x · variant of `database`
+- [x] 379. `database-plus` · Charts & Data · variant of `database` — approved 2026-10-25
 - [~] 380. `file-clock` · V3 Other badges · variant of `file`
 - [x] 381. `file-heart` · Files & Folders · variant of `file` — approved 2026-10-25
 - [~] 382. `image-plus` · V2 Plus minus check x · variant of `image`
