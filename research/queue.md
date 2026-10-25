@@ -1023,7 +1023,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 362. `shield-off` · Users & Access · variant of `shield` — approved 2026-10-25
 - [x] 362. `shield-off-2` · Users & Access · variant of `shield-off` — Bar cut through · approved 2026-10-25
 - [~] 363. `text-align-center` · V5 Other variants · variant of `text`
-- [~] 364. `text-align-left` · V5 Other variants · variant of `text`
+- [x] 364. `text-align-left` · Editing & Text · variant of `text` — approved 2026-10-25
 - [~] 365. `text-align-right` · V5 Other variants · variant of `text`
 - [~] 366. `user-minus` · V2 Plus minus check x · variant of `user`
 - [~] 367. `user-plus` · V2 Plus minus check x · variant of `user`
