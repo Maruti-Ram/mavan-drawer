@@ -1105,7 +1105,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 421. `calendar-days` · Time & Calendar · variant of `calendar` — approved 2026-10-25
 - [x] 422. `chart-bar-trend` · Charts & Data · variant of `chart-bar` — approved 2026-10-25
 - [x] 422. `chart-bar-trend-2` · Charts & Data · variant of `chart-bar-trend` — Trend arrow over rising bars, no floor · approved 2026-10-25
-- [~] 424. `check-double` · V5 Other variants · variant of `check`
+- [x] 424. `check-double` · UI & Layout · variant of `check` — approved 2026-10-25
 - [~] 425. `eye-closed` · V5 Other variants · variant of `eye`
 - [~] 426. `face-smile-plus` · V2 Plus minus check x · variant of `face-smile`
 - [~] 427. `file-check` · V2 Plus minus check x · variant of `file`
