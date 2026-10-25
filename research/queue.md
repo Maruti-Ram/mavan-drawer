@@ -1064,7 +1064,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 402. `sort-ascending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [~] 403. `camera-flip` · V5 Other variants · variant of `camera`
 - [~] 404. `credit-card-x` · V2 Plus minus check x · variant of `credit-card`
-- [~] 405. `keyboard-off` · V1 Off states · variant of `keyboard`
+- [x] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard` — approved 2026-10-25
+- [x] 405. `keyboard-off-2` · Devices & Hardware · variant of `keyboard-off` — Bar moved 1 right, 1 up, wired · approved 2026-10-25
 - [~] 406. `map-pin-off` · V1 Off states · variant of `map-pin`
 - [~] 407. `package-check` · V2 Plus minus check x · variant of `package`
 - [x] 408. `bell-off` · Communication · variant of `bell` — approved 2026-10-25

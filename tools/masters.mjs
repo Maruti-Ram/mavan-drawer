@@ -88,7 +88,7 @@ export const plainSmallWidth = (width, master) => {
 // State twins (C34, 2026-10-19), twin → base: the other state of a toggle is drawn for every
 // numbered shape of its base (`unlock-3` for `lock-3`). Lint warns on a missing twin (§9).
 // A later twin is one entry: `'eye-off': 'eye'`. `toggle-off` joined 2026-10-20.
-export const STATE_TWINS = { unlock: 'lock', 'toggle-off': 'toggle-on', 'cloud-off': 'cloud', 'bug-off': 'bug', 'shield-off': 'shield', 'bell-off': 'bell' };
+export const STATE_TWINS = { unlock: 'lock', 'toggle-off': 'toggle-on', 'cloud-off': 'cloud', 'bug-off': 'bug', 'shield-off': 'shield', 'bell-off': 'bell', 'keyboard-off': 'keyboard' };
 
 // Minimum gap between any two stroke edges: 1.5 units, at every master and in
 // both styles. A LITERAL, deliberately not `strokeOf(master)` — the floor is what
