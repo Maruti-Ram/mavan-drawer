@@ -257,3 +257,20 @@ Shipped icons from this round that met the rules but read weakly somewhere, or c
 - `calendar-days`: six day dots at 24, two at 20 and 16.
 - `camera-flip-3` (S1): being redrawn so its two arrows hold at 20 and 16.
 - Still open: `eye-closed` (B: two or three lashes at 16; three recommended). Not shipped: `camera-flip` S3, S4, S5.
+
+From V2 (wrapped; all 23 rows shipped as 25 icons):
+13. C9 needs a ruling on numbering a second picture of a composite on the default base (`code-plus-2`, `clipboard-check-2`, while `code-2` / `clipboard-2` exist as base shapes).
+14. `file-plus-filled` ends its right side in an r 0.5 rounding, `folder-plus-filled` in the wall's r 0.75 cap (under 0.3 apart); matching them means redrawing one shipped file.
+15. The `clipboard-check-2` sheet row label reads "Tick inside the board (recommended)" (copied from the candidate label); cosmetic.
+16. **V2's badge cut rules exist only in the sessions' notes folder (`v2-badge-spec.md`)**: badge sizes (plus, minus, x 8 · 6 · 5; check from `badge-check`), cuts stopping clear of the badge's box (3a), filled strips ending in the outline's own cap (4a), the bite following the badge inside its gaps (4b), a minus cutting as its plus twin. Write them into C33 once Maruti agrees.
+17. Lint cannot see material between a hole and an outer cut (`eye-check`'s 0.98) or the 4a end rule.
+18. The check badge reads lighter at 16 than the plus (two diagonals); one look in the At 16 strip.
+
+From V3 (wrapped; 35 of 38 rows shipped plus `file-edit`; `mail-clock` added as a row with its board):
+19. Lint gaps: the material check reads nothing on arrow knockouts (shipped `import-filled` included); with `glyph: dot` and a badge past the base, lint holds the dot 1 from the base in the outline where it should be 1.5 (lint.mjs ~624); the head-air check flags `book`'s page line as an arrowhead depending on path direction.
+20. Not yet in docs: `compass-drafting`'s ~29.5° legs (docs/07 angle exceptions); `user-segment`'s three lines spaced tighter than C17's menu gap.
+21. Two right-pointing arrow badges at 24 differ: `user-exit`'s head half-width 3, `mail-follow-up`'s 2.5; pick one for the family.
+22. Shipped `globe-filled` at 16: band ends bulge 0.005 past its circle (14.01 wide).
+23. V3's badge kits and drawer brief live only in the notes folder (`v3-badge-kit.md`).
+
+Boards left for Maruti after the sessions were deleted (each with its question in the draft): `file-clock`, `calendar-clock` (clock D lighter, recommended, or C), `shield-pending`, `mail-clock`, `eye-closed` (two or three lashes at 16), `camera-flip` (S2 → `camera-flip-2`, S1 → `camera-flip-3`, both being redrawn by the main session).
