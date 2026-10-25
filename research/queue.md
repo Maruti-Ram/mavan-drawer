@@ -1118,7 +1118,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 445. `shield-pending` · V3 Other badges · variant of `shield`
 - [~] 446. `user-exit` · V3 Other badges · variant of `user`
 - [~] 447. `user-segment` · V3 Other badges · variant of `user`
-- [~] 448. `credit-card-percent` · V3 Other badges · variant of `credit-card`
+- [x] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
 - [x] 449. `currency-convert` · Currency — approved 2026-10-22
 - [x] 450. `receipt-refund` · Commerce & Payments · variant of `receipt` — approved 2026-10-22
 - [~] 451. `award-certificate` · V3 Other badges · variant of `award`
