@@ -1067,7 +1067,9 @@ Bases before their variants; within that, highest evidence first.
 - [~] 405. `keyboard-off` · V1 Off states · variant of `keyboard`
 - [~] 406. `map-pin-off` · V1 Off states · variant of `map-pin`
 - [~] 407. `package-check` · V2 Plus minus check x · variant of `package`
-- [~] 408. `bell-off` · V1 Off states · variant of `bell`
+- [x] 408. `bell-off` · Communication · variant of `bell` — approved 2026-10-25
+- [x] 408. `bell-off-2` · Communication · variant of `bell-off` — Bar cut through, dot clapper · approved 2026-10-25
+- [x] 408. `bell-off-3` · Communication · variant of `bell-off` — Bar cut through, big dome · approved 2026-10-25
 - [~] 409. `microphone-off` · V1 Off states · variant of `microphone`
 - [x] 410. `minus-square` · UI & Layout · variant of `minus` — approved 2026-10-25
 - [~] 411. `phone-call` · V3 Other badges · variant of `phone`
