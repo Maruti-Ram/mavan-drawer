@@ -1146,7 +1146,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 457. `message-pen` · V3 Other badges · variant of `message`
 - [~] 459. `message-user` · V3 Other badges · variant of `message`
 - [~] 461. `search-empty` · V5 Other variants · variant of `search`
-- [~] 462. `star-sparkle` · V3 Other badges · variant of `star`
+- [x] 462. `star-sparkle` · Status & Feedback · variant of `star` — approved 2026-10-25
 - [~] 463. `user-focus` · V3 Other badges · variant of `user`
 - [~] 464. `user-laptop` · V3 Other badges · variant of `user`
 - [~] 465. `window-chart` · V3 Other badges · variant of `window`
