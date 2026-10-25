@@ -1058,7 +1058,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 395. `file-down` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 395. `file-down-2` · Files & Folders · variant of `file-down` — Corner badge · approved 2026-10-25
 - [~] 396. `file-signature` · V3 Other badges · variant of `file`
-- [~] 397. `file-up` · V3 Other badges · variant of `file`
+- [x] 397. `file-up` · Files & Folders · variant of `file` — approved 2026-10-25
+- [x] 397. `file-up-2` · Files & Folders · variant of `file-up` — Corner badge · approved 2026-10-25
 - [~] 398. `folder-down` · V3 Other badges · variant of `folder`
 - [~] 399. `folder-up` · V3 Other badges · variant of `folder`
 - [~] 400. `message-alert` · V3 Other badges · variant of `message`
