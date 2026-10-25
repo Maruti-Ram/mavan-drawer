@@ -1019,7 +1019,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 358. `sort-descending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [~] 359. `image-sparkle` · V3 Other badges · variant of `image`
 - [~] 360. `folder-minus` · V2 Plus minus check x · variant of `folder`
-- [~] 361. `folder-plus` · V2 Plus minus check x · variant of `folder`
+- [x] 361. `folder-plus` · Files & Folders · variant of `folder` — approved 2026-10-25
 - [x] 362. `shield-off` · Users & Access · variant of `shield` — approved 2026-10-25
 - [x] 362. `shield-off-2` · Users & Access · variant of `shield-off` — Bar cut through · approved 2026-10-25
 - [x] 363. `text-align-center` · Editing & Text · variant of `text` — approved 2026-10-25
