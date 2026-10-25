@@ -1085,6 +1085,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 415. `battery-charging` · Devices & Hardware · variant of `battery` — approved 2026-10-25
 - [x] 415. `battery-charging-2` · Devices & Hardware · variant of `battery-charging` — Narrow bolt through the walls · approved 2026-10-25
 - [x] 417. `activity-square` · Charts & Data · variant of `activity` — approved 2026-10-25
+- [x] 417. `activity-square-2` · Charts & Data · variant of `activity-square` — Floating, narrowed · approved 2026-10-25
 - [~] 418. `bell-plus` · V2 Plus minus check x · variant of `bell`
 - [~] 419. `book-bookmark` · V3 Other badges · variant of `book`
 - [~] 420. `bookmark-off` · V1 Off states · variant of `bookmark`
