@@ -1008,7 +1008,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 347. `triangle-small` · Design Tools · variant of `triangle` — added 2026-10-24 · approved 2026-10-24
 - [x] 347. `triangle-dashed` · Design Tools · variant of `triangle` — Dashed triangle · approved 2026-10-24
 - [x] 348. `arrow-down-circle` · Arrows & Direction · variant of `arrow-down` — approved 2026-10-25
-- [~] 349. `arrow-left-circle` · V4 Circle and square containers · variant of `arrow-left`
+- [x] 349. `arrow-left-circle` · Arrows & Direction · variant of `arrow-left` — approved 2026-10-25
 - [~] 350. `arrow-right-circle` · V4 Circle and square containers · variant of `arrow-right`
 - [x] 351. `arrow-up-circle` · Arrows & Direction · variant of `arrow-up` — approved 2026-10-25
 - [~] 352. `eye-off` · V1 Off states · variant of `eye`
