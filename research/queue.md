@@ -1089,7 +1089,8 @@ Bases before their variants; within that, highest evidence first.
 - [~] 425. `eye-closed` · V5 Other variants · variant of `eye`
 - [~] 426. `face-smile-plus` · V2 Plus minus check x · variant of `face-smile`
 - [~] 427. `file-check` · V2 Plus minus check x · variant of `file`
-- [~] 428. `folder-open` · V5 Other variants · variant of `folder`
+- [x] 428. `folder-open` · Files & Folders · variant of `folder` — approved 2026-10-25
+- [x] 428. `folder-open-2` · Files & Folders · variant of `folder-open` — Whole flap, back cut short · approved 2026-10-25
 - [~] 430. `link-off` · V1 Off states · variant of `link`
 - [~] 431. `mail-open` · V5 Other variants · variant of `mail`
 - [~] 432. `scan-face` · V5 Other variants · variant of `scan`
