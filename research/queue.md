@@ -1131,7 +1131,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 444. `mail-follow-up` · V3 Other badges · variant of `mail`
 - [~] 445. `shield-pending` · V3 Other badges · variant of `shield`
 - [x] 446. `user-exit` · Users & Access · variant of `user` — approved 2026-10-25
-- [~] 447. `user-segment` · V3 Other badges · variant of `user`
+- [x] 447. `user-segment` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
 - [x] 449. `currency-convert` · Currency — approved 2026-10-22
 - [x] 450. `receipt-refund` · Commerce & Payments · variant of `receipt` — approved 2026-10-22
