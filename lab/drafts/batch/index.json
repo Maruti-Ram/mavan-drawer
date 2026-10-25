@@ -1,6 +1,10 @@
 {
   "generated": "2026-10-25",
-  "board": null,
+  "board": {
+    "name": "play-circle",
+    "candidates": 5,
+    "status": "review"
+  },
   "icons": [
     {
       "name": "arrow-up-circle",
@@ -15,10 +19,11 @@
     {
       "name": "eye-off",
       "concept": "eye-off",
-      "candidates": 2,
+      "candidates": 3,
       "ids": [
         "A1",
-        "A2"
+        "A2",
+        "A3"
       ],
       "status": "review"
     },
@@ -36,9 +41,9 @@
       "concept": "image-sparkle",
       "candidates": 3,
       "ids": [
-        "A",
         "B",
-        "C"
+        "C",
+        "D"
       ],
       "status": "review"
     },
@@ -60,36 +65,6 @@
         "B1"
       ],
       "status": "done"
-    },
-    {
-      "name": "text-align-center",
-      "concept": "text-align-center",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "text-align-left",
-      "concept": "text-align-left",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "text-align-right",
-      "concept": "text-align-right",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
-      ],
-      "status": "review"
     },
     {
       "name": "user-plus",
@@ -129,8 +104,44 @@
       "status": "review"
     },
     {
+      "name": "calendar-clock",
+      "concept": "calendar-clock",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
       "name": "chevron-down-circle",
       "concept": "chevron-down-circle",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "chevron-left-circle",
+      "concept": "chevron-left-circle",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "chevron-right-circle",
+      "concept": "chevron-right-circle",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "chevron-up-circle",
+      "concept": "chevron-up-circle",
       "candidates": 1,
       "ids": [
         "A"
@@ -149,6 +160,25 @@
     {
       "name": "file-clock",
       "concept": "file-clock",
+      "candidates": 2,
+      "ids": [
+        "A",
+        "B"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "file-heart",
+      "concept": "file-heart",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "image-plus",
+      "concept": "image-plus",
       "candidates": 1,
       "ids": [
         "A"
@@ -185,6 +215,16 @@
       "status": "review"
     },
     {
+      "name": "chart-bar-stacked",
+      "concept": "chart-bar-stacked",
+      "candidates": 2,
+      "ids": [
+        "A",
+        "B"
+      ],
+      "status": "review"
+    },
+    {
       "name": "file-down",
       "concept": "file-down",
       "candidates": 2,
@@ -195,12 +235,23 @@
       "status": "review"
     },
     {
-      "name": "note-plus",
-      "concept": "note-plus",
+      "name": "file-up",
+      "concept": "file-up",
       "candidates": 2,
       "ids": [
         "A",
         "B"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "note-plus",
+      "concept": "note-plus",
+      "candidates": 3,
+      "ids": [
+        "A",
+        "B",
+        "C"
       ],
       "status": "review"
     },
@@ -252,6 +303,16 @@
       "status": "review"
     },
     {
+      "name": "battery-charging",
+      "concept": "battery-charging",
+      "candidates": 2,
+      "ids": [
+        "A",
+        "B"
+      ],
+      "status": "review"
+    },
+    {
       "name": "activity-square",
       "concept": "activity-square",
       "candidates": 2,
@@ -271,13 +332,12 @@
       "status": "review"
     },
     {
-      "name": "check-circle-dashed",
-      "concept": "check-circle-dashed",
-      "candidates": 3,
+      "name": "chart-bar-trend",
+      "concept": "chart-bar-trend",
+      "candidates": 2,
       "ids": [
         "A",
-        "B",
-        "C"
+        "B"
       ],
       "status": "review"
     },
@@ -293,6 +353,16 @@
       "status": "review"
     },
     {
+      "name": "eye-closed",
+      "concept": "eye-closed",
+      "candidates": 2,
+      "ids": [
+        "A",
+        "B"
+      ],
+      "status": "review"
+    },
+    {
       "name": "folder-open",
       "concept": "folder-open",
       "candidates": 3,
@@ -300,6 +370,18 @@
         "A",
         "B",
         "C"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "link-off",
+      "concept": "link-off",
+      "candidates": 4,
+      "ids": [
+        "A1",
+        "B1",
+        "C1",
+        "D1"
       ],
       "status": "review"
     },
@@ -346,10 +428,11 @@
     {
       "name": "crosshair-off",
       "concept": "crosshair-off",
-      "candidates": 2,
+      "candidates": 3,
       "ids": [
         "A1",
-        "A2"
+        "A2",
+        "A3"
       ],
       "status": "review"
     },
@@ -374,8 +457,8 @@
       "status": "review"
     },
     {
-      "name": "info-square",
-      "concept": "info-square",
+      "name": "rotate-ccw-dotted",
+      "concept": "rotate-ccw-dotted",
       "candidates": 1,
       "ids": [
         "A"
@@ -383,11 +466,12 @@
       "status": "review"
     },
     {
-      "name": "rotate-ccw-dotted",
-      "concept": "rotate-ccw-dotted",
-      "candidates": 1,
+      "name": "search-empty",
+      "concept": "search-empty",
+      "candidates": 2,
       "ids": [
-        "A"
+        "A",
+        "B"
       ],
       "status": "review"
     },
@@ -403,6 +487,17 @@
     {
       "name": "grid-circle-plus",
       "concept": "grid-circle-plus",
+      "candidates": 3,
+      "ids": [
+        "A",
+        "B",
+        "C"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "window-key",
+      "concept": "window-key",
       "candidates": 1,
       "ids": [
         "A"
@@ -419,6 +514,26 @@
       "status": "review"
     },
     {
+      "name": "camera-off",
+      "concept": "camera-off",
+      "candidates": 12,
+      "ids": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        "D1",
+        "D2",
+        "E1",
+        "E2",
+        "F1",
+        "F2"
+      ],
+      "status": "review"
+    },
+    {
       "name": "wifi-off",
       "concept": "wifi-off",
       "candidates": 4,
@@ -427,6 +542,15 @@
         "A2",
         "B1",
         "B2"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "phone-forwarded",
+      "concept": "phone-forwarded",
+      "candidates": 1,
+      "ids": [
+        "A"
       ],
       "status": "review"
     },
