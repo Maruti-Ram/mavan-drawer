@@ -1055,7 +1055,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 392. `collapse-horizontal` · Arrows & Direction · variant of `collapse` — approved 2026-10-17
 - [x] 393. `cursor-click` · UI & Layout · variant of `cursor` — approved 2026-09-23
 - [x] 394. `expand-horizontal` · Arrows & Direction · variant of `expand` — approved 2026-10-17
-- [~] 395. `file-down` · V3 Other badges · variant of `file`
+- [x] 395. `file-down` · Files & Folders · variant of `file` — approved 2026-10-25
+- [x] 395. `file-down-2` · Files & Folders · variant of `file-down` — Corner badge · approved 2026-10-25
 - [~] 396. `file-signature` · V3 Other badges · variant of `file`
 - [~] 397. `file-up` · V3 Other badges · variant of `file`
 - [~] 398. `folder-down` · V3 Other badges · variant of `folder`
