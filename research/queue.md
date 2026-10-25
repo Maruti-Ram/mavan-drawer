@@ -1139,7 +1139,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench` — approved 2026-10-23
 - [x] 475. `wrench-screwdriver-2` · Development & Infra · variant of `wrench-screwdriver` — Crossed, wrench in front · approved 2026-10-23
 - [~] 476. `phone-off` · V1 Off states · variant of `phone`
-- [~] 477. `text-align-justify` · V5 Other variants · variant of `text`
+- [x] 477. `text-align-justify` · Editing & Text · variant of `text` — approved 2026-10-25
 - [~] 478. `user-check` · V2 Plus minus check x · variant of `user`
 - [~] 479. `user-x` · V2 Plus minus check x · variant of `user`
 - [~] 480. `video-off` · V1 Off states · variant of `video`
