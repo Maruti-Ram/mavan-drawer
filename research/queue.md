@@ -1121,7 +1121,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 452. `clipboard-off` · V1 Off states · variant of `clipboard`
 - [~] 453. `crosshair-off` · V1 Off states · variant of `crosshair`
 - [x] 454. `hash-circle` · Communication · variant of `hash` — approved 2026-10-25
-- [~] 455. `help-square` · V4 Circle and square containers · variant of `help-circle`
+- [x] 455. `help-square` · Status & Feedback · variant of `help-circle` — approved 2026-10-25
 - [x] 456. `info-square` · Status & Feedback · variant of `info-circle` — approved 2026-10-25
 - [~] 457. `message-pen` · V3 Other badges · variant of `message`
 - [~] 458. `message-smile` · V3 Other badges · variant of `message`

@@ -16,6 +16,24 @@
       "status": "review"
     },
     {
+      "name": "arrow-left-circle",
+      "concept": "arrow-left-circle",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "arrow-right-circle",
+      "concept": "arrow-right-circle",
+      "candidates": 1,
+      "ids": [
+        "A"
+      ],
+      "status": "review"
+    },
+    {
       "name": "eye-off",
       "concept": "eye-off",
       "candidates": 3,
@@ -34,9 +52,9 @@
         "B",
         "C",
         "D",
+        "G",
         "E",
-        "F",
-        "G"
+        "H"
       ],
       "status": "review"
     },
@@ -46,7 +64,7 @@
       "candidates": 2,
       "ids": [
         "A",
-        "B"
+        "C"
       ],
       "status": "review"
     },
@@ -56,7 +74,7 @@
       "candidates": 2,
       "ids": [
         "A",
-        "B"
+        "C"
       ],
       "status": "review"
     },
@@ -68,6 +86,16 @@
         "B",
         "A",
         "C"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "file-signature",
+      "concept": "file-signature",
+      "candidates": 2,
+      "ids": [
+        "A",
+        "B"
       ],
       "status": "review"
     },
@@ -110,26 +138,31 @@
       "status": "review"
     },
     {
+      "name": "bell-off",
+      "concept": "bell-off",
+      "candidates": 3,
+      "ids": [
+        "A1",
+        "B1",
+        "C1"
+      ],
+      "status": "done"
+    },
+    {
       "name": "microphone-off",
       "concept": "microphone-off",
-      "candidates": 6,
+      "candidates": 10,
       "ids": [
         "A1",
         "A2",
         "B1",
+        "B2",
         "C1",
+        "C2",
         "D1",
-        "E1"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "phone-call",
-      "concept": "phone-call",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
+        "D2",
+        "E1",
+        "E2"
       ],
       "status": "review"
     },
@@ -148,24 +181,26 @@
       "status": "review"
     },
     {
-      "name": "bookmark-off",
-      "concept": "bookmark-off",
-      "candidates": 4,
-      "ids": [
-        "A1",
-        "B1",
-        "C1",
-        "A2"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "chart-bar-trend",
-      "concept": "chart-bar-trend",
+      "name": "activity-square",
+      "concept": "activity-square",
       "candidates": 2,
       "ids": [
         "A",
         "B"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "bookmark-off",
+      "concept": "bookmark-off",
+      "candidates": 6,
+      "ids": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
       ],
       "status": "review"
     },
@@ -177,16 +212,6 @@
         "A",
         "B",
         "C"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "eye-closed",
-      "concept": "eye-closed",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
       ],
       "status": "review"
     },
@@ -214,22 +239,14 @@
       "status": "review"
     },
     {
-      "name": "scan-face",
-      "concept": "scan-face",
-      "candidates": 2,
+      "name": "clipboard-off",
+      "concept": "clipboard-off",
+      "candidates": 4,
       "ids": [
-        "A",
-        "B"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "code-plus",
-      "concept": "code-plus",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
+        "A1",
+        "B1",
+        "C1",
+        "D1"
       ],
       "status": "review"
     },
@@ -245,16 +262,6 @@
       "status": "review"
     },
     {
-      "name": "help-square",
-      "concept": "help-square",
-      "candidates": 2,
-      "ids": [
-        "A",
-        "B"
-      ],
-      "status": "review"
-    },
-    {
       "name": "rotate-ccw-dotted",
       "concept": "rotate-ccw-dotted",
       "candidates": 2,
@@ -265,12 +272,11 @@
       "status": "review"
     },
     {
-      "name": "search-empty",
-      "concept": "search-empty",
-      "candidates": 2,
+      "name": "star-sparkle",
+      "concept": "star-sparkle",
+      "candidates": 1,
       "ids": [
-        "A",
-        "B"
+        "A"
       ],
       "status": "review"
     },
@@ -284,43 +290,12 @@
       "status": "review"
     },
     {
-      "name": "grid-circle-plus",
-      "concept": "grid-circle-plus",
-      "candidates": 3,
+      "name": "play-circle-dotted",
+      "concept": "play-circle-dotted",
+      "candidates": 2,
       "ids": [
         "A",
-        "B",
-        "C"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "window-key",
-      "concept": "window-key",
-      "candidates": 1,
-      "ids": [
-        "A"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "phone-off",
-      "concept": "phone-off",
-      "candidates": 1,
-      "ids": [
-        "A1"
-      ],
-      "status": "review"
-    },
-    {
-      "name": "video-off",
-      "concept": "video-off",
-      "candidates": 4,
-      "ids": [
-        "A1",
-        "B1",
-        "C1",
-        "D1"
+        "B"
       ],
       "status": "review"
     },
