@@ -212,3 +212,8 @@ From the main session:
 7. Lint does not measure a stroke's end against its own leg across a sharp turn (`activity-square-2`), so that exception lives only in docs/07.
 8. C9's wording for a second picture of a composite on the same base (`clipboard-check-2`, `code-plus-2`) is ambiguous.
 9. The census of shipped paths that run back on themselves (`atm`, `hourglass-3`, `coins`, `medal` filled and others; `coins-filled` leaves a sliver of ink in the white "1") — script in the camera-5 fix's scratchpad, list in the session record; worth one tidy-up pass.
+
+From V1 (wrapped; 14 rows shipped, crosshair-off dropped):
+10. C34's text names only cloud-off and bug-off as `STATE_TWINS` members; point it at the list instead.
+11. Lint does not check the `-off` bar (45°, full 18 · 14 · 12 keyline, 1.5 at every cut, channel width); a check would catch drift.
+12. Weak at 16, possibly worth Maruti's second look: `video-off-3` (a struck `desktop-2` once the bar takes the play triangle), `camera-off-6` (loses flash dot and lens), `clipboard-off-3` (reads as a struck square), `bolt-off`/`-2` (two ticks), `phone-off` (outline close to `%`).
