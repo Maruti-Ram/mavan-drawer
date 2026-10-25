@@ -1067,7 +1067,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 400. `message-alert` · Communication · variant of `message` — approved 2026-10-25
 - [x] 401. `note-plus` · Files & Folders · variant of `note` — approved 2026-10-25
 - [x] 402. `sort-ascending` · UI & Layout · variant of `sort` — approved 2026-09-29
-- [~] 403. `camera-flip` · V5 Other variants · variant of `camera`
+- [x] 403. `camera-flip` · Media & Playback · variant of `camera` — approved 2026-10-25
 - [~] 404. `credit-card-x` · V2 Plus minus check x · variant of `credit-card`
 - [x] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard` — approved 2026-10-25
 - [x] 405. `keyboard-off-2` · Devices & Hardware · variant of `keyboard-off` — Bar moved 1 right, 1 up, wired · approved 2026-10-25
