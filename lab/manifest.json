@@ -2347,6 +2347,8 @@
     "window-2",
     "window-2-filled",
     "window-filled",
+    "window-key",
+    "window-key-filled",
     "window-pointer",
     "window-pointer-filled",
     "windows",
@@ -145558,6 +145560,144 @@
       "ratio": null,
       "gap": null
     },
+    "window-key": {
+      "paths": [
+        "M8.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16",
+        "M5.75 8A0.25 0.25 0 1 0 6.25 8A0.25 0.25 0 1 0 5.75 8Z",
+        "M9.25 8A0.25 0.25 0 1 0 9.75 8A0.25 0.25 0 1 0 9.25 8Z",
+        "M12.75 8A0.25 0.25 0 1 0 13.25 8A0.25 0.25 0 1 0 12.75 8Z",
+        "M11.75 19A2.25 2.25 0 1 0 16.25 19A2.25 2.25 0 1 0 11.75 19Z",
+        "M16.25 19H21.25",
+        "M19.25 19V21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16\"/> <path d=\"M5.75 8A0.25 0.25 0 1 0 6.25 8A0.25 0.25 0 1 0 5.75 8Z\"/> <path d=\"M9.25 8A0.25 0.25 0 1 0 9.75 8A0.25 0.25 0 1 0 9.25 8Z\"/> <path d=\"M12.75 8A0.25 0.25 0 1 0 13.25 8A0.25 0.25 0 1 0 12.75 8Z\"/> <path d=\"M11.75 19A2.25 2.25 0 1 0 16.25 19A2.25 2.25 0 1 0 11.75 19Z\"/> <path d=\"M16.25 19H21.25\"/> <path d=\"M19.25 19V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "window",
+        "app",
+        "application",
+        "key",
+        "api key",
+        "license",
+        "credential",
+        "access",
+        "token",
+        "secret",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.24,
+          "optical": 2.18
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.13,
+          "optical": 2.1
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.45,
+          "optical": 2.34
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "window-key-filled": {
+      "paths": [
+        "M16.25 19H21.25",
+        "M19.25 19V21.25"
+      ],
+      "areas": [
+        "M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V16.25A0.5 0.5 0 0 1 21.5 16.75H18.18A0.5 0.5 0 0 1 17.76 16.52A4.5 4.5 0 0 0 9.52 19.45A0.5 0.5 0 0 1 9.03 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5 8A1 1 0 1 0 7 8A1 1 0 1 0 5 8ZM8.5 8A1 1 0 1 0 10.5 8A1 1 0 1 0 8.5 8ZM12 8A1 1 0 1 0 14 8A1 1 0 1 0 12 8Z",
+        "M11 19A3 3 0 1 0 17 19A3 3 0 1 0 11 19ZM13 19A1 1 0 1 0 15 19A1 1 0 1 0 13 19Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V16.25A0.5 0.5 0 0 1 21.5 16.75H18.18A0.5 0.5 0 0 1 17.76 16.52A4.5 4.5 0 0 0 9.52 19.45A0.5 0.5 0 0 1 9.03 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5 8A1 1 0 1 0 7 8A1 1 0 1 0 5 8ZM8.5 8A1 1 0 1 0 10.5 8A1 1 0 1 0 8.5 8ZM12 8A1 1 0 1 0 14 8A1 1 0 1 0 12 8Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 19A3 3 0 1 0 17 19A3 3 0 1 0 11 19ZM13 19A1 1 0 1 0 15 19A1 1 0 1 0 13 19Z\"/> <path d=\"M16.25 19H21.25\"/> <path d=\"M19.25 19V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "window",
+        "app",
+        "application",
+        "key",
+        "api key",
+        "license",
+        "credential",
+        "access",
+        "token",
+        "secret",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "window-pointer": {
       "paths": [
         "M11.5 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V12.25",
@@ -150900,6 +151040,8 @@
         "window-2",
         "window-2-filled",
         "window-filled",
+        "window-key",
+        "window-key-filled",
         "window-pointer",
         "window-pointer-filled",
         "windows",
@@ -293947,6 +294089,144 @@
           "ratio": null,
           "gap": null
         },
+        "window-key": {
+          "paths": [
+            "M4.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V9.875",
+            "M4.375 6.5A0.125 0.125 0 1 0 4.625 6.5A0.125 0.125 0 1 0 4.375 6.5Z",
+            "M7.375 6.5A0.125 0.125 0 1 0 7.625 6.5A0.125 0.125 0 1 0 7.375 6.5Z",
+            "M10.375 6.5A0.125 0.125 0 1 0 10.625 6.5A0.125 0.125 0 1 0 10.375 6.5Z",
+            "M7.625 12.625A1.5 1.5 0 1 0 10.625 12.625A1.5 1.5 0 1 0 7.625 12.625Z",
+            "M10.625 12.625H14.375",
+            "M13.375 12.625V14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.875 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V9.875\"/> <path d=\"M4.375 6.5A0.125 0.125 0 1 0 4.625 6.5A0.125 0.125 0 1 0 4.375 6.5Z\"/> <path d=\"M7.375 6.5A0.125 0.125 0 1 0 7.625 6.5A0.125 0.125 0 1 0 7.375 6.5Z\"/> <path d=\"M10.375 6.5A0.125 0.125 0 1 0 10.625 6.5A0.125 0.125 0 1 0 10.375 6.5Z\"/> <path d=\"M7.625 12.625A1.5 1.5 0 1 0 10.625 12.625A1.5 1.5 0 1 0 7.625 12.625Z\"/> <path d=\"M10.625 12.625H14.375\"/> <path d=\"M13.375 12.625V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "window",
+            "app",
+            "application",
+            "key",
+            "api key",
+            "license",
+            "credential",
+            "access",
+            "token",
+            "secret",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.18,
+              "optical": 1.13
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.11,
+              "optical": 1.08
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.44,
+              "optical": 1.33
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "window-key-filled": {
+          "paths": [
+            "M10.625 12.625H14.375",
+            "M13.375 12.625V14.375"
+          ],
+          "areas": [
+            "M3.125 3H12.875A2.125 2.125 0 0 1 15 5.125V10A0.5 0.5 0 0 1 14.5 10.5H12.307A0.5 0.5 0 0 1 11.922 10.318A3.625 3.625 0 0 0 5.501 12.515A0.5 0.5 0 0 1 5.002 13H3.125A2.125 2.125 0 0 1 1 10.875V5.125A2.125 2.125 0 0 1 3.125 3ZM3.75 6.5A0.75 0.75 0 1 0 5.25 6.5A0.75 0.75 0 1 0 3.75 6.5ZM6.75 6.5A0.75 0.75 0 1 0 8.25 6.5A0.75 0.75 0 1 0 6.75 6.5ZM9.75 6.5A0.75 0.75 0 1 0 11.25 6.5A0.75 0.75 0 1 0 9.75 6.5Z",
+            "M7 12.625A2.125 2.125 0 1 0 11.25 12.625A2.125 2.125 0 1 0 7 12.625ZM8.25 12.625A0.875 0.875 0 1 0 10 12.625A0.875 0.875 0 1 0 8.25 12.625Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.125 3H12.875A2.125 2.125 0 0 1 15 5.125V10A0.5 0.5 0 0 1 14.5 10.5H12.307A0.5 0.5 0 0 1 11.922 10.318A3.625 3.625 0 0 0 5.501 12.515A0.5 0.5 0 0 1 5.002 13H3.125A2.125 2.125 0 0 1 1 10.875V5.125A2.125 2.125 0 0 1 3.125 3ZM3.75 6.5A0.75 0.75 0 1 0 5.25 6.5A0.75 0.75 0 1 0 3.75 6.5ZM6.75 6.5A0.75 0.75 0 1 0 8.25 6.5A0.75 0.75 0 1 0 6.75 6.5ZM9.75 6.5A0.75 0.75 0 1 0 11.25 6.5A0.75 0.75 0 1 0 9.75 6.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7 12.625A2.125 2.125 0 1 0 11.25 12.625A2.125 2.125 0 1 0 7 12.625ZM8.25 12.625A0.875 0.875 0 1 0 10 12.625A0.875 0.875 0 1 0 8.25 12.625Z\"/> <path d=\"M10.625 12.625H14.375\"/> <path d=\"M13.375 12.625V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "window",
+            "app",
+            "application",
+            "key",
+            "api key",
+            "license",
+            "credential",
+            "access",
+            "token",
+            "secret",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "window-pointer": {
           "paths": [
             "M7 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125V7.75",
@@ -299285,6 +299565,8 @@
         "window-2",
         "window-2-filled",
         "window-filled",
+        "window-key",
+        "window-key-filled",
         "window-pointer",
         "window-pointer-filled",
         "windows",
@@ -442394,6 +442676,144 @@
           "ratio": null,
           "gap": null
         },
+        "window-key": {
+          "paths": [
+            "M6.75 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V12.5",
+            "M5.75 8A0.25 0.25 0 1 0 6.25 8A0.25 0.25 0 1 0 5.75 8Z",
+            "M9.25 8A0.25 0.25 0 1 0 9.75 8A0.25 0.25 0 1 0 9.25 8Z",
+            "M12.75 8A0.25 0.25 0 1 0 13.25 8A0.25 0.25 0 1 0 12.75 8Z",
+            "M9.75 15.5A1.75 1.75 0 1 0 13.25 15.5A1.75 1.75 0 1 0 9.75 15.5Z",
+            "M13.25 15.5H17.25",
+            "M16.25 15.5V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.75 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V12.5\"/> <path d=\"M5.75 8A0.25 0.25 0 1 0 6.25 8A0.25 0.25 0 1 0 5.75 8Z\"/> <path d=\"M9.25 8A0.25 0.25 0 1 0 9.75 8A0.25 0.25 0 1 0 9.25 8Z\"/> <path d=\"M12.75 8A0.25 0.25 0 1 0 13.25 8A0.25 0.25 0 1 0 12.75 8Z\"/> <path d=\"M9.75 15.5A1.75 1.75 0 1 0 13.25 15.5A1.75 1.75 0 1 0 9.75 15.5Z\"/> <path d=\"M13.25 15.5H17.25\"/> <path d=\"M16.25 15.5V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "window",
+            "app",
+            "application",
+            "key",
+            "api key",
+            "license",
+            "credential",
+            "access",
+            "token",
+            "secret",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.1
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.42,
+              "optical": 2.31
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "window-key-filled": {
+          "paths": [
+            "M13.25 15.5H17.25",
+            "M16.25 15.5V17.25"
+          ],
+          "areas": [
+            "M4.75 4H15.25A2.75 2.75 0 0 1 18 6.75V12.75A0.5 0.5 0 0 1 17.5 13.25H15.06A0.5 0.5 0 0 1 14.67 13.06A4 4 0 0 0 7.5 15.5A0.5 0.5 0 0 1 7 16H4.75A2.75 2.75 0 0 1 2 13.25V6.75A2.75 2.75 0 0 1 4.75 4ZM5 8A1 1 0 1 0 7 8A1 1 0 1 0 5 8ZM8.5 8A1 1 0 1 0 10.5 8A1 1 0 1 0 8.5 8ZM12 8A1 1 0 1 0 14 8A1 1 0 1 0 12 8Z",
+            "M9 15.5A2.5 2.5 0 1 0 14 15.5A2.5 2.5 0 1 0 9 15.5ZM10.75 15.5A0.75 0.75 0 1 0 12.25 15.5A0.75 0.75 0 1 0 10.75 15.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 4H15.25A2.75 2.75 0 0 1 18 6.75V12.75A0.5 0.5 0 0 1 17.5 13.25H15.06A0.5 0.5 0 0 1 14.67 13.06A4 4 0 0 0 7.5 15.5A0.5 0.5 0 0 1 7 16H4.75A2.75 2.75 0 0 1 2 13.25V6.75A2.75 2.75 0 0 1 4.75 4ZM5 8A1 1 0 1 0 7 8A1 1 0 1 0 5 8ZM8.5 8A1 1 0 1 0 10.5 8A1 1 0 1 0 8.5 8ZM12 8A1 1 0 1 0 14 8A1 1 0 1 0 12 8Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 15.5A2.5 2.5 0 1 0 14 15.5A2.5 2.5 0 1 0 9 15.5ZM10.75 15.5A0.75 0.75 0 1 0 12.25 15.5A0.75 0.75 0 1 0 10.75 15.5Z\"/> <path d=\"M13.25 15.5H17.25\"/> <path d=\"M16.25 15.5V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "window",
+            "app",
+            "application",
+            "key",
+            "api key",
+            "license",
+            "credential",
+            "access",
+            "token",
+            "secret",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "window-pointer": {
           "paths": [
             "M9 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V9.75",
@@ -447732,6 +448152,8 @@
         "window-2",
         "window-2-filled",
         "window-filled",
+        "window-key",
+        "window-key-filled",
         "window-pointer",
         "window-pointer-filled",
         "windows",
@@ -590943,6 +591365,144 @@
           "ratio": null,
           "gap": null
         },
+        "window-key": {
+          "paths": [
+            "M8.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16",
+            "M5.75 8A0.25 0.25 0 1 0 6.25 8A0.25 0.25 0 1 0 5.75 8Z",
+            "M9.25 8A0.25 0.25 0 1 0 9.75 8A0.25 0.25 0 1 0 9.25 8Z",
+            "M12.75 8A0.25 0.25 0 1 0 13.25 8A0.25 0.25 0 1 0 12.75 8Z",
+            "M11.75 19A2.25 2.25 0 1 0 16.25 19A2.25 2.25 0 1 0 11.75 19Z",
+            "M16.25 19H21.25",
+            "M19.25 19V21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.75 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V16\"/> <path d=\"M5.75 8A0.25 0.25 0 1 0 6.25 8A0.25 0.25 0 1 0 5.75 8Z\"/> <path d=\"M9.25 8A0.25 0.25 0 1 0 9.75 8A0.25 0.25 0 1 0 9.25 8Z\"/> <path d=\"M12.75 8A0.25 0.25 0 1 0 13.25 8A0.25 0.25 0 1 0 12.75 8Z\"/> <path d=\"M11.75 19A2.25 2.25 0 1 0 16.25 19A2.25 2.25 0 1 0 11.75 19Z\"/> <path d=\"M16.25 19H21.25\"/> <path d=\"M19.25 19V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "window",
+            "app",
+            "application",
+            "key",
+            "api key",
+            "license",
+            "credential",
+            "access",
+            "token",
+            "secret",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.1
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.45,
+              "optical": 2.34
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "window-key-filled": {
+          "paths": [
+            "M16.25 19H21.25",
+            "M19.25 19V21.25"
+          ],
+          "areas": [
+            "M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V16.25A0.5 0.5 0 0 1 21.5 16.75H18.18A0.5 0.5 0 0 1 17.76 16.52A4.5 4.5 0 0 0 9.52 19.45A0.5 0.5 0 0 1 9.03 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5 8A1 1 0 1 0 7 8A1 1 0 1 0 5 8ZM8.5 8A1 1 0 1 0 10.5 8A1 1 0 1 0 8.5 8ZM12 8A1 1 0 1 0 14 8A1 1 0 1 0 12 8Z",
+            "M11 19A3 3 0 1 0 17 19A3 3 0 1 0 11 19ZM13 19A1 1 0 1 0 15 19A1 1 0 1 0 13 19Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V16.25A0.5 0.5 0 0 1 21.5 16.75H18.18A0.5 0.5 0 0 1 17.76 16.52A4.5 4.5 0 0 0 9.52 19.45A0.5 0.5 0 0 1 9.03 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5 8A1 1 0 1 0 7 8A1 1 0 1 0 5 8ZM8.5 8A1 1 0 1 0 10.5 8A1 1 0 1 0 8.5 8ZM12 8A1 1 0 1 0 14 8A1 1 0 1 0 12 8Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 19A3 3 0 1 0 17 19A3 3 0 1 0 11 19ZM13 19A1 1 0 1 0 15 19A1 1 0 1 0 13 19Z\"/> <path d=\"M16.25 19H21.25\"/> <path d=\"M19.25 19V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "window",
+            "app",
+            "application",
+            "key",
+            "api key",
+            "license",
+            "credential",
+            "access",
+            "token",
+            "secret",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "window-pointer": {
           "paths": [
             "M11.5 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V12.25",
@@ -606207,12 +606767,12 @@
       "n": 473,
       "name": "window-key",
       "section": "D · The rest, by audit rank",
-      "category": "V3 Other badges",
+      "category": "Design Tools",
       "base": "window",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 474,

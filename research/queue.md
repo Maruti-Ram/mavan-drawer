@@ -1144,7 +1144,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 470. `image-depth` · V3 Other badges · variant of `image`
 - [~] 471. `play-circle-dotted` · V4 Circle and square containers · variant of `play-circle`
 - [~] 472. `window-expand-bottom-right` · V3 Other badges · variant of `window`
-- [~] 473. `window-key` · V3 Other badges · variant of `window`
+- [x] 473. `window-key` · Design Tools · variant of `window` — approved 2026-10-25
 - [x] 474. `window-pointer` · Design Tools · variant of `window` — approved 2026-10-25
 - [x] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench` — approved 2026-10-23
 - [x] 475. `wrench-screwdriver-2` · Development & Infra · variant of `wrench-screwdriver` — Crossed, wrench in front · approved 2026-10-23
