@@ -1020,7 +1020,8 @@ Bases before their variants; within that, highest evidence first.
 - [~] 359. `image-sparkle` · V3 Other badges · variant of `image`
 - [~] 360. `folder-minus` · V2 Plus minus check x · variant of `folder`
 - [~] 361. `folder-plus` · V2 Plus minus check x · variant of `folder`
-- [~] 362. `shield-off` · V1 Off states · variant of `shield`
+- [x] 362. `shield-off` · Users & Access · variant of `shield` — approved 2026-10-25
+- [x] 362. `shield-off-2` · Users & Access · variant of `shield-off` — Bar cut through · approved 2026-10-25
 - [~] 363. `text-align-center` · V5 Other variants · variant of `text`
 - [~] 364. `text-align-left` · V5 Other variants · variant of `text`
 - [~] 365. `text-align-right` · V5 Other variants · variant of `text`
