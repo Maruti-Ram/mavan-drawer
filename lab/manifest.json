@@ -174,6 +174,10 @@
     "automation",
     "automation-filled",
     "award",
+    "award-certificate",
+    "award-certificate-2",
+    "award-certificate-2-filled",
+    "award-certificate-filled",
     "award-filled",
     "backspace",
     "backspace-filled",
@@ -12481,6 +12485,284 @@
           "geometric": 2,
           "recession": 0.5,
           "optical": 2.38
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "award-certificate": {
+      "paths": [
+        "M12.5 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V10.5",
+        "M5.75 8.25H18.25",
+        "M5.75 12.75H10.75",
+        "M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z",
+        "M16 18.56V21.25",
+        "M20 18.56V21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M12.5 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V10.5\"/> <path d=\"M5.75 8.25H18.25\"/> <path d=\"M5.75 12.75H10.75\"/> <path d=\"M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "certificate",
+        "diploma",
+        "accreditation",
+        "credential",
+        "qualification",
+        "award",
+        "achievement",
+        "license",
+        "seal",
+        "rosette",
+        "ribbon",
+        "card",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.24,
+          "optical": 2.18
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.13,
+          "optical": 2.1
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.22,
+          "optical": 2.16
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "award-certificate-2": {
+      "paths": [
+        "M13 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75H13.25L19.25 8.75",
+        "M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25",
+        "M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z",
+        "M16 18.56V21.25",
+        "M20 18.56V21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M13 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75H13.25L19.25 8.75\"/> <path d=\"M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25\"/> <path d=\"M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "certificate",
+        "certified",
+        "accreditation",
+        "award",
+        "document",
+        "page",
+        "file",
+        "seal",
+        "rosette",
+        "ribbon",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.21,
+          "optical": 4.16
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.41,
+          "optical": 2.3
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.6,
+          "optical": 2.45
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.13,
+          "optical": 2.1
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "award-certificate-2-filled": {
+      "paths": [
+        "M16 18.56V21.25",
+        "M20 18.56V21.25"
+      ],
+      "areas": [
+        "M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V16A5.5 5.5 0 0 0 13.64 19.36A0.5 0.5 0 0 1 13.75 19.67V21.25A0.75 0.75 0 0 1 13 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z",
+        "M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z",
+        "M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V16A5.5 5.5 0 0 0 13.64 19.36A0.5 0.5 0 0 1 13.75 19.67V21.25A0.75 0.75 0 0 1 13 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "certificate",
+        "certified",
+        "accreditation",
+        "award",
+        "document",
+        "page",
+        "file",
+        "seal",
+        "rosette",
+        "ribbon",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "award-certificate-filled": {
+      "paths": [
+        "M16 18.56V21.25",
+        "M20 18.56V21.25"
+      ],
+      "areas": [
+        "M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V10.5A0.75 0.75 0 0 1 21.01 11.21L19.76 10.78A5.5 5.5 0 0 0 18 10.5A5.5 5.5 0 0 0 12.5 16A5.5 5.5 0 0 0 12.78 17.76L13.21 19.01A0.75 0.75 0 0 1 12.5 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5.75 7.5H18.25A0.75 0.75 0 0 1 18.25 9H5.75A0.75 0.75 0 0 1 5.75 7.5ZM5.75 12H10.75A0.75 0.75 0 0 1 10.75 13.5H5.75A0.75 0.75 0 0 1 5.75 12Z",
+        "M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V10.5A0.75 0.75 0 0 1 21.01 11.21L19.76 10.78A5.5 5.5 0 0 0 18 10.5A5.5 5.5 0 0 0 12.5 16A5.5 5.5 0 0 0 12.78 17.76L13.21 19.01A0.75 0.75 0 0 1 12.5 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5.75 7.5H18.25A0.75 0.75 0 0 1 18.25 9H5.75A0.75 0.75 0 0 1 5.75 7.5ZM5.75 12H10.75A0.75 0.75 0 0 1 10.75 13.5H5.75A0.75 0.75 0 0 1 5.75 12Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+      "mark": false,
+      "tags": [
+        "certificate",
+        "diploma",
+        "accreditation",
+        "credential",
+        "qualification",
+        "award",
+        "achievement",
+        "license",
+        "seal",
+        "rosette",
+        "ribbon",
+        "card",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 4,
+        "w": 20,
+        "h": 18
+      },
+      "bearing": {
+        "left": 2,
+        "top": 4,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
         }
       },
       "container": null,
@@ -162849,6 +163131,10 @@
         "automation",
         "automation-filled",
         "award",
+        "award-certificate",
+        "award-certificate-2",
+        "award-certificate-2-filled",
+        "award-certificate-filled",
         "award-filled",
         "backspace",
         "backspace-filled",
@@ -175156,6 +175442,283 @@
               "geometric": 1,
               "recession": 0.26,
               "optical": 1.2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate": {
+          "paths": [
+            "M8.25 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125",
+            "M4.375 6.375H8.25",
+            "M10.625 10.5A1.875 1.875 0 1 0 14.375 10.5A1.875 1.875 0 1 0 10.625 10.5Z",
+            "M11.125 11.775V14.375",
+            "M13.875 11.775V14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.25 12.375H3.125A1.5 1.5 0 0 1 1.625 10.875V5.125A1.5 1.5 0 0 1 3.125 3.625H12.875A1.5 1.5 0 0 1 14.375 5.125\"/> <path d=\"M4.375 6.375H8.25\"/> <path d=\"M10.625 10.5A1.875 1.875 0 1 0 14.375 10.5A1.875 1.875 0 1 0 10.625 10.5Z\"/> <path d=\"M11.125 11.775V14.375\"/> <path d=\"M13.875 11.775V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "diploma",
+            "accreditation",
+            "credential",
+            "qualification",
+            "award",
+            "achievement",
+            "license",
+            "seal",
+            "rosette",
+            "ribbon",
+            "card",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.18,
+              "optical": 1.13
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.27,
+              "optical": 1.21
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.03,
+              "optical": 1.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-2": {
+          "paths": [
+            "M8.375 14.375H5.125A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625H8.25L12.375 5.75",
+            "M8.25 1.625V4.75A1 1 0 0 0 9.25 5.75H12.375",
+            "M10.625 10.5A1.875 1.875 0 1 0 14.375 10.5A1.875 1.875 0 1 0 10.625 10.5Z",
+            "M11.125 11.775V14.375",
+            "M13.875 11.775V14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.375 14.375H5.125A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625H8.25L12.375 5.75\"/> <path d=\"M8.25 1.625V4.75A1 1 0 0 0 9.25 5.75H12.375\"/> <path d=\"M10.625 10.5A1.875 1.875 0 1 0 14.375 10.5A1.875 1.875 0 1 0 10.625 10.5Z\"/> <path d=\"M11.125 11.775V14.375\"/> <path d=\"M13.875 11.775V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "certified",
+            "accreditation",
+            "award",
+            "document",
+            "page",
+            "file",
+            "seal",
+            "rosette",
+            "ribbon",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.15,
+              "optical": 3.12
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.24,
+              "optical": 1.18
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.5,
+              "optical": 1.37
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.1,
+              "optical": 1.08
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-2-filled": {
+          "paths": [
+            "M11.125 11.775V14.375",
+            "M13.875 11.775V14.375"
+          ],
+          "areas": [
+            "M5.25 1H7A0.5 0.5 0 0 1 7.5 1.5V4.75A1.75 1.75 0 0 0 8.278 6.205A0.5 0.5 0 0 1 8.5 6.621V10.5A4 4 0 0 0 8.944 12.332A0.5 0.5 0 0 1 9 12.562V14.375A0.625 0.625 0 0 1 8.375 15H5.25A2.25 2.25 0 0 1 3 12.75V3.25A2.25 2.25 0 0 1 5.25 1Z",
+            "M9 2.04V4.75A0.25 0.25 0 0 0 9.25 5H11.96A0.25 0.25 0 0 0 12.13 4.57L9.43 1.87A0.25 0.25 0 0 0 9 2.04Z",
+            "M10 10.5A2.5 2.5 0 1 0 15 10.5A2.5 2.5 0 1 0 10 10.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 1H7A0.5 0.5 0 0 1 7.5 1.5V4.75A1.75 1.75 0 0 0 8.278 6.205A0.5 0.5 0 0 1 8.5 6.621V10.5A4 4 0 0 0 8.944 12.332A0.5 0.5 0 0 1 9 12.562V14.375A0.625 0.625 0 0 1 8.375 15H5.25A2.25 2.25 0 0 1 3 12.75V3.25A2.25 2.25 0 0 1 5.25 1Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 2.04V4.75A0.25 0.25 0 0 0 9.25 5H11.96A0.25 0.25 0 0 0 12.13 4.57L9.43 1.87A0.25 0.25 0 0 0 9 2.04Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10 10.5A2.5 2.5 0 1 0 15 10.5A2.5 2.5 0 1 0 10 10.5Z\"/> <path d=\"M11.125 11.775V14.375\"/> <path d=\"M13.875 11.775V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "certified",
+            "accreditation",
+            "award",
+            "document",
+            "page",
+            "file",
+            "seal",
+            "rosette",
+            "ribbon",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-filled": {
+          "paths": [
+            "M11.125 11.775V14.375",
+            "M13.875 11.775V14.375"
+          ],
+          "areas": [
+            "M3.125 3H12.875A2.125 2.125 0 0 1 15 5.125A0.625 0.625 0 0 1 14.375 5.75H12A0.5 0.5 0 0 0 11.5 6.25V6.257A0.5 0.5 0 0 1 11.167 6.728A4 4 0 0 0 8.5 10.5A4 4 0 0 0 8.705 11.766L8.843 12.177A0.625 0.625 0 0 1 8.25 13H3.125A2.125 2.125 0 0 1 1 10.875V5.125A2.125 2.125 0 0 1 3.125 3ZM4.5 5.625H8.125A0.75 0.75 0 0 1 8.125 7.125H4.5A0.75 0.75 0 0 1 4.5 5.625Z",
+            "M10 10.5A2.5 2.5 0 1 0 15 10.5A2.5 2.5 0 1 0 10 10.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.125 3H12.875A2.125 2.125 0 0 1 15 5.125A0.625 0.625 0 0 1 14.375 5.75H12A0.5 0.5 0 0 0 11.5 6.25V6.257A0.5 0.5 0 0 1 11.167 6.728A4 4 0 0 0 8.5 10.5A4 4 0 0 0 8.705 11.766L8.843 12.177A0.625 0.625 0 0 1 8.25 13H3.125A2.125 2.125 0 0 1 1 10.875V5.125A2.125 2.125 0 0 1 3.125 3ZM4.5 5.625H8.125A0.75 0.75 0 0 1 8.125 7.125H4.5A0.75 0.75 0 0 1 4.5 5.625Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M10 10.5A2.5 2.5 0 1 0 15 10.5A2.5 2.5 0 1 0 10 10.5Z\"/> <path d=\"M11.125 11.775V14.375\"/> <path d=\"M13.875 11.775V14.375\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "diploma",
+            "accreditation",
+            "credential",
+            "qualification",
+            "award",
+            "achievement",
+            "license",
+            "seal",
+            "rosette",
+            "ribbon",
+            "card",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 3,
+            "w": 14,
+            "h": 12
+          },
+          "bearing": {
+            "left": 1,
+            "top": 3,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
             }
           },
           "container": null,
@@ -325321,6 +325884,10 @@
         "automation",
         "automation-filled",
         "award",
+        "award-certificate",
+        "award-certificate-2",
+        "award-certificate-2-filled",
+        "award-certificate-filled",
         "award-filled",
         "backspace",
         "backspace-filled",
@@ -337628,6 +338195,284 @@
               "geometric": 2,
               "recession": 0.37,
               "optical": 2.28
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate": {
+          "paths": [
+            "M10.25 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V8.25",
+            "M5.75 7.75H10.75",
+            "M5.75 12.25H8.25",
+            "M12.75 13A2.25 2.25 0 1 0 17.25 13A2.25 2.25 0 1 0 12.75 13Z",
+            "M13.5 14.68V17.25",
+            "M16.5 14.68V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.25 15.25H4.75A2 2 0 0 1 2.75 13.25V6.75A2 2 0 0 1 4.75 4.75H15.25A2 2 0 0 1 17.25 6.75V8.25\"/> <path d=\"M5.75 7.75H10.75\"/> <path d=\"M5.75 12.25H8.25\"/> <path d=\"M12.75 13A2.25 2.25 0 1 0 17.25 13A2.25 2.25 0 1 0 12.75 13Z\"/> <path d=\"M13.5 14.68V17.25\"/> <path d=\"M16.5 14.68V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "diploma",
+            "accreditation",
+            "credential",
+            "qualification",
+            "award",
+            "achievement",
+            "license",
+            "seal",
+            "rosette",
+            "ribbon",
+            "card",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.1
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-2": {
+          "paths": [
+            "M10.5 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75H10.25L15.25 7.75",
+            "M10.25 2.75V6.5A1.25 1.25 0 0 0 11.5 7.75H15.25",
+            "M12.75 13A2.25 2.25 0 1 0 17.25 13A2.25 2.25 0 1 0 12.75 13Z",
+            "M13.5 14.68V17.25",
+            "M16.5 14.68V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M10.5 17.25H6.75A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75H10.25L15.25 7.75\"/> <path d=\"M10.25 2.75V6.5A1.25 1.25 0 0 0 11.5 7.75H15.25\"/> <path d=\"M12.75 13A2.25 2.25 0 1 0 17.25 13A2.25 2.25 0 1 0 12.75 13Z\"/> <path d=\"M13.5 14.68V17.25\"/> <path d=\"M16.5 14.68V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "certified",
+            "accreditation",
+            "award",
+            "document",
+            "page",
+            "file",
+            "seal",
+            "rosette",
+            "ribbon",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.31,
+              "optical": 2.23
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.63,
+              "optical": 2.47
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.14,
+              "optical": 2.1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-2-filled": {
+          "paths": [
+            "M13.5 14.68V17.25",
+            "M16.5 14.68V17.25"
+          ],
+          "areas": [
+            "M6.75 2H9A0.5 0.5 0 0 1 9.5 2.5V6.5A2 2 0 0 0 10.3 8.1A0.5 0.5 0 0 1 10.5 8.5V13A4.5 4.5 0 0 0 11.17 15.37A0.5 0.5 0 0 1 11.25 15.63V17.25A0.75 0.75 0 0 1 10.5 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2Z",
+            "M11 3.04V6.5A0.5 0.5 0 0 0 11.5 7H14.96A0.25 0.25 0 0 0 15.13 6.57L11.43 2.87A0.25 0.25 0 0 0 11 3.04Z",
+            "M12 13A3 3 0 1 0 18 13A3 3 0 1 0 12 13Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 2H9A0.5 0.5 0 0 1 9.5 2.5V6.5A2 2 0 0 0 10.3 8.1A0.5 0.5 0 0 1 10.5 8.5V13A4.5 4.5 0 0 0 11.17 15.37A0.5 0.5 0 0 1 11.25 15.63V17.25A0.75 0.75 0 0 1 10.5 18H6.75A2.75 2.75 0 0 1 4 15.25V4.75A2.75 2.75 0 0 1 6.75 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 3.04V6.5A0.5 0.5 0 0 0 11.5 7H14.96A0.25 0.25 0 0 0 15.13 6.57L11.43 2.87A0.25 0.25 0 0 0 11 3.04Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 13A3 3 0 1 0 18 13A3 3 0 1 0 12 13Z\"/> <path d=\"M13.5 14.68V17.25\"/> <path d=\"M16.5 14.68V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "certified",
+            "accreditation",
+            "award",
+            "document",
+            "page",
+            "file",
+            "seal",
+            "rosette",
+            "ribbon",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-filled": {
+          "paths": [
+            "M13.5 14.68V17.25",
+            "M16.5 14.68V17.25"
+          ],
+          "areas": [
+            "M4.75 4H15.25A2.75 2.75 0 0 1 18 6.75V8.25A0.75 0.75 0 0 1 16.96 8.94L16.73 8.84A4.5 4.5 0 0 0 15 8.5A4.5 4.5 0 0 0 10.5 13A4.5 4.5 0 0 0 10.84 14.73L10.94 14.96A0.75 0.75 0 0 1 10.25 16H4.75A2.75 2.75 0 0 1 2 13.25V6.75A2.75 2.75 0 0 1 4.75 4ZM5.75 7H10.75A0.75 0.75 0 0 1 10.75 8.5H5.75A0.75 0.75 0 0 1 5.75 7ZM5.75 11.5H8.25A0.75 0.75 0 0 1 8.25 13H5.75A0.75 0.75 0 0 1 5.75 11.5Z",
+            "M12 13A3 3 0 1 0 18 13A3 3 0 1 0 12 13Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.75 4H15.25A2.75 2.75 0 0 1 18 6.75V8.25A0.75 0.75 0 0 1 16.96 8.94L16.73 8.84A4.5 4.5 0 0 0 15 8.5A4.5 4.5 0 0 0 10.5 13A4.5 4.5 0 0 0 10.84 14.73L10.94 14.96A0.75 0.75 0 0 1 10.25 16H4.75A2.75 2.75 0 0 1 2 13.25V6.75A2.75 2.75 0 0 1 4.75 4ZM5.75 7H10.75A0.75 0.75 0 0 1 10.75 8.5H5.75A0.75 0.75 0 0 1 5.75 7ZM5.75 11.5H8.25A0.75 0.75 0 0 1 8.25 13H5.75A0.75 0.75 0 0 1 5.75 11.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M12 13A3 3 0 1 0 18 13A3 3 0 1 0 12 13Z\"/> <path d=\"M13.5 14.68V17.25\"/> <path d=\"M16.5 14.68V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "diploma",
+            "accreditation",
+            "credential",
+            "qualification",
+            "award",
+            "achievement",
+            "license",
+            "seal",
+            "rosette",
+            "ribbon",
+            "card",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 16,
+            "h": 14
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -487877,6 +488722,10 @@
         "automation",
         "automation-filled",
         "award",
+        "award-certificate",
+        "award-certificate-2",
+        "award-certificate-2-filled",
+        "award-certificate-filled",
         "award-filled",
         "backspace",
         "backspace-filled",
@@ -500184,6 +501033,284 @@
               "geometric": 2,
               "recession": 0.5,
               "optical": 2.38
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate": {
+          "paths": [
+            "M12.5 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V10.5",
+            "M5.75 8.25H18.25",
+            "M5.75 12.75H10.75",
+            "M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z",
+            "M16 18.56V21.25",
+            "M20 18.56V21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M12.5 19.25H5.25A2.5 2.5 0 0 1 2.75 16.75V7.25A2.5 2.5 0 0 1 5.25 4.75H18.75A2.5 2.5 0 0 1 21.25 7.25V10.5\"/> <path d=\"M5.75 8.25H18.25\"/> <path d=\"M5.75 12.75H10.75\"/> <path d=\"M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "diploma",
+            "accreditation",
+            "credential",
+            "qualification",
+            "award",
+            "achievement",
+            "license",
+            "seal",
+            "rosette",
+            "ribbon",
+            "card",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.24,
+              "optical": 2.18
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.1
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.22,
+              "optical": 2.16
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-2": {
+          "paths": [
+            "M13 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75H13.25L19.25 8.75",
+            "M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25",
+            "M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z",
+            "M16 18.56V21.25",
+            "M20 18.56V21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M13 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75H13.25L19.25 8.75\"/> <path d=\"M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25\"/> <path d=\"M14.75 16A3.25 3.25 0 1 0 21.25 16A3.25 3.25 0 1 0 14.75 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "certified",
+            "accreditation",
+            "award",
+            "document",
+            "page",
+            "file",
+            "seal",
+            "rosette",
+            "ribbon",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.21,
+              "optical": 4.16
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.41,
+              "optical": 2.3
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.6,
+              "optical": 2.45
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.13,
+              "optical": 2.1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-2-filled": {
+          "paths": [
+            "M16 18.56V21.25",
+            "M20 18.56V21.25"
+          ],
+          "areas": [
+            "M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V16A5.5 5.5 0 0 0 13.64 19.36A0.5 0.5 0 0 1 13.75 19.67V21.25A0.75 0.75 0 0 1 13 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z",
+            "M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z",
+            "M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7.25 2H12A0.5 0.5 0 0 1 12.5 2.5V16A5.5 5.5 0 0 0 13.64 19.36A0.5 0.5 0 0 1 13.75 19.67V21.25A0.75 0.75 0 0 1 13 22H7.25A3.25 3.25 0 0 1 4 18.75V5.25A3.25 3.25 0 0 1 7.25 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 3.04V7.25A0.75 0.75 0 0 0 14.75 8H18.96A0.25 0.25 0 0 0 19.13 7.57L14.43 2.87A0.25 0.25 0 0 0 14 3.04Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "certified",
+            "accreditation",
+            "award",
+            "document",
+            "page",
+            "file",
+            "seal",
+            "rosette",
+            "ribbon",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "award-certificate-filled": {
+          "paths": [
+            "M16 18.56V21.25",
+            "M20 18.56V21.25"
+          ],
+          "areas": [
+            "M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V10.5A0.75 0.75 0 0 1 21.01 11.21L19.76 10.78A5.5 5.5 0 0 0 18 10.5A5.5 5.5 0 0 0 12.5 16A5.5 5.5 0 0 0 12.78 17.76L13.21 19.01A0.75 0.75 0 0 1 12.5 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5.75 7.5H18.25A0.75 0.75 0 0 1 18.25 9H5.75A0.75 0.75 0 0 1 5.75 7.5ZM5.75 12H10.75A0.75 0.75 0 0 1 10.75 13.5H5.75A0.75 0.75 0 0 1 5.75 12Z",
+            "M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.25 4H18.75A3.25 3.25 0 0 1 22 7.25V10.5A0.75 0.75 0 0 1 21.01 11.21L19.76 10.78A5.5 5.5 0 0 0 18 10.5A5.5 5.5 0 0 0 12.5 16A5.5 5.5 0 0 0 12.78 17.76L13.21 19.01A0.75 0.75 0 0 1 12.5 20H5.25A3.25 3.25 0 0 1 2 16.75V7.25A3.25 3.25 0 0 1 5.25 4ZM5.75 7.5H18.25A0.75 0.75 0 0 1 18.25 9H5.75A0.75 0.75 0 0 1 5.75 7.5ZM5.75 12H10.75A0.75 0.75 0 0 1 10.75 13.5H5.75A0.75 0.75 0 0 1 5.75 12Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14 16A4 4 0 1 0 22 16A4 4 0 1 0 14 16Z\"/> <path d=\"M16 18.56V21.25\"/> <path d=\"M20 18.56V21.25\"/>",
+          "mark": false,
+          "tags": [
+            "certificate",
+            "diploma",
+            "accreditation",
+            "credential",
+            "qualification",
+            "award",
+            "achievement",
+            "license",
+            "seal",
+            "rosette",
+            "ribbon",
+            "card",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 4,
+            "w": 20,
+            "h": 18
+          },
+          "bearing": {
+            "left": 2,
+            "top": 4,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
             }
           },
           "container": null,
@@ -662625,12 +663752,23 @@
       "n": 451,
       "name": "award-certificate",
       "section": "D · The rest, by audit rank",
-      "category": "V3 Other badges",
+      "category": "Status & Feedback",
       "base": "award",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
+    },
+    {
+      "n": 451,
+      "name": "award-certificate-2",
+      "section": "D · The rest, by audit rank",
+      "category": "Status & Feedback",
+      "base": "award-certificate",
+      "note": "File with the seal · approved 2026-10-25",
+      "status": "done",
+      "mvp": false,
+      "date": "2026-10-25"
     },
     {
       "n": 452,

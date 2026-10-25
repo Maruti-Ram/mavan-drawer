@@ -1142,7 +1142,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
 - [x] 449. `currency-convert` · Currency — approved 2026-10-22
 - [x] 450. `receipt-refund` · Commerce & Payments · variant of `receipt` — approved 2026-10-22
-- [~] 451. `award-certificate` · V3 Other badges · variant of `award`
+- [x] 451. `award-certificate` · Status & Feedback · variant of `award` — approved 2026-10-25
+- [x] 451. `award-certificate-2` · Status & Feedback · variant of `award-certificate` — File with the seal · approved 2026-10-25
 - [x] 452. `clipboard-off` · Files & Folders · variant of `clipboard` — approved 2026-10-25
 - [x] 452. `clipboard-off-2` · Files & Folders · variant of `clipboard-off` — Big slash to the square, arched clip · approved 2026-10-25
 - [x] 452. `clipboard-off-3` · Files & Folders · variant of `clipboard-off` — Big slash to the square, wide · approved 2026-10-25
