@@ -1113,7 +1113,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 428. `folder-open-2` · Files & Folders · variant of `folder-open` — Whole flap, back cut short · approved 2026-10-25
 - [~] 430. `link-off` · V1 Off states · variant of `link`
 - [~] 431. `mail-open` · V5 Other variants · variant of `mail`
-- [~] 432. `scan-face` · V5 Other variants · variant of `scan`
+- [x] 432. `scan-face` · Users & Access · variant of `scan` — approved 2026-10-25
+- [x] 432. `scan-face-2` · Users & Access · variant of `scan-face` — Eyes, nose and smile · approved 2026-10-25
 - [x] 433. `sort-alpha-descending` · UI & Layout · variant of `sort` — approved 2026-10-03
 - [x] 433. `sort-alpha-descending-2` · UI & Layout · variant of `sort-alpha-descending` — lines left, characters right · approved 2026-10-03
 - [x] 433. `sort-alpha-descending-3` · UI & Layout · variant of `sort-alpha-descending` — characters left, lines right · approved 2026-10-03
