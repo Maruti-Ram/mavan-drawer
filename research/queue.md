@@ -1071,7 +1071,11 @@ Bases before their variants; within that, highest evidence first.
 - [~] 404. `credit-card-x` · V2 Plus minus check x · variant of `credit-card`
 - [x] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard` — approved 2026-10-25
 - [x] 405. `keyboard-off-2` · Devices & Hardware · variant of `keyboard-off` — Bar moved 1 right, 1 up, wired · approved 2026-10-25
-- [~] 406. `map-pin-off` · V1 Off states · variant of `map-pin`
+- [x] 406. `map-pin-off` · Maps & Location · variant of `map-pin` — approved 2026-10-25
+- [x] 406. `map-pin-off-2` · Maps & Location · variant of `map-pin-off` — Bar cut through · approved 2026-10-25
+- [x] 406. `map-pin-off-3` · Maps & Location · variant of `map-pin-off` — Bar moved 1 right, 1 up · approved 2026-10-25
+- [x] 406. `map-pin-off-4` · Maps & Location · variant of `map-pin-off` — Bar cut through · approved 2026-10-25
+- [x] 406. `map-pin-off-5` · Maps & Location · variant of `map-pin-off` — Bar moved 1 right, 1 up · approved 2026-10-25
 - [~] 407. `package-check` · V2 Plus minus check x · variant of `package`
 - [x] 408. `bell-off` · Communication · variant of `bell` — approved 2026-10-25
 - [x] 408. `bell-off-2` · Communication · variant of `bell-off` — Bar cut through, dot clapper · approved 2026-10-25
