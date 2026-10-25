@@ -217,3 +217,43 @@ From V1 (wrapped; 14 rows shipped, crosshair-off dropped):
 10. C34's text names only cloud-off and bug-off as `STATE_TWINS` members; point it at the list instead.
 11. Lint does not check the `-off` bar (45°, full 18 · 14 · 12 keyline, 1.5 at every cut, channel width); a check would catch drift.
 12. Weak at 16, possibly worth Maruti's second look: `video-off-3` (a struck `desktop-2` once the bar takes the play triangle), `camera-off-6` (loses flash dot and lens), `clipboard-off-3` (reads as a struck square), `bolt-off`/`-2` (two ticks), `phone-off` (outline close to `%`).
+
+## Second look — for Maruti, all at once later (2026-10-25)
+
+Shipped icons from this round that met the rules but read weakly somewhere, or carry a recorded compromise. Not to be touched until Maruti takes them up together.
+
+**V1 · off states**
+- `video-off-3` at 16: with the play triangle cut away it is exactly a struck `desktop-2`.
+- `camera-off-6` at 16: loses its flash dot and lens.
+- `clipboard-off-3` at 16: reads as a struck square.
+- `bolt-off`, `bolt-off-2` (centred row) below 24: the bar takes both inside corners, so the bolt is two ticks.
+- `phone-off` at 16: the outline reads close to a `%`; it is also the set's only `/` bar.
+- `map-pin-off-5` (E1): read as "struck on a dish" in review; shipped as picked.
+- `link-off`, `link-off-4`: the halves at 16 can read as brackets "( )"; ticks shortened to fit.
+
+**V2 · plus minus check x**
+- `eye-check` filled: the iris ring pinches to 1.14 · 1.11 · 0.98 at the check's bite (docs/07 Gap exceptions).
+- `face-smile-plus`: top-right badge (new C33 face rule) takes the right eye; filled smile trimmed on the right by under a pixel.
+- `bell-plus` at 16: the clapper is a 2-pixel stub.
+- `database-plus` at 20 and 16: slight "E+" reading.
+- `user-check`, `user-x`: the bigger check/x stops the head's dome further round than the plus does.
+- `clipboard-check-2`, `code-plus-2`: numbering of a second picture on the same base (C9 wording).
+
+**V3 · other badges**
+- `globe-pointer-2` (cursor with tail): in the outline at 16 and 20 it can read as a magnifier, like `user-search`.
+- `file-signature` at 16: the signature is a small blob; a loop or baseline doesn't fit.
+- `file-down`, `file-up`, `folder-down`, `folder-up` (arrow-inside A): outline gap note 1.25 at 20, 0.875 at 16.
+- `image-binary`: B's strip under the "1" raised to 1.69 · 1.26; C reads busier.
+- Still on the board, not shipped: `file-clock`, `calendar-clock` (clock C vs D), `shield-pending` (reads close to `file-clock` at 16), `mail-clock` (the clock costs the flap its point and right arm).
+
+**V4 · containers**
+- `activity-square-2` at 16: the pulse's flat ends 0.90 from its own leg, 0.83 filled (docs/07 Gap exceptions).
+- `help-square` at 16: its dot is ⌀1.5 beside `alert-square`'s and `info-square`'s ⌀2.
+- `play-circle`: keeps tight triangle corners (0.75 · 0.75 · 0.625), not stop's rounder ones.
+
+**V5 · other variants**
+- `check-double` filled 16: the second tick keeps only its bend plus 0.27 of leg.
+- `scan-face-2` filled 16: one gap at 1.44.
+- `calendar-days`: six day dots at 24, two at 20 and 16.
+- `camera-flip-3` (S1): being redrawn so its two arrows hold at 20 and 16.
+- Still open: `eye-closed` (B: two or three lashes at 16; three recommended). Not shipped: `camera-flip` S3, S4, S5.
