@@ -1011,7 +1011,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 349. `arrow-left-circle` · Arrows & Direction · variant of `arrow-left` — approved 2026-10-25
 - [x] 350. `arrow-right-circle` · Arrows & Direction · variant of `arrow-right` — approved 2026-10-25
 - [x] 351. `arrow-up-circle` · Arrows & Direction · variant of `arrow-up` — approved 2026-10-25
-- [~] 352. `eye-off` · V1 Off states · variant of `eye`
+- [x] 352. `eye-off` · Users & Access · variant of `eye` — approved 2026-10-25
 - [~] 353. `file-minus` · V2 Plus minus check x · variant of `file`
 - [x] 354. `file-plus` · Files & Folders · variant of `file` — approved 2026-10-25
 - [~] 355. `clipboard-check` · V2 Plus minus check x · variant of `clipboard`
