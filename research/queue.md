@@ -1032,7 +1032,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 369. `play-circle` · Media & Playback · variant of `play` — approved 2026-10-25
 - [x] 370. `phone-incoming` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 371. `phone-outgoing` · Communication · variant of `phone` — approved 2026-10-25
-- [~] 372. `calendar-check` · V2 Plus minus check x · variant of `calendar`
+- [x] 372. `calendar-check` · Time & Calendar · variant of `calendar` — approved 2026-10-25
 - [~] 373. `calendar-clock` · V3 Other badges · variant of `calendar`
 - [x] 374. `chevron-down-circle` · Arrows & Direction · variant of `chevron-down` — approved 2026-10-25
 - [x] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left` — approved 2026-10-25
