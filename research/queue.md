@@ -1114,7 +1114,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 451. `award-certificate` · V3 Other badges · variant of `award`
 - [~] 452. `clipboard-off` · V1 Off states · variant of `clipboard`
 - [~] 453. `crosshair-off` · V1 Off states · variant of `crosshair`
-- [~] 454. `hash-circle` · V4 Circle and square containers · variant of `hash`
+- [x] 454. `hash-circle` · Communication · variant of `hash` — approved 2026-10-25
 - [~] 455. `help-square` · V4 Circle and square containers · variant of `help-circle`
 - [x] 456. `info-square` · Status & Feedback · variant of `info-circle` — approved 2026-10-25
 - [~] 457. `message-pen` · V3 Other badges · variant of `message`
