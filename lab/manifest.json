@@ -2301,6 +2301,8 @@
     "x-large-filled",
     "x-small",
     "x-small-filled",
+    "x-square",
+    "x-square-filled",
     "yen",
     "yen-circle",
     "yen-circle-filled",
@@ -142558,6 +142560,118 @@
       },
       "gap": null
     },
+    "x-square": {
+      "paths": [
+        "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
+        "M8.25 8.25L15.75 15.75",
+        "M15.75 8.25L8.25 15.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M8.25 8.25L15.75 15.75\"/> <path d=\"M15.75 8.25L8.25 15.75\"/>",
+      "mark": false,
+      "tags": [],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.24,
+          "optical": 3.18
+        }
+      },
+      "container": 18,
+      "markBox": {
+        "w": 9,
+        "h": 9
+      },
+      "ratio": {
+        "w": 0.5,
+        "h": 0.5
+      },
+      "gap": null
+    },
+    "x-square-filled": {
+      "paths": [],
+      "areas": [
+        "M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM13.41 12L16.46 15.04A1 1 0 0 1 15.04 16.46L12 13.41L8.96 16.46A1 1 0 0 1 7.54 15.04L10.59 12L7.54 8.96A1 1 0 0 1 8.96 7.54L12 10.59L15.04 7.54A1 1 0 0 1 16.46 8.96Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM13.41 12L16.46 15.04A1 1 0 0 1 15.04 16.46L12 13.41L8.96 16.46A1 1 0 0 1 7.54 15.04L10.59 12L7.54 8.96A1 1 0 0 1 8.96 7.54L12 10.59L15.04 7.54A1 1 0 0 1 16.46 8.96Z\"/>",
+      "mark": false,
+      "tags": [],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "yen": {
       "paths": [
         "M6.5 4.75L12 12L17.5 4.75",
@@ -145608,6 +145722,8 @@
         "x-large-filled",
         "x-small",
         "x-small-filled",
+        "x-square",
+        "x-square-filled",
         "yen",
         "yen-circle",
         "yen-circle-filled",
@@ -285705,6 +285821,118 @@
           },
           "gap": null
         },
+        "x-square": {
+          "paths": [
+            "M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z",
+            "M5.875 5.875L10.125 10.125",
+            "M10.125 5.875L5.875 10.125"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.125 2.625H11.875A1.5 1.5 0 0 1 13.375 4.125V11.875A1.5 1.5 0 0 1 11.875 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V4.125A1.5 1.5 0 0 1 4.125 2.625Z\"/> <path d=\"M5.875 5.875L10.125 10.125\"/> <path d=\"M10.125 5.875L5.875 10.125\"/>",
+          "mark": false,
+          "tags": [],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.18,
+              "optical": 2.13
+            }
+          },
+          "container": 12,
+          "markBox": {
+            "w": 5.5,
+            "h": 5.5
+          },
+          "ratio": {
+            "w": 0.46,
+            "h": 0.46
+          },
+          "gap": null
+        },
+        "x-square-filled": {
+          "paths": [],
+          "areas": [
+            "M4.125 2H11.875A2.125 2.125 0 0 1 14 4.125V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2ZM9.24 8L10.62 9.38A0.88 0.88 0 0 1 9.38 10.62L8 9.24L6.62 10.62A0.88 0.88 0 0 1 5.38 9.38L6.76 8L5.38 6.62A0.88 0.88 0 0 1 6.62 5.38L8 6.76L9.38 5.38A0.88 0.88 0 0 1 10.62 6.62Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.125 2H11.875A2.125 2.125 0 0 1 14 4.125V11.875A2.125 2.125 0 0 1 11.875 14H4.125A2.125 2.125 0 0 1 2 11.875V4.125A2.125 2.125 0 0 1 4.125 2ZM9.24 8L10.62 9.38A0.88 0.88 0 0 1 9.38 10.62L8 9.24L6.62 10.62A0.88 0.88 0 0 1 5.38 9.38L6.76 8L5.38 6.62A0.88 0.88 0 0 1 6.62 5.38L8 6.76L9.38 5.38A0.88 0.88 0 0 1 10.62 6.62Z\"/>",
+          "mark": false,
+          "tags": [],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "yen": {
           "paths": [
             "M4.125 2.625L8 7.375L11.875 2.625",
@@ -288755,6 +288983,8 @@
         "x-large-filled",
         "x-small",
         "x-small-filled",
+        "x-square",
+        "x-square-filled",
         "yen",
         "yen-circle",
         "yen-circle-filled",
@@ -428914,6 +429144,118 @@
           },
           "gap": null
         },
+        "x-square": {
+          "paths": [
+            "M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z",
+            "M7.5 7.5L12.5 12.5",
+            "M12.5 7.5L7.5 12.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M5.75 3.75H14.25A2 2 0 0 1 16.25 5.75V14.25A2 2 0 0 1 14.25 16.25H5.75A2 2 0 0 1 3.75 14.25V5.75A2 2 0 0 1 5.75 3.75Z\"/> <path d=\"M7.5 7.5L12.5 12.5\"/> <path d=\"M12.5 7.5L7.5 12.5\"/>",
+          "mark": false,
+          "tags": [],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 6.5,
+            "h": 6.5
+          },
+          "ratio": {
+            "w": 0.46,
+            "h": 0.46
+          },
+          "gap": null
+        },
+        "x-square-filled": {
+          "paths": [],
+          "areas": [
+            "M5.75 3H14.25A2.75 2.75 0 0 1 17 5.75V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3ZM11.24 10L13.12 11.88A0.88 0.88 0 0 1 11.88 13.12L10 11.24L8.12 13.12A0.88 0.88 0 0 1 6.88 11.88L8.76 10L6.88 8.12A0.88 0.88 0 0 1 8.12 6.88L10 8.76L11.88 6.88A0.88 0.88 0 0 1 13.12 8.12Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.75 3H14.25A2.75 2.75 0 0 1 17 5.75V14.25A2.75 2.75 0 0 1 14.25 17H5.75A2.75 2.75 0 0 1 3 14.25V5.75A2.75 2.75 0 0 1 5.75 3ZM11.24 10L13.12 11.88A0.88 0.88 0 0 1 11.88 13.12L10 11.24L8.12 13.12A0.88 0.88 0 0 1 6.88 11.88L8.76 10L6.88 8.12A0.88 0.88 0 0 1 8.12 6.88L10 8.76L11.88 6.88A0.88 0.88 0 0 1 13.12 8.12Z\"/>",
+          "mark": false,
+          "tags": [],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "yen": {
           "paths": [
             "M5.75 4.25L10 9.5L14.25 4.25",
@@ -431964,6 +432306,8 @@
         "x-large-filled",
         "x-small",
         "x-small-filled",
+        "x-square",
+        "x-square-filled",
         "yen",
         "yen-circle",
         "yen-circle-filled",
@@ -572219,6 +572563,118 @@
             "w": 1,
             "h": 1
           },
+          "gap": null
+        },
+        "x-square": {
+          "paths": [
+            "M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z",
+            "M8.25 8.25L15.75 15.75",
+            "M15.75 8.25L8.25 15.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.25 3.75H17.75A2.5 2.5 0 0 1 20.25 6.25V17.75A2.5 2.5 0 0 1 17.75 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.25A2.5 2.5 0 0 1 6.25 3.75Z\"/> <path d=\"M8.25 8.25L15.75 15.75\"/> <path d=\"M15.75 8.25L8.25 15.75\"/>",
+          "mark": false,
+          "tags": [],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.24,
+              "optical": 3.18
+            }
+          },
+          "container": 18,
+          "markBox": {
+            "w": 9,
+            "h": 9
+          },
+          "ratio": {
+            "w": 0.5,
+            "h": 0.5
+          },
+          "gap": null
+        },
+        "x-square-filled": {
+          "paths": [],
+          "areas": [
+            "M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM13.41 12L16.46 15.04A1 1 0 0 1 15.04 16.46L12 13.41L8.96 16.46A1 1 0 0 1 7.54 15.04L10.59 12L7.54 8.96A1 1 0 0 1 8.96 7.54L12 10.59L15.04 7.54A1 1 0 0 1 16.46 8.96Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 3H17.75A3.25 3.25 0 0 1 21 6.25V17.75A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25A3.25 3.25 0 0 1 6.25 3ZM13.41 12L16.46 15.04A1 1 0 0 1 15.04 16.46L12 13.41L8.96 16.46A1 1 0 0 1 7.54 15.04L10.59 12L7.54 8.96A1 1 0 0 1 8.96 7.54L12 10.59L15.04 7.54A1 1 0 0 1 16.46 8.96Z\"/>",
+          "mark": false,
+          "tags": [],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
           "gap": null
         },
         "yen": {

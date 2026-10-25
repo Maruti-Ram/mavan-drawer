@@ -1046,7 +1046,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 384. `text-title` · V5 Other variants · variant of `text`
 - [~] 385. `user-circle` · V4 Circle and square containers · variant of `user`
 - [x] 386. `user-lock` · Users & Access · variant of `user` — approved 2026-10-25
-- [~] 387. `user-shield` · V3 Other badges · variant of `user`
+- [x] 387. `user-shield` · Users & Access · variant of `user` — approved 2026-10-25
 - [~] 388. `cart-minus` · V2 Plus minus check x · variant of `cart`
 - [~] 389. `cart-plus` · V2 Plus minus check x · variant of `cart`
 - [~] 390. `chart-bar-horizontal` · V5 Other variants · variant of `chart-bar`
