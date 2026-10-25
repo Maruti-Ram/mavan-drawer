@@ -1135,7 +1135,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 441. `code-plus-2` · Editing & Text · variant of `code-plus` — Plus between the brackets · approved 2026-10-25
 - [x] 442. `eye-check` · Users & Access · variant of `eye` — approved 2026-10-25
 - [x] 443. `file-attachment` · Files & Folders · variant of `file` — approved 2026-10-25
-- [~] 444. `mail-follow-up` · V3 Other badges · variant of `mail`
+- [x] 444. `mail-follow-up` · Communication · variant of `mail` — approved 2026-10-25
 - [~] 445. `shield-pending` · V3 Other badges · variant of `shield`
 - [x] 446. `user-exit` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 447. `user-segment` · Users & Access · variant of `user` — approved 2026-10-25
