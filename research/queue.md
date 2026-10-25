@@ -1080,7 +1080,11 @@ Bases before their variants; within that, highest evidence first.
 - [x] 408. `bell-off` · Communication · variant of `bell` — approved 2026-10-25
 - [x] 408. `bell-off-2` · Communication · variant of `bell-off` — Bar cut through, dot clapper · approved 2026-10-25
 - [x] 408. `bell-off-3` · Communication · variant of `bell-off` — Bar cut through, big dome · approved 2026-10-25
-- [~] 409. `microphone-off` · V1 Off states · variant of `microphone`
+- [x] 409. `microphone-off` · Communication · variant of `microphone` — approved 2026-10-25
+- [x] 409. `microphone-off-2` · Communication · variant of `microphone-off` — Big slash to the square, bar cut through · approved 2026-10-25
+- [x] 409. `microphone-off-3` · Communication · variant of `microphone-off` — Big slash to the square, bar cut through · approved 2026-10-25
+- [x] 409. `microphone-off-4` · Communication · variant of `microphone-off` — Big slash to the square, bar cut through · approved 2026-10-25
+- [x] 409. `microphone-off-5` · Communication · variant of `microphone-off` — Big slash to the square, bar cut through · approved 2026-10-25
 - [x] 410. `minus-square` · UI & Layout · variant of `minus` — approved 2026-10-25
 - [x] 411. `phone-call` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 412. `plus-square` · UI & Layout · variant of `plus` — approved 2026-10-25
