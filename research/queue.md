@@ -1112,7 +1112,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 439. `desktop-download` · Devices & Hardware · variant of `desktop` — approved 2026-10-25
 - [x] 439. `desktop-download-2` · Devices & Hardware · variant of `desktop-download` — Corner badge · approved 2026-10-25
 - [x] 440. `credit-card-lock` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
-- [~] 441. `code-plus` · V2 Plus minus check x · variant of `code`
+- [x] 441. `code-plus` · Editing & Text · variant of `code` — approved 2026-10-25
+- [x] 441. `code-plus-2` · Editing & Text · variant of `code-plus` — Plus between the brackets · approved 2026-10-25
 - [~] 442. `eye-check` · V2 Plus minus check x · variant of `eye`
 - [~] 443. `file-attachment` · V3 Other badges · variant of `file`
 - [~] 444. `mail-follow-up` · V3 Other badges · variant of `mail`
