@@ -1149,7 +1149,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 462. `star-sparkle` · Status & Feedback · variant of `star` — approved 2026-10-25
 - [~] 463. `user-focus` · V3 Other badges · variant of `user`
 - [~] 464. `user-laptop` · V3 Other badges · variant of `user`
-- [~] 465. `window-chart` · V3 Other badges · variant of `window`
+- [x] 465. `window-chart` · Charts & Data · variant of `window` — approved 2026-10-25
+- [x] 465. `window-chart-2` · Charts & Data · variant of `window-chart` — Bar chart · approved 2026-10-25
 - [x] 466. `gear-nodes` · Development & Infra · variant of `gear` — approved 2026-10-23
 - [x] 466. `gear-nodes-2` · Development & Infra · variant of `gear-nodes` — Link badge · approved 2026-10-23
 - [~] 467. `globe-pointer` · V3 Other badges · variant of `globe`
