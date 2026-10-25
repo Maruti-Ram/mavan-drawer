@@ -1135,7 +1135,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 471. `play-circle-dotted` · V4 Circle and square containers · variant of `play-circle`
 - [~] 472. `window-expand-bottom-right` · V3 Other badges · variant of `window`
 - [~] 473. `window-key` · V3 Other badges · variant of `window`
-- [~] 474. `window-pointer` · V3 Other badges · variant of `window`
+- [x] 474. `window-pointer` · Design Tools · variant of `window` — approved 2026-10-25
 - [x] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench` — approved 2026-10-23
 - [x] 475. `wrench-screwdriver-2` · Development & Infra · variant of `wrench-screwdriver` — Crossed, wrench in front · approved 2026-10-23
 - [~] 476. `phone-off` · V1 Off states · variant of `phone`
