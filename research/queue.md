@@ -1134,7 +1134,10 @@ Bases before their variants; within that, highest evidence first.
 - [x] 449. `currency-convert` · Currency — approved 2026-10-22
 - [x] 450. `receipt-refund` · Commerce & Payments · variant of `receipt` — approved 2026-10-22
 - [~] 451. `award-certificate` · V3 Other badges · variant of `award`
-- [~] 452. `clipboard-off` · V1 Off states · variant of `clipboard`
+- [x] 452. `clipboard-off` · Files & Folders · variant of `clipboard` — approved 2026-10-25
+- [x] 452. `clipboard-off-2` · Files & Folders · variant of `clipboard-off` — Big slash to the square, arched clip · approved 2026-10-25
+- [x] 452. `clipboard-off-3` · Files & Folders · variant of `clipboard-off` — Big slash to the square, wide · approved 2026-10-25
+- [x] 452. `clipboard-off-4` · Files & Folders · variant of `clipboard-off` — Big slash to the square, short · approved 2026-10-25
 - [x] 454. `hash-circle` · Communication · variant of `hash` — approved 2026-10-25
 - [x] 455. `help-square` · Status & Feedback · variant of `help-circle` — approved 2026-10-25
 - [x] 456. `info-square` · Status & Feedback · variant of `info-circle` — approved 2026-10-25
