@@ -1,6 +1,8 @@
 # Variant round — the 121 undrawn variant rows
 
-Status: **on hold** — rows on the sheet, not started (Maruti, 2026-10-24: "You dont draw those yet. u just add them to the library board as empty icons that we are yet to take up").
+Status: **in progress** since 2026-10-25 — Maruti: "Open 5 different session … V1 to V5 1 session each … every icon having its own drawing agents … drawings happen on Opus". All 121 rows marked in review and their references written by the main session first. (Before: on hold, 2026-10-24.)
+
+**How it runs (2026-10-25):** one session per category, V1 to V5, all in this checkout. Each one drafts only its own rows' `lab/drafts/batch/<name>.js`, one Opus drawing agent per row, and settles a shared badge picture once before handing it out. Approvals are serialised by the lock `.git/mavan-approve.lock`. `tools/masters.mjs` `STATE_TWINS` is V1's alone. This plan file belongs to the main session.
 
 ## What changes for Maruti
 
