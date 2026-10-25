@@ -1078,7 +1078,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 406. `map-pin-off-3` · Maps & Location · variant of `map-pin-off` — Bar moved 1 right, 1 up · approved 2026-10-25
 - [x] 406. `map-pin-off-4` · Maps & Location · variant of `map-pin-off` — Bar cut through · approved 2026-10-25
 - [x] 406. `map-pin-off-5` · Maps & Location · variant of `map-pin-off` — Bar moved 1 right, 1 up · approved 2026-10-25
-- [~] 407. `package-check` · V2 Plus minus check x · variant of `package`
+- [x] 407. `package-check` · Commerce & Payments · variant of `package` — approved 2026-10-25
 - [x] 408. `bell-off` · Communication · variant of `bell` — approved 2026-10-25
 - [x] 408. `bell-off-2` · Communication · variant of `bell-off` — Bar cut through, dot clapper · approved 2026-10-25
 - [x] 408. `bell-off-3` · Communication · variant of `bell-off` — Bar cut through, big dome · approved 2026-10-25

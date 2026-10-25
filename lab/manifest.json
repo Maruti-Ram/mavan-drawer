@@ -1600,6 +1600,8 @@
     "package-2-filled",
     "package-3",
     "package-3-filled",
+    "package-check",
+    "package-check-filled",
     "package-filled",
     "package-shield-2",
     "package-shield-2-filled",
@@ -99458,6 +99460,136 @@
       "ratio": null,
       "gap": null
     },
+    "package-check": {
+      "paths": [
+        "M11.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.75L6.75 3.75H17.25L20.25 6.75V13.75",
+        "M3.75 6.75H20.25",
+        "M12 3.75V6.75",
+        "M6.75 17.25H9.75",
+        "M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66"
+      ],
+      "areas": [],
+      "body": "<path d=\"M11.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.75L6.75 3.75H17.25L20.25 6.75V13.75\"/> <path d=\"M3.75 6.75H20.25\"/> <path d=\"M12 3.75V6.75\"/> <path d=\"M6.75 17.25H9.75\"/> <path d=\"M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66\"/>",
+      "mark": false,
+      "tags": [
+        "delivered",
+        "fulfilled",
+        "shipped",
+        "order complete",
+        "received",
+        "parcel",
+        "box",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 19,
+        "h": 19
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.34,
+          "optical": 3.25
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.34,
+          "optical": 2.25
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.44,
+          "optical": 3.33
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.47,
+          "optical": 2.36
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "package-check-filled": {
+      "paths": [
+        "M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66"
+      ],
+      "areas": [
+        "M6.75 3H11A0.25 0.25 0 0 1 11.25 3.25V5.5A0.5 0.5 0 0 1 10.75 6H4.04A0.25 0.25 0 0 1 3.87 5.57L6.22 3.22A0.75 0.75 0 0 1 6.75 3Z",
+        "M13 3H17.25A0.75 0.75 0 0 1 17.78 3.22L20.13 5.57A0.25 0.25 0 0 1 19.96 6H13.25A0.5 0.5 0 0 1 12.75 5.5V3.25A0.25 0.25 0 0 1 13 3Z",
+        "M3.5 7.5H20.5A0.5 0.5 0 0 1 21 8V13.75A0.75 0.75 0 0 1 20.65 14.39L20.06 14.75A2.25 2.25 0 0 0 19.66 15.06L16.7 18.02A0.5 0.5 0 0 1 16 18.01L15.75 17.76A2.25 2.25 0 0 0 11.92 19.68L11.99 20.14A0.75 0.75 0 0 1 11.25 21H6.25A3.25 3.25 0 0 1 3 17.75V8A0.5 0.5 0 0 1 3.5 7.5ZM6.75 16.5H9.75A0.75 0.75 0 0 1 10.5 17.25A0.75 0.75 0 0 1 9.75 18H6.75A0.75 0.75 0 0 1 6 17.25A0.75 0.75 0 0 1 6.75 16.5Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 3H11A0.25 0.25 0 0 1 11.25 3.25V5.5A0.5 0.5 0 0 1 10.75 6H4.04A0.25 0.25 0 0 1 3.87 5.57L6.22 3.22A0.75 0.75 0 0 1 6.75 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 3H17.25A0.75 0.75 0 0 1 17.78 3.22L20.13 5.57A0.25 0.25 0 0 1 19.96 6H13.25A0.5 0.5 0 0 1 12.75 5.5V3.25A0.25 0.25 0 0 1 13 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.5 7.5H20.5A0.5 0.5 0 0 1 21 8V13.75A0.75 0.75 0 0 1 20.65 14.39L20.06 14.75A2.25 2.25 0 0 0 19.66 15.06L16.7 18.02A0.5 0.5 0 0 1 16 18.01L15.75 17.76A2.25 2.25 0 0 0 11.92 19.68L11.99 20.14A0.75 0.75 0 0 1 11.25 21H6.25A3.25 3.25 0 0 1 3 17.75V8A0.5 0.5 0 0 1 3.5 7.5ZM6.75 16.5H9.75A0.75 0.75 0 0 1 10.5 17.25A0.75 0.75 0 0 1 9.75 18H6.75A0.75 0.75 0 0 1 6 17.25A0.75 0.75 0 0 1 6.75 16.5Z\"/> <path d=\"M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66\"/>",
+      "mark": false,
+      "tags": [
+        "delivered",
+        "fulfilled",
+        "shipped",
+        "order complete",
+        "received",
+        "parcel",
+        "box",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 19,
+        "h": 19
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "package-filled": {
       "paths": [],
       "areas": [
@@ -163482,6 +163614,8 @@
         "package-2-filled",
         "package-3",
         "package-3-filled",
+        "package-check",
+        "package-check-filled",
         "package-filled",
         "package-shield-2",
         "package-shield-2-filled",
@@ -261211,6 +261345,136 @@
           "ratio": null,
           "gap": null
         },
+        "package-check": {
+          "paths": [
+            "M7.125 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V5.375L5.375 2.625H10.625L13.375 5.375V8.875",
+            "M2.625 5.375H13.375",
+            "M8 2.625V5.375",
+            "M5.375 10.625H6.875",
+            "M9.925 13.136L10.901 14.178A0.625 0.625 0 0 0 11.805 14.186L14.375 11.546"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.125 13.375H4.125A1.5 1.5 0 0 1 2.625 11.875V5.375L5.375 2.625H10.625L13.375 5.375V8.875\"/> <path d=\"M2.625 5.375H13.375\"/> <path d=\"M8 2.625V5.375\"/> <path d=\"M5.375 10.625H6.875\"/> <path d=\"M9.925 13.136L10.901 14.178A0.625 0.625 0 0 0 11.805 14.186L14.375 11.546\"/>",
+          "mark": false,
+          "tags": [
+            "delivered",
+            "fulfilled",
+            "shipped",
+            "order complete",
+            "received",
+            "parcel",
+            "box",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 13,
+            "h": 13
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.33,
+              "optical": 2.25
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.26,
+              "optical": 1.2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.5,
+              "optical": 2.38
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.33,
+              "optical": 1.25
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "package-check-filled": {
+          "paths": [
+            "M9.925 13.136L10.901 14.178A0.625 0.625 0 0 0 11.805 14.186L14.375 11.546"
+          ],
+          "areas": [
+            "M5.375 2H7A0.25 0.25 0 0 1 7.25 2.25V4.25A0.5 0.5 0 0 1 6.75 4.75H2.97A0.25 0.25 0 0 1 2.793 4.323L4.933 2.183A0.625 0.625 0 0 1 5.375 2Z",
+            "M9 2H10.625A0.625 0.625 0 0 1 11.067 2.183L13.207 4.323A0.25 0.25 0 0 1 13.03 4.75H9.25A0.5 0.5 0 0 1 8.75 4.25V2.25A0.25 0.25 0 0 1 9 2Z",
+            "M2.5 6.25H13.5A0.5 0.5 0 0 1 14 6.75V8.875A0.625 0.625 0 0 1 13.741 9.381L13.129 9.824A2.125 2.125 0 0 0 12.852 10.064L11.683 11.264A0.5 0.5 0 0 1 11.059 11.338A2.125 2.125 0 0 0 7.815 12.877L7.745 13.451A0.625 0.625 0 0 1 7.125 14H4.125A2.125 2.125 0 0 1 2 11.875V6.75A0.5 0.5 0 0 1 2.5 6.25ZM5.5 10H6.5A0.75 0.75 0 0 1 7.25 10.75A0.75 0.75 0 0 1 6.5 11.5H5.5A0.75 0.75 0 0 1 4.75 10.75A0.75 0.75 0 0 1 5.5 10Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.375 2H7A0.25 0.25 0 0 1 7.25 2.25V4.25A0.5 0.5 0 0 1 6.75 4.75H2.97A0.25 0.25 0 0 1 2.793 4.323L4.933 2.183A0.625 0.625 0 0 1 5.375 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9 2H10.625A0.625 0.625 0 0 1 11.067 2.183L13.207 4.323A0.25 0.25 0 0 1 13.03 4.75H9.25A0.5 0.5 0 0 1 8.75 4.25V2.25A0.25 0.25 0 0 1 9 2Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2.5 6.25H13.5A0.5 0.5 0 0 1 14 6.75V8.875A0.625 0.625 0 0 1 13.741 9.381L13.129 9.824A2.125 2.125 0 0 0 12.852 10.064L11.683 11.264A0.5 0.5 0 0 1 11.059 11.338A2.125 2.125 0 0 0 7.815 12.877L7.745 13.451A0.625 0.625 0 0 1 7.125 14H4.125A2.125 2.125 0 0 1 2 11.875V6.75A0.5 0.5 0 0 1 2.5 6.25ZM5.5 10H6.5A0.75 0.75 0 0 1 7.25 10.75A0.75 0.75 0 0 1 6.5 11.5H5.5A0.75 0.75 0 0 1 4.75 10.75A0.75 0.75 0 0 1 5.5 10Z\"/> <path d=\"M9.925 13.136L10.901 14.178A0.625 0.625 0 0 0 11.805 14.186L14.375 11.546\"/>",
+          "mark": false,
+          "tags": [
+            "delivered",
+            "fulfilled",
+            "shipped",
+            "order complete",
+            "received",
+            "parcel",
+            "box",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 13,
+            "h": 13
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "package-filled": {
           "paths": [],
           "areas": [
@@ -325161,6 +325425,8 @@
         "package-2-filled",
         "package-3",
         "package-3-filled",
+        "package-check",
+        "package-check-filled",
         "package-filled",
         "package-shield-2",
         "package-shield-2-filled",
@@ -422944,6 +423210,136 @@
           "ratio": null,
           "gap": null
         },
+        "package-check": {
+          "paths": [
+            "M9 16.25H5.75A2 2 0 0 1 3.75 14.25V6.75L6.75 3.75H13.25L16.25 6.75V11",
+            "M3.75 6.75H16.25",
+            "M10 3.75V6.75",
+            "M6.75 13.25H9",
+            "M12.17 15.98L13.22 17.03A0.75 0.75 0 0 0 14.28 17.03L17.25 14.06"
+          ],
+          "areas": [],
+          "body": "<path d=\"M9 16.25H5.75A2 2 0 0 1 3.75 14.25V6.75L6.75 3.75H13.25L16.25 6.75V11\"/> <path d=\"M3.75 6.75H16.25\"/> <path d=\"M10 3.75V6.75\"/> <path d=\"M6.75 13.25H9\"/> <path d=\"M12.17 15.98L13.22 17.03A0.75 0.75 0 0 0 14.28 17.03L17.25 14.06\"/>",
+          "mark": false,
+          "tags": [
+            "delivered",
+            "fulfilled",
+            "shipped",
+            "order complete",
+            "received",
+            "parcel",
+            "box",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 15,
+            "h": 15
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.4,
+              "optical": 3.3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.28,
+              "optical": 2.21
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.56,
+              "optical": 3.42
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.4,
+              "optical": 2.3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "package-check-filled": {
+          "paths": [
+            "M12.17 15.98L13.22 17.03A0.75 0.75 0 0 0 14.28 17.03L17.25 14.06"
+          ],
+          "areas": [
+            "M6.75 3H9A0.25 0.25 0 0 1 9.25 3.25V5.5A0.5 0.5 0 0 1 8.75 6H4.04A0.25 0.25 0 0 1 3.87 5.57L6.22 3.22A0.75 0.75 0 0 1 6.75 3Z",
+            "M11 3H13.25A0.75 0.75 0 0 1 13.78 3.22L16.13 5.57A0.25 0.25 0 0 1 15.96 6H11.25A0.5 0.5 0 0 1 10.75 5.5V3.25A0.25 0.25 0 0 1 11 3Z",
+            "M3.5 7.5H16.5A0.5 0.5 0 0 1 17 8V11A0.75 0.75 0 0 1 16.73 11.58L15.82 12.32A2.25 2.25 0 0 0 15.65 12.47L14.07 14.05A0.5 0.5 0 0 1 13.44 14.12A2.25 2.25 0 0 0 9.99 15.41L9.73 16.44A0.75 0.75 0 0 1 9 17H5.75A2.75 2.75 0 0 1 3 14.25V8A0.5 0.5 0 0 1 3.5 7.5ZM6.75 12.5H8.5A0.75 0.75 0 0 1 9.25 13.25A0.75 0.75 0 0 1 8.5 14H6.75A0.75 0.75 0 0 1 6 13.25A0.75 0.75 0 0 1 6.75 12.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 3H9A0.25 0.25 0 0 1 9.25 3.25V5.5A0.5 0.5 0 0 1 8.75 6H4.04A0.25 0.25 0 0 1 3.87 5.57L6.22 3.22A0.75 0.75 0 0 1 6.75 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11 3H13.25A0.75 0.75 0 0 1 13.78 3.22L16.13 5.57A0.25 0.25 0 0 1 15.96 6H11.25A0.5 0.5 0 0 1 10.75 5.5V3.25A0.25 0.25 0 0 1 11 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.5 7.5H16.5A0.5 0.5 0 0 1 17 8V11A0.75 0.75 0 0 1 16.73 11.58L15.82 12.32A2.25 2.25 0 0 0 15.65 12.47L14.07 14.05A0.5 0.5 0 0 1 13.44 14.12A2.25 2.25 0 0 0 9.99 15.41L9.73 16.44A0.75 0.75 0 0 1 9 17H5.75A2.75 2.75 0 0 1 3 14.25V8A0.5 0.5 0 0 1 3.5 7.5ZM6.75 12.5H8.5A0.75 0.75 0 0 1 9.25 13.25A0.75 0.75 0 0 1 8.5 14H6.75A0.75 0.75 0 0 1 6 13.25A0.75 0.75 0 0 1 6.75 12.5Z\"/> <path d=\"M12.17 15.98L13.22 17.03A0.75 0.75 0 0 0 14.28 17.03L17.25 14.06\"/>",
+          "mark": false,
+          "tags": [
+            "delivered",
+            "fulfilled",
+            "shipped",
+            "order complete",
+            "received",
+            "parcel",
+            "box",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 15,
+            "h": 15
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "package-filled": {
           "paths": [],
           "areas": [
@@ -486924,6 +487320,8 @@
         "package-2-filled",
         "package-3",
         "package-3-filled",
+        "package-check",
+        "package-check-filled",
         "package-filled",
         "package-shield-2",
         "package-shield-2-filled",
@@ -584782,6 +585180,136 @@
           "ratio": null,
           "gap": null
         },
+        "package-check": {
+          "paths": [
+            "M11.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.75L6.75 3.75H17.25L20.25 6.75V13.75",
+            "M3.75 6.75H20.25",
+            "M12 3.75V6.75",
+            "M6.75 17.25H9.75",
+            "M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66"
+          ],
+          "areas": [],
+          "body": "<path d=\"M11.25 20.25H6.25A2.5 2.5 0 0 1 3.75 17.75V6.75L6.75 3.75H17.25L20.25 6.75V13.75\"/> <path d=\"M3.75 6.75H20.25\"/> <path d=\"M12 3.75V6.75\"/> <path d=\"M6.75 17.25H9.75\"/> <path d=\"M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66\"/>",
+          "mark": false,
+          "tags": [
+            "delivered",
+            "fulfilled",
+            "shipped",
+            "order complete",
+            "received",
+            "parcel",
+            "box",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 19,
+            "h": 19
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.34,
+              "optical": 3.25
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.34,
+              "optical": 2.25
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.44,
+              "optical": 3.33
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.36
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "package-check-filled": {
+          "paths": [
+            "M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66"
+          ],
+          "areas": [
+            "M6.75 3H11A0.25 0.25 0 0 1 11.25 3.25V5.5A0.5 0.5 0 0 1 10.75 6H4.04A0.25 0.25 0 0 1 3.87 5.57L6.22 3.22A0.75 0.75 0 0 1 6.75 3Z",
+            "M13 3H17.25A0.75 0.75 0 0 1 17.78 3.22L20.13 5.57A0.25 0.25 0 0 1 19.96 6H13.25A0.5 0.5 0 0 1 12.75 5.5V3.25A0.25 0.25 0 0 1 13 3Z",
+            "M3.5 7.5H20.5A0.5 0.5 0 0 1 21 8V13.75A0.75 0.75 0 0 1 20.65 14.39L20.06 14.75A2.25 2.25 0 0 0 19.66 15.06L16.7 18.02A0.5 0.5 0 0 1 16 18.01L15.75 17.76A2.25 2.25 0 0 0 11.92 19.68L11.99 20.14A0.75 0.75 0 0 1 11.25 21H6.25A3.25 3.25 0 0 1 3 17.75V8A0.5 0.5 0 0 1 3.5 7.5ZM6.75 16.5H9.75A0.75 0.75 0 0 1 10.5 17.25A0.75 0.75 0 0 1 9.75 18H6.75A0.75 0.75 0 0 1 6 17.25A0.75 0.75 0 0 1 6.75 16.5Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.75 3H11A0.25 0.25 0 0 1 11.25 3.25V5.5A0.5 0.5 0 0 1 10.75 6H4.04A0.25 0.25 0 0 1 3.87 5.57L6.22 3.22A0.75 0.75 0 0 1 6.75 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M13 3H17.25A0.75 0.75 0 0 1 17.78 3.22L20.13 5.57A0.25 0.25 0 0 1 19.96 6H13.25A0.5 0.5 0 0 1 12.75 5.5V3.25A0.25 0.25 0 0 1 13 3Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3.5 7.5H20.5A0.5 0.5 0 0 1 21 8V13.75A0.75 0.75 0 0 1 20.65 14.39L20.06 14.75A2.25 2.25 0 0 0 19.66 15.06L16.7 18.02A0.5 0.5 0 0 1 16 18.01L15.75 17.76A2.25 2.25 0 0 0 11.92 19.68L11.99 20.14A0.75 0.75 0 0 1 11.25 21H6.25A3.25 3.25 0 0 1 3 17.75V8A0.5 0.5 0 0 1 3.5 7.5ZM6.75 16.5H9.75A0.75 0.75 0 0 1 10.5 17.25A0.75 0.75 0 0 1 9.75 18H6.75A0.75 0.75 0 0 1 6 17.25A0.75 0.75 0 0 1 6.75 16.5Z\"/> <path d=\"M14.15 19.35L15.82 21.03A0.75 0.75 0 0 0 16.88 21.03L21.25 16.66\"/>",
+          "mark": false,
+          "tags": [
+            "delivered",
+            "fulfilled",
+            "shipped",
+            "order complete",
+            "received",
+            "parcel",
+            "box",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 19,
+            "h": 19
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "package-filled": {
           "paths": [],
           "areas": [
@@ -658749,12 +659277,12 @@
       "n": 407,
       "name": "package-check",
       "section": "D · The rest, by audit rank",
-      "category": "V2 Plus minus check x",
+      "category": "Commerce & Payments",
       "base": "package",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 408,
