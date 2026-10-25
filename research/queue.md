@@ -1144,7 +1144,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 455. `help-square` · Status & Feedback · variant of `help-circle` — approved 2026-10-25
 - [x] 456. `info-square` · Status & Feedback · variant of `info-circle` — approved 2026-10-25
 - [~] 459. `message-user` · V3 Other badges · variant of `message`
-- [~] 461. `search-empty` · V5 Other variants · variant of `search`
+- [x] 461. `search-empty` · UI & Layout · variant of `search` — approved 2026-10-25
 - [x] 462. `star-sparkle` · Status & Feedback · variant of `star` — approved 2026-10-25
 - [x] 463. `user-focus` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 465. `window-chart` · Charts & Data · variant of `window` — approved 2026-10-25

@@ -1934,6 +1934,8 @@
     "search-2-filled",
     "search-3",
     "search-3-filled",
+    "search-empty",
+    "search-empty-filled",
     "search-filled",
     "select",
     "select-2",
@@ -120037,6 +120039,129 @@
       "ratio": null,
       "gap": null
     },
+    "search-empty": {
+      "paths": [
+        "M3.75 10.75A7 7 0 1 0 17.75 10.75A7 7 0 1 0 3.75 10.75Z",
+        "M15.7 15.7L20.25 20.25",
+        "M8.5 13L13 8.5"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 10.75A7 7 0 1 0 17.75 10.75A7 7 0 1 0 3.75 10.75Z\"/> <path d=\"M15.7 15.7L20.25 20.25\"/> <path d=\"M8.5 13L13 8.5\"/>",
+      "mark": false,
+      "tags": [
+        "no results",
+        "not found",
+        "empty",
+        "none",
+        "magnify",
+        "slash"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.74,
+          "optical": 3.56
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 1.33,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.74,
+          "optical": 3.56
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 1.33,
+          "optical": 4
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "search-empty-filled": {
+      "paths": [
+        "M8.75 12.75L12.75 8.75"
+      ],
+      "areas": [
+        "M3 10.75A7.75 7.75 0 1 0 18.5 10.75A7.75 7.75 0 1 0 3 10.75ZM5.5 10.75A5.25 5.25 0 1 0 16 10.75A5.25 5.25 0 1 0 5.5 10.75Z",
+        "M14.55 15.95L17.86 20.31A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.31 17.86L15.95 14.55A1 1 0 0 0 14.55 15.95Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 10.75A7.75 7.75 0 1 0 18.5 10.75A7.75 7.75 0 1 0 3 10.75ZM5.5 10.75A5.25 5.25 0 1 0 16 10.75A5.25 5.25 0 1 0 5.5 10.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.55 15.95L17.86 20.31A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.31 17.86L15.95 14.55A1 1 0 0 0 14.55 15.95Z\"/> <path d=\"M8.75 12.75L12.75 8.75\"/>",
+      "mark": false,
+      "tags": [
+        "no results",
+        "not found",
+        "empty",
+        "none",
+        "magnify",
+        "slash"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0,
+          "optical": 3
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "search-filled": {
       "paths": [],
       "areas": [
@@ -160062,6 +160187,8 @@
         "search-2-filled",
         "search-3",
         "search-3-filled",
+        "search-empty",
+        "search-empty-filled",
         "search-filled",
         "select",
         "select-2",
@@ -278032,6 +278159,129 @@
           "ratio": null,
           "gap": null
         },
+        "search-empty": {
+          "paths": [
+            "M2.625 7.25A4.625 4.625 0 1 0 11.875 7.25A4.625 4.625 0 1 0 2.625 7.25Z",
+            "M10.52 10.52L13.375 13.375",
+            "M6 8.5L8.5 6"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 7.25A4.625 4.625 0 1 0 11.875 7.25A4.625 4.625 0 1 0 2.625 7.25Z\"/> <path d=\"M10.52 10.52L13.375 13.375\"/> <path d=\"M6 8.5L8.5 6\"/>",
+          "mark": false,
+          "tags": [
+            "no results",
+            "not found",
+            "empty",
+            "none",
+            "magnify",
+            "slash"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.57,
+              "optical": 2.43
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 1.07,
+              "optical": 2.8
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.57,
+              "optical": 2.43
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 1.07,
+              "optical": 2.8
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "search-empty-filled": {
+          "paths": [
+            "M6.5 8L8 6.5"
+          ],
+          "areas": [
+            "M2 7.25A5.25 5.25 0 1 0 12.5 7.25A5.25 5.25 0 1 0 2 7.25ZM4 7.25A3.25 3.25 0 1 0 10.5 7.25A3.25 3.25 0 1 0 4 7.25Z",
+            "M9.66 10.71L11.75 13.5A1.25 1.25 0 0 0 12.75 14A1.25 1.25 0 0 0 14 12.75A1.25 1.25 0 0 0 13.5 11.75L10.71 9.66A0.75 0.75 0 0 0 9.66 10.71Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 7.25A5.25 5.25 0 1 0 12.5 7.25A5.25 5.25 0 1 0 2 7.25ZM4 7.25A3.25 3.25 0 1 0 10.5 7.25A3.25 3.25 0 1 0 4 7.25Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M9.66 10.71L11.75 13.5A1.25 1.25 0 0 0 12.75 14A1.25 1.25 0 0 0 14 12.75A1.25 1.25 0 0 0 13.5 11.75L10.71 9.66A0.75 0.75 0 0 0 9.66 10.71Z\"/> <path d=\"M6.5 8L8 6.5\"/>",
+          "mark": false,
+          "tags": [
+            "no results",
+            "not found",
+            "empty",
+            "none",
+            "magnify",
+            "slash"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "search-filled": {
           "paths": [],
           "areas": [
@@ -317995,6 +318245,8 @@
         "search-2-filled",
         "search-3",
         "search-3-filled",
+        "search-empty",
+        "search-empty-filled",
         "search-filled",
         "select",
         "select-2",
@@ -436013,6 +436265,129 @@
           "ratio": null,
           "gap": null
         },
+        "search-empty": {
+          "paths": [
+            "M3.75 9A5.25 5.25 0 1 0 14.25 9A5.25 5.25 0 1 0 3.75 9Z",
+            "M12.71 12.71L16.25 16.25",
+            "M7.5 10.5L10.5 7.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 9A5.25 5.25 0 1 0 14.25 9A5.25 5.25 0 1 0 3.75 9Z\"/> <path d=\"M12.71 12.71L16.25 16.25\"/> <path d=\"M7.5 10.5L10.5 7.5\"/>",
+          "mark": false,
+          "tags": [
+            "no results",
+            "not found",
+            "empty",
+            "none",
+            "magnify",
+            "slash"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.67,
+              "optical": 3.5
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.29,
+              "optical": 3.97
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.67,
+              "optical": 3.5
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.29,
+              "optical": 3.97
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "search-empty-filled": {
+          "paths": [
+            "M8 10L10 8"
+          ],
+          "areas": [
+            "M3 9A6 6 0 1 0 15 9A6 6 0 1 0 3 9ZM5 9A4 4 0 1 0 13 9A4 4 0 1 0 5 9Z",
+            "M11.92 12.97L14.27 16.35A1.5 1.5 0 0 0 15.5 17A1.5 1.5 0 0 0 17 15.5A1.5 1.5 0 0 0 16.35 14.27L12.97 11.92A0.75 0.75 0 0 0 11.92 12.97Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 9A6 6 0 1 0 15 9A6 6 0 1 0 3 9ZM5 9A4 4 0 1 0 13 9A4 4 0 1 0 5 9Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M11.92 12.97L14.27 16.35A1.5 1.5 0 0 0 15.5 17A1.5 1.5 0 0 0 17 15.5A1.5 1.5 0 0 0 16.35 14.27L12.97 11.92A0.75 0.75 0 0 0 11.92 12.97Z\"/> <path d=\"M8 10L10 8\"/>",
+          "mark": false,
+          "tags": [
+            "no results",
+            "not found",
+            "empty",
+            "none",
+            "magnify",
+            "slash"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "search-filled": {
           "paths": [],
           "areas": [
@@ -476004,6 +476379,8 @@
         "search-2-filled",
         "search-3",
         "search-3-filled",
+        "search-empty",
+        "search-empty-filled",
         "search-filled",
         "select",
         "select-2",
@@ -594107,6 +594484,129 @@
           "ratio": null,
           "gap": null
         },
+        "search-empty": {
+          "paths": [
+            "M3.75 10.75A7 7 0 1 0 17.75 10.75A7 7 0 1 0 3.75 10.75Z",
+            "M15.7 15.7L20.25 20.25",
+            "M8.5 13L13 8.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 10.75A7 7 0 1 0 17.75 10.75A7 7 0 1 0 3.75 10.75Z\"/> <path d=\"M15.7 15.7L20.25 20.25\"/> <path d=\"M8.5 13L13 8.5\"/>",
+          "mark": false,
+          "tags": [
+            "no results",
+            "not found",
+            "empty",
+            "none",
+            "magnify",
+            "slash"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.74,
+              "optical": 3.56
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 1.33,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.74,
+              "optical": 3.56
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 1.33,
+              "optical": 4
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "search-empty-filled": {
+          "paths": [
+            "M8.75 12.75L12.75 8.75"
+          ],
+          "areas": [
+            "M3 10.75A7.75 7.75 0 1 0 18.5 10.75A7.75 7.75 0 1 0 3 10.75ZM5.5 10.75A5.25 5.25 0 1 0 16 10.75A5.25 5.25 0 1 0 5.5 10.75Z",
+            "M14.55 15.95L17.86 20.31A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.31 17.86L15.95 14.55A1 1 0 0 0 14.55 15.95Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M3 10.75A7.75 7.75 0 1 0 18.5 10.75A7.75 7.75 0 1 0 3 10.75ZM5.5 10.75A5.25 5.25 0 1 0 16 10.75A5.25 5.25 0 1 0 5.5 10.75Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M14.55 15.95L17.86 20.31A1.75 1.75 0 0 0 19.25 21A1.75 1.75 0 0 0 21 19.25A1.75 1.75 0 0 0 20.31 17.86L15.95 14.55A1 1 0 0 0 14.55 15.95Z\"/> <path d=\"M8.75 12.75L12.75 8.75\"/>",
+          "mark": false,
+          "tags": [
+            "no results",
+            "not found",
+            "empty",
+            "none",
+            "magnify",
+            "slash"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "search-filled": {
           "paths": [],
           "areas": [
@@ -644467,12 +644967,12 @@
       "n": 461,
       "name": "search-empty",
       "section": "D · The rest, by audit rank",
-      "category": "V5 Other variants",
+      "category": "UI & Layout",
       "base": "search",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 462,
