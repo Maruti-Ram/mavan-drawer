@@ -1082,7 +1082,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 418. `bell-plus` · V2 Plus minus check x · variant of `bell`
 - [~] 419. `book-bookmark` · V3 Other badges · variant of `book`
 - [~] 420. `bookmark-off` · V1 Off states · variant of `bookmark`
-- [~] 421. `calendar-days` · V5 Other variants · variant of `calendar`
+- [x] 421. `calendar-days` · Time & Calendar · variant of `calendar` — approved 2026-10-25
 - [~] 422. `chart-bar-trend` · V5 Other variants · variant of `chart-bar`
 - [~] 423. `check-circle-dashed` · V4 Circle and square containers · variant of `check-circle`
 - [~] 424. `check-double` · V5 Other variants · variant of `check`
