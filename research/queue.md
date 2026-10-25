@@ -1074,7 +1074,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 408. `bell-off-3` · Communication · variant of `bell-off` — Bar cut through, big dome · approved 2026-10-25
 - [~] 409. `microphone-off` · V1 Off states · variant of `microphone`
 - [x] 410. `minus-square` · UI & Layout · variant of `minus` — approved 2026-10-25
-- [~] 411. `phone-call` · V3 Other badges · variant of `phone`
+- [x] 411. `phone-call` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 412. `plus-square` · UI & Layout · variant of `plus` — approved 2026-10-25
 - [x] 413. `x-square` · UI & Layout · variant of `x` — approved 2026-10-25
 - [~] 414. `bolt-off` · V1 Off states · variant of `bolt`
