@@ -1150,7 +1150,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 477. `text-align-justify` · Editing & Text · variant of `text` — approved 2026-10-25
 - [~] 478. `user-check` · V2 Plus minus check x · variant of `user`
 - [~] 479. `user-x` · V2 Plus minus check x · variant of `user`
-- [~] 480. `video-off` · V1 Off states · variant of `video`
+- [x] 480. `video-off` · Files & Folders · variant of `video` — approved 2026-10-25
+- [x] 480. `video-off-3` · Files & Folders · variant of `video-off` — Bar cut through · approved 2026-10-25
 - [~] 481. `camera-off` · V1 Off states · variant of `camera`
 - [x] 482. `cloud-off` · Development & Infra · variant of `cloud` — approved 2026-10-23
 - [x] 482. `cloud-off-2` · Development & Infra · variant of `cloud-off` — Bar cut through, three puffs · approved 2026-10-23

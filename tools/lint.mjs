@@ -4,7 +4,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, headAir, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
-import { CUT_CORNER, GLYPH_GAP, HEAD_GAP, MASTERS, MIN_GAP, PLAIN_SMALL, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, plainSmallWidth, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
+import { CUT_CORNER, GLYPH_GAP, HEAD_GAP, MASTERS, MIN_GAP, NO_TWIN, PLAIN_SMALL, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, plainSmallWidth, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
 function polyGap(a, b) {
@@ -1219,8 +1219,9 @@ export function stateShape(name, twins = STATE_TWINS) {
 // Like `checkPairs`, it reads the whole map and adds to the results in place, per master. A base
 // is only asked for its twin once the twin has been started (any of its shapes at any master), so
 // `lock` alone is clean; a twin always needs its base. Read on outline files only: a filled twin
-// is `checkPairs`' to find, so a missing icon warns once per master, not twice. WARNINGS.
-export function checkTwins(results, twins = STATE_TWINS) {
+// is `checkPairs`' to find, so a missing icon warns once per master, not twice. A base shape in
+// `declined` (masters.mjs NO_TWIN) is not asked for its twin: Maruti said no to that one. WARNINGS.
+export function checkTwins(results, twins = STATE_TWINS, declined = NO_TWIN) {
   const started = new Set();
   for (const key of results.keys()) {
     const s = stateShape(key.split('/')[1].replace('.svg', ''), twins);
@@ -1229,7 +1230,7 @@ export function checkTwins(results, twins = STATE_TWINS) {
   for (const [key, r] of results) {
     const [m, f] = key.split('/'), name = f.replace('.svg', '');
     const s = stateShape(name, twins);
-    if (!s || (s.side === 'base' && !started.has(s.twin)) || results.has(`${m}/${s.counterpart}.svg`)) continue;
+    if (!s || (s.side === 'base' && (!started.has(s.twin) || declined.has(name))) || results.has(`${m}/${s.counterpart}.svg`)) continue;
     r.warnings.push(s.side === 'base'
       ? `no state twin \`${s.counterpart}.svg\` at ${m} — \`${s.twin}\` is drawn for every numbered shape of \`${s.base}\`, so \`${name}\` needs \`${s.counterpart}\` (C34)`
       : `no base shape \`${s.counterpart}.svg\` at ${m} — a state twin is drawn on its base's body, so \`${name}\` needs \`${s.counterpart}\` (C34)`);

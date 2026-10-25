@@ -945,6 +945,14 @@ test('checkTwins: a missing twin warns on whichever file exists, per master; loc
   assert.deepEqual(run(['24/lock.svg', '24/lock-3.svg']).get('24/lock-3.svg').warnings, [], 'no twin started yet');
 });
 
+test('checkTwins: a declined shape (NO_TWIN) is not asked for its twin; its siblings still are', () => {
+  const stub = () => ({ errors: [], warnings: [], notes: [] });
+  const keys = ['24/lock.svg', '24/lock-2.svg', '24/lock-3.svg', '24/unlock.svg'];
+  const r = checkTwins(new Map(keys.map((k) => [k, stub()])), undefined, new Set(['lock-2']));
+  assert.deepEqual(r.get('24/lock-2.svg').warnings, [], 'declined');
+  assert.match(r.get('24/lock-3.svg').warnings[0], /no state twin `unlock-3\.svg`/, 'not declined');
+});
+
 test('draft-svg writes a candidate\'s anchor into both files; `anchor: null` opts out of the board\'s', () => {
   const c = { id: 'A1', label: 'one wave', anchor: 'volume', masters: { 24: [SPEAKER], 20: [SPEAKER], 16: [SPEAKER] },
     filled: { 24: { fill: [], stroke: [SPEAKER] }, 20: { fill: [], stroke: [SPEAKER] }, 16: { fill: [], stroke: [SPEAKER] } } };
