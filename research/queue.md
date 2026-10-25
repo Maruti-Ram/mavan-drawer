@@ -1096,7 +1096,9 @@ Bases before their variants; within that, highest evidence first.
 - [x] 417. `activity-square-2` · Charts & Data · variant of `activity-square` — Floating, narrowed · approved 2026-10-25
 - [~] 418. `bell-plus` · V2 Plus minus check x · variant of `bell`
 - [~] 419. `book-bookmark` · V3 Other badges · variant of `book`
-- [~] 420. `bookmark-off` · V1 Off states · variant of `bookmark`
+- [x] 420. `bookmark-off` · Status & Feedback · variant of `bookmark` — approved 2026-10-25
+- [x] 420. `bookmark-off-2` · Status & Feedback · variant of `bookmark-off` — Big slash to the square, lifted 1.25, round head, whole notch · approved 2026-10-25
+- [x] 420. `bookmark-off-3` · Status & Feedback · variant of `bookmark-off` — Big slash to the square, lifted 1.25, crisp, whole notch · approved 2026-10-25
 - [x] 421. `calendar-days` · Time & Calendar · variant of `calendar` — approved 2026-10-25
 - [~] 422. `chart-bar-trend` · V5 Other variants · variant of `chart-bar`
 - [~] 424. `check-double` · V5 Other variants · variant of `check`
