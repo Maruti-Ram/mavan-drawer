@@ -197,3 +197,18 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 468 | `grid-circle-plus` | Design Tools | `grid` | `grid` `grid-2` `grid-3` `grid-4` `grid-5` `grid-6` `grid-7` |
 | 477 | `text-align-justify` | Editing & Text | `text` | `text` `text-2` `text-3` `text-4` |
 | 487 | `refresh-ccw` | Arrows & Direction | `refresh` | `refresh` `refresh-2` `refresh-3` |
+
+## Follow-ups handed over by the sessions (2026-10-25, before they were deleted)
+
+From V5:
+1. `src/icons/{24,20,16}/text-align-justify.svg` comments still say "lint §2 warns" and "0.25 past the 12 keyline"; it now carries an agreed box. Trim to "the filled stack is 12.5 tall at 16, declared by the box and grows".
+2. `src/icons/16/menu-filled.svg` comment says "ends pulled in 0.25"; the drawing pulls them in 0.375.
+3. `plans/lint-head-air.md`: add `refresh-ccw-filled` (head air 0.83 · 0.9 · 0.65, refresh's own), and record `chart-bar-trend-2`'s 4.25 filled legs at 16 (the least that keeps C37's 1).
+4. `grid-plus` stands on the sheet as its own icon; `queue.mjs` cannot mark it "variant of `grid`" — hand edit or a small tool feature.
+5. Quick Look draws small round dots (radius under half the stroke) hollow: `select-2`, `calendar-3`, `calendar-days`. Check the shipping pipeline outlines them as solid discs.
+6. `check-double`'s filled 16 second tick keeps only its bend plus 0.27 of leg (the most the overlap allows); no rule names it.
+
+From the main session:
+7. Lint does not measure a stroke's end against its own leg across a sharp turn (`activity-square-2`), so that exception lives only in docs/07.
+8. C9's wording for a second picture of a composite on the same base (`clipboard-check-2`, `code-plus-2`) is ambiguous.
+9. The census of shipped paths that run back on themselves (`atm`, `hourglass-3`, `coins`, `medal` filled and others; `coins-filled` leaves a sliver of ink in the white "1") — script in the camera-5 fix's scratchpad, list in the session record; worth one tidy-up pass.
