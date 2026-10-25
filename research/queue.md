@@ -1071,7 +1071,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 409. `microphone-off` · V1 Off states · variant of `microphone`
 - [~] 410. `minus-square` · V4 Circle and square containers · variant of `minus`
 - [~] 411. `phone-call` · V3 Other badges · variant of `phone`
-- [~] 412. `plus-square` · V4 Circle and square containers · variant of `plus`
+- [x] 412. `plus-square` · UI & Layout · variant of `plus` — approved 2026-10-25
 - [~] 413. `x-square` · V4 Circle and square containers · variant of `x`
 - [~] 414. `bolt-off` · V1 Off states · variant of `bolt`
 - [~] 415. `battery-charging` · V5 Other variants · variant of `battery`
