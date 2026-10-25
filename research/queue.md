@@ -1182,7 +1182,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 485. `phone-forwarded` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 486. `phone-missed` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 486. `phone-missed-2` · Communication · variant of `phone-missed` — Bounce arrow in the corner box · approved 2026-10-25
-- [~] 487. `refresh-ccw` · V5 Other variants · variant of `refresh`
+- [x] 487. `refresh-ccw` · Arrows & Direction · variant of `refresh` — approved 2026-10-25
 
 ## E · Added on request
 
