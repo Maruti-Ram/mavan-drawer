@@ -1100,7 +1100,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 437. `bug-off-2` · Development & Infra · variant of `bug-off` — Bar cut through, curled legs · approved 2026-10-23
 - [~] 438. `compass-drafting` · V3 Other badges · variant of `compass`
 - [~] 439. `desktop-download` · V3 Other badges · variant of `desktop`
-- [~] 440. `credit-card-lock` · V3 Other badges · variant of `credit-card`
+- [x] 440. `credit-card-lock` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
 - [~] 441. `code-plus` · V2 Plus minus check x · variant of `code`
 - [~] 442. `eye-check` · V2 Plus minus check x · variant of `eye`
 - [~] 443. `file-attachment` · V3 Other badges · variant of `file`
