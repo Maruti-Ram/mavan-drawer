@@ -1161,7 +1161,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 483. `volume-off` · Media & Playback · variant of `volume` — approved 2026-09-26
 - [~] 484. `wifi-off` · V1 Off states · variant of `wifi`
 - [x] 485. `phone-forwarded` · Communication · variant of `phone` — approved 2026-10-25
-- [~] 486. `phone-missed` · V3 Other badges · variant of `phone`
+- [x] 486. `phone-missed` · Communication · variant of `phone` — approved 2026-10-25
+- [x] 486. `phone-missed-2` · Communication · variant of `phone-missed` — Bounce arrow in the corner box · approved 2026-10-25
 - [~] 487. `refresh-ccw` · V5 Other variants · variant of `refresh`
 
 ## E · Added on request
