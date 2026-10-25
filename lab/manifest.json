@@ -385,6 +385,8 @@
     "chart-bar-filled",
     "chart-bar-horizontal",
     "chart-bar-horizontal-filled",
+    "chart-bar-stacked",
+    "chart-bar-stacked-filled",
     "chart-funnel",
     "chart-funnel-2",
     "chart-funnel-2-filled",
@@ -25235,6 +25237,134 @@
           "geometric": 3,
           "recession": 1.06,
           "optical": 3.8
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-bar-stacked": {
+      "paths": [
+        "M3.75 20.25H20.25",
+        "M6 8.75V17.25",
+        "M12 3.75V9.75",
+        "M12 12.75V17.25",
+        "M18 12.75V17.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M3.75 20.25H20.25\"/> <path d=\"M6 8.75V17.25\"/> <path d=\"M12 3.75V9.75\"/> <path d=\"M12 12.75V17.25\"/> <path d=\"M18 12.75V17.25\"/>",
+      "mark": false,
+      "tags": [
+        "bars",
+        "columns",
+        "stacked",
+        "baseline",
+        "axis",
+        "analytics",
+        "report"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.03,
+          "optical": 3.02
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "chart-bar-stacked-filled": {
+      "paths": [
+        "M4.25 19.75H19.75",
+        "M6 9.25V15.75",
+        "M12 4.25V9.25",
+        "M12 13.25V15.75",
+        "M18 13.25V15.75"
+      ],
+      "areas": [],
+      "body": "<path d=\"M4.25 19.75H19.75\"/> <path d=\"M6 9.25V15.75\"/> <path d=\"M12 4.25V9.25\"/> <path d=\"M12 13.25V15.75\"/> <path d=\"M18 13.25V15.75\"/>",
+      "mark": false,
+      "tags": [
+        "bars",
+        "columns",
+        "stacked",
+        "baseline",
+        "axis",
+        "analytics",
+        "report"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 2.5,
+      "ink": {
+        "x": 3,
+        "y": 3,
+        "w": 18,
+        "h": 18
+      },
+      "bearing": {
+        "left": 3,
+        "top": 3,
+        "right": 3,
+        "bottom": 3
+      },
+      "optical": {
+        "left": {
+          "geometric": 3,
+          "recession": 1.06,
+          "optical": 3.8
+        },
+        "right": {
+          "geometric": 3,
+          "recession": 0.65,
+          "optical": 3.49
+        },
+        "top": {
+          "geometric": 3,
+          "recession": 0.06,
+          "optical": 3.04
+        },
+        "bottom": {
+          "geometric": 3,
+          "recession": 0.06,
+          "optical": 3.04
         }
       },
       "container": null,
@@ -146580,6 +146710,8 @@
         "chart-bar-filled",
         "chart-bar-horizontal",
         "chart-bar-horizontal-filled",
+        "chart-bar-stacked",
+        "chart-bar-stacked-filled",
         "chart-funnel",
         "chart-funnel-2",
         "chart-funnel-2-filled",
@@ -171387,6 +171519,134 @@
               "geometric": 2,
               "recession": 0.66,
               "optical": 2.49
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-bar-stacked": {
+          "paths": [
+            "M2.625 13.375H13.375",
+            "M4 5.625V10.375",
+            "M8 2.625V4.875",
+            "M8 7.625V10.375",
+            "M12 7.625V10.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.625 13.375H13.375\"/> <path d=\"M4 5.625V10.375\"/> <path d=\"M8 2.625V4.875\"/> <path d=\"M8 7.625V10.375\"/> <path d=\"M12 7.625V10.375\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "columns",
+            "stacked",
+            "baseline",
+            "axis",
+            "analytics",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.03
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.03
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.01,
+              "optical": 2.01
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.03,
+              "optical": 2.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-bar-stacked-filled": {
+          "paths": [
+            "M3 13H13",
+            "M4 6V9.5",
+            "M8 3V4.5",
+            "M8 8V9.5",
+            "M12 8V9.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3 13H13\"/> <path d=\"M4 6V9.5\"/> <path d=\"M8 3V4.5\"/> <path d=\"M8 8V9.5\"/> <path d=\"M12 8V9.5\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "columns",
+            "stacked",
+            "baseline",
+            "axis",
+            "analytics",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 12,
+            "h": 12
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.66,
+              "optical": 2.49
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.48,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.06,
+              "optical": 2.05
             }
           },
           "container": null,
@@ -292609,6 +292869,8 @@
         "chart-bar-filled",
         "chart-bar-horizontal",
         "chart-bar-horizontal-filled",
+        "chart-bar-stacked",
+        "chart-bar-stacked-filled",
         "chart-funnel",
         "chart-funnel-2",
         "chart-funnel-2-filled",
@@ -317420,6 +317682,134 @@
               "geometric": 3,
               "recession": 0.67,
               "optical": 3.51
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-bar-stacked": {
+          "paths": [
+            "M3.75 16.25H16.25",
+            "M5 7.25V13.25",
+            "M10 3.75V7.25",
+            "M10 10.25V13.25",
+            "M15 10.25V13.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 16.25H16.25\"/> <path d=\"M5 7.25V13.25\"/> <path d=\"M10 3.75V7.25\"/> <path d=\"M10 10.25V13.25\"/> <path d=\"M15 10.25V13.25\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "columns",
+            "stacked",
+            "baseline",
+            "axis",
+            "analytics",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.8,
+              "optical": 3.6
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.51,
+              "optical": 3.38
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.03
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-bar-stacked-filled": {
+          "paths": [
+            "M4 16H16",
+            "M5 7.5V12.5",
+            "M10 4V7",
+            "M10 10.5V12.5",
+            "M15 10.5V12.5"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4 16H16\"/> <path d=\"M5 7.5V12.5\"/> <path d=\"M10 4V7\"/> <path d=\"M10 10.5V12.5\"/> <path d=\"M15 10.5V12.5\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "columns",
+            "stacked",
+            "baseline",
+            "axis",
+            "analytics",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.67,
+              "optical": 3.51
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.44,
+              "optical": 3.33
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.05,
+              "optical": 3.04
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.05,
+              "optical": 3.04
             }
           },
           "container": null,
@@ -438700,6 +439090,8 @@
         "chart-bar-filled",
         "chart-bar-horizontal",
         "chart-bar-horizontal-filled",
+        "chart-bar-stacked",
+        "chart-bar-stacked-filled",
         "chart-funnel",
         "chart-funnel-2",
         "chart-funnel-2-filled",
@@ -463550,6 +463942,134 @@
               "geometric": 3,
               "recession": 1.06,
               "optical": 3.8
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-bar-stacked": {
+          "paths": [
+            "M3.75 20.25H20.25",
+            "M6 8.75V17.25",
+            "M12 3.75V9.75",
+            "M12 12.75V17.25",
+            "M18 12.75V17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M3.75 20.25H20.25\"/> <path d=\"M6 8.75V17.25\"/> <path d=\"M12 3.75V9.75\"/> <path d=\"M12 12.75V17.25\"/> <path d=\"M18 12.75V17.25\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "columns",
+            "stacked",
+            "baseline",
+            "axis",
+            "analytics",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.03,
+              "optical": 3.02
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "chart-bar-stacked-filled": {
+          "paths": [
+            "M4.25 19.75H19.75",
+            "M6 9.25V15.75",
+            "M12 4.25V9.25",
+            "M12 13.25V15.75",
+            "M18 13.25V15.75"
+          ],
+          "areas": [],
+          "body": "<path d=\"M4.25 19.75H19.75\"/> <path d=\"M6 9.25V15.75\"/> <path d=\"M12 4.25V9.25\"/> <path d=\"M12 13.25V15.75\"/> <path d=\"M18 13.25V15.75\"/>",
+          "mark": false,
+          "tags": [
+            "bars",
+            "columns",
+            "stacked",
+            "baseline",
+            "axis",
+            "analytics",
+            "report"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 2.5,
+          "ink": {
+            "x": 3,
+            "y": 3,
+            "w": 18,
+            "h": 18
+          },
+          "bearing": {
+            "left": 3,
+            "top": 3,
+            "right": 3,
+            "bottom": 3
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 1.06,
+              "optical": 3.8
+            },
+            "right": {
+              "geometric": 3,
+              "recession": 0.65,
+              "optical": 3.49
+            },
+            "top": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
+            },
+            "bottom": {
+              "geometric": 3,
+              "recession": 0.06,
+              "optical": 3.04
             }
           },
           "container": null,
@@ -595745,12 +596265,12 @@
       "n": 391,
       "name": "chart-bar-stacked",
       "section": "D · The rest, by audit rank",
-      "category": "V5 Other variants",
+      "category": "Charts & Data",
       "base": "chart-bar",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 392,
