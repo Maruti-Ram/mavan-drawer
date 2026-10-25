@@ -1164,7 +1164,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 468. `grid-circle-plus` · Design Tools · variant of `grid` — approved 2026-10-25
 - [x] 469. `image-binary` · Design Tools · variant of `image` — approved 2026-10-25
 - [x] 469. `image-binary-2` · Design Tools · variant of `image-binary` — Image cut at its peak, 1 over 0 · approved 2026-10-25
-- [~] 470. `image-depth` · V3 Other badges · variant of `image`
+- [x] 470. `image-depth` · Design Tools · variant of `image` — approved 2026-10-25
+- [x] 470. `image-depth-2` · Design Tools · variant of `image-depth` — Layers in the sun's place · approved 2026-10-25
 - [x] 473. `window-key` · Design Tools · variant of `window` — approved 2026-10-25
 - [x] 474. `window-pointer` · Design Tools · variant of `window` — approved 2026-10-25
 - [x] 475. `wrench-screwdriver` · Development & Infra · variant of `wrench` — approved 2026-10-23
