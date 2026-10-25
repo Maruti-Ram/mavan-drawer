@@ -1108,7 +1108,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 424. `check-double` · UI & Layout · variant of `check` — approved 2026-10-25
 - [~] 425. `eye-closed` · V5 Other variants · variant of `eye`
 - [~] 426. `face-smile-plus` · V2 Plus minus check x · variant of `face-smile`
-- [~] 427. `file-check` · V2 Plus minus check x · variant of `file`
+- [x] 427. `file-check` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 428. `folder-open` · Files & Folders · variant of `folder` — approved 2026-10-25
 - [x] 428. `folder-open-2` · Files & Folders · variant of `folder-open` — Whole flap, back cut short · approved 2026-10-25
 - [x] 430. `link-off` · Editing & Text · variant of `link` — approved 2026-10-25
