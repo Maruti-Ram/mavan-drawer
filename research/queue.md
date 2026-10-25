@@ -1042,7 +1042,8 @@ Bases before their variants; within that, highest evidence first.
 - [~] 380. `file-clock` · V3 Other badges · variant of `file`
 - [x] 381. `file-heart` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 382. `image-plus` · Files & Folders · variant of `image` — approved 2026-10-25
-- [~] 383. `text-color` · V5 Other variants · variant of `text`
+- [x] 383. `text-color` · Editing & Text · variant of `text` — approved 2026-10-25
+- [x] 383. `text-color-2` · Editing & Text · variant of `text-color` — Serif T over a solid bar · approved 2026-10-25
 - [x] 384. `text-title` · Editing & Text · variant of `text` — approved 2026-10-25
 - [x] 384. `text-title-2` · Editing & Text · variant of `text-title` — Serif H · approved 2026-10-25
 - [x] 385. `user-circle` · Users & Access · variant of `user` — approved 2026-10-25
