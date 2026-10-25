@@ -1170,7 +1170,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 476. `phone-off` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 477. `text-align-justify` · Editing & Text · variant of `text` — approved 2026-10-25
 - [x] 478. `user-check` · Users & Access · variant of `user` — approved 2026-10-25
-- [~] 479. `user-x` · V2 Plus minus check x · variant of `user`
+- [x] 479. `user-x` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 480. `video-off` · Files & Folders · variant of `video` — approved 2026-10-25
 - [x] 480. `video-off-3` · Files & Folders · variant of `video-off` — Bar cut through · approved 2026-10-25
 - [x] 481. `camera-off` · Media & Playback · variant of `camera` — approved 2026-10-25
