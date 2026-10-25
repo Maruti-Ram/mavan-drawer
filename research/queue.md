@@ -1099,7 +1099,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 433. `sort-alpha-descending` · UI & Layout · variant of `sort` — approved 2026-10-03
 - [x] 433. `sort-alpha-descending-2` · UI & Layout · variant of `sort-alpha-descending` — lines left, characters right · approved 2026-10-03
 - [x] 433. `sort-alpha-descending-3` · UI & Layout · variant of `sort-alpha-descending` — characters left, lines right · approved 2026-10-03
-- [~] 434. `user-search` · V3 Other badges · variant of `user`
+- [x] 434. `user-search` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 435. `battery-full` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [x] 436. `battery-low` · Devices & Hardware · variant of `battery` — approved 2026-10-23
 - [x] 437. `bug-off` · Development & Infra · variant of `bug` — approved 2026-10-23

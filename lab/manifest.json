@@ -2179,6 +2179,8 @@
     "user-headphones-filled",
     "user-lock",
     "user-lock-filled",
+    "user-search",
+    "user-search-filled",
     "user-shield",
     "user-shield-filled",
     "users",
@@ -134937,6 +134939,143 @@
       "ratio": null,
       "gap": null
     },
+    "user-search": {
+      "paths": [
+        "M8.75 6A3.25 3.25 0 1 0 15.25 6A3.25 3.25 0 1 0 8.75 6Z",
+        "M12.25 21.25H6.25A1.5 1.5 0 0 1 4.75 19.75L4.75 19.5A7.25 7.25 0 0 1 12 12.25",
+        "M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z",
+        "M19.05 19.05L21.25 21.25"
+      ],
+      "areas": [],
+      "body": "<path d=\"M8.75 6A3.25 3.25 0 1 0 15.25 6A3.25 3.25 0 1 0 8.75 6Z\"/> <path d=\"M12.25 21.25H6.25A1.5 1.5 0 0 1 4.75 19.75L4.75 19.5A7.25 7.25 0 0 1 12 12.25\"/> <path d=\"M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z\"/> <path d=\"M19.05 19.05L21.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "person",
+        "account",
+        "profile",
+        "search",
+        "find",
+        "lookup",
+        "look up",
+        "magnifier",
+        "people",
+        "directory",
+        "member",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0.44,
+          "optical": 4.33
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.59,
+          "optical": 2.44
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.32,
+          "optical": 2.24
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.08,
+          "optical": 2.06
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
+    "user-search-filled": {
+      "paths": [
+        "M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z",
+        "M19.05 19.05L21.25 21.25"
+      ],
+      "areas": [
+        "M8 6A4 4 0 1 0 16 6A4 4 0 1 0 8 6Z",
+        "M6.25 22A2.25 2.25 0 0 1 4 19.75L4 19.5A8 8 0 0 1 12 11.5A8 8 0 0 1 13.07 11.57A0.5 0.5 0 0 1 13.31 12.45A5.5 5.5 0 0 0 12.85 20.63A0.5 0.5 0 0 1 13 20.99V21.5A0.5 0.5 0 0 1 12.5 22Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 6A4 4 0 1 0 16 6A4 4 0 1 0 8 6Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 22A2.25 2.25 0 0 1 4 19.75L4 19.5A8 8 0 0 1 12 11.5A8 8 0 0 1 13.07 11.57A0.5 0.5 0 0 1 13.31 12.45A5.5 5.5 0 0 0 12.85 20.63A0.5 0.5 0 0 1 13 20.99V21.5A0.5 0.5 0 0 1 12.5 22Z\"/> <path d=\"M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z\"/> <path d=\"M19.05 19.05L21.25 21.25\"/>",
+      "mark": false,
+      "tags": [
+        "person",
+        "account",
+        "profile",
+        "search",
+        "find",
+        "lookup",
+        "look up",
+        "magnifier",
+        "people",
+        "directory",
+        "member",
+        "badge"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 4,
+        "y": 2,
+        "w": 18,
+        "h": 20
+      },
+      "bearing": {
+        "left": 4,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 4,
+          "recession": 0,
+          "optical": 4
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "user-shield": {
       "paths": [
         "M8.75 6A3.25 3.25 0 1 0 15.25 6A3.25 3.25 0 1 0 8.75 6Z",
@@ -149404,6 +149543,8 @@
         "user-headphones-filled",
         "user-lock",
         "user-lock-filled",
+        "user-search",
+        "user-search-filled",
         "user-shield",
         "user-shield-filled",
         "users",
@@ -282013,6 +282154,143 @@
           "ratio": null,
           "gap": null
         },
+        "user-search": {
+          "paths": [
+            "M6.125 3.5A1.875 1.875 0 1 0 9.875 3.5A1.875 1.875 0 1 0 6.125 3.5Z",
+            "M7.75 14.375H4.625A1 1 0 0 1 3.625 13.375L3.625 12.5A4.375 4.375 0 0 1 8 8.125",
+            "M9.625 11.5A1.875 1.875 0 1 0 13.375 11.5A1.875 1.875 0 1 0 9.625 11.5Z",
+            "M12.83 12.83L14.375 14.375"
+          ],
+          "areas": [],
+          "body": "<path d=\"M6.125 3.5A1.875 1.875 0 1 0 9.875 3.5A1.875 1.875 0 1 0 6.125 3.5Z\"/> <path d=\"M7.75 14.375H4.625A1 1 0 0 1 3.625 13.375L3.625 12.5A4.375 4.375 0 0 1 8 8.125\"/> <path d=\"M9.625 11.5A1.875 1.875 0 1 0 13.375 11.5A1.875 1.875 0 1 0 9.625 11.5Z\"/> <path d=\"M12.83 12.83L14.375 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "person",
+            "account",
+            "profile",
+            "search",
+            "find",
+            "lookup",
+            "look up",
+            "magnifier",
+            "people",
+            "directory",
+            "member",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0.31,
+              "optical": 3.23
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.43,
+              "optical": 1.32
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.22,
+              "optical": 1.17
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.07,
+              "optical": 1.05
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "user-search-filled": {
+          "paths": [
+            "M9.625 11.5A1.875 1.875 0 1 0 13.375 11.5A1.875 1.875 0 1 0 9.625 11.5Z",
+            "M12.83 12.83L14.375 14.375"
+          ],
+          "areas": [
+            "M5.5 3.5A2.5 2.5 0 1 0 10.5 3.5A2.5 2.5 0 1 0 5.5 3.5Z",
+            "M4.625 15A1.625 1.625 0 0 1 3 13.375L3 12.5A5 5 0 0 1 8 7.5A5 5 0 0 1 8.688 7.548A0.5 0.5 0 0 1 8.939 8.427A4 4 0 0 0 8.277 13.871A0.5 0.5 0 0 1 8.375 14.166V14.5A0.5 0.5 0 0 1 7.875 15Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M5.5 3.5A2.5 2.5 0 1 0 10.5 3.5A2.5 2.5 0 1 0 5.5 3.5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M4.625 15A1.625 1.625 0 0 1 3 13.375L3 12.5A5 5 0 0 1 8 7.5A5 5 0 0 1 8.688 7.548A0.5 0.5 0 0 1 8.939 8.427A4 4 0 0 0 8.277 13.871A0.5 0.5 0 0 1 8.375 14.166V14.5A0.5 0.5 0 0 1 7.875 15Z\"/> <path d=\"M9.625 11.5A1.875 1.875 0 1 0 13.375 11.5A1.875 1.875 0 1 0 9.625 11.5Z\"/> <path d=\"M12.83 12.83L14.375 14.375\"/>",
+          "mark": false,
+          "tags": [
+            "person",
+            "account",
+            "profile",
+            "search",
+            "find",
+            "lookup",
+            "look up",
+            "magnifier",
+            "people",
+            "directory",
+            "member",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 3,
+            "y": 1,
+            "w": 12,
+            "h": 14
+          },
+          "bearing": {
+            "left": 3,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 3,
+              "recession": 0,
+              "optical": 3
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "user-shield": {
           "paths": [
             "M6.125 3.5A1.875 1.875 0 1 0 9.875 3.5A1.875 1.875 0 1 0 6.125 3.5Z",
@@ -296463,6 +296741,8 @@
         "user-headphones-filled",
         "user-lock",
         "user-lock-filled",
+        "user-search",
+        "user-search-filled",
         "user-shield",
         "user-shield-filled",
         "users",
@@ -429130,6 +429410,143 @@
           "ratio": null,
           "gap": null
         },
+        "user-search": {
+          "paths": [
+            "M7.75 5A2.25 2.25 0 1 0 12.25 5A2.25 2.25 0 1 0 7.75 5Z",
+            "M9.75 17.25H6A1.25 1.25 0 0 1 4.75 16L4.75 15.5A5.25 5.25 0 0 1 10 10.25",
+            "M11.75 14A2.25 2.25 0 1 0 16.25 14A2.25 2.25 0 1 0 11.75 14Z",
+            "M15.59 15.59L17.25 17.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M7.75 5A2.25 2.25 0 1 0 12.25 5A2.25 2.25 0 1 0 7.75 5Z\"/> <path d=\"M9.75 17.25H6A1.25 1.25 0 0 1 4.75 16L4.75 15.5A5.25 5.25 0 0 1 10 10.25\"/> <path d=\"M11.75 14A2.25 2.25 0 1 0 16.25 14A2.25 2.25 0 1 0 11.75 14Z\"/> <path d=\"M15.59 15.59L17.25 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "person",
+            "account",
+            "profile",
+            "search",
+            "find",
+            "lookup",
+            "look up",
+            "magnifier",
+            "people",
+            "directory",
+            "member",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.39,
+              "optical": 4.29
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.47,
+              "optical": 2.36
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.27,
+              "optical": 2.2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.09,
+              "optical": 2.07
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "user-search-filled": {
+          "paths": [
+            "M11.75 14A2.25 2.25 0 1 0 16.25 14A2.25 2.25 0 1 0 11.75 14Z",
+            "M15.59 15.59L17.25 17.25"
+          ],
+          "areas": [
+            "M7 5A3 3 0 1 0 13 5A3 3 0 1 0 7 5Z",
+            "M6 18A2 2 0 0 1 4 16L4 15.5A6 6 0 0 1 10 9.5A6 6 0 0 1 10.99 9.58A0.5 0.5 0 0 1 11.21 10.46A4.5 4.5 0 0 0 10.4 16.7A0.5 0.5 0 0 1 10.5 17V17.5A0.5 0.5 0 0 1 10 18Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M7 5A3 3 0 1 0 13 5A3 3 0 1 0 7 5Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6 18A2 2 0 0 1 4 16L4 15.5A6 6 0 0 1 10 9.5A6 6 0 0 1 10.99 9.58A0.5 0.5 0 0 1 11.21 10.46A4.5 4.5 0 0 0 10.4 16.7A0.5 0.5 0 0 1 10.5 17V17.5A0.5 0.5 0 0 1 10 18Z\"/> <path d=\"M11.75 14A2.25 2.25 0 1 0 16.25 14A2.25 2.25 0 1 0 11.75 14Z\"/> <path d=\"M15.59 15.59L17.25 17.25\"/>",
+          "mark": false,
+          "tags": [
+            "person",
+            "account",
+            "profile",
+            "search",
+            "find",
+            "lookup",
+            "look up",
+            "magnifier",
+            "people",
+            "directory",
+            "member",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 14,
+            "h": 16
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "user-shield": {
           "paths": [
             "M7.75 5A2.25 2.25 0 1 0 12.25 5A2.25 2.25 0 1 0 7.75 5Z",
@@ -443584,6 +444001,8 @@
         "user-headphones-filled",
         "user-lock",
         "user-lock-filled",
+        "user-search",
+        "user-search-filled",
         "user-shield",
         "user-shield-filled",
         "users",
@@ -576342,6 +576761,143 @@
           "ratio": null,
           "gap": null
         },
+        "user-search": {
+          "paths": [
+            "M8.75 6A3.25 3.25 0 1 0 15.25 6A3.25 3.25 0 1 0 8.75 6Z",
+            "M12.25 21.25H6.25A1.5 1.5 0 0 1 4.75 19.75L4.75 19.5A7.25 7.25 0 0 1 12 12.25",
+            "M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z",
+            "M19.05 19.05L21.25 21.25"
+          ],
+          "areas": [],
+          "body": "<path d=\"M8.75 6A3.25 3.25 0 1 0 15.25 6A3.25 3.25 0 1 0 8.75 6Z\"/> <path d=\"M12.25 21.25H6.25A1.5 1.5 0 0 1 4.75 19.75L4.75 19.5A7.25 7.25 0 0 1 12 12.25\"/> <path d=\"M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z\"/> <path d=\"M19.05 19.05L21.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "person",
+            "account",
+            "profile",
+            "search",
+            "find",
+            "lookup",
+            "look up",
+            "magnifier",
+            "people",
+            "directory",
+            "member",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0.44,
+              "optical": 4.33
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.59,
+              "optical": 2.44
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.32,
+              "optical": 2.24
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.08,
+              "optical": 2.06
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
+        "user-search-filled": {
+          "paths": [
+            "M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z",
+            "M19.05 19.05L21.25 21.25"
+          ],
+          "areas": [
+            "M8 6A4 4 0 1 0 16 6A4 4 0 1 0 8 6Z",
+            "M6.25 22A2.25 2.25 0 0 1 4 19.75L4 19.5A8 8 0 0 1 12 11.5A8 8 0 0 1 13.07 11.57A0.5 0.5 0 0 1 13.31 12.45A5.5 5.5 0 0 0 12.85 20.63A0.5 0.5 0 0 1 13 20.99V21.5A0.5 0.5 0 0 1 12.5 22Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M8 6A4 4 0 1 0 16 6A4 4 0 1 0 8 6Z\"/> <path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M6.25 22A2.25 2.25 0 0 1 4 19.75L4 19.5A8 8 0 0 1 12 11.5A8 8 0 0 1 13.07 11.57A0.5 0.5 0 0 1 13.31 12.45A5.5 5.5 0 0 0 12.85 20.63A0.5 0.5 0 0 1 13 20.99V21.5A0.5 0.5 0 0 1 12.5 22Z\"/> <path d=\"M13.5 16.75A3.25 3.25 0 1 0 20 16.75A3.25 3.25 0 1 0 13.5 16.75Z\"/> <path d=\"M19.05 19.05L21.25 21.25\"/>",
+          "mark": false,
+          "tags": [
+            "person",
+            "account",
+            "profile",
+            "search",
+            "find",
+            "lookup",
+            "look up",
+            "magnifier",
+            "people",
+            "directory",
+            "member",
+            "badge"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 4,
+            "y": 2,
+            "w": 18,
+            "h": 20
+          },
+          "bearing": {
+            "left": 4,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 4,
+              "recession": 0,
+              "optical": 4
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "user-shield": {
           "paths": [
             "M8.75 6A3.25 3.25 0 1 0 15.25 6A3.25 3.25 0 1 0 8.75 6Z",
@@ -600404,12 +600960,12 @@
       "n": 434,
       "name": "user-search",
       "section": "D · The rest, by audit rank",
-      "category": "V3 Other badges",
+      "category": "Users & Access",
       "base": "user",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 435,
