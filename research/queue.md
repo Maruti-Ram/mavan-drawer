@@ -1043,7 +1043,8 @@ Bases before their variants; within that, highest evidence first.
 - [~] 381. `file-heart` · V3 Other badges · variant of `file`
 - [~] 382. `image-plus` · V2 Plus minus check x · variant of `image`
 - [~] 383. `text-color` · V5 Other variants · variant of `text`
-- [~] 384. `text-title` · V5 Other variants · variant of `text`
+- [x] 384. `text-title` · Editing & Text · variant of `text` — approved 2026-10-25
+- [x] 384. `text-title-2` · Editing & Text · variant of `text-title` — Serif H · approved 2026-10-25
 - [x] 385. `user-circle` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 386. `user-lock` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 387. `user-shield` · Users & Access · variant of `user` — approved 2026-10-25
