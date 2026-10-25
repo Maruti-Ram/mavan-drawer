@@ -1069,7 +1069,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 407. `package-check` · V2 Plus minus check x · variant of `package`
 - [~] 408. `bell-off` · V1 Off states · variant of `bell`
 - [~] 409. `microphone-off` · V1 Off states · variant of `microphone`
-- [~] 410. `minus-square` · V4 Circle and square containers · variant of `minus`
+- [x] 410. `minus-square` · UI & Layout · variant of `minus` — approved 2026-10-25
 - [~] 411. `phone-call` · V3 Other badges · variant of `phone`
 - [x] 412. `plus-square` · UI & Layout · variant of `plus` — approved 2026-10-25
 - [~] 413. `x-square` · V4 Circle and square containers · variant of `x`
