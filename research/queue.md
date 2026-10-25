@@ -1014,7 +1014,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 352. `eye-off` · Users & Access · variant of `eye` — approved 2026-10-25
 - [x] 353. `file-minus` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 354. `file-plus` · Files & Folders · variant of `file` — approved 2026-10-25
-- [~] 355. `clipboard-check` · V2 Plus minus check x · variant of `clipboard`
+- [x] 355. `clipboard-check` · Files & Folders · variant of `clipboard` — approved 2026-10-25
+- [x] 355. `clipboard-check-2` · Files & Folders · variant of `clipboard-check` — Tick inside the board (recommended) · approved 2026-10-25
 - [~] 356. `shield-check` · V2 Plus minus check x · variant of `shield`
 - [x] 358. `sort-descending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [x] 359. `image-sparkle` · Files & Folders · variant of `image` — approved 2026-10-25
