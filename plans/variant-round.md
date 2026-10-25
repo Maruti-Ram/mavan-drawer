@@ -34,9 +34,9 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | pm-b | every check and x: file-check, clipboard-check, calendar-check, user-check, user-x, shield-check, eye-check, credit-card-x, package-check |
 | badge-a1 | clocks and arrows: file-clock, calendar-clock, file-down, file-up, folder-down, folder-up, desktop-download, file-heart, file-signature, file-attachment |
 | badge-a2 | sparkles and images: image-sparkle, star-sparkle, image-binary, image-depth, book-bookmark |
-| badge-b | user-lock, user-shield, user-search, user-exit, user-segment, user-focus, user-laptop, shield-pending, credit-card-lock, credit-card-percent, award-certificate |
-| badge-c | phone-incoming, phone-outgoing, phone-call, phone-forwarded, phone-missed, message-alert, message-pen, ~~message-smile~~ (dropped), message-user, mail-follow-up |
-| badge-d | window-chart, window-key, window-pointer, window-expand-bottom-right, globe-pointer, compass-drafting |
+| badge-b | user-lock, user-shield, user-search, user-exit, user-segment, user-focus, ~~user-laptop~~ (dropped), shield-pending, credit-card-lock, credit-card-percent, award-certificate |
+| badge-c | phone-incoming, phone-outgoing, phone-call, phone-forwarded, phone-missed, message-alert, ~~message-pen~~ (dropped), ~~message-smile~~ (dropped), message-user, mail-follow-up |
+| badge-d | window-chart, window-key, window-pointer, ~~window-expand-bottom-right~~ (dropped), globe-pointer, compass-drafting |
 | ring-a | arrow-up-circle, arrow-down-circle, arrow-left-circle, arrow-right-circle, chevron-up-circle, chevron-down-circle, chevron-left-circle, chevron-right-circle, play-circle, pause-circle, ~~play-circle-dotted~~ (dropped) |
 | ring-b | hash-circle, user-circle, ~~check-circle-dashed~~ (dropped), plus-square, minus-square, x-square, info-square, help-square, activity-square |
 | var-a | text-align-left, text-align-center, text-align-right, text-align-justify, text-color, text-title, chart-bar-horizontal, chart-bar-stacked, chart-bar-trend |
@@ -100,7 +100,7 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 478 | `user-check` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
 | 479 | `user-x` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
 
-### V3 Other badges — 42 (41 after message-smile was dropped)
+### V3 Other badges — 42 (38 after message-smile, message-pen, user-laptop and window-expand-bottom-right were dropped)
 
 | # | Row | Section on the sheet | Base | Base's shipped shapes |
 |---|---|---|---|---|
@@ -131,17 +131,17 @@ row is approved, `queue.mjs category "<its section>" <name>` puts it back where 
 | 447 | `user-segment` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
 | 448 | `credit-card-percent` | Commerce & Payments | `credit-card` | `credit-card` `credit-card-2` `credit-card-3` |
 | 451 | `award-certificate` | Status & Feedback | `award` | `award` |
-| 457 | `message-pen` | Communication | `message` | `message` `message-2` `message-3` `message-4` `message-5` `message-6` `message-7` |
+| 457 | ~~`message-pen`~~ | dropped 2026-10-25 (Maruti: "ignore. do not need an icon as of this moment"; re-add with `queue.mjs add message-pen` if wanted later) | `message` | — |
 | 458 | ~~`message-smile`~~ | dropped 2026-10-25 (Maruti: "remove. do not need this icon as of right now"; re-add with `queue.mjs add message-smile` if wanted later) | `message` | — |
 | 459 | `message-user` | Communication | `message` | `message` `message-2` `message-3` `message-4` `message-5` `message-6` `message-7` |
 | 462 | `star-sparkle` | Status & Feedback | `star` | `star` |
 | 463 | `user-focus` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
-| 464 | `user-laptop` | Users & Access | `user` | `user` `user-2` `user-3` `user-4` |
+| 464 | ~~`user-laptop`~~ | dropped 2026-10-25 (Maruti: "ignore. do not need an icon right now"; re-add with `queue.mjs add user-laptop` if wanted later) | `user` | — |
 | 465 | `window-chart` | Charts & Data | `window` | `window` `window-2` |
 | 467 | `globe-pointer` | Maps & Location | `globe` | `globe` `globe-2` |
 | 469 | `image-binary` | Design Tools | `image` | `image` `image-2` `image-3` |
 | 470 | `image-depth` | Design Tools | `image` | `image` `image-2` `image-3` |
-| 472 | `window-expand-bottom-right` | Design Tools | `window` | `window` `window-2` |
+| 472 | ~~`window-expand-bottom-right`~~ | dropped 2026-10-25 (Maruti: "ignore. Do not need as of right now"; re-add with `queue.mjs add window-expand-bottom-right` if wanted later) | `window` | — |
 | 473 | `window-key` | Design Tools | `window` | `window` `window-2` |
 | 474 | `window-pointer` | Design Tools | `window` | `window` `window-2` |
 | 485 | `phone-forwarded` | Communication | `phone` | `phone` |
