@@ -1044,7 +1044,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 382. `image-plus` · V2 Plus minus check x · variant of `image`
 - [~] 383. `text-color` · V5 Other variants · variant of `text`
 - [~] 384. `text-title` · V5 Other variants · variant of `text`
-- [~] 385. `user-circle` · V4 Circle and square containers · variant of `user`
+- [x] 385. `user-circle` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 386. `user-lock` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 387. `user-shield` · Users & Access · variant of `user` — approved 2026-10-25
 - [~] 388. `cart-minus` · V2 Plus minus check x · variant of `cart`

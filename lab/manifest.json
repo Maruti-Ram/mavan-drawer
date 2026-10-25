@@ -2128,6 +2128,8 @@
     "user-3-filled",
     "user-4",
     "user-4-filled",
+    "user-circle",
+    "user-circle-filled",
     "user-filled",
     "user-headphones",
     "user-headphones-filled",
@@ -131699,6 +131701,130 @@
       "ratio": null,
       "gap": null
     },
+    "user-circle": {
+      "paths": [
+        "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+        "M8.75 9A3.25 3.25 0 1 0 15.25 9A3.25 3.25 0 1 0 8.75 9Z",
+        "M5.75 18.82A7.25 7.25 0 0 1 12 15.25A7.25 7.25 0 0 1 18.25 18.82"
+      ],
+      "areas": [],
+      "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M8.75 9A3.25 3.25 0 1 0 15.25 9A3.25 3.25 0 1 0 8.75 9Z\"/> <path d=\"M5.75 18.82A7.25 7.25 0 0 1 12 15.25A7.25 7.25 0 0 1 18.25 18.82\"/>",
+      "mark": false,
+      "tags": [
+        "avatar",
+        "profile",
+        "account",
+        "person",
+        "profile picture"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0.94,
+          "optical": 2.71
+        }
+      },
+      "container": 20,
+      "markBox": {
+        "w": 14,
+        "h": 14.57
+      },
+      "ratio": {
+        "w": 0.7,
+        "h": 0.73
+      },
+      "gap": null
+    },
+    "user-circle-filled": {
+      "paths": [],
+      "areas": [
+        "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9ZM5.64 17.64A8 8 0 0 1 12 14.5A8 8 0 0 1 18.36 17.64A8.5 8.5 0 0 1 5.64 17.64Z"
+      ],
+      "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9ZM5.64 17.64A8 8 0 0 1 12 14.5A8 8 0 0 1 18.36 17.64A8.5 8.5 0 0 1 5.64 17.64Z\"/>",
+      "mark": false,
+      "tags": [
+        "avatar",
+        "profile",
+        "account",
+        "person",
+        "profile picture"
+      ],
+      "shift": [
+        0,
+        0
+      ],
+      "stroke": 1.5,
+      "ink": {
+        "x": 2,
+        "y": 2,
+        "w": 20,
+        "h": 20
+      },
+      "bearing": {
+        "left": 2,
+        "top": 2,
+        "right": 2,
+        "bottom": 2
+      },
+      "optical": {
+        "left": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "top": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "right": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        },
+        "bottom": {
+          "geometric": 2,
+          "recession": 0,
+          "optical": 2
+        }
+      },
+      "container": null,
+      "markBox": null,
+      "ratio": null,
+      "gap": null
+    },
     "user-filled": {
       "paths": [],
       "areas": [
@@ -146428,6 +146554,8 @@
         "user-3-filled",
         "user-4",
         "user-4-filled",
+        "user-circle",
+        "user-circle-filled",
         "user-filled",
         "user-headphones",
         "user-headphones-filled",
@@ -275856,6 +275984,130 @@
           "ratio": null,
           "gap": null
         },
+        "user-circle": {
+          "paths": [
+            "M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z",
+            "M6.125 6.5A1.875 1.875 0 1 0 9.875 6.5A1.875 1.875 0 1 0 6.125 6.5Z",
+            "M4.289 13.183A4.375 4.375 0 0 1 8 11.125A4.375 4.375 0 0 1 11.711 13.183"
+          ],
+          "areas": [],
+          "body": "<path d=\"M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z\"/> <path d=\"M6.125 6.5A1.875 1.875 0 1 0 9.875 6.5A1.875 1.875 0 1 0 6.125 6.5Z\"/> <path d=\"M4.289 13.183A4.375 4.375 0 0 1 8 11.125A4.375 4.375 0 0 1 11.711 13.183\"/>",
+          "mark": false,
+          "tags": [
+            "avatar",
+            "profile",
+            "account",
+            "person",
+            "profile picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0.73,
+              "optical": 1.55
+            }
+          },
+          "container": 14,
+          "markBox": {
+            "w": 8.67,
+            "h": 9.81
+          },
+          "ratio": {
+            "w": 0.62,
+            "h": 0.7
+          },
+          "gap": null
+        },
+        "user-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5.5 6.5A2.5 2.5 0 1 0 10.5 6.5A2.5 2.5 0 1 0 5.5 6.5ZM4.169 12.288A5 5 0 0 1 8 10.5A5 5 0 0 1 11.831 12.288A5.75 5.75 0 0 1 4.169 12.288Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M1 8A7 7 0 1 0 15 8A7 7 0 1 0 1 8ZM5.5 6.5A2.5 2.5 0 1 0 10.5 6.5A2.5 2.5 0 1 0 5.5 6.5ZM4.169 12.288A5 5 0 0 1 8 10.5A5 5 0 0 1 11.831 12.288A5.75 5.75 0 0 1 4.169 12.288Z\"/>",
+          "mark": false,
+          "tags": [
+            "avatar",
+            "profile",
+            "account",
+            "person",
+            "profile picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.25,
+          "ink": {
+            "x": 1,
+            "y": 1,
+            "w": 14,
+            "h": 14
+          },
+          "bearing": {
+            "left": 1,
+            "top": 1,
+            "right": 1,
+            "bottom": 1
+          },
+          "optical": {
+            "left": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "top": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "right": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            },
+            "bottom": {
+              "geometric": 1,
+              "recession": 0,
+              "optical": 1
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "user-filled": {
           "paths": [],
           "areas": [
@@ -290568,6 +290820,8 @@
         "user-3-filled",
         "user-4",
         "user-4-filled",
+        "user-circle",
+        "user-circle-filled",
         "user-filled",
         "user-headphones",
         "user-headphones-filled",
@@ -420054,6 +420308,130 @@
           "ratio": null,
           "gap": null
         },
+        "user-circle": {
+          "paths": [
+            "M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z",
+            "M7.75 8A2.25 2.25 0 1 0 12.25 8A2.25 2.25 0 1 0 7.75 8Z",
+            "M5.55 15.72A5.25 5.25 0 0 1 10 13.25A5.25 5.25 0 0 1 14.45 15.72"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 10A7.25 7.25 0 1 0 17.25 10A7.25 7.25 0 1 0 2.75 10Z\"/> <path d=\"M7.75 8A2.25 2.25 0 1 0 12.25 8A2.25 2.25 0 1 0 7.75 8Z\"/> <path d=\"M5.55 15.72A5.25 5.25 0 0 1 10 13.25A5.25 5.25 0 0 1 14.45 15.72\"/>",
+          "mark": false,
+          "tags": [
+            "avatar",
+            "profile",
+            "account",
+            "person",
+            "profile picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.87,
+              "optical": 2.65
+            }
+          },
+          "container": 16,
+          "markBox": {
+            "w": 10.4,
+            "h": 11.47
+          },
+          "ratio": {
+            "w": 0.65,
+            "h": 0.72
+          },
+          "gap": null
+        },
+        "user-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7 8A3 3 0 1 0 13 8A3 3 0 1 0 7 8ZM5.43 14.62A6 6 0 0 1 10 12.5A6 6 0 0 1 14.57 14.62A6.5 6.5 0 0 1 5.43 14.62Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 10A8 8 0 1 0 18 10A8 8 0 1 0 2 10ZM7 8A3 3 0 1 0 13 8A3 3 0 1 0 7 8ZM5.43 14.62A6 6 0 0 1 10 12.5A6 6 0 0 1 14.57 14.62A6.5 6.5 0 0 1 5.43 14.62Z\"/>",
+          "mark": false,
+          "tags": [
+            "avatar",
+            "profile",
+            "account",
+            "person",
+            "profile picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 16,
+            "h": 16
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "user-filled": {
           "paths": [],
           "areas": [
@@ -434770,6 +435148,8 @@
         "user-3-filled",
         "user-4",
         "user-4-filled",
+        "user-circle",
+        "user-circle-filled",
         "user-filled",
         "user-headphones",
         "user-headphones-filled",
@@ -564341,6 +564721,130 @@
           "ratio": null,
           "gap": null
         },
+        "user-circle": {
+          "paths": [
+            "M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z",
+            "M8.75 9A3.25 3.25 0 1 0 15.25 9A3.25 3.25 0 1 0 8.75 9Z",
+            "M5.75 18.82A7.25 7.25 0 0 1 12 15.25A7.25 7.25 0 0 1 18.25 18.82"
+          ],
+          "areas": [],
+          "body": "<path d=\"M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z\"/> <path d=\"M8.75 9A3.25 3.25 0 1 0 15.25 9A3.25 3.25 0 1 0 8.75 9Z\"/> <path d=\"M5.75 18.82A7.25 7.25 0 0 1 12 15.25A7.25 7.25 0 0 1 18.25 18.82\"/>",
+          "mark": false,
+          "tags": [
+            "avatar",
+            "profile",
+            "account",
+            "person",
+            "profile picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0.94,
+              "optical": 2.71
+            }
+          },
+          "container": 20,
+          "markBox": {
+            "w": 14,
+            "h": 14.57
+          },
+          "ratio": {
+            "w": 0.7,
+            "h": 0.73
+          },
+          "gap": null
+        },
+        "user-circle-filled": {
+          "paths": [],
+          "areas": [
+            "M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9ZM5.64 17.64A8 8 0 0 1 12 14.5A8 8 0 0 1 18.36 17.64A8.5 8.5 0 0 1 5.64 17.64Z"
+          ],
+          "body": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke=\"none\" d=\"M2 12A10 10 0 1 0 22 12A10 10 0 1 0 2 12ZM8 9A4 4 0 1 0 16 9A4 4 0 1 0 8 9ZM5.64 17.64A8 8 0 0 1 12 14.5A8 8 0 0 1 18.36 17.64A8.5 8.5 0 0 1 5.64 17.64Z\"/>",
+          "mark": false,
+          "tags": [
+            "avatar",
+            "profile",
+            "account",
+            "person",
+            "profile picture"
+          ],
+          "shift": [
+            0,
+            0
+          ],
+          "stroke": 1.5,
+          "ink": {
+            "x": 2,
+            "y": 2,
+            "w": 20,
+            "h": 20
+          },
+          "bearing": {
+            "left": 2,
+            "top": 2,
+            "right": 2,
+            "bottom": 2
+          },
+          "optical": {
+            "left": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "top": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "right": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            },
+            "bottom": {
+              "geometric": 2,
+              "recession": 0,
+              "optical": 2
+            }
+          },
+          "container": null,
+          "markBox": null,
+          "ratio": null,
+          "gap": null
+        },
         "user-filled": {
           "paths": [],
           "areas": [
@@ -588111,12 +588615,12 @@
       "n": 385,
       "name": "user-circle",
       "section": "D · The rest, by audit rank",
-      "category": "V4 Circle and square containers",
+      "category": "Users & Access",
       "base": "user",
-      "note": null,
-      "status": "review",
+      "note": "approved 2026-10-25",
+      "status": "done",
       "mvp": false,
-      "date": null
+      "date": "2026-10-25"
     },
     {
       "n": 386,
