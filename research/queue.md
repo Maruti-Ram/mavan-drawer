@@ -1170,7 +1170,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 482. `cloud-off-2` · Development & Infra · variant of `cloud-off` — Bar cut through, three puffs · approved 2026-10-23
 - [x] 482. `cloud-off-3` · Development & Infra · variant of `cloud-off` — Bar cut through, overlapping puffs · approved 2026-10-23
 - [x] 483. `volume-off` · Media & Playback · variant of `volume` — approved 2026-09-26
-- [~] 484. `wifi-off` · V1 Off states · variant of `wifi`
+- [x] 484. `wifi-off` · Devices & Hardware · variant of `wifi` — approved 2026-10-25
+- [x] 484. `wifi-off-2` · Devices & Hardware · variant of `wifi-off` — Bar moved 1 right, 1 up · approved 2026-10-25
 - [x] 485. `phone-forwarded` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 486. `phone-missed` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 486. `phone-missed-2` · Communication · variant of `phone-missed` — Bounce arrow in the corner box · approved 2026-10-25
