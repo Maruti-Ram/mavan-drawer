@@ -1013,7 +1013,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 351. `arrow-up-circle` · Arrows & Direction · variant of `arrow-up` — approved 2026-10-25
 - [~] 352. `eye-off` · V1 Off states · variant of `eye`
 - [~] 353. `file-minus` · V2 Plus minus check x · variant of `file`
-- [~] 354. `file-plus` · V2 Plus minus check x · variant of `file`
+- [x] 354. `file-plus` · Files & Folders · variant of `file` — approved 2026-10-25
 - [~] 355. `clipboard-check` · V2 Plus minus check x · variant of `clipboard`
 - [~] 356. `shield-check` · V2 Plus minus check x · variant of `shield`
 - [x] 358. `sort-descending` · UI & Layout · variant of `sort` — approved 2026-09-29
