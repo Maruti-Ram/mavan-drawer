@@ -1077,7 +1077,8 @@ Bases before their variants; within that, highest evidence first.
 - [x] 412. `plus-square` · UI & Layout · variant of `plus` — approved 2026-10-25
 - [x] 413. `x-square` · UI & Layout · variant of `x` — approved 2026-10-25
 - [~] 414. `bolt-off` · V1 Off states · variant of `bolt`
-- [~] 415. `battery-charging` · V5 Other variants · variant of `battery`
+- [x] 415. `battery-charging` · Devices & Hardware · variant of `battery` — approved 2026-10-25
+- [x] 415. `battery-charging-2` · Devices & Hardware · variant of `battery-charging` — Narrow bolt through the walls · approved 2026-10-25
 - [~] 417. `activity-square` · V4 Circle and square containers · variant of `activity`
 - [~] 418. `bell-plus` · V2 Plus minus check x · variant of `bell`
 - [~] 419. `book-bookmark` · V3 Other badges · variant of `book`
