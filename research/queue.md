@@ -1010,7 +1010,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 348. `arrow-down-circle` · V4 Circle and square containers · variant of `arrow-down`
 - [~] 349. `arrow-left-circle` · V4 Circle and square containers · variant of `arrow-left`
 - [~] 350. `arrow-right-circle` · V4 Circle and square containers · variant of `arrow-right`
-- [~] 351. `arrow-up-circle` · V4 Circle and square containers · variant of `arrow-up`
+- [x] 351. `arrow-up-circle` · Arrows & Direction · variant of `arrow-up` — approved 2026-10-25
 - [~] 352. `eye-off` · V1 Off states · variant of `eye`
 - [~] 353. `file-minus` · V2 Plus minus check x · variant of `file`
 - [~] 354. `file-plus` · V2 Plus minus check x · variant of `file`
