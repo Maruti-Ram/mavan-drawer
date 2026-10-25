@@ -1147,7 +1147,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 459. `message-user` · V3 Other badges · variant of `message`
 - [~] 461. `search-empty` · V5 Other variants · variant of `search`
 - [x] 462. `star-sparkle` · Status & Feedback · variant of `star` — approved 2026-10-25
-- [~] 463. `user-focus` · V3 Other badges · variant of `user`
+- [x] 463. `user-focus` · Users & Access · variant of `user` — approved 2026-10-25
 - [~] 464. `user-laptop` · V3 Other badges · variant of `user`
 - [x] 465. `window-chart` · Charts & Data · variant of `window` — approved 2026-10-25
 - [x] 465. `window-chart-2` · Charts & Data · variant of `window-chart` — Bar chart · approved 2026-10-25
