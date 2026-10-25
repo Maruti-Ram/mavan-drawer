@@ -1035,7 +1035,7 @@ Bases before their variants; within that, highest evidence first.
 - [~] 373. `calendar-clock` · V3 Other badges · variant of `calendar`
 - [x] 374. `chevron-down-circle` · Arrows & Direction · variant of `chevron-down` — approved 2026-10-25
 - [x] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left` — approved 2026-10-25
-- [~] 376. `chevron-right-circle` · V4 Circle and square containers · variant of `chevron-right`
+- [x] 376. `chevron-right-circle` · Arrows & Direction · variant of `chevron-right` — approved 2026-10-25
 - [x] 377. `chevron-up-circle` · Arrows & Direction · variant of `chevron-up` — approved 2026-10-25
 - [x] 378. `clipboard-list` · Files & Folders · variant of `clipboard` — approved 2026-10-20
 - [x] 379. `database-plus` · Charts & Data · variant of `database` — approved 2026-10-25
