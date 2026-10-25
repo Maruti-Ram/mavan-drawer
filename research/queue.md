@@ -1150,7 +1150,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 454. `hash-circle` · Communication · variant of `hash` — approved 2026-10-25
 - [x] 455. `help-square` · Status & Feedback · variant of `help-circle` — approved 2026-10-25
 - [x] 456. `info-square` · Status & Feedback · variant of `info-circle` — approved 2026-10-25
-- [~] 459. `message-user` · V3 Other badges · variant of `message`
+- [x] 459. `message-user` · Communication · variant of `message` — approved 2026-10-25
 - [x] 461. `search-empty` · UI & Layout · variant of `search` — approved 2026-10-25
 - [x] 462. `star-sparkle` · Status & Feedback · variant of `star` — approved 2026-10-25
 - [x] 463. `user-focus` · Users & Access · variant of `user` — approved 2026-10-25
