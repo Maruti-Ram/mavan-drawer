@@ -3,7 +3,7 @@
   "board": {
     "name": "chevron-down-circle",
     "candidates": 5,
-    "status": "review"
+    "status": "done"
   },
   "icons": [
     {
@@ -19,10 +19,20 @@
     {
       "name": "file-clock",
       "concept": "file-clock",
-      "candidates": 2,
+      "candidates": 3,
       "ids": [
         "A",
-        "C"
+        "C",
+        "D"
+      ],
+      "status": "review"
+    },
+    {
+      "name": "cart-minus",
+      "concept": "cart-minus",
+      "candidates": 1,
+      "ids": [
+        "A"
       ],
       "status": "review"
     },
@@ -76,11 +86,14 @@
     {
       "name": "mail-open",
       "concept": "mail-open",
-      "candidates": 3,
+      "candidates": 6,
       "ids": [
         "A",
         "A2",
-        "A3"
+        "A3",
+        "RA",
+        "RA2",
+        "RA3"
       ],
       "status": "review"
     },
@@ -105,10 +118,9 @@
     {
       "name": "message-smile",
       "concept": "message-smile",
-      "candidates": 2,
+      "candidates": 1,
       "ids": [
-        "A",
-        "B"
+        "A"
       ],
       "status": "review"
     },

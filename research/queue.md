@@ -1033,7 +1033,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 371. `phone-outgoing` · Communication · variant of `phone` — approved 2026-10-25
 - [~] 372. `calendar-check` · V2 Plus minus check x · variant of `calendar`
 - [~] 373. `calendar-clock` · V3 Other badges · variant of `calendar`
-- [~] 374. `chevron-down-circle` · V4 Circle and square containers · variant of `chevron-down`
+- [x] 374. `chevron-down-circle` · Arrows & Direction · variant of `chevron-down` — approved 2026-10-25
 - [~] 375. `chevron-left-circle` · V4 Circle and square containers · variant of `chevron-left`
 - [~] 376. `chevron-right-circle` · V4 Circle and square containers · variant of `chevron-right`
 - [~] 377. `chevron-up-circle` · V4 Circle and square containers · variant of `chevron-up`
