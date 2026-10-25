@@ -1025,7 +1025,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 363. `text-align-center` · Editing & Text · variant of `text` — approved 2026-10-25
 - [x] 364. `text-align-left` · Editing & Text · variant of `text` — approved 2026-10-25
 - [x] 365. `text-align-right` · Editing & Text · variant of `text` — approved 2026-10-25
-- [~] 366. `user-minus` · V2 Plus minus check x · variant of `user`
+- [x] 366. `user-minus` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 367. `user-plus` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 368. `pause-circle` · Media & Playback · variant of `pause` — approved 2026-10-25
 - [x] 369. `play-circle` · Media & Playback · variant of `play` — approved 2026-10-25
