@@ -5,7 +5,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 `plans/proof-outline/`; reviewed by a fresh agent the same day (numbers re-measured, owners fixed).
 
 - [ ] 1.1 The outliner
-- [ ] 1.2 Metrics made correct
+- [x] 1.2 Metrics made correct — merged 2026-10-26 (Fable, reviewed by a fresh Fable agent, second pass on its two findings); the ⌘ reading is an open question for Maruti, under Results
 - [x] 1.3 The package's index — built 2026-10-26 (Opus): `node tools/package-meta.mjs` → `dist/meta.json`, 1310 entries = the sheet's 1310 approved rows, 458 families; the sheet's findings are under Results
 - [ ] 1.4 The name on npm (Maruti)
 - [ ] 2.1 The box: `@mavan/icons`
@@ -240,3 +240,45 @@ things the index found on the sheet, for Maruti's rulings before 1.0 (categories
    `clipboard`); the index keeps the direct base as `variantOf` and the root as `family`.
 6. **24 icons carry no tags** (the plus, minus and x families and their `-circle` / `-square`
    forms, `more-*`, `map`, `folder-open`, `-2`, `receipt-refund`) — the drawer's to fill.
+
+### Card 1.2 (2026-10-26)
+
+Three defects fixed in `tools/geometry.mjs`, `optical.mjs`, `build.mjs`, measured on the whole set
+against main at 98f9bff8; 205 tests pass; lint exit 0 with 31 lines changed, all the 2-dp size or
+centre of files whose arc extreme the old 64-point sampling missed, no verdict changed.
+
+1. **A filled shape is read as ink to its edge**, scanline by scanline (a scanline on a flat edge
+   reads it end to end; tangents with 1e-4 tolerance), so a solid silhouette recedes as its outline
+   does: `plus-circle-filled` 2.0 → 2.70 beside `plus-circle`'s 2.71; `archive-filled` 3.87 beside
+   3.84; `atm-filled` 2.82 = 2.82; `user` twins 4.33 = 4.33. Of 2,904 shape-filled pairs with equal
+   boxes, 541 still differ by more than 0.05: 516 are genuine silhouette differences (`user-4-filled`'s
+   open bowl 3.02 against the flat 3.93), 25 are ties where two features reach the same extreme and
+   the walk starts from a different scanline (`skip-back`'s bar and triangle).
+2. **A container must bend:** a single straight stroke is no longer read as a ring. `x`, `x-large`,
+   `x-small` → null (were 13 · 16 · 10), with the C21 bars (`phone-off`, `volume-off`, `clipboard-off-*`…)
+   and the shafts of `key-2/3/4-filled`, `user-x-filled` and their kind: 75 → null; `reset`, `replay-2`
+   and twins gain 19.98 at 24, right (their arc shell spans the whole box, as at 20 and 16 already).
+   Every real ring unchanged.
+3. **Ink boxes are exact:** arcs and curves boxed by where they turn back, not by samples or control
+   points. 32 boxes moved by 0.01 (`euro`, `orbit`, `status`, the `rotate-*` and `signal-*` filled
+   files, `caret-up-2` at 16…) — the culprit was arc sampling, not the curves. `label-important-filled`
+   was found 0.005 past the margin by it and redrawn (notch arcs r1.74 ending at 2.54, both readers on
+   x 2.000; commits aab410d8, 98f9bff8).
+
+**Side effect, on record:** the optical bearings of 385 outline files moved — 338 by 0.05 or less (the
+scanlines now start on the exact ink edge), 47 by more, max 1.04, each traced to a hidden defect of the
+old reading: a sampled arc miss (`command`, `pound-filled` 24, `scale`, `bank` 20…), a tangent missed by
+float dust and read asymmetrically (`more-horizontal`/`-vertical` 3.4/3.49 → 3.47/3.47, `cpu`), or a
+step within 0.01 of one stroke that now bridges deterministically (`baht` 1.5021, `lock-3`, `indent-3`,
+`users-level` 1.5000). The scanline start is snapped to 1e-4 so float dust cannot move it; anchoring
+to the canvas grid was tried and rejected (242 files would move against 47).
+
+**Open for Maruti's eye — the ⌘ reading.** The model has always let a step of exactly one stroke
+bridge (`> stroke` in the old code); `command` read 4.67 only because its sampled box sat 0.0007 off,
+and it now reads 5.06, bridging from the loops' bottom tangent to the stem. The reviewer's eye reads
+⌘'s edge as the two loops, with the stem in a notch 4.5 deep and 3 tall, a counter like the plus's,
+and would rather 4.67. Breaking at one stroke instead moves 113 outline files and parts every filled
+twin whose C22 band sits one stroke from a flat outline edge (`archive-filled` would read 3.06 against
+3.84). It is one constant (`JUMP`, `tools/optical.mjs`) either way; the comment there names both
+readings. Not blocking: a board of `command` beside `plus` and `archive` when the optical model is
+next tuned (CLAUDE.md Open item 3).

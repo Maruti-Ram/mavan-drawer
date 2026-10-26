@@ -50,8 +50,9 @@ function buildMaster(canvas) {
       left: ink.x, top: ink.y,
       right: r2(canvas - (ink.x + ink.w)), bottom: r2(canvas - (ink.y + ink.h)),
     };
-    // Optical bearings model strokes only; shape-filled drawings get geometric ones for now.
-    const optical = paths.length && !areas.length ? opticalBearings(paths, own ? widths : sw, canvas)
+    // Optical bearings read every line at its weight and every filled area out to its edge (optical.mjs),
+    // so a shape-filled twin recedes as its outline does; an inkless file keeps its geometric ones.
+    const optical = paths.length || areas.length ? opticalBearings(paths, own ? widths : sw, canvas, 0.75, { areas })
       : Object.fromEntries(Object.entries(bearing).map(([k, v]) => [k, { geometric: v, recession: 0, optical: v }]));
     // Anatomy: the mark as a fraction of its container, and the void inside a glyph
     // mark. Absolute numbers (ink, bearings) cannot see either — a mark can hold a

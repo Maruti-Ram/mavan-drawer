@@ -44,11 +44,13 @@ const SAMPLES = 64;    // points per arc
 const STEP = 0.25;     // sampling interval along straight segments
 
 /** Sample points along the path. Arcs are sampled exactly; Bezier curves use
- *  control points (conservative — the true curve is inside the hull). `arcStep`
- *  (degrees) asks for at least one sample per that much of every arc's sweep, on
- *  top of the fixed SAMPLES — `facingGap` needs its walls' normals within a degree.
+ *  control points (conservative — the true curve is inside the hull) unless
+ *  `curves` is set, which samples along the curve itself every STEP (`opticalBearings`
+ *  reads the £'s bowl that way; lint keeps the hull). `arcStep` (degrees) asks for at
+ *  least one sample per that much of every arc's sweep, on top of the fixed SAMPLES —
+ *  `facingGap` needs its walls' normals within a degree.
  *  An options object, not a number, so `ds.map(samplePath)` cannot pass an index in. */
-export function samplePath(d, { arcStep = 0 } = {}) {
+export function samplePath(d, { arcStep = 0, curves = false } = {}) {
   const pts = [];
   let cx = 0, cy = 0, sx = 0, sy = 0;
   const push = (x, y) => pts.push([x, y]);
@@ -60,44 +62,111 @@ export function samplePath(d, { arcStep = 0 } = {}) {
     for (let i = 1; i <= n; i++) push(cx + ((x - cx) * i) / n, cy + ((y - cy) * i) / n);
   };
 
-  for (const { cmd, args } of parsePath(d)) {
-    const rel = cmd === cmd.toLowerCase();
-    const up = cmd.toUpperCase();
-    const step = { M: 2, L: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, T: 2, A: 7, Z: 0 }[up];
-    if (up === 'Z') { line(sx, sy); cx = sx; cy = sy; continue; }
-
-    for (let k = 0; k + step <= args.length; k += step) {
-      const a = args.slice(k, k + step);
-      if (up === 'M' || up === 'L' || up === 'T') {
-        const [x, y] = rel ? [cx + a[0], cy + a[1]] : a;
-        if (up === 'M' && k === 0) { sx = x; sy = y; cx = x; cy = y; push(x, y); continue; }
-        line(x, y); cx = x; cy = y;
-      } else if (up === 'H') {
-        const x = rel ? cx + a[0] : a[0]; line(x, cy); cx = x;
-      } else if (up === 'V') {
-        const y = rel ? cy + a[0] : a[0]; line(cx, y); cy = y;
-      } else if (up === 'C' || up === 'S' || up === 'Q') {
-        for (let j = 0; j < a.length; j += 2) {
-          const [x, y] = rel ? [cx + a[j], cy + a[j + 1]] : [a[j], a[j + 1]];
-          push(x, y);
-        }
-        const [ex, ey] = rel ? [cx + a[a.length - 2], cy + a[a.length - 1]]
-                             : [a[a.length - 2], a[a.length - 1]];
-        cx = ex; cy = ey;
-      } else if (up === 'A') {
-        const [rx, ry, rot, fa, fs] = a;
-        const [ex, ey] = rel ? [cx + a[5], cy + a[6]] : [a[5], a[6]];
-        sampleArc(cx, cy, rx, ry, rot, fa, fs, ex, ey, arcStep).forEach(([x, y]) => push(x, y));
-        cx = ex; cy = ey;
-      }
+  for (const seg of walkPath(d)) {
+    const { cmd } = seg;
+    if (cmd === 'M') { sx = seg.x; sy = seg.y; cx = seg.x; cy = seg.y; push(seg.x, seg.y); continue; }
+    if (cmd === 'Z') { line(sx, sy); cx = sx; cy = sy; continue; }
+    if (cmd === 'L') { line(seg.x, seg.y); cx = seg.x; cy = seg.y; continue; }
+    if (cmd === 'A') {
+      sampleArc(cx, cy, seg.rx, seg.ry, seg.rot, seg.fa, seg.fs, seg.x, seg.y, arcStep).forEach(([x, y]) => push(x, y));
+      cx = seg.x; cy = seg.y; continue;
     }
+    // a Bezier curve: the control points as written (a T is read as a line to its end), or the curve itself
+    if (!curves) {
+      if (seg.t) line(seg.x, seg.y);
+      else for (const [x, y] of seg.given) push(x, y);
+    } else {
+      const hull = seg.ctrl.reduce((s, p, i) => (i ? s + Math.hypot(p[0] - seg.ctrl[i - 1][0], p[1] - seg.ctrl[i - 1][1]) : 0), 0);
+      const n = Math.max(4, Math.ceil(hull / STEP));
+      for (let i = 1; i <= n; i++) push(...bezierAt(seg.ctrl, i / n));
+    }
+    cx = seg.x; cy = seg.y;
   }
   return pts;
 }
 
-/** Endpoint -> centre parameterization (SVG spec F.6.5), then sample. */
-function sampleArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2, arcStep = 0) {
-  if (!rx || !ry) return [[x2, y2]];
+/** The path as absolute segments, one object each, with Bezier controls resolved:
+ *  { cmd: 'M' | 'L' | 'Z' } with the end point (H and V become L, a Z carries the
+ *  subpath's start), { cmd: 'A', rx, ry, rot, fa, fs, x, y }, or { cmd: 'C' | 'Q', ctrl, x, y }
+ *  where `ctrl` runs from the current point to the end (4 points for a cubic, 3 for a
+ *  quadratic) and S and T have had their reflected control point filled in (`t` marks a T). */
+function walkPath(d) {
+  const out = [];
+  let cx = 0, cy = 0, sx = 0, sy = 0, prev = '', pc = null;   // pc: the last control point, for S and T
+  for (const { cmd, args } of parsePath(d)) {
+    const rel = cmd === cmd.toLowerCase();
+    const up = cmd.toUpperCase();
+    const step = { M: 2, L: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, T: 2, A: 7, Z: 0 }[up];
+    if (up === 'Z') { out.push({ cmd: 'Z', x: sx, y: sy }); cx = sx; cy = sy; prev = up; continue; }
+    for (let k = 0; k + step <= args.length; k += step) {
+      const a = args.slice(k, k + step);
+      const at = (j) => (rel ? [cx + a[j], cy + a[j + 1]] : [a[j], a[j + 1]]);
+      if (up === 'M' || up === 'L') {
+        const [x, y] = at(0);
+        if (up === 'M' && k === 0) { sx = x; sy = y; out.push({ cmd: 'M', x, y }); } else out.push({ cmd: 'L', x, y });
+        cx = x; cy = y;
+      } else if (up === 'H') {
+        const x = rel ? cx + a[0] : a[0]; out.push({ cmd: 'L', x, y: cy }); cx = x;
+      } else if (up === 'V') {
+        const y = rel ? cy + a[0] : a[0]; out.push({ cmd: 'L', x: cx, y }); cy = y;
+      } else if (up === 'C' || up === 'S') {
+        const reflect = up === 'S' && (prev === 'C' || prev === 'S') ? [2 * cx - pc[0], 2 * cy - pc[1]] : [cx, cy];
+        const c1 = up === 'C' ? at(0) : reflect, c2 = up === 'C' ? at(2) : at(0), e = up === 'C' ? at(4) : at(2);
+        out.push({ cmd: 'C', ctrl: [[cx, cy], c1, c2, e], given: up === 'C' ? [c1, c2, e] : [c2, e], x: e[0], y: e[1] });
+        pc = c2; cx = e[0]; cy = e[1];
+      } else if (up === 'Q' || up === 'T') {
+        const reflect = up === 'T' && (prev === 'Q' || prev === 'T') ? [2 * cx - pc[0], 2 * cy - pc[1]] : [cx, cy];
+        const c1 = up === 'Q' ? at(0) : reflect, e = up === 'Q' ? at(2) : at(0);
+        out.push({ cmd: 'Q', ctrl: [[cx, cy], c1, e], given: up === 'Q' ? [c1, e] : [e], x: e[0], y: e[1], t: up === 'T' });
+        pc = c1; cx = e[0]; cy = e[1];
+      } else if (up === 'A') {
+        const [x, y] = rel ? [cx + a[5], cy + a[6]] : [a[5], a[6]];
+        out.push({ cmd: 'A', rx: a[0], ry: a[1], rot: a[2], fa: a[3], fs: a[4], x, y });
+        cx = x; cy = y;
+      }
+    }
+    prev = up;
+  }
+  return out;
+}
+
+/** A point on a Bezier curve given by its control points (3 or 4), at parameter t. */
+function bezierAt(ctrl, t) {
+  const u = 1 - t;
+  if (ctrl.length === 4) {
+    const [p0, p1, p2, p3] = ctrl, w = [u * u * u, 3 * u * u * t, 3 * u * t * t, t * t * t];
+    return [w[0] * p0[0] + w[1] * p1[0] + w[2] * p2[0] + w[3] * p3[0], w[0] * p0[1] + w[1] * p1[1] + w[2] * p2[1] + w[3] * p3[1]];
+  }
+  const [p0, p1, p2] = ctrl, w = [u * u, 2 * u * t, t * t];
+  return [w[0] * p0[0] + w[1] * p1[0] + w[2] * p2[0], w[0] * p0[1] + w[1] * p1[1] + w[2] * p2[1]];
+}
+
+/** Where a Bezier curve turns back along one axis: the parameters in (0, 1) at which the
+ *  derivative of that coordinate is zero — a cubic's quadratic, a quadratic's line. */
+function bezierTurns(ctrl, axis) {
+  const p = ctrl.map((c) => c[axis]), ts = [];
+  const keep = (t) => { if (t > 1e-9 && t < 1 - 1e-9) ts.push(t); };
+  if (p.length === 4) {
+    const a = -p[0] + 3 * p[1] - 3 * p[2] + p[3], b = 2 * p[0] - 4 * p[1] + 2 * p[2], c = p[1] - p[0];
+    if (Math.abs(a) < 1e-12) { if (Math.abs(b) > 1e-12) keep(-c / b); }
+    else {
+      const disc = b * b - 4 * a * c;
+      if (disc >= 0) { const s = Math.sqrt(disc); keep((-b + s) / (2 * a)); keep((-b - s) / (2 * a)); }
+    }
+  } else {
+    const den = p[0] - 2 * p[1] + p[2];
+    if (Math.abs(den) > 1e-12) keep((p[0] - p[1]) / den);
+  }
+  return ts;
+}
+
+/** Endpoint -> centre parameterization (SVG spec F.6.5): the ellipse's centre, its radii
+ *  (scaled up if the endpoints are too far apart), its rotation in radians, the start angle
+ *  and the signed sweep. Null for a zero radius (the arc is a line to its end) and for an
+ *  arc whose ends coincide (the SVG spec omits it; until 2026-10-26 it sampled as NaN points,
+ *  which `paintbrush-4` and `tag-2` at 20 carry, and their optical bearings were null). */
+function centredArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2) {
+  if (!rx || !ry || (x1 === x2 && y1 === y2)) return null;
   rx = Math.abs(rx); ry = Math.abs(ry);
   const phi = (rotDeg * Math.PI) / 180, cos = Math.cos(phi), sin = Math.sin(phi);
   const dx = (x1 - x2) / 2, dy = (y1 - y2) / 2;
@@ -123,20 +192,66 @@ function sampleArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2, arcStep = 0) {
   let t1 = ang(1, 0, ux, uy), dt = ang(ux, uy, vx, vy);
   if (!fS && dt > 0) dt -= 2 * Math.PI;
   if (fS && dt < 0) dt += 2 * Math.PI;
+  return { cx, cy, rx, ry, cos, sin, t1, dt };
+}
 
+/** The point on a centred arc at angle t. */
+const pointOnArc = ({ cx, cy, rx, ry, cos, sin }, t) => {
+  const px = Math.cos(t) * rx, py = Math.sin(t) * ry;
+  return [cos * px - sin * py + cx, sin * px + cos * py + cy];
+};
+
+/** Sample an arc: `SAMPLES` points along it, or more at `arcStep`. */
+function sampleArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2, arcStep = 0) {
+  const arc = centredArc(x1, y1, rx, ry, rotDeg, fA, fS, x2, y2);
+  if (!arc) return [[x2, y2]];
+  const { t1, dt } = arc;
   const pts = [], n = arcStep ? Math.max(SAMPLES, Math.ceil(Math.abs(dt) * 180 / Math.PI / arcStep)) : SAMPLES;
-  for (let i = 1; i <= n; i++) {
-    const t = t1 + (dt * i) / n;
-    const px = Math.cos(t) * rx, py = Math.sin(t) * ry;
-    pts.push([cos * px - sin * py + cx, sin * px + cos * py + cy]);
-  }
+  for (let i = 1; i <= n; i++) pts.push(pointOnArc(arc, t1 + (dt * i) / n));
   return pts;
 }
 
-/** Centreline bbox across many `d` strings. */
+/** Where an arc turns back along each axis: the angles inside its sweep at which the
+ *  ellipse's x (or y) is extreme — a rotated ellipse's, so a tilted arc is exact too. */
+function arcTurns(arc) {
+  const { rx, ry, cos, sin, t1, dt } = arc, ts = [];
+  for (const t0 of [Math.atan2(-ry * sin, rx * cos), Math.atan2(ry * cos, rx * sin)]) {
+    for (const t of [t0, t0 + Math.PI]) {
+      // how far round from the start, in the sweep's own direction
+      let k = dt > 0 ? t - t1 : t1 - t;
+      k = ((k % TWO_PI) + TWO_PI) % TWO_PI;
+      if (k < Math.abs(dt)) ts.push(t);
+    }
+  }
+  return ts;
+}
+const TWO_PI = 2 * Math.PI;
+
+/** The points of a path that can be its extremes: every segment end, and where an arc or a
+ *  Bezier curve turns back along x or y. The bounding box of these is the path's exact one. */
+function extremePoints(d) {
+  const out = [];
+  let cx = 0, cy = 0;
+  for (const seg of walkPath(d)) {
+    if (seg.cmd === 'A') {
+      const arc = centredArc(cx, cy, seg.rx, seg.ry, seg.rot, seg.fa, seg.fs, seg.x, seg.y);
+      if (arc) for (const t of arcTurns(arc)) out.push(pointOnArc(arc, t));
+    } else if (seg.cmd === 'C' || seg.cmd === 'Q') {
+      for (const axis of [0, 1]) for (const t of bezierTurns(seg.ctrl, axis)) out.push(bezierAt(seg.ctrl, t));
+    }
+    out.push([seg.x, seg.y]);
+    cx = seg.x; cy = seg.y;
+  }
+  return out;
+}
+
+/** Centreline bbox across many `d` strings — exact: a line's ends, an arc's and a Bezier
+ *  curve's true extremes (where the curve turns back, solved from its derivative), never a
+ *  control point. The £'s bowl is a cubic whose control points stand outside it; boxing
+ *  the hull read `pound` up to 0.03 too wide (2026-10-26). */
 export function bbox(ds) {
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-  for (const d of ds) for (const [x, y] of samplePath(d)) {
+  for (const d of ds) for (const [x, y] of extremePoints(d)) {
     if (x < x0) x0 = x; if (y < y0) y0 = y;
     if (x > x1) x1 = x; if (y > y1) y1 = y;
   }
@@ -199,6 +314,19 @@ const grow = (b, h) => ({ x0: b.x0 - h, y0: b.y0 - h, x1: b.x1 + h, y1: b.y1 + h
 const same = (a, b) => ['x0', 'y0', 'x1', 'y1'].every((k) => Math.abs(a[k] - b[k]) < 0.01);
 const r2 = (n) => Math.round(n * 100) / 100;
 
+/** A path that never bends: every sample within 0.01 of the line from its start to its
+ *  farthest point (so a stroke drawn out and back is straight too). A closed path, an arc,
+ *  a frame and a zigzag all bend. */
+export const isStraight = (d) => {
+  const pts = samplePath(d);
+  if (pts.length < 2) return true;
+  const [ax, ay] = pts[0];
+  const far = pts.reduce((f, p) => (Math.hypot(p[0] - ax, p[1] - ay) > Math.hypot(f[0] - ax, f[1] - ay) ? p : f), pts[0]);
+  const L = Math.hypot(far[0] - ax, far[1] - ay);
+  if (L < 1e-9) return true;
+  return pts.every(([x, y]) => Math.abs((x - ax) * (far[1] - ay) - (y - ay) * (far[0] - ax)) / L < 0.01);
+};
+
 /**
  * Split a stroked drawing into its silhouette and its mark, and measure the two
  * ratios absolute numbers hide:
@@ -215,13 +343,19 @@ const r2 = (n) => Math.round(n * 100) / 100;
  *
  * `shell` is the path whose ink box is the whole drawing's — the ring of a
  * `-circle` icon. A bare mark has none, and then there is no ratio to take.
+ *
+ * A container has an inside, so its path must BEND — a ring, a frame, a C, a frame cut
+ * back for a badge. A single straight stroke has no inside, however far it reaches: the
+ * bare `x`'s first diagonal spans the whole box and read as a 13-unit ring holding the
+ * other diagonal (doc 09, fixed 2026-10-26), as did `percent`'s slash and the C21 bar of
+ * `phone-off` holding the handset. A straight path is never the shell.
  */
 export function anatomy(paths, stroke) {
   if (!paths || paths.length < 2) return { shell: null, container: null, mark: null, ratio: null, gap: null };
   const h = stroke / 2;
   const boxes = paths.map((d) => grow(bbox([d]), h));
   const whole = grow(bbox(paths), h);
-  const shell = boxes.findIndex((b) => same(b, whole));
+  const shell = boxes.findIndex((b, i) => same(b, whole) && !isStraight(paths[i]));
   const rest = paths.filter((_, i) => i !== shell);
   if (shell < 0 || !rest.length) return { shell: null, container: null, mark: null, ratio: null, gap: null };
 

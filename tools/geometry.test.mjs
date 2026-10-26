@@ -4,7 +4,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, barGap, facingGap, handAir, headAir, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { anatomy, armTipGap, barGap, bbox, facingGap, handAir, headAir, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, isStraight, materialGap, ringHole, samplePath, selfGap } from './geometry.mjs';
+import { inkProfile, opticalBearings } from './optical.mjs';
 import { checkAnchors, checkBases, checkFamilies, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseCornersNote, parseGapNote, parseGlyphNote, parseGrowsNote, parseHandsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
@@ -2733,4 +2734,91 @@ test('optical-sheet: C38\'s hands note travels, per master from the outline file
   const file = (notes) => `<svg>\n${notes.map((n) => `  <!-- ${n} -->`).join('\n')}\n</svg>\n`;
   assert.deepEqual(fileNotes({ 24: { outline: file([]), filled: file([]) }, 20: { outline: file(['hands: clock']), filled: file([]) }, 16: { outline: file(['hands: clock']), filled: file([]) } }),
     { hands: { 20: 'clock', 16: 'clock' } });
+});
+
+// --- metrics made correct (plans/shipping.md card 1.2, 2026-10-26) ----------------------------
+// Three readings the product's metrics rest on: the ink box (exact, not a control point's or a
+// sample's), a container (a shape with an inside, never a straight stroke), and the optical
+// bearings of a shape-filled drawing (its filled area is ink to its edge).
+const SIDES = ['left', 'right', 'top', 'bottom'];
+const shippedIcon = (m, n) => {
+  const src = readFileSync(`src/icons/${m}/${n}.svg`, 'utf8').replace(/<!--[\s\S]*?-->/g, '');
+  const els = [...src.matchAll(/<path([^>]*)\bd="([^"]+)"/g)];
+  return { paths: els.filter((e) => !/\bfill="currentColor"/.test(e[1])).map((e) => e[2]), areas: els.filter((e) => /\bfill="currentColor"/.test(e[1])).map((e) => e[2]) };
+};
+const exact = (got, want) => assert.ok(Math.abs(got - want) < 1e-9, `expected ${want}, got ${got}`);
+
+test('bbox: a Bezier curve is boxed by where it turns back, never by its control points', () => {
+  // a cubic bowing up from y 12: its control points stand at y 2, its top is at 4.5
+  exact(bbox(['M3 12C3 2 21 2 21 12']).y0, 4.5);
+  // a quadratic: the control point at y 20, the curve reaches 11.5
+  exact(bbox(['M3 3Q12 20 21 3']).y1, 11.5);
+  // S reflects the previous control point, so the second bow mirrors the first
+  const s = bbox(['M3 12C3 2 21 2 21 12S3 22 3 12']);
+  exact(s.y0, 4.5); exact(s.y1, 19.5); exact(s.x0, 3); exact(s.x1, 21);
+  // a T after a line has nothing to reflect: a straight run to its end
+  assert.deepEqual(bbox(['M3 3L6 9T12 3']), { x0: 3, y0: 3, x1: 12, y1: 9 });
+  // lint's samples still read the hull (conservative, unchanged); `curves` follows the curve
+  const hull = samplePath('M3 12C3 2 21 2 21 12'), curve = samplePath('M3 12C3 2 21 2 21 12', { curves: true });
+  assert.ok(hull.some(([, y]) => y === 2) && curve.every(([, y]) => y >= 4.5 - 1e-9));
+});
+
+test('bbox: an arc is boxed by its true extremes, where the samples used to fall short', () => {
+  // three quarters of a circle: the sample nearest the far side fell 0.003 short of 22
+  assert.deepEqual(bbox(['M12 2A10 10 0 1 1 2 12']), { x0: 2, y0: 2, x1: 22, y1: 22 });
+  // a tilted ellipse: against a very fine sampling of the same arc
+  const d = 'M2 12A5 3 30 0 1 12 12', fine = samplePath(d, { arcStep: 0.01 });
+  const b = bbox([d]);
+  near(b.x0, Math.min(...fine.map((p) => p[0])), 1e-4); near(b.y0, Math.min(...fine.map((p) => p[1])), 1e-4);
+  near(b.x1, Math.max(...fine.map((p) => p[0])), 1e-4); near(b.y1, Math.max(...fine.map((p) => p[1])), 1e-4);
+  // a ring written as two half circles is exactly its diameter
+  assert.deepEqual(bbox([RING(12, 12, 9.25)]), { x0: 2.75, y0: 2.75, x1: 21.25, y1: 21.25 });
+  // an arc whose ends coincide is omitted (SVG), not read as NaN: paintbrush-4 carries one
+  assert.deepEqual(bbox(['M3 3A2 2 0 0 1 3 3L9 9']), { x0: 3, y0: 3, x1: 9, y1: 9 });
+  assert.ok(samplePath('M3 3A2 2 0 0 1 3 3L9 9').every(([x, y]) => Number.isFinite(x) && Number.isFinite(y)));
+});
+
+test('anatomy: a straight stroke is never a container — the bare x, percent, a C21 bar', () => {
+  assert.ok(isStraight('M6.25 6.25l11.5 11.5') && isStraight('M3 3L9 9L3 3') && isStraight('M3 12h16.5'));
+  assert.ok(!isStraight('M3 3V9H12') && !isStraight(RING(12, 12, 9)) && !isStraight('M3.75 3.75A16.5 16.5 0 0 1 20.25 20.25'));
+  for (const m of [24, 20, 16]) {
+    for (const n of ['x', 'x-large', 'x-small', 'percent', 'phone-off']) assert.equal(anatomy(shippedIcon(m, n).paths, strokeOf(m)).container, null, `${m}/${n}`);
+    assert.equal(anatomy(shippedIcon(m, 'plus').paths, strokeOf(m)).container, null, `${m}/plus`);
+  }
+  // a ring, an open C and a frame cut back for its badge still hold their mark
+  assert.deepEqual([24, 20, 16].map((m) => anatomy(shippedIcon(m, 'plus-circle').paths, strokeOf(m)).container), [20, 16, 14]);
+  assert.equal(anatomy(shippedIcon(24, 'at-sign').paths, 1.5).container, 20);
+  assert.equal(anatomy(shippedIcon(24, 'folder-minus').paths, 1.5).container, 20);
+});
+
+test('opticalBearings: a filled area is ink to its edge, so a disc recedes as the ring it fills', () => {
+  const ring = opticalBearings([RING(12, 12, 9.25)], 1.5, 24);
+  const disc = opticalBearings([], 1.5, 24, 0.75, { areas: [RING(12, 12, 10)] });
+  for (const s of SIDES) { assert.equal(disc[s].geometric, 2); assert.ok(disc[s].recession > 0.5); near(disc[s].optical, ring[s].optical, 0.02); }
+  // a hole never reaches the edge, so it changes nothing
+  assert.deepEqual(opticalBearings([], 1.5, 24, 0.75, { areas: [RING(12, 12, 10) + 'M9 12A3 3 0 1 0 15 12A3 3 0 1 0 9 12Z'] }), disc);
+  // a cut-out that shares the silhouette's edge is white, not ink (evenodd): the left edge reads 8 inside it, 4 elsewhere
+  const notched = inkProfile([], 1.5, 'left', { areas: ['M4 4H20V20H4ZM4 11H8V13H4Z'] });
+  assert.deepEqual([notched[0], notched[29], notched[32], notched[64]], [4, 8, 8, 4]);   // y 4 · 11.25 · 12 · 20
+  // a scanline lying on a flat edge reads that edge as ink: a lid over a band of white keeps its
+  // underside (y 12), so the profile holds every scanline but the band's five
+  const lid = inkProfile([], 1.5, 'left', { areas: ['M4 4H20V12H4Z', 'M4 13.5H20V20H4Z'] });
+  assert.equal(lid.length, 65 - 5);
+  assert.ok(lid.every((v) => v === 4));
+  // scanlines start at the ink's edge snapped to 1e-4: an edge at 3.7499992 reads as one at 3.75
+  const at = (y0) => inkProfile([`M12 ${y0}L12 20`], 1.5, 'top');
+  assert.equal(at(3.75).length, at(3.7499992).length);
+  at(3.75).forEach((v, i) => near(v, at(3.7499992)[i], 1e-5));
+  assert.equal(inkProfile([], 1.25, 'left', { areas: ['M2 2H14V14H2Z'] }).length, 49);   // every quarter, 2 to 14
+  // the old call shape still reads a stroked drawing as before
+  assert.deepEqual(opticalBearings([RING(12, 12, 9.25)], 1.5, 24, 0.75), ring);
+  // the shipped pair that named the bug (doc 09): plus-circle-filled lands on plus-circle at every master
+  for (const m of [24, 20, 16]) {
+    const o = shippedIcon(m, 'plus-circle'), f = shippedIcon(m, 'plus-circle-filled');
+    const a = opticalBearings(o.paths, strokeOf(m), m), b = opticalBearings(f.paths, strokeOf(m), m, 0.75, { areas: f.areas });
+    for (const s of SIDES) { assert.equal(b[s].geometric, a[s].geometric, `${m} ${s}`); near(b[s].optical, a[s].optical, 0.05); }
+  }
+  // a zero-length arc no longer poisons the reading (paintbrush-4 at 24 read null)
+  const pb = opticalBearings(shippedIcon(24, 'paintbrush-4').paths, 1.5, 24);
+  assert.ok(SIDES.every((s) => Number.isFinite(pb[s].optical)));
 });
