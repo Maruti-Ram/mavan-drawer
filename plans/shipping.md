@@ -11,7 +11,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [ ] 2.1 The box: `@mavan/icons`
 - [ ] 2.2 The React package: `@mavan/icons-react`
 - [ ] 2.3 The licence and the README
-- [ ] 2.4 The size rule, picked by eye
+- [ ] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`, 20 icons × 14–32 px both ways, real pixels at 1× and 2×; **Maruti's pick pending**
 - [ ] 3.1 Installed and looked at, as a customer
 - [ ] 3.2 Fresh review
 - [ ] 3.3 1.0.0 cut: names frozen, tarballs built, decisions recorded

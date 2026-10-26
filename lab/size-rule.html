@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Size rule</title>
+<style>
+/* The size rule (plans/shipping.md card 2.4): at a size the set has no master for, which master
+   draws the icon? Each size from 14 to 32 px is one row of two lines — the master at or below the
+   size scaled up, and the master above scaled down — at true size, then the same pixels 4×.
+   The set and the sizes come from lab/size-rule.js (tools/size-sheet.mjs writes it). */
+:root{--bg:#f6f6f4;--panel:#fff;--inset:#fafaf9;--ink:#16171a;--muted:#7a7c82;--faint:#a4a6ab;--line:#e7e7e4;--accent:#2f6feb;--accent-soft:rgba(47,111,235,.10);--hover:rgba(0,0,0,.04);--shadow:0 1px 2px rgba(0,0,0,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--accent-soft:rgba(91,140,255,.14);--hover:rgba(255,255,255,.05);--shadow:none}}
+:root[data-theme="dark"]{--bg:#0e0f11;--panel:#16171a;--inset:#1b1c20;--ink:#eceef2;--muted:#8b8e96;--faint:#5d6068;--line:#26282d;--accent:#5b8cff;--accent-soft:rgba(91,140,255,.14);--hover:rgba(255,255,255,.05);--shadow:none}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+svg{display:block;overflow:visible;flex:none}
+button{font:inherit;color:inherit}
+kbd{font:11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;display:inline-block;min-width:18px;text-align:center;border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 4px;background:var(--panel);color:var(--muted)}
+.wrap{max-width:1480px;margin:0 auto;padding:0 24px}
+
+/* ── header ── */
+.app{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.app .top{display:flex;align-items:center;gap:16px;padding-top:16px;padding-bottom:16px;flex-wrap:wrap}
+.ident{display:flex;align-items:center;gap:12px;flex:1;min-width:220px}
+.glyph{width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;box-shadow:var(--shadow);color:var(--ink)}
+.ident h1{font-size:18px;line-height:22px;margin:0;font-weight:600;letter-spacing:-.01em}
+.ident p{margin:2px 0 0;font-size:12px;line-height:18px;color:var(--muted);font-variant-numeric:tabular-nums}
+.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.divider{width:1px;height:20px;background:var(--line);margin:0 4px}
+.seg{display:inline-flex;height:28px;padding:2px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.seg button{font-size:12px;padding:0 9px;border:0;border-radius:5px;background:none;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--hover);color:var(--ink)}
+.back{font-size:12px;line-height:18px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+
+/* ── the question ── */
+main{padding-top:24px;padding-bottom:80px}
+.q{max-width:1480px;margin:0 auto 20px;padding:0 24px}
+.q h2{font-size:16px;line-height:24px;font-weight:600;margin:0 0 4px;letter-spacing:-.01em}
+.q p{margin:0;font-size:13px;line-height:20px;color:var(--muted);max-width:860px}
+.q p b{color:var(--ink);font-weight:600}
+
+/* ── the sheet: one grid, so every row's strips start at the same x ── */
+.panel{margin:0 24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.scroll{overflow-x:auto}
+.sheet{display:grid;grid-template-columns:92px 236px max-content;width:max-content;min-width:100%}
+.sheet>*{border-bottom:1px solid var(--line)}
+.head{padding:10px 14px;font-size:10px;line-height:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--inset);white-space:nowrap}
+.sticky{position:sticky;z-index:2;background:var(--panel)}
+.head.sticky{background:var(--inset)}
+.c-size{left:0}
+.c-line{left:92px;box-shadow:1px 0 0 var(--line)}
+.size{grid-row:span 2;padding:14px;display:flex;flex-direction:column;justify-content:center;gap:2px;box-shadow:1px 0 0 var(--line)}
+.size b{font-size:20px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.size small{font-size:11px;color:var(--muted);line-height:14px}
+.size.master b::after{content:'master';display:block;margin-top:6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.line{padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:3px;font-size:12px;line-height:16px}
+.line .how{font-weight:500}
+.line .num{color:var(--muted);font-variant-numeric:tabular-nums}
+.line.none .how{color:var(--faint);font-weight:400}
+/* the recommended line: a tag and a rule down its left edge, both drawn without taking room */
+.tagrow{height:18px;display:flex;align-items:center}
+.tag{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;height:18px;line-height:18px;padding:0 7px;border-radius:9px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.tag.same{background:none;color:var(--faint);padding:0}
+.line.rec{box-shadow:inset 3px 0 0 var(--accent),1px 0 0 var(--line)}
+.strips{display:flex;align-items:flex-start}
+.true,.mag{display:flex;align-items:center;padding:12px 20px}
+/* true size: every icon on a whole CSS pixel, so the drawing meets the screen as a customer's would —
+   the strip is top-aligned with a whole-pixel inset instead of centred (an odd size would centre on .5) */
+.true{align-items:flex-start;padding-bottom:0}
+.true{color:var(--ink)}
+.mag{gap:8px;padding-left:12px;padding-right:24px}
+.mag canvas{display:block;flex:none;image-rendering:pixelated;background:var(--inset);border-radius:2px}
+.empty{color:var(--faint);font-size:12px;line-height:16px;white-space:nowrap}
+.pair-end{border-bottom-color:var(--line)}
+.pair-mid{border-bottom-style:dashed}
+.pf{display:flex;align-items:center;gap:16px;height:41px;white-space:nowrap;overflow:hidden;padding:0 20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.keys{display:inline-flex;align-items:center;gap:6px}
+.err{margin:0 24px;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--panel);color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="app">
+  <div class="wrap top">
+    <div class="ident">
+      <div class="glyph" id="glyph"></div>
+      <div><h1>Size rule</h1><p id="subtitle">&nbsp;</p></div>
+    </div>
+    <div class="actions" id="bar">
+      <a class="back" href="library.html">Library</a>
+      <span class="divider"></span>
+      <span class="seg" id="style"></span>
+      <span class="divider"></span>
+      <span class="seg" id="dpr"></span>
+      <span class="divider"></span>
+      <span class="seg" id="theme"></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="q">
+    <h2>At a size we have no master for, which reads better: the smaller master scaled up, or the larger master scaled down?</h2>
+    <p>Each row is one size. The top line draws every icon from the master at or below that size, scaled up; the bottom line from the master above it, scaled down. Left is true size; right is the same icons' pixels, 4×. <b>Recommended to start from:</b> the master at or below, scaled up — and 24 at and above 24. Below 16 there is nothing smaller, so it is 16 scaled down.</p>
+  </div>
+  <section class="panel" id="panel">
+    <div class="scroll"><div class="sheet" id="sheet"></div></div>
+    <div class="pf">
+      <span class="keys"><kbd>F</kbd> filled</span>
+      <span class="keys">Pixels 1× · 2×: one canvas pixel per screen pixel on a plain or a retina screen</span>
+      <span class="keys">theme: Auto · Light · Dark, top right</span>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+// Cache-buster: the lab is a dev page and these files are rewritten by tools.
+const { default: SHEET } = await import(`./size-rule.js?v=${Date.now()}`);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage may be unavailable */ } },
+};
+const state = {
+  theme: store.get('icon-theme', 'auto'),
+  filled: store.get('size-filled', false),
+  dpr: [1, 2].includes(store.get('size-dpr', 1)) ? store.get('size-dpr', 1) : 1,
+};
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt = (n) => String(+n.toFixed(3));
+
+const man = await (await fetch('manifest.json', { cache: 'no-store' })).json();
+const MASTERS = [...SHEET.masters].sort((a, b) => a - b);          // 16 · 20 · 24
+const NAMES = SHEET.names.filter((n) => MASTERS.every((m) => man.masters[m]?.icons?.[n] && man.masters[m]?.icons?.[`${n}-filled`]));
+const dropped = SHEET.names.filter((n) => !NAMES.includes(n));
+if (dropped.length) console.warn(`size-rule: not in the manifest, left out: ${dropped.join(', ')}`);
+const rec = (n, m) => man.masters[m].icons[state.filled ? `${n}-filled` : n];
+const outlineStroke = (m) => man.strokes?.[m] ?? man.stroke;
+
+// ── The two readings of a size ──
+// up:   the largest master at or below the size, scaled up (none below 16)
+// down: the smallest master at or above the size, scaled down (none above 24)
+// The recommendation is `up`, falling back to `down` where there is no master below.
+function readings(s) {
+  const below = [...MASTERS].reverse().find((m) => m <= s) ?? null;
+  const above = MASTERS.find((m) => m >= s) ?? null;
+  return { below, above, rec: below != null ? 'up' : 'down' };
+}
+
+// One icon at one master, as SVG children with every paint attribute spelled out, so the same
+// markup draws inline and rasterises from a data: URL. Each file carries its own weight.
+const art = (n, m) => { const r = rec(n, m); return `<g fill="none" stroke="currentColor" stroke-width="${r.stroke ?? outlineStroke(m)}" stroke-linecap="round" stroke-linejoin="round">${r.body}</g>`; };
+const svg = (m, px, inner) => `<svg width="${px}" height="${px}" viewBox="0 0 ${m} ${m}" aria-hidden="true">${inner}</svg>`;
+
+// ── Layout, built once; the controls only repaint drawings in place ──
+const sheet = document.getElementById('sheet');
+document.getElementById('subtitle').textContent =
+  `${NAMES.length} icons · ${SHEET.sizes[0]}–${SHEET.sizes.at(-1)} px · masters ${MASTERS.join(' · ')}`;
+const lines = [];                                                // { s, m, el } for every strip that draws
+const gapOf = (s) => Math.round(s / 2);                          // whole pixels, so icons sit on the pixel grid
+
+function lineHtml(s, kind, r) {
+  const m = kind === 'up' ? r.below : r.above;
+  const isMaster = MASTERS.includes(s);
+  const last = kind === 'down';
+  const bcls = last ? 'pair-end' : 'pair-mid';
+  const isRec = r.rec === kind;
+  let how, num = '', tag = '';
+  if (m == null) {
+    how = kind === 'up' ? `no master below ${MASTERS[0]}` : `no master above ${MASTERS.at(-1)}`;
+  } else {
+    const k = s / m;
+    how = isMaster ? `the ${m} master itself` : `${m} master, scaled ${k > 1 ? 'up' : 'down'} ×${fmt(k)}`;
+    num = `outline line ${fmt(outlineStroke(m) * k)} px`;
+  }
+  if (isRec) tag = '<span class="tag">Recommended</span>';
+  else if (isMaster && m != null) tag = '<span class="tag same">same drawing as above</span>';
+  const h = 4 * s + 24;                                          // the magnified strip's height, held empty or full
+  const inset = `min-height:${h}px;padding-top:${12 + Math.floor((3 * s) / 2)}px`;
+  const id = lines.length;
+  if (m != null) lines.push({ s, m, id });
+  const cells = m == null
+    ? `<div class="strips ${bcls}" style="min-height:${h}px"><div class="true" style="${inset}"><span class="empty">—</span></div></div>`
+    : `<div class="strips ${bcls}" style="min-height:${h}px"><div class="true" style="${inset};gap:${gapOf(s)}px" data-line="${id}"></div>`
+      + `<div class="mag" style="min-height:${h}px" data-mag="${id}"></div></div>`;
+  return `<div class="line sticky c-line ${bcls}${isRec ? ' rec' : ''}${m == null ? ' none' : ''}">`
+    + `<span class="how">${esc(how)}</span><span class="num">${num || '&nbsp;'}</span><span class="tagrow">${tag}</span></div>`
+    + cells;
+}
+function sizeHtml(s, r) {
+  const isMaster = MASTERS.includes(s);
+  const where = isMaster ? '' : r.below == null ? `below ${r.above}` : r.above == null ? `above ${r.below}` : `between ${r.below} and ${r.above}`;
+  return `<div class="size sticky c-size pair-end${isMaster ? ' master' : ''}"><b>${s} px</b>${where ? `<small>${where}</small>` : ''}</div>`;
+}
+if (!NAMES.length) {
+  document.getElementById('panel').outerHTML = '<div class="err">No icons to show: lab/size-rule.js names none that ship at every master. Run <code>node tools/size-sheet.mjs</code>.</div>';
+} else {
+  sheet.innerHTML = '<div class="head sticky c-size">Size</div><div class="head sticky c-line">Drawn from</div>'
+    + '<div class="head">True size, then the same pixels 4×</div>'
+    + SHEET.sizes.map((s) => { const r = readings(s); return sizeHtml(s, r) + lineHtml(s, 'up', r) + lineHtml(s, 'down', r); }).join('');
+  // the cells exist once; each strip holds a fixed set of icon slots and canvases of fixed CSS size
+  for (const l of lines) {
+    const t = sheet.querySelector(`[data-line="${l.id}"]`);
+    t.innerHTML = NAMES.map((n) => `<span title="${esc(n)} · ${l.m} master at ${l.s} px" style="width:${l.s}px;height:${l.s}px;display:block"></span>`).join('');
+    const g = sheet.querySelector(`[data-mag="${l.id}"]`);
+    g.innerHTML = NAMES.map((n) => `<canvas title="${esc(n)} · ${l.m} master at ${l.s} px" style="width:${4 * l.s}px;height:${4 * l.s}px"></canvas>`).join('');
+    l.slots = [...t.children]; l.canvases = [...g.children];
+  }
+}
+const glyph = NAMES[0];
+if (glyph) document.getElementById('glyph').innerHTML = svg(24, 20, art(glyph, 24));
+
+// Real pixels: rasterise the master at size × pixels-per-CSS-pixel, then show it 4× the icon's CSS
+// size with smoothing off — at 1× each canvas pixel is a 4×4 block, at 2× a 2×2 block. A standalone
+// data: URL has no inherited colour, so the theme's ink is baked in.
+let gen = 0;
+async function pixels(cv, n, m, inner, run, ink) {
+  cv.width = n; cv.height = n;                                   // also clears it
+  const img = new Image();
+  img.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${n}" height="${n}" viewBox="0 0 ${m} ${m}">${inner.replaceAll('currentColor', ink)}</svg>`)}`;
+  try { await img.decode(); } catch { return; }
+  if (run !== gen) return;                                       // a newer paint took over
+  const ctx = cv.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+  ctx.drawImage(img, 0, 0, n, n);
+}
+function paint() {
+  const run = ++gen;
+  const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000';
+  for (const l of lines) {
+    NAMES.forEach((n, i) => {
+      const inner = art(n, l.m);
+      l.slots[i].innerHTML = svg(l.m, l.s, inner);
+      pixels(l.canvases[i], l.s * state.dpr, l.m, inner, run, ink);
+    });
+  }
+}
+
+// ── Controls ──
+function applyTheme() {
+  if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = state.theme;
+}
+function renderBar() {
+  const opt = (k, v, text, on, title = '') => `<button data-${k}="${v}" class="${on ? 'on' : ''}"${title ? ` title="${title}"` : ''}>${text}</button>`;
+  document.getElementById('style').innerHTML = opt('style', 'outline', 'Outline', !state.filled) + opt('style', 'filled', 'Filled', state.filled, 'Filled (F)');
+  document.getElementById('dpr').innerHTML = opt('dpr', 1, 'Pixels 1×', state.dpr === 1, 'A plain screen: one canvas pixel per CSS pixel')
+    + opt('dpr', 2, '2×', state.dpr === 2, 'A retina screen: two canvas pixels per CSS pixel');
+  document.getElementById('theme').innerHTML = ['auto', 'light', 'dark'].map((t) => opt('theme', t, t[0].toUpperCase() + t.slice(1), state.theme === t)).join('');
+}
+function setFilled(v) { state.filled = v; store.set('size-filled', v); renderBar(); paint(); }
+document.getElementById('bar').addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.theme) { state.theme = t.dataset.theme; store.set('icon-theme', state.theme); applyTheme(); renderBar(); paint(); }
+  else if (t.dataset.style) setFilled(t.dataset.style === 'filled');
+  else if (t.dataset.dpr) { state.dpr = +t.dataset.dpr; store.set('size-dpr', state.dpr); renderBar(); paint(); }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.('input,textarea,select')) return;
+  if (e.key === 'f' || e.key === 'F') setFilled(!state.filled);
+});
+// The baked-in ink follows the system theme while on Auto.
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (state.theme === 'auto') paint(); });
+
+applyTheme(); renderBar(); paint();
+</script>
+</body>
+</html>
