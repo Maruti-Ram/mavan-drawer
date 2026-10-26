@@ -6,7 +6,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 
 - [ ] 1.1 The outliner
 - [ ] 1.2 Metrics made correct
-- [ ] 1.3 The package's index
+- [x] 1.3 The package's index — built 2026-10-26 (Opus): `node tools/package-meta.mjs` → `dist/meta.json`, 1310 entries = the sheet's 1310 approved rows, 458 families; the sheet's findings are under Results
 - [ ] 1.4 The name on npm (Maruti)
 - [ ] 2.1 The box: `@mavan/icons`
 - [ ] 2.2 The React package: `@mavan/icons-react`
@@ -217,3 +217,26 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
 Figma components and assets generated from the same files (Maruti, 2026-10-26: "once this pass is
 done"). The shop: licence keys, seat counts, a token-gated registry so `npm install @mavan/icons`
 works without a tarball. A public showcase page from the Library.
+
+## Results
+
+### Card 1.3 (2026-10-26)
+
+`meta.json` holds one entry per approved row (1310, measured against the sheet's `- [x]` rows), 458
+families covering every name once, 852 variants, 0 missing files, byte-identical on a re-run. Six
+things the index found on the sheet, for Maruti's rulings before 1.0 (categories are his):
+
+1. **34 rows have no category**, 13 of them variants of uncategorised bases (`layout-sidebar`,
+   `sort-numeric`, `wheelchair` families) — filling the bases clears most of the list.
+2. **Seven numbered names have no `variant of`** and so count as icons of their own against the
+   "a `-2` is never an icon" rule: `info-circle-2`, `info-circle-3`, `help-circle-4`, `sort-3`,
+   `sort-alpha-ascending-2`, `plane-2`, `plane-3`.
+3. **"V3 Other badges" sits in the category column** of `calendar-clock`, `file-clock`,
+   `shield-pending` — a variant-round label, not a product category.
+4. **16 variants carry a category different from their base's** (`link-off` Editing & Text under
+   `link` Files & Folders; `gear-nodes` Development & Infra under `gear` UI & Layout). Some may be on
+   purpose.
+5. **62 variants name another variant as their base** (`clipboard-check-2` → `clipboard-check` →
+   `clipboard`); the index keeps the direct base as `variantOf` and the root as `family`.
+6. **24 icons carry no tags** (the plus, minus and x families and their `-circle` / `-square`
+   forms, `more-*`, `map`, `folder-open`, `-2`, `receipt-refund`) — the drawer's to fill.
