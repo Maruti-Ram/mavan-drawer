@@ -467,6 +467,11 @@ Corollaries:
   into a knob at 32. A warning; a file's agreed `gap:` lowers the floor where the note is lower, and a
   C33 badge's head keeps 1. Not read: a half head drawn in one stroke with its shaft (a harpoon,
   `transfer-2`), a V standing on a line from outside, and a knocked-out arrow (§5c's material).
+- **A clock's hands keep 1 of air to their ring** (C38, Maruti 2026-10-26, `HAND_GAP`): at 1.5 a clock
+  badge's minute hand at 16 is about 1.1 long and reads as a blob. Declared per outline file as
+  `<!-- hands: clock -->`; lint §5m reads each hand's tip, cap included, to the ring's inner edge and
+  lowers that pair alone — everything else in the file keeps 1.5, or the file's `gap:` note. A `gap:`
+  note under 1 lowers the hands' floor too; one at 1 or above never raises it.
 - **No more than 3 parallel strokes** in one run. Four is a texture, not an icon.
 - When a detail cannot fit at a 2-unit gap, **remove the detail**. Do not shrink
   the stroke locally — varying stroke weight within a set is the fastest way to

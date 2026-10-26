@@ -158,3 +158,15 @@ export const GLYPH_GAP = 1;
 // (1.25 · 1.5 · 1); under it an outline head blots at 16 px, and a shut one turns into a knob at 32.
 // A file's `gap` note lowers it where the note is lower, never raises it.
 export const HEAD_GAP = 1;
+
+// The air between a clock's hands and their ring (C38; Maruti, 2026-10-26; lint §5m, `handAir`): ONE
+// unit, at every master — the hand's tip, round cap included, to the ring's inner edge, less half of
+// each path's weight — white inside one mark, as GLYPH_GAP's and HEAD_GAP's is. A clock badge (C33) is
+// small, ring ink 11 · 9.5 · 8, and at MIN_GAP's 1.5 the minute hand at 16 is about 1.1 long: a pill
+// with a dot that reads as a blob. Every reference (Polaris 0.75 in its own 20-unit grid, Nucleo,
+// Lucide) brings the hands closer, and the shipped full clock reaches 0.74 of its face. Declared per
+// OUTLINE file as `<!-- hands: clock -->`; it floors the hands-to-ring pair alone, and every other pair
+// keeps MIN_GAP or the file's gap note. In a filled twin the hands are knocked out of a solid disc, so
+// there is no hand-to-ring air to floor. A file's `gap` note lowers it where the note is lower, never
+// raises it, as it does HEAD_GAP.
+export const HAND_GAP = 1;

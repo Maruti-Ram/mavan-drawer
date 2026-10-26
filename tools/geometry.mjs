@@ -1676,6 +1676,77 @@ export function headAir(ds, stroke) {
   return out;
 }
 
+// ── handAir ────────────────────────────────────────────────────────────────
+// A clock's hands to their ring (C38; Maruti, 2026-10-26). A clock badge (C33) is small — ring ink
+// 11 · 9.5 · 8 — and at §6's 1.5 the minute hand at 16 is about 1.1 long, a pill with a dot that reads
+// as a blob; every reference brings the hands closer, and the shipped full `clock` reaches 0.74 of its
+// face. So in a file that declares `<!-- hands: clock -->` this one pair floors at HAND_GAP, 1, white
+// inside one mark as C19's and C37's are. Lint §5 measures every pair of paths the same way; this is
+// the same reading made exact for the clock, so lint can floor that pair alone.
+//
+// What it reads. A RING is a path `ringHole` reads (a closed two-arc circle, absolute M…A…A…Z, wider
+// than half its stroke). A HAND is an open path — no subpath closed — whose whole centreline lies
+// strictly inside the ring's centreline circle; a hand whose cap reaches into the ring's ink is still
+// a hand, and its air reads negative. A hand inside two rings (one inside the other) belongs to the
+// innermost; it is read against that ring only. A closed path inside the ring (a centre dot) is no
+// hand. The air is the ring's radius less the farthest the hand's centreline reaches from the ring's
+// centre, less half of each path's own weight: the hand's tip, round cap included, to the ring's inner
+// edge, along the radius through the tip. Lines are read at their ends (a segment's farthest point
+// from a centre is an end), Béziers on the curve, arcs every 0.5°.
+//
+// `stroke` is one weight or one per path. Returns [{ ring, hand, gap, at, tip }], one per hand: `ring`
+// and `hand` the 0-based paths, `gap` the air (3 dp), `at` the middle of that air (2 dp), `tip` the
+// hand's farthest centreline point (2 dp). Whether one is too tight is lint's call.
+const HAND_ARC_STEP = 0.5;   // deg
+
+/** Every point of `d`'s centreline a distance from a centre can peak at, with each subpath's closure. */
+function reachPoints(d) {
+  const subs = primitivesOf(d), pts = [];
+  for (const sp of subs) for (const p of sp.prims) {
+    pts.push(p.p0, p.p1);
+    if (p.k === 'C') for (let k = 1; k < 64; k++) {
+      const t = k / 64, m = 1 - t;
+      pts.push([0, 1].map((j) => m ** 3 * p.p0[j] + 3 * m * m * t * p.c1[j] + 3 * m * t * t * p.c2[j] + t ** 3 * p.p1[j]));
+    } else if (p.k === 'A') {
+      const n = Math.max(2, Math.ceil(Math.abs((p.dt * 180) / Math.PI) / HAND_ARC_STEP));
+      for (let k = 1; k < n; k++) pts.push(arcAt(p, p.t1 + (p.dt * k) / n));
+    }
+  }
+  const closed = subs.some((sp) => sp.closed || (sp.prims.length && hyp(sp.prims[0].p0, sp.prims.at(-1).p1) < 1e-6));
+  return { pts, closed };
+}
+
+export function handAir(ds, stroke) {
+  const wOf = (i) => (Array.isArray(stroke) ? stroke[i] : stroke);
+  // each ring with its exact centre: the first arc's own (ringHole's `at` is rounded to 2 dp, and a
+  // 16 centre on x.625 must not move)
+  const rings = ds.map((d, i) => {
+    const ring = ringHole(d, wOf(i));
+    const arc = ring && primitivesOf(d)[0]?.prims.find((p) => p.k === 'A');
+    return arc ? { i, r: ring.r, c: arc.c } : null;
+  }).filter(Boolean);
+  if (!rings.length) return [];
+  const out = [];
+  ds.forEach((d, j) => {
+    if (rings.some((g) => g.i === j)) return;
+    const { pts, closed } = reachPoints(d);
+    if (closed || !pts.length) return;
+    let own = null;
+    for (const g of rings) {
+      let far = -1, tip = null;
+      for (const p of pts) { const r = hyp(p, g.c); if (r > far) { far = r; tip = p; } }
+      if (far < g.r - 1e-9 && (!own || g.r < own.g.r)) own = { g, far, tip };
+    }
+    if (!own) return;
+    const { g, far, tip } = own, wr = wOf(g.i), wh = wOf(j);
+    const gap = g.r - far - (wr + wh) / 2;
+    const u = far > 1e-9 ? [(tip[0] - g.c[0]) / far, (tip[1] - g.c[1]) / far] : [0, -1];
+    const k = far + wh / 2 + gap / 2;   // the middle of the air, from the centre along the radius
+    out.push({ ring: g.i, hand: j, gap: r3(gap), at: [g.c[0] + u[0] * k, g.c[1] + u[1] * k].map(r2), tip: tip.map(r2) });
+  });
+  return out;
+}
+
 // ── barGap ─────────────────────────────────────────────────────────────────
 // The air between a straight BAR and another stroke it crosses (2026-10-21; plans/lint-currency-
 // fixes.md card 2). Lint §5 reads two crossing paths as joined by design and measures nothing between

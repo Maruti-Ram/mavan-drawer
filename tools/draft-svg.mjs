@@ -53,6 +53,13 @@
 //                   master where it keeps no corner square — so a drawing square at some masters
 //                   only writes `corners: { 24: 'square', 16: 'square' }` (film-roll, whose cells
 //                   at 20 are slits)
+//   hands: clock    OUTLINE FILES ONLY — a clock's hands keep 1 of air to their ring (C38, Maruti
+//                   2026-10-26; HAND_GAP), that pair alone; every other pair keeps §6 or the file's
+//                   gap note. A candidate or the board writes `hands: 'clock'` (candidate wins; a
+//                   candidate's `hands: null` opts out of a board-level one), written into the three
+//                   outline files: a filled clock knocks its hands out of a solid disc, so there is no
+//                   hand-to-ring air to floor. Lint errors on it at a master where every hand keeps 1.5,
+//                   so a clock tight at some masters only writes `hands: { 20: 'clock', 16: 'clock' }`
 //   anchor: NAME    a member of a level family (C28) keeps the full member NAME's canvas position
 //                   instead of being centred on a keyline; lint holds its ink inside NAME's box
 //                   (NAME-filled's for the filled file). A candidate writes `anchor: 'volume'`,
@@ -80,7 +87,7 @@ export const gapFor = (gap, m, filled) => {
   return (scoped ? gap[filled ? 'filled' : 'outline'] : gap)?.[m] ?? null;
 };
 
-export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null, glyphs = [], badge = null, badges = [], base = null, corners = null) => [
+export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical = null, glyph = null, box = null, grows = null, gap = null, anchor = null, glyphs = [], badge = null, badges = [], base = null, corners = null, hands = null) => [
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${m} ${m}" fill="none" stroke="currentColor" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round">`,
   ...(keyline ? [`  <!-- keyline: ${keyline} -->`] : []),
   ...(tags.length ? [`  <!-- tags: ${tags.join(', ')} -->`] : []),
@@ -90,6 +97,7 @@ export const svg = (m, weight, keyline, note, fill, stroke, tags = [], optical =
   ...(grows ? [`  <!-- grows: ${grows.join(' ')} -->`] : []),
   ...(gap ? [`  <!-- gap: ${gap} -->`] : []),
   ...(corners ? [`  <!-- corners: ${corners} -->`] : []),
+  ...(hands ? [`  <!-- hands: ${hands} -->`] : []),
   ...(glyph ? [`  <!-- glyph: ${glyph} -->`] : []),
   ...(badge ? [`  <!-- badge: ${badge} -->`] : []),
   ...(optical ? [`  <!-- optical: ${optical.join(' ')} -->`] : []),
@@ -117,7 +125,7 @@ export function planArg(draft, arg) {
 
 // One candidate → the six files it ships as, newest master first:
 //   { master, name, file, filled, src }   file is `<name>.svg` / `<name>-filled.svg`
-// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, badge, box, anchor, base, corners).
+// `draft` supplies the defaults a candidate may override (keyline, tags, glyph, badge, box, anchor, base, corners, hands).
 // Throws on a candidate that cannot ship; the caller decides how to report it.
 export function candidateFiles(draft, c, name) {
   const keyline = c.keyline ?? draft.keyline ?? null;
@@ -135,6 +143,12 @@ export function candidateFiles(draft, c, name) {
   const cornersAt = (m) => (corners && typeof corners === 'object' ? corners[m] ?? null : corners);
   for (const v of corners && typeof corners === 'object' ? Object.values(corners) : [corners]) {
     if (v && v !== 'square') throw new Error(`${c.id}: corners: '${v}' is not a kind — a filled drawing whose cut-outs are square on purpose is corners: 'square', or { 24: 'square', … } for some masters (C1, lint §5k).`);
+  }
+  const hands = c.hands !== undefined ? c.hands : draft.hands ?? null;   // 'clock' — outline files only (C38, lint §5m)
+  // 'clock' for every master, or { 20: 'clock', 16: 'clock' } for some (lint errors on the note where every hand keeps 1.5)
+  const handsAt = (m) => (hands && typeof hands === 'object' ? hands[m] ?? null : hands);
+  for (const v of hands && typeof hands === 'object' ? Object.values(hands) : [hands]) {
+    if (v && v !== 'clock') throw new Error(`${c.id}: hands: '${v}' is not a kind — a clock whose hands keep 1 of air to their ring is hands: 'clock', or { 20: 'clock', … } for some masters (C38, lint §5m).`);
   }
   const out = [];
   for (const m of masters) {
@@ -173,7 +187,7 @@ export function candidateFiles(draft, c, name) {
       if (fw === sw) throw new Error(`${c.id} at ${m}: filled.badge needs a filled weight heavier than ${sw} (filled.weight); at the outline weight the badge belongs in filled.stroke (C33).`);
     }
     out.push({ master: m, name, file: `${name}.svg`, filled: false,
-      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyphNote(false), box?.[m], null, gapFor(gap, m, false), anchor, [], null, [], base) });
+      src: svg(m, sw, keyline, note, [], o, tags, c.optical?.[m], glyphNote(false), box?.[m], null, gapFor(gap, m, false), anchor, [], null, [], base, null, handsAt(m)) });
     out.push({ master: m, name: `${name}-filled`, file: `${name}-filled.svg`, filled: true,
       src: svg(m, fw, keyline,
         `${c.label}, filled` + (f.fill?.length ? `: shapes filled${f.stroke?.length ? `, lines stay ${sw}` : ''}` : `: weight ${fw}, ends pulled in ${(fw - sw) / 2} so the ink box matches the outline${glyphs.length ? `, ${kind} stays at ${sw}` : ''}${badges.length ? `, badge stays at ${sw}` : ''}`),

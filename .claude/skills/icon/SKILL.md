@@ -86,6 +86,10 @@ export default {
     leg's cap to the shaft, less half of each weight (C37, 2026-10-24; lint §5l). The filled twin is
     where it goes: at the filled weight, in the same ink box, a head gives up 1.1–1.5 of the outline's
     air, so a small head (move's, expand's) shuts into a knob. Check it at every master, filled too.
+    **A clock's hands** keep **1** of air to their ring — the hand's tip, cap included, to the ring's
+    inner edge (C38, 2026-10-26; lint §5m): at 1.5 a clock badge's minute hand at 16 is a blob. Write
+    `hands: 'clock'` on the candidate (outline files only; a filled clock knocks its hands out), never a
+    file-wide `gap` for it: the note lowers the hands-to-ring pair alone, so the C33 cut keeps 1.5.
   - Stay on the quarter grid at 24 and 20 (`.25` / `.5` / `.75`, 2 decimal places). **At 16, draw
     on the eighth grid instead** — centrelines on `x.375` / `x.625` so outer edges stay on whole
     pixels — with at most 3 decimal places. Comment every decimal that corrects something.

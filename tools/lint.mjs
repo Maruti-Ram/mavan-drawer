@@ -3,8 +3,8 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, headAir, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
-import { CUT_CORNER, GLYPH_GAP, HEAD_GAP, MASTERS, MIN_GAP, NO_TWIN, PLAIN_SMALL, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, plainSmallWidth, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
+import { numbersIn, samplePath, bbox, parsePath, isDot, isSolidDot, isSolidStroke, ringHole, selfGap, materialGap, holeGap, facingGap, armTipGap, barGap, handAir, headAir, hiddenFills, insideAir, holeCorners, encloses, subpathsOf } from './geometry.mjs';
+import { CUT_CORNER, GLYPH_GAP, HAND_GAP, HEAD_GAP, MASTERS, MIN_GAP, NO_TWIN, PLAIN_SMALL, SIZE_STEP, SIZES, STATE_TWINS, bendMin, decimalsOf, gridName, gridOf, isFilled, markMax, plainSmallWidth, sizeBase, sizeOf, strokeOf, weightOf } from './masters.mjs';
 
 // Smallest distance from any sample of `a` to the polyline through `b`'s samples.
 function polyGap(a, b) {
@@ -103,7 +103,8 @@ export function parseGrowsNote(src) {
 // proximity checks below (path-vs-path in §5 and the tips of arms that cross there,
 // path-vs-itself in §5b, facing walls in §5f, the tips of arms traced as one filled shape in
 // §5h, the inside air of one closed shape in §5i) and for that file alone; C19's glyph pairs and a character's own arms keep GLYPH_GAP,
-// and a C33 badge keeps MIN_GAP. The material a knockout leaves (§5c) and the material between two
+// and a C33 badge keeps MIN_GAP. An arrowhead's legs (§5l, C37) and a clock's hands under `hands: clock` (§5m, C38) floor
+// at 1, which a lower note lowers and a higher one never raises. The material a knockout leaves (§5c) and the material between two
 // cut-outs (§5f) floor at the line weight, which the note lowers but never raises (2026-10-21).
 // Agreed by eye at approval (attachment-4-filled, 2026-09-20: the filled clip keeps all
 // four legs, so the path passes within 1.04 of itself at 24 and 1.0 at 20).
@@ -218,6 +219,27 @@ export function parseCornersNote(src) {
   const m = src.match(/<!--\s*corners:\s*([^>]*?)\s*-->/);
   if (!m) return null;
   return CORNERS_KINDS.includes(m[1]) ? { kind: m[1], raw: m[1] } : { raw: m[1], bad: true };
+}
+
+// C38's clock is declared per OUTLINE file as `<!-- hands: clock -->` (Maruti, 2026-10-26; §5m). One kind:
+//   clock    a ring with its hands drawn inside it (a clock badge on a file, a calendar, a mail): each
+//            hand's air to its ring floors at HAND_GAP, 1, instead of §6's 1.5 — that pair and no other.
+//            Lint finds the clock itself (`handAir`): a ring `ringHole` reads, and the open paths lying
+//            inside it. Every other pair in the file keeps MIN_GAP, or the file's `gap` note; a `gap`
+//            note lower than 1 lowers the hands' floor too, as it does C37's head air, and never raises it.
+// Outline files only: a filled clock knocks its hands out of a solid disc (clock-filled, every clock
+// badge drawn so far), so the hands are white and the ring is material; there is no hand-to-ring air,
+// and what the knockout leaves is §5c's and §5f's. Drafts write it with `hands: 'clock'` into the
+// outline files (draft-svg.mjs). Same spirit as `gap:` — it can never hide a mistake: a kind lint
+// cannot read, the note in a filled file, a file where lint finds no ring with a hand inside, and a
+// note the drawing does not need (every hand keeps 1.5 of its ring) are all ERRORS; while it is in
+// use an info line gives the tightest hand-to-ring air.
+// Returns null (no note), {kind, raw}, or {raw, bad: true}.
+export const HANDS_KINDS = ['clock'];
+export function parseHandsNote(src) {
+  const m = src.match(/<!--\s*hands:\s*([^>]*?)\s*-->/);
+  if (!m) return null;
+  return HANDS_KINDS.includes(m[1]) ? { kind: m[1], raw: m[1] } : { raw: m[1], bad: true };
 }
 
 // The floor itself is masters.mjs's CUT_CORNER, per master. A radius within 0.01 of it holds it (radii
@@ -387,6 +409,17 @@ export function lintSource(canvas, file, src) {
   } else if (squareCorners && !isFilledFile) {
     errors.push('only a `-filled` file may declare `corners:` — C1\'s floor reads the cut-outs of a filled drawing; an outline\'s panes keep their own inside corners');
     squareCorners = null;
+  }
+
+  // --- 0e. the clock-hands note (C38; §5 and §5m read it) -----------------------
+  // A note that is not usable is an error and is then ignored, so §5 reads the hands as any pair.
+  let hands = parseHandsNote(src);
+  if (hands?.bad) {
+    errors.push(`hands note "${hands.raw}" is not a kind lint knows — write <!-- hands: clock --> (a clock whose hands keep ${HAND_GAP} of air to their ring) (C38)`);
+    hands = null;
+  } else if (hands && isFilledFile) {
+    errors.push('only an outline file may declare `hands:` — a filled clock knocks its hands out of a solid disc, so there is no air between hand and ring to floor; what the knockout leaves is §5c\'s and §5f\'s (C38)');
+    hands = null;
   }
 
   // --- 1. root attributes -------------------------------------------------
@@ -618,6 +651,11 @@ export function lintSource(canvas, file, src) {
   // bends and T-joins are not judged, and nor is a short overhang whose cap sits inside its
   // neighbour's ink (store at 16). One reading per pair of paths, the tightest: judged in the
   // crossing branch below, and after the loop for a path that crosses itself. WARNINGS.
+  // C38 (`<!-- hands: clock -->`, 2026-10-26): a clock's hand and its ring are not read here — §5m
+  // reads that pair exactly (`handAir`) and floors it at HAND_GAP. Only that pair: a hand to another
+  // hand, a hand to anything outside its ring, and the ring to the rest of the drawing stay this loop's.
+  const clock = hands ? handAir(ds, W) : [];   // each path at its own weight
+  const handPairs = new Set(clock.map(({ ring, hand }) => `${Math.min(ring, hand)}/${Math.max(ring, hand)}`));
   const sampled = ds.map(samplePath);
   const spans = ds.map((d) => bbox([d]));
   const whole = ds.length ? bbox(ds) : null;
@@ -638,6 +676,7 @@ export function lintSource(canvas, file, src) {
   const crossed = (i, j) => { const t = armsAt.get(`${i}/${j}`); if (t) { armsAt.delete(`${i}/${j}`); judgeArms(t); } };
   const joined = new Set();   // pairs of paths §5 reads as crossing or touching, and so measures nothing between: 5j's
   for (let i = 0; i < sampled.length; i++) for (let j = i + 1; j < sampled.length; j++) {
+    if (handPairs.has(`${i}/${j}`)) continue;   // a clock's hand to its ring: §5m's (C38)
     const onBadge = !!inBadge[i] || !!inBadge[j], toBase = !!inBadge[i] !== !!inBadge[j];
     const met = `paths ${i + 1}/${j + 1} meet — C33 cuts the base back with ${MIN_GAP} of air from the badge's ink`;
     if (crosses(sampled[i], sampled[j])) { if (toBase) warnings.push(met); else { crossed(i, j); joined.add(`${i}/${j}`); } continue; } // paths that cross (x, plus) join by design; their arms' tips are judged, and a bar's air to the rest of the other (5j)
@@ -694,6 +733,35 @@ export function lintSource(canvas, file, src) {
     if (!onBadge && g < HEAD_GAP - 0.01) measured.push(r2(g));
     if (g < floor - 0.01)
       warnings.push(`path ${h + 1}'s arrowhead leaves ${r2(g)} of air between a leg and its shaft${h === t ? '' : ` (path ${t + 1})`} at ${at.join(',')} — ${noted ? `agreed gap ${gap.n}` : 'C37 head air'} needs ${floor}`);
+  }
+
+  // --- 5m. advisory: a clock's hands to their ring ---------------------------------
+  // (C38; Maruti, 2026-10-26.) Read only under `<!-- hands: clock -->`, in an outline file (0e). §5 left
+  // each hand-to-ring pair to this check, which reads it exactly with `handAir`: the hand's tip, round cap
+  // included, to the ring's inner edge, along the radius, less half of each path's own weight. It floors at
+  // HAND_GAP, 1 (a clock badge's hands at 1.5 shrink to a blob at 16), or at this file's agreed gap where
+  // that is lower — as §5l does with C37 — and nothing else in the file moves: §5 keeps every other pair.
+  // A reading feeds 5d's "is the gap note needed" only where the gap note does the work, under HAND_GAP.
+  // The note can never hide a mistake: with no ring holding a hand it is an ERROR, and with every hand
+  // 1.5 or more from its ring it is not needed, an ERROR; while it is in use an info line gives the
+  // tightest hand-to-ring air. One warning per hand. WARNINGS.
+  if (hands) {
+    if (!clock.length) {
+      errors.push(`declares <!-- hands: clock --> but lint finds no ring with a hand inside it — a ring is one closed circle written M…A…A…Z, a hand an open path lying inside it (C38); delete the note`);
+    } else {
+      const noted = gap && gap.n < HAND_GAP, floor = noted ? gap.n : HAND_GAP;
+      let tight = null;
+      for (const { ring, hand, gap: g, at } of clock) {
+        if (noted && g < HAND_GAP - 0.01) measured.push(r2(g));
+        if (!tight || g < tight.gap) tight = { gap: g, at };
+        if (g < floor - 0.01)
+          warnings.push(`path ${hand + 1}, a clock hand, leaves ${r2(g)} of air to its ring (path ${ring + 1}) at ${at.join(',')} — ${noted ? `agreed gap ${gap.n}` : 'C38 hand air'} needs ${floor}`);
+      }
+      if (tight.gap >= MIN_GAP - 0.01)
+        errors.push(`declares <!-- hands: clock --> but every hand keeps §6's ${MIN_GAP} from its ring (tightest ${r2(tight.gap)}) — the note is not needed; delete it`);
+      else
+        notes.splice(-1, 0, `clock hands to ring: tightest air ${r2(tight.gap)} at ${tight.at.join(',')} (C38, floor ${floor})`);
+    }
   }
 
   // --- 5b. advisory: a path coming too close to ITSELF ---------------------
@@ -993,7 +1061,7 @@ export function lintSource(canvas, file, src) {
 
   // --- 5d. is the agreed gap still doing anything? ------------------------
   // The note lowers the floor, so it has to earn its place: if nothing the checks above
-  // measure under it (§5 with its crossing arms, §5b, §5f, §5h, §5i, §5j and §5l) comes closer than §6's own floor, the drawing no longer needs it and
+  // measure under it (§5 with its crossing arms, §5b, §5f, §5h, §5i, §5j, §5l and §5m) comes closer than §6's own floor, the drawing no longer needs it and
   // the note is stale — an ERROR, so it is deleted rather than left to excuse a future
   // change nobody agreed. Otherwise it is in force, and says so the way `grows` does.
   if (gap) {

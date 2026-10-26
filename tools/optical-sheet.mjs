@@ -85,10 +85,11 @@ export const snapShift = (v, m) => { const g = gridOf(m); return Math.round(v / 
 // gap or box linted differently on the sheet than on its own board. `keyline`, `anchor` and `base` are
 // the sheet's own business: it moves the ink, which an anchored member or a composite's base may not.
 // `corners` (C1's `corners: 'square'`, 2026-10-24) travels too, with draft-svg's precedence: a
-// candidate's `corners: null` opts out of the board's.
-const NOTE_KEYS = ['glyph', 'badge', 'box', 'grows', 'gap', 'corners'];
+// candidate's `corners: null` opts out of the board's. So does C38's `hands: 'clock'` (2026-10-26).
+const NOTE_KEYS = ['glyph', 'badge', 'box', 'grows', 'gap', 'corners', 'hands'];
+const OPT_OUT = ['corners', 'hands'];   // a candidate's null opts out of the board's
 export const draftNotes = (draft, c) => Object.fromEntries(NOTE_KEYS
-  .map((k) => [k, k === 'corners' && c[k] !== undefined ? c[k] : c[k] ?? draft[k] ?? null]).filter(([, v]) => v != null));
+  .map((k) => [k, OPT_OUT.includes(k) && c[k] !== undefined ? c[k] : c[k] ?? draft[k] ?? null]).filter(([, v]) => v != null));
 
 // The same notes read off a shipped icon's six files: { [master]: { outline: src, filled: src } }.
 export function fileNotes(files) {
@@ -100,6 +101,8 @@ export function fileNotes(files) {
     out.badge ??= note(filled, 'badge') ?? undefined;
     const corners = note(filled, 'corners');                // filled files only, per master, as draft-svg writes it
     if (corners) put('corners', m, corners);
+    const hands = note(outline, 'hands');                   // outline files only, per master (C38)
+    if (hands) put('hands', m, hands);
     const box = note(outline, 'box')?.match(/^([\d.]+)\s*[x×]\s*([\d.]+)$/);
     if (box) put('box', m, [+box[1], +box[2]]);
     const grows = note(filled, 'grows');

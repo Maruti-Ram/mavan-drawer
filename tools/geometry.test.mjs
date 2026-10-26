@@ -4,11 +4,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { anatomy, armTipGap, barGap, facingGap, headAir, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
-import { checkAnchors, checkBases, checkFamilies, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseCornersNote, parseGapNote, parseGlyphNote, parseGrowsNote, stateShape } from './lint.mjs';
+import { anatomy, armTipGap, barGap, facingGap, handAir, headAir, hiddenFills, holeCorners, holeGap, insideAir, isSolidDot, isSolidStroke, materialGap, ringHole, selfGap } from './geometry.mjs';
+import { checkAnchors, checkBases, checkFamilies, checkPairs, checkTwins, comparePair, lintSource, offsetText, parseAnchorNote, parseBadgeNote, parseBaseNote, parseBoxNote, parseCornersNote, parseGapNote, parseGlyphNote, parseGrowsNote, parseHandsNote, stateShape } from './lint.mjs';
 import { candidateFiles, planArg } from './draft-svg.mjs';
 import {
-  CUT_CORNER, FILLED_WEIGHT, GLYPH_GAP, MASTERS, MIN_GAP, PLAIN_SMALL, STROKES, bendMin, decimalsFor, decimalsOf,
+  CUT_CORNER, FILLED_WEIGHT, GLYPH_GAP, HAND_GAP, MASTERS, MIN_GAP, PLAIN_SMALL, STROKES, bendMin, decimalsFor, decimalsOf,
   gridFor, gridNameFor, gridOf, plainSmallWidth, strokeOf, weightOf,
 } from './masters.mjs';
 
@@ -2593,4 +2593,144 @@ test('lint §5l: a head under C37\'s 1 warns, at the file\'s agreed gap where th
   // the head in one `d` with its shaft reads the same, and says no second path
   const one = lintSource(16, 'x-filled.svg', drawn(16, 2, [ROTATE_CCW_FILLED[16].ds.join('')]));
   assert.match(headWarn(one)[0] ?? '', /^path 1's arrowhead leaves 0\.67 of air between a leg and its shaft at [\d.,]+ — C37 head air needs 1$/);
+});
+
+// ── handAir (C38; Maruti, 2026-10-26) ─────────────────────────────────────────
+// A clock's hands keep 1 of air to their ring (HAND_GAP), that pair alone, in an outline file that
+// declares `<!-- hands: clock -->`; every other pair keeps §6's 1.5 or the file's gap note.
+const handWarn = (r) => r.warnings.filter((w) => /a clock hand/.test(w));
+// a test clock at 24: ring ⌀9.5 on the line (ink 11) round 12,12, the minute up and the hour at 3 in
+// one path; the minute's tip at 2.25 from the centre leaves 4.75 − 2.25 − 1.5 = 1 to the ring's inner edge
+const CLOCK_RING = 'M7.25 12A4.75 4.75 0 1 0 16.75 12A4.75 4.75 0 1 0 7.25 12Z';
+const clockAt = (minuteTip) => [CLOCK_RING, `M12 ${minuteTip}V12H13.5`];
+// file-clock D (lab/drafts/batch/file-clock.js, 2026-10-26): its hands keep 1 · 1 · 1.01, measured by hand
+const FILE_CLOCK_D = {
+  24: { w: 1.5, box: '18x20', air: 1, ds: ['M10.25 21.25H7.25A2.5 2.5 0 0 1 4.75 18.75V5.25A2.5 2.5 0 0 1 7.25 2.75H13.25L19.25 8.75', 'M13.25 2.75V7.25A1.5 1.5 0 0 0 14.75 8.75H19.25', 'M11.75 16.5A4.75 4.75 0 1 0 21.25 16.5A4.75 4.75 0 1 0 11.75 16.5Z', 'M16.5 14.25V16.5H18'] },
+  20: { w: 1.5, box: '14x16', air: 1, ds: ['M6.75 17.25A2 2 0 0 1 4.75 15.25V4.75A2 2 0 0 1 6.75 2.75H10.25L13.75 6.25', 'M10.25 2.75V6.5', 'M9.25 13.25A4 4 0 1 0 17.25 13.25A4 4 0 1 0 9.25 13.25Z', 'M13.25 11.75V13.25H14.25'] },
+  16: { w: 1.25, box: '12x14', air: 1.007, ds: ['M5.125 14.375A1.5 1.5 0 0 1 3.625 12.875V3.125A1.5 1.5 0 0 1 5.125 1.625H8.25L11.5 4.875', 'M8.25 1.625V4.75', 'M7.625 11A3.375 3.375 0 1 0 14.375 11A3.375 3.375 0 1 0 7.625 11Z', 'M10.5 10V11.5H11.5'] },
+};
+
+test('handAir: a hand\'s tip, cap included, to its ring\'s inner edge, along the radius', () => {
+  // the middle of the air: the cap's edge at 9.75 − 0.75 = 9, the ring's inner edge at 12 − 4 = 8
+  assert.deepEqual(handAir(clockAt(9.75), 1.5), [{ ring: 0, hand: 1, gap: 1, at: [12, 8.5], tip: [12, 9.75] }]);
+  near(handAir(clockAt(9.65), 1.5)[0].gap, 0.9, 0.001);
+  for (const [m, { w, ds, air }] of Object.entries(FILE_CLOCK_D)) {
+    assert.deepEqual(handAir(ds, w).map((h) => [h.ring, h.hand, h.gap]), [[2, 3, air]], `${m}: the clock badge, not the file`);
+  }
+  // the shipped full clock clears §6 on its own: 2.25 at 24, 1.75 at 16
+  near(handAir(['M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z', 'M12 6.5V12L14.75 14.75'], 1.5)[0].gap, 2.25, 0.001);
+  near(handAir(['M1.625 8A6.375 6.375 0 1 0 14.375 8A6.375 6.375 0 1 0 1.625 8Z', 'M8 4.625V8L9.625 9.625'], 1.25)[0].gap, 1.75, 0.001);
+  // each path at its own weight: 4.75 − 2.25 − (1.5 + 1.25) / 2
+  near(handAir(clockAt(9.75), [1.5, 1.25])[0].gap, 1.125, 0.001);
+  // a hand on an arc reads where the arc reaches farthest, not at its ends
+  near(handAir([CLOCK_RING, 'M10 12A2 2 0 0 1 14 12'], 1.5)[0].gap, 4.75 - 2 - 1.5, 0.001);
+});
+
+test('handAir: only an open path lying inside a ring is a hand; a hand belongs to its innermost ring', () => {
+  assert.deepEqual(handAir(['M12 12V5'], 1.5), [], 'no ring');
+  assert.deepEqual(handAir([CLOCK_RING, 'M12 12V5'], 1.5), [], 'a stroke crossing the ring is no hand');
+  assert.deepEqual(handAir([CLOCK_RING, 'M11.75 9.5A0.25 0.25 0 1 0 12.25 9.5A0.25 0.25 0 1 0 11.75 9.5Z'], 1.5), [], 'a closed dot is no hand');
+  assert.deepEqual(handAir([CLOCK_RING, 'M18 6V18'], 1.5), [], 'a stroke outside the ring is no hand');
+  // a cap reaching into the ring's ink is still a hand, and its air reads negative
+  near(handAir(clockAt(8.25), 1.5)[0].gap, -0.5, 0.001);
+  // two rings, one inside the other: the hand is read against the inner one only
+  const NESTED = ['M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z', CLOCK_RING, 'M12 9.75V12H13.5'];
+  assert.deepEqual(handAir(NESTED, 1.5).map((h) => [h.ring, h.hand, h.gap]), [[1, 2, 1]]);
+  // a ring written with relative arcs is not one `ringHole` reads, so there is no clock to find
+  assert.deepEqual(handAir(['M7.25 12a4.75 4.75 0 1 0 9.5 0a4.75 4.75 0 1 0 -9.5 0Z', 'M12 9.75V12H13.5'], 1.5), []);
+});
+
+test('lint §5m: under <!-- hands: clock --> a hand at 1 from its ring passes, under 1 it warns; without the note §6 still asks 1.5', () => {
+  assert.equal(HAND_GAP, 1);
+  const at1 = lintSource(24, 'clock-test.svg', drawn(24, 1.5, clockAt(9.75), { notes: ['keyline: mark', 'hands: clock'] }));
+  assert.deepEqual([at1.errors, at1.warnings], [[], []]);
+  assert.ok(at1.notes.includes('clock hands to ring: tightest air 1 at 12,8.5 (C38, floor 1)'), at1.notes.join(' | '));
+  const at09 = lintSource(24, 'clock-test.svg', drawn(24, 1.5, clockAt(9.65), { notes: ['keyline: mark', 'hands: clock'] }));
+  assert.deepEqual(at09.errors, []);
+  assert.deepEqual(handWarn(at09), ['path 2, a clock hand, leaves 0.9 of air to its ring (path 1) at 12,8.45 — C38 hand air needs 1']);
+  // the same drawing at 1 without the note: §5 reads the pair as any other, at §6's 1.5
+  const bare = lintSource(24, 'clock-test.svg', drawn(24, 1.5, clockAt(9.75)));
+  assert.deepEqual(bare.warnings, ['paths 1/2 are 2.5 apart — §6 needs 3 (edge gap 1 < 1.5)']);
+  // file-clock D at every master: clean under the note alone, with its box and base; warned without it
+  for (const [m, { w, box, ds }] of Object.entries(FILE_CLOCK_D)) {
+    const under = lintSource(+m, 'file-clock.svg', drawn(+m, w, ds, { notes: [`box: ${box}`, 'base: file', 'hands: clock'] }));
+    assert.deepEqual([under.errors, under.warnings], [[], []], `${m}: ${under.warnings.join(' | ')}`);
+    assert.ok(under.notes.some((n) => /^clock hands to ring: tightest air 1(\.01)? at [\d.,]+ \(C38, floor 1\)$/.test(n)), `${m}: ${under.notes.join(' | ')}`);
+    const without = lintSource(+m, 'file-clock.svg', drawn(+m, w, ds, { notes: [`box: ${box}`, 'base: file'] }));
+    assert.match(without.warnings.join(' | '), /^paths 3\/4 are [\d.]+ apart — §6 needs [\d.]+ \(edge gap 1(\.01)? < 1\.5\)$/, `${m}`);
+  }
+});
+
+test('lint §5m: a hand near its ring lowers no other pair in the file', () => {
+  // a wall outside the ring 1 from its ink (19.25 − 0.75 − 17.5), and a dot inside it 0.75 from its inner edge
+  // (its centreline reaches 2.25 + 0.25 from the centre: 4.75 − 2.5 − 1.5)
+  const WALL = 'M19.25 9V15', DOT = 'M11.75 14.25A0.25 0.25 0 1 0 12.25 14.25A0.25 0.25 0 1 0 11.75 14.25Z';
+  const r = lintSource(24, 'clock-test.svg', drawn(24, 1.5, [...clockAt(9.75), WALL, DOT], { notes: ['keyline: mark', 'hands: clock'] }));
+  assert.deepEqual(r.errors, []);
+  assert.deepEqual(handWarn(r), [], 'the hand at 1 holds C38');
+  const pairs = r.warnings.filter((w) => /^paths /.test(w));
+  assert.ok(pairs.includes('paths 1/3 are 2.5 apart — §6 needs 3 (edge gap 1 < 1.5)'), pairs.join(' | '));
+  assert.ok(pairs.includes('paths 1/4 are 2.25 apart — §6 needs 3 (edge gap 0.75 < 1.5)'), pairs.join(' | '));
+  // nor does it lower the file's gap note: under `gap: 1.25` the wall still warns against 1.25
+  const noted = lintSource(24, 'clock-test.svg', drawn(24, 1.5, [...clockAt(9.75), WALL], { notes: ['keyline: mark', 'hands: clock', 'gap: 1.25'] }));
+  assert.ok(noted.warnings.includes('paths 1/3 are 2.5 apart — agreed gap 1.25 needs 2.75 (edge gap 1 < 1.25)'), noted.warnings.join(' | '));
+  assert.deepEqual(handWarn(noted), [], 'a gap note above 1 never raises the hands\' floor');
+});
+
+test('lint §5m: a gap note lower than 1 lowers the hands\' floor; the hands note replaces a file-wide gap note', () => {
+  const low = lintSource(24, 'clock-test.svg', drawn(24, 1.5, clockAt(9.55), { notes: ['keyline: mark', 'hands: clock', 'gap: 0.75'] }));
+  assert.deepEqual([low.errors, handWarn(low)], [[], []], low.warnings.join(' | '));
+  assert.ok(low.notes.includes('agreed gap 0.75 — smallest measured 0.8'), low.notes.join(' | '));
+  assert.ok(low.notes.includes('clock hands to ring: tightest air 0.8 at 12,8.4 (C38, floor 0.75)'), low.notes.join(' | '));
+  const under = lintSource(24, 'clock-test.svg', drawn(24, 1.5, clockAt(9.45), { notes: ['keyline: mark', 'hands: clock', 'gap: 0.75'] }));
+  assert.deepEqual(handWarn(under), ['path 2, a clock hand, leaves 0.7 of air to its ring (path 1) at 12,8.35 — agreed gap 0.75 needs 0.75']);
+  // with the hands note, a `gap: 1` the drawing kept only for its hands has nothing left to do
+  const both = lintSource(16, 'file-clock.svg', drawn(16, 1.25, FILE_CLOCK_D[16].ds, { notes: ['box: 12x14', 'base: file', 'hands: clock', 'gap: 1'] }));
+  assert.match(both.errors.join(' '), /declares gap 1 but nothing in this drawing comes within §6's 1\.5 \(smallest measured 1\.52\) — the note is not needed; delete it/);
+});
+
+test('lint §5m: <!-- hands: clock --> unreadable, in a filled file, with no clock, or not needed, is an ERROR', () => {
+  assert.deepEqual(parseHandsNote('<!-- hands: clock -->'), { kind: 'clock', raw: 'clock' });
+  assert.deepEqual(parseHandsNote('<!-- hands: watch -->'), { raw: 'watch', bad: true });
+  assert.equal(parseHandsNote('<svg/>'), null);
+  const bad = lintSource(24, 'clock-test.svg', drawn(24, 1.5, clockAt(9.75), { notes: ['keyline: mark', 'hands: watch'] }));
+  assert.match(bad.errors.join(' '), /hands note "watch" is not a kind lint knows/);
+  assert.equal(bad.warnings.length, 1, 'an unreadable note is ignored, so §6 reads the hand');
+  const filled = lintSource(24, 'clock-test-filled.svg', drawn(24, 2.5, clockAt(9.75), { notes: ['keyline: mark', 'hands: clock'] }));
+  assert.match(filled.errors.join(' '), /only an outline file may declare `hands:`/);
+  const none = lintSource(24, 'clock-test.svg', drawn(24, 1.5, ['M12 9.75V12H13.5'], { notes: ['keyline: mark', 'hands: clock'] }));
+  assert.match(none.errors.join(' '), /declares <!-- hands: clock --> but lint finds no ring with a hand inside it/);
+  const roomy = lintSource(24, 'clock.svg', drawn(24, 1.5, ['M2.75 12A9.25 9.25 0 1 0 21.25 12A9.25 9.25 0 1 0 2.75 12Z', 'M12 6.5V12L14.75 14.75'], { notes: ['hands: clock'] }));
+  assert.deepEqual(roomy.errors, ['declares <!-- hands: clock --> but every hand keeps §6\'s 1.5 from its ring (tightest 2.25) — the note is not needed; delete it']);
+});
+
+test('draft-svg writes `hands: \'clock\'` into the outline files only; the board\'s is overridden by `hands: null`; per master; any other kind throws (C38)', () => {
+  const D = FILE_CLOCK_D, plate = (m) => ({ 24: RBOX(3, 3, 21, 21, 2.5), 20: RBOX(3, 3, 17, 17, 2.25), 16: RBOX(2, 2, 14, 14, 1.75) })[m];
+  const c = { id: 'D', label: 'clock lighter', hands: 'clock',
+    masters: { 24: D[24].ds, 20: D[20].ds, 16: D[16].ds },
+    filled: { 24: { fill: [plate(24)] }, 20: { fill: [plate(20)] }, 16: { fill: [plate(16)] } } };
+  const board = { box: { 24: [18, 20], 20: [14, 16], 16: [12, 14] }, base: 'file' };
+  const out = candidateFiles(board, c, 'file-clock');
+  assert.ok(out.filter((f) => !f.filled).every((f) => f.src.includes('  <!-- hands: clock -->')));
+  assert.ok(out.filter((f) => f.filled).every((f) => !f.src.includes('hands:')), 'a filled clock has its hands knocked out');
+  // what draft-svg writes, lint reads
+  for (const f of out.filter((f) => !f.filled)) {
+    const r = lintSource(f.master, f.file, f.src);
+    assert.deepEqual([r.errors, r.warnings], [[], []], `${f.master}: ${r.warnings.join(' | ')}`);
+    assert.ok(r.notes.some((n) => /^clock hands to ring: /.test(n)), `${f.master}`);
+  }
+  assert.ok(candidateFiles({ ...board, hands: 'clock' }, { ...c, hands: undefined }, 'file-clock').filter((f) => !f.filled).every((f) => f.src.includes('hands: clock')), 'board-level');
+  assert.ok(candidateFiles({ ...board, hands: 'clock' }, { ...c, hands: null }, 'file-clock').every((f) => !f.src.includes('hands:')), 'a candidate opts out');
+  const some = candidateFiles(board, { ...c, hands: { 20: 'clock', 16: 'clock' } }, 'file-clock');
+  assert.deepEqual(some.filter((f) => f.src.includes('hands: clock')).map((f) => f.file === 'file-clock.svg' && f.master), [20, 16]);
+  assert.throws(() => candidateFiles(board, { ...c, hands: 'watch' }, 'file-clock'), /hands: 'watch' is not a kind/);
+});
+
+test('optical-sheet: C38\'s hands note travels, per master from the outline files, and a candidate\'s null opts out', async () => {
+  const { draftNotes, fileNotes } = await import('./optical-sheet.mjs');
+  assert.deepEqual(draftNotes({ hands: 'clock' }, {}), { hands: 'clock' });
+  assert.deepEqual(draftNotes({ hands: 'clock' }, { hands: null }), {});
+  const file = (notes) => `<svg>\n${notes.map((n) => `  <!-- ${n} -->`).join('\n')}\n</svg>\n`;
+  assert.deepEqual(fileNotes({ 24: { outline: file([]), filled: file([]) }, 20: { outline: file(['hands: clock']), filled: file([]) }, 16: { outline: file(['hands: clock']), filled: file([]) } }),
+    { hands: { 20: 'clock', 16: 'clock' } });
 });
