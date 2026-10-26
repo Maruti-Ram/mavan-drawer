@@ -2,7 +2,7 @@
 
 Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). Wave 2 has not started. To resume: Maruti's three inputs below, then cards 2.1 and 2.3 together, 2.2 after them.
 
-**Waiting on Maruti before wave 2:** (a) the size-rule pick on `/lab/size-rule.html` (2.4); (b) the `mavan` npm org (1.4); (c) the sheet rulings under Results, card 1.3 (categories, the seven unmarked variants, the "V3 Other badges" label). Brainstormed 2026-10-26 (seven questions, all answered —
+**Waiting on Maruti before wave 2:** the `mavan` npm org (1.4) — needed by 2.1's `npm pack` name, nothing else. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
 `plans/proof-outline/`; reviewed by a fresh agent the same day (numbers re-measured, owners fixed).
 
@@ -13,7 +13,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [ ] 2.1 The box: `@mavan/icons`
 - [ ] 2.2 The React package: `@mavan/icons-react`
 - [ ] 2.3 The licence and the README
-- [ ] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`, 20 icons × 14–32 px both ways, real pixels at 1× and 2×; **Maruti's pick pending**
+- [x] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`; **picked 2026-10-26: the master at or below the size, scaled up** (Maruti, taking the recommendation); recorded in CLAUDE.md Settled and docs/01 §9
 - [ ] 3.1 Installed and looked at, as a customer
 - [ ] 3.2 Fresh review
 - [ ] 3.3 1.0.0 cut: names frozen, tarballs built, decisions recorded

@@ -529,3 +529,13 @@ Fixed for every icon in the library:
   transform
 
 The linter (`node tools/lint.mjs`) checks all of this mechanically.
+
+## 9. The size rule for a consumer (2026-10-26)
+
+Three masters are drawn, 24 · 20 · 16, and a consumer renders at any size. The rule, picked on
+`lab/size-rule.html` (Maruti, 2026-10-26; `plans/shipping.md` card 2.4): **use the master at or
+below the size, scaled up.** 16 serves 16 to 19 px, 20 serves 20 to 23, 24 serves 24 and everything
+above; below 16 the 16 master is scaled down, there being nothing smaller. A larger master is never
+scaled down to a smaller size — its 1.5 line thins and its gaps close, which is what the smaller
+masters exist to avoid. The React package's thresholds and the box's README state this rule; the
+Settled table in `CLAUDE.md` holds it.
