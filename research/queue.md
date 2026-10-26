@@ -1137,7 +1137,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 442. `eye-check` · Users & Access · variant of `eye` — approved 2026-10-25
 - [x] 443. `file-attachment` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 444. `mail-follow-up` · Communication · variant of `mail` — approved 2026-10-25
-- [~] 445. `shield-pending` · V3 Other badges · variant of `shield`
+- [x] 445. `shield-pending` · V3 Other badges · variant of `shield` — approved 2026-10-26
 - [x] 446. `user-exit` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 447. `user-segment` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
