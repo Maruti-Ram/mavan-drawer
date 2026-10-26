@@ -1,0 +1,20 @@
+// node summarise.mjs <approach> — reads out/full/<approach>.*.json
+import fs from 'node:fs'; import path from 'node:path'; import { HERE } from './measure.mjs';
+const name = process.argv[2];
+const all = Object.assign({}, ...fs.readdirSync(path.join(HERE, 'out/full')).filter(f => f.startsWith(name + '.') && f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(path.join(HERE, 'out/full', f)))));
+const rows = Object.entries(all), ok = rows.filter(([, r]) => !r.error), err = rows.filter(([, r]) => r.error);
+const q = (a, p) => a.sort((x, y) => x - y)[Math.min(a.length - 1, Math.floor(p * a.length))];
+const ms = ok.map(([, r]) => r.ms), geo = ok.filter(([, r]) => r.geoErr != null).map(([k, r]) => [k, r.geoErr]);
+console.log(`${name}: ${rows.length} files, ${err.length} errors`);
+err.slice(0, 8).forEach(([k, r]) => console.log('  ERR', k, r.error));
+console.log(`ink vs exact: max ${Math.max(...ok.map(([, r]) => r.inkVsIdeal))}; >0.005: ${ok.filter(([, r]) => r.inkVsIdeal > 0.005).length}; 2dp mismatch vs icons.json: ${ok.filter(([, r]) => r.inkMatch2dp === false).length} (of which icons.json itself ≠ exact: ${ok.filter(([, r]) => r.inkMatch2dp === false && r.idealMatch2dp === false).length})`);
+console.log(`geo err (${geo.length} files): p50 ${q(geo.map(g => g[1]), .5)} p99 ${q(geo.map(g => g[1]), .99)} max ${Math.max(...geo.map(g => g[1]))}; >0.001: ${geo.filter(g => g[1] > 0.001).length}; >0.01: ${geo.filter(g => g[1] > 0.01).length}`);
+geo.sort((a, b) => b[1] - a[1]).slice(0, 6).forEach(g => console.log('  worst geo', g[0], g[1]));
+const gross = ok.filter(([, r]) => r.px96.gross > 0 || r.px24.gross > 0);
+console.log(`raster gross pixels (>128/255 off): ${gross.length} files`); gross.slice(0, 8).forEach(([k, r]) => console.log('  gross', k, r.px24.gross, r.px96.gross, 'max', r.px96.max));
+console.log(`px96 max diff p50 ${q(ok.map(([, r]) => r.px96.max), .5)} p99 ${q(ok.map(([, r]) => r.px96.max), .99)}`);
+console.log(`conv ms: mean ${(ms.reduce((a, b) => a + b, 0) / ms.length).toFixed(2)} p99 ${q(ms, .99)} max ${Math.max(...ms)} total ${(ms.reduce((a, b) => a + b, 0) / 1000).toFixed(1)}s`);
+const slow = ok.sort((a, b) => b[1].ms - a[1].ms).slice(0, 4); slow.forEach(([k, r]) => console.log('  slow', k, r.ms));
+const by = (f) => ok.reduce((a, [, r]) => a + f(r), 0);
+console.log(`points out/src ${(by(r => r.points) / by(r => r.srcPoints)).toFixed(2)}×, bytes out/src ${(by(r => r.bytes) / by(r => r.srcBytes)).toFixed(2)}×, maxDecimals ${Math.max(...ok.map(([, r]) => r.maxDecimals))}`);
+const cmd = {}; ok.forEach(([, r]) => Object.entries(r.cmds).forEach(([k, v]) => cmd[k] = (cmd[k] || 0) + v)); console.log('cmds', JSON.stringify(cmd));
