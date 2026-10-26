@@ -1,10 +1,12 @@
 # Plan: the shipping pipeline (2026-10-26)
 
-Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag); wave 1 in build. Brainstormed 2026-10-26 (seven questions, all answered —
+Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). Wave 2 has not started. To resume: Maruti's three inputs below, then cards 2.1 and 2.3 together, 2.2 after them.
+
+**Waiting on Maruti before wave 2:** (a) the size-rule pick on `/lab/size-rule.html` (2.4); (b) the `mavan` npm org (1.4); (c) the sheet rulings under Results, card 1.3 (categories, the seven unmarked variants, the "V3 Other badges" label). Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
 `plans/proof-outline/`; reviewed by a fresh agent the same day (numbers re-measured, owners fixed).
 
-- [ ] 1.1 The outliner
+- [x] 1.1 The outliner — merged 2026-10-26 (Fable; reviewed by a fresh Opus agent with an independent renderer, one leak fixed on review): `tools/outline.mjs`, 0 wrong pixels in 7,860 files
 - [x] 1.2 Metrics made correct — merged 2026-10-26 (Fable, reviewed by a fresh Fable agent, second pass on its two findings); the ⌘ reading is an open question for Maruti, under Results
 - [x] 1.3 The package's index — built 2026-10-26 (Opus): `node tools/package-meta.mjs` → `dist/meta.json`, 1310 entries = the sheet's 1310 approved rows, 458 families; the sheet's findings are under Results
 - [ ] 1.4 The name on npm (Maruti)
@@ -282,3 +284,38 @@ twin whose C22 band sits one stroke from a flat outline edge (`archive-filled` w
 3.84). It is one constant (`JUMP`, `tools/optical.mjs`) either way; the comment there names both
 readings. Not blocking: a board of `command` beside `plus` and `archive` when the optical model is
 next tuned (CLAUDE.md Open item 3).
+
+### Card 1.1 (2026-10-26)
+
+`tools/outline.mjs`: `await outline(svgText, { master })` returns the outlined-fill SVG the box ships —
+every stroked path offset exactly by our own pen (a line stays a line, an arc stays an arc, round
+caps and joins), merged by Skia's PathOps, written back as true arcs at 3 dp; filled areas pass
+through; a `glyph` or `badge` path keeps its own weight; the root is `<svg xmlns viewBox
+fill="currentColor">` with one evenodd path and no comment, stroke, transform, group or id. `await
+check(src, out)` is the raster gate (the exact reference against Skia's rendering); the CLI converts
+one file or runs `--check [names…]` over the set on all cores.
+
+Full run, 7,860 files: **0 wrong pixels; every ink box equal to the source's exact ink to 2 dp;** the
+224 curve-fallback files (Skia's stroker at precision 256) worst 0.0013 at the edge
+(`24/currency-convert`); 12 files whose corner arc misses tangency by up to 0.0086 because of the
+drawing's own 2-dp rounding (`20/gear`, `20/automation`, `24/bookmarks-4`), invisible at any raster.
+The proof's five wrong files were four PathOps weaknesses fixed generally (near-coincident circles
+snapped to a registry, coincident arcs split at the same angles, zero-width inner contours dropped
+under 0.02, the arc writer rebuilt on point tests); no name is special-cased. Conversion is 7 ms a
+file; the exact reference in `check` is the slow part (about 0.3 s a file, 18 min for the set on 14
+workers).
+
+Review (Opus, independent renderer resvg, 38 files at 24 · 48 · 96 px against its own flattened
+reference): no pixel differs by 96/255 or more anywhere, worst antialiased edges on `pound`
+(71/255); hygiene clean on all 7,860 outputs; rings keep their holes, dots stay solid. **One bug
+found and fixed before the commit:** the Skia surfaces were freed with `.delete()`, which leaves
+their pixel buffers, so one process grew to 2.1 GB and died near its 900th file; `.dispose()` keeps
+it flat (150 MB over 400 conversions, measured). Noted for card 2.1's polish, not blocking: 262
+outputs carry zero-length segments after rounding (`H7.996H7.996`), 22 carry stray `Q` segments
+without a curve fallback, `16/chevrons-down-2` has degenerate joins — dropping zero-length segments
+in `clean()` fixes the first two; and a future `fill="currentColor"` path without `stroke="none"`
+would have its stroke dropped silently (every one of the 4,645 today carries it).
+
+Also seen in review, for the record: resvg, like Skia, leaves a pinhole in a dot drawn smaller than
+its pen (`16/calculator`, `16/more-horizontal-filled` in the stroked source); the outlined output is
+solid. Card 3.1's Chrome check still stands.
