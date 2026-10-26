@@ -11,5 +11,8 @@
     "check": "npm run build && npm run lint",
     "audit": "node tools/audit.mjs",
     "queue": "node tools/queue.mjs"
+  },
+  "devDependencies": {
+    "canvaskit-wasm": "0.42.0"
   }
 }
