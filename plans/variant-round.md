@@ -255,7 +255,7 @@ Shipped icons from this round that met the rules but read weakly somewhere, or c
 - `check-double` filled 16: the second tick keeps only its bend plus 0.27 of leg.
 - `scan-face-2` filled 16: one gap at 1.44.
 - `calendar-days`: six day dots at 24, two at 20 and 16.
-- `camera-flip-3` (S1): being redrawn so its two arrows hold at 20 and 16.
+- `camera-flip-2` (S2c, shipped 2026-10-26): at 20 the inner leg end nearly meets the side wall (1.06, one grey pixel); at 16 the heads are small and the lens is lens-led; the filled twin is much lighter than `camera-flip-filled`. No `camera-flip-3` — Maruti dropped the other variants.
 - Still open: `eye-closed` (B: two or three lashes at 16; three recommended). Not shipped: `camera-flip` S3, S4, S5.
 
 From V2 (wrapped; all 23 rows shipped as 25 icons):
