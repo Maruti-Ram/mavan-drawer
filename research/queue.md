@@ -1070,6 +1070,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 401. `note-plus` · Files & Folders · variant of `note` — approved 2026-10-25
 - [x] 402. `sort-ascending` · UI & Layout · variant of `sort` — approved 2026-09-29
 - [x] 403. `camera-flip` · Media & Playback · variant of `camera` — approved 2026-10-25
+- [x] 403. `camera-flip-2` · Media & Playback · variant of `camera-flip` — S2c: Arrow frame, ring lens · approved 2026-10-26
 - [x] 404. `credit-card-x` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
 - [x] 405. `keyboard-off` · Devices & Hardware · variant of `keyboard` — approved 2026-10-25
 - [x] 405. `keyboard-off-2` · Devices & Hardware · variant of `keyboard-off` — Bar moved 1 right, 1 up, wired · approved 2026-10-25
