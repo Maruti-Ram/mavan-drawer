@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <!-- tags: important, priority, notched, gmail, material -->
-  <!-- Important label, filled: shapes filled -->
-  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="M3.74 4H12A2 2 0 0 1 13.42 4.59L17.42 8.59A2 2 0 0 1 17.42 11.41L13.42 15.41A2 2 0 0 1 12 16H3.74A1.75 1.75 0 0 1 2.51 13.01L5.52 10L2.51 6.99A1.75 1.75 0 0 1 3.74 4Z"/>
+  <!-- Important label, filled: shapes filled. Notch arcs end at 2.52 (not 2.51): the true arc extreme then sits at x 2.00, not 1.995 past the margin; the tip follows to keep 45° (2026-10-26) -->
+  <path fill="currentColor" fill-rule="evenodd" stroke="none" d="M3.74 4H12A2 2 0 0 1 13.42 4.59L17.42 8.59A2 2 0 0 1 17.42 11.41L13.42 15.41A2 2 0 0 1 12 16H3.74A1.75 1.75 0 0 1 2.52 13.01L5.53 10L2.52 6.99A1.75 1.75 0 0 1 3.74 4Z"/>
 </svg>
