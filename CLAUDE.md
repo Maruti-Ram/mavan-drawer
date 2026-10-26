@@ -92,7 +92,7 @@ lint overhaul, a docs rewrite, a new lab surface — starts with a plan document
 ## Picking up
 
 **Open builds live in `plans/`.** Before starting or approving any icon, read every plan there whose
-Status has unticked boxes — it says what is in flight and what is on hold (2026-10-26: `plans/shipping.md` is open — the shipping pipeline, nodded 2026-10-26, wave 1 in build; 2026-10-17: `plans/plan-view.md` is open — in build since 2026-10-17; `plans/lint-currency-fixes.md` is merged but holds a deferred list of shipped icons with tight spots (2026-10-22);
+Status has unticked boxes — it says what is in flight and what is on hold (2026-10-26: `plans/shipping.md` is open — the shipping pipeline, nodded 2026-10-26; wave 1 built and closed the same day, **stopped there on Maruti's word (credits)**: wave 2 waits on his size-rule pick, the npm org and the sheet rulings listed in the plan; 2026-10-17: `plans/plan-view.md` is open — in build since 2026-10-17; `plans/lint-currency-fixes.md` is merged but holds a deferred list of shipped icons with tight spots (2026-10-22);
 `plans/set-and-rules-audit.md` is closed except deferred card 5.1 and the agenda rulings in progress (sitting A done 2026-10-17);
 `plans/facing-gap.md` is closed — lint §5f measures the air inside one path and in filled drawings, and white
 cut out of a filled shape holds 1.5 at 16; `plans/stroke-16.md` is closed — the 16 master draws at 1.25 (C7) and
@@ -288,6 +288,9 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/draft-svg.mjs` | one candidate → the six SVG texts it ships as; shared by `queue.mjs` and `draft-check.mjs` so a check and an approval cannot drift |
 | `tools/draft-check.mjs` | `node tools/draft-check.mjs <draft.js> [id…]` — lints a draft's candidates in a temp directory with the whole of `npm run check` (root weight, grid, keyline, gaps, C8 family, the filled-vs-outline ink box) and prints both ink boxes per master. Writes nothing |
 | `tools/audit.mjs` | ranks concepts across Polaris / Nucleo / Lucide → `research/ranked.md` |
+| `tools/outline.mjs` | the outliner (`plans/shipping.md` card 1.1, 2026-10-26): `outline(svgText, {master})` turns a stroked drawing into the outlined-fill SVG the box ships — our own pen offsets lines and arcs exactly, Skia PathOps (`canvaskit-wasm`) unions them, true arcs at 3 dp, one evenodd path, no comments or strokes; `check()` is the raster gate; `node tools/outline.mjs in.svg [out.svg]` or `--check [names…]` over the set (0 wrong pixels in 7,860 files). `node --test tools/outline.test.mjs` |
+| `tools/package-meta.mjs` | the box's index (card 1.3): `dist/meta.json` from the sheet and the files — per icon name, category, section, variantOf, family, tags, mvp, styles, masters, approved; families under their base; prints the rows with no category and the untagged icons |
+| `tools/size-sheet.mjs` | writes `lab/size-rule.js` for `lab/size-rule.html` (card 2.4): twenty icons at every size 14–32, the master below scaled up beside the master above scaled down, real pixels — Maruti's pick there becomes the size rule |
 | `tools/optical-sheet.mjs` | **optical placement (C14) template**: `node tools/optical-sheet.mjs <shape>… [--rec <shape>=<x>:<y>] [--xs …] [--ys …]` measures each shape's (x, y) recommendation (end-triangle offset × 0.5) and writes a grid of positions around it to the board; view on **`/lab/optical-shift.html`** (plain sheet: the mark in its canvas outline at 24 · 20 · 16, menu row, inline, 40 square/circle, 32 · 28 buttons; shipped and recommended rows tagged) |
 
 `dist/metrics.json` is the differentiator: per-icon ink box, **geometric**
