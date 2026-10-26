@@ -1033,14 +1033,14 @@ Bases before their variants; within that, highest evidence first.
 - [x] 370. `phone-incoming` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 371. `phone-outgoing` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 372. `calendar-check` · Time & Calendar · variant of `calendar` — approved 2026-10-25
-- [x] 373. `calendar-clock` · V3 Other badges · variant of `calendar` — approved 2026-10-26
+- [x] 373. `calendar-clock` · Time & Calendar · variant of `calendar` — approved 2026-10-26
 - [x] 374. `chevron-down-circle` · Arrows & Direction · variant of `chevron-down` — approved 2026-10-25
 - [x] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left` — approved 2026-10-25
 - [x] 376. `chevron-right-circle` · Arrows & Direction · variant of `chevron-right` — approved 2026-10-25
 - [x] 377. `chevron-up-circle` · Arrows & Direction · variant of `chevron-up` — approved 2026-10-25
 - [x] 378. `clipboard-list` · Files & Folders · variant of `clipboard` — approved 2026-10-20
 - [x] 379. `database-plus` · Charts & Data · variant of `database` — approved 2026-10-25
-- [x] 380. `file-clock` · V3 Other badges · variant of `file` — approved 2026-10-26
+- [x] 380. `file-clock` · Files & Folders · variant of `file` — approved 2026-10-26
 - [x] 381. `file-heart` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 382. `image-plus` · Files & Folders · variant of `image` — approved 2026-10-25
 - [x] 383. `text-color` · Editing & Text · variant of `text` — approved 2026-10-25
@@ -1137,7 +1137,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 442. `eye-check` · Users & Access · variant of `eye` — approved 2026-10-25
 - [x] 443. `file-attachment` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 444. `mail-follow-up` · Communication · variant of `mail` — approved 2026-10-25
-- [x] 445. `shield-pending` · V3 Other badges · variant of `shield` — approved 2026-10-26
+- [x] 445. `shield-pending` · Users & Access · variant of `shield` — approved 2026-10-26
 - [x] 446. `user-exit` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 447. `user-segment` · Users & Access · variant of `user` — approved 2026-10-25
 - [x] 448. `credit-card-percent` · Commerce & Payments · variant of `credit-card` — approved 2026-10-25
@@ -1198,47 +1198,47 @@ Bases before their variants; within that, highest evidence first.
 
 Icons asked for while drawing, in the order they were asked. Not in the audit ranking.
 
-- [x] 488. `info-circle-2` — added 2026-09-17 · approved 2026-09-18
-- [x] 489. `info-circle-3` — added 2026-09-17 · approved 2026-09-18
-- [x] 490. `help-circle-4` — added 2026-09-18 · approved 2026-10-21
-- [x] 491. `volume-minus` — added 2026-09-26 · approved 2026-09-26
-- [x] 492. `volume-plus` — added 2026-09-26 · approved 2026-09-26
-- [x] 493. `layout-sidebar` — added 2026-09-26 · approved 2026-09-26
-- [x] 493. `layout-sidebar-2` · variant of `layout-sidebar` — Third, solid sidebar · approved 2026-09-26
-- [x] 493. `layout-sidebar-3` · variant of `layout-sidebar` — Third, solid page · approved 2026-09-26
-- [x] 493. `layout-sidebar-4` · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
-- [x] 495. `sort-3` — added 2026-10-03 · approved 2026-10-03
-- [x] 496. `sort-alpha-ascending` — added 2026-10-03 · approved 2026-10-03
-- [x] 496. `sort-alpha-ascending-3` · variant of `sort-alpha-ascending` — characters left, lines right · approved 2026-10-03
-- [x] 497. `sort-numeric-ascending` — added 2026-10-03 · approved 2026-10-20
-- [x] 497. `sort-numeric-ascending-2` · variant of `sort-numeric-ascending` — lines left, characters right · approved 2026-10-20
-- [x] 497. `sort-numeric-ascending-3` · variant of `sort-numeric-ascending` — characters left, lines right · approved 2026-10-20
-- [x] 498. `sort-numeric-descending` — added 2026-10-03 · approved 2026-10-20
-- [x] 498. `sort-numeric-descending-2` · variant of `sort-numeric-descending` — lines left, characters right · approved 2026-10-20
-- [x] 498. `sort-numeric-descending-3` · variant of `sort-numeric-descending` — characters left, lines right · approved 2026-10-20
-- [x] 499. `sort-alpha-ascending-2` — added 2026-10-03 · approved 2026-10-03
-- [x] 500. `layout-sidebar-right` — added 2026-10-03 · approved 2026-10-03
-- [x] 500. `layout-sidebar-right-2` · variant of `layout-sidebar-right` — Third, solid sidebar · approved 2026-10-03
-- [x] 500. `layout-sidebar-right-3` · variant of `layout-sidebar-right` — Third, solid page · approved 2026-10-03
-- [x] 500. `layout-sidebar-right-4` · variant of `layout-sidebar-right` — Detached sidebar box · approved 2026-10-03
+- [x] 488. `info-circle-2` · Status & Feedback · variant of `info-circle` — added 2026-09-17 · approved 2026-09-18
+- [x] 489. `info-circle-3` · Status & Feedback · variant of `info-circle` — added 2026-09-17 · approved 2026-09-18
+- [x] 490. `help-circle-4` · Status & Feedback · variant of `help-circle` — added 2026-09-18 · approved 2026-10-21
+- [x] 491. `volume-minus` · Media & Playback · variant of `volume` — added 2026-09-26 · approved 2026-09-26
+- [x] 492. `volume-plus` · Media & Playback · variant of `volume` — added 2026-09-26 · approved 2026-09-26
+- [x] 493. `layout-sidebar` · UI & Layout — added 2026-09-26 · approved 2026-09-26
+- [x] 493. `layout-sidebar-2` · UI & Layout · variant of `layout-sidebar` — Third, solid sidebar · approved 2026-09-26
+- [x] 493. `layout-sidebar-3` · UI & Layout · variant of `layout-sidebar` — Third, solid page · approved 2026-09-26
+- [x] 493. `layout-sidebar-4` · UI & Layout · variant of `layout-sidebar` — Detached sidebar box · approved 2026-09-26
+- [x] 495. `sort-3` · UI & Layout · variant of `sort` — added 2026-10-03 · approved 2026-10-03
+- [x] 496. `sort-alpha-ascending` · UI & Layout — added 2026-10-03 · approved 2026-10-03
+- [x] 496. `sort-alpha-ascending-3` · UI & Layout · variant of `sort-alpha-ascending` — characters left, lines right · approved 2026-10-03
+- [x] 497. `sort-numeric-ascending` · UI & Layout — added 2026-10-03 · approved 2026-10-20
+- [x] 497. `sort-numeric-ascending-2` · UI & Layout · variant of `sort-numeric-ascending` — lines left, characters right · approved 2026-10-20
+- [x] 497. `sort-numeric-ascending-3` · UI & Layout · variant of `sort-numeric-ascending` — characters left, lines right · approved 2026-10-20
+- [x] 498. `sort-numeric-descending` · UI & Layout — added 2026-10-03 · approved 2026-10-20
+- [x] 498. `sort-numeric-descending-2` · UI & Layout · variant of `sort-numeric-descending` — lines left, characters right · approved 2026-10-20
+- [x] 498. `sort-numeric-descending-3` · UI & Layout · variant of `sort-numeric-descending` — characters left, lines right · approved 2026-10-20
+- [x] 499. `sort-alpha-ascending-2` · UI & Layout · variant of `sort-alpha-ascending` — added 2026-10-03 · approved 2026-10-03
+- [x] 500. `layout-sidebar-right` · UI & Layout — added 2026-10-03 · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-2` · UI & Layout · variant of `layout-sidebar-right` — Third, solid sidebar · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-3` · UI & Layout · variant of `layout-sidebar-right` — Third, solid page · approved 2026-10-03
+- [x] 500. `layout-sidebar-right-4` · UI & Layout · variant of `layout-sidebar-right` — Detached sidebar box · approved 2026-10-03
 - [x] 501. `repeat-once` · Arrows & Direction · variant of `repeat` — added 2026-10-17 · approved 2026-10-18
 - [x] 502. `calendar-repeat` · Time & Calendar · variant of `calendar` — added 2026-10-17 · approved 2026-10-18
 - [x] 502. `calendar-repeat-2` · Time & Calendar · variant of `calendar-repeat` — Badge proud, one head · approved 2026-10-18
-- [x] 503. `plane-2` — added 2026-10-18 · approved 2026-10-18
-- [x] 504. `plane-3` — added 2026-10-18 · approved 2026-10-18
+- [x] 503. `plane-2` · Maps & Location · variant of `plane` — added 2026-10-18 · approved 2026-10-18
+- [x] 504. `plane-3` · Maps & Location · variant of `plane` — added 2026-10-18 · approved 2026-10-18
 - [x] 505. `cloud-download` · Development & Infra · variant of `cloud` — held from the download board (candidate E, 2026-10-18): draw it with cloud so the cloud is settled once; draft in lab/drafts/archive/cloud-download.js · approved 2026-10-23
 - [x] 505. `cloud-download-2` · Development & Infra · variant of `cloud-download` — Cloud-2, arrow out the bottom · approved 2026-10-23
 - [x] 505. `cloud-download-3` · Development & Infra · variant of `cloud-download` — Cloud-3, arrow out the bottom · approved 2026-10-23
-- [x] 506. `wheelchair` — added 2026-10-19 · approved 2026-10-19
-- [x] 506. `wheelchair-3` · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
-- [x] 506. `wheelchair-2` · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
-- [x] 507. `hierarchy` — added 2026-10-20 · approved 2026-10-20
+- [x] 506. `wheelchair` · Users & Access — added 2026-10-19 · approved 2026-10-19
+- [x] 506. `wheelchair-3` · Users & Access · variant of `wheelchair` — Arm swept back, 30° lean · approved 2026-10-19
+- [x] 506. `wheelchair-2` · Users & Access · variant of `wheelchair` — No arm, 30° lean · approved 2026-10-19
+- [x] 507. `hierarchy` · Development & Infra — added 2026-10-20 · approved 2026-10-20
 - [x] 508. `user-headphones` · Communication · variant of `headphones` — added 2026-10-20 · approved 2026-10-20
-- [x] 509. `input` — added 2026-10-20 · approved 2026-10-20
-- [x] 510. `windows` — added 2026-10-20 · approved 2026-10-20
-- [x] 511. `tooltip` — added 2026-10-20 · approved 2026-10-20
-- [x] 512. `password-lock` — added 2026-10-20 · approved 2026-10-20
-- [x] 513. `list-todo` — added 2026-10-20 · approved 2026-10-20
+- [x] 509. `input` · UI & Layout — added 2026-10-20 · approved 2026-10-20
+- [x] 510. `windows` · UI & Layout — added 2026-10-20 · approved 2026-10-20
+- [x] 511. `tooltip` · UI & Layout — added 2026-10-20 · approved 2026-10-20
+- [x] 512. `password-lock` · UI & Layout · variant of `password` — added 2026-10-20 · approved 2026-10-20
+- [x] 513. `list-todo` · Editing & Text — added 2026-10-20 · approved 2026-10-20
 - [x] 526. `credit-card-contactless` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 527. `phone-contactless` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
 - [x] 528. `badge-check` · Commerce & Payments — added 2026-10-21 · approved 2026-10-21
