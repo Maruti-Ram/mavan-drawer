@@ -1107,7 +1107,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 422. `chart-bar-trend` · Charts & Data · variant of `chart-bar` — approved 2026-10-25
 - [x] 422. `chart-bar-trend-2` · Charts & Data · variant of `chart-bar-trend` — Trend arrow over rising bars, no floor · approved 2026-10-25
 - [x] 424. `check-double` · UI & Layout · variant of `check` — approved 2026-10-25
-- [~] 425. `eye-closed` · V5 Other variants · variant of `eye`
+- [x] 425. `eye-closed` · Users & Access · variant of `eye` — approved 2026-10-26
 - [x] 426. `face-smile-plus` · Communication · variant of `face-smile` — approved 2026-10-25
 - [x] 427. `file-check` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 428. `folder-open` · Files & Folders · variant of `folder` — approved 2026-10-25
