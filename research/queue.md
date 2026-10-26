@@ -1033,7 +1033,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 370. `phone-incoming` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 371. `phone-outgoing` · Communication · variant of `phone` — approved 2026-10-25
 - [x] 372. `calendar-check` · Time & Calendar · variant of `calendar` — approved 2026-10-25
-- [~] 373. `calendar-clock` · V3 Other badges · variant of `calendar`
+- [x] 373. `calendar-clock` · V3 Other badges · variant of `calendar` — approved 2026-10-26
 - [x] 374. `chevron-down-circle` · Arrows & Direction · variant of `chevron-down` — approved 2026-10-25
 - [x] 375. `chevron-left-circle` · Arrows & Direction · variant of `chevron-left` — approved 2026-10-25
 - [x] 376. `chevron-right-circle` · Arrows & Direction · variant of `chevron-right` — approved 2026-10-25
