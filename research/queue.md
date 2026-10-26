@@ -1040,7 +1040,7 @@ Bases before their variants; within that, highest evidence first.
 - [x] 377. `chevron-up-circle` · Arrows & Direction · variant of `chevron-up` — approved 2026-10-25
 - [x] 378. `clipboard-list` · Files & Folders · variant of `clipboard` — approved 2026-10-20
 - [x] 379. `database-plus` · Charts & Data · variant of `database` — approved 2026-10-25
-- [~] 380. `file-clock` · V3 Other badges · variant of `file`
+- [x] 380. `file-clock` · V3 Other badges · variant of `file` — approved 2026-10-26
 - [x] 381. `file-heart` · Files & Folders · variant of `file` — approved 2026-10-25
 - [x] 382. `image-plus` · Files & Folders · variant of `image` — approved 2026-10-25
 - [x] 383. `text-color` · Editing & Text · variant of `text` — approved 2026-10-25
