@@ -66,7 +66,7 @@ written); the release takes the sheet's count on the day, never a number from th
   a seat-based licence that forbids resale, and updates. None sells per-size drawn masters (Fluent and
   Heroicons do it, free) and none ships optical metrics.
 
-### The proof (`plans/proof-outline/`, 2026-10-26, Opus)
+### The proof (`plans/proof-outline/`, 2026-10-26, Opus — retired 2026-10-27 as card 1.1 asked; its scripts are in git at 44aac0e)
 
 Terms used below: a *stroker* turns a line of a given weight into the shape of its ink; *Skia* is the
 drawing engine inside Chrome, available to Node as `canvaskit-wasm`, and its *PathOps* merges shapes;
