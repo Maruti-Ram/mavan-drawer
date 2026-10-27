@@ -1,6 +1,6 @@
 # Plan: the shipping pipeline (2026-10-26)
 
-Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **Wave 3 started 2026-10-27** on Maruti's word ("start wave 3 in cloud"): 3.1 in build, 3.2 after it; 3.3 (the 1.0.0 cut) needs his nod on the looked-at box and the licence and names rulings in the wave 2 report under Results.
+Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **Wave 3 started 2026-10-27** on Maruti's word ("start wave 3 in cloud"): 3.1 done; `stack-3` retired on his ruling; 3.2 in review; 3.3 (the 1.0.0 cut) needs his nod on the looked-at box and the licence and names rulings in the wave 2 report under Results.
 
 **Still open on Maruti, not blocking:** the `mavan` npm org (1.4). Wave 2 packs under `@mavan/icons` and `@mavan/icons-react` without it (`npm pack` needs no org), but **the name is not reserved yet** — reserve it before a customer types it. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
@@ -14,7 +14,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [x] 2.2 The React package: `@mavan/icons-react` — built 2026-10-27 (Opus; reviewed by a fresh Fable agent with a release and checks of its own): every icon renders at 16 · 20 · 24 from the tarball, 0 differing pixels against the box in Chromium, no stroked source in it
 - [x] 2.3 The licence and the README — drafted 2026-10-27 (Sonnet; reviewed by a fresh Fable agent, nine edits): `packages/templates/`, 24 `[Maruti]` decisions listed under Results
 - [x] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`; **picked 2026-10-26: the master at or below the size, scaled up** (Maruti, taking the recommendation); recorded in CLAUDE.md Settled and docs/01 §9
-- [ ] 3.1 Installed and looked at, as a customer
+- [x] 3.1 Installed and looked at, as a customer — 2026-10-27 (Sonnet): every icon, both styles, 16 · 20 · 24 at 1× and 2× in Chromium against the lab's drawing; the only real differences are the lab's pinholes (hollow dots the box draws solid) — Maruti to look in his own Chrome
 - [ ] 3.2 Fresh review
 - [ ] 3.3 1.0.0 cut: names frozen, tarballs built, decisions recorded
 - [ ] Next pass, not this one: Figma components and assets (Maruti, 2026-10-26) · the shop and token
@@ -188,7 +188,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
 
 ### Wave 3 — prove
 
-- [ ] **3.1 Installed and looked at, as a customer.** *Owns:* `plans/proof-install/`. A throwaway
+- [x] **3.1 Installed and looked at, as a customer.** *Owns:* `plans/proof-install/`. A throwaway
   project installs both tarballs from the zip, renders every icon at 16 · 20 · 24 outline and filled
   in the browser pane, and compares each against the lab's rendering of the stroked source pixel for
   pixel in Chrome; also settles the pinhole question (do dots under half a stroke show a hole in Chrome
@@ -222,6 +222,46 @@ works without a tarball. A public showcase page from the Library.
 
 ## Results
 
+### Card 3.1 (2026-10-27)
+
+`plans/proof-install/` (Sonnet; rerun: `npm run release`, then `node plans/proof-install/run.mjs`, about
+9 minutes). A real release first (no flags: 7,860 files, every gate, 267 s), the zip unzipped and both
+tarballs installed into a throwaway app exactly as the README says — its install lines and React lines
+work as written. Then every name, outline and filled, at 16 · 20 · 24, at 1× and 2× (15,720 icon
+drawings a side, 31.2 M pixels), the customer's React component against the stroked source drawn the
+way the Library draws it, in Chromium 153, one page per kind at the same positions. Controls (the lab
+twice, React twice, React against the installed `.svg`, inline against `<img>`): **0 differing pixels**
+— so the React package and the shipped files draw identically.
+
+| Customer against the lab | Pixels |
+|---|---|
+| identical | 30,265,499 (96.9%) |
+| differ by 1–127 of 255 — edge smoothing of a stroke against its outlined fill | 963,165 |
+| **differ by more than 127** (the 1.1 gate's "wrong") | **1,736**, in 276 drawings of 119 names |
+
+The 1,736, by cause (every one listed in `out/compare.json`, a crop each in `out/diffs/`, the worst on
+`plans/proof-install/diffs.png`):
+- **Pinholes, 1,701 pixels, 95 names:** every one lighter in the lab, at the centre of a dot drawn as a
+  stroked circle smaller than its pen (or inside a thin loop). The box draws them solid.
+- **One junction pixel, 35 pixels in 25 drawings** (`eye-filled`, `lock-4-filled`, `refresh`…, 1–2 each,
+  largest 188, none black against white). Drawn 16× larger both ways, the two agree to 8 of 255, and in
+  23 of 25 the box's pixel is the nearer to the truth: the stroke renderer's rounding, not missing ink.
+
+**The pinhole question, settled for Chromium:** in its default renderer **the lab draws every dot smaller
+than its pen as a ring** — the dot's centre is lighter by a third or more for 474 of the set's 729 such
+dots at 1× and 651 at 2×, fully empty (255) for 97 at 2×, and empty for all of them drawn at 4× and 8×.
+`more-horizontal-filled` at 24: centre 55 in the lab, 0 in the box at 1×; 188 against 0 at 2×. The box
+draws every one solid, as the drawing means (a circle smaller than its pen paints a full disc). So
+**customers get solid dots; the Library may have been showing Maruti rings** — the `i` and `!` dots of
+`info-circle`, `alert-circle`, `help-circle`, the dotted frame of `select-2`, the bullets, grids, loaders,
+drag handles, and the keys and windows of `calculator`, `server`, `building`. With Chromium's GPU path
+(emulated here, no GPU) the rings mostly close at 2× and some remain at 1×: it depends on the renderer,
+so only Maruti's own Chrome can say what he saw.
+
+Not covered here: Firefox and Safari (not on this machine), the scaled sizes between masters by eye, a
+real Vite or Next.js app, and `--gate`.
+
+
 ### Wave 2 report (2026-10-27)
 
 **Shipped to the branch** `claude/focused-noether-4uv2b2` (pushed; not merged, not tagged, nothing
@@ -229,7 +269,7 @@ published): `npm run release` now builds the whole box from the sheet — the do
 and the two npm tarballs `@mavan/icons` and `@mavan/icons-react` — with the README and a licence draft
 inside. On the last full run: 7,860 outlined files (2 styles × 3 masters × 1,310 names), no stroke
 anywhere, none of the stroked source in the box or the React package; the box's tarball 2.95 MB, the
-React tarball 3.0 MB, the zip 8.7 MB; a release takes about 4½ minutes on this 4-core machine (most of it
+React tarball 3.0 MB, the zip 11.75 MB with both tarballs inside (8.7 MB before the React one); a release takes about 4½ minutes on this 4-core machine (most of it
 the check and the outliner). In React, `<Check size={16} />` draws the 16 master; an app that uses only
 `Check` carries about 2 KB of it.
 
