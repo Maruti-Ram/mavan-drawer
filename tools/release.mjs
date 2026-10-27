@@ -47,7 +47,9 @@
 //   c  2 × 3 × the sheet's approved rows files, and the shipped names are the approved names exactly
 //   d  metrics.json and icons.json hold exactly the shipped names at every master; metrics.json's ink box is the
 //      exact ink rounded to 2 dp
-//   e  the tarball and the zip hold exactly the expected entries; the zip passes `unzip -t`
+//   e  the tarball and the zip hold exactly the expected entries; the zip passes `unzip -t`; the README and LICENSE
+//      name no tarball the download lacks (`unbuiltTarballs`: a run without tools/gen-react.mjs is refused while the
+//      README names mavan-icons-react-<v>.tgz), dev runs included
 //   with --gate, the raster gate: 0 wrong pixels against the exact reference in every file
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, copyFileSync, utimesSync, openSync, closeSync } from 'node:fs';
 import { join, dirname, relative, resolve } from 'node:path';
@@ -109,6 +111,19 @@ export const fillTemplate = (text, vars) => text.replace(/\{\{([^{}]*)\}\}/g, (a
 export const marutiMarks = (text) => (text.match(/\[Maruti/g) || []).length;
 /** How a count reads in the README: 1,310. */
 export const count = (n) => n.toLocaleString('en-US');
+/** A tarball's file name as a text writes it (`./mavan-icons-0.0.1.tgz` names mavan-icons-0.0.1.tgz); a bare `.tgz`
+ *  names none. */
+const TGZ = /[A-Za-z0-9][\w.+-]*\.tgz\b/g;
+/** The tarballs a filled README or LICENSE names that are not among `built`, each with the lines naming it: the box
+ *  must never contradict its README (a release without card 2.2's tool would still find mavan-icons-react-<v>.tgz
+ *  in the download layout and the install line). [{ tarball, lines }], in the order the text first names them. */
+export function unbuiltTarballs(text, built) {
+  const have = new Set(built), out = new Map();
+  text.split('\n').forEach((l, i) => {
+    for (const t of l.match(TGZ) ?? []) if (!have.has(t)) { if (!out.has(t)) out.set(t, []); if (out.get(t).at(-1) !== i + 1) out.get(t).push(i + 1); }
+  });
+  return [...out].map(([tarball, lines]) => ({ tarball, lines }));
+}
 
 // ── the lock ────────────────────────────────────────────────────────────────────────────────────────────────────
 // packages/names.lock is the ledger of every name the box has shipped from 1.0.0 on: one section per release that
@@ -605,6 +620,12 @@ async function main(argv) {
     if (g.status !== 0) failWith(`${GEN_REACT} failed (exit ${g.status}):`, `${g.stdout}${g.stderr}`.trim().split('\n').slice(-20));
     tarballs.push(pack(REACT, folder, null, failWith));
   });
+  // gate e, the README's side: the README and LICENSE as written name only tarballs the download folder holds, so a
+  // run that skipped one (no tools/gen-react.mjs) refuses instead of shipping a README that installs a missing file
+  const built = readdirSync(folder).filter((f) => f.endsWith('.tgz')).sort(byCode);
+  const unbuilt = ['README.md', 'LICENSE.md'].flatMap((f) => unbuiltTarballs(readFileSync(at(PKG, f), 'utf8'), built)
+    .map((u) => `${f} names ${u.tarball} (line${u.lines.length > 1 ? 's' : ''} ${u.lines.join(', ')})`));
+  if (unbuilt.length) failWith(`the box would contradict its README: ${unbuilt.length === 1 ? 'a tarball it names is' : `${unbuilt.length} tarballs it names are`} not in the download (built: ${built.join(', ') || 'none'}); build it, or take it out of the template:`, unbuilt);
 
   // 8. the download folder and the zip
   let zipEntries = 0;
@@ -630,7 +651,7 @@ async function main(argv) {
   const total0 = performance.now() - t0;
   console.log(`  gates      a no strokes: ${count(total)} files, 0 stroked paths, 0 stroke attributes · b ink box = exact to 2 dp: worst ${worstBox.toFixed(4)}`
     + ` · c ${count(total)} = 2 × 3 × ${count(rows.length)} · d JSON: every name at every master, metrics ink worst ${worstMetric.toFixed(4)} off exact`
-    + ` · e tarball ${tarballs.map((t) => `${t.file} ${count(t.entries)} entries`).join(', ')}, zip ${count(zipEntries)} entries, unzip -t clean`
+    + ` · e tarball ${tarballs.map((t) => `${t.file} ${count(t.entries)} entries`).join(', ')}, README and LICENSE name no other, zip ${count(zipEntries)} entries, unzip -t clean`
     + (raster ? ` · raster 0 wrong pixels, largest difference ${worstPixel}/255` : ' · raster gate not run (--gate)'));
   console.log(`  sizes      folder ${mb(sizeOf(folder))} (svg ${mb(sizeOf(join(folder, 'svg')))}, icons.json ${mb(sizeOf(join(folder, 'icons.json')))}, metrics.json ${mb(sizeOf(join(folder, 'metrics.json')))}, meta.json ${mb(sizeOf(join(folder, 'meta.json')))})`
     + ` · ${tarballs.map((t) => `${t.file} ${mb(t.size)}`).join(' · ')} · zip ${mb(statSync(zip).size)}`);

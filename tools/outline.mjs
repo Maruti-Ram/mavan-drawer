@@ -439,13 +439,23 @@ const r3 = (v) => { const s = (Math.round(v * 1000) / 1000).toFixed(3).replace(/
 /** How far a curve's control point may stand off its chord and still be the chord at 3 dp: half a rounding cell's
  *  diagonal, the most rounding moves any written point. */
 const FLAT = 0.0005 * Math.SQRT2;
-const offChord = (p, a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy); return l < 1e-12 ? Math.hypot(p[0] - a[0], p[1] - a[1]) : Math.abs(dx * (p[1] - a[1]) - dy * (p[0] - a[0])) / l; };
+/** A control point's distance to the chord a–b as a segment — the projection clamped to its ends — never to the
+ *  chord's whole line: a curve that doubles back along its own line (`M0 0Q10 0 1 0` runs out to x 5.26 and back to
+ *  1) has its control point on that line but 9 past the chord's end, and stays a curve. With every control point
+ *  within FLAT of the segment, the curve (inside their hull) is within FLAT of it too, so the chord loses no ink. */
+const offChord = (p, a, b) => {
+  const dx = b[0] - a[0], dy = b[1] - a[1], l2 = dx * dx + dy * dy;
+  if (l2 < 1e-24) return Math.hypot(p[0] - a[0], p[1] - a[1]);
+  const t = Math.min(1, Math.max(0, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / l2));
+  return Math.hypot(p[0] - a[0] - t * dx, p[1] - a[1] - t * dy);
+};
 /** Re-emit from the normalised segments: absolute M/L/H/V/A/C/Q/Z, 3 dp, arcs over 90° split, no space it does not
  *  need. A step the 3-dp output cannot see is left out, which changes no rendering: one whose written end is its
  *  written start (`H7.996H7.996` once a near-tangent join rounds; a degenerate conic's quads), and a subpath of
- *  nothing else. A curve whose control points all lie within FLAT of its written chord is written as the chord:
- *  PathOps hands back a sliver of a circle as a quad now and then (crown-4's 0.003-long `Q`), and a sampled conic's
- *  flattest quads are lines at this precision (card 2.1's polish, 2026-10-27). */
+ *  nothing else. A curve whose control points all lie within FLAT of its written chord, the segment (`offChord`), is
+ *  written as the chord: PathOps hands back a sliver of a circle as a quad now and then (crown-4's 0.003-long `Q`),
+ *  and a sampled conic's flattest quads are lines at this precision (card 2.1's polish, 2026-10-27; measured to the
+ *  segment since its review, the same day). */
 export function clean(d) {
   let o = '';
   const j = (...n) => n.map(r3).join(' ').replace(/ -/g, '-');

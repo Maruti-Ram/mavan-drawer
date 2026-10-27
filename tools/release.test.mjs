@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import { outline } from './outline.mjs';
 import {
   parseVersion, compareVersions, frozen, placeholders, fillTemplate, marutiMarks, parseLock, formatLock, lockProblems,
-  extendLock, changelog, paint, shippedProblems, shippedFiles, trimMetrics,
+  extendLock, changelog, paint, shippedProblems, shippedFiles, trimMetrics, unbuiltTarballs,
 } from './release.mjs';
 
 test('versions: semver precedence, frozen from 1.0.0', () => {
@@ -34,6 +34,23 @@ test('templates: exactly the known keys are filled, anything else is left to be 
 });
 
 const LOCK = { sections: [], names: new Map(), problems: [] };
+
+test('the README names only tarballs the box holds: a skipped one is found, with its lines', () => {
+  const readme = fillTemplate(readFileSync(new URL('../packages/templates/README.md', import.meta.url), 'utf8'), { version: '0.0.1', icons: '448', names: '1,310' });
+  const both = ['mavan-icons-0.0.1.tgz', 'mavan-icons-react-0.0.1.tgz'];
+  assert.deepEqual(unbuiltTarballs(readme, both), [], 'both built: nothing to refuse');
+  const skipped = unbuiltTarballs(readme, ['mavan-icons-0.0.1.tgz']);
+  assert.deepEqual(skipped.map((u) => u.tarball), ['mavan-icons-react-0.0.1.tgz'], 'no React tool: its tarball is named and missing');
+  assert.ok(skipped[0].lines.length >= 2, `the layout and the install line (lines ${skipped[0].lines})`);
+  for (const n of skipped[0].lines) assert.match(readme.split('\n')[n - 1], /mavan-icons-react-0\.0\.1\.tgz/);
+  const text = 'download/\n  mavan-icons-0.0.1.tgz\n  mavan-icons-react-0.0.1.tgz\nnpm install ./mavan-icons-react-0.0.1.tgz ./mavan-icons-react-0.0.1.tgz\nthe `.tgz` files, ./old-0.0.0.tgz';
+  assert.deepEqual(unbuiltTarballs(text, ['mavan-icons-0.0.1.tgz']), [
+    { tarball: 'mavan-icons-react-0.0.1.tgz', lines: [3, 4] },
+    { tarball: 'old-0.0.0.tgz', lines: [5] },
+  ], 'each missing name once, its lines once each; a bare `.tgz` names nothing; a path names its file');
+  assert.deepEqual(unbuiltTarballs(text, []).map((u) => u.tarball), ['mavan-icons-0.0.1.tgz', 'mavan-icons-react-0.0.1.tgz', 'old-0.0.0.tgz'], 'nothing built: every name refused');
+  assert.deepEqual(unbuiltTarballs('# Licence\nNo tarball here.', []), []);
+});
 
 test('the lock: written from the sheet, extended under a new version, never losing a name', () => {
   const a = extendLock(LOCK, ['check', 'check-2', 'x'], '1.0.0', '2026-11-01');

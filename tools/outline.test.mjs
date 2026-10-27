@@ -119,6 +119,10 @@ test('clean leaves out the steps 3 dp cannot see and writes a flat curve as its 
   assert.equal(clean('M1 1L1.0001 1ZM2 2H4V4Z'), 'M2 2H4V4Z', 'a subpath of nothing');
   assert.equal(clean('M0 0Q5 5 10 0'), 'M0 0Q5 5 10 0', 'a real curve stays');
   assert.equal(clean('M0 0C0 0.002 10 0.002 10 0'), 'M0 0C0 0.002 10 0.002 10 0', 'a shallow curve 0.002 off its chord stays');
+  // flatness is measured to the chord as a segment, not its line: a curve that doubles back along its own line keeps its ink
+  assert.equal(clean('M0 0Q10 0 1 0L1 5'), 'M0 0Q10 0 1 0V5', 'a quad running out to 5 and back to 1 stays a curve');
+  assert.equal(clean('M0 0C-5 0 10 0 1 0L1 5'), 'M0 0C-5 0 10 0 1 0V5', 'a cubic overshooting both ends of its chord stays a curve');
+  assert.equal(clean('M0 0Q0.5 0.0003 1 0L1 5'), 'M0 0H1V5', 'a control point within FLAT of the segment is still the chord');
 });
 
 test('the polish: no zero-length step and no stray curve where the source has none', async () => {
