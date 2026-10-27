@@ -436,17 +436,28 @@ function toSVG(cmds) {
 // ── 3 dp ────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 const r3 = (v) => { const s = (Math.round(v * 1000) / 1000).toFixed(3).replace(/\.?0+$/, ''); return s === '-0' ? '0' : s; };
-/** Re-emit from the normalised segments: absolute M/L/H/V/A/C/Q/Z, 3 dp, arcs over 90° split, no space it does not need. */
+/** How far a curve's control point may stand off its chord and still be the chord at 3 dp: half a rounding cell's
+ *  diagonal, the most rounding moves any written point. */
+const FLAT = 0.0005 * Math.SQRT2;
+const offChord = (p, a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy); return l < 1e-12 ? Math.hypot(p[0] - a[0], p[1] - a[1]) : Math.abs(dx * (p[1] - a[1]) - dy * (p[0] - a[0])) / l; };
+/** Re-emit from the normalised segments: absolute M/L/H/V/A/C/Q/Z, 3 dp, arcs over 90° split, no space it does not
+ *  need. A step the 3-dp output cannot see is left out, which changes no rendering: one whose written end is its
+ *  written start (`H7.996H7.996` once a near-tangent join rounds; a degenerate conic's quads), and a subpath of
+ *  nothing else. A curve whose control points all lie within FLAT of its written chord is written as the chord:
+ *  PathOps hands back a sliver of a circle as a quad now and then (crown-4's 0.003-long `Q`), and a sampled conic's
+ *  flattest quads are lines at this precision (card 2.1's polish, 2026-10-27). */
 export function clean(d) {
   let o = '';
   const j = (...n) => n.map(r3).join(' ').replace(/ -/g, '-');
+  const R = (p) => [Number(r3(p[0])), Number(r3(p[1]))];
+  const same = (p, q) => p[0] === q[0] && p[1] === q[1];
   for (const { segs, closed, start } of normalise(d)) {
-    if (!segs.length) continue;
-    o += 'M' + j(...start);
+    let cur = R(start), body = '';
+    const line = (e) => { const q = R(e); if (same(q, cur)) return; body += q[1] === cur[1] ? 'H' + r3(q[0]) : q[0] === cur[0] ? 'V' + r3(q[1]) : 'L' + j(...q); cur = q; };
     segs.forEach((s, i) => {
       if (closed && i === segs.length - 1 && s.t === 'L') return; // Z draws it
       const [x0, y0] = s.p[0], [x1, y1] = s.p[s.p.length - 1];
-      if (s.t === 'L') o += r3(y0) === r3(y1) ? 'H' + r3(x1) : r3(x0) === r3(x1) ? 'V' + r3(y1) : 'L' + j(x1, y1);
+      if (s.t === 'L') line([x1, y1]);
       else if (s.t === 'A') {
         // A half-circle arc is ill-conditioned once its ends are rounded (the centre moves by √(2rε)): split every arc over 90° into pieces of 90° or less.
         const k = arcInfo(x0, y0, s.rx, s.ry, s.rot, s.fa, s.fs, x1, y1);
@@ -454,12 +465,16 @@ export function clean(d) {
         for (let q = 1; q <= n; q++) {
           const t = k.t1 + (k.dt * q) / n, px = Math.cos(t) * k.rx, py = Math.sin(t) * k.ry;
           const ex = q === n ? x1 : k.cos * px - k.sin * py + k.cx, ey = q === n ? y1 : k.sin * px + k.cos * py + k.cy;
-          o += 'A' + j(s.rx, s.ry, s.rot) + ` 0 ${s.fs} ` + j(ex, ey);
+          const e = R([ex, ey]); if (same(e, cur)) continue; // SVG draws nothing for an arc whose ends coincide
+          body += 'A' + j(s.rx, s.ry, s.rot) + ` 0 ${s.fs} ` + j(ex, ey); cur = e;
         }
-      } else if (s.t === 'C') o += 'C' + j(...s.p[1], ...s.p[2], ...s.p[3]);
-      else if (s.t === 'Q') o += 'Q' + j(...s.p[1], ...s.p[2]);
+      } else { // C or Q
+        const e = R([x1, y1]);
+        if (s.p.slice(1, -1).every((c) => offChord(R(c), cur, e) <= FLAT + 1e-9)) { line([x1, y1]); return; }
+        body += s.t + j(...s.p.slice(1).flat()); cur = e;
+      }
     });
-    if (closed) o += 'Z';
+    if (body) o += 'M' + j(...start) + body + (closed ? 'Z' : '');
   }
   return o;
 }

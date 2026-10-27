@@ -110,3 +110,33 @@ test('clean writes 3 dp, splits arcs over 90° and never writes -0', () => {
   assert.equal(clean('M2 12A10 10 0 0 1 22 12'), 'M2 12A10 10 0 0 1 12 2A10 10 0 0 1 22 12');
   assert.equal(clean('M1 1L1 5L5 5Z'), 'M1 1V5H5Z');
 });
+
+test('clean leaves out the steps 3 dp cannot see and writes a flat curve as its chord', () => {
+  assert.equal(clean('M1 1H7.9961H7.9962V3Z'), 'M1 1H7.996V3Z', 'a line that rounds to nothing');
+  assert.equal(clean('M0 0A1 1 0 0 1 0.0001 0.0001L5 5'), 'M0 0L5 5', 'an arc whose ends round together');
+  assert.equal(clean('M0 0L1 1Q1.0001 1.0004 1.0002 1.0001L5 5'), 'M0 0L1 1L5 5', "a degenerate conic's quad");
+  assert.equal(clean('M6.238 17.186Q6.237 17.185 6.236 17.184A1 1 0 0 1 7 18'), 'M6.238 17.186L6.236 17.184A1 1 0 0 1 7 18', "crown-4's sliver of a circle");
+  assert.equal(clean('M1 1L1.0001 1ZM2 2H4V4Z'), 'M2 2H4V4Z', 'a subpath of nothing');
+  assert.equal(clean('M0 0Q5 5 10 0'), 'M0 0Q5 5 10 0', 'a real curve stays');
+  assert.equal(clean('M0 0C0 0.002 10 0.002 10 0'), 'M0 0C0 0.002 10 0.002 10 0', 'a shallow curve 0.002 off its chord stays');
+});
+
+test('the polish: no zero-length step and no stray curve where the source has none', async () => {
+  // archive held `H…H` repeats once rounded; crown-4 a sliver quad; 16/chevrons-down-2 a degenerate conic's quads
+  for (const rel of ['24/archive', '24/crown-4', '16/chevrons-down-2']) {
+    const text = read(rel), out = await outline(text, { master: master(rel) });
+    const d = pathD(out)[0];
+    assert.doesNotMatch(d, /[QC]/, `${rel}: a curve in the output`);
+    let at = null, zero = 0;
+    for (const m of d.matchAll(/([MLHVAZ])([^MLHVAZ]*)/g)) {
+      const n = m[2].trim().split(/[\s,]+|(?=-)/).filter(Boolean).map(Number);
+      const e = m[1] === 'H' ? [n[0], at[1]] : m[1] === 'V' ? [at[0], n[0]] : m[1] === 'Z' ? at : [n.at(-2), n.at(-1)];
+      if (m[1] !== 'M' && m[1] !== 'Z' && e[0] === at[0] && e[1] === at[1]) zero++;
+      at = e;
+    }
+    assert.equal(zero, 0, `${rel}: ${zero} zero-length step(s)`);
+    const r = await check(text, out, { master: master(rel) });
+    assert.equal(r.wrong, 0, `${rel}: ${r.wrong} wrong pixel(s)`);
+    assert.ok(r.exact, `${rel}: ink ${fmt(r.source)} → ${fmt(r.result)}`);
+  }
+});
