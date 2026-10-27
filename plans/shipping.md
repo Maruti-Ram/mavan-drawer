@@ -250,8 +250,9 @@ side.**
    while any remains.
 2. ~~**`text-4` and `dollar-circle-2`** — his rework, or ship them as they are.~~ **Ruled 2026-10-27: ship them as they are, for now** — a later rework redraws them under the same names (1.0 freezes names, not drawings); retiring one after 1.0 is a deprecation. The README names both among the names that draw alike.
 3. ~~**The `mavan` npm org** reserved (card 1.4).~~ **Done 2026-10-27.**
-4. **His look at the dots** — in his own Chrome, the Library's `select-2` or `more-horizontal-filled`
-   zoomed: solid or rings? Customers get solid either way.
+4. ~~**His look at the dots**~~ **Ruled 2026-10-27: "lock it as they are right now"** — the box ships the
+   dots solid, as drawn; the Library is left as it is (rings in Chromium's default renderer, measured here);
+   any later change is Maruti's to make.
 5. **His nod on the looked-at box** → 3.3: `npm run release -- --lock`, version 1.0.0, the Shipping row in
    CLAUDE.md's Settled table and docs/01 in one commit, a local `v1.0.0` tag (nodded 2026-10-26).
 
