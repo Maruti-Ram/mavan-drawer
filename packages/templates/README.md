@@ -45,14 +45,14 @@ import { Check, CheckFilled, Icon } from '@mavan/icons-react';
 ```
 
 - One component per name and style. The kebab-case name becomes PascalCase and `-filled` becomes a `Filled` suffix: `check-2-small` is `Check2Small`, `check-2-small-filled` is `Check2SmallFilled`.
-- Some component names are also the names of browser globals: `Map`, `File`, `Image`, `Text`, `Window`, `Option`, `Lock`, `Clipboard`, `Navigation`. Importing one shadows the global in that file (`new Map()` would then build an icon), so rename it on import: `import { Map as MapIcon } from '@mavan/icons-react'`.
+- A few component names are also global names in the browser or in Node, `Map`, `File`, `Image`, `Text`, `Window`, `Option`, `Lock` and `Keyboard` among them. Importing one shadows the global in that file (`new Map()` would then build an icon), so rename it on import: `import { Map as MapIcon } from '@mavan/icons-react'`.
 - `size` is a number in pixels, default 24. The component picks the master for that size by the rule in [Which size is drawn](#which-size-is-drawn).
 - `optical` is a boolean, default false. It applies the icon's optical bearings from `metrics.json` as negative margins; see [Padding that is true to the ink](#padding-that-is-true-to-the-ink).
-- `title` is an optional string. With it the icon is `role="img"` and carries a `<title>`. Without it the icon is `aria-hidden`.
-- Every other prop (`className`, `style`, event handlers, `ref`) goes to the `<svg>`.
+- `title` is an optional string. With it the icon is `role="img"` and carries a `<title>`. Without it the icon is `aria-hidden`. Every icon carries `focusable="false"`.
+- Every other prop (`className`, `style`, event handlers, `ref`) goes to the `<svg>`, except `width`, `height` and `viewBox`, which follow `size`, and children, which are ignored.
 - Colour is `currentColor` throughout: the icon takes the text colour, so set `color` in CSS.
 - There is no runtime dependency. React is a peer dependency.
-- Importing `Check` bundles only the `Check` drawings. `Icon` takes a name as a string, so it pulls in the whole set; use it for names that come from data (a config, a CMS) and import the component everywhere else.
+- Importing `Check` bundles only the `Check` drawings. `Icon` takes a name as a string, so it pulls in the whole set; use it for names that come from data (a config, a CMS) and import the component everywhere else. A name that is not in the set renders nothing.
 - TypeScript types ship: `IconName` is every name, outline and `-filled`, and `IconProps` is the props every component takes (`size`, `optical`, `title` and the `<svg>` props); `Icon` takes those and `name`.
 
 ```tsx

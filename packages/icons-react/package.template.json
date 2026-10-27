@@ -1,0 +1,33 @@
+{
+  "name": "@mavan/icons-react",
+  "private": true,
+  "description": "Mavan Drawer icons as React components: 24, 20 and 16 masters, outline and filled, outlined fills in currentColor.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "keywords": ["icons", "react", "svg", "icon-set", "mavan"],
+  "sideEffects": false,
+  "main": "./cjs/index.js",
+  "module": "./esm/index.mjs",
+  "types": "./cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./esm/index.d.mts",
+        "default": "./esm/index.mjs"
+      },
+      "require": {
+        "types": "./cjs/index.d.ts",
+        "default": "./cjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "esm/",
+    "cjs/",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  }
+}

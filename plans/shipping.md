@@ -1,6 +1,6 @@
 # Plan: the shipping pipeline (2026-10-26)
 
-Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 in build 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop): 2.3 and 2.1 done; 2.2 in build.
+Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **stopped there**: wave 3 (3.1 install-and-look, 3.2 review, 3.3 the 1.0.0 cut) waits on Maruti's nod and his list in the wave 2 report under Results.
 
 **Still open on Maruti, not blocking:** the `mavan` npm org (1.4). Wave 2 packs under `@mavan/icons` and `@mavan/icons-react` without it (`npm pack` needs no org), but **the name is not reserved yet** — reserve it before a customer types it. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
@@ -11,7 +11,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [x] 1.3 The package's index — built 2026-10-26 (Opus): `node tools/package-meta.mjs` → `dist/meta.json`, 1310 entries = the sheet's 1310 approved rows, 458 families; the sheet's findings are under Results
 - [ ] 1.4 The name on npm (Maruti)
 - [x] 2.1 The box: `@mavan/icons` — built 2026-10-27 (Opus; reviewed by a fresh Fable agent with a release run of its own): `npm run release`, 7,860 outlined files = 2 × 3 × 1,310 rows, zip and tarball open
-- [ ] 2.2 The React package: `@mavan/icons-react`
+- [x] 2.2 The React package: `@mavan/icons-react` — built 2026-10-27 (Opus; reviewed by a fresh Fable agent with a release and checks of its own): every icon renders at 16 · 20 · 24 from the tarball, 0 differing pixels against the box in Chromium, no stroked source in it
 - [x] 2.3 The licence and the README — drafted 2026-10-27 (Sonnet; reviewed by a fresh Fable agent, nine edits): `packages/templates/`, 24 `[Maruti]` decisions listed under Results
 - [x] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`; **picked 2026-10-26: the master at or below the size, scaled up** (Maruti, taking the recommendation); recorded in CLAUDE.md Settled and docs/01 §9
 - [ ] 3.1 Installed and looked at, as a customer
@@ -162,7 +162,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
   differ from `packages/names.lock`. *Done when:* the folder matches the layout above, every file in it
   is an outlined fill (lint's stroke checks find zero strokes), the file count is 2 × 3 × the sheet's
   approved rows, and the zip opens. *Model:* Opus. *Depends on:* 1.1, 1.2, 1.3, 2.3.
-- [ ] **2.2 The React package: `@mavan/icons-react`.** *Owns:* `tools/gen-react.mjs`,
+- [x] **2.2 The React package: `@mavan/icons-react`.** *Owns:* `tools/gen-react.mjs`,
   `packages/icons-react/`. One `<Icon name size optical />` and one generated component per icon and
   style (`Check`, `CheckFilled`), so an app bundles only the icons it uses, with no runtime
   dependency. Picks the master by the size rule 2.4 settles; `optical` applies `metrics.json`'s
@@ -221,6 +221,89 @@ done"). The shop: licence keys, seat counts, a token-gated registry so `npm inst
 works without a tarball. A public showcase page from the Library.
 
 ## Results
+
+### Wave 2 report (2026-10-27)
+
+**Shipped to the branch** `claude/focused-noether-4uv2b2` (pushed; not merged, not tagged, nothing
+published): `npm run release` now builds the whole box from the sheet — the download folder, the zip,
+and the two npm tarballs `@mavan/icons` and `@mavan/icons-react` — with the README and a licence draft
+inside. On the last full run: 7,860 outlined files (2 styles × 3 masters × 1,310 names), no stroke
+anywhere, none of the stroked source in the box or the React package; the box's tarball 2.95 MB, the
+React tarball 3.0 MB, the zip 8.7 MB; a release takes about 4½ minutes on this 4-core machine (most of it
+the check and the outliner). In React, `<Check size={16} />` draws the 16 master; an app that uses only
+`Check` carries about 2 KB of it.
+
+**Failed or fell short, with what was done:** two review findings on 2.1 (a README that could name a
+missing tarball; a cleanup test that could cut a curve short) and three on 2.2 (a stray `name` prop in
+the types, the build tool's path printed in the shipped code, a stale proof constant) — all fixed and
+re-proven the same day. Left as is: a JavaScript caller who passes `size` as a string gets the 16 master
+(the README says it is a number; TypeScript rejects anything else). Not proven here, for card 3.1:
+Firefox and Safari, a real Next.js and Vite app, Jest, a screen reader, the scaled sizes between masters
+by eye, and the pinhole dots.
+
+**For Maruti — to decide or look at (none blocks wave 2; most must be settled before 1.0.0):**
+1. **Reserve the `mavan` npm org** (1.4). The packages build as `@mavan/…` without it, but the name is
+   not ours until it is reserved.
+2. **The licence:** 24 `[Maruti]` decisions (card 2.3 Results), to settle with your legal adviser. One is
+   a business call: allow the whole set inside one product (the `Icon`-by-name component bundles it, and
+   a public website's bundle then carries every icon as shapes)?
+3. **Identical drawings under different names.** The 7,860 files hold 7,796 different drawings: 116 files
+   in 52 groups are byte-identical to another name's file at the same master. Some look deliberate (a
+   variant that merges with its base at 16: `camera-5`, `files-5`, `help-circle-2`, `text-4`,
+   `microphone-2` = `-5`; `battery-filled` = `battery-full-filled`; a keycap's filled twin equal to its
+   outline: `alt`, `escape`, `delete-forward-2`). Some are the same drawing under two names at every
+   master: `ban-2` = `ban`, `building-3` = `building-4`, `compass-3` = `compass`, and the outline of
+   `layout-header`, `-footer`, `-sidebar`, `-sidebar-right` = their `-2` = their `-3` (only the filled
+   twins differ); `categories-2` = `stack-3` at 24. Once 1.0 ships, every name is permanent — a ruling
+   per group (keep, redraw, or retire before 1.0) is wanted.
+4. **Text customers will read in `meta.json`:** tags "square keyline" (`phone`, `phone-off`), "diamond_shine"
+   (`gem-shine`), "material blur_on" (`filters-3`, another set's icon id); 24 icons with no tags; and the
+   `section` field ("D · The rest, by audit rank", "E · Added on request"). Recommendation: fix the four
+   tags, tag the 24, and leave `section` out of the box.
+5. **Two lines of `CLAUDE.md` are stale** (a docs change, for your nod): the "13.7–16.2px of visual
+   padding" figure was never measured (`plans/set-and-rules-audit.md` card 1.12), so the box README does
+   not use it; the `grows:` census reads 97 files on 33 concepts, today 171 files on 59 names.
+6. **Wave 3** when you want it: 3.1 installs both tarballs as a customer would and looks at every icon in
+   a real browser (and settles the pinholes), 3.2 a fresh review, 3.3 the 1.0.0 cut.
+
+### Card 2.2 (2026-10-27)
+
+`tools/gen-react.mjs` (Opus) turns the box into `@mavan/icons-react`; the release runs it and packs it.
+It reads only `packages/icons/` — the outlined `svg/` files byte for byte, `metrics.json`'s optical
+bearings, `meta.json`'s names — never `src/icons/` or `dist/`, and refuses a short box, a file not in the
+shipped form, a name that is no identifier or collides, or the word "stroke" in the code it writes. The
+package: one component per name and style (2,620, `Check`, `CheckFilled`) and `Icon` by name; types
+`IconName` and `IconProps`; nothing else exported. `size` picks the master by the settled rule (16 below
+20, 20 below 24, 24 from 24); `optical` sets negative margins from the optical bearings × size ÷ master;
+`title` makes it a named image, otherwise it is hidden from screen readers; `currentColor` throughout.
+ESM and CommonJS, React 18 or 19 as a peer, no dependencies, `"private": true`. The proof app is
+`plans/proof-react/` (scripts committed, its installs and `out/` ignored).
+
+Measured (the builder's proof, then the reviewer's own release and checks):
+
+| Measure | Result |
+|---|---|
+| Package | 5,251 files, 17.9 MB unpacked; tarball about 3.0 MB; one module per name, median 2.9 KB |
+| Server rendering | every component at 16 · 20 · 24 and nine sizes between, ESM and CJS, React 18.0, 18.3, 19.0, 19.3: 649,808 renders, each the box file's path byte for byte at the rule's master; 0 React warnings |
+| The size rule at its edges | 12, 15, 17, 19, 19.99 → 16 · 20, 21, 23, 23.5 → 20 · 24, 25, 32, 48 → 24 |
+| Chromium, every icon at 16 · 20 · 24 | **0 differing pixels** against the box's own `.svg` files (6.2 M pixels per comparison); the reviewer's own grids at 1× and 2×: 0 of 4.6 M |
+| `optical` | every laid-out box within 0.03 px of size − (left + right) × size ÷ master (Chromium lays out on a 1/64 px grid) |
+| Colour, labels, refs | every icon takes the text colour; untitled icons hidden from the accessibility tree, titled ones named images; `ref` reaches the `<svg>` |
+| The stroked source | **0** of 11,939 stroked centrelines in the package or in any of five bundles; no "stroke" in its code |
+| An app that imports only `Check` | 1,986 B of package code minified (1,013 gzipped), three drawings; `Icon` by name: 8.07 MB (1.40 MB gzipped), all 7,860 |
+| Bundlers | esbuild, webpack 5 and Rollup 4 build and run it; it renders in a React Server Component without `'use client'` |
+| TypeScript | five setups; a wrong name, a wrong prop or a missing `Icon` name is an error |
+| Contact sheets | every outline icon at 16, 1× and 2× (`plans/proof-react/out/`): 1,310 inked, none blank, none outside its box — looked at by the reviewer and the main session |
+
+The README's "Use in React" was brought in line with the package after the build (eight of the names
+that shadow a global; `focusable="false"`; `width`, `height` and `viewBox` follow `size`; an unknown name
+renders nothing). Review findings (fresh Fable agent), none blocking: `IconProps` let a stray `name`
+through to the `<svg>`; every shipped code file named the repo's tool in its header; the proof's list of
+global names was stale — **all three fixed the same day**: `IconProps` omits `name` (a
+`@ts-expect-error` proves it in all five TypeScript setups), the header names only the package (0 repo
+paths anywhere in the package), the proof reads the names from the README; 9 of 5,251 files changed,
+tarball 3,019,756 B, the proof 37 of 37 again, 230 tests pass. Left as is: no runtime guard on `size` for JavaScript callers.
+
 
 ### Card 2.1 (2026-10-27)
 
