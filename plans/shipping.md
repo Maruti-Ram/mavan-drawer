@@ -17,7 +17,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [x] 3.1 Installed and looked at, as a customer — 2026-10-27 (Sonnet): every icon, both styles, 16 · 20 · 24 at 1× and 2× in Chromium against the lab's drawing; the only real differences are the lab's pinholes (hollow dots the box draws solid) — Maruti to look in his own Chrome
 - [ ] 3.2 Fresh review
 - [ ] 3.3 1.0.0 cut: names frozen, tarballs built, decisions recorded
-- [ ] Next pass, not this one: Figma components and assets (Maruti, 2026-10-26) · the shop and token
+- [ ] Next pass, not this one: a tags pass, with the lint rule that keeps other sets' names and workshop words out of tags (Maruti, 2026-10-27) · Figma components and assets (Maruti, 2026-10-26) · the shop and token
       delivery · PNG, font, PDF (never, unless a customer asks)
 
 ## What changes for Maruti and the customer
@@ -308,6 +308,12 @@ by eye, and the pinhole dots.
    **Ruled 2026-10-27:** `section` leaves the box (done, below). The tags: Maruti reads the full list of
    proposed changes first (`plans/shipping-tags.md`) — a sweep found **300 tags on 134 icons naming other
    icon sets** (lucide, nucleo, material, sf symbols…), which would ship competitors' names to customers.
+   **Applied 2026-10-27** (Maruti: "lock and approve whatever we have"; a proper tags pass comes later, as
+   its own pass): 181 icons, 1,086 files, tags lines only — 342 words out (other sets' names and ids, the
+   products a drawing was seen in, our workshop words, battery's "empty"), 127 in (every icon now has
+   search words; `stack-3`'s cards, deck, pile on `categories-2`); `text-4` and `dollar-circle-2` untouched.
+   Checked line by line against the list by a fresh Sonnet agent: 0 mismatches. The lint rule that would
+   keep source names out of tags (the list's call 7) waits for the tags pass.
 5. **Two lines of `CLAUDE.md` are stale** (a docs change, for your nod): the "13.7–16.2px of visual
    padding" figure was never measured (`plans/set-and-rules-audit.md` card 1.12), so the box README does
    not use it; the `grows:` census reads 97 files on 33 concepts, today 171 files on 59 names.

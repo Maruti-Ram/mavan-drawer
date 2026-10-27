@@ -1,6 +1,6 @@
 # Tags in the box: every proposed change, to read first
 
-**Status: nothing has been changed.** This is the list you asked to read before any word is touched. Written 2026-10-27, for `plans/shipping.md` wave 2 report item 4.
+**Status: applied 2026-10-27** on Maruti's word ("lock and approve whatever we have"), with the recommendation on each call in section 7 — calls 1–6 and 8 as recommended, **call 7 (the lint rule) deferred** to the tags pass he will do later. 181 icons changed (the 178 below plus `signal`, `select-crosshair`, `share-2` from call 2), 1,086 files, tags lines only; checked line by line against this list by a fresh reviewer. The list below is kept as the record of what changed. Written 2026-10-27, for `plans/shipping.md` wave 2 report item 4.
 
 Every icon carries a line of search words in its files (`<!-- tags: … -->`). `meta.json` in the box prints the 24 outline file's line, so customers read it. The same line sits in **all six files of an icon** (outline and filled, at 24, 20 and 16; I checked: 0 of 1,310 icons differ between their six). A change is made in all six.
 
