@@ -1,6 +1,6 @@
 # Plan: the shipping pipeline (2026-10-26)
 
-Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **Wave 3 started 2026-10-27** on Maruti's word ("start wave 3 in cloud"): 3.1 done; `stack-3` retired on his ruling; 3.2 in review; 3.3 (the 1.0.0 cut) needs his nod on the looked-at box and the licence and names rulings in the wave 2 report under Results.
+Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **Wave 3 started 2026-10-27** on Maruti's word ("start wave 3 in cloud"): 3.1 and 3.2 done; `stack-3` retired and the tags cleaned on his rulings; 3.3 (the 1.0.0 cut) needs his nod on the looked-at box and the licence and names rulings in the wave 2 report under Results.
 
 **Still open on Maruti, not blocking:** the `mavan` npm org (1.4). Wave 2 packs under `@mavan/icons` and `@mavan/icons-react` without it (`npm pack` needs no org), but **the name is not reserved yet** — reserve it before a customer types it. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
@@ -15,7 +15,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [x] 2.3 The licence and the README — drafted 2026-10-27 (Sonnet; reviewed by a fresh Fable agent, nine edits): `packages/templates/`, 24 `[Maruti]` decisions listed under Results
 - [x] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`; **picked 2026-10-26: the master at or below the size, scaled up** (Maruti, taking the recommendation); recorded in CLAUDE.md Settled and docs/01 §9
 - [x] 3.1 Installed and looked at, as a customer — 2026-10-27 (Sonnet): every icon, both styles, 16 · 20 · 24 at 1× and 2× in Chromium against the lab's drawing; the only real differences are the lab's pinholes (hollow dots the box draws solid) — Maruti to look in his own Chrome
-- [ ] 3.2 Fresh review
+- [x] 3.2 Fresh review — 2026-10-27 (Fable, on a release of its own): checklist lines 1–4 ticked; 5 (the licence's 24 `[Maruti]`) and 6 (`names.lock`) fail as expected until 3.3 — the lock and the licence gate both proven to work
 - [ ] 3.3 1.0.0 cut: names frozen, tarballs built, decisions recorded
 - [ ] Next pass, not this one: a tags pass, with the lint rule that keeps other sets' names and workshop words out of tags (Maruti, 2026-10-27) · Figma components and assets (Maruti, 2026-10-26) · the shop and token
       delivery · PNG, font, PDF (never, unless a customer asks)
@@ -194,7 +194,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
   pixel in Chrome; also settles the pinhole question (do dots under half a stroke show a hole in Chrome
   at 1× and 2×?). *Done when:* zero pixel differences, or every difference listed with its icon and a
   screenshot. *Model:* Sonnet. *Depends on:* 2.1, 2.2.
-- [ ] **3.2 Fresh review.** An agent that did none of the work checks the box against this plan, as a
+- [x] **3.2 Fresh review.** An agent that did none of the work checks the box against this plan, as a
   checklist: every approved row present at three masters and two styles; no stroke in any shipped
   file; a metrics entry for every icon; the README's size rule equals 2.4's pick; the LICENSE carries
   no unfilled `[Maruti]`; `names.lock` lists every approved name. *Done when:* every line is ticked or
@@ -221,6 +221,40 @@ done"). The shop: licence keys, seat counts, a token-gated registry so `npm inst
 works without a tarball. A public showcase page from the Library.
 
 ## Results
+
+### Card 3.2 (2026-10-27)
+
+A fresh Fable agent that did none of the work, on a real release of its own (no flags, 260 s) at
+a2c3cfa, the commit before the tag sweep. Card 3.2's checklist:
+
+| Line | Result |
+|---|---|
+| 1 · every approved row at three masters and two styles | **ticked** — 1,309 rows (`stack-3` retired), 2,618 files per master in the folder, the tarball, the zip; 2,618 React components + `Icon`; names exact both ways |
+| 2 · no stroke in any shipped file | **ticked** — 0 in the SVGs, `icons.json`, `metrics.json`, the React code; 0 of 15,892 stroked centrelines in the box |
+| 3 · a metrics entry for every icon | **ticked** — 2,618 per master, each `ink`, `bearing`, `optical` only; the README's worked example true |
+| 4 · the README's size rule = 2.4's pick | **ticked** — word for word; React picks 16 at 15–19.99, 20 at 20–23, 24 from 24 |
+| 5 · the LICENSE carries no `[Maruti]` | **fails, as expected** — 24 open; at 1.0.0 the release refuses them |
+| 6 · `names.lock` lists every approved name | **fails, as expected** — written by 3.3; in the reviewer's clone `--lock` wrote exactly the 1,309 names, and with a settled licence a 1.0.0 build passed every gate |
+
+Also confirmed: README and box agree both ways (no `section`; nothing names `stack-3`); 231 tests pass;
+`npm run check` 7854 · 0 failed; card 3.1's pinhole reading reproduced to the pixel (`more-horizontal-filled`
+centre 55 in the lab against 0 in the box at 1×). Its findings: the README's "draw alike on purpose" list
+missed `camera-off-5`, `microphone-off-5` (the off states, at 16) and `battery-filled` = `battery-full-filled`
+— added the same day; `text-4` and `dollar-circle-2` stay off it while Maruti reworks them. The tag sweep
+it saw in flight was committed after it (9a3461e). **Nothing found that blocks 1.0.0 on the pipeline's
+side.**
+
+### What 1.0.0 (card 3.3) needs from Maruti
+
+1. **The licence** — the 24 `[Maruti]` decisions settled with his adviser; the release refuses a 1.0.0
+   while any remains.
+2. **`text-4` and `dollar-circle-2`** — his rework, or ship them as they are; their names freeze either way.
+3. **The `mavan` npm org** reserved (card 1.4).
+4. **His look at the dots** — in his own Chrome, the Library's `select-2` or `more-horizontal-filled`
+   zoomed: solid or rings? Customers get solid either way.
+5. **His nod on the looked-at box** → 3.3: `npm run release -- --lock`, version 1.0.0, the Shipping row in
+   CLAUDE.md's Settled table and docs/01 in one commit, a local `v1.0.0` tag (nodded 2026-10-26).
+
 
 ### Card 3.1 (2026-10-27)
 
