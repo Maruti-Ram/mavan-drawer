@@ -256,10 +256,18 @@ by eye, and the pinhole dots.
    `layout-header`, `-footer`, `-sidebar`, `-sidebar-right` = their `-2` = their `-3` (only the filled
    twins differ); `categories-2` = `stack-3` at 24. Once 1.0 ships, every name is permanent — a ruling
    per group (keep, redraw, or retire before 1.0) is wanted.
+   **Ruled 2026-10-27** after a board of the pairs (each at 24 · 20 · 16, outline and filled, real pixels):
+   **retire `stack-3`** (it was `categories-2` at 24); **`text-4` and `dollar-circle-2` held untouched** —
+   Maruti has his own ideas for them; `microphone-5` kept. The other 14 families are deliberate and on
+   record (shared outlines filled differently, C21 and C29; merges at 16 where a detail cannot keep its
+   air), and the README now says so in two sentences.
 4. **Text customers will read in `meta.json`:** tags "square keyline" (`phone`, `phone-off`), "diamond_shine"
    (`gem-shine`), "material blur_on" (`filters-3`, another set's icon id); 24 icons with no tags; and the
    `section` field ("D · The rest, by audit rank", "E · Added on request"). Recommendation: fix the four
    tags, tag the 24, and leave `section` out of the box.
+   **Ruled 2026-10-27:** `section` leaves the box (done, below). The tags: Maruti reads the full list of
+   proposed changes first (`plans/shipping-tags.md`) — a sweep found **300 tags on 134 icons naming other
+   icon sets** (lucide, nucleo, material, sf symbols…), which would ship competitors' names to customers.
 5. **Two lines of `CLAUDE.md` are stale** (a docs change, for your nod): the "13.7–16.2px of visual
    padding" figure was never measured (`plans/set-and-rules-audit.md` card 1.12), so the box README does
    not use it; the `grows:` census reads 97 files on 33 concepts, today 171 files on 59 names.
@@ -334,7 +342,7 @@ Measured on the reviewer's own run (a clean commit in a scratch clone, no dev fl
 What ships beside the SVGs: `icons.json` is built from the outlined files (`dist/icons.json` holds the
 stroked source and is never copied); `metrics.json` keeps only `ink`, `bearing` and `optical` per
 master and name — the design measures lint uses (`shift`, `container`, `ratio`, `gap`, `recession`)
-stay private, since whatever ships at 1.0 becomes a promise; `meta.json` is card 1.3's;
+stay private, since whatever ships at 1.0 becomes a promise; `meta.json` is card 1.3's, less `section` (the sheet's drawing order; Maruti, 2026-10-27: "leave section out" — the release drops it and gate d refuses one);
 `CHANGELOG.md` lists this first build by category, one line per family, and after 1.0 lists only the
 names a release adds to `names.lock`. The README and LICENSE come from card 2.3 with the three numbers
 filled; the release warns while the licence's 24 `[Maruti]` marks remain and refuses them at 1.0.0.

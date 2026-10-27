@@ -27,7 +27,11 @@
 //                                          the one evenodd `d` of the shipped file
 //     metrics.json                       { name, version, units, icons: { "24": { "check": { ink, bearing, optical } } } }
 //                                          from dist/metrics.json, trimmed to the customer's contract
-//     meta.json                          tools/package-meta.mjs, unchanged
+//     meta.json                          tools/package-meta.mjs's, less each icon's `section` (`shipMeta`): the sheet's
+//                                          drawing order ("D · The rest, by audit rank") is how the set was drawn, not
+//                                          what an icon is, and `category` is the customer's grouping (Maruti,
+//                                          2026-10-27: "Leave section out"); dist/meta.json keeps it for our own use.
+//                                          Every other key in its own order, byte for byte as package-meta.mjs writes it
 //     README.md, LICENSE.md              packages/templates/ with {{version}}, {{icons}}, {{names}} filled
 //     CHANGELOG.md                       from meta.json's approval dates and packages/names.lock
 //   dist/release/mavan-drawer-<v>/       the download: svg/, the three JSON files, README, LICENSE, CHANGELOG and
@@ -46,7 +50,8 @@
 //   b  each file's ink box equals its source's exact ink to 2 dp (outline.mjs `sourceBox` / `outlinedBox`)
 //   c  2 × 3 × the sheet's approved rows files, and the shipped names are the approved names exactly
 //   d  metrics.json and icons.json hold exactly the shipped names at every master; metrics.json's ink box is the
-//      exact ink rounded to 2 dp
+//      exact ink rounded to 2 dp; meta.json, read back as written, carries no `section` key anywhere (`privateKeys`;
+//      a key, not the word: the layout `-4` icons carry the tag "section", and it ships)
 //   e  the tarball and the zip hold exactly the expected entries; the zip passes `unzip -t`; the README and LICENSE
 //      name no tarball the download lacks (`unbuiltTarballs`: a run without tools/gen-react.mjs is refused while the
 //      README names mavan-icons-react-<v>.tgz), dev runs included
@@ -240,6 +245,30 @@ export function changelog(meta, lock, version) {
     out.push(...byCategory(r.names, meta));
   });
   return `${out.join('\n')}\n`;
+}
+
+// ── meta.json ───────────────────────────────────────────────────────────────────────────────────────────────────
+
+/** The keys of tools/package-meta.mjs's meta.json that stay in the repo (dist/meta.json keeps them). `section` is
+ *  the sheet's drawing order ("D · The rest, by audit rank", "E · Added on request"): how the set was drawn, not
+ *  what an icon is; `category` already ships as the customer's grouping (Maruti, 2026-10-27: "Leave section out"). */
+export const PRIVATE_META = ['section'];
+/** The box's meta.json: package-meta.mjs's object with the private keys taken off every icon entry, every other key
+ *  and its order as it was, so `JSON.stringify(…, null, 2)` writes package-meta.mjs's bytes less those lines. The
+ *  object given is not changed. */
+export const shipMeta = (meta) => ({
+  ...meta,
+  icons: meta.icons.map((i) => Object.fromEntries(Object.entries(i).filter(([k]) => !PRIVATE_META.includes(k)))),
+});
+/** Gate d's meta.json side: where a private key sits anywhere in a JSON value (`icons[12].section`), [] when none.
+ *  Keys only: a tag that reads "section" is a value and ships. */
+export function privateKeys(value, path = '') {
+  if (Array.isArray(value)) return value.flatMap((v, k) => privateKeys(v, `${path}[${k}]`));
+  if (!value || typeof value !== 'object') return [];
+  return Object.entries(value).flatMap(([k, v]) => {
+    const here = path ? `${path}.${k}` : k;
+    return [...(PRIVATE_META.includes(k) ? [here] : []), ...privateKeys(v, here)];
+  });
 }
 
 // ── the shipped file ────────────────────────────────────────────────────────────────────────────────────────────
@@ -487,11 +516,13 @@ async function main(argv) {
   });
   console.log(`  check      ${checkLine}`);
 
-  // 2. meta.json, unchanged from tools/package-meta.mjs
+  // 2. meta.json: tools/package-meta.mjs's, written again without the keys that stay in the repo (`section`), in
+  //    package-meta.mjs's own format; gate d reads the file back
   const meta = await stage('meta', async () => {
     const r = sh('node', ['tools/package-meta.mjs', '--out', `${PKG}/meta.json`]);
     if (r.status !== 0) failWith('tools/package-meta.mjs refused:', `${r.stdout}${r.stderr}`.trim().split('\n'));
-    const out = JSON.parse(readFileSync(at(PKG, 'meta.json'), 'utf8'));
+    const out = shipMeta(JSON.parse(readFileSync(at(PKG, 'meta.json'), 'utf8')));
+    writeFileSync(at(PKG, 'meta.json'), `${JSON.stringify(out, null, 2)}\n`);
     const names = out.icons.map((i) => i.name);
     if (!sameList(names, approved)) failWith('meta.json does not list the approved rows in sheet order:', listDiff(approved, names).slice(0, 20));
     const untagged = (r.stdout.match(/carries no tags \((\d+)\)/) || [])[1];
@@ -568,7 +599,9 @@ async function main(argv) {
       worstMetric = Math.max(worstMetric, off);
       if (!(off <= 0.005 + 1e-6)) d.push(`metrics.json ${m}/${f}: ink ${fmtBox(e.ink)} is not the exact ink ${fmtBox(exact[m][f])} rounded to 2 dp`);
     }
-    if (d.length) failWith(`gate d (the JSON files hold the shipped names) failed:`, d.slice(0, 20));
+    const leaked = privateKeys(JSON.parse(readFileSync(at(PKG, 'meta.json'), 'utf8')));
+    if (leaked.length) d.push(`meta.json carries ${leaked.length} key(s) that stay in the repo (${PRIVATE_META.join(', ')}): ${leaked.slice(0, 5).join(', ')}${leaked.length > 5 ? ', …' : ''}`);
+    if (d.length) failWith(`gate d (the JSON files hold the shipped names, and meta.json none of the repo's own keys) failed:`, d.slice(0, 20));
   });
 
   // 5. README and LICENSE from the templates, CHANGELOG from meta.json and the lock
@@ -650,7 +683,7 @@ async function main(argv) {
 
   const total0 = performance.now() - t0;
   console.log(`  gates      a no strokes: ${count(total)} files, 0 stroked paths, 0 stroke attributes · b ink box = exact to 2 dp: worst ${worstBox.toFixed(4)}`
-    + ` · c ${count(total)} = 2 × 3 × ${count(rows.length)} · d JSON: every name at every master, metrics ink worst ${worstMetric.toFixed(4)} off exact`
+    + ` · c ${count(total)} = 2 × 3 × ${count(rows.length)} · d JSON: every name at every master, metrics ink worst ${worstMetric.toFixed(4)} off exact, meta.json without ${PRIVATE_META.join(', ')}`
     + ` · e tarball ${tarballs.map((t) => `${t.file} ${count(t.entries)} entries`).join(', ')}, README and LICENSE name no other, zip ${count(zipEntries)} entries, unzip -t clean`
     + (raster ? ` · raster 0 wrong pixels, largest difference ${worstPixel}/255` : ' · raster gate not run (--gate)'));
   console.log(`  sizes      folder ${mb(sizeOf(folder))} (svg ${mb(sizeOf(join(folder, 'svg')))}, icons.json ${mb(sizeOf(join(folder, 'icons.json')))}, metrics.json ${mb(sizeOf(join(folder, 'metrics.json')))}, meta.json ${mb(sizeOf(join(folder, 'meta.json')))})`

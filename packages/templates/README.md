@@ -98,7 +98,6 @@ Every icon has empty space between the edge of its box and the ink, and the amou
   - `tags`: the search words, a list; see [Names and search](#names-and-search).
   - `styles` and `masters`: which styles (`outline`, `filled`) and which sizes (24, 20, 16) the name has. Every name has both styles at all three sizes; the fields are there so your code need not assume it.
   - `mvp`: true for the icons marked as the core of the set, the ones drawn first. A shortlist, nothing more.
-  - `section`: the part of the drawing order the icon was drawn in (`A · Marks`, `B · Circles` and so on). It is not a category; you can ignore it.
   - `approved`: the date the drawing was approved into the set, which CHANGELOG.md is built from.
 
   Then `families`, one entry per base concept: `base`, `category` and `variants`, every name whose chain leads to it.
@@ -107,7 +106,9 @@ Every icon has empty space between the edge of its box and the ink, and the amou
 
 Each icon's two styles are drawn together as a pair, and the filled twin has the outline's outer edge, so swapping one for the other does not move the icon in a layout. The exception is the icons whose filled twin thickens lines that stand on their own: stacks of lines and rows of dots (the menus, `list-bullet`, `more-horizontal`), the double chevrons (`chevrons-down`) and the lone bar of `minus`. Their filled box is a little larger than the outline's, by at most 1.5 units at 24 and 1 at 16 (`chevrons-down-2`); `metrics.json` has the box of each style.
 
-Filled is not a background behind the outline. An icon with a shape to fill (a circle, a folder, a bell) fills it. An icon that is only lines (a plus, a check, an arrow) has nothing to fill, so its filled twin is the same drawing with a heavier line.
+Filled is not a background behind the outline. An icon with a shape to fill (a circle, a folder, a bell) fills it. An icon that is only lines (a plus, a check, an arrow) has nothing to fill, so its filled twin is the same drawing with a heavier line. Three key labels are the same drawing in both styles on purpose: `alt`, `escape` and `delete-forward-2` are only letters (ALT, ESC, DEL), and a letter keeps the outline's line when filled, because a heavier one would close up the space inside it.
+
+Some names draw alike on purpose: a few variants have another name's outline and differ only when filled (`ban-2` and `compass-3` have their base's, `building-4` has `building-3`'s, and the `-2` and `-3` of `layout-header`, `layout-footer`, `layout-sidebar` and `layout-sidebar-right` have their base's), and a few are drawn as another name at 16, where the detail that sets them apart has no room (`camera-5` as `camera`, `files-5` as `files`, `help-circle-2` as `help-circle`, `microphone-5` as `microphone-2`).
 
 ## Names and search
 

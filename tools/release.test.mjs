@@ -1,12 +1,16 @@
 // Tests for the release's pure parts (plans/shipping.md card 2.1): versions, templates, the names lock, the
-// changelog, the shipped-file gate and the metrics trim. `node --test tools/release.test.mjs`.
+// changelog, the shipped-file gate, the metrics trim and meta.json without `section`. `node --test tools/release.test.mjs`.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdtempSync, rmSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { outline } from './outline.mjs';
 import {
   parseVersion, compareVersions, frozen, placeholders, fillTemplate, marutiMarks, parseLock, formatLock, lockProblems,
-  extendLock, changelog, paint, shippedProblems, shippedFiles, trimMetrics, unbuiltTarballs,
+  extendLock, changelog, paint, shippedProblems, shippedFiles, trimMetrics, unbuiltTarballs, shipMeta, privateKeys,
 } from './release.mjs';
 
 test('versions: semver precedence, frozen from 1.0.0', () => {
@@ -149,6 +153,36 @@ test('the shipped-file gate: an outlined file passes, anything stroked or extra 
   // a stroke inherited from an element around the path is a stroked path, by SVG's own rule
   assert.equal(paint('<svg stroke="red"><g><path d="M0 0"/></g></svg>').stroked, 1);
   assert.equal(paint('<svg stroke="red"><path stroke="none" d="M0 0"/></svg>').stroked, 0);
+});
+
+test('meta.json in the box: no section anywhere, every other key and its order kept, byte for byte', () => {
+  const entry = { name: 'layout-header-4', category: 'UI & Layout', section: 'D · The rest, by audit rank', variantOf: 'layout-header', family: 'layout-header',
+    tags: ['header', 'section'], mvp: false, styles: ['outline', 'filled'], masters: [24, 20, 16], approved: '2026-10-03' };
+  const src = { name: 'mavan-drawer', version: '0.0.1', built: '2026-10-27', counts: { icons: 1, concepts: 0, variants: 1, families: 1 },
+    icons: [entry], families: [{ base: 'layout-header', category: 'UI & Layout', variants: ['layout-header-4'] }] };
+  const before = structuredClone(src), out = shipMeta(src);
+  assert.deepEqual(src, before, 'the object given is not changed');
+  assert.deepEqual(Object.keys(out), Object.keys(src), 'the top level keeps its keys and order');
+  assert.deepEqual(Object.keys(out.icons[0]), ['name', 'category', 'variantOf', 'family', 'tags', 'mvp', 'styles', 'masters', 'approved']);
+  assert.deepEqual(out.icons[0].tags, ['header', 'section'], 'a tag that reads "section" is a value and ships');
+  assert.deepEqual(out.families, src.families);
+  assert.deepEqual(privateKeys(src), ['icons[0].section']);
+  assert.deepEqual(privateKeys(out), []);
+  assert.deepEqual(privateKeys({ a: [{ b: { section: null } }], section: 1 }), ['a[0].b.section', 'section'], 'found at any depth, even when null');
+  // the real set: package-meta.mjs's own bytes, less exactly its section lines
+  const root = fileURLToPath(new URL('..', import.meta.url)), dir = mkdtempSync(join(tmpdir(), 'meta-'));
+  try {
+    const r = spawnSync('node', ['tools/package-meta.mjs', '--out', join(dir, 'meta.json')], { cwd: root, encoding: 'utf8' });
+    assert.equal(r.status, 0, r.stderr);
+    const text = readFileSync(join(dir, 'meta.json'), 'utf8'), meta = JSON.parse(text);
+    assert.equal(privateKeys(meta).length, meta.icons.length, 'package-meta.mjs writes a section on every icon (dist/meta.json keeps it)');
+    const shipped = `${JSON.stringify(shipMeta(meta), null, 2)}\n`;
+    assert.equal(shipped, text.replace(/^ {6}"section": .*\n/gm, ''), 'every other byte as package-meta.mjs writes it');
+    assert.deepEqual(privateKeys(JSON.parse(shipped)), []);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+  // the README no longer describes the field
+  const readme = readFileSync(new URL('../packages/templates/README.md', import.meta.url), 'utf8');
+  assert.doesNotMatch(readme, /`section`/, 'the README lists meta.json\'s fields; section is not one of them');
 });
 
 test('the shipped names and the metrics trimmed to the contract', () => {
