@@ -92,7 +92,7 @@ lint overhaul, a docs rewrite, a new lab surface — starts with a plan document
 ## Picking up
 
 **Open builds live in `plans/`.** Before starting or approving any icon, read every plan there whose
-Status has unticked boxes — it says what is in flight and what is on hold (2026-10-27: `plans/shipping.md` is open — the shipping pipeline, nodded 2026-10-26; waves 1 and 2 built and closed, and wave 3's 3.1 (installed and looked at) and 3.2 (fresh review) done 2026-10-27 in a cloud session, branch `claude/focused-noether-4uv2b2`; **3.3, the 1.0.0 cut, waits on Maruti** — the licence alone (its 24 `[Maruti]` decisions, settled with his adviser); his nod on the box was given 2026-10-27 — listed under the plan's Results; a tags pass is the next pass; 2026-10-17: `plans/plan-view.md` is open — in build since 2026-10-17; `plans/lint-currency-fixes.md` is merged but holds a deferred list of shipped icons with tight spots (2026-10-22);
+Status has unticked boxes — it says what is in flight and what is on hold (2026-10-27: `plans/shipping.md` is open — the shipping pipeline, nodded 2026-10-26; waves 1 and 2 built and closed, and wave 3's 3.1 (installed and looked at) and 3.2 (fresh review) done 2026-10-27 in a cloud session, branch `claude/focused-noether-4uv2b2`; **3.3, the 1.0.0 cut, waits on Maruti** — the licence alone (its 24 `[Maruti]` decisions, to settle with his adviser); his nod on the box was given 2026-10-27 — listed under the plan's Results; a tags pass is the next pass; 2026-10-17: `plans/plan-view.md` is built and proven (its own Status, 2026-10-17); `plans/lint-currency-fixes.md` is merged but holds a deferred list of shipped icons with tight spots (2026-10-22);
 `plans/set-and-rules-audit.md` is closed except deferred card 5.1 and the agenda rulings in progress (sitting A done 2026-10-17);
 `plans/facing-gap.md` is closed — lint §5f measures the air inside one path and in filled drawings, and white
 cut out of a filled shape holds 1.5 at 16; `plans/stroke-16.md` is closed — the 16 master draws at 1.25 (C7) and
@@ -114,7 +114,7 @@ and their metrics (ink, centring, geometric/optical bearings, copy SVG). Outline
 search (/), Show Approved | Whole queue, sections rail with progress, and an "At 16" strip. It reads
 `lab/manifest.json`, which `npm run build` now fills with each file's `body`, the parsed `queue` and
 `next` — `queue.mjs next`'s own answer, which the sidebar's "Next on the board" shows.
-**Plan view (`P`):** one tile per icon, grouped by category, a drawn tile showing its default drawing with a variant count. Strip: icons drawn / left, MVP drawn / left, and a drawing-day estimate from the sheet's approval dates. A star on a tile marks it MVP in the sheet itself; a box adds a name — both write through the lab server (`tools/serve.mjs` POST routes → `queue.mjs`). **An icon is a concept; `-2`, `-small` and filled twins are never counted as icons** (Maruti, 2026-10-17). A category that holds only variant rows (today the variant round's `V1`–`V5`, `plans/variant-round.md`) gets its own group after the icons, one tile per row, headed `drawn / total variants` — listed, not counted (Maruti, 2026-10-24). "Next icon" now takes the next undrawn MVP icon first, then audit order.
+**Plan view (`P`):** one tile per icon, grouped by category, a drawn tile showing its default drawing with a variant count. Strip: icons drawn / left, MVP drawn / left, and a drawing-day estimate from the sheet's approval dates. A star on a tile marks it MVP in the sheet itself; a box adds a name — both write through the lab server (`tools/serve.mjs` POST routes → `queue.mjs`). **An icon is a concept; `-2`, `-small` and filled twins are never counted as icons** (Maruti, 2026-10-17). A category that holds only variant rows (the variant round used `V1`–`V5`, `plans/variant-round.md`; on the sheet today every row is drawn and in a product category, so no such group shows) gets its own group after the icons, one tile per row, headed `drawn / total variants` — listed, not counted (Maruti, 2026-10-24). "Next icon" now takes the next undrawn MVP icon first, then audit order.
 **Figure families:** `lab/figures.html` (Library sidebar → Figures) puts every figure (`user`, `user-<n>`) in a
 row beside its group and the group's arrangements (`users[-n]`, `-behind`, `-wide`, `-level`; C27), at 24 · 20 · 16 plus
 real pixels at 16 (1×, 2×), Outline | Filled (F). A name not yet shipped is drawn from the batch draft whose `set` names
@@ -189,6 +189,7 @@ Polaris use the **git trees API** — the contents API silently stops at 1,000 e
 npm run check    # build metrics + lint all icons (exits 1 on failure)
 npm run lab      # dev server on 4174 → /lab/
 npm run audit    # re-rank the ~500 from research/sources snapshots
+npm run release  # build the box: packages/icons, packages/icons-react, dist/release/ and its zip
 ```
 
 ## Settled — do not relitigate without being asked
@@ -204,7 +205,7 @@ npm run audit    # re-rank the ~500 from research/sources snapshots
 | Canvas | 24 |
 | Masters | **24 · 20 · 16** — three drawn masters (user direction, 2026-09-16; supersedes "drop 20") |
 | Business model | sold to many customers → we do not control render size |
-| Naming (C9) | `<object>[-<modifier>][-<n>][-<size>][-filled]`; shape variants are numbered (`check-4`), their style word is a **tag** (`<!-- tags: long sweep -->`, candidate `tags: [...]` on the board) that the build and Library search read. A composite that uses a numbered shape takes that shape's number (`check-circle-2` uses `check-2`); a number with no shipped shape stays unused. `login-n` / `logout-n` pair by arrow direction and door depth, not door shape (C31). **Numbers never change once the set has shipped** — until then a gap a retirement leaves may be closed, and each renumber is recorded in doc 07 (figure families 2026-09-23, C27; the four layout families 2026-10-03). Nothing has shipped yet: 0.0.1, private, no tags. Both deliberate gaps closed 2026-10-17 on Maruti's ruling: `trash-5` → `trash-2`, and the check family renumbered so the one shape with no ring twin (the long sweep) comes last — `check-3` → `-2`, `-4` → `-3`, `-2` → `-4`, `check-circle-3` → `-2`, `-4` → `-3`, `checkbox-4` → `checkbox-small` (C9 dated note). **Figure families (C27):** the number names the figure and travels with the object — `user-2` ↔ `users-2`, later `user-2-plus`; other arrangements take a word after it (`users-level`, `users-2-behind`). **`-dashed`** is the modifier for a dashed outline of a shipped shape (`circle-dashed` … `octagon-dashed`, 2026-10-24; C9 dated note). |
+| Naming (C9) | `<object>[-<modifier>][-<n>][-<size>][-filled]`; shape variants are numbered (`check-4`), their style word is a **tag** (`<!-- tags: long sweep -->`, candidate `tags: [...]` on the board) that the build and Library search read. A composite that uses a numbered shape takes that shape's number (`check-circle-2` uses `check-2`); a number with no shipped shape stays unused. `login-n` / `logout-n` pair by arrow direction and door depth, not door shape (C31). **Numbers never change once the set has shipped** — until then a gap a retirement leaves may be closed, and each renumber is recorded in doc 07 (figure families 2026-09-23, C27; the four layout families 2026-10-03). Nothing has shipped yet: 0.0.1, private, no git tag; the box builds (`npm run release`) and 1.0.0, the cut that freezes names, waits on the licence (`plans/shipping.md` card 3.3). Both deliberate gaps closed 2026-10-17 on Maruti's ruling: `trash-5` → `trash-2`, and the check family renumbered so the one shape with no ring twin (the long sweep) comes last — `check-3` → `-2`, `-4` → `-3`, `-2` → `-4`, `check-circle-3` → `-2`, `-4` → `-3`, `checkbox-4` → `checkbox-small` (C9 dated note). **Figure families (C27):** the number names the figure and travels with the object — `user-2` ↔ `users-2`, later `user-2-plus`; other arrangements take a word after it (`users-level`, `users-2-behind`). **`-dashed`** is the modifier for a dashed outline of a shipped shape (`circle-dashed` … `octagon-dashed`, 2026-10-24; C9 dated note). |
 | Level families (C28) | an amount going down keeps **one body identical and in place** in every member; the full member is centred, the others keep its canvas position and lean toward the body. Waves drop outside-in and the rest keep their coordinates. Levels are **words**: `volume` (2 waves) · `volume-low` · `volume-none` · `volume-x` · `volume-off` (C21 bar crossing the speaker, as `ban` — a state, not a level: **centred as its own icon, no anchor**). Two waves, not three: three shrank the speaker to 5×9 at 16. The levels and `volume-x` declare `<!-- anchor: volume -->`; lint holds their ink inside the full member's box and on its left or right edge (user decision 2026-09-26) — **or, where the body sits at the bottom, on its bottom edge and centred across** (`wifi` → `wifi-medium`, `-low`: arcs drop outside-in above the dot; Maruti, 2026-10-23) |
 | Modifier badges (C33) | a badge sits on the base's **bottom-right corner** and may stand past the base's box **up to the margin edge (22 · 18 · 15), never beyond it**; the base keeps its position and the composite declares its box (`calendar-repeat`: 19×19 · 15×15 · 13×13); on a short base that leaves the composite off the canvas centre, and it declares `<!-- base: NAME -->` so lint holds it to NAME's place instead (`password-lock`, 2.5 · 2 · 1.5 low; 2026-10-20). **On a face base the badge sits top-right** instead, keeping the whole smile at the cost of the right eye; every later face composite follows it (`face-smile-plus`, Maruti 2026-10-25). **On a shield a closed badge sits top-right too**, keeping the point at the cost of the right shoulder (`shield-pending`'s clock, Maruti 2026-10-26); an open badge that leaves the point readable (`shield-check`) stays bottom-right. The base is **cut back by hand** with 1.5 of air from the badge's own ink, at every master and in the filled twin; a wall left shorter than 1.5 past its corner is removed, not kept as a stub. A line badge stays at the outline weight in the filled twin; a shape badge — `map-pinned`'s pin — fills like any shape (2026-10-18). On a line-heavy base too: the base's lines go to `FILLED_WEIGHT`, the badge keeps 1.5 · 1.5 · 1.25, declared `<!-- badge: line -->` (2026-10-19; first `passkey-2`). Doc 05's (16,16) anchor, 8-unit glyph and r6 clear zone are superseded (user decision 2026-10-18) |
 | State twins (C34) | the other state of a toggle is drawn for **every numbered shape of its base**, on that shape's body, in place, ink box unchanged — except that the C21 bar of an `-off` may grow it past the base, which itself never moves: the bar always spans the square keyline 18 · 14 · 12, so it stands past a wide, short base's top and bottom (`cloud-off`, 2026-10-23) and a narrow, tall base's sides (`bell-off`, `shield-off`; Maruti 2026-10-25); a bar moved off centre to save the detail that names the object (C21, `keyboard-off`'s keys, 2026-10-25) may grow a base's box toward the margin edge, never past it: `unlock` … `unlock-6` on `lock` … `lock-6`, the shackle released right (air 3.5 · 2.5 · 2.375; on `lock-3`, `-5`, `-6` the arc ends early, tilted out, to keep it). A second picture of the state takes a word after the number (`unlock-swung`, later `unlock-3-swung`) and is centred as its own icon, as `volume-off`. Lint warns when a numbered shape has no twin, or a twin no base shape, at any master; the pairs are listed once in `tools/masters.mjs` (`STATE_TWINS`). Maruti may decline one shape's twin: it is listed in `NO_TWIN` there and lint stops asking (`video-2`, `video-4`; 2026-10-25). Composites (`check-circle`) keep C9: only where there is a use (user decision 2026-10-19) |
@@ -252,9 +253,9 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 
 ### Two rules that are easy to get wrong
 
-1. **Round caps extend half a stroke past the path endpoint.** At 24 and 20 (stroke
-   1.5, half = 0.75), to span the 18-unit square keyline (3→21) the path is
-   `M3.75 12h16.5`. At 16 (stroke 1.25, half = 0.625) the same line's endpoints sit
+1. **Round caps extend half a stroke past the path endpoint.** At 24 (stroke 1.5,
+   half = 0.75), to span the 18-unit square keyline (3→21) the path is
+   `M3.75 12h16.5`; at 20 the same half holds on its 14 keyline (3→17): `M3.75 10h12.5`. At 16 (stroke 1.25, half = 0.625) the same line's endpoints sit
    0.625 inside the extent, not 0.75. Off-by-one here is the commonest defect in
    icon sets.
 2. **Min gap is a literal 1.5, not "one stroke-width."** That equivalence only
@@ -263,16 +264,17 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
    shapes welding shut. When a detail cannot hold the gap, **remove the detail**
    — that is the rule working, not failing.
 
-## Open — in dependency order
+## Open
 
-1. **Visual language.** Four candidates + a lever rig in `lab/language.html`.
-   **Blocks everything downstream.** Do not start drawing the set before this.
-2. **Master size** (24 vs 16 primary) — downstream of (1).
-3. Tune optical `alpha` (currently 0.75 in `tools/optical.mjs`).
-4. Possibly relax the `<path>`-only lint rule so `<rect>`/`<circle>` can be
+Settled and taken off this list 2026-10-27: the visual language (C1–C8, `docs/07-character.md`) and
+the master size (the Settled table: masters 24 · 20 · 16). Still open in doc 07: container radius,
+angle exceptions.
+
+1. Tune optical `alpha` (currently 0.75 in `tools/optical.mjs`).
+2. Possibly relax the `<path>`-only lint rule so `<rect>`/`<circle>` can be
    hand-written — Nucleo uses basic shapes throughout and they are far more
    editable.
-5. Primitive-drift linter — flag shapes that are *nearly* a shared primitive
+3. Primitive-drift linter — flag shapes that are *nearly* a shared primitive
    (r8.5 where every other circle is r9). Highest-leverage tool for family
    consistency. Not built.
 
@@ -293,14 +295,18 @@ spacing decision, not a drawing rule. Do not reintroduce a third layer.
 | `tools/package-meta.mjs` | the box's index (card 1.3): `dist/meta.json` from the sheet and the files — per icon name, category, section, variantOf, family, tags, mvp, styles, masters, approved; families under their base; prints the rows with no category and the untagged icons |
 | `tools/release.mjs` | `npm run release` (`plans/shipping.md` card 2.1, 2026-10-27): the box from the sheet's approved rows — check, the outliner over every file, `packages/icons/` (`@mavan/icons`: `svg/24\|20\|16`, `icons.json` built from the outlined files, `metrics.json` trimmed to ink · bearing · optical, `meta.json`, README, LICENSE, CHANGELOG), runs `tools/gen-react.mjs`, `npm pack`s both, writes `dist/release/mavan-drawer-<v>/` and its zip. Version from the root `package.json` alone. Refuses a dirty tree, a failing check, an unfilled template, a README naming a tarball it lacks and, from 1.0.0, a sheet that differs from `packages/names.lock` or a licence still carrying `[Maruti]`; gates every file (no stroke, ink box to 2 dp, 2 × 3 × approved rows). `--gate` adds the raster gate, `--lock` writes the lock; `--allow-dirty`, `--skip-check`, `--templates` make a `-dev` build. Never publishes or tags. `node --test tools/release.test.mjs` |
 | `tools/gen-react.mjs` | `@mavan/icons-react` (card 2.2, 2026-10-27): from the box only (`packages/icons/`), one component per name and style plus `Icon` by name, the master by the size rule, `optical` margins, `currentColor`, ESM + CJS + types; written to `packages/icons-react/` (gitignored but for `package.template.json`); the release runs it. Proven by `plans/proof-react/` (`node plans/proof-react/run.mjs`: every icon in Chromium against the box). `node --test tools/gen-react.test.mjs` |
+| `packages/` | `icons/` and `icons-react/` are generated by `npm run release` (gitignored but for each `package.template.json`); `templates/` holds the box's README and the licence draft (card 2.3); `names.lock` is written by `npm run release -- --lock` at 1.0.0 (card 3.3) |
 | `tools/size-sheet.mjs` | writes `lab/size-rule.js` for `lab/size-rule.html` (card 2.4): twenty icons at every size 14–32, the master below scaled up beside the master above scaled down, real pixels — Maruti's pick there becomes the size rule |
 | `tools/optical-sheet.mjs` | **optical placement (C14) template**: `node tools/optical-sheet.mjs <shape>… [--rec <shape>=<x>:<y>] [--xs …] [--ys …]` measures each shape's (x, y) recommendation (end-triangle offset × 0.5) and writes a grid of positions around it to the board; view on **`/lab/optical-shift.html`** (plain sheet: the mark in its canvas outline at 24 · 20 · 16, menu row, inline, 40 square/circle, 32 · 28 buttons; shipped and recommended rows tagged) |
 
 `dist/metrics.json` is the differentiator: per-icon ink box, **geometric**
 bearings (where ink stops) and **optical** bearings (where it reads as stopping).
 Consumers subtract them as negative margins so `padding` and `gap` become
-literally true. Without it the same CSS renders 13.7–16.2px of visual padding
-depending on the icon.
+literally true. Without it the same CSS lands unevenly: `padding: 12px` on a 24 px icon reads as
+14.01–24.05 px of padding depending on the icon (median 15.18; nine in ten sides 14.11–18.67), because
+the ink reads as starting 2.01 (`activity`) to 12.05 (`volume-none`, a C28 level member off-centre on
+purpose; 10.83 without the level families) units in from the box edge — measured 2026-10-27 from
+`dist/metrics.json`, optical left and right at the 24 master, the 1,309 outline drawings (448 icons and their 861 variants).
 
 ## Conventions
 
@@ -312,25 +318,28 @@ depending on the icon.
 - `<!-- grows: L R T B -->` (filled files only) declares how far the filled ink is allowed to
   stand proud of its outline twin's box on each side, in that master's units; negative is inside.
   Lint compares every pair and warns on any undeclared difference; a note the drawings do not
-  measure is an error. Today (2026-10-20 census) **97 filled files on 33 concepts** differ, every
-  one noted and confirmed by lint, none undeclared: C17 repeated elements — line and bar stacks
-  (the six menus, `list-bullet`, `-2`, `text-2`, `filter-2`, `chart-bar`, `quote-3`,
-  `drag-handle-3`, `password-2`'s underline), dots and tiles (`more-*`, `drag-handle`, `-2`,
-  `grid-3`, `-4`) and the eight double chevrons (`chevrons-*`, `-2`); the lone bar (`minus`,
-  `-large`, `-small`); and two one-offs approved with their icon, `command`'s ⌘ and
-  `chart-line-2`'s data dots (at 16 only); `grep -rl '<!-- grows:' src/icons` lists them
+  measure is an error. Today (2026-10-27 census) **171 filled files on 59 names** (58 · 58 · 55 at 24 · 20 · 16;
+  27 base concepts) differ, every one noted and confirmed by lint, none undeclared: C17 repeated
+  elements — line and bar stacks (the six menus, `list-bullet`, `-2`, `text-2`, `filter-2`,
+  `chart-bar`, `quote-3`, `drag-handle-3`, `password-2`'s underline), dots and tiles (`more-*`,
+  `drag-handle`, `-2`, `grid-3`, `-4`) and the eight double chevrons (`chevrons-*`, `-2`); the lone
+  bar (`minus`, `-large`, `-small`); `command`'s ⌘ and `chart-line-2`'s data dots (at 16 only); and,
+  drawn since 2026-10-20, `arrow-keys-2`, `barcode`, `chart-bar-trend-2`, `contactless`, `filters-3`,
+  `indent` and `outdent` (×3 each), the five `signal-2` levels, the four `text-align-*`, `text-title`,
+  `waveform` and `wifi`, `-low`, `-medium`, `-off`; `grep -rl '<!-- grows:' src/icons` lists them
 - `<!-- gap: N -->` declares the agreed minimum gap between stroke edges for that one file, in
   that master's units; it replaces §6's 1.5 in that file's proximity checks — §5 (crossing arms included), §5b, §5f, §5h, §5i, §5j, §5l and §5m (C19
   glyph pairs untouched; the knockout's material (§5c) and the material between cut-outs (§5f) floor at the line weight 1.5 · 1.5 · 1.25, which the note lowers but never raises). Lint prints it as an info line while the drawing holds
   it, warns against N below it, and errors on a note it cannot read, on N ≥ 1.5, and on a note
-  the drawing no longer needs. Today (2026-10-20 census, 35 files): `attachment-4-filled` at 24 and 20 (1), `alert-triangle-2` and `-4` at 16 (1.25), `sort` and `sort-filled` at 16 (1), `database-2-filled` at 24 (1.48), `volume-off-filled` (0.7 · 0.75 · 0.375), `id-card`, `-2`, `-3` at 16, outline (1), `fingerprint-filled` and `passkey-2-filled` (its print) at 20 (1.43) and 16 (0.87), the six `sort-alpha-*-filled` (the A's counter: 1.17 · 0.93 · 0.88); `grep -rl '<!-- gap:' src/icons` lists them
+  the drawing no longer needs. Today (2026-10-27 census) 98 files on 47 icons, outline and filled twin counted once: the 2026-10-20 list as it stood (`attachment-4-filled`, `alert-triangle-2`/`-4`, `sort`/`sort-filled`, `database-2-filled`, `volume-off-filled`, `id-card`/`-2`/`-3` now with their filled twins at 16, `fingerprint-filled`, `passkey-2-filled`, the six `sort-alpha-*-filled`) and, since, the currency signs and rings (18 icons: `baht`, `baht-circle`, `bitcoin-circle`, `dollar-circle`, `dollar-circle-2`, `dollar-sign-2`, `euro`, `franc-circle`, `lira-circle`, `naira`, `peso`, `peso-circle`, `real`, `riyal-circle`, `shekel-circle`, `won`, `won-2`, `won-circle`), the keys (`arrow-keys`, `enter`, `shift-2`), `bluetooth-2`/`-circle`, `camera-flip-2`, `file-down`/`file-up`, `voicemail-2`/`-circle`, `rotation-360-3-filled`, `scan-face-2-filled`; `grep -rl '<!-- gap:' src/icons` lists them
 - `<!-- corners: square -->` (filled files only, 2026-10-24) declares that the file's cut-outs come to square
   corners on purpose where C1's floor (lint §5k: `CUT_CORNER` in `tools/masters.mjs`, 0.75 · 0.5 · 0.375) would
   otherwise warn and no geometric exemption reaches — slits, a declared glyph's counters and corners against a
   line-weight wall (Maruti kept that reach, 2026-10-24) need none. Drafts write it with `corners: 'square'` on the
   candidate or board (candidate wins, `null` opts out), or `{ 24: 'square', 16: 'square' }` where only some masters need it (film-roll).
   Lint prints how many corners it keeps and the tightest while it is in use, and errors on a note it cannot
-  read, on one in an outline file, and on one the drawing no longer needs. Today no file carries it;
+  read, on one in an outline file, and on one the drawing no longer needs. Today 5 files carry it
+  (2026-10-27): `film-roll-filled` at 24 and 16, `bold-filled` at 24 · 20 · 16;
   `grep -rl '<!-- corners:' src/icons` lists them
 - `<!-- hands: clock -->` (outline files only, 2026-10-26) declares a clock (C38): lint §5m finds it — a ring, one
   closed circle written M…A…A…Z, and the open paths lying inside it — and floors each hand's air to its ring at
@@ -340,8 +349,9 @@ depending on the icon.
   or `{ 20: 'clock', 16: 'clock' }` where only some masters need it, into the outline files only: a filled clock
   knocks its hands out of a disc, so it has no hand-to-ring air. Lint prints the tightest hand-to-ring air while
   the note is in use, and errors on a note it cannot read, on one in a filled file, on one where it finds no
-  ring with a hand inside, and on one the drawing does not need (every hand 1.5 or more from its ring). Today no
-  shipped file carries it; `grep -rl '<!-- hands:' src/icons` lists them
+  ring with a hand inside, and on one the drawing does not need (every hand 1.5 or more from its ring). Today 12
+  outline files carry it (2026-10-27): `calendar-clock`, `file-clock`, `mail-clock`, `shield-pending` at
+  24 · 20 · 16, each at the floor, 1; `grep -rl '<!-- hands:' src/icons` lists them
 - `<!-- glyph: dot | numeral | letter -->`: `dot` and `numeral` declare C19's glyph floor; `numeral` also lets a numeral's path carry
   `stroke-width` at the outline weight inside a line-heavy filled file (C32) — one of the per-path weights lint allows (with `letter` and `badge: line`).
   `letter` (2026-10-20, first `translate`) gives a letter's paths that weight and nothing else — no C19 floor, so its

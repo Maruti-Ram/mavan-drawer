@@ -36,7 +36,7 @@ Today the icons exist only as this repo's stroked source. After this build:
   thing no other set ships.
 - **Maruti runs one command**, `npm run release`, and gets that folder, versioned, from the sheet's
   approved rows. Nothing by hand, nothing from Figma.
-- **The stroked source stays here.** The repo has no remote today and the box never carries a stroke.
+- **The stroked source stays here.** The repo is private on GitHub (`Maruti-Ram/mavan-drawer`, checked 2026-10-27) and the box never carries a stroke.
 - **1.0.0 freezes every name and number** (C9, the naming rule: once shipped, `check-2` is `check-2`
   for ever). The sheet's rows become permanent the moment the first customer installs; a later
   retirement is a deprecation, never a rename.
@@ -125,7 +125,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
 
 ### Wave 1 — the parts that must be exact (parallel)
 
-- [ ] **1.1 The outliner.** *Owns:* `tools/outline.mjs`, `tools/outline.test.mjs`; reads
+- [x] **1.1 The outliner.** *Owns:* `tools/outline.mjs`, `tools/outline.test.mjs`; reads
   `plans/proof-outline/exact.mjs` and `cleanup.mjs` and retires the proof folder when done. Lift the
   proof into a tool: one function, stroked SVG text in → outlined-fill SVG text out, every path at its
   own weight (the per-path widths of a `glyph` or `badge`), already-filled areas passed through
@@ -134,7 +134,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
   an ink box equal to the source's to 2 dp; the 224 curve files are listed with their worst error; the
   test runs the sample of 16; `npm run check` unchanged. *Model:* Fable (the 5 failures are hard
   geometry; Opus at Fable's limit). *Depends on:* nothing.
-- [ ] **1.2 Metrics made correct.** *Owns:* `tools/optical.mjs`, `tools/geometry.mjs` (`bbox` for
+- [x] **1.2 Metrics made correct.** *Owns:* `tools/optical.mjs`, `tools/geometry.mjs` (`bbox` for
   curves, `anatomy`), `tools/build.mjs`, `tools/geometry.test.mjs`. Shape-filled files get real optical
   recession; the bare `x` reports no container; curves are boxed by their true extremes. *Done when:*
   (1) every filled file whose ink box equals its outline twin's has optical bearings within 0.05 of the
@@ -142,14 +142,14 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
   null for `x`, `x-large`, `x-small` and unchanged for every icon that has a ring; (3) `icons.json`'s
   ink box equals the exact ink to 2 dp in every file; (4) `node --test` passes and the lint output on
   `src/icons/` is byte-identical except the lines this card lists. *Model:* Fable. *Depends on:* nothing.
-- [ ] **1.3 The package's index.** *Owns:* `tools/package-meta.mjs`. From the sheet and the files:
+- [x] **1.3 The package's index.** *Owns:* `tools/package-meta.mjs`. From the sheet and the files:
   per icon, `name, category, section, variantOf, tags, mvp, styles, masters`, and the set's version;
   variants grouped under their base. Also prints the rows with no category (34 today) and the untagged
   icons (24 today) for Maruti to fill before 1.0 — the categories are his call, the tags the drawer's.
   *Done when:* `meta.json` round-trips every approved row and the two lists are printed. *Model:* Opus.
   *Depends on:* nothing.
 - [x] **1.4 The name on npm.** *Owner:* Maruti. Create the `mavan` npm org (or user) so `@mavan` is
-  ours. Claude cannot do this: it needs his account. *Done when:* `npm org ls mavan` answers.
+  ours. Claude cannot do this: it needs his account. *Done when:* `npm org ls mavan` answers. **Done 2026-10-27.**
 
 ### Wave 2 — the box (depend on 1)
 
@@ -177,7 +177,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
   licence.** README: the size rule, the metrics in one paragraph, the folder layout. *Done when:* both
   files exist, every `[Maruti]` is listed, and the README's size rule is 2.4's pick word for word.
   *Model:* Sonnet drafts, Fable reviews. *Depends on:* 2.4.
-- [ ] **2.4 The size rule, picked by eye.** *Owns:* `tools/size-sheet.mjs`, `lab/size-rule.html`. One
+- [x] **2.4 The size rule, picked by eye.** *Owns:* `tools/size-sheet.mjs`, `lab/size-rule.html`. One
   board, one question: at the sizes between masters (17–19, 21–23) and above 24, does the master below
   scaled up or the master above scaled down read better? The sheet shows twenty icons at every size
   from 14 to 32 both ways, real pixels. **Maruti picks**; the pick becomes the component's thresholds,

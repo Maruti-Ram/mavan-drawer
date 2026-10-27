@@ -291,7 +291,9 @@ Measured again on 2026-10-20, across 2,190 pairs: **97 filled files on 33
 concepts** differ, every one declared and confirmed, none undeclared — C17's
 line and bar stacks, dots and tiles and double chevrons, the three `minus`
 sizes, and two one-offs approved with their icon (`command`'s ⌘ and
-`chart-line-2`'s data dots at 16, both dated notes on C17 in doc 07).
+`chart-line-2`'s data dots at 16, both dated notes on C17 in doc 07). Measured again on 2026-10-27,
+across 3,927 pairs: **171 filled files on 59 names** differ, every one declared and confirmed, none
+undeclared — the same kinds, and the icons drawn since (CLAUDE.md, the `grows:` convention, lists them).
 
 **16 draws a lighter line than 24 and 20 (C7, amended 2026-09-20).** Until
 then, the library held one physical weight at every master, so the smaller

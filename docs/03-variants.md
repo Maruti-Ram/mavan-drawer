@@ -1,9 +1,9 @@
 # Variants
 
-> **Status of this document.** Only **Outline / Regular / 24** exists today —
-> that is `src/icons/24/`. Weight is a live attribute so Light and Bold work
-> already; **Solid, Duotone and every optical master are unbuilt**, and each
-> section below says so where it applies. Read this as a plan, not a description.
+> **Status of this document (updated 2026-10-27).** Written as a plan before the set was drawn. Since then:
+> **three masters are drawn by hand, 24 · 20 · 16, each in outline and filled** (CLAUDE.md Settled:
+> Masters, Styles), and there is **no weight axis** (Settled: Weight axis). Duotone is deferred. Where a
+> section below says unbuilt, CLAUDE.md's Settled table wins.
 
 Three orthogonal axes. Keep them orthogonal — the moment a weight change implies
 a style change, the system has collapsed into a pile of special cases.
@@ -36,8 +36,9 @@ Bold the stroke grows 0.25 units on each edge, eating 0.5 of that gap and leavin
 1.5 — still legible. At a 1-unit gap, Bold would weld shut. **The min-gap rule is
 what makes the weight axis free.** That is why it is non-negotiable.
 
-> **Status: works today.** Weight is a live attribute, so the lab's Weight view
-> is showing real Light and Bold, not mockups. Nothing needs drawing.
+> **Status (2026-10-27): not used.** There is no weight axis (CLAUDE.md Settled: Weight axis) and no Weight
+> view in the lab. *Written earlier:* Weight is a live attribute, so the lab's Weight view is showing real
+> Light and Bold, not mockups.
 
 Ship Regular first. Commit to Light and Bold once the set is ~80 icons and you know the
 shapes have settled — re-testing three weights against a moving target is
@@ -47,11 +48,13 @@ wasted work.
 
 ## Axis 2 — Style
 
-> **Status: Outline only.** Solid and Duotone are unbuilt. Neither is a build
+> **Status (2026-10-27): outline and filled are drawn** for every icon (Settled: Styles); Duotone is deferred.
+> *Written earlier:* Solid and Duotone are unbuilt. Neither is a build
 > step you can turn on — both are redraws, described below so you can budget them.
 
 ### Outline (the master)
-The drawn artefact, and the only style in the repo. Everything else derives from it.
+The drawn artefact. *(2026-10-27: no longer the only style — every icon is also drawn filled, as a separate
+drawing; CLAUDE.md Settled: Styles.)*
 
 ### Solid
 **Not** a filled version of the outline path — that produces mush. Solid is a
@@ -89,7 +92,8 @@ no palette.
 
 ## Axis 3 — Size — the part that costs real money
 
-> **Status: not built.** `src/icons/24/` is the only master that exists. The lab's
+> **Status (2026-10-27): built** — three drawn masters, 24 · 20 · 16 (Settled: Masters), picked by the
+> size rule (Settled: Size rule, shipped). *Written earlier:* `src/icons/24/` is the only master that exists. The lab's
 > Sizes view scales it; nothing in this repo is redrawn per size. Everything below
 > describes what you would build *if* you decide to, and what it would cost.
 
