@@ -248,7 +248,7 @@ side.**
 
 1. **The licence** — the 24 `[Maruti]` decisions settled with his adviser; the release refuses a 1.0.0
    while any remains.
-2. **`text-4` and `dollar-circle-2`** — his rework, or ship them as they are; their names freeze either way.
+2. ~~**`text-4` and `dollar-circle-2`** — his rework, or ship them as they are.~~ **Ruled 2026-10-27: ship them as they are, for now** — a later rework redraws them under the same names (1.0 freezes names, not drawings); retiring one after 1.0 is a deprecation. The README names both among the names that draw alike.
 3. ~~**The `mavan` npm org** reserved (card 1.4).~~ **Done 2026-10-27.**
 4. **His look at the dots** — in his own Chrome, the Library's `select-2` or `more-horizontal-filled`
    zoomed: solid or rings? Customers get solid either way.
