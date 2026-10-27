@@ -1,6 +1,6 @@
 # Plan: the shipping pipeline (2026-10-26)
 
-Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **Wave 3 started 2026-10-27** on Maruti's word ("start wave 3 in cloud"): 3.1 and 3.2 done; `stack-3` retired and the tags cleaned on his rulings; 3.3 (the 1.0.0 cut) needs his nod on the looked-at box and the licence and names rulings in the wave 2 report under Results.
+Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **Wave 3 started 2026-10-27** on Maruti's word ("start wave 3 in cloud"): 3.1 and 3.2 done; `stack-3` retired and the tags cleaned on his rulings; **his nod on the box given 2026-10-27 — 3.3, the 1.0.0 cut, waits on the licence alone**; 3.3 (the 1.0.0 cut) needs his nod on the looked-at box and the licence and names rulings in the wave 2 report under Results.
 
 **The `mavan` npm org (1.4) was created by Maruti on 2026-10-27** (free plan; npm's confirmation, "mavan was created with a default team called Developers"), so `@mavan` is ours. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
@@ -253,7 +253,8 @@ side.**
 4. ~~**His look at the dots**~~ **Ruled 2026-10-27: "lock it as they are right now"** — the box ships the
    dots solid, as drawn; the Library is left as it is (rings in Chromium's default renderer, measured here);
    any later change is Maruti's to make.
-5. **His nod on the looked-at box** → 3.3: `npm run release -- --lock`, version 1.0.0, the Shipping row in
+5. **His nod on the looked-at box — given 2026-10-27** ("Yes": this is the box for 1.0.0). **3.3 now waits on the
+   licence alone**; when its text comes back settled → `npm run release -- --lock`, version 1.0.0, the Shipping row in
    CLAUDE.md's Settled table and docs/01 in one commit, a local `v1.0.0` tag (nodded 2026-10-26).
 
 
