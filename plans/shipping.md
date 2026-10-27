@@ -1,6 +1,6 @@
 # Plan: the shipping pipeline (2026-10-26)
 
-Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). Wave 2 has not started. To resume: Maruti's three inputs below, then cards 2.1 and 2.3 together, 2.2 after them.
+Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 in build 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop): 2.3 done; 2.1 in build; 2.2 after it.
 
 **Waiting on Maruti before wave 2:** the `mavan` npm org (1.4) — needed by 2.1's `npm pack` name, nothing else. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
@@ -12,7 +12,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [ ] 1.4 The name on npm (Maruti)
 - [ ] 2.1 The box: `@mavan/icons`
 - [ ] 2.2 The React package: `@mavan/icons-react`
-- [ ] 2.3 The licence and the README
+- [x] 2.3 The licence and the README — drafted 2026-10-27 (Sonnet; reviewed by a fresh Fable agent, nine edits): `packages/templates/`, 24 `[Maruti]` decisions listed under Results
 - [x] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`; **picked 2026-10-26: the master at or below the size, scaled up** (Maruti, taking the recommendation); recorded in CLAUDE.md Settled and docs/01 §9
 - [ ] 3.1 Installed and looked at, as a customer
 - [ ] 3.2 Fresh review
@@ -170,7 +170,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
   takes the text colour); TypeScript types for every name. *Done when:* a throwaway app renders every
   icon at 16 · 20 · 24 from the package and the bytes it ships are the outlined fills, not the stroked
   source. *Model:* Opus. *Depends on:* 2.1, 2.4.
-- [ ] **2.3 The licence and the README.** *Owns:* `packages/templates/LICENSE.md`,
+- [x] **2.3 The licence and the README.** *Owns:* `packages/templates/LICENSE.md`,
   `packages/templates/README.md`. A draft licence: one-time purchase, lifetime updates, seat tiers
   left as `[Maruti]`, no resale or repackaging, no redistribution of the files on their own. **Maruti
   reads it and takes it to whoever he trusts for legal wording; Claude drafts, never settles, a
@@ -221,6 +221,61 @@ done"). The shop: licence keys, seat counts, a token-gated registry so `npm inst
 works without a tarball. A public showcase page from the Library.
 
 ## Results
+
+### Card 2.3 (2026-10-27)
+
+`packages/templates/README.md` (126 lines) and `LICENSE.md` (127 lines), drafted by Sonnet, reviewed by a
+fresh Fable agent who made nine edits (below). The release fills exactly three placeholders — `{{version}}`,
+`{{icons}}` (base concepts), `{{names}}` (every shipped name) — and refuses any other `{{…}}`. The README
+carries the size rule word for word ("the master at or below the size, scaled up", "24 at and above 24",
+with 16–19 · 20–23 · 24+ and nothing scaled down), the metrics in one paragraph, the folder layout, the
+React API card 2.2 builds to, and the JSON fields. Its only numbers are placeholders, master sizes, the
+rule's thresholds and the worked example measured from `dist/metrics.json` this session (at 24 `plus`
+bears 4.5 on every side, `circle` 2; optical 4.52 and 2.71).
+
+Review edits: the global-name aliasing (`import { Map as MapIcon }` — nine names shadow a browser or Node
+global: `Map`, `File`, `Image`, `Text`, `Window`, `Option`, `Lock`, `Clipboard`, `Navigation`); every
+meta.json field described plainly; "every name carries tags" softened (24 icons carry none today); the
+filled-grows sentence made true (59 names, 171 files, at most 1.5 at 24 and 1 at 16); the bearing to
+subtract named as the optical one; in the licence, a clause that contradicted `Icon`-by-name (which
+bundles the whole set) reworded, and three decisions the draft had taken silently given `[Maruti` markers.
+The main session then made `IconProps` the props every component takes (`Icon` adds `name`).
+
+**The licence's 24 `[Maruti]` decisions** (all in LICENSE.md; the README has none), each with the
+draft's recommendation. Claude drafts; Maruti settles with his legal adviser. The release refuses a
+1.0.0 that still carries any of them.
+
+1. Top notice: a draft, not in force — settle with the adviser, answer every note, delete the notice.
+2. Licence version and date — number it 1.0, keep old versions on file.
+3. Licensor's legal name, address, contact — the entity taking the money and owning the copyright.
+4. Terms of later versions — a customer keeps the terms bought under for the versions they have.
+5. What "lifetime" means — the product's lifetime, with notice if it stops; customers keep what they have.
+6. What counts as an update — new versions of Mavan Drawer only; a new product is priced on its own.
+7. What a seat is — one person doing design or development work with the icons, by person.
+8. Who needs a seat, moving one — contractors need their own; a seat moves when someone leaves.
+9. A developer who only builds or runs the code — no seat for building, running, deploying; machines never.
+10. The tiers — names, seats per tier and price of extra seats go with the price list.
+11. Where the files may be kept — private repositories and tools limited to seat holders.
+12. The whole set inside one product — allow it (the `Icon` API bundles it); forbid handing icons on as
+    files or a library. **A business call:** a public website's bundle then carries the whole set as
+    outlined shapes; if Maruti restricts that, the README's `Icon` guidance changes with it.
+13. Source or design files handed to a client — only as part of that product.
+14. Open-source projects — public source must not contain the icons; a built release may.
+15. Logos and trademarks — not allowed.
+16. Machine learning — no training, fine-tuning, evaluation or datasets; use in a product's interface allowed.
+17. Modifications — recolour, resize, adjust allowed; a changed icon stays under the licence.
+18. Transferring a licence — not transferable; ask the adviser about the sale of a business.
+19. Ownership — the icons stay Maruti's; the adviser words the copyright notice.
+20. Refunds — a fixed window in days, ending once downloaded and used (consumer law: the adviser).
+21. Termination on breach — written notice and time to fix; none for resale or redistribution.
+22. Warranty — the adviser's wording; intent "as is"; no non-infringement promise until the adviser says how.
+23. Limit of liability — the adviser's wording; intent: no indirect loss, capped at the price paid.
+24. Governing law and disputes — the licensor's country; the adviser on consumer law and "worldwide" (§3).
+
+Found on the way, for the main session (docs, not this card): CLAUDE.md's "13.7–16.2px of visual
+padding" (its `metrics.json` paragraph, also the root README) is marked never measured in
+`plans/set-and-rules-audit.md` card 1.12, so the box README does not cite it; CLAUDE.md's `grows:` census
+(97 files on 33 concepts) is stale against today's 171 files on 59 names.
 
 ### Card 1.3 (2026-10-26)
 
