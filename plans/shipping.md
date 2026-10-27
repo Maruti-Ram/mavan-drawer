@@ -2,14 +2,14 @@
 
 Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 built and closed 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop); **Wave 3 started 2026-10-27** on Maruti's word ("start wave 3 in cloud"): 3.1 and 3.2 done; `stack-3` retired and the tags cleaned on his rulings; 3.3 (the 1.0.0 cut) needs his nod on the looked-at box and the licence and names rulings in the wave 2 report under Results.
 
-**Still open on Maruti, not blocking:** the `mavan` npm org (1.4). Wave 2 packs under `@mavan/icons` and `@mavan/icons-react` without it (`npm pack` needs no org), but **the name is not reserved yet** — reserve it before a customer types it. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
+**The `mavan` npm org (1.4) was created by Maruti on 2026-10-27** (free plan; npm's confirmation, "mavan was created with a default team called Developers"), so `@mavan` is ours. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
 `plans/proof-outline/`; reviewed by a fresh agent the same day (numbers re-measured, owners fixed).
 
 - [x] 1.1 The outliner — merged 2026-10-26 (Fable; reviewed by a fresh Opus agent with an independent renderer, one leak fixed on review): `tools/outline.mjs`, 0 wrong pixels in 7,860 files
 - [x] 1.2 Metrics made correct — merged 2026-10-26 (Fable, reviewed by a fresh Fable agent, second pass on its two findings); the ⌘ reading is an open question for Maruti, under Results
 - [x] 1.3 The package's index — built 2026-10-26 (Opus): `node tools/package-meta.mjs` → `dist/meta.json`, 1310 entries = the sheet's 1310 approved rows, 458 families; the sheet's findings are under Results
-- [ ] 1.4 The name on npm (Maruti)
+- [x] 1.4 The name on npm — the `mavan` org created by Maruti 2026-10-27 (free plan; his screenshot of npm's confirmation stands as the proof, since `npm org ls` needs his login)
 - [x] 2.1 The box: `@mavan/icons` — built 2026-10-27 (Opus; reviewed by a fresh Fable agent with a release run of its own): `npm run release`, 7,860 outlined files = 2 × 3 × 1,310 rows, zip and tarball open
 - [x] 2.2 The React package: `@mavan/icons-react` — built 2026-10-27 (Opus; reviewed by a fresh Fable agent with a release and checks of its own): every icon renders at 16 · 20 · 24 from the tarball, 0 differing pixels against the box in Chromium, no stroked source in it
 - [x] 2.3 The licence and the README — drafted 2026-10-27 (Sonnet; reviewed by a fresh Fable agent, nine edits): `packages/templates/`, 24 `[Maruti]` decisions listed under Results
@@ -148,7 +148,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
   icons (24 today) for Maruti to fill before 1.0 — the categories are his call, the tags the drawer's.
   *Done when:* `meta.json` round-trips every approved row and the two lists are printed. *Model:* Opus.
   *Depends on:* nothing.
-- [ ] **1.4 The name on npm.** *Owner:* Maruti. Create the `mavan` npm org (or user) so `@mavan` is
+- [x] **1.4 The name on npm.** *Owner:* Maruti. Create the `mavan` npm org (or user) so `@mavan` is
   ours. Claude cannot do this: it needs his account. *Done when:* `npm org ls mavan` answers.
 
 ### Wave 2 — the box (depend on 1)
@@ -249,7 +249,7 @@ side.**
 1. **The licence** — the 24 `[Maruti]` decisions settled with his adviser; the release refuses a 1.0.0
    while any remains.
 2. **`text-4` and `dollar-circle-2`** — his rework, or ship them as they are; their names freeze either way.
-3. **The `mavan` npm org** reserved (card 1.4).
+3. ~~**The `mavan` npm org** reserved (card 1.4).~~ **Done 2026-10-27.**
 4. **His look at the dots** — in his own Chrome, the Library's `select-2` or `more-horizontal-filled`
    zoomed: solid or rings? Customers get solid either way.
 5. **His nod on the looked-at box** → 3.3: `npm run release -- --lock`, version 1.0.0, the Shipping row in
@@ -316,7 +316,7 @@ Firefox and Safari, a real Next.js and Vite app, Jest, a screen reader, the scal
 by eye, and the pinhole dots.
 
 **For Maruti — to decide or look at (none blocks wave 2; most must be settled before 1.0.0):**
-1. **Reserve the `mavan` npm org** (1.4). The packages build as `@mavan/…` without it, but the name is
+1. **Reserve the `mavan` npm org** (1.4). **Done 2026-10-27, by Maruti.** The packages build as `@mavan/…` without it, but the name is
    not ours until it is reserved.
 2. **The licence:** 24 `[Maruti]` decisions (card 2.3 Results), to settle with your legal adviser. One is
    a business call: allow the whole set inside one product (the `Icon`-by-name component bundles it, and
