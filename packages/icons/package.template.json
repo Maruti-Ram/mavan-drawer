@@ -1,0 +1,24 @@
+{
+  "name": "@mavan/icons",
+  "private": true,
+  "description": "Mavan Drawer icons at 24, 20 and 16, outline and filled, as outlined SVG, with each icon's ink box and optical bearings.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "keywords": ["icons", "svg", "icon-set", "mavan"],
+  "sideEffects": false,
+  "files": [
+    "svg/",
+    "icons.json",
+    "metrics.json",
+    "meta.json",
+    "README.md",
+    "LICENSE.md",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    "./svg/*": "./svg/*",
+    "./icons.json": "./icons.json",
+    "./metrics.json": "./metrics.json",
+    "./meta.json": "./meta.json",
+    "./package.json": "./package.json"
+  }
+}

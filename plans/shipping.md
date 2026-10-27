@@ -1,8 +1,8 @@
 # Plan: the shipping pipeline (2026-10-26)
 
-Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 in build 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop): 2.3 done; 2.1 in build; 2.2 after it.
+Status: **nodded 2026-10-26** (both open recommendations taken: tarballs in the download, a local `v1.0.0` tag). **Wave 1 built and closed 2026-10-26; stopped there on Maruti's word** ("stop after wave 1", credits). **Wave 2 in build 2026-10-27**, in a cloud session on the branch `claude/focused-noether-4uv2b2` (Maruti: "run wave 2", then stop): 2.3 and 2.1 done; 2.2 in build.
 
-**Waiting on Maruti before wave 2:** the `mavan` npm org (1.4) — needed by 2.1's `npm pack` name, nothing else. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
+**Still open on Maruti, not blocking:** the `mavan` npm org (1.4). Wave 2 packs under `@mavan/icons` and `@mavan/icons-react` without it (`npm pack` needs no org), but **the name is not reserved yet** — reserve it before a customer types it. The size rule (2.4) and the sheet rulings (1.3) were settled 2026-10-26 on his word, "go with the best recommended approaches": every row has a category, ten rows became variants (icons 458 → 448), and the three badge rows left the round label. Brainstormed 2026-10-26 (seven questions, all answered —
 see below); the one unknown, turning a stroke into an outlined fill, proven the same day in
 `plans/proof-outline/`; reviewed by a fresh agent the same day (numbers re-measured, owners fixed).
 
@@ -10,7 +10,7 @@ see below); the one unknown, turning a stroke into an outlined fill, proven the 
 - [x] 1.2 Metrics made correct — merged 2026-10-26 (Fable, reviewed by a fresh Fable agent, second pass on its two findings); the ⌘ reading is an open question for Maruti, under Results
 - [x] 1.3 The package's index — built 2026-10-26 (Opus): `node tools/package-meta.mjs` → `dist/meta.json`, 1310 entries = the sheet's 1310 approved rows, 458 families; the sheet's findings are under Results
 - [ ] 1.4 The name on npm (Maruti)
-- [ ] 2.1 The box: `@mavan/icons`
+- [x] 2.1 The box: `@mavan/icons` — built 2026-10-27 (Opus; reviewed by a fresh Fable agent with a release run of its own): `npm run release`, 7,860 outlined files = 2 × 3 × 1,310 rows, zip and tarball open
 - [ ] 2.2 The React package: `@mavan/icons-react`
 - [x] 2.3 The licence and the README — drafted 2026-10-27 (Sonnet; reviewed by a fresh Fable agent, nine edits): `packages/templates/`, 24 `[Maruti]` decisions listed under Results
 - [x] 2.4 The size rule, picked by eye — board built 2026-10-26 (Opus): `/lab/size-rule.html`; **picked 2026-10-26: the master at or below the size, scaled up** (Maruti, taking the recommendation); recorded in CLAUDE.md Settled and docs/01 §9
@@ -153,7 +153,7 @@ board, or the repo's `package.json` — Claude in the main session adds the one 
 
 ### Wave 2 — the box (depend on 1)
 
-- [ ] **2.1 The box: `@mavan/icons`.** *Owns:* `tools/release.mjs`, `packages/icons/` (generated,
+- [x] **2.1 The box: `@mavan/icons`.** *Owns:* `tools/release.mjs`, `packages/icons/` (generated,
   gitignored but for its `package.json` template). `npm run release` runs check, outlines every
   approved file (1.1), writes `svg/24|20|16/<name>.svg` and `-filled.svg`, `icons.json`,
   `metrics.json` (1.2), `meta.json` (1.3), copies README and LICENSE from 2.3's templates, writes
@@ -221,6 +221,63 @@ done"). The shop: licence keys, seat counts, a token-gated registry so `npm inst
 works without a tarball. A public showcase page from the Library.
 
 ## Results
+
+### Card 2.1 (2026-10-27)
+
+`npm run release` (`tools/release.mjs`, Opus) builds the box from the sheet's approved rows: the
+outliner over every file, `packages/icons/` as the npm package, `npm pack`, the download folder and
+the zip under `dist/release/`. `packages/icons/package.template.json` is committed; the version
+comes from the root `package.json` alone (0.0.1), and `"private": true` makes npm itself refuse an
+accidental publish (packing and installing the tarball still work). `npm run release -- --gate` adds
+the raster gate; `-- --lock` writes `packages/names.lock` for 3.3; `--allow-dirty`, `--skip-check`
+and `--templates` are for working on the tool, and a run with any of them is named `-dev`.
+
+Measured on the reviewer's own run (a clean commit in a scratch clone, no dev flags):
+
+| Measure | Result |
+|---|---|
+| Check before the build | 7860 drawings · 7604 clean · 256 warned · 0 failed (the baseline) |
+| Files | 2,620 per master, **7,860 = 2 × 3 × 1,310** approved rows (counted with `parseSheet`) |
+| Strokes in the box | **0** stroked paths, 0 stroke attributes; every file one evenodd path on `<svg xmlns viewBox fill="currentColor">` |
+| Source leaking | 0 of the 19,072 stroked centrelines in `dist/icons.json` appear in any shipped path or in the box's `icons.json`; no comment, note, `src/`, `tools/` or private data anywhere |
+| Ink box | equal to the source's exact ink to 2 dp in every file (worst 0.0026) |
+| Download folder | 21.6 MB: `svg/` 8.7 MB, `icons.json` 7.9 MB, `metrics.json` 1.3 MB, `meta.json` 0.7 MB |
+| Tarball | `mavan-icons-0.0.1.tgz`, 2.95 MB, 7,867 entries; installs, and `@mavan/icons/svg/24/check.svg`, `/icons.json`, `/metrics.json`, `/meta.json` resolve |
+| Zip | `mavan-drawer-0.0.1.zip`, 8.7 MB, 7,872 entries; `unzip -t` and Python's `zipfile` open it |
+| Time | 278 s: check 161, outlining 111, pack 4, zip 2 |
+| Refusals | each refused with nothing zipped: a dirty tree, a stray `{{…}}` in a template, a sheet row with no files, a failing check, `--lock` below 1.0.0, a 1.0.0 still carrying `[Maruti]` |
+| Tests | 224 pass (`geometry`, `outline`, and 8 new in `release.test.mjs`) |
+
+What ships beside the SVGs: `icons.json` is built from the outlined files (`dist/icons.json` holds the
+stroked source and is never copied); `metrics.json` keeps only `ink`, `bearing` and `optical` per
+master and name — the design measures lint uses (`shift`, `container`, `ratio`, `gap`, `recession`)
+stay private, since whatever ships at 1.0 becomes a promise; `meta.json` is card 1.3's;
+`CHANGELOG.md` lists this first build by category, one line per family, and after 1.0 lists only the
+names a release adds to `names.lock`. The README and LICENSE come from card 2.3 with the three numbers
+filled; the release warns while the licence's 24 `[Maruti]` marks remain and refuses them at 1.0.0.
+
+**The outliner polish** card 1.1 left (`clean()` in `tools/outline.mjs`): files with zero-length
+steps 262 → 0, files with stray curves 22 → 4 (the four are curves PathOps hands back that fit no
+known circle — `24/shield-off-2-filled`, `16/at-sign-2-filled`, `16/fingerprint`, `16/map-pin-off-4`;
+correct and raster-clean, their fix belongs in `snap()`). Proven by the full `outline.mjs --check`
+over all 7,860 files after the change: **0 wrong pixels**, every ink box equal to 2 dp (91 min on 4
+cores).
+
+Review findings (fresh Fable agent), none blocking the card:
+1. The README names the React tarball, but a release without card 2.2's tool would skip it and still
+   pass — the release should refuse a README that names a tarball it did not build. *Fixed after the
+   review, below.*
+2. `clean()`'s flatness test measured a curve's control point against the chord's whole line, not the
+   segment, so a curve that doubles back along its chord could be cut short. No drawing in the set
+   does it (the full check is clean), but it is unsafe in general. *Fix in flight after the review.*
+3. For Maruti and the drawer before 1.0 — text that reaches customers in `meta.json`: `phone` and
+   `phone-off` carry the tag "square keyline" (our own drawing vocabulary); `gem-shine` carries
+   "diamond_shine" and `filters-3` "material blur_on" (another set's icon ids); `section` ships values
+   like "D · The rest, by audit rank" and "E · Added on request".
+4. `meta.json`'s `built` is the day the box was made, so two releases of the same sheet on different
+   days differ by that one field.
+5. Card 1.2's, for the record: in 289 entries `bearing` and the optical reading's geometric part differ
+   by 0.01 (2-dp rounding of the same edge, `16/alt` bottom 4.62 against 4.63).
 
 ### Card 2.3 (2026-10-27)
 
