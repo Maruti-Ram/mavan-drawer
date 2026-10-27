@@ -265,11 +265,15 @@ cores).
 
 Review findings (fresh Fable agent), none blocking the card:
 1. The README names the React tarball, but a release without card 2.2's tool would skip it and still
-   pass — the release should refuse a README that names a tarball it did not build. *Fixed after the
-   review, below.*
+   pass — the release should refuse a README that names a tarball it did not build. **Fixed the same
+   day** (611bb55): `unbuiltTarballs` in `tools/release.mjs` refuses, dev runs included, naming the
+   tarball and the README's lines (19, 28); a release without card 2.2's tool now stops there.
 2. `clean()`'s flatness test measured a curve's control point against the chord's whole line, not the
    segment, so a curve that doubles back along its chord could be cut short. No drawing in the set
-   does it (the full check is clean), but it is unsafe in general. *Fix in flight after the review.*
+   does it (the full check is clean), but it is unsafe in general. **Fixed the same day** (611bb55):
+   measured to the segment; `M0 0Q10 0 1 0L1 5` keeps its curve. All 7,860 shipped files are
+   byte-identical before and after (diffed against the reviewer's run), so the full check above still
+   holds; 225 tests pass.
 3. For Maruti and the drawer before 1.0 — text that reaches customers in `meta.json`: `phone` and
    `phone-off` carry the tag "square keyline" (our own drawing vocabulary); `gem-shine` carries
    "diamond_shine" and `filters-3` "material blur_on" (another set's icon ids); `section` ships values
